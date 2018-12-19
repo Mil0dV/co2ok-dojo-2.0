@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=co2ok_dojo
+POSTGRES_USER=ZxRKPbOchYOmVlRBQdjoTbMUWOuArVdw
+POSTGRES_PASSWORD=Br2jtgAmkT3pi6MMm9IAuhxJn6FoZiP0mU1lsLVTJioE4YQk8XnjG3eNBh6lyrtr

@@ -1,0 +1,5 @@
+[run]
+include = co2ok_dojo/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin
