@@ -5,3 +5,9 @@
 1. .env aan maken
 1. in de .env file de keys doen (om vragen)
 1. `python manage.py migrate && python manage.py runserver`
+
+Tests runnen:
+`pytest`
+
+Syntax checken:
+`flake8`
