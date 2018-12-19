@@ -1,13 +1,7 @@
 # co2ok-dojo-2.0
 
-pipenv install (In de folder met the pipFile bestanden)
-pipenv shell
-.env aan maken (Als nodig is)
-in de .env file de keys doen om vragen
-
-Wat iig nog extra nodig is in de requirements:
-django-environ social-auth-app-django
-django-sslserver #dev
-
-SSL zou je dan moeten kunnen draaien met
-`python manage.py runsslserver`
+1. pipenv install
+1. pipenv shell
+1. .env aan maken
+1. in de .env file de keys doen (om vragen)
+1. `python manage.py migrate && python manage.py runserver`
