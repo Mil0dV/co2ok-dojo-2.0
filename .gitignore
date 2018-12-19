@@ -55,6 +55,7 @@ coverage.xml
 *.log
 local_settings.py
 db.sqlite3
+co2ok-dojo_test.sqlite
 
 # Flask stuff:
 instance/
