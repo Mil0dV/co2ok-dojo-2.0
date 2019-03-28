@@ -1,4 +1,7 @@
 from django.test import TestCase
+from allauth.socialaccount.models import SocialApp
+from django.contrib.sites.models import Site
+from django.urls import reverse
 
 def set_up_allauth():
     site = Site.objects.create(name="localhost", domain="localhost")
