@@ -3,6 +3,7 @@ Base settings to build other settings files upon.
 """
 
 import environ
+import os
 
 ROOT_DIR = environ.Path(__file__) - 3  # (co2ok_dojo/config/settings/base.py - 3 = co2ok_dojo/)
 APPS_DIR = ROOT_DIR.path('co2ok_dojo')
@@ -42,14 +43,22 @@ USE_TZ = True
 # }
 # DATABASES['default']['ATOMIC_REQUESTS'] = True
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'co2ok-dojo_test.sqlite',
+#         'USER': '',
+#         'PASSWORD': '',
+#         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+#         'PORT': '',                      # Set to empty string for default.
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'co2ok-dojo_test.sqlite',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        # 'NAME': str(ROOT_DIR.path('co2ok-dojo_test.sqlite')),
+        'NAME': os.path.join(ROOT_DIR, 'db.sqlite3'),
     }
 }
 
@@ -76,13 +85,15 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'crispy_forms',
     'allauth',
-    'allauth.account',
+    # 'allauth.account',
     'allauth.socialaccount',
     'rest_framework',
 ]
 LOCAL_APPS = [
-    'co2ok_dojo.users.apps.UsersAppConfig',
+    # 'co2ok_dojo.users.apps.UsersAppConfig',
     # Your stuff: custom apps go here
+    'accounts',
+    'dashboard',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -102,11 +113,14 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
-AUTH_USER_MODEL = 'users.User'
+# AUTH_USER_MODEL = 'users.User'
+# AUTH_USER_MODEL = 'auth.User'
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-redirect-url
-LOGIN_REDIRECT_URL = 'users:redirect'
+# LOGIN_REDIRECT_URL = 'users:redirect'
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-url
-LOGIN_URL = 'account_login'
+# LOGIN_URL = 'account_login'
+LOGIN_URL = 'login'
+LOGOUT_REDIRECT_URL = 'home'
 
 # PASSWORDS
 # ------------------------------------------------------------------------------
@@ -181,6 +195,7 @@ TEMPLATES = [
         # https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
         'DIRS': [
             str(APPS_DIR.path('templates')),
+            str(ROOT_DIR.path('templates')),
         ],
         'OPTIONS': {
             # https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
@@ -251,7 +266,8 @@ ACCOUNT_AUTHENTICATION_METHOD = 'username'
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_EMAIL_REQUIRED = True
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_ADAPTER = 'co2ok_dojo.users.adapters.AccountAdapter'
 # https://django-allauth.readthedocs.io/en/latest/configuration.html

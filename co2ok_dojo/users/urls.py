@@ -5,7 +5,9 @@ from co2ok_dojo.users.views import (
     user_redirect_view,
     user_update_view,
     user_detail_view,
+    users_signup,
 )
+# from co2ok_dojo.users import views
 
 app_name = "users"
 urlpatterns = [

@@ -4,6 +4,10 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
+from django.conf.urls import url
+from django.conf import settings
+from django.contrib.auth.views import logout
+from accounts import views
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
@@ -12,14 +16,21 @@ urlpatterns = [
         TemplateView.as_view(template_name="pages/about.html"),
         name="about",
     ),
+    #acounts urls 
+    path("login/", views.signin, name="login"),
+    path("signup/", views.signup, name="signup"),
+    path("logout/", views.signout, name="logout"),
+    # url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
+    path("accounts/", include("accounts.urls", namespace="accounts")),
+    path("dashboard/", include("dashboard.urls", namespace="dashboard")),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
-    path(
-        "users/",
-        include("co2ok_dojo.users.urls", namespace="users"),
-    ),
-    path("accounts/", include("allauth.urls")),
+    # path(
+    #     "users/",
+    #     include("co2ok_dojo.users.urls", namespace="users"),
+    # ),
+    # path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
