@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <p> this user is a normal user</p>
+       <h1>profile page of {{user.username}}</h1>
+       <h2>{{user.email}}</h2>
+       <input type="text" name="" value="https://{{domainname}}/{{current_path}}" readonly>
+       <a href="{% url 'logout' %}">{% trans "Signout" %}</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login page</a>
+        <a href="{% url 'signup' %}">Signup page</a>
+    {% endif %}
+{% endblock  %}

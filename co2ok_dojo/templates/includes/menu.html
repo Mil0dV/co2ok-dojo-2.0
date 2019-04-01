@@ -1,0 +1,13 @@
+{% load static %}
+{% load i18n %}
+
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="{% url 'home' %}">{% trans "Home" %} <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'about' %}">{% trans "About" %}</a>
+    </li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">{% trans "Login" %}</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">{% trans "Signup" %}</a></li>
+</ul>

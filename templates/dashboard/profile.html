@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <p>this user is a webshop owner</p>
+       <h1>Dashboard page of the merchant {{user.username}}</h1>
+       <h2>{{user.email}}</h2>
+       <a href="{% url 'logout' %}">{% trans "Signout" %}</a>
+    {% else %}
+        <a href="{% url 'login' %}">{% trans "Login page" %}</a>
+        <a href="{% url 'signup' %}">{% trans "Signup page" %}</a>
+    {% endif %}
+{% endblock  %}
