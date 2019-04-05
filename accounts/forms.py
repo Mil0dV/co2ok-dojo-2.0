@@ -22,13 +22,6 @@ class Signup(forms.Form):
             raise forms.ValidationError(_('This email already exist'))
 
     def clean_username(self):
-        # username = self.cleaned_data.get('email')
-        # username_count = User.objects.filter(username=username).count()
-        # if username_count == 0:
-        #     return username
-        # else:
-        #     raise forms.ValidationError(_('This username already exist'))
-
         username = self.cleaned_data['username']
 
         try:
