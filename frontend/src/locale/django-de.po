@@ -1,0 +1,491 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-16 14:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: co2ok_dojo/settings/base.py:195
+msgid "English"
+msgstr ""
+
+#: co2ok_dojo/settings/base.py:196
+msgid "French"
+msgstr ""
+
+# Homepage
+
+#: home/templates/home/home_page.html:18
+msgid "Fight climate change while you shop online"
+msgstr "Bekämpfe den Klimawandel während du online einkaufst"
+
+#: home/templates/home/home_page.html:21
+msgid "Become a CO₂ok Ninja with our Ninja App. You shop and the store pays a CO₂ compensation at no extra cost for you. Fighting climate change was never this easy."
+msgstr "Werde ein CO₂ok Ninja mit unserer Ninja App. Du kaufst ein und der Webshop bezahlt einen CO₂ Ausgleich für dein gekauftes Produkt.  Klimawandel zu bekämpfen war noch nie so leicht!"
+
+#: home/templates/home/home_page.html:22
+msgid "How it works"
+msgstr "Und so geht’s"
+
+#: home/templates/home/home_page.html:38
+msgid "GET THE APP!"
+msgstr "HOL DIR DIE APP!"
+
+#: home/templates/home/home_page.html:46
+msgid "CHOOSE FROM "
+msgstr "WÄHLE ZWISCHEN "
+
+#: home/templates/home/home_page.html:46
+msgid "22.000+ INTERNATIONAL SHOPS"
+msgstr "22.000+ INTERNATIONALE WEBSHOPS"
+
+#: home/templates/home/home_page.html:156
+msgid "HOW IT WORKS"
+msgstr "SO EINFACH GEHT ES"
+
+#: home/templates/home/home_page.html:166
+msgid "Become a CO₂ok Ninja"
+msgstr "Werde ein CO₂ok Ninja"
+
+#: home/templates/home/home_page.html:167
+msgid "Simply register with us and install the app. The app is safe, open source, and respects your privacy."
+msgstr "Einfach registrieren und die App installieren. Die App ist sicher, open source und respektiert deine Privatsphäre."
+
+#: home/templates/home/home_page.html:168
+msgid "We don’t use / store your personal shopping data - our Privacy Policy"
+msgstr "Weder benutzen noch speichern wir persönliche Einkaufsdaten - Unser Datenschutz"
+
+#: home/templates/home/home_page.html:176
+msgid "Shop"
+msgstr "Kauf ein"
+
+#: home/templates/home/home_page.html:177
+msgid "Start shopping in your Ninja suit. After paying we will receive a commission from the shop."
+msgstr "Geh in deinem Ninja Outfit online shoppen ;). Nachdem du bezahlt hast, erhalten wir eine Kommission von dem Onlineshop."
+
+#: home/templates/home/home_page.html:185
+msgid "Fight climate change"
+msgstr "Bekämpfe den Klimawandel"
+
+#: home/templates/home/home_page.html:186
+msgid "With this commission we finance projects that directly reduce greenhouse gas emissions. In effect this makes your purchase climate neutral. Thank you 💚."
+msgstr "Mit dieser Kommission finanzieren wir Projekte die unmittelbar Treibhausgase vermindern. Somit machst du deinen Einkauf klimaneutral. Danke dir 💚"
+
+#: home/templates/home/home_page.html:196
+msgid "There are no extra costs for you."
+msgstr "Das Beste ist - es ist kostenfrei für dich."
+
+#: home/templates/home/home_page.html:196
+msgid "The CO₂ compensation is fully covered by the shop."
+msgstr "Der CO₂ Ausgleich wird vollkommen vom Onlineshop übernommen."
+
+#: home/templates/home/home_page.html:201
+msgid "Get involved & fight climate change"
+msgstr "Mach mit und bekämpfe den Klimawandel!"
+
+#: home/templates/home/home_page.html:229
+msgid "See how much difference you can make"
+msgstr "Schau wie viel Unterschied du machen kannst"
+
+#: home/templates/home/home_page.html:230
+msgid "With the commission we finance sustainable energy and CO₂-emission reduction projects via our certified partners. These projects actively reduce the amount of CO₂ emitted, thereby making your purchase climate neutral. In doing so you are positively impacting the environment!"
+msgstr "Mit der Kommission finanzieren wir Erneuerbare-Energie & CO₂ Verminderungs-Projekte, zusammen mit unseren zertifizierten Partnern. Diese Projekte verringern aktiv den CO₂ Ausstoß und machen somit deinen Einkauf klimaneutral. Somit machst du einen positiven Unterschied für unsere Umwelt!"
+
+#: home/templates/home/home_page.html:231
+msgid "How "
+msgstr "Wie funkioniert die "
+
+#: home/templates/home/home_page.html:231
+msgid "CO₂ compensation"
+msgstr "CO₂ Kompensation"
+
+#: home/templates/home/home_page.html:231
+msgid "works. Read more in the "
+msgstr "? Les mehr im "
+
+#: home/templates/home/home_page.html:231
+msgid " FAQ"
+msgstr " FAQ"
+
+#: home/templates/home/home_page.html:238
+msgid "During manufacturing and shipping of products, greenhouse gases are emitted"
+msgstr "Während der Herstellung und dem Transport werden Treibhausgase freigesetzt."
+
+#: home/templates/home/home_page.html:245
+msgid "With CO₂ok Ninja you prevent at least the same amount of emissions."
+msgstr "Mit unserer Ninja App verhinderst du mindestens dieselbe Menge an Treibhausgasen "
+
+#: home/templates/home/home_page.html:258
+msgid "This way, your purchase is climate neutral!"
+msgstr "Beispielprojekte"
+
+#: home/templates/home/home_page.html:272
+msgid "REGISTER & FIGHT CLIMATE CHANGE"
+msgstr "ANMELDEN UND KLIMAWANDEL BEKÄMPFEN "
+
+#: home/templates/home/home_page.html:287
+msgid "CO₂ok Ninja Privacy Policy"
+msgstr "Ninja App Datenschutz"
+
+#: home/templates/home/home_page.html:288
+msgid "We fight climate change, we don’t mine data! That is why we don’t collect or save any of your personal shopping data. With us your data is yours only."
+msgstr "Wir bekämpfen den Klimawandel - wir sind keine Datensammler! Darum sammeln und speichern wir deine Daten nicht. Mit CO₂ok bleiben deine Daten dir - dir alleine!"
+
+#: home/templates/home/home_page.html:289
+msgid "We work transparent and our code is open source. You can have a look how our Ninja App  is technically made. The entire source code is open for you, no secrets involved. You find it here:"
+msgstr "Wir arbeiten transparent und unser Code ist open source. Du kannst Dir anschauen wie die Ninja App technisch gemacht ist. Der gesamten Code offen einsehbar, wir verstecken nichts und haben keine Geheimnisse! "
+
+#: home/templates/home/home_page.html:289
+msgid " Sourcecode Ninja App - browserextension"
+msgstr "Sourcecode Ninja App"
+
+#: home/templates/home/home_page.html:290
+msgid "Our Ninja App system only needs the right to locally see which online shop you are visiting to activate the commission. The information about visited websites does not leave your computer, so your privacy is protected."
+msgstr "Die Ninja App benötigt lediglich die Information auf welchem Onlineshop du dich gerade befindest um die Kommission zu aktivieren. Diese Info verlässt jedoch deinen Computer nicht und somit ist deine Privatsphäre geschützt."
+
+#: home/templates/home/home_page.html:291
+msgid "Look further into our "
+msgstr "Schau Dir unsere "
+
+#: home/templates/home/home_page.html:291
+msgid " Privacy Policy"
+msgstr "Datenschutzbestimmungen genauer an"
+
+#  #: home/templates/home/home_page.html:291
+#  msgid "FAQ"
+#  msgstr "FAQ"
+
+#FAQ
+
+#: co2ok_dojo/templates/faq.html:11
+msgid "Credits to Altruisto"
+msgstr "Danke an Altruisto"
+
+#: co2ok_dojo/templates/faq.html:17
+msgid "We would like to thank Altruisto for putting their code open source so we could fork our own project based on their previous work. <a href=\"https://altruisto.com/\">Altruisto</a> does a great job at donating to charities through online shoppings. Their GitHub repo can be found here: <a href=\"https://github.com/Altruisto/altruisto\">Altruisto GitHub repository"
+msgstr " An dieser Stelle sagen wir Danke an Altruisto, dass sie ihren Code öffentlich gemacht haben. Dieses haben wir als Grundlage für unsere Projekte genutzt. <a href=\"https://altruisto.com/\">Altruisto</a> leistet tolle Arbeit mit Spenden für Hilfsorganisationen durch das Gleiche Prinzip. Ihre GitHub repo kann hier eingesehen werden: <a href=\"https://github.com/Altruisto/altruisto\">Altruisto GitHub repository"
+
+#: co2ok_dojo/templates/faq.html:25
+msgid "Why installing the Ninja App requires permission to “Read and change all data on websites you visit”?"
+msgstr "Warum benötigt die Installation der Ninja App die Berechtigung “Lesen und Ändern der Daten von den Webseiten die du besuchst”? "
+
+#: co2ok_dojo/templates/faq.html:31
+msgid "For the Ninja App to work properly it needs to have access to the information about the website you are visiting to know if you’re on one of our partners’ sites. In short, the Ninja App downloads the list of partner shops, then works in the background, comparing the website you’re viewing against the downloaded list, and if there is a match, it shows our  CO₂ok button. The information about visited websites does not leave your computer, so your privacy is protected. The Ninja App has an open code available at <a href=\"https://github.com/Mil0dV/co2ok-ninja\">Github</a> so anyone can view and audit it to make sure it is safe to use."
+msgstr "Damit die App richtig funktioniert benötigt die App Zugang zu den Informationen über die besuchte Webseite, um zu festzustellen, ob du dich auf einer unserer Partnerseiten befindest. Wenn das der Fall ist wird dir unser CO₂ok Button angezeigt. Die Information über deine besuchten Webseiten verlässt dein Computer nicht und somit ist deine Privatsphäre geschützt. Die Ninja App hat einen offenen Code auf <a href=\"https://github.com/Mil0dV/co2ok-ninja\">Github</a> den jeder einsehen und sich somit versichern kann, dass die Benutzung sicher ist."
+
+#: co2ok_dojo/templates/faq.html:38
+msgid "Does the Ninja App track my purchases or internet activity?"
+msgstr "Zeichnet die Ninja App meine Einkäufe oder meine Internetaktivität auf?"
+
+#: co2ok_dojo/templates/faq.html:44
+msgid "No! We don’t need your Data to fight climate change and therefore we don’t collect or save any personal shopping data. Our goal is to make the world a better place and not collecting data. We do get information about what kind of products are purchased and how many items are bought each month, but we do not track individual users’ purchases & don’t store them!"
+msgstr "Wir benötigen deine Daten nicht um den Klimawandel zu bekämpfen und darum sammeln & speichern wir deine Einkaufsdaten ganz einfach nicht. Unser Ziel ist es unsere Umwelt zu verbessern und nicht Daten zu sammeln. Natürlich erhalten wir Daten über gekaufte Produkte. Jedoch zeichnen wir diese nicht pro Benutzer, sondern in der Gesamtheit auf und somit speichern wir keine individuelle Daten."
+
+#: co2ok_dojo/templates/faq.html:51
+msgid "What stores does the Ninja App work with?"
+msgstr "Bei welchen Onlineshops kann ich die Ninja App benutzen?"
+
+#: co2ok_dojo/templates/faq.html:57
+msgid "We have partnered with several big e-commerce businesses such as Ebay, Bol.com, Booking.com, CoolBlue, Aliexpress, Etsy, and over 1000 others. <a href \"https://co2ok.eco/en/ninja-partner-stores/\">Here you can find a list of all participating stores.</a>"
+msgstr "Wir sind Partner von verschiedenen großen und kleinen Onlineshops, wie Ebay, Booking.com, Aliexpress und über 2000 mehr. <a href \"https://co2ok.eco/en/ninja-partner-stores/\">Hier findest du eine Liste der teilnehmenden Onlineshops.</a>"
+
+#: co2ok_dojo/templates/faq.html:64
+msgid "How do shops benefit from being in CO₂ok Ninja program?"
+msgstr "Wie profitieren Onlineshops von der Ninja App?"
+
+#: co2ok_dojo/templates/faq.html:71
+msgid "Our users are clients who have a strong incentive to buy from our partner shops and not their competition."
+msgstr "Unsere Nutzer bevorzugen es bei teilnehmenden Onlineshops zu kaufen und nicht bei deren Konkurrenz."
+
+#: co2ok_dojo/templates/faq.html:72
+msgid "We are preparing multiple new features such as highlighting partners’ websites in search results. These features directly drive new consumers to partners’ stores."
+msgstr "Wir arbeiten an einigen weiteren Hilfsmitteln, wie etwa Partnershops in Suchresultaten hervorzuheben. Solche Hilfsmittel spülen mehr Konsumenten in die Partershops."
+
+#: co2ok_dojo/templates/faq.html:73
+msgid "Thanks to CO₂ok the brands of the shops are associated with a great cause. They show that climate and our environment matters to them as well and with this they boost their image."
+msgstr "Dank CO₂ok sind die Marken mit einem grünen Image aufgeladen. Sie zeigen, dass ihnen unsere Umwelt und der Klimawandel nicht egal ist und somit steigern sie ihre Beliebtheit."
+
+#: co2ok_dojo/templates/faq.html:82
+msgid "How big is your piece of the cake?"
+msgstr "Und was verdient Ihr?"
+
+# Translators: xgettext:no-python-format
+#: co2ok_dojo/templates/faq.html:88
+msgid "We invest 75&#37; of the commission in the CO₂ compensation. The remaining 25&#37; are much needed to keep CO₂ok going. We just started and our margin doesn’t even cover the costs. Our goal is to make an impact and give everybody the chance to easily fight climate change. Eventually, we will reduce our margin – we are not in this to become rich. We will always be open and transparent and therefore we will report our income and spending each year."
+msgstr "CO₂ok erhält zwischen 1-6&#37 des Einkaufswertes. Der prozentuale Anteil hängt von dem jeweiligen Shop und des Produktes ab.  Anfänglich gehen davon 75&#37; direkt in den CO₂ Ausgleich. Die restlichen 25&#37; benötigen wir um CO₂ok am Leben zu halten. Wir haben gerade erst begonnen und unser Einnahmen decken unsere Kosten noch längst nicht. Unser Ziel ist es einen Unterschied zu machen und jedem die Chance zu geben den Klimawandel mit einfachen Mitteln zu bekämpfen. Letztlich wollen wir unseren Anteil reduzieren - wir mache dies hier nicht um reich zu werden. Wir arbeiten offen und transparent und wir werden zu jedem Jahresende unsere Einnahmen und Ausgaben offen legen."
+
+#: co2ok_dojo/templates/faq.html:96
+msgid "I only shop at Amazon and already use Amazon Smile program, is there any reason for me to install the Ninja App?"
+msgstr "Ich kauf allein bei Amazon ein und verwende Amazon Smile. Gibt es einen Grund für mich die Ninja App zu installieren?  "
+
+#: co2ok_dojo/templates/faq.html:102
+msgid "First of all, our partners usually donate 2-12 times more through the Ninja App (1-6&#37) than Amazon does through Amazon Smile (only 0.5&#37 of the final price). So, if you care about having as big a positive impact on the world as you can, using the Ninja App either instead of or in addition to Amazon Smile is a way to achieve that. Moreover, there are a lot of products or services available in our partner stores that are not available on Amazon. For example, travel services (hotels, flights, train tickets, car rentals), financial products, or sport clubs’ official apparel."
+msgstr "Zuerst ist zu sagen, dass unsere Partner durch die Ninja App im Normalfall zwischen 2-12 (1-6&#37) mal mehr spenden als Amazon mit Amazon Smile (0,5&#37 vom Endpreis). Wenn du also eine größere Auswirkung auf die Welt machen willst, solltest du überlegen, ob du die Ninja App entweder anstatt oder zusätzlich zu Amazon Smile verwenden willst um dies zu erreichen. Zudem gibt es auch Produkte in unseren Partnershops, die du nicht auf Amazon findest. Wie zum Beispiel Reisen (Hotels, Flüge, Zugtickets, Autoverleihe), Finanzprodukte, Sportclubs oder spezielle Marken."
+
+#: co2ok_dojo/templates/faq.html:110
+msgid "How can I be sure that the money will be used to compensate greenhouse gasses?"
+msgstr "Wie kann ich sicherstellen, dass das Geld für die Verringerung der Treibhausgase eingesetzt wird?"
+
+#: co2ok_dojo/templates/faq.html:116
+msgid "Atmosfair and Fair Climate Fund provide us with certificates to prove we compensated. Additionally, we will report our income and spending each year."
+msgstr "Atmosfair und Fair Climate Fund stellen uns Zertifikate aus. Ein Beweis dafür, dass wir CO₂ Ausgleich leisten. Zudem legen wir zu jedem Jahresende unsere Einnahmen und Ausgaben offen."
+
+#: co2ok_dojo/templates/faq.html:124
+msgid "Does it cost me anything to use the Ninja App?"
+msgstr "Ist die Ninja App wirklich kostenfrei?"
+
+#: co2ok_dojo/templates/faq.html:130
+msgid "No, the Ninja App is absolutely free to use. The prices in the online stores are exactly the same whether you use the app or not."
+msgstr "Ja, zu 100&#37. Auch die Preise in den Onlineshops sind mit der Benutzung der App exakt die Selben."
+
+#: co2ok_dojo/templates/faq.html:138
+msgid "I am not buying in any of these stores, is there any reason for me to install the Ninja App?"
+msgstr "Ich kaufe in keinem dieser Onlineshops ein. Macht es dennoch Sinn die Ninja App zu installieren?"
+
+#: co2ok_dojo/templates/faq.html:144
+msgid "Yes, there are three reasons: 1) We are constantly working on new partnerships, so we may partner with stores that you do use in the near future. It’s easier to have it already installed rather than regularly check if stores that you use have been added. 2) If you even once decide to buy from our partners stores, having the Ninja App already installed can be a difference with the output of CO₂ in the world. It’s better to have it installed just in case, rather than miss an easy opportunity to do a lot of good for free. 3) It is easier to establish new partnerships with a bigger user base: the more users the Ninja App  has, the easier it is to convince new stores to join our initiative. Therefore, by installing the  Ninja App, you make it more probable that we will partner with shops you use in the future."
+msgstr "Absolut und hier drei Gründe: Wir arbeiten stetig an neuen Partnerschaften und somit macht vielleicht auch dein Lieblings-Shop bald mit. Unsere App informiert Dich dann automatisch, sobald du einkaufst. Dies ist wesentlich einfacher als immer zu checken, ob dein Lieblings-Shop nun mitmacht. 2) Wenn du doch einmal in einem anderen Onlineshop einkaufst, der bereits mit uns zusammenarbeitet, kannst du direkt einen CO₂ Unterschied machen. Es ist besser die App installiert zu haben als eine einfache Möglichkeit zu versäumen etwas Gutes für unsere Umwelt zu tun. 3) Es ist einfacher neue Partner zu gewinnen, wenn wir mehr Benutzer haben. Onlineshops sind dann einfacher zu überzeugen, mitzumachen. Mit der Installation machst du es somit wahrscheinlicher, dass dein Lieblings-Shop auch bald dabei ist."
+
+#: co2ok_dojo/templates/faq.html:152
+msgid "How does it work?"
+msgstr "Wie funktioniert es?"
+
+#: co2ok_dojo/templates/faq.html:158
+msgid "After installing the Ninja app you will see a our “Shop CO₂ok” box whilst shopping in one of our partner stores. Simply click this box and you will be redirected back to the partner store (exactly where you were before). From then on, whenever you buy something, CO₂ok receives a portion of the price you pay (usually between 1&#37 and 6&#37). We donate our profits to carefully selected organisations such as Atmosfair. Some stores will require you to repeat the process after some time. You are a mobile Ninja - see here."
+msgstr "Nachdem du die Ninja App installiert hast, wirst du beim shoppen unsere “Shop CO₂ok Box” sehen, sobald du Dich auf einem Partner-Shop befindest. Klicke diese einfach an und die Seite lädt sich schnell neu. Von nun an erhalten wir eine Kommission (normalerweise zwischen 1&#37 - 6&#37), wenn du einen Kauf abschließt. Wir spenden dann 75&#37; dieser Summe an sorgfältig ausgesuchte Umweltschutzorganisationen wie etwa Atmosfair. Bei manchen Onlineshops wirst du diesen Vorgang nach einer gewissen Zeit wiederholen müssen."
+
+# Caroussel
+
+#: co2ok_dojo/templates/caroussel.html:28
+msgid "Sustainable energy sources like the sun, wind and hydro power don't have negative effects on the climate. Very little greenhouse gases are emitted and there is no air polution."
+msgstr "Erneuerbare Energien"
+
+#: co2ok_dojo/templates/caroussel.html:42
+msgid "The Save80 cookers which use 5x less wood, which means 5x less emission."
+msgstr "Der Save80 - ein Ofen der die Menge an Holz um ein 5-faches reduziert"
+
+#: co2ok_dojo/templates/caroussel.html:42
+msgid "A biogas installation under construction"
+msgstr "Eine Biogas-Anlage wird gebaut"
+
+# Register
+
+#: co2ok_dojo/templates/registration/register.html:18
+msgid "Sign Up"
+msgstr "Registrieren"
+
+#: co2ok_dojo/templates/registration/register.html:18
+msgid "Sign in"
+msgstr "Anmelden"
+
+#: co2ok_dojo/templates/registration/register.html:31
+msgid "Sign up via: "
+msgstr "Registrieren mit: "
+
+#: co2ok_dojo/templates/registration/register.html:25
+msgid "Join us!"
+msgstr "Mach mit!"
+
+msgid "Join us to:"
+msgstr "Mach mit und:"
+
+msgid "💚 See the kg of CO₂ you prevented"
+msgstr "💚 Siehe wie viel kg CO₂ du vermieden hast"
+
+msgid "💚 Choose your CO₂ compensation project"
+msgstr "💚 Wähle dein CO₂ Kompensationsprojekt"
+
+msgid "💚 Earn secret rewards in the Ninja referral program"
+msgstr "💚 Erhalte geheime Belohnungen in unserem Empfehlungsprogramm"
+
+msgid "Continue without registering"
+msgstr "Weiter ohne Registrierung"
+
+msgid "Get the app"
+msgstr "Hol die App"
+
+#: co2ok_dojo/templates/registration/register.html:67
+msgid "We won't share your email adress or other user data, read here about our"
+msgstr "Wir geben deine E-Mail und andere Benutzerdaten nicht weiter. Erfahre hier mehr über unsere "
+
+# Ninja Partner Stores
+
+#: ninja_partner_stores/templates/ninja_partner_stores/ninja-partner-stores.html:55
+msgid "Partner stores list"
+msgstr "Partnershops"
+
+#: ninja_partner_stores/templates/ninja_partner_stores/ninja-partner-stores.html:55
+msgid "You raise money for the fight against climate change when you shop in one of these online stores."
+msgstr "Du sammelst Geld für den Kampf gegen den Klimawandel, wenn du bei einem der gelisteten Onlineshops einkaufst."
+
+# light_box
+
+#: co2ok_dojo/templates/light_box.html:22
+msgid "NOTE: CO₂ok Ninja only needs to know which website you are visiting. We do not record your website visits or any other data. We do not make changes on your computer. The Google notice that you see as you click further is different from what the Ninja app does."
+msgstr "HINWEIS: Deine Privatsphäre ist uns wichtig! Wir sind keine Datensammler und speichern deine Einkaufsdaten nicht. Wir müssen nur wissen, ob du dich in einem Partnershop befindest um die Kommission auszulösen. Auch diese Daten werden nicht gespeichert. Die Meldung von Google, die du sehen wirst wenn du die App installierst variiert, jedoch können wir das leider nicht beeinflussen."
+
+#: co2ok_dojo/templates/light_box.html:37
+msgid "GET THE APP"
+msgstr "HOL DIR DIE APP"
+
+#: co2ok_dojo/templates/light_box.html:31
+msgid "images/ninja_app_install_EN.png"
+msgstr "images/ninja_app_install_DE.png"
+
+# Menu
+
+#: co2ok_dojo/templates/menu.html:25
+msgid "MISSION"
+msgstr "MISSION"
+
+#  #: co2ok_dojo/templates/menu.html:28
+#  msgid "How it works"
+#  msgstr "Wie es funktioniert"
+
+# Menu
+
+#  #: co2ok_dojo/templates/menu.html:25
+#  msgid "MISSION"
+#  msgstr "MISSION"
+
+#  #: co2ok_dojo/templates/menu.html:28
+#  msgid "Hoe het werkt"
+#  msgstr "Wie es funktioniert"
+
+#  #: co2ok_dojo/templates/menu.html:31
+#  msgid "FAQ"
+#  msgstr "FAQ"
+
+#  # Profile
+
+#  #: co2ok_dojo/templates/menu.html:34
+#  msgid "MISSIE"
+#  msgstr "MISSION"
+
+#  #: co2ok_dojo/templates/menu.html:37
+#  msgid "Hoe het werkt"
+#  msgstr "Wie es funktioniert"
+
+#  #: co2ok_dojo/templates/menu.html:40
+#  msgid "FAQ"
+#  msgstr "FAQ"
+
+#: co2ok_dojo/templates/menu.html:56
+msgid "Profile"
+msgstr "Profil"
+
+#: co2ok_dojo/templates/menu.html:88
+msgid "Tell your friends about CO₂ok Ninja by sharing the above link, so you get shurikens"
+msgstr "Erzähle deinen Freunden von der CO₂ok Ninja App, indem du den obigen Link teilst. So können wir unsere Ninja Truppe vergrößern und zusammen die Welt zu einem besseren Ort machen."
+
+#: co2ok_dojo/templates/menu.html:93
+msgid "CO₂ compensated"
+msgstr "CO₂ kompensiert"
+
+#: co2ok_dojo/templates/menu.html:100
+msgid "Pick a cause"
+msgstr "Wähle ein Projekt"
+
+#: co2ok_dojo/templates/menu.html:100
+msgid "The power of Ninja is together!"
+msgstr "Die Power von allen Ninjas zusammen."
+
+#: co2ok_dojo/templates/menu.html:100
+msgid "Tell your friends and family about the Ninja App and share the link to fight climate change."
+msgstr "Erzähl deinen Freunden und deiner Familie von der Ninja App und teile den Link um den Klimawandel zu bekämpfen."
+
+#: co2ok_dojo/templates/menu.html:100
+msgid "The online shop makes your purchase climate neutral and that way we actively compensate CO2 through a sustainable project."
+msgstr "Der Webshop macht deinen Einkauf klimaneutral und somit kompensieren wir CO₂ durch nachhaltige Projekte. "
+
+#: co2ok_dojo/templates/menu.html:100
+msgid "Make sure every penny is worth it so we can live on a green and clean planet."
+msgstr "Sorge dafür das jeder Cent zählt, sodass wir auf einem grünen und sauberen Planeten leben können."
+
+#: co2ok_dojo/templates/menu.html:100
+msgid "Share our vision, make others happy with the Ninja App. (Want to know more?)"
+msgstr "Teile unsere Vision und mach andere Menschen mit unserer Ninja App glücklich (erfahre mehr)"
+
+#: co2ok_dojo/templates/menu.html:100
+msgid "(Our developers are working hard to make the CO₂ counter work in the near future.)"
+msgstr "(Unsere Nerds arbeiten hart daran den CO₂ Zähler zeitnah ans Laufen zu bekommen.)"
+
+#: co2ok_dojo/templates/menu.html:100
+msgid "Ninja Stars"
+msgstr "Ninja Sterne"
+
+# Profile Lightbox
+
+#: co2ok_dojo/users/templates/users/profile.html:19
+msgid "Register and install the App. The App is safe, open source and "
+msgstr "Registrieren und App installieren. Die App ist sicher, open source und "
+
+#: co2ok_dojo/users/templates/users/profile.html:19
+msgid "respects your privacy. "
+msgstr "respektiert deine Privatsphäre."
+
+#  #: users/views.py:87
+#  msgid "Bestrijd klimaatverandering terwijl je online shopt"
+#  msgstr "Bekämpfe den Klimawandel während du online einkaufst"
+
+#: welcome_page/welcome.html
+msgid "welcome"
+msgstr ""
+
+msgid "You can help fight climate change!"
+msgstr "Bekämpf den Klimawandel!"
+
+msgid "Help us reach anyone who shops online!"
+msgstr "Hilf uns jeden zu erreichen der online einkauft."
+
+msgid "Click Here!"
+msgstr "KLICK HIER!"
+
+msgid "How it works:"
+msgstr "So funktioniert es:"
+
+msgid "YOU INSTALL THE EXTENSION"
+msgstr "REGISTRIERE DICH UND INSTALLIERE DIE NINJA APP"
+
+msgid "It doesn’t get easier! Just click the button below and then click “add to chrome”. Want to know more? Go to"
+msgstr "Klicke den Button und werde ein CO₂ok Ninja. Klimawandel bekämpfen war noch nie so leicht."
+
+msgid "WHEN YOU VISIT ONE OF OUR PARTNER’S STORES, YOU CAN START RAISING MONEY"
+msgstr "KAUF BEI EINEM UNSERER PARTNER-SHOPS UND SAMMLE GELD FÜR DEN KAMPF GEGEN DEN KLIMAWANDEL."
+
+msgid "At the top of our partners’ online shops you will see a button giving you an opportunity to start raising money for the benefit of the environment from your purchases in that shop. Want to know more? Go to:"
+msgstr "Nachdem du die Ninja App installiert hast, wirst Du beim shoppen unsere “Shop CO₂ok Box” sehen, sobald du dich auf einem Partner-Shop befindest. Das gibt dir die Möglichkeit Geld zum Wohle unserer Umwelt zu sammeln - allein durch deinen Einkauf."
+
+msgid "YOU BUY SOMETHING APPEALING, WE FINANCE THE CERTIFIED PARTNERS IN FIGHTING CLIMATE CHANGE"
+msgstr "DU KAUFST EIN UND WIR FINANZIEREN CO₂ AUSGLEICHSPROJEKTE"
+
+msgid "Using CO₂ok Ninja means you only have to press the button which says “Shop CO₂ok” and then you will be redirected back to the store. So when you buy something, CO₂ok receives a commission (usually between 2&#37 and 5&#37), depending on the store and we finance our certified partners in fighting climate change. We keep a quarter of the commission – not to get rich – but we need it to grow and to make as much impact in the fight against climate change as possible. Want to know more? Go to"
+msgstr "Nachdem du unsere “Shop CO₂ok Box” angeklickt hast, erhalten wir eine Kommission (normalerweise zwischen 1 - 6&#37), wenn du einen Kauf abschließt. Wir spenden dann 75&#37 dieser Summe an sorgfältig ausgesuchte Umweltschutzorganisationen wie etwa Atmosfair. Die restlichen 25&#37 benötigen wir um CO₂ok zu finanzieren.  Unser Ziel ist es einen Unterschied zu machen und jedem die Chance zu geben den Klimawandel mit einfachen Mitteln zu bekämpfen. Letztlich wollen wir unseren Anteil reduzieren - wir mache dies hier nicht um reich zu werden. Wir arbeiten offen und transparent und wir werden zu jedem Jahresende unsere Einnahmen und Ausgaben offen legen."
+
+msgid "CHARITIES FIGHT CLIMATE CHANGE!"
+msgstr "Klimawandel bekämpfen"
+
+msgid "The amount the online shop donates is used to finance sustainable energy and CO₂-emission reduction projects (via our certified partners). These projects actively reduce the amount of emitted CO₂, thereby making your purchase climate friendly. In fact, the compensation amount sometimes generates surplus, so in fact your purchase could help reducing CO₂ emissions, beyond the CO₂ emitted during the production and shipping of your products. This way you’re making a real difference benefiting the environment!"
+msgstr "Mit dem Betrag den wir von den Onlineshops erhalten, finanzieren wir Erneuerbare-Energie & CO₂ Verminderungs-Projekte, zusammen mit unseren zertifizierten Partnern. Diese Projekte verringern aktiv den CO₂ Ausstoß und machen somit deinen Einkauf klimaneutral. Mit manchen Einkäufen können wir sogar mehr als nur einen CO₂ Ausgleich schaffen und den CO₂ Ausstoß sogar vermindern. Somit machst du einen positiven Unterschied für unsere Umwelt!"
+
+msgid "Read more about our certified partners:"
+msgstr "Schau dir unsere zertifizierten Partner an:"
+
+msgid "SHARE ON FACEBOOK"
+msgstr "AUF  FACEBOOK TEILEN"
+
+msgid "SHARE ON TWITTER"
+msgstr "AUF TWITTER TEILEN"
