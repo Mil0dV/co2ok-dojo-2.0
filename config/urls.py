@@ -8,6 +8,7 @@ from django.conf.urls import url
 from django.conf import settings
 from django.contrib.auth.views import logout
 from accounts import views
+from .router import router
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
@@ -16,6 +17,8 @@ urlpatterns = [
         TemplateView.as_view(template_name="pages/about.html"),
         name="about",
     ),
+    #api router
+    path('api/', include(router.urls)),
     #acounts urls 
     path("login/", views.signin, name="login"),
     path("signup/", views.signup, name="signup"),
