@@ -87,16 +87,21 @@
     }
 
     .form__button {
-        border: none;
         color: white;
         padding: 10px 20px;
         border-radius: 5px;
         background: #2BC65C;
+        border: 1px solid #2BC65C;
         cursor: pointer;
         transition: 0.2s ease-in-out;
+        position: relative;
+        top:0px;
     }
 
     .form__button:hover {
+        top: -5px;
+        color: #2BC65C;
+        background: white;
         transition: 0.2s ease-in-out;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.10);
     }
