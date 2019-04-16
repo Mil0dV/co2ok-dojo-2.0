@@ -15,6 +15,7 @@
     "v-animate-css": "0.0.3",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
+    "vuetify": "^1.5.11",
     "vuikit": "^0.8.10"
   },
   "devDependencies": {

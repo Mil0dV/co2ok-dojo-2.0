@@ -64,6 +64,7 @@
                     //     .then(response => {
                     //         if (response) {
                     //            this.send = true
+                    //            this.$router.push('dashboard')
                     //         }
                     //     })
                     //     .catch(error => {
