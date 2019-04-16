@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div class="login">
         <Form></Form>
     </div>
 </template>
@@ -8,7 +8,7 @@
     import Form from '@/components/Form.vue'
 
     export default {
-        name: 'home',
+        name: 'login',
         components: {
             Form
         },

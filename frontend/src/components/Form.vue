@@ -2,13 +2,17 @@
     <div class="hello">
         <form>
             <div class="form__group">
-                <p>Email</p>
+                <p>Email:</p>
                 <input type="text" v-model="email">
             </div>
 
             <div class="form__group">
-                <p>Wachtwoord</p>
+                <p>Password:</p>
                 <input type="password" v-model="password">
+            </div>
+
+            <div class="form__group">
+                <p class="form__group__forgot">Forgot password?</p>
             </div>
             <br>
 
@@ -48,19 +52,23 @@
         methods: {
             sendForm() {
                 if (this.email !== '' || this.password !== '') {
-                    axios
-                        .post('https://shaif.nl/lego-toyfinder/mail/index.php', {
-                            email: this.email,
-                            favorites: this.password,
-                        })
-                        .then(response => {
-                            if (response) {
-                               this.send = true
-                            }
-                        })
-                        .catch(error => {
-                           this.send = false
-                        })
+
+
+
+                    //TODO Comment dit uit als je aan de koppeling werkt en wijzig het url naar de juiste url
+                    // axios
+                    //     .post('https://shaif.nl/lego-toyfinder/mail/index.php', {
+                    //         email: this.email,
+                    //         favorites: this.password,
+                    //     })
+                    //     .then(response => {
+                    //         if (response) {
+                    //            this.send = true
+                    //         }
+                    //     })
+                    //     .catch(error => {
+                    //        this.send = false
+                    //     })
                 }
             }
         }
@@ -95,7 +103,7 @@
         cursor: pointer;
         transition: 0.2s ease-in-out;
         position: relative;
-        top:0px;
+        top: 0px;
     }
 
     .form__button:hover {
@@ -104,5 +112,16 @@
         background: white;
         transition: 0.2s ease-in-out;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.10);
+    }
+
+    .form__group__forgot {
+        color: #2BC65C;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+    }
+
+    .form__group__forgot:hover {
+        transition: 0.3s ease-in-out;
+        color: green;
     }
 </style>
