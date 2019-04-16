@@ -53,7 +53,7 @@
             sendForm() {
                 if (this.email !== '' || this.password !== '') {
 
-
+                    this.$router.push('dashboard')
 
                     //TODO Comment dit uit als je aan de koppeling werkt en wijzig het url naar de juiste url
                     // axios
