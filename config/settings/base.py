@@ -88,6 +88,7 @@ THIRD_PARTY_APPS = [
     # 'allauth.account',
     'allauth.socialaccount',
     'rest_framework',
+    # 'webpack_loader',
 ]
 LOCAL_APPS = [
     # 'co2ok_dojo.users.apps.UsersAppConfig',
@@ -280,3 +281,24 @@ INSTALLED_APPS += ['compressor']
 STATICFILES_FINDERS += ['compressor.finders.CompressorFinder']
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+# # TEMPLATES_DIR = os.path.join(ROOT_DIR, 'templates')
+# TEMPLATES_DIR = str(ROOT_DIR.path('templates'))
+# # FRONTEND_DIR = os.path.join(ROOT_DIR, 'frontend')
+# FRONTEND_DIR = str(ROOT_DIR.path('frontend'))
+
+# WEBPACK_LOADER = {
+#     'DEFAULT': {
+#         # 'CACHE': DEBUG,
+#         # 'BUNDLE_DIR_NAME': '',  # must end with slash
+#         # # 'STATS_FILE': os.path.join(FRONTEND_DIR, 'webpack-stats.json'),
+#         # 'STATS_FILE': str(ROOT_DIR.path('webpack-stats.json')),
+
+#         "CACHE": not DEBUG,
+#         "BUNDLE_DIR_NAME": "/",
+#         "STATS_FILE": os.path.join(PROJECT_ROOT, "webpack-stats.json"),
+#         "POLL_INTERVAL": 0.1,
+#         "TIMEOUT": None,
+#         "IGNORE": [".*\.hot-update.js", ".+\.map"]
+#     }
+# }

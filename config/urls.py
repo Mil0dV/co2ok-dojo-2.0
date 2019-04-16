@@ -6,6 +6,7 @@ from django.views.generic import TemplateView
 from django.views import defaults as default_views
 from django.conf.urls import url
 from django.conf import settings
+from django.views.generic import TemplateView
 from django.contrib.auth.views import logout
 from accounts import views
 from .router import router
@@ -35,6 +36,13 @@ urlpatterns = [
     # ),
     # path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    
+    # webpack loader config
+    # path("",
+    #     TemplateView.as_view(template_name="application.html"),
+    #     name="app",
+    # ),
+
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
