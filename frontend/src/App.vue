@@ -1,33 +1,14 @@
 <template>
     <div id="app">
-        <router-view></router-view>
+        <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
+            <router-view></router-view>
+        </transition>
     </div>
 </template>
 
 <script>
-    // import lang_home from './lang/lang_home.json';
-    //
-    // export default {
-    //     name: 'app',
-    //
-    //     data() {
-    //         return {
-    //             lang: lang_home,
-    //             selectedLang: null,
-    //         }
-    //     },
-    //
-    //     methods: {
-    //         switchLang(lang) {
-    //             this.selectedLang = this.lang[lang]
-    //         }
-    //     },
-    //
-    //     mounted() {
-    //         this.selectedLang = this.lang['lang_en_home']
-    //     }
-    //
-    // }
+    export default {
+    }
 </script>
 
 <style>
@@ -39,4 +20,9 @@
         color: #2c3e50;
         margin-top: 60px;
     }
+
+    input {
+        border: 1px solid gray !important;
+    }
+
 </style>

@@ -9,6 +9,11 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '/register',
+      name: 'register',
+      component: () => import( './views/Register.vue')
+    },
+    {
       path: '/login',
       name: 'login',
       component: Login

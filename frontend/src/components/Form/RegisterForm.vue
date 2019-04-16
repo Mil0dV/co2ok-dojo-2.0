@@ -12,51 +12,80 @@
             </div>
 
             <div class="form__group">
-                <p class="form__group__forgot">Forgot password?</p>
+                <p>Password again:</p>
+                <input type="password" v-model="passwordExtra">
+            </div>
+
+            <div class="form__group">
+                <p>Country:</p>
+                <input type="text" v-model="country">
+            </div>
+
+            <div class="form__group">
+                <p>City:</p>
+                <input type="text" v-model="city">
+            </div>
+
+            <div class="form__group">
+                <p>ZIP Code:</p>
+                <input type="text" v-model="zipcode">
+            </div>
+
+            <div class="form__group">
+                <p>Street:</p>
+                <input type="text" v-model="street">
+            </div>
+
+            <div class="form__group">
+                <p>Number:</p>
+                <input type="text" v-model="number">
             </div>
             <br>
 
             <div class="form__group">
-                <input @click.prevent="sendForm()" class="form__button" type="submit" value="Login">
+                <input @click.prevent="sendForm()" class="form__button" type="submit" value="Register">
             </div>
 
-            <div v-if="send !== null" class="form__group">
-                <transition enter-active-class="animated slideInUp"
-                            leave-active-class="animated slideOutDown"
-                            mode="out-in">
-                    <p v-if="send === true">Data gestuurd👍</p>
-                    <p v-else>Data niet gestuurd 👎</p>
-                </transition>
+            <br>
+            <div class="form__group form__login__error">
+                <p v-if="formError"
+                   class="animated bounceIn">
+                    Er is iets misgegaan. Probeer het opnieuw 👎
+                </p>
             </div>
         </form>
     </div>
 </template>
 
 <script>
-    import axios from 'axios'
-
     export default {
-        name: 'Form',
-        props: {
-            msg: String
-        },
+        name: "RegisterForm",
 
         data() {
             return {
                 email: '',
                 password: '',
+                passwordExtra: '',
+                country: '',
+                city: '',
+                zipcode: '',
+                street: '',
+                number: '',
                 send: null,
+                formError: false,
             }
         },
 
         methods: {
-            sendForm() {
-                if (this.email !== '' || this.password !== '') {
+            sendForm() { //Checkt of de velden leeg zijn en of de ww hetzelfde is
+                if (this.email !== '' && this.password !== '' && this.passwordExtra !== '' && this.country !== ''
+                    && this.city !== '' && this.zipcode !== '' && this.street !== '' && this.number !== ''
+                    && this.password === this.passwordExtra) {
 
-                    this.$router.push('dashboard')
+                    this.$router.push('login')
 
                     //TODO Comment dit uit als je aan de koppeling werkt en wijzig het url naar de juiste url
-                    // axios
+                    // this.$axios
                     //     .post('https://shaif.nl/lego-toyfinder/mail/index.php', {
                     //         email: this.email,
                     //         favorites: this.password,
@@ -68,8 +97,10 @@
                     //         }
                     //     })
                     //     .catch(error => {
-                    //        this.send = false
+                    //        this.formError = true
                     //     })
+                } else {
+                    this.formError = true
                 }
             }
         }
@@ -124,5 +155,11 @@
     .form__group__forgot:hover {
         transition: 0.3s ease-in-out;
         color: green;
+    }
+
+    .form__login__error {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>

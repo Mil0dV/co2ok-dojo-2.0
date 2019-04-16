@@ -1,16 +1,16 @@
 <template>
     <div class="login">
-        <Form></Form>
+        <LoginForm></LoginForm>
     </div>
 </template>
 
 <script>
-    import Form from '@/components/Form.vue'
+    import LoginForm from '@/components/Form/LoginForm.vue'
 
     export default {
         name: 'login',
         components: {
-            Form
+            LoginForm
         },
     }
 </script>
