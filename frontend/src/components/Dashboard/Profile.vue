@@ -36,7 +36,7 @@
         </div>
 
         <div class="form__group">
-            <p>Number:</p>
+            <p>Number: </p>
             <input type="text" v-model="number">
         </div>
         <br>
@@ -49,23 +49,14 @@
             <input @click.prevent="deleteAccount()" class="form__button" type="submit" value="Delete Account">
         </div>
         <br>
-
-
-        <SuccessMessage v-if="dialogSuccess" :message="dialogMessage" :dialog="dialogSuccess"/>
-        <ErrorMessage v-if="dialogError" :message="dialogMessage" :dialog="dialogError"/>
     </form>
 </template>
 
 <script>
-    const SuccessMessage = () => import('@/components/Layout/SuccessMessage')
-    const ErrorMessage = () => import('@/components/Layout/ErrorMessage')
+
 
     export default {
         name: "Profile",
-
-        components: {
-            SuccessMessage, ErrorMessage
-        },
 
         data() {
             return {
@@ -79,9 +70,6 @@
                 number: '',
                 send: null,
                 formError: false,
-                dialogError: false,
-                dialogSuccess: false,
-                dialogMessage: '',
             }
         },
 
@@ -91,8 +79,8 @@
                     && this.city !== '' && this.zipcode !== '' && this.street !== '' && this.number !== ''
                     && this.password === this.passwordExtra) {
 
-                    this.dialogMessage = 'Your changes has been saved.'
-                    this.dialogSuccess = true
+                    let modal = {message : 'Your changes had been saved', status: true}
+                    this.$store.commit('modalStatus', modal)
 
                     //TODO Comment dit uit als je aan de koppeling werkt en wijzig het url naar de juiste url
                     //TODO: De bedoeling van deze component is dat de data gewijzigd wordt. Dus de data moet je wizjigen
@@ -103,21 +91,21 @@
                     //     })
                     //     .then(response => {
                     //         if (response) {
-                    //            this.dialogSuccess = true
+                    //            this.$parent.dialogSuccess = true
                     //         }
                     //     })
                     //     .catch(error => {
-                    //        this.dialogError = true
+                    //        this.$parent.dialogError = true
                     //     })
                 } else {
-                    this.dialogMessage = 'Something went wrong'
-                    this.dialogError = true
+                    let modal = {message : 'Something went wrong...', status: true}
+                    this.$store.commit('modalStatus', modal)
                 }
             },
 
             deleteAccount(){
-                this.dialogMessage = 'Your Account has successfully been deleted'
-                this.dialogSuccess = true
+                let modal = {message : 'Your account has been deleted successfully', status: true}
+                this.$store.commit('modalStatus', modal)
             }
         }
     }

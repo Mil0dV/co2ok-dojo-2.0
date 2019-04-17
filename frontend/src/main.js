@@ -5,16 +5,21 @@ import Axios from 'axios'
 import VAnimateCss from 'v-animate-css'
 import Vuetify from 'vuetify'
 import VeeValidate from 'vee-validate'
-import 'vuetify/dist/vuetify.min.css'
+import Vuex from 'vuex'
 
-Vue.use(VeeValidate)
+import 'vuetify/dist/vuetify.min.css'
+import store from './store'
+
+Vue.use(VeeValidate);
 Vue.use(VAnimateCss);
 Vue.use(Vuetify);
+Vue.use(Vuex);
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = Axios
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')

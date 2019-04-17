@@ -70,6 +70,10 @@
                     //        this.send = false
                     //     })
                 }
+                else {
+                    let modal = {message : 'Something went wrong...', status: true}
+                    this.$store.commit('modalStatus', modal)
+                }
             }
         }
     }

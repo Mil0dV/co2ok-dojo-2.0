@@ -12,7 +12,6 @@
                 <v-tab ripple>Plug-in Design</v-tab>
                 <v-tab ripple>Profiel</v-tab>
 
-
                 <v-tab-item class="dashboard__content">
                     <Transactions></Transactions>
                 </v-tab-item>
@@ -34,18 +33,19 @@
     const Plugin = () => import('@/components/Dashboard/Plugin')
     const Profile = () => import('@/components/Dashboard/Profile')
 
+
     export default {
         name: "Dashboard",
         components: {
-            Profile, Plugin, Transactions
+            Profile, Plugin, Transactions,
+
         },
 
-        data () {
+        data() {
             return {
                 active: null,
             }
         },
-
     }
 </script>
 

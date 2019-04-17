@@ -1,13 +1,28 @@
 <template>
-    <div id="app">
-        <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
-            <router-view></router-view>
-        </transition>
-    </div>
+    <v-app id="app">
+        <!--<NavR/>-->
+        <!--<NavD/>-->
+        <NavL/>
+
+        <!--<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">-->
+            <!--<router-view></router-view>-->
+        <!--</transition>-->
+
+        <Modal v-if="$store.state.modalStatus"/>
+    </v-app>
 </template>
 
 <script>
+    const Modal = () => import('@/components/Layout/Modal')
+    const NavR = () => import('@/components/Layout/NavR')
+    const NavD = () => import('@/components/Layout/NavD')
+    const NavL = () => import('@/components/Layout/NavL')
+
     export default {
+        name: 'App',
+        components: {
+            Modal, NavR, NavD, NavL
+        }
     }
 </script>
 
@@ -18,10 +33,12 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
-        margin-top: 60px;
+        padding: 0;
+        margin: 0;
+        width: 100vw;
     }
 
-    input {
+    input[type=text], input[type=password] {
         border: 1px solid gray !important;
     }
 
