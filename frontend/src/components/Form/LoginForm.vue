@@ -1,6 +1,13 @@
 <template>
-    <div class="hello form-container">
-        <form>
+    <div class="login__container">
+        <div class="login__col-1">
+            <div class="login__info">
+                <p class="login__info-text">
+                    With an account you will get acces to information how much you’ve contributed to fighting climate change
+                </p>
+            </div>
+        </div>
+        <form class="login__col-2">
 
             <div class="form__group">
                 <p>Email:</p>
@@ -34,14 +41,10 @@
 </template>
 
 <script>
-<<<<<<< HEAD:frontend/src/components/Form/LoginForm.vue
-=======
     import axios from 'axios'
-    import $ from "jquery";
->>>>>>> login configuration with vue done:frontend/src/components/Form.vue
 
     export default {
-        name: 'Form',
+        name: 'LoginForm',
         props: {
             msg: String
         },
@@ -53,38 +56,13 @@
                 send: null,
             }
         },
-        created (){
+        created() {
         },
 
         methods: {
 
             sendForm() {
-<<<<<<< HEAD:frontend/src/components/Form/LoginForm.vue
-                if (this.email !== '' || this.password !== '') {
-
-                    this.$router.push('dashboard')
-
-                    //TODO Comment dit uit als je aan de koppeling werkt en wijzig het url naar de juiste url
-                    // this.$axios
-                    //     .post('https://shaif.nl/lego-toyfinder/mail/index.php', {
-                    //         email: this.email,
-                    //         password: this.password,
-                    //     })
-                    //     .then(response => {
-                    //         if (response) {
-                    //            this.send = true
-                    //            this.$router.push('dashboard')
-                    //         }
-                    //     })
-                    //     .catch(error => {
-                    //        this.send = false
-                    //     })
-=======
                 if (this.email !== '' && this.password !== '') {
-
-                    let self = this;
-
-                    // TODO Comment dit uit als je aan de koppeling werkt en wijzig het url naar de juiste url
                     axios
                         .post('http://127.0.0.1:8000/login/', {
                             body: {
@@ -92,28 +70,24 @@
                                 password: this.password,
                                 sort: 'webshop',
                             },
-                            header: { "X-CSRFToken" : 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU', }
-                           
+                            header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
+
                         })
                         .then(response => {
                             if (response) {
-                               this.send = true
-                               this.$router.push('dashboard')
-                               console.log(response);
+                                this.send = true
+                                this.$router.push('dashboard')
+                                console.log(response);
 
                             }
                         })
                         .catch(error => {
-                           this.send = false
-                           console.log('error')
+                            this.send = false
+                            let modal = {message: 'Something went wrong...', status: true}
+                            this.$store.commit('modalStatus', modal)
                         })
-
-                }else{
-                    alert('vul een email en wachtwoord in');
->>>>>>> login configuration with vue done:frontend/src/components/Form.vue
-                }
-                else {
-                    let modal = {message : 'Something went wrong...', status: true}
+                } else {
+                    let modal = {message: 'Something went wrong...', status: true}
                     this.$store.commit('modalStatus', modal)
                 }
             }
@@ -123,6 +97,39 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .login__container {
+        flex: 1 1 auto;
+        display: flex;
+        height: 100%;
+    }
+
+    .login__col-1 {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login__col-2 {
+        flex: 1;
+    }
+
+    .login__info {
+        margin-bottom: -40%;
+        background: white;
+        border-left: 5px solid #00DE84;
+        max-width: 422px;
+        box-shadow: 0 0px 30px 0 rgba(0, 0, 0, 0.10);
+
+    }
+
+    .login__info-text {
+        max-width: 361px;
+        margin: 0;
+        padding: 20px 40px;
+        text-align: left;
+    }
+
     form {
         width: 100%;
         margin: 0 auto;
@@ -148,8 +155,6 @@
         border: 1px solid #2BC65C;
         cursor: pointer;
         transition: 0.2s ease-in-out;
-        position: relative;
-        top: 0px;
     }
 
     .form__button:hover {

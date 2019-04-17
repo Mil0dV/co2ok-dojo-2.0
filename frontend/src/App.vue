@@ -4,10 +4,9 @@
         <!--<NavD/>-->
         <NavL/>
 
-        <!--<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">-->
-            <!--<router-view></router-view>-->
-        <!--</transition>-->
-
+        <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
+            <router-view style="flex:1 1 auto; "></router-view>
+        </transition>
         <Modal v-if="$store.state.modalStatus"/>
     </v-app>
 </template>
@@ -22,7 +21,9 @@
         name: 'App',
         components: {
             Modal, NavR, NavD, NavL
-        }
+        },
+
+
     }
 </script>
 
@@ -36,6 +37,10 @@
         padding: 0;
         margin: 0;
         width: 100vw;
+        min-height: 100vh;
+        background: url('assets/images/login/loginscreen.png') no-repeat;
+        background-size: contain;
+        display: flex;
     }
 
     input[type=text], input[type=password] {
