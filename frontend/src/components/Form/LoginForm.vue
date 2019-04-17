@@ -1,6 +1,7 @@
 <template>
-    <div class="hello">
+    <div class="hello form-container">
         <form>
+
             <div class="form__group">
                 <p>Email:</p>
                 <input type="text" v-model="email">
@@ -33,6 +34,11 @@
 </template>
 
 <script>
+<<<<<<< HEAD:frontend/src/components/Form/LoginForm.vue
+=======
+    import axios from 'axios'
+    import $ from "jquery";
+>>>>>>> login configuration with vue done:frontend/src/components/Form.vue
 
     export default {
         name: 'Form',
@@ -47,9 +53,13 @@
                 send: null,
             }
         },
+        created (){
+        },
 
         methods: {
+
             sendForm() {
+<<<<<<< HEAD:frontend/src/components/Form/LoginForm.vue
                 if (this.email !== '' || this.password !== '') {
 
                     this.$router.push('dashboard')
@@ -69,6 +79,38 @@
                     //     .catch(error => {
                     //        this.send = false
                     //     })
+=======
+                if (this.email !== '' && this.password !== '') {
+
+                    let self = this;
+
+                    // TODO Comment dit uit als je aan de koppeling werkt en wijzig het url naar de juiste url
+                    axios
+                        .post('http://127.0.0.1:8000/login/', {
+                            body: {
+                                email: this.email,
+                                password: this.password,
+                                sort: 'webshop',
+                            },
+                            header: { "X-CSRFToken" : 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU', }
+                           
+                        })
+                        .then(response => {
+                            if (response) {
+                               this.send = true
+                               this.$router.push('dashboard')
+                               console.log(response);
+
+                            }
+                        })
+                        .catch(error => {
+                           this.send = false
+                           console.log('error')
+                        })
+
+                }else{
+                    alert('vul een email en wachtwoord in');
+>>>>>>> login configuration with vue done:frontend/src/components/Form.vue
                 }
                 else {
                     let modal = {message : 'Something went wrong...', status: true}

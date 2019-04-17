@@ -9,6 +9,13 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.utils.translation import ugettext as _
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework import viewsets
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializers import UserSerializer
 
 # Create your views here.
 
@@ -40,43 +47,99 @@ def signup(request):
         #     print('form is not valid')
     else:
         form = Signup()
-        
+
     context = {
       'signup_form' : signup_form
     }
     return render(request, 'accounts/signup.html', context)
 
+class UserView(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
+# @ensure_csrf_cookie
+@csrf_exempt
+@api_view(['POST'])
 def signin(request):
-    signIn_form = Login(request.POST or None)
-    if request.method == "POST":
-        # signIn_form = Login(request.POST or None)
-        #if form is valid, get user login data
-        if signIn_form.is_valid():
-            email = signIn_form.cleaned_data['email']
-            password = signIn_form.cleaned_data['password']
+    #get login data from frontend
+    email = request.data['body']['email']
+    password = request.data['body']['password']
+    sort = request.data['body']['sort']
+    #check of the given user email exist in the database
+    user_email = User.objects.filter(email=email).count()
+    
+    #if email exist return email value else throw error
+    if user_email != 0:
+        currentUser = User.objects.get(email=email)
+        #verify if the user given password is correct
+        check_pass = currentUser.check_password(password)  # check_pass return a boolean
+        if check_pass:
             #check of user login data has a record in the database
             username = User.objects.get(email=email).username
             user = authenticate(username=username, password=password)
-            #if user is found in the database, login and redirect else return an error
             if user:
-                login(request, user)
-                get_user_status = Profile.objects.get(user__email=email).user_status
-                if get_user_status == "user":
-                    return redirect('/accounts/profile')
+                if sort == "webshop":
+                    webshopData = {
+                        'authenticate': True,
+                        'userData': request.user
+                    }
+                    return Response(webshopData)
                 else:
-                    return redirect('/dashboard/profile')
+                    ninjaData = {
+                      'authenticate': True,
+                      'userDta': request.user
+                    }
+                    return Response(ninjaData)
+
                 # redirect_user(email)
             else:
-                print('error:true')    
-
+                print('error:false')
+        else:
+            passwordContext = {
+                'authenticate': False,
+                'error': 'Wrong Password'
+            }
+            return Response(passwordContext)
     else:
-        form  = Login()
+        emailContext = {
+            'authenticate': False,
+            'error': 'Wrong Email'
+        }
+        return Response(emailContext)
+    
+    # return Response(User.objects.get(email=userData).username)
+    # return render(request, 'accounts/login.html', {'data': request})
+    
+# def signin(request):
+#     signIn_form = Login(request.POST or None)
+#     if request.method == "POST":
+#         # signIn_form = Login(request.POST or None)
+#         #if form is valid, get user login data
+#         if signIn_form.is_valid():
+#             email = signIn_form.cleaned_data['email']
+#             password = signIn_form.cleaned_data['password']
+#             #check of user login data has a record in the database
+#             username = User.objects.get(email=email).username
+#             user = authenticate(username=username, password=password)
+#             #if user is found in the database, login and redirect else return an error
+#             if user:
+#                 login(request, user)
+#                 get_user_status = Profile.objects.get(user__email=email).user_status
+#                 if get_user_status == "user":
+#                     return redirect('/accounts/profile')
+#                 else:
+#                     return redirect('/dashboard/profile')
+#                 # redirect_user(email)
+#             else:
+#                 print('error:true')
 
-    context = {
-        'signin_form' : signIn_form
-    }
-    return render(request, 'accounts/login.html', context)
+#     else:
+#         form  = Login()
+
+#     context = {
+#         'signin_form' : signIn_form
+#     }
+#     return render(request, 'accounts/login.html', context)
 
 
 def signout(request):

@@ -4,6 +4,8 @@
 
 {% block content %}
 <h1>Login page</h1>
+<p>{{email}}</p>
+<p>{{password}}</p>
   {% trans "No account yet" %} <a href="{% url 'signup' %}">{% trans 'Register' %}</a>
   <form method="post" action="">
      {% csrf_token %}

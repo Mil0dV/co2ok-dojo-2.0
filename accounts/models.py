@@ -11,3 +11,4 @@ class Profile(models.Model):
 
     def __str__(self):
         return "profile van {0}".format(self.user.username)
+

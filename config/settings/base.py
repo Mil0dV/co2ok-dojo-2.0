@@ -88,6 +88,7 @@ THIRD_PARTY_APPS = [
     # 'allauth.account',
     'allauth.socialaccount',
     'rest_framework',
+    'corsheaders',
     # 'webpack_loader',
 ]
 LOCAL_APPS = [
@@ -161,6 +162,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 # STATIC
@@ -281,6 +284,30 @@ INSTALLED_APPS += ['compressor']
 STATICFILES_FINDERS += ['compressor.finders.CompressorFinder']
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+# CSRF_COOKIE_NAME = "csrftoken"
+CSRF_COOKIE_NAME = "XSRF-TOKEN"
+
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+)
+
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_EXPOSE_HEADERS = (
+    'Access-Control-Allow-Origin: *',
+)
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8080',
+    '192.168.56.1:8080/',
+)
 
 # # TEMPLATES_DIR = os.path.join(ROOT_DIR, 'templates')
 # TEMPLATES_DIR = str(ROOT_DIR.path('templates'))

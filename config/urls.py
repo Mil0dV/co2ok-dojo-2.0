@@ -19,7 +19,7 @@ urlpatterns = [
         name="about",
     ),
     #api router
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),
     #acounts urls 
     path("login/", views.signin, name="login"),
     path("signup/", views.signup, name="signup"),
