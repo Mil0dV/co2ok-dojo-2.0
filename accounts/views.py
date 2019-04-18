@@ -10,12 +10,21 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.utils.translation import ugettext as _
 from django.views.decorators.csrf import ensure_csrf_cookie
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.authtoken.models import Token
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
+from django.core import serializers
 from .serializers import UserSerializer
+from rest_framework.status import (
+    HTTP_400_BAD_REQUEST,
+    HTTP_404_NOT_FOUND,
+    HTTP_200_OK
+)
 
 # Create your views here.
 
@@ -57,14 +66,15 @@ class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-# @ensure_csrf_cookie
 @csrf_exempt
 @api_view(['POST'])
+@permission_classes((AllowAny,))
 def signin(request):
-    #get login data from frontend
+    # get login data from frontend
     email = request.data['body']['email']
     password = request.data['body']['password']
     sort = request.data['body']['sort']
+   
     #check of the given user email exist in the database
     user_email = User.objects.filter(email=email).count()
     
@@ -83,13 +93,17 @@ def signin(request):
                         'authenticate': True,
                         'userData': request.user
                     }
-                    return Response(webshopData)
+                    # return HttpResponse(webshopData)
+                    token, _ = Token.objects.get_or_create(user=user)
+                    return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
                 else:
                     ninjaData = {
                       'authenticate': True,
-                      'userDta': request.user
+                      'userData': request.user
                     }
-                    return Response(ninjaData)
+                    # return HttpResponse(ninjaData)
+                    token, _ = Token.objects.get_or_create(user=user)
+                    return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
 
                 # redirect_user(email)
             else:
