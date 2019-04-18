@@ -19,7 +19,6 @@ Vue.use(VAnimateCss);
 Vue.use(Vuetify);
 Vue.use(Vuex);
 
-
 Vue.config.productionTip = false
 Vue.prototype.$axios = Axios
 

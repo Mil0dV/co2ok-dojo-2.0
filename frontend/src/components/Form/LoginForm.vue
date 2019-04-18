@@ -48,7 +48,6 @@
 
 <script>
     import axios from 'axios'
-
     export default {
         name: 'LoginForm',
         props: {
@@ -78,7 +77,6 @@
             },
 
             sendForm() {
-                this.send = true
                 if (this.email !== '' && this.password !== '') {
                     axios
                         .post('http://127.0.0.1:8000/login/', {
