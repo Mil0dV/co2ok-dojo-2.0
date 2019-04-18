@@ -4,7 +4,7 @@
             <div class="navbar__row navbar__row-1">
                 <div class="navbar__row-1-wrapper">
                     <v-img
-                            :src="require('@/assets/damian/logo2.png')"
+                            :src="require('@/assets/images/nav/logo.png')"
                             max-height="125"
                             contain
                             class="navbar__logo"
@@ -21,7 +21,7 @@
             <div class="navbar__row navbar__row-2">
                 <button class="navbar__extension">Extension</button>
                 <v-img
-                        :src="require('@/assets/images/login/NLVlag.png')"
+                        :src="require('@/assets/images/nav/NLVlag.png')"
                         max-height="125"
                         contain
                         class="navbar__lang"
@@ -45,7 +45,6 @@
         flex-direction: column;
         justify-content: center;
         width: 100%;
-        /*box-shadow: none;*/
         background: white;
         overflow: hidden;
         box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.25);

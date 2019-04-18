@@ -3,12 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="254c5ddb-73f6-458a-9ab8-c3b7bf45ac32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Form/LoginForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Form/LoginForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Layout/NavD.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Layout/NavL.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Layout/NavR.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/damian/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/damian/logo2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/damian/user-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/images/login/NLVlag.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/images/nav/NLVlag.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/romy/logor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/romy/logout.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/romy/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Form/RegisterForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Form/RegisterForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,6 +27,15 @@
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/src/components/Form/LoginForm.vue">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-2346">
+                  <caret line="15" column="35" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/src/App.vue">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="943">
@@ -38,17 +50,17 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2201">
-                  <caret line="112" column="22" lean-forward="true" selection-start-line="112" selection-start-column="22" selection-end-line="115" selection-end-column="5" />
+                <state relative-caret-position="138">
+                  <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/frontend/src/components/Form/LoginForm.vue">
+            <entry file="file://$PROJECT_DIR$/frontend/src/components/Form/RegisterForm.vue">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="621">
-                  <caret line="98" column="40" selection-start-line="98" selection-start-column="40" selection-end-line="98" selection-end-column="40" />
+                <state relative-caret-position="460">
+                  <caret line="56" column="29" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
                 </state>
               </provider>
             </entry>
@@ -57,32 +69,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/frontend/src/components/Form/LoginForm.vue">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2647">
-                  <caret line="214" column="35" selection-start-line="214" selection-start-column="35" selection-end-line="214" selection-end-column="35" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="460">
-                  <caret line="95" column="13" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/frontend/src/store.js">
+            <entry file="file://$PROJECT_DIR$/frontend/src/components/Form/RegisterForm.vue">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="552">
-                  <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-                  <folding>
-                    <element signature="e#0#21#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="637">
+                  <caret line="251" column="44" selection-start-line="251" selection-start-column="44" selection-end-line="251" selection-end-column="44" />
                 </state>
               </provider>
             </entry>
@@ -147,14 +138,15 @@
         <option value="$PROJECT_DIR$/frontend/src/App.vue" />
         <option value="$PROJECT_DIR$/frontend/src/store.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Form/LoginForm.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Form/RegisterForm.vue" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="2420" />
-    <option name="height" value="1370" />
+    <option name="x" value="1120" />
+    <option name="width" value="1144" />
+    <option name="height" value="1463" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -184,6 +176,21 @@
               <item name="co2ok-dojo-2.0" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="co2ok-dojo-2.0" type="b2602c69:ProjectViewProjectNode" />
+              <item name="co2ok-dojo-2.0" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="co2ok-dojo-2.0" type="b2602c69:ProjectViewProjectNode" />
+              <item name="co2ok-dojo-2.0" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="co2ok-dojo-2.0" type="b2602c69:ProjectViewProjectNode" />
@@ -233,18 +240,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\images\register" />
       <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\images" />
       <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\images\Misc" />
       <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\damian" />
       <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\romy" />
-      <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\images\nav" />
       <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\images\misc" />
       <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\romy" />
       <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets" />
       <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\components\Dashboard" />
-      <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\components\Form" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -285,38 +292,60 @@
       <workItem from="1554793557522" duration="8175000" />
       <workItem from="1554878126051" duration="3108000" />
       <workItem from="1555310083895" duration="24551000" />
-      <workItem from="1555482629150" duration="29429000" />
+      <workItem from="1555482629150" duration="31093000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81932000" />
+    <option name="totallyTimeSpent" value="83596000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1819" height="1178" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1352413" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.27448747" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="TypeScript" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32905138" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5011389" side_tool="true" weight="0.3277592" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49886104" weight="0.3254902" />
+      <window_info anchor="bottom" id="TypeScript" order="0" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32941177" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.32905138" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5011389" side_tool="true" weight="0.3277592" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49886104" weight="0.3254902" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27448747" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Gulp" order="2" side_tool="true" />
+      <window_info id="npm" order="3" side_tool="true" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" order="0" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32941177" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.32905138" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5011389" side_tool="true" weight="0.3277592" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49886104" weight="0.3254902" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -370,16 +399,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -401,13 +420,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Form/RegisterForm.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1833">
-          <caret line="138" column="5" lean-forward="true" selection-start-line="138" selection-start-column="5" selection-end-line="138" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -476,12 +488,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/assets/images/login/NLVlag.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/assets/images/login/loginscreen.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/NavD.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">
@@ -499,16 +505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="943">
-          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding>
-            <element signature="n#style#0;n#router-view#0;n#transition#0;n#v-app#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/node_modules/vuetify/src/components/VMessages/VMessages.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -517,20 +513,6 @@
             <element signature="e#69#115#0" expanded="true" />
             <element signature="e#173#200#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2201">
-          <caret line="112" column="22" lean-forward="true" selection-start-line="112" selection-start-column="22" selection-end-line="115" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="95" column="13" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -544,10 +526,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="95" column="13" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/images/login/loginscreen.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/damian/logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="943">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding>
+            <element signature="n#style#0;n#router-view#0;n#transition#0;n#v-app#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/images/nav/NLVlag.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/assets/images/nav/logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/Form/LoginForm.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="98" column="40" selection-start-line="98" selection-start-column="40" selection-end-line="98" selection-end-column="40" />
+        <state relative-caret-position="-2346">
+          <caret line="15" column="35" lean-forward="true" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/Form/RegisterForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="56" column="29" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
         </state>
       </provider>
     </entry>
