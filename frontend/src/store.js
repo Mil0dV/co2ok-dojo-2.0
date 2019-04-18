@@ -8,6 +8,7 @@ export default new Vuex.Store({
         count: 0,
         modalMessage: '',
         modalStatus: false,
+        userData: [],
     },
 
     mutations: {
@@ -19,6 +20,10 @@ export default new Vuex.Store({
                 state.modalStatus = false
             }
         },
+
+        saveUser(state, payload) {
+            state.userData = payload
+        }
     },
 
     actions: {

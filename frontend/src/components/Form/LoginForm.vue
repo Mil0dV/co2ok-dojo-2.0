@@ -3,40 +3,46 @@
         <div class="login__col-1">
             <div class="login__info">
                 <p class="login__info-text">
-                    With an account you will get acces to information how much you’ve contributed to fighting climate change
+                    With an account you will get acces to information how much you’ve contributed to fighting climate
+                    change
                 </p>
             </div>
         </div>
-        <form class="login__col-2">
 
-            <div class="form__group">
-                <p>Email:</p>
-                <input type="text" v-model="email">
-            </div>
+        <div class="login__col-2">
+            <v-form v-model="valid" class="login__form">
+                <div class="login__header-group">
+                    <p class="login__form-header">Account</p>
+                    <p class="login__form-title">Login to access to more information!</p>
+                </div>
 
-            <div class="form__group">
-                <p>Password:</p>
-                <input type="password" v-model="password">
-            </div>
+                <div class="login__group">
 
-            <div class="form__group">
-                <p class="form__group__forgot">Forgot password?</p>
-            </div>
-            <br>
+                    <label class="login__group">
+                        E-mail
+                        <input class="login__group-input" v-model="email"
+                               type="email" placeholder="Fill in you email...">
+                    </label>
 
-            <div class="form__group">
-                <input @click.prevent="sendForm()" class="form__button" type="submit" value="Login">
-            </div>
+                    <div class="login__group-password">
+                        <label class="login__group">
+                            Password
+                            <input class="login__group-input" v-model="password"
+                                   type="password" placeholder="Fill in you password...">
+                        </label>
+                        <p class="login__form-header">I forgot my password</p>
+                    </div>
+                </div>
 
-            <div v-if="send !== null" class="form__group">
-                <transition enter-active-class="animated slideInUp"
-                            leave-active-class="animated slideOutDown"
-                            mode="out-in">
-                    <p v-if="send === true">Data gestuurd👍</p>
-                    <p v-else>Data niet gestuurd 👎</p>
-                </transition>
-            </div>
-        </form>
+                <button type="submit" @click.prevent="sendForm()"
+                        class="login__submit">
+
+                    <span v-if="send === false">Login</span>
+                    <v-progress-circular v-else indeterminate color="white">
+                    </v-progress-circular>
+                </button>
+            </v-form>
+        </div>
     </div>
 </template>
 
@@ -51,17 +57,28 @@
 
         data() {
             return {
-                email: '',
                 password: '',
-                send: null,
+                send: false,
+                valid: false,
+                email: '',
+                emailRules: [
+                    v => !!v || 'E-mail is required',
+                    v => /.+@.+/.test(v) || 'E-mail must be valid'
+                ]
             }
         },
         created() {
         },
 
         methods: {
+            errorMessage() {
+                this.send = false
+                let modal = {message: 'Something went wrong...', status: true}
+                this.$store.commit('modalStatus', modal)
+            },
 
             sendForm() {
+                this.send = true
                 if (this.email !== '' && this.password !== '') {
                     axios
                         .post('http://127.0.0.1:8000/login/', {
@@ -75,20 +92,20 @@
                         })
                         .then(response => {
                             if (response) {
-                                this.send = true
-                                this.$router.push('dashboard')
-                                console.log(response);
-
+                                this.send = false
+                                if (response.data.authenticate) {
+                                    this.$store.commit('saveUser', response.data)
+                                    this.$router.push('dashboard')
+                                } else {
+                                    this.errorMessage()
+                                }
                             }
                         })
                         .catch(error => {
-                            this.send = false
-                            let modal = {message: 'Something went wrong...', status: true}
-                            this.$store.commit('modalStatus', modal)
+                            this.errorMessage()
                         })
                 } else {
-                    let modal = {message: 'Something went wrong...', status: true}
-                    this.$store.commit('modalStatus', modal)
+                    this.errorMessage()
                 }
             }
         }
@@ -101,6 +118,7 @@
         flex: 1 1 auto;
         display: flex;
         height: 100%;
+        overflow: hidden;
     }
 
     .login__col-1 {
@@ -108,16 +126,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-
-    .login__col-2 {
-        flex: 1;
+        background: url('../../assets/images/login/loginscreen.png') no-repeat;
     }
 
     .login__info {
         margin-bottom: -40%;
+        margin-right: -30%;
         background: white;
-        border-left: 5px solid #00DE84;
+        border-left: 10px solid #10D884;
         max-width: 422px;
         box-shadow: 0 0px 30px 0 rgba(0, 0, 0, 0.10);
 
@@ -130,49 +146,83 @@
         text-align: left;
     }
 
-    form {
-        width: 100%;
-        margin: 0 auto;
+    .login__col-2 {
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+    }
+
+    .login__form {
+        padding: 0 0 0 80px;
+        max-width: 555px;
+        max-height: 458px;
+        height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .form__group {
-        width: 400px;
-        display: flex;
-        flex-direction: row;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
+        margin-bottom: 50px;
     }
 
-    .form__button {
+    .login__header-group {
+        text-align: left;
+    }
+
+    .login__form-header {
+        color: #10D884;
+        margin: 0;
+        padding: 0;
+        font-size: 15px;
+    }
+
+    .login__form-title {
+        text-align: left;
+        line-height: 50px;
+        font-size: 42px;
+        font-weight: 600;
+        color: #606468;
+        margin: 0;
+        padding: 0;
+    }
+
+    .login__group {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: left;
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .login__group-input {
+        border-radius: 3px;
+        border: 1px solid #BCBCBC;
+        height: 40px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .login__group-password {
+        width: 100%;
+        text-align: left;
+    }
+
+    .login__submit {
+        margin-top: 30px;
         color: white;
-        padding: 10px 20px;
-        border-radius: 5px;
-        background: #2BC65C;
-        border: 1px solid #2BC65C;
-        cursor: pointer;
+        background: linear-gradient(to right, #10DC87, #08BA4D);
+        padding: 10px 50px;
+        border-radius: 3px;
+        top: 0px;
+        position: relative;
         transition: 0.2s ease-in-out;
+        font-size: 17px;
     }
 
-    .form__button:hover {
+    .login__submit:hover {
         top: -5px;
-        color: #2BC65C;
-        background: white;
         transition: 0.2s ease-in-out;
-        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.10);
-    }
-
-    .form__group__forgot {
-        color: #2BC65C;
-        cursor: pointer;
-        transition: 0.3s ease-in-out;
-    }
-
-    .form__group__forgot:hover {
-        transition: 0.3s ease-in-out;
-        color: green;
     }
 </style>

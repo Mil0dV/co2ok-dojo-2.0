@@ -33,7 +33,7 @@
 
 <script>
     export default {
-        name: "NavL"
+        name: "Nav"
     }
 </script>
 
@@ -45,10 +45,10 @@
         flex-direction: column;
         justify-content: center;
         width: 100%;
-        box-shadow: none;
-        background: transparent;
+        /*box-shadow: none;*/
+        background: white;
         overflow: hidden;
-        /*box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.25);*/
+        box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.25);
 
     }
 

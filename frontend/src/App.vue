@@ -1,8 +1,6 @@
 <template>
     <v-app id="app">
-        <!--<NavR/>-->
-        <!--<NavD/>-->
-        <NavL/>
+        <Nav/>
 
         <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
             <router-view style="flex:1 1 auto; "></router-view>
@@ -13,14 +11,12 @@
 
 <script>
     const Modal = () => import('@/components/Layout/Modal')
-    const NavR = () => import('@/components/Layout/NavR')
-    const NavD = () => import('@/components/Layout/NavD')
-    const NavL = () => import('@/components/Layout/NavL')
+    const Nav = () => import('@/components/Layout/Nav')
 
     export default {
         name: 'App',
         components: {
-            Modal, NavR, NavD, NavL
+            Modal, Nav
         },
 
 
@@ -38,13 +34,10 @@
         margin: 0;
         width: 100vw;
         min-height: 100vh;
-        background: url('assets/images/login/loginscreen.png') no-repeat;
-        background-size: contain;
         display: flex;
     }
 
-    input[type=text], input[type=password] {
-        border: 1px solid gray !important;
+    input:focus {
+        outline:none;
     }
-
 </style>
