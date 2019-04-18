@@ -1,7 +1,7 @@
 <template>
     <div class="login__container">
-        <div class="login__col-1">
-            <div class="login__info">
+        <div class="login__col-1 ">
+            <div class="login__info" style="animation-delay: 1s;">
                 <p class="login__info-text">
                     With an account you will get acces to information how much you’ve contributed to fighting climate
                     change
@@ -30,7 +30,10 @@
                             <input class="login__group-input" v-model="password"
                                    type="password" placeholder="Fill in you password...">
                         </label>
-                        <p class="login__form-header">I forgot my password</p>
+                        <p @click="openModal()"
+                           class="login__form-header forgot__password">
+                            I forgot my password
+                        </p>
                     </div>
                 </div>
 
@@ -74,6 +77,16 @@
             errorMessage() {
                 this.send = false
                 let modal = {message: 'Something went wrong...', status: true}
+                this.$store.commit('modalStatus', modal)
+            },
+
+            openModal() {
+                let modal = {
+                    message: 'Forgot your password? It happens.',
+                    body: 'Fill in your email so that we can send you a link where you can login again.',
+                    input: true,
+                    status: true
+                }
                 this.$store.commit('modalStatus', modal)
             },
 
@@ -225,4 +238,9 @@
         top: -5px;
         transition: 0.2s ease-in-out;
     }
+
+    .forgot__password {
+        cursor: pointer;
+    }
+
 </style>

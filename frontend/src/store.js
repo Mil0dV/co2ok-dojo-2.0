@@ -15,7 +15,7 @@ export default new Vuex.Store({
         modalStatus(state, payload) {
             if (payload.status === true) {
                 state.modalStatus = true
-                state.modalMessage = payload.message
+                state.modalMessage = payload
             } else {
                 state.modalStatus = false
             }

@@ -1,10 +1,10 @@
 <template>
-    <v-dialog v-model="$store.state.modalStatus" max-width="290">
-        <v-card>
-            <v-card-title class="headline">{{$store.state.modalMessage}}</v-card-title>
+    <v-dialog v-model="$store.state.modalStatus" max-width="500" class="modal__container">
+        <v-card class="modal__wrapper">
+            <v-card-title class="headline">{{$store.state.modalMessage.message}}</v-card-title>
 
-            <v-card-text>
-                *EXTRA TEKST*
+            <v-card-text class="modal__body" v-if="$store.state.modalMessage.body">
+                {{$store.state.modalMessage.body}}
             </v-card-text>
 
             <v-card-actions>
@@ -26,5 +26,23 @@
 </script>
 
 <style scoped>
+    .modal__wrapper{
+        border: 2px solid green;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .headline {
+        border: 1px solid red;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-size: 21px;
+    }
+
+    .modal__body {
+
+    }
 
 </style>

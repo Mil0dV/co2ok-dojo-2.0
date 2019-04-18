@@ -1,7 +1,11 @@
 <template>
     <div class="login__container">
         <div class="login__col-1">
-
+            <div class="login__info" style="animation-delay: 1s;">
+                <p class="login__info-text">
+                    With an account you will get access to information how much you’ve contributed to fighting climate change
+                </p>
+            </div>
         </div>
 
         <div class="login__col-2">
@@ -42,13 +46,11 @@
                     </div>
 
                     <div class="login__group">
-                        <v-radio-group v-model="consent" column>
-                            <v-radio
+                        <v-checkbox v-model="consent"
                                     label="I accept the terms and agreements"
-                                    color="success"
                                     value="true"
-                            ></v-radio>
-                        </v-radio-group>
+                                    color="success"
+                        ></v-checkbox>
                     </div>
                 </div>
 
@@ -163,6 +165,23 @@
 
     }
 
+    .login__info {
+        margin-bottom: -40%;
+        margin-right: -30%;
+        background: white;
+        border-left: 10px solid #10D884;
+        max-width: 422px;
+        box-shadow: 0 0px 30px 0 rgba(0, 0, 0, 0.10);
+
+    }
+
+    .login__info-text {
+        max-width: 361px;
+        margin: 0;
+        padding: 20px 40px;
+        text-align: left;
+    }
+
     .login__form {
         padding: 0 0 0 80px;
         max-width: 555px;
@@ -173,6 +192,7 @@
         justify-content: flex-start;
         align-items: flex-start;
     }
+
 
     .login__header-group {
         text-align: left;
@@ -228,7 +248,8 @@
 
     .login__submit {
         color: white;
-        background: linear-gradient(to right, #10DC87, #08BA4D);
+        background-image: linear-gradient(to right, #10DC87, #08BA4D);
+        background-size: 100% auto;
         padding: 10px 30px;
         border-radius: 3px;
         top: 0px;
@@ -251,6 +272,8 @@
 
     .login__submit:hover, .login__back:hover {
         top: -5px;
+        background-size: 200% auto;
+        background-position: right center;
         transition: 0.2s ease-in-out;
     }
 
