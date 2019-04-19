@@ -13,7 +13,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes
@@ -61,19 +61,35 @@ def signup(request):
       'signup_form' : signup_form
     }
     return render(request, 'accounts/signup.html', context)
+    
 
 class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+    @action(methods=['get'], detail=False)
+    @csrf_exempt
+    @api_view(['GET'])
+    def loggedUser(self, request):
+        user = self.get_queryset().get(user_id=6).email
+        serializer = self.get_serializer_class()(user)
+        return Response(serializer.data)
+
+
 @csrf_exempt
 @api_view(['POST'])
 @permission_classes((AllowAny,))
 def signin(request):
-    # get login data from frontend
-    email = request.data['body']['email']
-    password = request.data['body']['password']
-    sort = request.data['body']['sort']
+
+    try:
+        # get login data from frontend
+        email = request.data['body']['email']
+        password = request.data['body']['password']
+        sort = request.data['body']['sort']
+    except:
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        sort = request.POST.get('sort')
    
     #check of the given user email exist in the database
     user_email = User.objects.filter(email=email).count()
