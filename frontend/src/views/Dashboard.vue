@@ -1,28 +1,55 @@
 <template>
     <div class="dashboard">
-        <p>DASHBOARD</p>
-        <p>{{userToken}}</p>
-        <br>
 
-        <div>
-            <v-tabs v-model="active"
-                    centered grow
-                    slider-color="green">
 
-                <v-tab ripple>Transacties</v-tab>
-                <v-tab ripple>Plug-in Design</v-tab>
-                <v-tab ripple>Profiel</v-tab>
+
+        <div class="dashboard__container">
+            <div class="dashboard__header">
+                <p class="dashboard__title">Dashboard</p>
+                <p class="dashboard__welcome">Weclome, John Doe!</p>
+            </div>
+
+            <div class="dashboard__tabs">
+                <p class="dashboard__mail">example@mail.com</p>
+                <v-tabs v-model="active" centered class="dashboard__tabs-group"
+                        color="#F4F4F4" slider-color="#08BA4D">
+                    <v-tab class="dashboard__tab-item text-capitalize"
+                           style="background: transparent;"
+                           :ripple="false">
+                        Transactions
+                    </v-tab>
+
+                    <v-tab class="dashboard__tab-item text-capitalize"
+                           style="background: transparent;"
+                           :ripple="false">
+                        Plug-in Settings
+                    </v-tab>
+
+                    <v-tab class="dashboard__tab-item text-capitalize"
+                           style="background: transparent;"
+                           :ripple="false">
+                        My Profile
+                    </v-tab>
+                </v-tabs>
+            </div>
+
+            <v-tabs v-model="active" centered grow class="overflow-hidden;"
+                    color="#F4F4F4" slider-color="#08BA4D">
+
+                <v-tab  style="background: transparent; display: none;" :ripple="false">Transacties</v-tab>
+                <v-tab  style="background: transparent; display: none;" :ripple="false">Plug-in Design</v-tab>
+                <v-tab  style="background: transparent; display: none;" :ripple="false">Profiel</v-tab>
 
                 <v-tab-item class="dashboard__content">
-                    <Transactions></Transactions>
+                    <Transactions class="animated fadeInt"></Transactions>
                 </v-tab-item>
 
                 <v-tab-item class="dashboard__content">
-                    <Plugin></Plugin>
+                    <Plugin class="animated fadeIn"></Plugin>
                 </v-tab-item>
 
                 <v-tab-item class="dashboard__content">
-                    <Profile></Profile>
+                    <Profile class="animated fadeIn"></Profile>
                 </v-tab-item>
             </v-tabs>
         </div>
@@ -45,64 +72,82 @@
         data() {
             return {
                 active: null,
-                userToken: this.$store.state.userData[0].token
             }
         },
-
-        mounted() {
-            this.getUserData();
-            console.log(this.$store.state.userData);
-            
-        },
-
-        methods: {
-
-            getUserData() {
-
-                let self = this;
-
-              this.$axios
-                        .get('http://127.0.0.1:8000/user/?pk='+self.$store.state.userData[0].id, {
-
-                            body: {
-                                userId: self.$store.state.userData[0].id,
-                                userToken: self.$store.state.userData[0].token,
-                            },
-
-                            headers: {
-                                // "X-CSRFToken": self.$store.state.userData[0].token,
-                                Authorization: `token ${this.$store.state.userData[0].token}`,
-                                // Authorization: 'token 432b96d13cc2142cee0eb07380150fd3c6b136d0',
-                                // 'Access-Control-Allow-Origin': '*',
-                                // 'Content-Type': 'application/json'
-                                // 'Access-Control-Allow-Methods': 'HEAD, GET, POST, PUT, PATCH, DELETE',
-                                // 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
-                            }
-
-                        })
-                        .then(response => {
-
-                            console.log(response);
-                            
-                        })
-                        .catch(error => {
-                            // this.errorMessage()
-                        })
-
-            }
-
-        }
     }
 </script>
 
 <style scoped>
     .dashboard {
         margin: 0 auto;
-        width: 80%;
+        width: 100%;
+        max-width: 1146px;
+    }
+
+    .dashboard__container {
+        margin-top: 38px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dashboard__title {
+        font-size: 36px;
+        font-weight: 600;
+        color: #08BA4D;
+        text-align: left;
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .dashboard__welcome {
+        margin: 0;
+        padding: 0;
+        color: #2F2F2F;
+        font-size: 24px;
+        text-align: left;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .dashboard__mail {
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        color: #2F2F2F;
+        font-size: 18px;
+        flex: 1;
+    }
+
+    .dashboard__tabs {
+        max-height: 65px;
+        height: 100%;
+        margin-top: -10px;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #E2E2E2;
+    }
+
+    .dashboard__tabs-group {
+        flex: 2;
+    }
+
+    .dashboard__tab-item {
+        max-width: 196px;
+        width: 100%;
+        font-family: 'Poppins', sans-serif;
+        font-size: 17px;
+        font-weight: 900;
     }
 
     .dashboard__content {
-        padding-top: 50px;
+        margin-top: -28px;
+        margin-bottom: 50px;
     }
+
+
 
 </style>

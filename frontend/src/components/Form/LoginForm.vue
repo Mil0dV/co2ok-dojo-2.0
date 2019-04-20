@@ -91,7 +91,6 @@
 
             sendForm() {
                 if (this.email !== '' && this.password !== '') {
-                    let self = this;
                     axios
                         .post('http://127.0.0.1:8000/login/', {
                             body: {
@@ -99,16 +98,14 @@
                                 password: this.password,
                                 sort: 'webshop',
                             },
-                            header: {
-                            "X-CSRFToken": localStorage.getItem('token'),
-                            Authorization : `Token ${localStorage.getItem('token')}`}
+                            header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
 
                         })
                         .then(response => {
                             if (response) {
                                 this.send = false
                                 if (response.data.authenticate) {
-                                    self.$store.dispatch('commitUserData', response.data)
+                                    this.$store.commit('saveUser', response.data)
                                     this.$router.push('dashboard')
                                 } else {
                                     this.errorMessage()
@@ -140,7 +137,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: url('../../assets/images/login/loginscreen.png') no-repeat;
+        background: url('../../assets/images/login/loginscreen.png') no-repeat center center;
+        background-size: cover;
     }
 
     .login__info {
@@ -192,6 +190,7 @@
     }
 
     .login__form-title {
+        font-family: 'Poppins', sans-serif;
         text-align: left;
         line-height: 50px;
         font-size: 42px;
@@ -224,7 +223,8 @@
     }
 
     .login__submit {
-        margin-top: 30px;
+        font-family: 'Poppins', sans-serif;
+        margin-top: 20px;
         color: white;
         background: linear-gradient(to right, #10DC87, #08BA4D);
         padding: 10px 50px;
@@ -242,6 +242,7 @@
 
     .forgot__password {
         cursor: pointer;
+        text-decoration: underline;
     }
 
 </style>

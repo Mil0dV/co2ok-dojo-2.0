@@ -1,14 +1,49 @@
 <template>
-    <div>
-        <div class="form__group">
-            <v-radio-group v-model="radioGroup">
-                <v-radio label="Design 1" :value="1"></v-radio>
-                <v-radio label="Design 2" :value="2"></v-radio>
-            </v-radio-group>
+    <div class="plugin__container">
+        <div class="plugin__head">
+            <h1 class="plugin__title">Plug-in Settings</h1>
+            <img src="../../assets/images/dashboard/edit.svg">
+        </div>
+        <p class="plugin__header">
+            Choose the design you want being displayed on your webshop:
+        </p>
+
+
+        <div class="plugin__col-1">
+            <p>Moet nog gedaan worden</p>
         </div>
 
-        <div class="form__group">
-            <input @click.prevent="saveDesign()" class="form__button" type="submit" value="Opslaan">
+        <div class="plugin__col-2">
+            <div class="col-2__content">
+                <p class="col-2__text">
+                    Would you like to show GIF’s to the customer, when completing a transactions?
+                </p>
+
+                <div class="col-2__switch">
+                    <p class="col-2__switch-text switch__text-1">Show GIF's</p>
+                    <v-switch class="switch__option" color="#10DC87"
+                              v-model="switchGIF"
+                    ></v-switch>
+                    <p class="col-2__switch-text switch__text-2">{{switchGIF}}</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="plugin__col-2">
+            <div class="col-2__content">
+                <p class="col-2__text">
+                    Do you give CO2ok permission to send the customer an email?
+                </p>
+
+                <div class="col-2__switch">
+                    <p class="col-2__switch-text switch__text-1">Send Email</p>
+                    <v-switch class="switch__option"  color="#10DC87"
+                              v-model="switchEmail"
+                    ></v-switch>
+                    <p class="col-2__switch-text switch__text-2">{{switchEmail}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -20,6 +55,8 @@
         data() {
             return {
                 radioGroup: 1,
+                switchEmail: false,
+                switchGIF: false,
             }
         },
 
@@ -44,23 +81,98 @@
 </script>
 
 <style scoped>
-    .form__group {
-        width: 400px;
+    .plugin__container {
+        min-width: 1146px;
+        width: 100%;
+        height: 691px;
+        display: flex;
+        background: #FFFFFF;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 50px 100px;
+    }
+
+    .plugin__head {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
     }
 
-    .form__button {
-        color: white;
-        padding: 10px 20px;
-        border-radius: 5px;
-        background: #2BC65C;
-        border: 1px solid #2BC65C;
-        cursor: pointer;
-        transition: 0.2s ease-in-out;
-        position: relative;
-        top: 0px;
+    .plugin__title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 36px;
+        text-align: left;
+        color: #10DC87;
+        margin-right: 12px;
     }
+
+    .plugin__header {
+        color: #111111;
+        font-size: 20px;
+        max-width: 460px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .plugin__col-1 {
+        margin-top: 30px;
+        max-height: 132px;
+        height: 100%;
+        border-bottom: 1px solid #E2E2E2;
+    }
+
+    .plugin__col-2 {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 30px 0;
+        border-bottom: 1px solid #E2E2E2;
+    }
+
+    .col-2__content {
+        max-width: 460px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .col-2__text {
+        text-align: left;
+        color: #111111;
+        font-size: 20px;
+        max-width: 460px;
+        width: 100%;
+    }
+
+    .col-2__switch {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .col-2__switch-text {
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        font-weight: 800;
+        color:#111111;
+        margin: 0;
+        padding: 0;
+    }
+
+    .switch__text-1 {
+        margin-right: 24px;
+    }
+
+    .switch__text-2 {
+        margin-left: 24px;
+    }
+
 </style>
