@@ -154,7 +154,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: url('../../assets/images/register/registerscreen.png') no-repeat;
+        background: url('../../assets/images/register/registerscreen.png') no-repeat center center;
+        background-size: cover;
     }
 
     .login__col-2 {
@@ -247,6 +248,7 @@
     }
 
     .login__submit {
+        font-family: 'Poppins', sans-serif;
         color: white;
         background-image: linear-gradient(to right, #10DC87, #08BA4D);
         background-size: 100% auto;
