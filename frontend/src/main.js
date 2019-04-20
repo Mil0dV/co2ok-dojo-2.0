@@ -7,8 +7,11 @@ import Vuetify from 'vuetify'
 import VeeValidate from 'vee-validate'
 import Vuex from 'vuex'
 
-Axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-Axios.defaults.xsrfCookieName = "XCSRF-TOKEN";
+// Axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+// Axios.defaults.xsrfCookieName = "XCSRF-TOKEN";
+
+Axios.defaults.xsrfCookieName = 'csrftoken'
+Axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 Axios.defaults.withCredentials = true
 
 import 'vuetify/dist/vuetify.min.css'

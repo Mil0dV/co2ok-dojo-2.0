@@ -63,17 +63,46 @@ def signup(request):
     return render(request, 'accounts/signup.html', context)
     
 
-class UserView(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+# class UserView(viewsets.ModelViewSet):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
+    
+#     @csrf_exempt
+#     @action(methods=['get'], detail=False)
+#     # @api_view(['GET'])
+#     def loggedUser(self, request):
+#         try:
+#             userId = self.request.data['body']['userId']
+#             token = request.data['body']['userToken']
 
-    @action(methods=['get'], detail=False)
-    @csrf_exempt
-    @api_view(['GET'])
-    def loggedUser(self, request):
-        user = self.get_queryset().get(user_id=6).email
-        serializer = self.get_serializer_class()(user)
+#         except:
+#             userId = self.request.GET.get('userId')
+#             token = request.GET.get('userToken')
+
+#         # user_data = serializer.validated_data['user']
+
+#         # user = self.get_queryset().get(pk=user_data.id)
+#         # serializer = self.get_serializer_class()(user)
+#         return Response(request.query_params)
+
+
+class UserView(viewsets.ViewSet):
+
+    @action(methods=['get'], detail=True)
+    def detail(self, request):
+        return Response(request.query.params)
+
+    def list(self, request):
+        queryset = User.objects.all()
+        serializer = UserSerializer(queryset, many=True)
         return Response(serializer.data)
+
+
+# @csrf_exempt
+# @api_view(['GET'])
+# def userData(request):
+#     userEmail = User.objects.get(user_id=6).email
+#     return Response(userEmail)
 
 
 @csrf_exempt

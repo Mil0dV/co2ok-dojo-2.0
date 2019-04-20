@@ -91,6 +91,7 @@
 
             sendForm() {
                 if (this.email !== '' && this.password !== '') {
+                    let self = this;
                     axios
                         .post('http://127.0.0.1:8000/login/', {
                             body: {
@@ -98,14 +99,16 @@
                                 password: this.password,
                                 sort: 'webshop',
                             },
-                            header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
+                            header: {
+                            "X-CSRFToken": localStorage.getItem('token'),
+                            Authorization : `Token ${localStorage.getItem('token')}`}
 
                         })
                         .then(response => {
                             if (response) {
                                 this.send = false
                                 if (response.data.authenticate) {
-                                    this.$store.commit('saveUser', response.data)
+                                    self.$store.dispatch('commitUserData', response.data)
                                     this.$router.push('dashboard')
                                 } else {
                                     this.errorMessage()

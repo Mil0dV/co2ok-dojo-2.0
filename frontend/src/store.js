@@ -22,11 +22,15 @@ export default new Vuex.Store({
         },
 
         saveUser(state, payload) {
-            state.userData = payload
+            state.userData.push(payload);
         }
     },
 
     actions: {
 
-    }
+      commitUserData(store, payload){
+       store.commit('saveUser', payload);
+      }
+
+    } 
 })
