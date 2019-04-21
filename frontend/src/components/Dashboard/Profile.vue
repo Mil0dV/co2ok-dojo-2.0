@@ -84,13 +84,26 @@
         data() {
             return {
                 edit: false,
+                /*twee onderst data gebruiken alleen na dat de profile component 
+                geladen(created en mounted) is*/
                 userProfileData: this.$store.state.userData.userProfileData,
                 userData: this.$store.state.userData.userdata
+                //---------------------------------------------------------------
             }
         },
 
-        methods: {
+        created(){
+            
+        },
 
+        mounted(){
+
+            this.$store.commit('saveUserData');
+
+        },
+
+        methods: {
+          
         }
 
 

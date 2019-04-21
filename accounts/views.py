@@ -28,39 +28,58 @@ from rest_framework.status import (
 # Create your views here.
 
 
-def signup(request):
-    signup_form = Signup(request.POST or None)
-    if request.method == "POST":
-        #    signup_form = Signup(request.POST or None)
-       if signup_form.is_valid():
-            #get user registration record data
-            email = signup_form.cleaned_data['email']
-            username = signup_form.cleaned_data['username']
-            user_status = signup_form.cleaned_data.get('user_status')
-            password = signup_form.cleaned_data['password']
-            #register user as new user
-            if request.user is not None:
-                User.objects.create_user(username=username, email=email, password=password)
-                #authenticate the new user record data
-                user = authenticate(username=username, password=password)
-                #create current user profile
-                NinjaProfile.objects.create(user=user, user_status=user_status, user_points=0)
-                #sign new user in
-                login(request, user)
-                #check if user is merchant or normal user to redirect him to the dashboard of profile
-                if user_status == 'user':
-                    return redirect('/accounts/profile')
-                else:
-                    return redirect('/dashboard/profile')
-        # else:
-        #     print('form is not valid')
-    else:
-        form = Signup()
+# def signup(request):
+#     signup_form = Signup(request.POST or None)
+#     if request.method == "POST":
+#         #    signup_form = Signup(request.POST or None)
+#        if signup_form.is_valid():
+#             #get user registration record data
+#             email = signup_form.cleaned_data['email']
+#             username = signup_form.cleaned_data['username']
+#             user_status = signup_form.cleaned_data.get('user_status')
+#             password = signup_form.cleaned_data['password']
+#             #register user as new user
+#             if request.user is not None:
+#                 User.objects.create_user(username=username, email=email, password=password)
+#                 #authenticate the new user record data
+#                 user = authenticate(username=username, password=password)
+#                 #create current user profile
+#                 NinjaProfile.objects.create(user=user, user_status=user_status, user_points=0)
+#                 #sign new user in
+#                 login(request, user)
+#                 #check if user is merchant or normal user to redirect him to the dashboard of profile
+#                 if user_status == 'user':
+#                     return redirect('/accounts/profile')
+#                 else:
+#                     return redirect('/dashboard/profile')
+#         # else:
+#         #     print('form is not valid')
+#     else:
+#         form = Signup()
 
-    context = {
-        'signup_form': signup_form
-    }
-    return render(request, 'accounts/signup.html', context)
+#     context = {
+#         'signup_form': signup_form
+#     }
+#     return render(request, 'accounts/signup.html', context)
+
+
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((AllowAny,))
+def signup(reequest):
+    pass
+    
+
+
+def checkPassword(request, password, userid):
+    currentUser = User.objects.get(id=userid)
+    checkPass = currentUser.check_password(password)
+    return checkPass
+
+
+def checkEmail(request, useremail):
+    user_email = User.objects.filter(email=useremail).count()
+    return user_email
 
 
 
@@ -79,15 +98,15 @@ def signin(request):
         password = request.POST.get('password')
         sort = request.POST.get('sort')
 
+    currentUser = User.objects.get(email=email)
     #check of the given user email exist in the database
-    user_email = User.objects.filter(email=email).count()
+    # user_email = User.objects.filter(email=email).count()
 
     #if email exist return email value else throw error
-    if user_email != 0:
-        currentUser = User.objects.get(email=email)
+    if checkEmail(request, email) != 0:
         #verify if the user given password is correct
-        check_pass = currentUser.check_password(password)  # check_pass return a boolean
-        if check_pass:
+        # check_pass = currentUser.check_password(password)  # check_pass return a boolean
+        if checkPassword(request, password, currentUser.id):
             #check of user login data has a record in the database
             username = User.objects.get(email=email).username
             user = authenticate(username=username, password=password)
@@ -109,19 +128,6 @@ def signin(request):
             'error': 'Wrong Email'
         }
         return Response(emailContext)
-
-#the parameter user can be the user id, email, a data who can
-# verify that the user is the authenticate user
-def checkPassword(request, password, user):
-    currentUser = User.objects.get(id=user)
-    checkPass = currentUser.check_password(password)
-    return checkPass
-
-
-def checkEmail(request, email, user):
-    user_email = User.objects.filter(email=email).count()
-    return user_email 
-
 
 
 

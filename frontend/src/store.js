@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { stat } from 'fs';
+import axios from 'axios'
 
 Vue.use(Vuex)
 
@@ -30,16 +31,32 @@ export default new Vuex.Store({
             state.userAuthData = payload
         },
 
-        saveUserData(state, data){
-            //verify if the userdata array is empty
-            if(state.userData.length == 0){
-               //user array is empty, push userdata
-               state.userData = data
-            }else{
-              // user array !empty, empty it and push user data
-              state.userData = '';
-              state.userData = data
-            }
+        saveUserData(state){
+
+            axios
+                .get(`http://127.0.0.1:8000/user/authenticateUser/?id=${state.userId}`, {
+                    headers: {
+                        "X-CSRFToken": `${state.userToken}`,
+                        Authorization: `token ${state.userToken}`
+                    }
+                })
+                .then(response => {
+                    //verify if the userdata array is empty
+                    if (state.userData.length == 0) {
+                        //user array is empty, push userdata
+                        state.userData = response.data;
+                    } else {
+                        // user array !empty, empty it and push user data
+                        state.userData = '';
+                        state.userData = response.data;
+                    }
+                    // console.log(response.data);
+                })
+                .catch(error => {
+                    console.log(error);
+                    //  this.errorMessage()
+                })
+
         },
 
         setLocalUserData(state, data){
@@ -58,6 +75,7 @@ export default new Vuex.Store({
                 window.localStorage.removeItem(data);
             });
         }
+
     },
 
     actions: {
@@ -67,10 +85,10 @@ export default new Vuex.Store({
 
         commitRemoveLocalUserData(store, data){
             store.commit('removeLocalUserData', data);
-        },
-
-        commitSaveUserData(store, data){
-            store.commit('saveUserData', data);
         }
+
+        // commitSaveUserData(store, data){
+        //     store.commit('saveUserData', data);
+        // }
     }
 })
