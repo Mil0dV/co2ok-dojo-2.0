@@ -9,9 +9,22 @@
         </p>
 
 
-        <div class="plugin__col-1">
-            <p>Moet nog gedaan worden</p>
-        </div>
+            <v-radio-group class="plugin__col-1"  v-model="radioGroup" row>
+                <div class="plugin__design design-1">
+                    <p class="design-title">Select Design</p>
+                    <v-radio label="Option 1" color="#10DC87" value="radio-1"></v-radio>
+
+                </div>
+
+                <div class="plugin__design design-2">
+                    <p class="design-title">Select Design</p>
+                    <v-radio label="Option 2" color="#10DC87"  value="radio-2"></v-radio>
+                </div>
+            </v-radio-group>
+
+
+
+
 
         <div class="plugin__col-2">
             <div class="col-2__content">
@@ -54,7 +67,7 @@
 
         data() {
             return {
-                radioGroup: 1,
+                radioGroup: null,
                 switchEmail: false,
                 switchGIF: false,
             }
@@ -121,6 +134,23 @@
         max-height: 132px;
         height: 100%;
         border-bottom: 1px solid #E2E2E2;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .plugin__design {
+        border: 1px solid red;
+        max-width: 410px !important;
+        width: 100%;
+    }
+
+    .design-title {
+        text-align: left;
+        font-size: 10px;
+
     }
 
     .plugin__col-2 {
