@@ -105,7 +105,10 @@
                             if (response) {
                                 this.send = false
                                 if (response.data.authenticate) {
-                                    this.$store.commit('saveUser', response.data)
+                                    this.$store.dispatch('commitSaveUser', response.data)
+                                    this.$store.commit('setLocalUserData', response.data)
+                                    // console.log(this.$store.state.userAuthLocalData);
+                                    
                                     this.$router.push('dashboard')
                                 } else {
                                     this.errorMessage()

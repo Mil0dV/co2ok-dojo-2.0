@@ -15,8 +15,8 @@
                         <v-icon class="icon-test" medium color="##2F2F2F">home</v-icon>
 
                         <div class="card__content-text">
-                            <p>John Doe</p>
-                            <p>example@mail.com</p>
+                            <p>{{userData.username}}</p>
+                            <p>{{userData.email}}</p>
                         </div>
                     </div>
 
@@ -24,9 +24,9 @@
                         <v-icon class="icon-test" medium color="##2F2F2F">home</v-icon>
 
                         <div class="card__content-text">
-                            <p>England</p>
-                            <p>London, 1000 AA</p>
-                            <p>Avenue Road 10</p>
+                            <p>{{userProfileData.country}}</p>
+                            <p>{{userProfileData.city}}, {{userProfileData.zipcode}}</p>
+                            <p>{{userProfileData.street}} {{userProfileData.number}}</p>
                         </div>
                     </div>
 
@@ -46,7 +46,7 @@
 
                     <div class="card__content-inner card__reset">
                         <v-btn class="text-capitalize card__items card__extension"
-                               style="height: 42px;" @click="edit = true"
+                               style="height: 42px;" @click="edit = true;"
                                :ripple="false" flat>Edit Profile
                         </v-btn>
                     </div>
@@ -84,15 +84,16 @@
         data() {
             return {
                 edit: false,
+                userProfileData: this.$store.state.userData.userProfileData,
+                userData: this.$store.state.userData.userdata
             }
         },
 
         methods: {
-            closeEdit(message){
-                this.edit = false
-                this.$store.commit('modalStatus', {message})
-            }
+
         }
+
+
     }
 </script>
 

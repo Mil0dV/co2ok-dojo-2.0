@@ -6,11 +6,11 @@
         <div class="dashboard__container">
             <div class="dashboard__header">
                 <p class="dashboard__title">Dashboard</p>
-                <p class="dashboard__welcome">Weclome, John Doe!</p>
+                <p class="dashboard__welcome">Weclome, {{userData.username}}!</p>
             </div>
 
             <div class="dashboard__tabs">
-                <p class="dashboard__mail">example@mail.com</p>
+                <p class="dashboard__mail">{{userData.email}}</p>
                 <v-tabs v-model="active" centered class="dashboard__tabs-group"
                         color="#F4F4F4" slider-color="#08BA4D">
                     <v-tab class="dashboard__tab-item text-capitalize"
@@ -72,8 +72,49 @@
         data() {
             return {
                 active: null,
+                userToken: this.$store.state.userToken,
+                userProfileData: '',//this.$store.state.userData.userProfileData,
+                userData: ''//this.$store.state.userData.userdata
             }
         },
+
+        created() {
+
+            this.userLoginData();
+        },
+
+        methods: {
+
+            userLoginData (){
+
+              let self = this;
+              this.$axios
+                .get(`http://127.0.0.1:8000/user/authenticateUser/?id=${self.$store.state.userId}`, {
+
+                    headers: {
+                        "X-CSRFToken": '${self.$store.state.userAuthData.token}',
+                        Authorization: `token ${self.$store.state.userToken}`
+                    }
+
+                })
+                .then(response => {
+
+                    self.$store.dispatch('commitSaveUserData', response.data);
+                    self.userProfileData = self.$store.state.userData.userProfileData;
+                    self.userData = self.$store.state.userData.userdata;
+                    console.log(response.data);
+                    console.log(this.$store.state.userData);
+
+
+                })
+                .catch(error => {
+                    console.log(eror);
+
+                    //  this.errorMessage()
+                })
+            }
+
+        }
     }
 </script>
 

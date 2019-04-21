@@ -3,10 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="254c5ddb-73f6-458a-9ab8-c3b7bf45ac32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Dashboard/Plugin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Dashboard/Plugin.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Layout/EditProfile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Layout/EditProfile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Layout/Modal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Layout/Modal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Dashboard/Transactions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Dashboard/Transactions.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Form/LoginForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Form/LoginForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Form/RegisterForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Form/RegisterForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/Dashboard.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -70,10 +75,33 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/Modal.vue">
+            <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/EditProfile.vue">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="775">
-                  <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
+                <state relative-caret-position="669">
+                  <caret line="158" column="57" selection-start-line="158" selection-start-column="57" selection-end-line="158" selection-end-column="57" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/src/components/Dashboard/Plugin.vue">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="322">
+                  <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="93" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="140">
+                  <caret line="120" column="27" selection-start-line="120" selection-start-column="27" selection-end-line="120" selection-end-column="27" />
+                  <folding>
+                    <element signature="n#style#0;n#v-btn#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#v-btn#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#v-btn#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -146,6 +174,16 @@
         <option value="$PROJECT_DIR$/frontend/src/store.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Layout/EditProfile.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/Layout/Modal.vue" />
+        <option value="$PROJECT_DIR$/frontend/public/index.html" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Form/LoginForm.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Form/RegisterForm.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Dashboard/Transactions.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/App.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Dashboard/Plugin.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/views/Dashboard.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Layout/EditProfile.vue" />
       </list>
     </option>
   </component>
@@ -524,7 +562,9 @@
         <state relative-caret-position="545">
           <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
           <folding>
-            <element signature="n#style#0;n#router-view#0;n#transition#0;n#v-app#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-divider#0;n#div#0;n#v-toolbar-items#0;n#div#0;n#v-toolbar#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-divider#0;n#div#1;n#v-toolbar-items#0;n#div#0;n#v-toolbar#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-list-tile-title#0;n#v-list-tile#0;n#v-list#0;n#v-menu#0;n#v-toolbar-items#0;n#div#0;n#v-toolbar#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -534,7 +574,12 @@
         <state relative-caret-position="411">
           <caret line="228" selection-start-line="228" selection-end-line="229" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-tab#0;n#v-tabs#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-tab#1;n#v-tabs#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-tab#2;n#v-tabs#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-tab#0;n#v-tabs#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-tab#1;n#v-tabs#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-tab#2;n#v-tabs#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
