@@ -1,86 +1,88 @@
 <template>
+
     <v-dialog v-model="$parent.editProfile" max-width="882" class="modal__container">
+
         <v-card class="modal__wrapper">
-            <form>
-                <div class="edit__title">
-                    <h2>Edit Profile</h2>
+            <div class="form__group">
+                <p>Email:</p>
+                <input type="text" v-model="email">
+            </div>
+
+
+            <div class="edit__form-group">
+                <div class="edit__form">
+                    <h2 class="edit__form-title">Personal Data</h2>
+
+                    <label class="edit__form-label">
+                        Full name
+                        <input type="text" v-model="name" class="edit__form-input" placeholder="John Doe">
+                    </label>
+
+                    <label class="edit__form-label">
+                        Email Address
+                        <input type="text" v-model="email" class="edit__form-input"
+                               placeholder="example@mail.com">
+                    </label>
+
+                    <label class="edit__form-label">
+                        Webshop link
+                        <input type="text" v-model="link" class="edit__form-input"
+                               placeholder="https://www.john.com">
+                    </label>
                 </div>
 
-                <div class="edit__form-group">
-                    <div class="edit__form">
-                        <h2 class="edit__form-title">Personal Data</h2>
+                <div class="edit__form">
+                    <h2 class="edit__form-title">Address Data</h2>
 
+                    <label class="edit__form-label">
+                        Country
+                        <input type="text" v-model="country" class="edit__form-input" placeholder="England">
+                    </label>
+
+                    <div class="label__group">
                         <label class="edit__form-label">
-                            Full name
-                            <input type="text" v-model="name" class="edit__form-input" placeholder="John Doe">
+                            City
+                            <input type="text" v-model="city" class="edit__form-input" placeholder="London">
                         </label>
 
                         <label class="edit__form-label">
-                            Email Address
-                            <input type="text" v-model="email" class="edit__form-input"
-                                   placeholder="example@mail.com">
-                        </label>
-
-                        <label class="edit__form-label">
-                            Webshop link
-                            <input type="text" v-model="link" class="edit__form-input"
-                                   placeholder="https://www.john.com">
+                            ZIP-code
+                            <input type="text" v-model="zipcode" class="edit__form-input edit__form-small"
+                                   placeholder="1000 AA">
                         </label>
                     </div>
 
-                    <div class="edit__form">
-                        <h2 class="edit__form-title">Address Data</h2>
-
+                    <div class="label__group">
                         <label class="edit__form-label">
-                            Country
-                            <input type="text" v-model="country" class="edit__form-input" placeholder="England">
+                            Street
+                            <input type="text" v-model="street" class="edit__form-input" placeholder="Avenue Road">
                         </label>
 
-                        <div class="label__group">
-                            <label class="edit__form-label">
-                                City
-                                <input type="text" v-model="city" class="edit__form-input" placeholder="London">
-                            </label>
-
-                            <label class="edit__form-label">
-                                ZIP-code
-                                <input type="text" v-model="zipcode" class="edit__form-input edit__form-small"
-                                       placeholder="1000 AA">
-                            </label>
-                        </div>
-
-                        <div class="label__group">
-                            <label class="edit__form-label">
-                                Street
-                                <input type="text" v-model="street" class="edit__form-input" placeholder="Avenue Road">
-                            </label>
-
-                            <label class="edit__form-label">
-                                Housenumber
-                                <input type="number" v-model="number" class="edit__form-input edit__form-small"
-                                       placeholder="10">
-                            </label>
-                        </div>
+                        <label class="edit__form-label">
+                            Housenumber
+                            <input type="number" v-model="number" class="edit__form-input edit__form-small"
+                                   placeholder="10">
+                        </label>
                     </div>
                 </div>
 
-                <div class="form__button-wrapper">
-                    <button class="form__button button__back"
-                            @click.prevent="[!formActive ? $parent.closeEdit() :  '']">Cancel
-                    </button>
-
-                    <button class="form__button button__save" @click.prevent="sendForm()">
-                        <span v-if="formActive">
-                            <v-progress-circular indeterminate color="white"></v-progress-circular>
-                        </span>
-
-                        <span v-else>
-                            Save Changes
-                        </span>
-                    </button>
+                <div class="form__group">
+                    <input @click.prevent="updateProfile()" class="form__button" type="submit" value="Update">
                 </div>
-            </form>
+                <br>
+                <div class="form__group">
+                    <input @click.prevent="deleteAccount()" class="form__button" type="submit"
+                           value="Delete Account">
+                </div>
+                <br>
 
+
+                <v-card-actions>
+                    <v-btn color="green darken-1" flat="flat"
+                           @click="$parent.edit = false">
+                        OK
+                    </v-btn>
+                </v-card-actions>
         </v-card>
     </v-dialog>
 </template>
@@ -91,16 +93,15 @@
 
         data() {
             return {
-                name: '',
-                email: '',
+
+                email: this.$store.state.userData.userdata.email,
                 password: '',
                 passwordExtra: '',
-                country: '',
-                city: '',
-                zipcode: '',
-                street: '',
-                number: '',
-                link: '',
+                country: this.$store.state.userData.userProfileData.country,
+                city: this.$store.state.userData.userProfileData.city,
+                zipcode: this.$store.state.userData.userProfileData.zipcode,
+                street: this.$store.state.userData.userProfileData.street,
+                number: this.$store.state.userData.userProfileData.number,
                 send: null,
                 formActive: false,
                 edit: false,
@@ -108,22 +109,28 @@
         },
 
         methods: {
-            sendForm() { //Checkt of de velden leeg zijn en of de ww hetzelfde is
+
+            updateProfile() { //Checkt of de velden leeg zijn en of de ww hetzelfde is
                 this.formActive = true
                 let message = {title: 'Oops... Something went wrong!', text: 'Try again later.'}
                 if (this.email !== '' && this.country !== '' && this.city !== '' && this.zipcode !== '' &&
                     this.street !== '' && this.number !== '' && this.name !== '' && this.link !== '') {
 
+
                     this.$axios
-                        .post('https://shaif.nl/lego-toyfinder/mail/index.php', {
-                            name: this.name,
-                            email: this.email,
-                            country: this.country,
-                            city: this.city,
-                            zipcode: this.zipcode,
-                            street: this.street,
-                            number: this.number,
-                            link: this.link,
+                        .post('http://127.0.0.1:8000/accounts/updateAccount/', {
+                            body: {
+                                id: this.$store.state.userId,
+                                email: this.email,
+                                password: this.password,
+                                country: this.country,
+                                city: this.city,
+                                zipcode: this.zipcode,
+                                street: this.street,
+                                number: this.number
+                            },
+
+                            header: {"X-CSRFToken": `token ${this.$store.state.userToken}`,}
                         })
                         .then(response => {
                             if (response) {
@@ -136,16 +143,35 @@
                         .catch(error => {
                             console.log(error)
                         })
+
+                    this.$parent.closeEdit(message)
+                    this.formActive = false
                 }
-
-                this.$parent.closeEdit(message)
-                this.formActive = false
             },
+        },
 
-            deleteAccount() {
-                let modal = {message: 'Your account has been deleted successfully', status: true}
-                this.$store.commit('modalStatus', modal)
-            }
+        deleteAccount() {
+            let modal = {message: 'Your account has been deleted successfully', status: true}
+            this.$store.commit('modalStatus', modal)
+            this.$axios
+                .post('http://127.0.0.1:8000/accounts/deleteAccount/', {
+                    body: {
+                        id: this.$store.state.userId,
+                        password: this.password
+                    },
+
+                    header: {"X-CSRFToken": `token ${this.$store.state.userToken}`,}
+                })
+                .then(response => {
+                    if (response) {
+                        this.$parent.dialogSuccess = true
+                        console.log(response);
+
+                    }
+                })
+                .catch(error => {
+                    this.$parent.dialogError = true
+                })
         }
 
     }

@@ -15,8 +15,8 @@
                         <v-icon class="icon-test" medium color="##2F2F2F">home</v-icon>
 
                         <div class="card__content-text">
-                            <p>John Doe</p>
-                            <p>example@mail.com</p>
+                            <p>{{userData.username}}</p>
+                            <p>{{userData.email}}</p>
                         </div>
                     </div>
 
@@ -24,9 +24,9 @@
                         <v-icon class="icon-test" medium color="##2F2F2F">home</v-icon>
 
                         <div class="card__content-text">
-                            <p>England</p>
-                            <p>London, 1000 AA</p>
-                            <p>Avenue Road 10</p>
+                            <p>{{userProfileData.country}}</p>
+                            <p>{{userProfileData.city}}, {{userProfileData.zipcode}}</p>
+                            <p>{{userProfileData.street}} {{userProfileData.number}}</p>
                         </div>
                     </div>
 
@@ -90,10 +90,27 @@
                 editProfile: false,
                 editPassword: false,
                 deleteAccount: false,
+
+                /*twee onderst data gebruiken alleen na dat de profile component 
+                geladen(created en mounted) is*/
+                userProfileData: this.$store.state.userData.userProfileData,
+                userData: this.$store.state.userData.userdata
+
             }
         },
 
+        created(){
+            
+        },
+
+        mounted(){
+
+            this.$store.commit('saveUserData');
+
+        },
+
         methods: {
+
             closeEdit(message){
                 this.editProfile = false
                 this.editPassword = false
@@ -103,6 +120,7 @@
                     this.$store.commit('modalStatus', {message})
                 }
             }
+
         }
     }
 </script>
