@@ -63,11 +63,59 @@ from rest_framework.status import (
 #     return render(request, 'accounts/signup.html', context)
 
 
+def userToken(request, user):
+    if user:
+        token, _ = Token.objects.get_or_create(user=user)
+        return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
+    else:
+        print('error:false')
+
+
 @csrf_exempt
 @api_view(['POST'])
 @permission_classes((AllowAny,))
 def signup(reequest):
-    pass
+    try:
+        # get login data from webshop user form
+        username = request.data['body']['username']
+        email = request.data['body']['email']
+        password = request.data['body']['password']
+        sort = request.data['body']['sort']#determine if user is a merchant(webshop) of a ninja(normal user)
+        #webshop address data
+        country = request.data['body']['country']
+        userId = request.data['body']['id']
+        city = request.data['body']['city']
+        zipcode = request.data['body']['zipcode']
+        street = request.data['body']['street']
+        number = request.data['body']['number']
+    except:
+        # get login data from ninja user form
+        username = request.data['body']['username']
+        email = request.data['body']['email']
+        password = request.data['body']['password']
+        sort = request.data['body']['sort']  # determine if user is a merchant(webshop) of a ninja(normal user)
+
+    if request.user is not None:
+        User.objects.create_user(username=username, email=email, password=password)
+        user = authenticate(username=username, password=password)
+        if sort == 'webshop':
+            WebshopProfile.objects.create(
+                user=user,
+                user_status=sort,
+                country=country,
+                city=city,
+                zipCode=zipcode,
+                street=street,
+                number=number
+            )
+            userToken(request, user)
+        else:
+            NinjaProfile.objects.create(user=user, user_status=user_status, user_points=0)
+            userToken(request, user)
+
+    else:
+        pass
+        #user is None
     
 
 
@@ -100,22 +148,15 @@ def signin(request):
 
     currentUser = User.objects.get(email=email)
     #check of the given user email exist in the database
-    # user_email = User.objects.filter(email=email).count()
 
     #if email exist return email value else throw error
     if checkEmail(request, email) != 0:
         #verify if the user given password is correct
-        # check_pass = currentUser.check_password(password)  # check_pass return a boolean
         if checkPassword(request, password, currentUser.id):
             #check of user login data has a record in the database
             username = User.objects.get(email=email).username
             user = authenticate(username=username, password=password)
-            if user:
-                token, _ = Token.objects.get_or_create(user=user)
-                return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
-               
-            else:
-                print('error:false')
+            userToken(request, user)
         else:
             passwordContext = {
                 'authenticate': False,
