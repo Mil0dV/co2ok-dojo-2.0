@@ -44,7 +44,7 @@
                 <br>
 
                 <div class="form__group">
-                    <input @click.prevent="sendForm()" class="form__button" type="submit" value="Update">
+                    <input @click.prevent="updateProfile()" class="form__button" type="submit" value="Update">
                 </div>
                 <br>
                 <div class="form__group">
@@ -74,14 +74,15 @@
 
         data() {
             return {
-                email: '',
+
+                email: this.$store.state.userData.userdata.email,
                 password: '',
                 passwordExtra: '',
-                country: '',
-                city: '',
-                zipcode: '',
-                street: '',
-                number: '',
+                country: this.$store.state.userData.userProfileData.country,
+                city: this.$store.state.userData.userProfileData.city,
+                zipcode: this.$store.state.userData.userProfileData.zipcode,
+                street: this.$store.state.userData.userProfileData.street,
+                number: this.$store.state.userData.userProfileData.number,
                 send: null,
                 formError: false,
                 edit: false,
@@ -89,39 +90,71 @@
         },
 
         methods: {
-            // sendForm() { //Checkt of de velden leeg zijn en of de ww hetzelfde is
-            //     if (this.email !== '' && this.password !== '' && this.passwordExtra !== '' && this.country !== ''
-            //         && this.city !== '' && this.zipcode !== '' && this.street !== '' && this.number !== ''
-            //         && this.password === this.passwordExtra) {
-            //
-            //         let modal = {message : 'Your changes had been saved', status: true}
-            //         this.$store.commit('modalStatus', modal)
-            //
-            //         //TODO Comment dit uit als je aan de koppeling werkt en wijzig het url naar de juiste url
-            //         //TODO: De bedoeling van deze component is dat de data gewijzigd wordt. Dus de data moet je wizjigen
-            //         // this.$axios
-            //         //     .post('https://shaif.nl/lego-toyfinder/mail/index.php', {
-            //         //         email: this.email,
-            //         //         favorites: this.password,
-            //         //     })
-            //         //     .then(response => {
-            //         //         if (response) {
-            //         //            this.$parent.dialogSuccess = true
-            //         //         }
-            //         //     })
-            //         //     .catch(error => {
-            //         //        this.$parent.dialogError = true
-            //         //     })
-            //     } else {
-            //         let modal = {message : 'Something went wrong...', status: true}
-            //         this.$store.commit('modalStatus', modal)
-            //     }
-            // },
-            //
-            // deleteAccount(){
-            //     let modal = {message : 'Your account has been deleted successfully', status: true}
-            //     this.$store.commit('modalStatus', modal)
-            // }
+            updateProfile() { //Checkt of de velden leeg zijn en of de ww hetzelfde is
+                if (this.email !== '' && this.password !== '' && this.country !== ''
+                    && this.city !== '' && this.zipcode !== '' && this.street !== '' && this.number !== ''
+                    ) {
+            
+                    let modal = {message : 'Your changes had been saved', status: true}
+                    this.$store.commit('modalStatus', modal)
+            
+                    //TODO Comment dit uit als je aan de koppeling werkt en wijzig het url naar de juiste url
+                    //TODO: De bedoeling van deze component is dat de data gewijzigd wordt. Dus de data moet je wizjigen
+                    this.$axios
+                        .post('http://127.0.0.1:8000/accounts/updateAccount/', {
+                            body: {
+                               id: this.$store.state.userId,
+                               email: this.email,
+                               password: this.password,
+                               country: this.country,
+                               city: this.city,
+                               zipcode: this.zipcode,
+                               street: this.street,
+                               number: this.number
+                            },
+
+                            header: {"X-CSRFToken": `token ${this.$store.state.userToken}`,}
+                        })
+                        .then(response => {
+                            if (response) {
+                               this.$parent.dialogSuccess = true
+                               console.log(response);
+                               
+                            }
+                        })
+                        .catch(error => {
+                           this.$parent.dialogError = true
+                        })
+                } else {
+                    let modal = {message : 'Something went wrong...', status: true}
+                    this.$store.commit('modalStatus', modal)
+                }
+            },
+            
+            deleteAccount(){
+                alert();
+                let modal = {message : 'Your account has been deleted successfully', status: true}
+                this.$store.commit('modalStatus', modal)
+                this.$axios
+                   .post('http://127.0.0.1:8000/accounts/deleteAccount/', {
+                       body: {
+                          id: this.$store.state.userId,
+                          password: this.password
+                       },
+
+                       header: {"X-CSRFToken": `token ${this.$store.state.userToken}`,}
+                   })
+                   .then(response => {
+                       if (response) {
+                          this.$parent.dialogSuccess = true
+                          console.log(response);
+                          
+                       }
+                   })
+                   .catch(error => {
+                      this.$parent.dialogError = true
+                   })
+            }
         }
 
     }
