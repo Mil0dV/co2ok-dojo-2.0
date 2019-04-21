@@ -9,21 +9,18 @@
         </p>
 
 
-            <v-radio-group class="plugin__col-1"  v-model="radioGroup" row>
-                <div class="plugin__design design-1">
-                    <p class="design-title">Select Design</p>
-                    <v-radio label="Option 1" color="#10DC87" value="radio-1"></v-radio>
+        <v-radio-group class="plugin__col-1" v-model="radioGroup" row>
+            <div class="plugin__design design-1">
+                <p class="design-title">Select Design</p>
+                <v-radio label="Option 1" color="#10DC87" value="radio-1"></v-radio>
 
-                </div>
+            </div>
 
-                <div class="plugin__design design-2">
-                    <p class="design-title">Select Design</p>
-                    <v-radio label="Option 2" color="#10DC87"  value="radio-2"></v-radio>
-                </div>
-            </v-radio-group>
-
-
-
+            <div class="plugin__design design-2">
+                <p class="design-title">Select Design</p>
+                <v-radio label="Option 2" color="#10DC87" value="radio-2"></v-radio>
+            </div>
+        </v-radio-group>
 
 
         <div class="plugin__col-2">
@@ -51,7 +48,7 @@
 
                 <div class="col-2__switch">
                     <p class="col-2__switch-text switch__text-1">Send Email</p>
-                    <v-switch class="switch__option"  color="#10DC87"
+                    <v-switch class="switch__option" color="#10DC87"
                               v-model="switchEmail"
                     ></v-switch>
                     <p class="col-2__switch-text switch__text-2">{{switchEmail}}</p>
@@ -97,7 +94,6 @@
     .plugin__container {
         min-width: 1146px;
         width: 100%;
-        height: 691px;
         display: flex;
         background: #FFFFFF;
         flex-direction: column;
@@ -136,14 +132,14 @@
         border-bottom: 1px solid #E2E2E2;
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
     }
 
 
     .plugin__design {
         border: 1px solid red;
-        max-width: 410px !important;
+        max-width: 410px;
         width: 100%;
     }
 
@@ -152,6 +148,21 @@
         font-size: 10px;
 
     }
+
+    .v-input--radio-group__input{
+        width: 100%;
+        border: 5px solid red;
+        max-width: 410px !important;
+    }
+
+    v-input--radio-group--row .v-input--radio-group__input {
+        justify-content: space-between;
+    }
+
+    .v-input--selection-controls .v-input__control {
+        width: 100% !important;
+    }
+
 
     .plugin__col-2 {
         display: flex;
@@ -192,7 +203,7 @@
         font-family: 'Poppins', sans-serif;
         font-size: 16px;
         font-weight: 800;
-        color:#111111;
+        color: #111111;
         margin: 0;
         padding: 0;
     }
@@ -204,5 +215,6 @@
     .switch__text-2 {
         margin-left: 24px;
     }
+
 
 </style>
