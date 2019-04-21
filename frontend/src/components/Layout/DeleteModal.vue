@@ -43,25 +43,33 @@
         },
 
         methods: {
-            deleteAccount(){
-                let message = {title: 'Oops... Something went wrong!', text: 'Try again later.'}
-
+         
+            deleteAccount() {
+                let modal = {message: 'Your account has been deleted successfully', status: true}
+                this.$store.commit('modalStatus', modal)
                 this.$axios
-                    .post('https://shaif.nl/lego-toyfinder/mail/index.php', {
-                        delete: true
+                    .post('http://127.0.0.1:8000/accounts/deleteAccount/', {
+                        body: {
+                            id: this.$store.state.userId
+                            // password: this.password
+                        },
+
+                        header: {"X-CSRFToken": `token ${this.$store.state.userToken}`,}
                     })
                     .then(response => {
-                        if (response) {
-                            message = {
-                                title: 'Deleted Account Succcessfully!',
-                                text: 'You can always create a new account.'
-                            }
+                        if (response.data.delete) {
+                            this.$store.dispatch('commitRemoveLocalUserData')
+                            this.$router.push('login')
+                            this.$parent.dialogSuccess = true
+                            console.log(response);
+
                         }
                     })
                     .catch(error => {
-                        console.log(error)
+                        this.$parent.dialogError = true
                     })
             }
+
         }
     }
 </script>

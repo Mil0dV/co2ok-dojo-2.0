@@ -50,7 +50,7 @@ export default new Vuex.Store({
                         state.userData = '';
                         state.userData = response.data;
                     }
-                    // console.log(response.data);
+                    console.log(response.data);
                 })
                 .catch(error => {
                     console.log(error);
@@ -70,10 +70,9 @@ export default new Vuex.Store({
         },
 
         removeLocalUserData(state){
-            let localData = state.userAuthLocalData;
-            localData.forEach(data => {
-                window.localStorage.removeItem(data);
-            });
+            window.localStorage.removeItem('userToken');
+            window.localStorage.removeItem('userId');
+            state.userData = '';
         }
 
     },
@@ -85,6 +84,10 @@ export default new Vuex.Store({
 
         commitRemoveLocalUserData(store, data){
             store.commit('removeLocalUserData', data);
+        },
+
+        commitRemoveLocalUserData(store){
+            store.commit('removeLocalUserData');
         }
 
         // commitSaveUserData(store, data){
