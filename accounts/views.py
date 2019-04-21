@@ -19,6 +19,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from django.core import serializers
 from .serializers import UserSerializer
+from django.contrib.auth.hashers import make_password
 from rest_framework.status import (
     HTTP_400_BAD_REQUEST,
     HTTP_404_NOT_FOUND,
@@ -108,7 +109,12 @@ def signup(reequest):
                 street=street,
                 number=number
             )
-            userToken(request, user)
+            # userToken(request, user)
+            if user:
+                token, _ = Token.objects.create(user=user)
+                return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
+            else:
+                print('error:false')
         else:
             NinjaProfile.objects.create(user=user, user_status=user_status, user_points=0)
             userToken(request, user)
@@ -146,17 +152,22 @@ def signin(request):
         password = request.POST.get('password')
         sort = request.POST.get('sort')
 
-    currentUser = User.objects.get(email=email)
     #check of the given user email exist in the database
 
     #if email exist return email value else throw error
     if checkEmail(request, email) != 0:
         #verify if the user given password is correct
+        currentUser = User.objects.get(email=email)
         if checkPassword(request, password, currentUser.id):
             #check of user login data has a record in the database
             username = User.objects.get(email=email).username
             user = authenticate(username=username, password=password)
-            userToken(request, user)
+            # userToken(request, user)
+            if user:
+                token, _ = Token.objects.get_or_create(user=user)
+                return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
+            else:
+                print('error:false')
         else:
             passwordContext = {
                 'authenticate': False,
@@ -179,7 +190,7 @@ def updateAccount(request):
     try:
         # get login data from frontend
         email = request.data['body']['email']
-        password = request.data['body']['password']
+        # password = request.data['body']['password']
         country = request.data['body']['country']
         userId = request.data['body']['id']
         city = request.data['body']['city']
@@ -188,7 +199,7 @@ def updateAccount(request):
         number = request.data['body']['number']
     except:
         email = request.POST.get('email')
-        password = request.POST.get('password')
+        # password = request.POST.get('password')
         country = request.POST.get('country')
         userId = request.POST.get('id')
         city = request.POST.get('city')
@@ -197,29 +208,30 @@ def updateAccount(request):
         number = request.POST.get('number')
 
     #check if user password is correct before updating user data
-    if checkPassword(request, password, userId):
+    # if checkPassword(request, password, userId):
        
-        #update user email
-        User.objects.filter(id=userId).update(email=email)
-        #update profile data
-        WebshopProfile.objects.filter(user_id=userId).update(
-            country=country,
-            city=city,
-            zipCode=zipcode,
-            street=street,
-            number=number
-        )
-        success = {
-            'update': True,
-            'msg': 'Profile data succesfully updated'
-        }
-        return Response(context)
-    else:
-        error = {
-            'update': False,
-            'msg': 'Wrong passdword'
-        }
-        return Response(error)
+    #update user email
+    User.objects.filter(id=userId).update(email=email)
+    #update profile data
+    WebshopProfile.objects.filter(user_id=userId).update(
+        country=country,
+        city=city,
+        zipCode=zipcode,
+        street=street,
+        number=number
+    )
+    success = {
+        'update': True,
+        'msg': 'Profile data succesfully updated'
+    }
+    return Response(success)
+    
+    # else:
+    #     error = {
+    #         'update': False,
+    #         'msg': 'Wrong passdword'
+    #     }
+    #     return Response(error)
 
 
 @csrf_exempt
@@ -236,14 +248,21 @@ def updatePassword(request):
         newPassword = request.POST.get('newPassword')
         userId = request.POST.get('id')
 
-    if checkPassword(request, currentPassword, userId):
-        user = User.objects.get(id=userId)
+    # if checkPassword(request, currentPassword, userId):
+    print(currentPassword)
+    print(newPassword)
+    user = User.objects.get(id=userId)
+    if user.check_password(currentPassword):
         #update password
         user.set_password(newPassword)
+        user.save()
+        # userPass = User.objects.filter(id=userId)
+        # userPass.update(password=make_password(newPassword))
         success = {
             'update': True,
             'msg': 'Password succesfully updated'
         }
+        return Response(success)
     else:
         error = {
             'update': False,
@@ -259,36 +278,35 @@ def updatePassword(request):
 def deleteAccount(request):
     try:
         # get login data from frontend
-        password = request.data['body']['password']
+        # password = request.data['body']['password']
         userId = request.data['body']['id']
     except:
-        password = request.POST.get('password')
+        # password = request.POST.get('password')
         userId = request.POST.get('id')
 
-    if checkPassword(request, password, userId):
-        try:
-            user = User.objects.get(id=userId)
-            user.delete()
-            success: {
-                'delete': True,
-                'msg': 'Account succesfully deleted'
-            }
-            return Response(success)
-        except User.DoesNotExist:
-            error = {
-            'delete': False,
-            'msg': "This user don't exist"
-            }
-            return Response(error)
-        except Exception as e:
-            return Response(e.message)
-
-    else:
+    # if checkPassword(request, password, userId):
+    try:
+        user = User.objects.filter(id=userId)
+        user.delete()
+        success: {
+            'delete': True,
+            'msg': 'Account succesfully deleted'
+        }
+        return Response(success)
+    except User.DoesNotExist:
         error = {
-            'delete': False,
-            'msg': 'Wrong password'
+        'delete': False,
+        'msg': "This user don't exist"
         }
         return Response(error)
+    
+
+    # else:
+    #     error = {
+    #         'delete': False,
+    #         'msg': 'Wrong password'
+    #     }
+    #     return Response(error)
 
 
 

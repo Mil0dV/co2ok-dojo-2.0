@@ -36,7 +36,7 @@ class UserView(viewsets.ModelViewSet):
         user = self.get_queryset().get(pk=userId)
         serializer = self.get_serializer_class()(user)
         #get current user profile data
-        profile = Profile.objects.get(user_id=user.id)
+        profile = Profile.objects.get(user_id=userId)
         context = {
             'userdata': serializer.data,
             'userProfileData': {
