@@ -13,9 +13,9 @@ export default new Vuex.Store({
 
     mutations: {
         modalStatus(state, payload) {
-            if (payload.status === true) {
+            if(!state.modalStatus) {
                 state.modalStatus = true
-                state.modalMessage = payload
+                state.modalMessage = payload.message
             } else {
                 state.modalStatus = false
             }
@@ -26,7 +26,5 @@ export default new Vuex.Store({
         }
     },
 
-    actions: {
-
-    }
+    actions: {}
 })

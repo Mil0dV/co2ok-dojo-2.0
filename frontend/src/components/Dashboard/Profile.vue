@@ -87,7 +87,12 @@
             }
         },
 
-
+        methods: {
+            closeEdit(message){
+                this.edit = false
+                this.$store.commit('modalStatus', {message})
+            }
+        }
     }
 </script>
 
