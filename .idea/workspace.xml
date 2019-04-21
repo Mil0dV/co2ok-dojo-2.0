@@ -4,9 +4,7 @@
     <list default="true" id="254c5ddb-73f6-458a-9ab8-c3b7bf45ac32" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Layout/EditProfile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Layout/EditProfile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Layout/Modal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Layout/Modal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Layout/EditProfile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Layout/ProfileModal.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,28 +16,37 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.64309764">
+    <splitter split-orientation="horizontal" split-proportion="0.59565806">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/EditProfile.vue">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="407">
-                  <caret line="271" column="17" lean-forward="true" selection-start-line="271" selection-start-column="17" selection-end-line="274" selection-end-column="5" />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="736">
-                  <caret line="92" column="51" selection-start-line="92" selection-start-column="51" selection-end-line="92" selection-end-column="51" />
+                <state relative-caret-position="1210">
+                  <caret line="92" column="13" lean-forward="true" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
                   <folding>
                     <element signature="n#style#0;n#v-btn#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#v-btn#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#v-btn#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/ProfileModal.vue">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret line="104" column="33" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="33" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/DeleteModal.vue">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="384">
+                  <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
                 </state>
               </provider>
             </entry>
@@ -70,10 +77,10 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/Modal.vue">
+            <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/DeleteModal.vue">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="775">
-                  <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
+                <state relative-caret-position="913">
+                  <caret line="147" column="21" selection-start-line="147" selection-start-column="21" selection-end-line="147" selection-end-column="21" />
                 </state>
               </provider>
             </entry>
@@ -101,6 +108,9 @@
       <find>login__subm</find>
       <find>formError</find>
       <find>this.$store.state</find>
+      <find>Transition</find>
+      <find>send</find>
+      <find>edit</find>
     </findStrings>
     <replaceStrings>
       <replace>lang</replace>
@@ -142,18 +152,22 @@
         <option value="$PROJECT_DIR$/frontend/src/App.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/Dashboard/Plugin.vue" />
         <option value="$PROJECT_DIR$/frontend/src/views/Dashboard.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue" />
         <option value="$PROJECT_DIR$/frontend/src/store.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/Layout/EditProfile.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/Layout/Modal.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Layout/EditProfile.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Layout/EditPassword.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Layout/ProfileModal.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Layout/PasswordModal.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Layout/DeleteModal.vue" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1526" />
-    <option name="y" value="-175" />
+    <option name="x" value="1586" />
+    <option name="y" value="-159" />
     <option name="width" value="1799" />
-    <option name="height" value="1310" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -230,19 +244,19 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2018.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\images\nav" />
-      <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\images\misc" />
-      <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\romy" />
-      <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets" />
-      <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\components\Dashboard" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\components\Layout" />
       <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\images\dashboard" />
       <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\images\nav" />
       <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\images\register" />
       <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\images\nav" />
+      <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\images\misc" />
+      <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets\romy" />
+      <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\assets" />
+      <recent name="C:\Users\shaif\Documents\GitHub\co2ok-dojo-2.0\frontend\src\components\Dashboard" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -285,39 +299,17 @@
       <workItem from="1555310083895" duration="24551000" />
       <workItem from="1555482629150" duration="41805000" />
       <workItem from="1555684063026" duration="15008000" />
-      <workItem from="1555838255631" duration="4428000" />
+      <workItem from="1555838255631" duration="7961000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113744000" />
+    <option name="totallyTimeSpent" value="117277000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1913" y="-158" width="1819" height="1178" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.17283951" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Gulp" order="2" side_tool="true" />
-      <window_info id="npm" order="3" side_tool="true" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="TypeScript" order="0" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.32941177" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.32905138" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5011389" side_tool="true" weight="0.3277592" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49886104" weight="0.3254902" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17283951" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="2" side_tool="true" />
@@ -338,7 +330,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -546,6 +538,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/Modal.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1210">
+          <caret line="92" column="13" lean-forward="true" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#v-btn#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-btn#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-btn#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/PasswordModal.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="180" selection-start-line="180" selection-end-line="187" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/store.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -556,29 +574,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue">
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/ProfileModal.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="92" column="51" selection-start-line="92" selection-start-column="51" selection-end-line="92" selection-end-column="51" />
-          <folding>
-            <element signature="n#style#0;n#v-btn#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#v-btn#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#v-btn#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
+        <state>
+          <caret line="104" column="33" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/EditProfile.vue">
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/DeleteModal.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="271" column="17" lean-forward="true" selection-start-line="271" selection-start-column="17" selection-end-line="274" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/Modal.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
+        <state relative-caret-position="384">
+          <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
         </state>
       </provider>
     </entry>

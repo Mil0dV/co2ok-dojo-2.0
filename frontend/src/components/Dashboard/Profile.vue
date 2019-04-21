@@ -46,21 +46,21 @@
 
                     <div class="card__content-inner card__reset">
                         <v-btn class="text-capitalize card__items card__extension"
-                               style="height: 42px;" @click="edit = true"
+                               style="height: 42px;" @click="editProfile = true"
                                :ripple="false" flat>Edit Profile
                         </v-btn>
                     </div>
 
                     <div class="card__content-inner card__reset">
                         <v-btn class="text-capitalize card__items card__extension"
-                               style="height: 42px;"
+                               style="height: 42px;" @click="editPassword = true"
                                :ripple="false" flat>Change Password
                         </v-btn>
                     </div>
 
                     <div class="card__content-inner card__reset card__content-final">
                         <v-btn class="text-capitalize card__items card__extension"
-                               style="height: 42px;"
+                               style="height: 42px;" @click="deleteAccount = true"
                                :ripple="false" flat>Delete Account
                         </v-btn>
                     </div>
@@ -68,29 +68,40 @@
             </div>
         </div>
 
-        <EditProfile :editStatus="edit"/>
+        <ProfileModal/>
+        <PasswordModal/>
+        <DeleteModal/>
     </div>
 </template>
 
 <script>
-    const EditProfile = () => import('@/components/Layout/EditProfile')
+    const ProfileModal = () => import('@/components/Layout/ProfileModal')
+    const PasswordModal = () => import('@/components/Layout/PasswordModal')
+    const DeleteModal = () => import('@/components/Layout/DeleteModal')
 
     export default {
         name: "Profile",
         components: {
-            EditProfile
+            ProfileModal, PasswordModal, DeleteModal
         },
 
         data() {
             return {
-                edit: false,
+                editProfile: false,
+                editPassword: false,
+                deleteAccount: false,
             }
         },
 
         methods: {
             closeEdit(message){
-                this.edit = false
-                this.$store.commit('modalStatus', {message})
+                this.editProfile = false
+                this.editPassword = false
+                this.deleteAccount = false
+
+                if(message){
+                    this.$store.commit('modalStatus', {message})
+                }
             }
         }
     }

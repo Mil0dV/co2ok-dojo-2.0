@@ -1,5 +1,5 @@
 <template>
-    <v-dialog v-model="$parent.edit" max-width="882" class="modal__container">
+    <v-dialog v-model="$parent.editProfile" max-width="882" class="modal__container">
         <v-card class="modal__wrapper">
             <form>
                 <div class="edit__title">
@@ -17,7 +17,7 @@
 
                         <label class="edit__form-label">
                             Email Address
-                            <input type="password" v-model="email" class="edit__form-input"
+                            <input type="text" v-model="email" class="edit__form-input"
                                    placeholder="example@mail.com">
                         </label>
 
@@ -86,14 +86,8 @@
 </template>
 
 <script>
-    import Transition from "vuikit/src/library/modal/transition";
-
     export default {
-        name: "EditProfile",
-        components: {Transition},
-        props: {
-            editStatus: Boolean
-        },
+        name: "ProfileModal",
 
         data() {
             return {
@@ -116,16 +110,10 @@
         methods: {
             sendForm() { //Checkt of de velden leeg zijn en of de ww hetzelfde is
                 this.formActive = true
-                let message = {}
-
+                let message = {title: 'Oops... Something went wrong!', text: 'Try again later.'}
                 if (this.email !== '' && this.country !== '' && this.city !== '' && this.zipcode !== '' &&
                     this.street !== '' && this.number !== '' && this.name !== '' && this.link !== '') {
 
-                    let modal = {message: 'Your changes had been saved', status: true}
-                    this.$store.commit('modalStatus', modal)
-
-                    //TODO Comment dit uit als je aan de koppeling werkt en wijzig het url naar de juiste url
-                    //TODO: De bedoeling van deze component is dat de data gewijzigd wordt. Dus de data moet je wizjigen
                     this.$axios
                         .post('https://shaif.nl/lego-toyfinder/mail/index.php', {
                             name: this.name,
@@ -139,14 +127,15 @@
                         })
                         .then(response => {
                             if (response) {
-                                message = {title: 'Edited Profile Successfully!', text: 'Your profile data was edited successfully.'}
+                                message = {
+                                    title: 'Edited Profile Successfully!',
+                                    text: 'Your profile data was edited successfully.'
+                                }
                             }
                         })
                         .catch(error => {
-                            message = {title: 'Oops... Something went wrong!', text: 'Try again later.'}
+                            console.log(error)
                         })
-                } else {
-                    message = {title: 'Oops... Something went wrong!', text: 'Try again later.'}
                 }
 
                 this.$parent.closeEdit(message)
