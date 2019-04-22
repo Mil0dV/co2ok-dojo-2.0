@@ -92,6 +92,7 @@
 
 <style scoped>
     .plugin__container {
+        border-radius: 4px;
         min-width: 1146px;
         width: 100%;
         display: flex;

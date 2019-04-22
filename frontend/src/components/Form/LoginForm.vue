@@ -30,7 +30,7 @@
                             <input class="login__group-input" v-model="password"
                                    type="password" placeholder="Fill in you password...">
                         </label>
-                        <p @click="openModal()"
+                        <p @click="passReset = true"
                            class="login__form-header forgot__password">
                             I forgot my password
                         </p>
@@ -46,15 +46,19 @@
                 </button>
             </v-form>
         </div>
+
+        <PasswordForgotModal/>
     </div>
 </template>
 
 <script>
+    const PasswordForgotModal = () => import('@/components/Layout/PasswordForgotModal')
+
     import axios from 'axios'
     export default {
         name: 'LoginForm',
-        props: {
-            msg: String
+        components: {
+            PasswordForgotModal
         },
 
         data() {
@@ -66,7 +70,8 @@
                 emailRules: [
                     v => !!v || 'E-mail is required',
                     v => /.+@.+/.test(v) || 'E-mail must be valid'
-                ]
+                ],
+                passReset: false,
             }
         },
         created() {
@@ -79,14 +84,12 @@
                 this.$store.commit('modalStatus', modal)
             },
 
-            openModal() {
-                let modal = {
-                    message: 'Forgot your password? It happens.',
-                    body: 'Fill in your email so that we can send you a link where you can login again.',
-                    input: true,
-                    status: true
+            closeEdit(message){
+                this.passReset = false
+
+                if(message){
+                    this.$store.commit('modalStatus', {message})
                 }
-                this.$store.commit('modalStatus', modal)
             },
 
             sendForm() {
