@@ -226,6 +226,7 @@ def updateAccount(request):
     # if checkPassword(request, password, userId):
        
     #update user email
+    print(userId)
     User.objects.filter(id=userId).update(email=email)
     #update profile data
     WebshopProfile.objects.filter(user_id=userId).update(
