@@ -99,7 +99,7 @@ def signup(reequest):
     if request.user is not None:
         User.objects.create_user(username=username, email=email, password=password)
         user = authenticate(username=username, password=password)
-        if sort == 'webshop':
+        if sort == 'webshop':#is user a merchant of ninja
             WebshopProfile.objects.create(
                 user=user,
                 user_status=sort,
