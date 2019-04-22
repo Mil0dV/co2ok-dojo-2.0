@@ -5,8 +5,7 @@
             <v-icon color="#10DC87" style="transform: rotate(120deg)" large>sync</v-icon>
         </div>
 
-        <div class="tranaction__content">
-
+        <div class="transaction__content">
         </div>
 
         <div class="transaction__final">
@@ -16,11 +15,12 @@
 
                 <div class="export__buttons">
                     <button class="export__btn">
-                        <v-icon color="white" light style="font-size: 15px;">insert_drive_file</v-icon>
+                        <v-icon color="white" light style="font-size: 15px; margin-right: 8px;">insert_drive_file</v-icon>
                         PDF
                     </button>
 
                     <button class="export__btn">
+                        <v-icon color="white" light style="font-size: 15px; margin-right: 8px;">collections</v-icon>
                         .csv
                     </button>
                 </div>
@@ -117,4 +117,14 @@
         font-size: 15px;
         padding: 5px 20px;
     }
+
+    .transaction__content {
+        max-width: 900px;
+        height: 500px;
+        width: 100%;
+        background: url('../../assets/images/dashboard/graph.png') no-repeat center center;
+        background-size: contain;
+    }
+
+
 </style>
