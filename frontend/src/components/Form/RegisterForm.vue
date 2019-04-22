@@ -562,12 +562,8 @@
                                 street: this.street,
                                 number: this.number,
                                 sort: 'webshop',
-                                name: this.name,
+                                // name: this.name,
                                 link: this.link,
-                                country: 'this.country',
-                                city: this.city,
-                                zipcode: this.zipcode,
-                                street: this.street
                             },
                             header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
 

@@ -101,7 +101,7 @@
                 zipcode: this.$store.state.userData.userProfileData.zipcode,
                 street: this.$store.state.userData.userProfileData.street,
                 number: this.$store.state.userData.userProfileData.number,
-                link: '',    
+                link: this.$store.state.userData.userProfileData.link, 
                 send: null,
                 formActive: false,
                 edit: false,
