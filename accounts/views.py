@@ -25,6 +25,10 @@ from rest_framework.status import (
     HTTP_404_NOT_FOUND,
     HTTP_200_OK
 )
+from django.conf import settings
+#--------------- email imports ---------------------
+from django.core.mail import send_mail
+from django.template.loader import get_template
 
 # Create your views here.
 
@@ -308,6 +312,36 @@ def deleteAccount(request):
     #     }
     #     return Response(error)
 
+
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((AllowAny,))
+def sendMail(request):
+    try:
+        userEmail = request.data['body']['email']
+    except:
+        userEmail = request.POST.get('email')
+
+    if checkEmail(request, userEmail) != 0:
+        subject = "Password reset"
+        message = 'Click the link to reset your password, temporary password: k,jasflkuhsrlkjjbl'
+        from_email = settings.DEFAULT_EMAIL_FROM
+        to_list = [userEmail]
+        send_mail(subject, message, from_email, to_list, fail_silently=True)
+        # email_template = get_template('mail template').render(contenu du message)
+        success = {
+            'status': True,
+            'msg': 'An email has been sended'
+        }
+        return Response(success)
+    else:
+        error = {
+            'status': False,
+            'msg': 'Wrong email'
+        }
+        return Response(error)
+
+    
 
 
 
