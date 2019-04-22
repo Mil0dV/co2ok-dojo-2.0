@@ -4,6 +4,7 @@ Base settings to build other settings files upon.
 
 import environ
 import os
+from .email_settings import *
 
 ROOT_DIR = environ.Path(__file__) - 3  # (co2ok_dojo/config/settings/base.py - 3 = co2ok_dojo/)
 APPS_DIR = ROOT_DIR.path('co2ok_dojo')
@@ -317,6 +318,15 @@ CORS_ORIGIN_WHITELIST = (
     'localhost:8080',
     '192.168.56.1:8080/',
 )
+
+#---------- email settings -----------------------------
+EMAIL_USE_TLS = EMAIL_USE_TLS
+EMAIL_HOST = EMAIL_HOST
+EMAIL_HOST_USER = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
+EMAIL_PORT = EMAIL_PORT
+EMAIL_BACKEND = EMAIL_BACKEND
+DEFAULT_EMAIL_FROM = DEFAULT_EMAIL_FROM
 
 # # TEMPLATES_DIR = os.path.join(ROOT_DIR, 'templates')
 # TEMPLATES_DIR = str(ROOT_DIR.path('templates'))

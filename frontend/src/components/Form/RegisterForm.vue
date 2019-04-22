@@ -173,7 +173,7 @@
                     && this.street !== '' && this.number !== ''
                 ) {
                     axios
-                        .post('http://127.0.0.1:8000/login/', {
+                        .post('http://127.0.0.1:8000/signup/', {
                             body: {
                                 company: this.company,
                                 email: this.email,
@@ -185,6 +185,12 @@
                                 street: this.street,
                                 number: this.number,
                                 sort: 'webshop',
+                                name: this.name,
+                                link: this.link,
+                                country: 'this.country',
+                                city: this.city,
+                                zipcode: this.zipcode,
+                                street: this.street
                             },
                             header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
 
@@ -193,7 +199,8 @@
                             if (response) {
                                 this.send = false
                                 if (response.data.authenticate) {
-                                    this.$store.commit('saveUser', response.data)
+                                    this.$store.dispatch('commitSaveUser', response.data)
+                                    this.$store.commit('setLocalUserData', response.data)
                                     this.$router.push('dashboard')
                                 } else {
                                     this.errorMessage()
