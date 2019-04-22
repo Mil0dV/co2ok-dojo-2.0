@@ -15,10 +15,49 @@
                     <p class="login__form-title">Make an account to get access to more info!</p>
                 </div>
 
+                <!--<div class="login__group">-->
+
+                    <!--<label class="login__group">-->
+                        <!--<div>Company name<span class="asterik">*</span></div>-->
+                        <!--<input class="login__group-input" v-model="company"-->
+                               <!--type="email" placeholder="Fill in you email...">-->
+                    <!--</label>-->
+
+                    <!--<label class="login__group">-->
+                        <!--<div>E-mail<span class="asterik">*</span></div>-->
+                        <!--<input class="login__group-input" v-model="email"-->
+                               <!--type="email" placeholder="Fill in you email...">-->
+                    <!--</label>-->
+
+                    <!--<div class="login__group-password">-->
+                        <!--<label class="login__group">-->
+                            <!--<div>Password<span class="asterik">*</span></div>-->
+                            <!--<input class="login__group-input" v-model="password"-->
+                                   <!--type="password" placeholder="Fill in you password...">-->
+                        <!--</label>-->
+                    <!--</div>-->
+
+                    <!--<div class="login__group-password">-->
+                        <!--<label class="login__group">-->
+                            <!--<div>Repeat password<span class="asterik">*</span></div>-->
+                            <!--<input class="login__group-input" v-model="passwordRepeat"-->
+                                   <!--type="password" placeholder="Fill in you password...">-->
+                        <!--</label>-->
+                    <!--</div>-->
+
+                    <!--<div class="login__group">-->
+                        <!--<v-checkbox v-model="consent"-->
+                                    <!--label="I accept the terms and agreements"-->
+                                    <!--value="true"-->
+                                    <!--color="success"-->
+                        <!--&gt;</v-checkbox>-->
+                    <!--</div>-->
+                <!--</div>-->
+
                 <div class="login__group">
 
                     <label class="login__group">
-                        <div>Company name<span class="asterik">*</span></div>
+                        <div>Full name<span class="asterik">*</span></div>
                         <input class="login__group-input" v-model="company"
                                type="email" placeholder="Fill in you email...">
                     </label>
@@ -54,6 +93,7 @@
                     </div>
                 </div>
 
+
                 <div class="register__button-group">
                     <router-link tag="button" to="/" class="login__back">
                         <span>< Back</span>
@@ -86,6 +126,13 @@
                 company: '',
                 password: '',
                 passwordRepeat: '',
+                name: '',
+                link: '',
+                country: '',
+                city: '',
+                zipcode: '',
+                street: '',
+
                 send: false,
                 valid: false,
                 email: '',

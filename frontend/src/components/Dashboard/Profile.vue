@@ -104,9 +104,7 @@
         },
 
         mounted(){
-
             this.$store.commit('saveUserData');
-
         },
 
         methods: {
@@ -128,6 +126,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     .profile__container {
+        border-radius: 4px;
         min-width: 1146px;
         width: 100%;
         height: 100%;
