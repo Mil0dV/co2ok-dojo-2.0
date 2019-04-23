@@ -75,7 +75,7 @@
 
         data() {
             return {
-                userLoggedIn: true,
+                userLoggedIn: null,
             }
         },
 
