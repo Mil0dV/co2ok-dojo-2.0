@@ -26,7 +26,6 @@
 <style>
     #app {
         font-family: 'Poppins', sans-serif;
-        /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
@@ -40,6 +39,8 @@
     }
 
     input:focus {
+        border: 1px solid #08BA4D !important;
+        box-shadow: 0 0 1px #08BA4D;
         outline:none;
     }
 </style>
