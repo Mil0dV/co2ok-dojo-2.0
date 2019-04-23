@@ -3,11 +3,11 @@
         <div class="dashboard__container">
             <div class="dashboard__header">
                 <p class="dashboard__title">Dashboard</p>
-                <p class="dashboard__welcome">Weclome, dfdfdfdf!</p>
+                <p class="dashboard__welcome">Weclome, {{this.$store.state.userData.userdata.username}}!</p>
             </div>
 
             <div class="dashboard__tabs">
-                <p class="dashboard__mail">asdsadsadas</p>
+                <p class="dashboard__mail">{{this.$store.state.userData.userdata.email}}</p>
                 <v-tabs v-model="active" centered class="dashboard__tabs-group"
                         color="#F4F4F4" slider-color="#08BA4D">
                     <v-tab class="dashboard__tab-item text-capitalize"
