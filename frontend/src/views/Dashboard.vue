@@ -143,6 +143,14 @@
         padding: 0;
     }
 
+    /*.theme--light.v-tabs__bar .v-tabs__div {*/
+        /*color: #08BA4D !important;*/
+    /*}*/
+
+    /*.v-tabs__item:not(.v-tabs__item--active) {*/
+        /*border:1px solid red !important;*/
+    /*}*/
+
     .dashboard__welcome {
         margin: 0;
         padding: 0;
