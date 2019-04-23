@@ -155,6 +155,7 @@
         width: 100%;
         border-bottom: 1px solid #E2E2E2;
         display: flex;
+        border: 4px solid green;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
