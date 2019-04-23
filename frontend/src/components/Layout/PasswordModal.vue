@@ -11,7 +11,7 @@
 
                         <label class="edit__form-label">
                             Old Password
-                            <input type="password" class="edit__form-input" placeholder="John Doe">
+                            <input type="password" v-model="currentPassword" class="edit__form-input" placeholder="John Doe">
                         </label>
 
                         <label class="edit__form-label">
@@ -58,6 +58,7 @@
 
         data() {
             return {
+                currentPassword: '',
                 newPassword: '',
                 passwordExtra: '',
                 formActive: false,
@@ -67,35 +68,38 @@
         methods: {
             sendForm() { //Checkt of de velden leeg zijn en of de ww hetzelfde is
                 this.formActive = true
-                let message = {title: 'Oops... Something went wrong!', text: 'Try again later.'}
+                let message = {title: 'Oops... Something went wrong!', text: 'Fill alle the fields, Try again.'}
 
                 if (this.passwordExtra !== '' && this.newPassword !== '' && this.passwordExtra === this.newPassword) {
 
                     this.$axios
-                        .post('https://shaif.nl/lego-toyfinder/mail/index.php', {
-                            name: this.name,
-                            email: this.email,
-                            country: this.country,
-                            city: this.city,
-                            zipcode: this.zipcode,
-                            street: this.street,
-                            number: this.number,
-                            link: this.link,
+                        .post('http://127.0.0.1:8000/accounts/updatePassword/', {
+                            body: {
+                               currentPassword: this.currentPassword,
+                               newPassword: this.newPassword,
+                               id: this.$store.state.userId
+                            }
                         })
                         .then(response => {
-                            if (response) {
-                                message = {
+                            if (response.data.update) {
+                                let successmessage = {
                                     title: 'Edited Profile Successfully!',
-                                    text: 'Your profile data was edited successfully.'
+                                    text: 'Your password was edited successfully.'
                                 }
+                                this.$parent.closeEdit(successmessage)
+                            }else{
+                                let errorMsg = {title: 'Oops... Something went wrong!', text: `${response.data.msg} Try again.`}
+                                this.$parent.closeEdit(errorMsg)
                             }
                         })
                         .catch(error => {
                             console.log(error)
                         })
+                }else{
+                   this.$parent.closeEdit(message)
                 }
 
-                this.$parent.closeEdit(message)
+                // this.$parent.closeEdit(message)
                 this.formActive = false
             },
 

@@ -21,6 +21,7 @@ class WebshopProfile(models.Model):
     zipCode = models.CharField(max_length=255)
     street  = models.CharField(max_length=255)
     number  = models.IntegerField()
+    link    = models.CharField(max_length=255)
 
     def __str__(self):
         return "profile van {0}".format(self.user.email)

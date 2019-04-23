@@ -12,7 +12,7 @@
 
                         <label class="edit__form-label">
                             Full name
-                            <input type="text" v-model="name" class="edit__form-input" placeholder="John Doe">
+                            <input type="text" v-model="username" class="edit__form-input" placeholder="John Doe">
                         </label>
 
                         <label class="edit__form-label">
@@ -93,6 +93,7 @@
             return {
 
                 email: this.$store.state.userData.userdata.email,
+                username: this.$store.state.userData.userdata.username,
                 password: '',
                 passwordExtra: '',
                 country: this.$store.state.userData.userProfileData.country,
@@ -100,6 +101,7 @@
                 zipcode: this.$store.state.userData.userProfileData.zipcode,
                 street: this.$store.state.userData.userProfileData.street,
                 number: this.$store.state.userData.userProfileData.number,
+                link: this.$store.state.userData.userProfileData.link, 
                 send: null,
                 formActive: false,
                 edit: false,
@@ -109,7 +111,7 @@
         methods: {
             updateProfile() {
                 this.formActive = true
-                let message = {title: 'Oops... Something went wrong!', text: 'Try again later.'}
+                let message = {title: 'Oops... Something went wrong!', text: 'Some field are empty,Try again later.'}
                 if (this.email !== '' && this.country !== '' && this.city !== '' && this.zipcode !== '' &&
                     this.street !== '' && this.number !== '' && this.name !== '' && this.link !== '') {
 
@@ -119,7 +121,7 @@
                             body: {
                                 id: this.$store.state.userId,
                                 email: this.email,
-                                password: this.password,
+                                // password: this.password,
                                 country: this.country,
                                 city: this.city,
                                 zipcode: this.zipcode,
@@ -130,45 +132,25 @@
                             header: {"X-CSRFToken": `token ${this.$store.state.userToken}`,}
                         })
                         .then(response => {
-                            if (response) {
-                                message = {
+                            if (response.data.update) {
+                                
+                                let successmessage = {
                                     title: 'Edited Profile Successfully!',
                                     text: 'Your profile data was edited successfully.'
                                 }
+                                this.$parent.closeEdit(successmessage)
                             }
                         })
                         .catch(error => {
                             console.log(error)
                         })
 
-                    this.$parent.closeEdit(message)
+                    // this.$parent.closeEdit(message)
                     this.formActive = false
+                }else{
+                    this.$parent.closeEdit(message)
                 }
             },
-        },
-
-        deleteAccount() {
-            let modal = {message: 'Your account has been deleted successfully', status: true}
-            this.$store.commit('modalStatus', modal)
-            this.$axios
-                .post('http://127.0.0.1:8000/accounts/deleteAccount/', {
-                    body: {
-                        id: this.$store.state.userId,
-                        password: this.password
-                    },
-
-                    header: {"X-CSRFToken": `token ${this.$store.state.userToken}`,}
-                })
-                .then(response => {
-                    if (response) {
-                        this.$parent.dialogSuccess = true
-                        console.log(response);
-
-                    }
-                })
-                .catch(error => {
-                    this.$parent.dialogError = true
-                })
         }
 
     }

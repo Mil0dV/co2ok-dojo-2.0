@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { stat } from 'fs';
+import {
+    stat
+} from 'fs';
 import axios from 'axios'
 
 Vue.use(Vuex)
@@ -19,7 +21,7 @@ export default new Vuex.Store({
 
     mutations: {
         modalStatus(state, payload) {
-            if(!state.modalStatus) {
+            if (!state.modalStatus) {
                 state.modalStatus = true
                 state.modalMessage = payload.message
             } else {
@@ -31,7 +33,7 @@ export default new Vuex.Store({
             state.userAuthData = payload
         },
 
-        saveUserData(state){
+        saveUserData(state) {
 
             axios
                 .get(`http://127.0.0.1:8000/user/authenticateUser/?id=${state.userId}`, {
@@ -50,7 +52,7 @@ export default new Vuex.Store({
                         state.userData = '';
                         state.userData = response.data;
                     }
-                    // console.log(response.data);
+                    console.log(response.data);
                 })
                 .catch(error => {
                     console.log(error);
@@ -59,32 +61,35 @@ export default new Vuex.Store({
 
         },
 
-        setLocalUserData(state, data){
-           window.localStorage.setItem('userToken',data.token);
-           window.localStorage.setItem('userId', data.id);
-        //    let getLocalData = {
-        //        userToken: window.localStorage.getItem('userToken'),
-        //        userId: window.localStorage.getItem('userId')
-        //    }
-        //     state.userAuthLocalData = getLocalData;
+        setLocalUserData(state, data) {
+            window.localStorage.setItem('userToken', data.token);
+            window.localStorage.setItem('userId', data.id);
+            //    let getLocalData = {
+            //        userToken: window.localStorage.getItem('userToken'),
+            //        userId: window.localStorage.getItem('userId')
+            //    }
+            //     state.userAuthLocalData = getLocalData;
         },
 
-        removeLocalUserData(state){
-            let localData = state.userAuthLocalData;
-            localData.forEach(data => {
-                window.localStorage.removeItem(data);
-            });
+        removeLocalUserData(state) {
+            window.localStorage.removeItem('userToken');
+            window.localStorage.removeItem('userId');
+            state.userData = '';
         }
 
     },
 
     actions: {
-       commitSaveUser(store, payload){
-           store.commit('saveUser', payload);
-       },
+        commitSaveUser(store, payload) {
+            store.commit('saveUser', payload);
+        },
 
-        commitRemoveLocalUserData(store, data){
+        commitRemoveLocalUserData(store, data) {
             store.commit('removeLocalUserData', data);
+        },
+
+        commitRemoveLocalUserData(store) {
+            store.commit('removeLocalUserData');
         }
 
         // commitSaveUserData(store, data){

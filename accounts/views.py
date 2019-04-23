@@ -19,11 +19,16 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from django.core import serializers
 from .serializers import UserSerializer
+from django.contrib.auth.hashers import make_password
 from rest_framework.status import (
     HTTP_400_BAD_REQUEST,
     HTTP_404_NOT_FOUND,
     HTTP_200_OK
 )
+from django.conf import settings
+#--------------- email imports ---------------------
+from django.core.mail import send_mail
+from django.template.loader import get_template
 
 # Create your views here.
 
@@ -71,51 +76,70 @@ def userToken(request, user):
         print('error:false')
 
 
+def checkEmail(request, useremail):
+    user_email = User.objects.filter(email=useremail).count()
+    return user_email
+
+
 @csrf_exempt
 @api_view(['POST'])
 @permission_classes((AllowAny,))
-def signup(reequest):
-    try:
-        # get login data from webshop user form
-        username = request.data['body']['username']
-        email = request.data['body']['email']
-        password = request.data['body']['password']
-        sort = request.data['body']['sort']#determine if user is a merchant(webshop) of a ninja(normal user)
-        #webshop address data
-        country = request.data['body']['country']
-        userId = request.data['body']['id']
-        city = request.data['body']['city']
-        zipcode = request.data['body']['zipcode']
-        street = request.data['body']['street']
-        number = request.data['body']['number']
-    except:
-        # get login data from ninja user form
-        username = request.data['body']['username']
-        email = request.data['body']['email']
-        password = request.data['body']['password']
-        sort = request.data['body']['sort']  # determine if user is a merchant(webshop) of a ninja(normal user)
-
-    if request.user is not None:
-        User.objects.create_user(username=username, email=email, password=password)
-        user = authenticate(username=username, password=password)
-        if sort == 'webshop':
-            WebshopProfile.objects.create(
-                user=user,
-                user_status=sort,
-                country=country,
-                city=city,
-                zipCode=zipcode,
-                street=street,
-                number=number
-            )
-            userToken(request, user)
+def signup(request):
+    # get login data from webshop user form
+    username = request.data['body']['company']
+    email = request.data['body']['email']
+    password = request.data['body']['password']
+    sort = request.data['body']['sort']  # determine if user is a merchant(webshop) of a ninja(normal user)       
+    
+    #check of the entry username and email already exist
+    user_name = User.objects.filter(username=username).count()
+    if checkEmail(request, email) == 0 and user_name == 0:
+        if request.user is not None:
+            user = User.objects.create_user(username=username, email=email, password=password)
+            user.save()
+            userAuth = authenticate(username=username, password=password)
+    
+            if sort == 'webshop':#is user a merchant of ninja
+                #webshop profile data
+                # company = request.data['body']['company']
+                country = request.data['body']['country']
+                city = request.data['body']['city']
+                zipcode = request.data['body']['zipcode']
+                street = request.data['body']['street']
+                number = request.data['body']['number']
+                link = request.data['body']['link']
+    
+                WebshopProfile.objects.create(
+                    user=user,
+                    user_status=sort,
+                    country=country,
+                    city=city,
+                    zipCode=zipcode,
+                    street=street,
+                    number=number,
+                    link=link
+                )
+                # userToken(request, user)
+                if userAuth:
+                    token, _ = Token.objects.get_or_create(user=user)
+                    return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
+                else:
+                    print('error:false')
+            else:
+                NinjaProfile.objects.create(user=user, user_status=sort, user_points=0)
+                userToken(request, user)
+    
+                if userAuth:
+                    token, _ = Token.objects.get_or_create(user=user)
+                    return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
+                else:
+                    print('error:false')
+    
         else:
-            NinjaProfile.objects.create(user=user, user_status=user_status, user_points=0)
-            userToken(request, user)
-
+            pass
+            #user is None
     else:
-        pass
-        #user is None
+        return Response({'error': 'Username or email already exist', 'authenticate': False})
     
 
 
@@ -123,11 +147,6 @@ def checkPassword(request, password, userid):
     currentUser = User.objects.get(id=userid)
     checkPass = currentUser.check_password(password)
     return checkPass
-
-
-def checkEmail(request, useremail):
-    user_email = User.objects.filter(email=useremail).count()
-    return user_email
 
 
 
@@ -146,17 +165,22 @@ def signin(request):
         password = request.POST.get('password')
         sort = request.POST.get('sort')
 
-    currentUser = User.objects.get(email=email)
     #check of the given user email exist in the database
 
     #if email exist return email value else throw error
     if checkEmail(request, email) != 0:
         #verify if the user given password is correct
+        currentUser = User.objects.get(email=email)
         if checkPassword(request, password, currentUser.id):
             #check of user login data has a record in the database
             username = User.objects.get(email=email).username
             user = authenticate(username=username, password=password)
-            userToken(request, user)
+            # userToken(request, user)
+            if user:
+                token, _ = Token.objects.get_or_create(user=user)
+                return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
+            else:
+                print('error:false')
         else:
             passwordContext = {
                 'authenticate': False,
@@ -179,47 +203,52 @@ def updateAccount(request):
     try:
         # get login data from frontend
         email = request.data['body']['email']
-        password = request.data['body']['password']
+        # password = request.data['body']['password']
         country = request.data['body']['country']
         userId = request.data['body']['id']
         city = request.data['body']['city']
         zipcode = request.data['body']['zipcode']
         street = request.data['body']['street']
         number = request.data['body']['number']
+        link = request.data['body']['link']
     except:
         email = request.POST.get('email')
-        password = request.POST.get('password')
+        # password = request.POST.get('password')
         country = request.POST.get('country')
         userId = request.POST.get('id')
         city = request.POST.get('city')
         zipcode = request.POST.get('zipcode')
         street = request.POST.get('street')
         number = request.POST.get('number')
+        link = request.POST.get('link')
 
     #check if user password is correct before updating user data
-    if checkPassword(request, password, userId):
+    # if checkPassword(request, password, userId):
        
-        #update user email
-        User.objects.filter(id=userId).update(email=email)
-        #update profile data
-        WebshopProfile.objects.filter(user_id=userId).update(
-            country=country,
-            city=city,
-            zipCode=zipcode,
-            street=street,
-            number=number
-        )
-        success = {
-            'update': True,
-            'msg': 'Profile data succesfully updated'
-        }
-        return Response(context)
-    else:
-        error = {
-            'update': False,
-            'msg': 'Wrong passdword'
-        }
-        return Response(error)
+    #update user email
+    print(userId)
+    User.objects.filter(id=userId).update(email=email)
+    #update profile data
+    WebshopProfile.objects.filter(user_id=userId).update(
+        country=country,
+        city=city,
+        zipCode=zipcode,
+        street=street,
+        number=number,
+        link=link
+    )
+    success = {
+        'update': True,
+        'msg': 'Profile data succesfully updated'
+    }
+    return Response(success)
+    
+    # else:
+    #     error = {
+    #         'update': False,
+    #         'msg': 'Wrong passdword'
+    #     }
+    #     return Response(error)
 
 
 @csrf_exempt
@@ -236,14 +265,21 @@ def updatePassword(request):
         newPassword = request.POST.get('newPassword')
         userId = request.POST.get('id')
 
-    if checkPassword(request, currentPassword, userId):
-        user = User.objects.get(id=userId)
+    # if checkPassword(request, currentPassword, userId):
+    print(currentPassword)
+    print(newPassword)
+    user = User.objects.get(id=userId)
+    if user.check_password(currentPassword):
         #update password
         user.set_password(newPassword)
+        user.save()
+        # userPass = User.objects.filter(id=userId)
+        # userPass.update(password=make_password(newPassword))
         success = {
             'update': True,
             'msg': 'Password succesfully updated'
         }
+        return Response(success)
     else:
         error = {
             'update': False,
@@ -259,37 +295,66 @@ def updatePassword(request):
 def deleteAccount(request):
     try:
         # get login data from frontend
-        password = request.data['body']['password']
+        # password = request.data['body']['password']
         userId = request.data['body']['id']
     except:
-        password = request.POST.get('password')
+        # password = request.POST.get('password')
         userId = request.POST.get('id')
 
-    if checkPassword(request, password, userId):
-        try:
-            user = User.objects.get(id=userId)
-            user.delete()
-            success: {
-                'delete': True,
-                'msg': 'Account succesfully deleted'
-            }
-            return Response(success)
-        except User.DoesNotExist:
-            error = {
-            'delete': False,
-            'msg': "This user don't exist"
-            }
-            return Response(error)
-        except Exception as e:
-            return Response(e.message)
+    # if checkPassword(request, password, userId):
+    try:
+        user = User.objects.filter(id=userId)
+        user.delete()
+        success: {
+            'delete': True,
+            'msg': 'Account succesfully deleted'
+        }
+        return Response(success)
+    except User.DoesNotExist:
+        error = {
+        'delete': False,
+        'msg': "This user don't exist"
+        }
+        return Response(error)
+    
 
+    # else:
+    #     error = {
+    #         'delete': False,
+    #         'msg': 'Wrong password'
+    #     }
+    #     return Response(error)
+
+
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((AllowAny,))
+def sendMail(request):
+    try:
+        userEmail = request.data['body']['email']
+    except:
+        userEmail = request.POST.get('email')
+
+    if checkEmail(request, userEmail) != 0:
+        subject = "Password reset"
+        message = 'Click the link to reset your password, temporary password: k,jasflkuhsrlkjjbl'
+        from_email = settings.EMAIL_HOST_USER
+        to_list = [userEmail]
+        send_mail(subject, message, from_email, to_list, fail_silently=True)
+        # email_template = get_template('mail template').render(contenu du message)
+        success = {
+            'status': True,
+            'msg': 'An email has been sended'
+        }
+        return Response(success)
     else:
         error = {
-            'delete': False,
-            'msg': 'Wrong password'
+            'status': False,
+            'msg': 'Wrong email'
         }
         return Response(error)
 
+    
 
 
 
