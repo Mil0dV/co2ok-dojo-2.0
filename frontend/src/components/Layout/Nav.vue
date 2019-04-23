@@ -21,7 +21,7 @@
                 <transition enter-active-class="animated bounceIn"
                             leave-active-class="animated bounceOut"
                             mode="out-in">
-                    <div v-if="userLoggedIn" key="nav1" class="user__logged">
+                    <div v-if="$store.state.userStatus" key="nav1" class="user__logged">
                         <v-divider class="ml-4 mr-4" style="height: 42px;" vertical></v-divider>
                         <div class="navbar__pic__container">
                             <div class="navbar__user-wrapper">
@@ -108,7 +108,9 @@
         watch: {
             '$route'() {
                 this.userLoggedIn = this.$router.currentRoute['name'] === 'dashboard';
-            }
+            },
+
+
         }
     }
 </script>
