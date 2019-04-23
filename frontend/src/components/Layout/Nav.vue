@@ -87,7 +87,7 @@
 
         methods: {
             logout() {
-                axios
+                this.$axios
                     .post('http://127.0.0.1:8000/signout/', {
                         header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
 
