@@ -15,8 +15,8 @@
                         <v-icon class="icon-test" medium color="##2F2F2F">home</v-icon>
 
                         <div class="card__content-text">
-                            <!--<p>{{userData.username}}</p>-->
-                            <!--<p>{{userData.email}}</p>-->
+                            <p>{{userData.username}}</p>
+                            <p>{{userData.email}}</p>
                         </div>
                     </div>
 
@@ -24,9 +24,9 @@
                         <v-icon class="icon-test" medium color="##2F2F2F">home</v-icon>
 
                         <div class="card__content-text">
-                            <!--<p>{{userProfileData.country}}</p>-->
-                            <!--<p>{{userProfileData.city}}, {{userProfileData.zipcode}}</p>-->
-                            <!--<p>{{userProfileData.street}} {{userProfileData.number}}</p>-->
+                            <p>{{userProfileData.country}}</p>
+                            <p>{{userProfileData.city}}, {{userProfileData.zipcode}}</p>
+                            <p>{{userProfileData.street}} {{userProfileData.number}}</p>
                         </div>
                     </div>
 
@@ -162,9 +162,9 @@
     }
 
     .profile__card {
-        flex-grow: 1;
         max-width: 362px;
         width: 100%;
+        min-height: 324px;
         height: 100%;
         box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.15);
     }

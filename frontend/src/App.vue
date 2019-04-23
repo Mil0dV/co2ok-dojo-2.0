@@ -23,7 +23,7 @@
     }
 </script>
 
-<style>
+<style lang="scss">
     #app {
         font-family: 'Poppins', sans-serif;
         -webkit-font-smoothing: antialiased;
