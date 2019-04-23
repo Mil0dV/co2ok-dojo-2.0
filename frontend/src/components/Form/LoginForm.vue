@@ -55,6 +55,7 @@
     const PasswordForgotModal = () => import('@/components/Layout/PasswordForgotModal')
 
     import axios from 'axios'
+
     export default {
         name: 'LoginForm',
         components: {
@@ -78,16 +79,15 @@
         },
 
         methods: {
-            errorMessage() {
+            errorMessage(message) {
                 this.send = false
-                let modal = {message: 'Something went wrong...', status: true}
-                this.$store.commit('modalStatus', modal)
+                this.$store.commit('modalStatus', {message})
             },
 
-            closeEdit(message){
+            closeEdit(message) {
                 this.passReset = false
 
-                if(message){
+                if (message) {
                     this.$store.commit('modalStatus', {message})
                 }
             },
@@ -111,19 +111,17 @@
                                     this.$store.dispatch('commitSaveUser', response.data)
                                     this.$store.commit('setLocalUserData', response.data)
                                     // console.log(this.$store.state.userAuthLocalData);
-                                    
+
                                     this.$router.push('dashboard')
-                                } else {
-                                    this.errorMessage()
                                 }
                             }
                         })
                         .catch(error => {
                             this.errorMessage()
                         })
-                } else {
-                    this.errorMessage()
                 }
+                let message = {title: 'Oops... Something went wrong!', text: 'Try again later.'}
+                this.errorMessage(message)
             }
         }
     }

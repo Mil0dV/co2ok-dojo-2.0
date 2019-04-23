@@ -3,11 +3,11 @@
         <div class="dashboard__container">
             <div class="dashboard__header">
                 <p class="dashboard__title">Dashboard</p>
-                <p class="dashboard__welcome">Weclome, {{this.$store.state.userData.userdata.username}}!</p>
+                <p class="dashboard__welcome">Weclome, dfdfdfdf!</p>
             </div>
 
             <div class="dashboard__tabs">
-                <p class="dashboard__mail">{{this.$store.state.userData.userdata.email}}</p>
+                <p class="dashboard__mail">asdsadsadas</p>
                 <v-tabs v-model="active" centered class="dashboard__tabs-group"
                         color="#F4F4F4" slider-color="#08BA4D">
                     <v-tab class="dashboard__tab-item text-capitalize"
@@ -160,6 +160,7 @@
         color: #2F2F2F;
         font-size: 18px;
         flex: 1;
+        font-family: 'Source Sans Pro', sans-serif;
     }
 
     .dashboard__tabs {
@@ -175,10 +176,13 @@
     }
 
     .dashboard__tabs-group {
+        max-width: 632px;
+        width: 100%;
         flex: 2;
     }
 
     .dashboard__tab-item {
+        margin-right: 22px;
         max-width: 196px;
         width: 100%;
         font-family: 'Poppins', sans-serif;
