@@ -18,6 +18,7 @@
 
                 <v-spacer></v-spacer>
 
+                <!--<transition enter-active-class="animated "-->
                 <div v-if="userLoggedIn" class="user__logged">
                     <v-divider class="ml-4 mr-4" style="height: 42px;" vertical></v-divider>
                     <div class="navbar__pic__container">
@@ -83,7 +84,7 @@
         methods: {
             logout() {
                 axios
-                    .post('http://127.0.0.1:8000/signout/', {
+                    .get('http://127.0.0.1:8000/signout/', {
                         header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
 
                     })

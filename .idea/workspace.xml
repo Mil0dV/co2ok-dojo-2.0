@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="254c5ddb-73f6-458a-9ab8-c3b7bf45ac32" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,8 +20,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="660">
-                  <caret line="92" column="53" selection-start-line="92" selection-start-column="53" selection-end-line="92" selection-end-column="53" />
+                <state relative-caret-position="483">
+                  <caret line="21" column="62" lean-forward="true" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
                   <folding>
                     <element signature="n#style#0;n#v-divider#0;n#div#0;n#v-toolbar-items#0;n#div#0;n#v-toolbar#0;n#template#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#v-divider#0;n#div#1;n#v-toolbar-items#0;n#div#0;n#v-toolbar#0;n#template#0;n#!!top" expanded="true" />
@@ -320,12 +318,12 @@
       <workItem from="1555684063026" duration="15008000" />
       <workItem from="1555838255631" duration="7961000" />
       <workItem from="1555870017975" duration="11552000" />
-      <workItem from="1556000412662" duration="13668000" />
+      <workItem from="1556000412662" duration="13729000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144319000" />
+    <option name="totallyTimeSpent" value="144380000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1819" height="1178" extended-state="6" />
@@ -678,8 +676,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="92" column="53" selection-start-line="92" selection-start-column="53" selection-end-line="92" selection-end-column="53" />
+        <state relative-caret-position="483">
+          <caret line="21" column="62" lean-forward="true" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
           <folding>
             <element signature="n#style#0;n#v-divider#0;n#div#0;n#v-toolbar-items#0;n#div#0;n#v-toolbar#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#v-divider#0;n#div#1;n#v-toolbar-items#0;n#div#0;n#v-toolbar#0;n#template#0;n#!!top" expanded="true" />
