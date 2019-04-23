@@ -93,6 +93,7 @@
             },
 
             sendForm() {
+                let message = {title: 'Oops... Something went wrong!', text: 'Try again later.'}
                 if (this.email !== '' && this.password !== '') {
                     axios
                         .post('http://127.0.0.1:8000/login/', {
@@ -113,15 +114,18 @@
                                     // console.log(this.$store.state.userAuthLocalData);
                                     this.$store.commit('isLoggedIn', response.data.authenticate)
                                     this.$router.push('dashboard')
+                                }else{
+                                    let errormessage = {title: 'Oops... Something went wrong!', text: rsponse.data.error}
+                                    this.errorMessage(errormessage)
                                 }
                             }
                         })
                         .catch(error => {
-                            this.errorMessage()
+                            this.errorMessage(message)
                         })
                 }
-                let message = {title: 'Oops... Something went wrong!', text: 'Try again later.'}
-                this.errorMessage(message)
+                
+                // this.errorMessage(message)
             }
         }
     }
