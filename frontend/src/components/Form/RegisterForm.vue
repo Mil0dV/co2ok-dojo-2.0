@@ -41,6 +41,8 @@
                                    type="email" placeholder="Fill in you email...">
                         </label>
 
+                    </div>
+
                 <div v-else class="login__group">
                     <label class="login__group">
                         <div>Webshop link<span class="asterik">*</span></div>
@@ -54,6 +56,7 @@
                         <input class="login__group-input" v-model="country"
                                type="text" placeholder="Your country">
                     </label>
+                </div>
 
                     <div class="login__group-wrapper">
                         <label class="login__group">
