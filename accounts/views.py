@@ -224,10 +224,10 @@ def updateAccount(request):
 
     #check if user password is correct before updating user data
     # if checkPassword(request, password, userId):
-       
+
     #update user email
-    print(userId)
     User.objects.filter(id=userId).update(email=email)
+
     #update profile data
     WebshopProfile.objects.filter(user_id=userId).update(
         country=country,
@@ -266,8 +266,6 @@ def updatePassword(request):
         userId = request.POST.get('id')
 
     # if checkPassword(request, currentPassword, userId):
-    print(currentPassword)
-    print(newPassword)
     user = User.objects.get(id=userId)
     if user.check_password(currentPassword):
         #update password
