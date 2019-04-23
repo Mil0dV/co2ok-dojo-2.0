@@ -40,9 +40,26 @@
                             <input class="login__group-input" v-model="email"
                                    type="email" placeholder="Fill in you email...">
                         </label>
+                    </div>
+
+                </div>
+
+                <div v-else class="login__group">
+                    <label class="login__group">
+                        <div>Webshop link<span class="asterik">*</span></div>
+                        <input class="login__group-input" v-model="link"
+                               type="text" placeholder="Your company link">
+                    </label>
+
+
+                    <label class="login__group">
+                        <div>Country<span class="asterik">*</span></div>
+                        <input class="login__group-input" v-model="country"
+                               type="text" placeholder="Your country">
+                    </label>
 
                     </div>
-                    
+
                     <div v-else key="secondSlide" class="login__group">
                         <label class="login__group">
                             <div>Webshop link<span class="asterik">*</span></div>
