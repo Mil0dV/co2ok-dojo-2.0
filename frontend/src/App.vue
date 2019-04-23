@@ -19,7 +19,6 @@
             Modal, Nav
         },
 
-
     }
 </script>
 

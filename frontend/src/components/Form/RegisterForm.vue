@@ -9,11 +9,6 @@
             </div>
         </div>
 
-        <!--<transition enter-active-class="animated slideInUp">-->
-            <!--<p v-if="next">sdsdsd</p>-->
-            <!--<p v-else>ssddsdsd</p>-->
-        <!--</transition>-->
-
 
         <div class="login__col-2">
             <form v-model="valid" class="login__form">
@@ -22,89 +17,94 @@
                     <p class="login__form-title">Make an account to get access to more info!</p>
                 </div>
 
-                <div v-if="!next" class="login__group">
+                <transition enter-active-class="animated slideInRight"
+                            leave-active-class="animated slideOutLeft"
+                            mode="out-in">
 
-                    <label class="login__group">
-                        <div>Company name<span class="asterik">*</span></div>
-                        <input class="login__group-input" v-model="company"
-                               type="email" placeholder="Fill in you email...">
-                    </label>
+                    <div v-if="!next" class="login__group">
 
-                    <label class="login__group">
-                        <div>E-mail<span class="asterik">*</span></div>
-                        <input class="login__group-input" v-model="email"
-                               type="email" placeholder="Fill in you email...">
-                    </label>
-
-                    <div class="login__group-password">
                         <label class="login__group">
-                            <div>Password<span class="asterik">*</span></div>
-                            <input class="login__group-input" v-model="password"
-                                   type="password" placeholder="Fill in you password...">
+                            <div>Company name<span class="asterik">*</span></div>
+                            <input class="login__group-input" v-model="company"
+                                   type="email" placeholder="Fill in you email...">
                         </label>
+
+                        <label class="login__group">
+                            <div>E-mail<span class="asterik">*</span></div>
+                            <input class="login__group-input" v-model="email"
+                                   type="email" placeholder="Fill in you email...">
+                        </label>
+
+                        <div class="login__group-password">
+                            <label class="login__group">
+                                <div>Password<span class="asterik">*</span></div>
+                                <input class="login__group-input" v-model="password"
+                                       type="password" placeholder="Fill in you password...">
+                            </label>
+                        </div>
+
+                        <div class="login__group-password">
+                            <label class="login__group">
+                                <div>Repeat password<span class="asterik">*</span></div>
+                                <input class="login__group-input" v-model="passwordRepeat"
+                                       type="password" placeholder="Fill in you password...">
+                            </label>
+                        </div>
+
                     </div>
 
-                    <div class="login__group-password">
+                    <div v-else class="login__group">
                         <label class="login__group">
-                            <div>Repeat password<span class="asterik">*</span></div>
-                            <input class="login__group-input" v-model="passwordRepeat"
-                                   type="password" placeholder="Fill in you password...">
+                            <div>Webshop link<span class="asterik">*</span></div>
+                            <input class="login__group-input" v-model="link"
+                                   type="text" placeholder="Your company link">
                         </label>
+
+
+                        <label class="login__group">
+                            <div>Country<span class="asterik">*</span></div>
+                            <input class="login__group-input" v-model="country"
+                                   type="text" placeholder="Your country">
+                        </label>
+
+                        <div class="login__group-wrapper">
+                            <label class="login__group">
+                                <div>City<span class="asterik">*</span></div>
+                                <input class="login__group-input" v-model="city"
+                                       type="text" placeholder="City">
+                            </label>
+
+                            <label class="login__group">
+                                <div>Zip-code<span class="asterik">*</span></div>
+                                <input class="login__group-input" v-model="zipcode"
+                                       type="text" placeholder="Your ZIP-code">
+                            </label>
+                        </div>
+
+                        <div class="login__group-wrapper">
+                            <label class="login__group">
+                                <div>Street<span class="asterik">*</span></div>
+                                <input class="login__group-input" v-model="street"
+                                       type="text" placeholder="Your street">
+                            </label>
+
+                            <label class="login__group">
+                                <div>Housenumber<span class="asterik">*</span></div>
+                                <input class="login__group-input" v-model="number"
+                                       type="text" placeholder="Housenumber">
+                            </label>
+                        </div>
+
+                        <div class="login__group login__accept">
+                            <v-checkbox v-model="consent"
+                                        value="true"
+                                        color="success"
+                                        class="accept-box"
+                            ></v-checkbox>
+                            <a href="https://www.co2ok.eco/privacy">I accept the terms and agreements</a>
+                        </div>
                     </div>
-
-                </div>
-
-                <div v-else class="login__group">
-                    <label class="login__group">
-                        <div>Webshop link<span class="asterik">*</span></div>
-                        <input class="login__group-input" v-model="link"
-                               type="text" placeholder="Your company link">
-                    </label>
-
-
-                    <label class="login__group">
-                        <div>Country<span class="asterik">*</span></div>
-                        <input class="login__group-input" v-model="country"
-                               type="text" placeholder="Your country">
-                    </label>
-
-                    <div class="login__group-wrapper">
-                        <label class="login__group">
-                            <div>City<span class="asterik">*</span></div>
-                            <input class="login__group-input" v-model="city"
-                                   type="text" placeholder="City">
-                        </label>
-
-                        <label class="login__group">
-                            <div>Zip-code<span class="asterik">*</span></div>
-                            <input class="login__group-input" v-model="zipcode"
-                                   type="text" placeholder="Your ZIP-code">
-                        </label>
-                    </div>
-
-                    <div class="login__group-wrapper">
-                        <label class="login__group">
-                            <div>Street<span class="asterik">*</span></div>
-                            <input class="login__group-input" v-model="street"
-                                   type="text" placeholder="Your street">
-                        </label>
-
-                        <label class="login__group">
-                            <div>Housenumber<span class="asterik">*</span></div>
-                            <input class="login__group-input" v-model="number"
-                                   type="text" placeholder="Housenumber">
-                        </label>
-                    </div>
-
-                    <div class="login__group login__accept">
-                        <v-checkbox v-model="consent"
-                                    value="true"
-                                    color="success"
-                                    class="accept-box"
-                        ></v-checkbox>
-                        <a href="https://www.co2ok.eco/privacy">I accept the terms and agreements</a>
-                    </div>
-                </div>
+                </transition>
 
                 <div class="register__button-group">
                     <button v-if="next" @click="next = false" tag="button" to="/" class="login__back">
@@ -130,11 +130,9 @@
 
 <script>
     import axios from 'axios'
-    import Transition from "vuikit/src/library/modal/transition";
 
     export default {
         name: 'RegisterForm',
-        components: {Transition},
         props: {
             msg: String
         },
