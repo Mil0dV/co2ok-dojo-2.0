@@ -177,6 +177,7 @@ def signin(request):
             user = authenticate(username=username, password=password)
             # userToken(request, user)
             if user:
+                login(request, user)
                 token, _ = Token.objects.get_or_create(user=user)
                 return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
             else:
@@ -392,10 +393,12 @@ def sendMail(request):
 #     }
 #     return render(request, 'accounts/login.html', context)
 
-
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((AllowAny,))
 def signout(request):
     logout(request)
-    return redirect('home')
+    return Response({'logout': True})
 
 
 @login_required
