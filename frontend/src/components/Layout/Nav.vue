@@ -18,27 +18,31 @@
 
                 <v-spacer></v-spacer>
 
-                <!--<transition enter-active-class="animated "-->
-                <div v-if="userLoggedIn" class="user__logged">
-                    <v-divider class="ml-4 mr-4" style="height: 42px;" vertical></v-divider>
-                    <div class="navbar__pic__container">
-                        <div class="navbar__user-wrapper">
-                            <img class="navbar__pic" src="//logo.clearbit.com/bol.com">
-                        </div>
+                <transition enter-active-class="animated bounceIn"
+                            leave-active-class="animated bounceOut"
+                            mode="out-in">
+                    <div v-if="userLoggedIn" key="nav1" class="user__logged">
+                        <v-divider class="ml-4 mr-4" style="height: 42px;" vertical></v-divider>
+                        <div class="navbar__pic__container">
+                            <div class="navbar__user-wrapper">
+                                <img class="navbar__pic" src="//logo.clearbit.com/bol.com">
+                            </div>
 
-                        <div @click="logout()" class="navbar__logout">
-                            <img src="../../assets/images/nav/logout.png" alt="logout">
+                            <div @click="logout()" class="navbar__logout">
+                                <img src="../../assets/images/nav/logout.png" alt="logout">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div v-else class="user__extension">
-                    <v-btn class="text-capitalize navbar__items navbar__extension"
-                           style="height: 42px;"
-                           :ripple="false" flat>Extension
-                    </v-btn>
-                    <v-divider class="ml-4" style="height: 42px;" vertical></v-divider>
-                </div>
+                    <div v-else key="nav2" class="user__extension">
+                        <v-btn class="text-capitalize navbar__items navbar__extension"
+                               style="height: 42px;"
+                               :ripple="false" flat>Extension
+                        </v-btn>
+                        <v-divider class="ml-4" style="height: 42px;" vertical></v-divider>
+                    </div>
+                </transition>
+
 
                 <v-menu open-on-hover transition="slide-x-transition"
                         bottom>
@@ -84,12 +88,12 @@
         methods: {
             logout() {
                 axios
-                    .get('http://127.0.0.1:8000/signout/', {
+                    .post('http://127.0.0.1:8000/signout/', {
                         header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
 
                     })
                     .then(response => {
-                        if(response.data.logout) {
+                        if (response.data.logout) {
                             this.$store.commit('removeLocalUserData')
                             this.$router.push('/login')
                         }
