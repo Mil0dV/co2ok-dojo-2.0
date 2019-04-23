@@ -23,6 +23,7 @@
                             leave-active-class="animated bounceOut"
                             mode="out-in">
                     <div v-if="$store.state.userStatus" key="nav1" class="user__logged">
+                        <v-divider class="ml-4 mr-4" style="height: 42px;" vertical></v-divider>
                         <div class="navbar__pic__container">
                             <div class="navbar__user-wrapper">
                                 <img class="navbar__pic" src="//logo.clearbit.com/bol.com">

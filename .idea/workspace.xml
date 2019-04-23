@@ -23,17 +23,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-<<<<<<< HEAD
     <splitter split-orientation="horizontal" split-proportion="0.6038159">
-=======
-    <splitter split-orientation="horizontal" split-proportion="0.63973063">
->>>>>>> tet
+
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/src/components/Form/LoginForm.vue">
               <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
                 <state relative-caret-position="529">
                   <caret line="113" column="96" lean-forward="true" selection-start-line="113" selection-start-column="96" selection-end-line="113" selection-end-column="96" />
                 </state>
@@ -68,10 +64,7 @@
                     <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#v-btn#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                   </folding>
-=======
-                <state relative-caret-position="46">
-                  <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
->>>>>>> tet
+
                 </state>
               </provider>
             </entry>
@@ -79,18 +72,11 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/src/views/Dashboard.vue">
               <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
                 <state relative-caret-position="529">
                   <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
                   <folding>
                     <element signature="n#style#0;n#v-tab#0;n#v-tabs#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#v-icon#0;n#v-tab#0;n#v-tabs#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-=======
-                <state relative-caret-position="391">
-                  <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-                  <folding>
-                    <element signature="n#style#0;n#v-tab#0;n#v-tabs#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
->>>>>>> tet
                     <element signature="n#style#0;n#v-tab#1;n#v-tabs#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#v-tab#2;n#v-tabs#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#v-tab#0;n#v-tabs#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -104,13 +90,12 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue">
               <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
                 <state relative-caret-position="115">
                   <caret line="29" column="30" lean-forward="true" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
-=======
-                <state relative-caret-position="621">
-                  <caret line="27" column="62" lean-forward="true" selection-start-line="27" selection-start-column="62" selection-end-line="27" selection-end-column="62" />
->>>>>>> tet
+            <entry file="file://$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="529">
+                  <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -132,22 +117,16 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/frontend/src/components/Form/RegisterForm.vue">
               <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-                <state relative-caret-position="92">
-                  <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-=======
                 <state relative-caret-position="230">
                   <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="14" selection-end-column="25" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                     <element signature="e#5581#5606#0" expanded="true" />
                   </folding>
->>>>>>> tet
                 </state>
               </provider>
             </entry>
           </file>
-<<<<<<< HEAD
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/frontend/src/components/Form/RegisterForm.vue">
               <provider selected="true" editor-type-id="text-editor">
@@ -161,21 +140,11 @@
               </provider>
             </entry>
           </file>
-=======
->>>>>>> tet
         </leaf>
       </split-first>
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="true">
-<<<<<<< HEAD
-            <entry file="file://$PROJECT_DIR$/frontend/src/store.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="690">
-                  <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
-                  <folding>
-                    <element signature="e#0#21#0" expanded="true" />
-=======
             <entry file="file://$PROJECT_DIR$/frontend/src/components/Form/RegisterForm.vue">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="1009">
@@ -183,7 +152,6 @@
                   <folding>
                     <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
                     <element signature="e#5581#5606#0" expanded="true" />
->>>>>>> tet
                   </folding>
                 </state>
               </provider>
@@ -258,7 +226,6 @@
         <option value="$PROJECT_DIR$/frontend/public/index.html" />
         <option value="$PROJECT_DIR$/frontend/public/index.html" />
         <option value="$PROJECT_DIR$/frontend/src/components/Dashboard/Transactions.vue" />
-<<<<<<< HEAD
         <option value="$PROJECT_DIR$/frontend/src/main.js" />
         <option value="$PROJECT_DIR$/frontend/src/App.vue" />
         <option value="$PROJECT_DIR$/frontend/src/views/Register.vue" />
@@ -275,19 +242,10 @@
         <option value="$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue" />
-=======
-        <option value="$PROJECT_DIR$/frontend/src/components/Dashboard/Plugin.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/components/Dashboard/Plugin.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/main.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/Form/LoginForm.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/components/Form/LoginForm.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/App.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/App.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/views/Register.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/components/Form/RegisterForm.vue" />
->>>>>>> tet
         <option value="$PROJECT_DIR$/frontend/src/views/Dashboard.vue" />
         <option value="$PROJECT_DIR$/frontend/src/views/Dashboard.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Dashboard/Plugin.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Dashboard/Plugin.vue" />
         <option value="$PROJECT_DIR$/frontend/package.json" />
         <option value="$PROJECT_DIR$/config/settings/local.py" />
         <option value="$PROJECT_DIR$/frontend/src/store.js" />
@@ -296,12 +254,10 @@
         <option value="$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/Layout/Nav.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue" />
-<<<<<<< HEAD
         <option value="$PROJECT_DIR$/frontend/src/views/Dashboard.vue" />
         <option value="$PROJECT_DIR$/frontend/src/views/Dashboard.vue" />
-=======
-        <option value="$PROJECT_DIR$/frontend/src/components/Form/RegisterForm.vue" />
->>>>>>> tet
+        <option value="$PROJECT_DIR$/frontend/src/views/Dashboard.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/views/Dashboard.vue" />
       </list>
     </option>
   </component>
@@ -344,14 +300,11 @@
               <item name="co2ok-dojo-2.0" type="b2602c69:ProjectViewProjectNode" />
               <item name="co2ok-dojo-2.0" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
             </path>
             <path>
               <item name="co2ok-dojo-2.0" type="b2602c69:ProjectViewProjectNode" />
               <item name="co2ok-dojo-2.0" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
-=======
->>>>>>> tet
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -359,7 +312,6 @@
               <item name="co2ok-dojo-2.0" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
               <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -384,8 +336,6 @@
               <item name="co2ok-dojo-2.0" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-=======
->>>>>>> tet
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -403,7 +353,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Form" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
             </path>
             <path>
               <item name="co2ok-dojo-2.0" type="b2602c69:ProjectViewProjectNode" />
@@ -412,8 +361,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="Layout" type="462c0819:PsiDirectoryNode" />
-=======
->>>>>>> tet
             </path>
             <path>
               <item name="co2ok-dojo-2.0" type="b2602c69:ProjectViewProjectNode" />
@@ -495,20 +442,14 @@
       <workItem from="1555684063026" duration="15008000" />
       <workItem from="1555838255631" duration="7961000" />
       <workItem from="1555870017975" duration="11552000" />
-<<<<<<< HEAD
       <workItem from="1556000412662" duration="16146000" />
-=======
-      <workItem from="1556000412662" duration="8625000" />
->>>>>>> tet
+      <workItem from="1556000412662" duration="16146000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
     <option name="totallyTimeSpent" value="146797000" />
-=======
-    <option name="totallyTimeSpent" value="139276000" />
->>>>>>> tet
+    <option name="totallyTimeSpent" value="146797000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1819" height="1178" extended-state="6" />
@@ -688,21 +629,12 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/Form.vue">
-<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-881" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-=======
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-881" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
->>>>>>> tet
         <state relative-caret-position="207">
           <caret line="9" column="114" selection-start-line="9" selection-start-column="114" selection-end-line="9" selection-end-column="114" />
         </state>
@@ -730,7 +662,6 @@
             <element signature="n#style#0;n#v-divider#0;n#div#0;n#v-toolbar-items#0;n#div#0;n#v-toolbar#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#v-divider#0;n#div#1;n#v-toolbar-items#0;n#div#0;n#v-toolbar#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#v-list-tile-title#0;n#v-list-tile#0;n#v-list#0;n#v-menu#0;n#v-toolbar-items#0;n#div#0;n#v-toolbar#0;n#template#0;n#!!top" expanded="true" />
-<<<<<<< HEAD
           </folding>
         </state>
       </provider>
@@ -763,8 +694,6 @@
           <folding>
             <element signature="e#0#21#0" expanded="true" />
             <element signature="e#376#413#0" expanded="true" />
-=======
->>>>>>> tet
           </folding>
         </state>
       </provider>
@@ -808,13 +737,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/Dashboard/Transactions.vue">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state relative-caret-position="207">
           <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-=======
-        <state relative-caret-position="69">
-          <caret line="3" column="55" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
->>>>>>> tet
           <folding>
             <element signature="n#style#0;n#v-icon#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#v-icon#0;n#button#0;n#div#0;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -826,7 +750,6 @@
     <entry file="file://$PROJECT_DIR$/frontend/babel.config.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/frontend/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -866,6 +789,7 @@
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -965,7 +889,7 @@
             <element signature="n#style#0;n#v-divider#0;n#div#1;n#v-toolbar-items#0;n#div#0;n#v-toolbar#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#v-list-tile-title#0;n#v-list-tile#0;n#v-list#0;n#v-menu#0;n#v-toolbar-items#0;n#div#0;n#v-toolbar#0;n#template#0;n#!!top" expanded="true" />
           </folding>
-=======
+
     <entry file="file://$PROJECT_DIR$/frontend/webpack-stats.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1023,19 +947,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
->>>>>>> tet
+
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state relative-caret-position="115">
           <caret line="29" column="30" lean-forward="true" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
-=======
-        <state relative-caret-position="621">
-          <caret line="27" column="62" lean-forward="true" selection-start-line="27" selection-start-column="62" selection-end-line="27" selection-end-column="62" />
->>>>>>> tet
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -1066,6 +985,34 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="e#5581#5606#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/Dashboard/Profile.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="29" column="30" lean-forward="true" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-btn#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/views/Dashboard.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#v-tab#0;n#v-tabs#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-icon#0;n#v-tab#0;n#v-tabs#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-tab#1;n#v-tabs#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-tab#2;n#v-tabs#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-tab#0;n#v-tabs#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-tab#1;n#v-tabs#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#v-tab#2;n#v-tabs#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
