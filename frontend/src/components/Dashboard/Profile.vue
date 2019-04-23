@@ -7,7 +7,7 @@
 
         <div class="profile__col-1">
 
-            <div class="profile__card">
+            <div class="profile__card animated fadeIn" style="animation-delay: 0.2s;">
                 <div class="card__content">
                     <p class="card__title">Personal Data</p>
 
@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="profile__card">
+            <div class="profile__card animated fadeIn" style="animation-delay: 0.4s;">
                 <div class="card__content">
                     <p class="card__title">Settings</p>
 

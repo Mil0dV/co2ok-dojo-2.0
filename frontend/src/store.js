@@ -84,10 +84,6 @@ export default new Vuex.Store({
             store.commit('saveUser', payload);
         },
 
-        commitRemoveLocalUserData(store, data) {
-            store.commit('removeLocalUserData', data);
-        },
-
         commitRemoveLocalUserData(store) {
             store.commit('removeLocalUserData');
         }

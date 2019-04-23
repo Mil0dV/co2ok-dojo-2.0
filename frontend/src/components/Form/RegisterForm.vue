@@ -17,11 +17,12 @@
                     <p class="login__form-title">Make an account to get access to more info!</p>
                 </div>
 
-                <transition enter-active-class="animated slideInRight"
-                            leave-active-class="animated slideOutLeft"
+                <transition enter-active-class="animated fadeIn"
+                            leave-active-class="animated fadeOut"
+                            :duration="{ enter: 500, leave: 200 }"
                             mode="out-in">
 
-                    <div v-if="!next" class="login__group">
+                    <div v-if="!next" key="firstSlide" class="login__group">
 
                         <label class="login__group">
                             <div>Company name<span class="asterik">*</span></div>
@@ -53,7 +54,7 @@
 
                     </div>
 
-                    <div v-else class="login__group">
+                    <div v-else key="secondSlide" class="login__group">
                         <label class="login__group">
                             <div>Webshop link<span class="asterik">*</span></div>
                             <input class="login__group-input" v-model="link"
@@ -265,6 +266,7 @@
     }
 
     .login__form {
+        overflow: hidden;
         padding: 0 0 0 80px;
         max-width: 555px;
         max-height: 739px;

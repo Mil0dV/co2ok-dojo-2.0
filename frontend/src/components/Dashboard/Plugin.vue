@@ -9,22 +9,23 @@
         </p>
 
 
-        <v-radio-group class="plugin__col-1" v-model="radioGroup" row>
+        <v-radio-group class="plugin__col-1 animated fadeIn" style="animation-delay: 0.3s;" v-model="radioGroup" row>
             <div class="plugin__design design-1">
                 <p class="design-title">Select Design</p>
                 <v-radio color="#10DC87" value="radio-1"></v-radio>
-
+                <img class="plugin__image" src="../../assets/images/dashboard/design-1.png">
             </div>
+            <div style="width: 100px;"></div>
 
             <div class="plugin__design design-2">
                 <p class="design-title">Select Design</p>
                 <v-radio color="#10DC87" value="radio-2"></v-radio>
-                sdsd
+                <img class="plugin__image" src="../../assets/images/dashboard/design-2.png">
             </div>
         </v-radio-group>
 
 
-        <div class="plugin__col-2">
+        <div class="plugin__col-2 animated fadeIn" style="animation-delay: 0.5s;">
             <div class="col-2__content">
                 <p class="col-2__text">
                     Would you like to show GIF’s to the customer, when completing a transactions?
@@ -41,7 +42,7 @@
             </div>
         </div>
 
-        <div class="plugin__col-2">
+        <div class="plugin__col-2 animated fadeIn" style="animation-delay: 0.7s;">
             <div class="col-2__content">
                 <p class="col-2__text">
                     Do you give CO2ok permission to send the customer an email?
@@ -134,9 +135,8 @@
         max-height: 132px;
         height: 100%;
         width: 100%;
-        /*border-bottom: 1px solid #E2E2E2;*/
+        border-bottom: 1px solid #E2E2E2;
         display: flex;
-        border: 4px solid green;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -146,6 +146,11 @@
     .plugin__design {
         /*max-width: 10px;*/
         /*width: 100%;*/
+    }
+
+    .plugin__image {
+        width: 350px;
+        padding-bottom: 30px;
     }
 
     .design-title {
