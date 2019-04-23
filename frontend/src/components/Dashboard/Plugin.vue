@@ -36,7 +36,16 @@
                     <v-switch class="switch__option" color="#10DC87"
                               v-model="switchGIF"
                     ></v-switch>
-                    <p class="col-2__switch-text switch__text-2">{{switchGIF}}</p>
+                    <transition enter-active-class="animated bounceIn"
+                                leave-active-class="animated bounceOut"
+                                mode="out-in">
+                        <p key="1" v-if="switchGIF" class="col-2__switch-text switch__text-2 animated bounceIn">
+                            Disable
+                        </p>
+                        <p key="2" v-else class="col-2__switch-text switch__text-2 animated bounceIn">
+                            Enable
+                        </p>
+                    </transition>
                 </div>
 
             </div>
@@ -53,7 +62,17 @@
                     <v-switch class="switch__option" color="#10DC87"
                               v-model="switchEmail"
                     ></v-switch>
-                    <p class="col-2__switch-text switch__text-2">{{switchEmail}}</p>
+
+                    <transition enter-active-class="animated bounceIn"
+                                leave-active-class="animated bounceOut"
+                                mode="out-in">
+                        <p key="1" v-if="switchEmail" class="col-2__switch-text switch__text-2 animated bounceIn">
+                            Disable
+                        </p>
+                        <p key="2" v-else class="col-2__switch-text switch__text-2 animated bounceIn">
+                            Enable
+                        </p>
+                    </transition>
                 </div>
             </div>
         </div>
@@ -63,7 +82,6 @@
 <script>
     export default {
         name: "Plugin",
-
         data() {
             return {
                 radioGroup: null,
@@ -159,7 +177,7 @@
 
     }
 
-    .v-input--radio-group__input{
+    .v-input--radio-group__input {
         width: 100%;
         border: 5px solid red;
         max-width: 410px !important;
