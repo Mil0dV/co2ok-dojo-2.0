@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.views.generic import DetailView, ListView, RedirectView, UpdateView
+from django.shortcuts import render
 
 User = get_user_model()
 
@@ -50,3 +51,8 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 
 
 user_redirect_view = UserRedirectView.as_view()
+
+
+def users_signup(request):
+    context = {}
+    return render(request, 'users/users_signup.html', context)
