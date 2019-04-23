@@ -12,13 +12,14 @@
         <v-radio-group class="plugin__col-1" v-model="radioGroup" row>
             <div class="plugin__design design-1">
                 <p class="design-title">Select Design</p>
-                <v-radio label="Option 1" color="#10DC87" value="radio-1"></v-radio>
+                <v-radio color="#10DC87" value="radio-1"></v-radio>
 
             </div>
 
             <div class="plugin__design design-2">
                 <p class="design-title">Select Design</p>
-                <v-radio label="Option 2" color="#10DC87" value="radio-2"></v-radio>
+                <v-radio color="#10DC87" value="radio-2"></v-radio>
+                sdsd
             </div>
         </v-radio-group>
 
@@ -91,6 +92,8 @@
 </script>
 
 <style scoped>
+
+
     .plugin__container {
         border-radius: 4px;
         min-width: 1146px;
@@ -130,8 +133,10 @@
         margin-top: 30px;
         max-height: 132px;
         height: 100%;
-        border-bottom: 1px solid #E2E2E2;
+        width: 100%;
+        /*border-bottom: 1px solid #E2E2E2;*/
         display: flex;
+        border: 4px solid green;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -139,9 +144,8 @@
 
 
     .plugin__design {
-        border: 1px solid red;
-        max-width: 410px;
-        width: 100%;
+        /*max-width: 10px;*/
+        /*width: 100%;*/
     }
 
     .design-title {
