@@ -112,7 +112,7 @@
                                     this.$store.dispatch('commitSaveUser', response.data)
                                     this.$store.commit('setLocalUserData', response.data)
                                     // console.log(this.$store.state.userAuthLocalData);
-
+                                    this.$store.commit('isLoggedIn', response.data.authenticate)
                                     this.$router.push('dashboard')
                                 }else{
                                     let errormessage = {title: 'Oops... Something went wrong!', text: rsponse.data.error}

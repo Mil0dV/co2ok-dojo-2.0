@@ -14,6 +14,7 @@ export default new Vuex.Store({
         modalStatus: false,
         userAuthData: [],
         userData: [],
+        userStatus: false,
         // userAuthLocalData: [],
         userToken: window.localStorage.getItem('userToken'),
         userId: window.localStorage.getItem('userId')
@@ -29,12 +30,19 @@ export default new Vuex.Store({
             }
         },
 
+        isLoggedIn(state, payload) {
+            if(payload){
+                state.userStatus = true
+            } else {
+                state.userStatus = false
+            }
+        },
+
         saveUser(state, payload) {
             state.userAuthData = payload
         },
 
         saveUserData(state) {
-
             axios
                 .get(`http://127.0.0.1:8000/user/authenticateUser/?id=${state.userId}`, {
                     headers: {
