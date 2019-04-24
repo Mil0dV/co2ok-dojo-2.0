@@ -17,7 +17,6 @@
                 <v-btn class="text-capitalize navbar__items" :ripple="false" flat>FAQ</v-btn>
 
                 <v-spacer></v-spacer>
-                <v-divider class="ml-4 mr-4" style="height: 42px;" vertical></v-divider>
 
                 <transition enter-active-class="animated bounceIn"
                             leave-active-class="animated bounceOut"
@@ -40,6 +39,7 @@
                                style="height: 42px;"
                                :ripple="false" flat>Extension
                         </v-btn>
+                        <v-divider class="ml-4" style="height: 42px;" vertical></v-divider>
                     </div>
                 </transition>
 
@@ -70,6 +70,8 @@
 </template>
 
 <script>
+    import axios from 'axios'
+
     export default {
         name: "Nav",
 
@@ -87,7 +89,7 @@
 
         methods: {
             logout() {
-                this.$axios
+                axios
                     .post('http://127.0.0.1:8000/logout/', {
                         header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
 
@@ -99,7 +101,7 @@
                         }
                     })
                     .catch(error => {
-                        // this.errorMessage()
+                        this.errorMessage()
                     })
             }
         },
