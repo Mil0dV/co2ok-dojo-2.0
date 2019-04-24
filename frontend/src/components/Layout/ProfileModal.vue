@@ -126,10 +126,11 @@
                                 city: this.city,
                                 zipcode: this.zipcode,
                                 street: this.street,
-                                number: this.number
-                            },
+                                number: this.number,
+                                link: this.link
+                            }
 
-                            header: {"X-CSRFToken": `token ${this.$store.state.userToken}`,}
+                            // header: {"X-CSRFToken": `token ${this.$store.state.userToken}`,}
                         })
                         .then(response => {
                             if (response.data.update) {

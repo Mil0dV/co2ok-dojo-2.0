@@ -89,42 +89,12 @@
 
         created() {
 
-            this.userLoginData();
+            
         },
 
         methods: {
 
-            userLoginData (){
-
-                this.$store.commit('saveUserData');
-
-            //   let self = this;
-            //   this.$axios
-            //     .get(`http://127.0.0.1:8000/user/authenticateUser/?id=${self.$store.state.userId}`, {
-
-            //         headers: {
-            //             "X-CSRFToken": '${self.$store.state.userAuthData.token}',
-            //             Authorization: `token ${self.$store.state.userToken}`
-            //         }
-
-            //     })
-            //     .then(response => {
-
-            //         self.$store.commit('saveUserData', response.data);
-            //         self.userProfileData = self.$store.state.userData.userProfileData;
-            //         self.userData = self.$store.state.userData.userdata;
-            //         console.log(response.data);
-            //         console.log(this.$store.state.userData);
-
-
-            //     })
-            //     .catch(error => {
-            //         console.log(eror);
-
-            //         //  this.errorMessage()
-            //     })
-            }
-
+            
         }
     }
 </script>

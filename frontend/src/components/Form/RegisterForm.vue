@@ -9,6 +9,11 @@
             </div>
         </div>
 
+        <!--<transition enter-active-class="animated slideInUp">-->
+            <!--<p v-if="next">sdsdsd</p>-->
+            <!--<p v-else>ssddsdsd</p>-->
+        <!--</transition>-->
+
 
         <div class="login__col-2">
             <form v-model="valid" class="login__form">
@@ -36,24 +41,8 @@
                                    type="email" placeholder="Fill in you email...">
                         </label>
 
-                        <div class="login__group-password">
-                            <label class="login__group">
-                                <div>Password<span class="asterik">*</span></div>
-                                <input class="login__group-input" v-model="password"
-                                       type="password" placeholder="Fill in you password...">
-                            </label>
-                        </div>
-
-                        <div class="login__group-password">
-                            <label class="login__group">
-                                <div>Repeat password<span class="asterik">*</span></div>
-                                <input class="login__group-input" v-model="passwordRepeat"
-                                       type="password" placeholder="Fill in you password...">
-                            </label>
-                        </div>
-
                     </div>
-
+                    
                     <div v-else key="secondSlide" class="login__group">
                         <label class="login__group">
                             <div>Webshop link<span class="asterik">*</span></div>
