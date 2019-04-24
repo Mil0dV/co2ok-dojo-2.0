@@ -13,14 +13,22 @@
             <div class="plugin__design design-1">
                 <p class="design-title">Select Design</p>
                 <v-radio color="#10DC87" value="radio-1"></v-radio>
+<<<<<<< HEAD
                 <img class="plugin__image" src="../../assets/images/dashboard/design-1.png">
+=======
+
+>>>>>>> tet
             </div>
             <div style="width: 100px;"></div>
 
             <div class="plugin__design design-2">
                 <p class="design-title">Select Design</p>
                 <v-radio color="#10DC87" value="radio-2"></v-radio>
+<<<<<<< HEAD
                 <img class="plugin__image" src="../../assets/images/dashboard/design-2.png">
+=======
+                sdsd
+>>>>>>> tet
             </div>
         </v-radio-group>
 
@@ -153,7 +161,11 @@
         max-height: 132px;
         height: 100%;
         width: 100%;
+<<<<<<< HEAD
         border-bottom: 1px solid #E2E2E2;
+=======
+        /*border-bottom: 1px solid #E2E2E2;*/
+>>>>>>> tet
         display: flex;
         border: 4px solid green;
         flex-direction: row;
@@ -165,11 +177,14 @@
     .plugin__design {
         /*max-width: 10px;*/
         /*width: 100%;*/
+<<<<<<< HEAD
     }
 
     .plugin__image {
         width: 350px;
         padding-bottom: 30px;
+=======
+>>>>>>> tet
     }
 
     .design-title {

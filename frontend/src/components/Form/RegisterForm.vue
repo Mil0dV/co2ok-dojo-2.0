@@ -40,6 +40,26 @@
                             <input class="login__group-input" v-model="email"
                                    type="email" placeholder="Fill in you email...">
                         </label>
+<<<<<<< HEAD
+=======
+                    </div>
+
+                </div>
+
+                <div v-else class="login__group">
+                    <label class="login__group">
+                        <div>Webshop link<span class="asterik">*</span></div>
+                        <input class="login__group-input" v-model="link"
+                               type="text" placeholder="Your company link">
+                    </label>
+
+
+                    <label class="login__group">
+                        <div>Country<span class="asterik">*</span></div>
+                        <input class="login__group-input" v-model="country"
+                               type="text" placeholder="Your country">
+                    </label>
+>>>>>>> tet
 
                     </div>
                     
@@ -57,6 +77,7 @@
                                    type="text" placeholder="Your country">
                         </label>
 
+<<<<<<< HEAD
                         <div class="login__group-wrapper">
                             <label class="login__group">
                                 <div>City<span class="asterik">*</span></div>
@@ -95,6 +116,17 @@
                         </div>
                     </div>
                 </transition>
+=======
+                    <div class="login__group login__accept">
+                        <v-checkbox v-model="consent"
+                                    value="true"
+                                    color="success"
+                                    class="accept-box"
+                        ></v-checkbox>
+                        <a href="https://www.co2ok.eco/privacy">I accept the terms and agreements</a>
+                    </div>
+                </div>
+>>>>>>> tet
 
                 <div class="register__button-group">
                     <button v-if="next" @click="next = false" tag="button" to="/" class="login__back">
@@ -302,6 +334,7 @@
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
+<<<<<<< HEAD
     }
 
     .login__accept a {
@@ -311,6 +344,17 @@
         text-decoration: none;
     }
 
+=======
+    }
+
+    .login__accept a {
+        margin-bottom: 5px;
+        flex: 30;
+        color: black;
+        text-decoration: none;
+    }
+
+>>>>>>> tet
     .login__accept a:visited {
         color: black;
     }
