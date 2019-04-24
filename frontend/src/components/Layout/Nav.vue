@@ -88,7 +88,7 @@
         methods: {
             logout() {
                 this.$axios
-                    .post('http://127.0.0.1:8000/signout/', {
+                    .post('http://127.0.0.1:8000/logout/', {
                         header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
 
                     })
@@ -99,7 +99,7 @@
                         }
                     })
                     .catch(error => {
-                        this.errorMessage()
+                        // this.errorMessage()
                     })
             }
         },
