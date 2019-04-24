@@ -9,21 +9,23 @@
         </p>
 
 
-        <v-radio-group class="plugin__col-1" v-model="radioGroup" row>
+        <v-radio-group class="plugin__col-1 animated fadeIn" style="animation-delay: 0.3s;" v-model="radioGroup" row>
             <div class="plugin__design design-1">
                 <p class="design-title">Select Design</p>
-                <v-radio label="Option 1" color="#10DC87" value="radio-1"></v-radio>
-
+                <v-radio color="#10DC87" value="radio-1"></v-radio>
+                <img class="plugin__image" src="../../assets/images/dashboard/design-1.png">
             </div>
+            <div style="width: 100px;"></div>
 
             <div class="plugin__design design-2">
                 <p class="design-title">Select Design</p>
-                <v-radio label="Option 2" color="#10DC87" value="radio-2"></v-radio>
+                <v-radio color="#10DC87" value="radio-2"></v-radio>
+                <img class="plugin__image" src="../../assets/images/dashboard/design-2.png">
             </div>
         </v-radio-group>
 
 
-        <div class="plugin__col-2">
+        <div class="plugin__col-2 animated fadeIn" style="animation-delay: 0.5s;">
             <div class="col-2__content">
                 <p class="col-2__text">
                     Would you like to show GIF’s to the customer, when completing a transactions?
@@ -34,13 +36,22 @@
                     <v-switch class="switch__option" color="#10DC87"
                               v-model="switchGIF"
                     ></v-switch>
-                    <p class="col-2__switch-text switch__text-2">{{switchGIF}}</p>
+                    <transition enter-active-class="animated bounceIn"
+                                leave-active-class="animated bounceOut"
+                                mode="out-in">
+                        <p key="1" v-if="switchGIF" class="col-2__switch-text switch__text-2 animated bounceIn">
+                            Disable
+                        </p>
+                        <p key="2" v-else class="col-2__switch-text switch__text-2 animated bounceIn">
+                            Enable
+                        </p>
+                    </transition>
                 </div>
 
             </div>
         </div>
 
-        <div class="plugin__col-2">
+        <div class="plugin__col-2 animated fadeIn" style="animation-delay: 0.7s;">
             <div class="col-2__content">
                 <p class="col-2__text">
                     Do you give CO2ok permission to send the customer an email?
@@ -51,7 +62,17 @@
                     <v-switch class="switch__option" color="#10DC87"
                               v-model="switchEmail"
                     ></v-switch>
-                    <p class="col-2__switch-text switch__text-2">{{switchEmail}}</p>
+
+                    <transition enter-active-class="animated bounceIn"
+                                leave-active-class="animated bounceOut"
+                                mode="out-in">
+                        <p key="1" v-if="switchEmail" class="col-2__switch-text switch__text-2 animated bounceIn">
+                            Disable
+                        </p>
+                        <p key="2" v-else class="col-2__switch-text switch__text-2 animated bounceIn">
+                            Enable
+                        </p>
+                    </transition>
                 </div>
             </div>
         </div>
@@ -61,7 +82,6 @@
 <script>
     export default {
         name: "Plugin",
-
         data() {
             return {
                 radioGroup: null,
@@ -91,6 +111,8 @@
 </script>
 
 <style scoped>
+
+
     .plugin__container {
         border-radius: 4px;
         min-width: 1146px;
@@ -130,6 +152,7 @@
         margin-top: 30px;
         max-height: 132px;
         height: 100%;
+        width: 100%;
         border-bottom: 1px solid #E2E2E2;
         display: flex;
         flex-direction: row;
@@ -139,9 +162,13 @@
 
 
     .plugin__design {
-        border: 1px solid red;
-        max-width: 410px;
-        width: 100%;
+        /*max-width: 10px;*/
+        /*width: 100%;*/
+    }
+
+    .plugin__image {
+        width: 350px;
+        padding-bottom: 30px;
     }
 
     .design-title {
@@ -150,7 +177,7 @@
 
     }
 
-    .v-input--radio-group__input{
+    .v-input--radio-group__input {
         width: 100%;
         border: 5px solid red;
         max-width: 410px !important;

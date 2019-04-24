@@ -1,7 +1,7 @@
 <template>
     <div class="transaction__container">
         <div class="transaction__head">
-            <h1 class="transaction__title">Transaction</h1>
+            <h1 class="transaction__title">Transactions</h1>
             <v-icon color="#10DC87" style="transform: rotate(120deg)" large>sync</v-icon>
         </div>
 

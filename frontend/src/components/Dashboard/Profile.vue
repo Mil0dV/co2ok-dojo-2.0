@@ -7,7 +7,7 @@
 
         <div class="profile__col-1">
 
-            <div class="profile__card">
+            <div class="profile__card animated fadeIn" style="animation-delay: 0.2s;">
                 <div class="card__content">
                     <p class="card__title">Personal Data</p>
 
@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="profile__card">
+            <div class="profile__card animated fadeIn" style="animation-delay: 0.4s;">
                 <div class="card__content">
                     <p class="card__title">Settings</p>
 
@@ -162,9 +162,9 @@
     }
 
     .profile__card {
-        flex-grow: 1;
         max-width: 362px;
         width: 100%;
+        min-height: 324px;
         height: 100%;
         box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.15);
     }

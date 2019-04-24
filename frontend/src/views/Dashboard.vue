@@ -3,29 +3,38 @@
         <div class="dashboard__container">
             <div class="dashboard__header">
                 <p class="dashboard__title">Dashboard</p>
-                <p class="dashboard__welcome">Weclome, dfdfdfdf!</p>
+                <p class="dashboard__welcome">Weclome, {{this.$store.state.userData.userdata.username}}!</p>
             </div>
 
             <div class="dashboard__tabs">
-                <p class="dashboard__mail">asdsadsadas</p>
+                <p class="dashboard__mail">{{this.$store.state.userData.userdata.email}}</p>
                 <v-tabs v-model="active" centered class="dashboard__tabs-group"
                         color="#F4F4F4" slider-color="#08BA4D">
                     <v-tab class="dashboard__tab-item text-capitalize"
                            style="background: transparent;"
                            :ripple="false">
-                        Transactions
+                        <p>
+                            Transactions
+                        </p>
+                        <v-icon class="tab__icon" style="transform: rotate(120deg);">sync</v-icon>
                     </v-tab>
 
                     <v-tab class="dashboard__tab-item text-capitalize"
                            style="background: transparent;"
                            :ripple="false">
-                        Plug-in Settings
+                        <p>
+                            Plug-in Settings
+                        </p>
+                        <v-icon class="tab__icon">edit</v-icon>
                     </v-tab>
 
                     <v-tab class="dashboard__tab-item text-capitalize"
                            style="background: transparent;"
                            :ripple="false">
-                        My Profile
+                        <p>
+                            My Profile
+                        </p>
+                        <v-icon class="tab__icon">person</v-icon>
                     </v-tab>
                 </v-tabs>
             </div>
@@ -143,6 +152,14 @@
         padding: 0;
     }
 
+    /*.theme--light.v-tabs__bar .v-tabs__div {*/
+        /*color: #08BA4D !important;*/
+    /*}*/
+
+    /*.v-tabs__item:not(.v-tabs__item--active) {*/
+        /*border:1px solid red !important;*/
+    /*}*/
+
     .dashboard__welcome {
         margin: 0;
         padding: 0;
@@ -183,11 +200,24 @@
 
     .dashboard__tab-item {
         margin-right: 22px;
-        max-width: 196px;
+        max-width: 300px;
         width: 100%;
         font-family: 'Poppins', sans-serif;
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 900;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .dashboard__tab-item  p{
+        padding: 0;
+        margin: 0;
+    }
+
+    .tab__icon {
+        color:black;
+        margin-left: 10px;
     }
 
     .dashboard__content {

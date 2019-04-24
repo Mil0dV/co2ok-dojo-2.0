@@ -18,22 +18,31 @@
 
                 <v-spacer></v-spacer>
 
-                <div v-if="userLoggedIn" class="user__extension">
-                    <v-divider class="ml-4 mr-4" style="height: 42px;" vertical></v-divider>
-                    <div class="navbar__pic__container">
-                        <div :style="{backgroundImage : 'url(' + require('@/assets/images/nav/user.png') + ')'}"
-                             class="navbar__pic">
+                <transition enter-active-class="animated bounceIn"
+                            leave-active-class="animated bounceOut"
+                            mode="out-in">
+                    <div v-if="$store.state.userStatus" key="nav1" class="user__logged">
+                        <v-divider class="ml-4 mr-4" style="height: 42px;" vertical></v-divider>
+                        <div class="navbar__pic__container">
+                            <div class="navbar__user-wrapper">
+                                <img class="navbar__pic" src="//logo.clearbit.com/bol.com">
+                            </div>
+
+                            <div @click="logout()" class="navbar__logout">
+                                <img src="../../assets/images/nav/logout.png" alt="logout">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div v-else class="user__extension">
-                    <v-btn class="text-capitalize navbar__items navbar__extension"
-                           style="height: 42px;"
-                           :ripple="false" flat>Extension
-                    </v-btn>
-                    <v-divider class="ml-4" style="height: 42px;" vertical></v-divider>
-                </div>
+                    <div v-else key="nav2" class="user__extension">
+                        <v-btn class="text-capitalize navbar__items navbar__extension"
+                               style="height: 42px;"
+                               :ripple="false" flat>Extension
+                        </v-btn>
+                        <v-divider class="ml-4" style="height: 42px;" vertical></v-divider>
+                    </div>
+                </transition>
+
 
                 <v-menu open-on-hover transition="slide-x-transition"
                         bottom>
@@ -70,17 +79,38 @@
             }
         },
 
-        mounted(){
-            if(this.$store.state.userData.length > 0) {
+        mounted() {
+            if (this.$store.state.userData.length > 0) {
                 this.userLoggedIn = true;
+            }
+        },
+
+        methods: {
+            logout() {
+                axios
+                    .post('http://127.0.0.1:8000/signout/', {
+                        header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
+
+                    })
+                    .then(response => {
+                        if (response.data.logout) {
+                            this.$store.commit('removeLocalUserData')
+                            this.$router.push('/login')
+                        }
+                    })
+                    .catch(error => {
+                        this.errorMessage()
+                    })
             }
         },
 
 
         watch: {
-            '$route' () {
+            '$route'() {
                 this.userLoggedIn = this.$router.currentRoute['name'] === 'dashboard';
-            }
+            },
+
+
         }
     }
 </script>
@@ -140,6 +170,13 @@
         transition: 0.2s ease-in-out;
     }
 
+    .user__logged {
+        display: flex;
+        flex-direction: row;
+        color: black;
+        align-items: center;
+    }
+
     .navbar__extension:hover {
         top: -4px;
         transition: 0.2s ease-in-out;
@@ -151,19 +188,29 @@
     }
 
     .navbar__pic__container {
-        overflow: hidden;
+        width: 100%;
+        height: 53px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .navbar__user-wrapper {
         width: 53px;
         height: 53px;
-        border-radius: 50px;
+    }
+
+    .navbar__logout {
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
     }
 
     .navbar__pic {
-        width: 53px;
-        height: 53px;
-        background-size: cover;
-        transform: scale(4);
-        background-position: 80% bottom;
-        overflow: hidden;
+        border-radius: 50px;
+        height: 100%;
     }
+
 
 </style>
