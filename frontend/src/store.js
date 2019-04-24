@@ -17,7 +17,9 @@ export default new Vuex.Store({
         userStatus: false,
         // userAuthLocalData: [],
         userToken: window.localStorage.getItem('userToken'),
-        userId: window.localStorage.getItem('userId')
+        userId: window.localStorage.getItem('userId'),
+        //return a booleam of user login status
+        userSession: window.localStorage.getItem('userSession')
     },
 
     mutations: {
@@ -55,6 +57,8 @@ export default new Vuex.Store({
                     if (state.userData.length == 0) {
                         //user array is empty, push userdata
                         state.userData = response.data;
+                        state.userStatus = true;
+
                     } else {
                         // user array !empty, empty it and push user data
                         state.userData = '';
@@ -72,6 +76,7 @@ export default new Vuex.Store({
         setLocalUserData(state, data) {
             window.localStorage.setItem('userToken', data.token);
             window.localStorage.setItem('userId', data.id);
+            window.localStorage.setItem('userSession', true)
             //    let getLocalData = {
             //        userToken: window.localStorage.getItem('userToken'),
             //        userId: window.localStorage.getItem('userId')
@@ -79,10 +84,13 @@ export default new Vuex.Store({
             //     state.userAuthLocalData = getLocalData;
         },
 
+        // empty user authenticate data if the are logout
         removeLocalUserData(state) {
-            window.localStorage.removeItem('userToken');
+            window.localStorage.removeItem('userToken', null);
             window.localStorage.removeItem('userId');
+            window.localStorage.setItem('userSession', false);
             state.userData = '';
+            state.userStatus = false
         }
 
     },

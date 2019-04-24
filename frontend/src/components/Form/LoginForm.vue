@@ -37,7 +37,7 @@
                     </div>
                 </div>
 
-                <button type="submit" @click.prevent="sendForm()"
+                <button type="submit" @click.prevent="login()"
                         class="login__submit">
 
                     <span v-if="send === false">Login</span>
@@ -76,6 +76,8 @@
             }
         },
         created() {
+
+            console.log(this.$route)
         },
 
         methods: {
@@ -92,7 +94,7 @@
                 }
             },
 
-            sendForm() {
+            login() {
                 let message = {title: 'Oops... Something went wrong!', text: 'Try again later.'}
                 if (this.email !== '' && this.password !== '') {
                     axios
@@ -113,7 +115,14 @@
                                     this.$store.commit('setLocalUserData', response.data)
                                     // console.log(this.$store.state.userAuthLocalData);
                                     this.$store.commit('isLoggedIn', response.data.authenticate)
-                                    this.$router.push('dashboard')
+                                    this.$store.commit('saveUserData');
+                                    //userSession return a boolean of de authenticate status of the user
+                                    if(this.$store.state.userSession)
+                                    {
+                                       this.$router.push('dashboard')
+                                    }else{
+                                        this.$router.push('login')
+                                    }
                                 }else{
                                     let errormessage = {title: 'Oops... Something went wrong!', text: rsponse.data.error}
                                     this.errorMessage(errormessage)

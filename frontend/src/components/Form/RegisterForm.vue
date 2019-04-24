@@ -42,36 +42,7 @@
                         </label>
 
                     </div>
-
-                <div v-else class="login__group">
-                    <label class="login__group">
-                        <div>Webshop link<span class="asterik">*</span></div>
-                        <input class="login__group-input" v-model="link"
-                               type="text" placeholder="Your company link">
-                    </label>
-
-
-                    <label class="login__group">
-                        <div>Country<span class="asterik">*</span></div>
-                        <input class="login__group-input" v-model="country"
-                               type="text" placeholder="Your country">
-                    </label>
-                </div>
-
-                    <div class="login__group-wrapper">
-                        <label class="login__group">
-                            <div>City<span class="asterik">*</span></div>
-                            <input class="login__group-input" v-model="city"
-                                   type="text" placeholder="City">
-                        </label>
-
-                        <label class="login__group">
-                            <div>Zip-code<span class="asterik">*</span></div>
-                            <input class="login__group-input" v-model="zipcode"
-                                   type="text" placeholder="Your ZIP-code">
-                        </label>
-                    </div>
-
+                    
                     <div v-else key="secondSlide" class="login__group">
                         <label class="login__group">
                             <div>Webshop link<span class="asterik">*</span></div>
