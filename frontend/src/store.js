@@ -14,6 +14,7 @@ export default new Vuex.Store({
         modalStatus: false,
         userAuthData: [],
         userData: [],
+        userStatus: false,
         // userAuthLocalData: [],
         userToken: window.localStorage.getItem('userToken'),
         userId: window.localStorage.getItem('userId')
@@ -34,7 +35,6 @@ export default new Vuex.Store({
         },
 
         saveUserData(state) {
-
             axios
                 .get(`http://127.0.0.1:8000/user/authenticateUser/?id=${state.userId}`, {
                     headers: {
@@ -44,18 +44,19 @@ export default new Vuex.Store({
                 })
                 .then(response => {
                     //verify if the userdata array is empty
-                    if (state.userData.length == 0) {
+                    if (state.userData.length === 0) {
                         //user array is empty, push userdata
                         state.userData = response.data;
+                        state.userStatus = true;
+                        console.log(response.data);
                     } else {
                         // user array !empty, empty it and push user data
                         state.userData = '';
                         state.userData = response.data;
                     }
-                    console.log(response.data);
                 })
                 .catch(error => {
-                    console.log(error);
+                    // console.log(error);
                     //  this.errorMessage()
                 })
 
@@ -82,10 +83,6 @@ export default new Vuex.Store({
     actions: {
         commitSaveUser(store, payload) {
             store.commit('saveUser', payload);
-        },
-
-        commitRemoveLocalUserData(store, data) {
-            store.commit('removeLocalUserData', data);
         },
 
         commitRemoveLocalUserData(store) {

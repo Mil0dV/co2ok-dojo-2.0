@@ -111,6 +111,7 @@
                                 if (response.data.authenticate) {
                                     this.$store.dispatch('commitSaveUser', response.data)
                                     this.$store.commit('setLocalUserData', response.data)
+                                    this.$store.commit('saveUserData');
                                     // console.log(this.$store.state.userAuthLocalData);
 
                                     this.$router.push('dashboard')

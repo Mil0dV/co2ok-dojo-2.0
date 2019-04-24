@@ -3,11 +3,12 @@
         <div class="dashboard__container">
             <div class="dashboard__header">
                 <p class="dashboard__title">Dashboard</p>
-                <p class="dashboard__welcome">Weclome, {{this.$store.state.userData.userdata.username}}!</p>
+                <!--<p class="dashboard__welcome">Welcome, {{this.userName}}!</p>-->
+                <!--<p class="dashboard__welcome">Welcome, {{this.$store.state.userData.userdata.username}}!</p>-->
             </div>
 
             <div class="dashboard__tabs">
-                <p class="dashboard__mail">{{this.$store.state.userData.userdata.email}}</p>
+                <!--<p class="dashboard__mail">{{this.$store.state.userData.userdata.email}}</p>-->
                 <v-tabs v-model="active" centered class="dashboard__tabs-group"
                         color="#F4F4F4" slider-color="#08BA4D">
                     <v-tab class="dashboard__tab-item text-capitalize"
@@ -47,15 +48,15 @@
                 <v-tab  style="background: transparent; display: none;" :ripple="false">Profiel</v-tab>
 
                 <v-tab-item class="dashboard__content">
-                    <Transactions class="animated fadeInt"></Transactions>
+                    <!--<Transactions class="animated fadeInt"></Transactions>-->
                 </v-tab-item>
 
                 <v-tab-item class="dashboard__content">
-                    <Plugin class="animated fadeIn"></Plugin>
+                    <!--<Plugin class="animated fadeIn"></Plugin>-->
                 </v-tab-item>
 
                 <v-tab-item class="dashboard__content">
-                    <Profile class="animated fadeIn"></Profile>
+                    <!--<Profile class="animated fadeIn"></Profile>-->
                 </v-tab-item>
             </v-tabs>
         </div>
@@ -79,50 +80,27 @@
             return {
                 active: null,
                 userToken: this.$store.state.userToken,
-                /*twee onderst data gebruiken alleen na dat de profile component 
+                /*twee onderst data gebruiken alleen na dat de profile component
                 geladen(created en mounted) is*/
                 userProfileData: this.$store.state.userData.userProfileData,
-                userData: this.$store.state.userData.userdata
+                userData: this.$store.state.userData.userdata,
+                userName: '',
                 //------------------------------------------------------------------
             }
         },
 
-        created() {
+        // created() {
+        //     this.userLoginData();
+        // },
 
-            this.userLoginData();
+        mounted(){
+            this.userLoginData()
         },
 
         methods: {
 
             userLoginData (){
-
-                this.$store.commit('saveUserData');
-
-            //   let self = this;
-            //   this.$axios
-            //     .get(`http://127.0.0.1:8000/user/authenticateUser/?id=${self.$store.state.userId}`, {
-
-            //         headers: {
-            //             "X-CSRFToken": '${self.$store.state.userAuthData.token}',
-            //             Authorization: `token ${self.$store.state.userToken}`
-            //         }
-
-            //     })
-            //     .then(response => {
-
-            //         self.$store.commit('saveUserData', response.data);
-            //         self.userProfileData = self.$store.state.userData.userProfileData;
-            //         self.userData = self.$store.state.userData.userdata;
-            //         console.log(response.data);
-            //         console.log(this.$store.state.userData);
-
-
-            //     })
-            //     .catch(error => {
-            //         console.log(eror);
-
-            //         //  this.errorMessage()
-            //     })
+                console.log(this.$store.state.userData)
             }
 
         }

@@ -19,7 +19,7 @@
 
                 <transition enter-active-class="animated fadeIn"
                             leave-active-class="animated fadeOut"
-                            :duration="{ enter: 500, leave: 200 }"
+                            :duration="{ enter: 500, leave: 500 }"
                             mode="out-in">
 
                     <div v-if="!next" key="firstSlide" class="login__group">
