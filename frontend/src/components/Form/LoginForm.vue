@@ -37,9 +37,8 @@
                     </div>
                 </div>
 
-                <button type="submit" @click.prevent="login()"
+                <button type="submit" @keyup.enter="login()" @click.prevent="login()"
                         class="login__submit">
-
                     <span v-if="send === false">Login</span>
                     <v-progress-circular v-else indeterminate color="white">
                     </v-progress-circular>

@@ -116,7 +116,7 @@
                         <span>Next</span>
                     </button>
 
-                    <button v-else type="submit" @click.prevent="sendForm()"
+                    <button v-else type="submit" @keyup.enter="sendForm()" @click.prevent="sendForm()"
                             class="login__submit">
                         <span v-if="send === false">Make an account</span>
                         <v-progress-circular v-else indeterminate color="white">
