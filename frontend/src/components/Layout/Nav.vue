@@ -17,12 +17,13 @@
                 <v-btn class="text-capitalize navbar__items" :ripple="false" flat>FAQ</v-btn>
 
                 <v-spacer></v-spacer>
+                <v-divider class="ml-4" style="height: 42px; margin-right: 20px;" vertical></v-divider>
 
                 <transition enter-active-class="animated bounceIn"
                             leave-active-class="animated bounceOut"
                             mode="out-in">
+
                     <div v-if="$store.state.userStatus" key="nav1" class="user__logged">
-                        <v-divider class="ml-4 mr-4" style="height: 42px;" vertical></v-divider>
                         <div class="navbar__pic__container">
                             <div class="navbar__user-wrapper">
                                 <img class="navbar__pic" src="//logo.clearbit.com/bol.com">
@@ -39,7 +40,6 @@
                                style="height: 42px;"
                                :ripple="false" flat>Extension
                         </v-btn>
-                        <v-divider class="ml-4" style="height: 42px;" vertical></v-divider>
                     </div>
                 </transition>
 
