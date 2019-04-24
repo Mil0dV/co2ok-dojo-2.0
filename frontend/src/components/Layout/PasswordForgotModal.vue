@@ -35,7 +35,6 @@
                     </button>
                 </div>
             </form>
-
         </v-card>
     </v-dialog>
 </template>
