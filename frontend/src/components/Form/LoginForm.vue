@@ -117,7 +117,7 @@
                                     // this.$store.state.userStatus = true;
                                     // console.log(this.$store.state.userAuthLocalData);
                                     this.$store.commit('isLoggedIn', response.data.authenticate)
-                                    this.$store.commit('saveUserData');
+                                    this.$store.dispatch('commitGetUserData');
                                     //userSession return a boolean of de authenticate status of the user
                                     if(this.$store.state.userSession)
                                     {

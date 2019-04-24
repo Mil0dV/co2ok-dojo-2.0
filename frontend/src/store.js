@@ -44,7 +44,7 @@ export default new Vuex.Store({
             state.userAuthData = payload
         },
 
-        saveUserData(state) {
+        getUserData(state) {
             axios
                 .get(`http://127.0.0.1:8000/user/authenticateUser/?id=${state.userId}`, {
                     headers: {
@@ -102,10 +102,10 @@ export default new Vuex.Store({
 
         commitRemoveLocalUserData(store) {
             store.commit('removeLocalUserData');
-        }
+        },
 
-        // commitSaveUserData(store, data){
-        //     store.commit('saveUserData', data);
-        // }
+        commitGetUserData(store){
+            store.commit('getUserData');
+        }
     }
 })
