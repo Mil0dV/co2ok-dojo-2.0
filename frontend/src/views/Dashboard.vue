@@ -88,7 +88,7 @@
         },
 
         created() {
-
+         this.$store.commit('saveUserData');
             
         },
 

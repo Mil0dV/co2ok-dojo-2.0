@@ -29,7 +29,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const publicPages = ['/login', '/register']
   const authRequired = !publicPages.includes(to.path)
-  const loggedIn = store.state.userStatus
+  const loggedIn = window.localStorage.getItem('userSession')
 
   if(authRequired && !loggedIn) {
     return next('/login')
