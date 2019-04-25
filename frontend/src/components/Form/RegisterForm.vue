@@ -1,133 +1,153 @@
 <template>
-    <div class="login__container">
-        <div class="login__col-1">
-            <div class="login__info" style="animation-delay: 1s;">
-                <p class="login__info-text">
-                    With an account you will get access to information how much you’ve contributed to fighting climate
-                    change
-                </p>
-            </div>
-        </div>
+    <v-container class="register__container ma-0 pa-0" fluid align-center grid-list-md text-xs-center>
+        <v-layout class="register__layout  ma-0 pa-0" wrap row>
+            <v-flex class="register__col-1" xs12 sm12 md6>
+                <v-layout  class="register__col-filler" wrap>
 
+                </v-layout>
 
-        <div class="login__col-2">
-            <form v-model="valid" class="login__form">
-                <div class="login__header-group">
-                    <p class="login__form-header">Account</p>
-                    <p class="login__form-title">Make an account to get access to more info!</p>
-                </div>
-
-                <transition enter-active-class="animated fadeIn"
-                            leave-active-class="animated fadeOut"
-                            :duration="{ enter: 500, leave: 500 }"
-                            mode="out-in">
-
-                    <div v-if="!next" key="firstSlide" class="login__group">
-
-                        <label class="login__group">
-                            <div>Company name<span class="asterik">*</span></div>
-                            <input class="login__group-input" v-model="company"
-                                   type="email" placeholder="Fill in you email...">
-                        </label>
-
-                        <label class="login__group">
-                            <div>E-mail<span class="asterik">*</span></div>
-                            <input class="login__group-input" v-model="email"
-                                   type="email" placeholder="Fill in you email...">
-                        </label>
-
-                        <div class="login__group-password">
-                            <label class="login__group">
-                                <div>Password<span class="asterik">*</span></div>
-                                <input class="login__group-input" v-model="password"
-                                       type="password" placeholder="Fill in you password...">
-                            </label>
+                <v-layout row wrap>
+                    <v-flex xs12 sm7 lg6 offset-md2 offset-lg5>
+                        <div class="login__info animated fadeInUp">
+                            <p class="login__info-text">
+                                With an account you will get access to information how much you’ve contributed to
+                                fighting climate
+                                change
+                            </p>
                         </div>
+                    </v-flex>
+                </v-layout>
+            </v-flex>
 
-                        <div class="login__group-password">
-                            <label class="login__group">
-                                <div>Repeat password<span class="asterik">*</span></div>
-                                <input class="login__group-input" v-model="passwordRepeat"
-                                       type="password" placeholder="Fill in you password...">
-                            </label>
-                        </div>
+            <v-flex xs12 sm12 md6 lg4>
+                <v-layout  justify-center align-center column wrap class="hidden-sm-and-down pa-5">
+                </v-layout>
 
-                    </div>
+                <v-layout class="register__layout-form pa-5" justify-center align-center column wrap >
+                    <v-flex class="register__form-mb" justify-center align-center column wrap  xs6 lg4>
+                        <form v-model="valid" class="login__form">
+                            <div class="login__header-group animated fadeInUp">
+                                <p class="login__form-header">Account</p>
+                                <p class="login__form-title">Make an account to get access to more info!</p>
+                            </div>
 
-                    <div v-else key="secondSlide" class="login__group">
-                        <label class="login__group">
-                            <div>Webshop link<span class="asterik">*</span></div>
-                            <input class="login__group-input" v-model="link"
-                                   type="text" placeholder="Your company link">
-                        </label>
+                            <transition enter-active-class="animated fadeIn"
+                                        leave-active-class="animated fadeOut"
+                                        mode="out-in">
+
+                                <div v-if="!next" key="firstSlide" class="login__group animated fadeInUp" style="animation-delay: 0.3s;">
+
+                                    <label class="login__group">
+                                        <div>Company name<span class="asterik">*</span></div>
+                                        <input class="login__group-input" v-model="company"
+                                               type="email" placeholder="Fill in you email...">
+                                    </label>
+
+                                    <label class="login__group">
+                                        <div>E-mail<span class="asterik">*</span></div>
+                                        <input class="login__group-input" v-model="email"
+                                               type="email" placeholder="Fill in you email...">
+                                    </label>
+
+                                    <div class="login__group-password">
+                                        <label class="login__group">
+                                            <div>Password<span class="asterik">*</span></div>
+                                            <input class="login__group-input" v-model="password"
+                                                   type="password" placeholder="Fill in you password...">
+                                        </label>
+                                    </div>
+
+                                    <div class="login__group-password">
+                                        <label class="login__group">
+                                            <div>Repeat password<span class="asterik">*</span></div>
+                                            <input class="login__group-input" v-model="passwordRepeat"
+                                                   type="password" placeholder="Fill in you password...">
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                                <div v-else key="secondSlide" class="login__group">
+                                    <label class="login__group">
+                                        <div>Webshop link<span class="asterik">*</span></div>
+                                        <input class="login__group-input" v-model="link"
+                                               type="text" placeholder="Your company link">
+                                    </label>
 
 
-                        <label class="login__group">
-                            <div>Country<span class="asterik">*</span></div>
-                            <input class="login__group-input" v-model="country"
-                                   type="text" placeholder="Your country">
-                        </label>
+                                    <label class="login__group">
+                                        <div>Country<span class="asterik">*</span></div>
+                                        <input class="login__group-input" v-model="country"
+                                               type="text" placeholder="Your country">
+                                    </label>
 
-                        <div class="login__group-wrapper">
-                            <label class="login__group">
-                                <div>City<span class="asterik">*</span></div>
-                                <input class="login__group-input" v-model="city"
-                                       type="text" placeholder="City">
-                            </label>
+                                    <div class="login__group-wrapper">
+                                        <label class="login__group">
+                                            <div>City<span class="asterik">*</span></div>
+                                            <input class="login__group-input" v-model="city"
+                                                   type="text" placeholder="City">
+                                        </label>
 
-                            <label class="login__group">
-                                <div>Zip-code<span class="asterik">*</span></div>
-                                <input class="login__group-input" v-model="zipcode"
-                                       type="text" placeholder="Your ZIP-code">
-                            </label>
-                        </div>
+                                        <label class="login__group">
+                                            <div>Zip-code<span class="asterik">*</span></div>
+                                            <input class="login__group-input" v-model="zipcode"
+                                                   type="text" placeholder="Your ZIP-code">
+                                        </label>
+                                    </div>
 
-                        <div class="login__group-wrapper">
-                            <label class="login__group">
-                                <div>Street<span class="asterik">*</span></div>
-                                <input class="login__group-input" v-model="street"
-                                       type="text" placeholder="Your street">
-                            </label>
+                                    <div class="login__group-wrapper">
+                                        <label class="login__group">
+                                            <div>Street<span class="asterik">*</span></div>
+                                            <input class="login__group-input" v-model="street"
+                                                   type="text" placeholder="Your street">
+                                        </label>
 
-                            <label class="login__group">
-                                <div>Housenumber<span class="asterik">*</span></div>
-                                <input class="login__group-input" v-model="number"
-                                       type="text" placeholder="Housenumber">
-                            </label>
-                        </div>
+                                        <label class="login__group">
+                                            <div>Number<span class="asterik">*</span></div>
+                                            <input class="login__group-input" v-model="number"
+                                                   type="text" placeholder="Housenumber">
+                                        </label>
+                                    </div>
 
-                        <div class="login__group login__accept">
-                            <v-checkbox v-model="consent"
-                                        value="true"
-                                        color="success"
-                                        class="accept-box"
-                            ></v-checkbox>
-                            <a href="https://www.co2ok.eco/privacy">I accept the terms and agreements</a>
-                        </div>
-                    </div>
-                </transition>
+                                    <div class="login__group login__accept">
+                                        <v-checkbox v-model="consent"
+                                                    value="true"
+                                                    color="success"
+                                                    class="accept-box"
+                                        ></v-checkbox>
+                                        <a href="https://www.co2ok.eco/privacy">I accept the terms and agreements</a>
+                                    </div>
+                                </div>
+                            </transition>
 
-                <div class="register__button-group">
-                    <button v-if="next" @click="next = false" tag="button" to="/" class="login__back">
-                        <span>< Back</span>
-                    </button>
+                            <div class="register__button-group animated bounceInUp slower" style="animation-delay: 0.6s;">
+                                <button v-if="next" @click="next = false"  class="login__back">
+                                    <span>< Back</span>
+                                </button>
 
-                    <button v-if="!next" @click.prevent="next = true" class="login__submit">
-                        <span>Next</span>
-                    </button>
+                                <button v-if="!next" @click.prevent="next = true" class="login__submit">
+                                    <span>Next</span>
+                                </button>
 
-                    <button v-else type="submit" @keyup.enter="sendForm()" @click.prevent="sendForm()"
-                            class="login__submit">
-                        <span v-if="send === false">Make an account</span>
-                        <v-progress-circular v-else indeterminate color="white">
-                        </v-progress-circular>
-                    </button>
-                </div>
+                                <button v-else type="submit" @keyup.enter="sendForm()" @click.prevent="sendForm()"
+                                        class="login__submit">
+                                    <span v-if="send === false">Make an account</span>
+                                    <v-progress-circular v-else indeterminate color="white">
+                                    </v-progress-circular>
+                                </button>
+                            </div>
 
-            </form>
-        </div>
-    </div>
+                        </form>
+                    </v-flex>
+                </v-layout>
+
+                <v-layout justify-center align-center column wrap class="hidden-sm-and-down pa-5">
+                </v-layout>
+            </v-flex>
+        </v-layout>
+    </v-container>
 </template>
+
 
 <script>
     import axios from 'axios'
@@ -222,61 +242,51 @@
     }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .login__container {
-        flex: 1 1 auto;
-        display: flex;
+    .register__container {
         height: 100%;
-        overflow: hidden;
+        background: white;
     }
 
-    .login__col-1 {
+    .register__layout {
+        height: 100%;
+    }
+
+    .register__col-1 {
         flex: 1;
         display: flex;
         justify-content: center;
+        flex-direction: column;
         align-items: center;
         background: url('../../assets/images/register/registerscreen.png') no-repeat center center;
         background-size: cover;
+        min-height: 300px;
     }
 
-    .login__col-2 {
-        flex: 1;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
+    .register__col-filler {
+        flex: 2;
+    }
 
+   .register__layout-form {
+        overflow: hidden;
     }
 
     .login__info {
-        margin-bottom: -40%;
-        margin-right: -30%;
         background: white;
         border-left: 10px solid #10D884;
-        max-width: 422px;
-        box-shadow: 0 0px 30px 0 rgba(0, 0, 0, 0.10);
-
+        width: 100%;
+        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.30);
     }
 
     .login__info-text {
-        max-width: 361px;
         margin: 0;
         padding: 20px 40px;
         text-align: left;
     }
 
     .login__form {
-        overflow: hidden;
-        padding: 0 0 0 80px;
-        max-width: 555px;
-        max-height: 739px;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
+        margin-left: 10px;
     }
-
 
     .login__header-group {
         text-align: left;
@@ -397,4 +407,40 @@
     .asterik {
         color: red;
     }
+
+    @media (max-width: 600px) {
+        .login__form {
+            /*margin-top: -90px;*/
+            width: 102%;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .register__layout-form {
+            padding: 5px;
+        }
+
+        .register__form-mb {
+            margin: 0;
+            padding: 0 !important;
+        }
+
+        .login__form-title {
+            font-size: 30px;
+            line-height: 35px;
+        }
+
+        .login__group-wrapper > *:first-child {
+            max-width: 200px;
+        }
+
+        .login__group-wrapper > *:nth-child(2) {
+            max-width: 25%;
+        }
+
+        .login__back {
+            padding:5px 15px;
+        }
+    }
+
 </style>

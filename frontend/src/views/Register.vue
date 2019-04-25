@@ -1,6 +1,6 @@
 <template>
     <div class="register">
-        <RegisterForm></RegisterForm>
+        <RegisterForm/>
     </div>
 </template>
 
@@ -17,5 +17,4 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>
