@@ -119,6 +119,7 @@
             },
 
             login() {
+                this.send = true
                 let message = {title: 'Oops... Something went wrong!', text: 'Try again later.'}
                 if (this.email !== '' && this.password !== '') {
                     axios
@@ -133,7 +134,6 @@
                         })
                         .then(response => {
                             if (response) {
-                                this.send = false
                                 if (response.data.authenticate) {
                                     this.$store.dispatch('commitSaveUser', response.data)
                                     this.$store.commit('setLocalUserData', response.data)
@@ -163,6 +163,7 @@
                         .catch(error => {
                             this.errorMessage(message)
                         })
+                    this.send = false
                 }
 
                 // this.errorMessage(message)

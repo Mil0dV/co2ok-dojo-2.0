@@ -9,13 +9,32 @@
                         class="navbar__logo"
                 ></v-img>
             </v-toolbar-title>
-            <v-toolbar-items class="hidden-sm-and-down">
-                <v-btn class="text-capitalize navbar__items" :ripple="false" flat>About</v-btn>
-                <v-btn class="text-capitalize navbar__items" :ripple="false" flat>Webshops</v-btn>
-                <v-btn class="text-capitalize navbar__items" :ripple="false" flat>Consumers</v-btn>
-                <v-btn class="text-capitalize navbar__items" :ripple="false" flat>News</v-btn>
-                <v-btn class="text-capitalize navbar__items" :ripple="false" flat>FAQ</v-btn>
 
+            <v-menu class="hidden-md-and-up">
+                <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
+                <v-list>
+                    <v-list-tile v-for="item in menu" :key="item.icon">
+                        <v-list-tile-content>
+                            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+
+                    <v-list-tile>
+                        <v-list-tile-content>
+                            <v-list-tile-title>Extension</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+
+                    <v-list-tile>
+                        <v-list-tile-content>
+                            <v-list-tile-title>Login</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                </v-list>
+            </v-menu>
+
+            <v-toolbar-items class="hidden-sm-and-down">
+                <v-btn v-for="item in menu" :key="item.link" class="text-capitalize navbar__items" :ripple="false" flat>{{item.title}}</v-btn>
                 <v-spacer></v-spacer>
                 <v-divider class="ml-4" style="height: 42px; margin-right: 20px;" vertical></v-divider>
 
@@ -78,6 +97,13 @@
         data() {
             return {
                 userLoggedIn: null,
+                menu :[
+                    {title: 'About', link: '/about'},
+                    {title: 'Webshops', link: '/webshops'},
+                    {title: 'Consumers', link: '/consumers'},
+                    {title: 'News', link: '/news'},
+                    {title: 'FAQ', link: '/faq'},
+                ]
             }
         },
 
@@ -212,6 +238,12 @@
     .navbar__pic {
         border-radius: 50px;
         height: 100%;
+    }
+
+    @media (max-width: 600px) {
+        .navbar__container {
+            height: 80px;
+        }
     }
 
 
