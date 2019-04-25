@@ -144,12 +144,13 @@
                                     this.$store.commit('isLoggedIn', response.data.authenticate)
                                     this.$store.dispatch('commitGetUserData');
                                     //userSession return a boolean of de authenticate status of the user
-                                    if (this.$store.state.Authenticated) {
-                                        this.$router.push('dashboard')
-                                    } else {
-                                        // this.$router.push('login')
-                                        alert('not authenticated')
-                                        window.location.href = '/login'
+                                    if(this.$store.state.Authenticated)
+                                    {
+                                       this.$router.push('dashboard')
+                                    }else{
+                                        this.$router.push('login')
+                                        // alert('not authenticated')
+                                        // window.location.href = '/login'
                                     }
                                 } else {
                                     let errormessage = {

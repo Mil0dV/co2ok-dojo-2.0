@@ -87,13 +87,33 @@
             }
         },
 
+        created() {
+
+        
+
+        },
+
         mounted() {
+         
+        //  this.ifAthenticated();
          this.$store.dispatch('commitGetUserData');
             
         },
 
         methods: {
 
+          // deze functie checkt de gebruikers loggin status(boolean) en stuur ze naar
+          // de account/login pagina
+          ifAthenticated()
+          {
+              alert(localStorage.getItem('Authenticated'))
+              if(localStorage.getItem('Authenticated')){
+                  alert('logged in')
+              }else{
+                  this.$router.push('login')
+                  alert('not auth')
+              }
+          }
             
         }
     }

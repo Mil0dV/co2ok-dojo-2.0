@@ -5,8 +5,28 @@
             <v-icon color="#10DC87" style="transform: rotate(120deg)" large>sync</v-icon>
         </div>
 
-        <div class="transaction__content">
-        </div>
+        <!-- <div class="transaction__content">
+        </div> -->
+        <v-tabs
+         v-model="Graph"
+         color="white"
+         dark
+         slider-color="#08BA4D"
+         :ripple= false
+        >
+         <v-tab v-for="tabName in graphTabName" :key="tabName">
+             <p class="black--text">{{tabName}}</p>
+         </v-tab>    
+        </v-tabs>
+
+        <v-tabs-items v-model="Graph">
+            <v-tab-item>
+               <!-- <LineChart :chart-data="datacollection"></LineChart> -->
+            </v-tab-item>
+            <v-tab-item>
+               weekly transactions graph
+            </v-tab-item>
+         </v-tabs-items>
 
         <div class="transaction__final">
             <div class="export">
@@ -30,8 +50,56 @@
 </template>
 
 <script>
+import LineChart from '@/components/Dashboard/chart.vue'
     export default {
         name: "Transactions",
+
+        // components: {
+        //   LineChart
+        // },
+
+        data(){
+            return{
+
+              Graph: null,
+              graphTabName: ['Monthly Transactions', 'Weekly Transactions'],
+              datacollection: null
+
+            }
+        },
+
+        mounted() {
+
+           this.fillData();
+
+        },
+
+        methods: {
+
+            fillData () {
+              
+                this.datacollection = {
+                labels: [this.getRandomInt(), this.getRandomInt()],
+                datasets: [
+                    {
+                    label: 'Data One',
+                    backgroundColor: '#f87979',
+                    data: [this.getRandomInt(), this.getRandomInt()]
+                    }, {
+                    label: 'Data One',
+                    backgroundColor: '#f87979',
+                    data: [this.getRandomInt(), this.getRandomInt()]
+                    }
+                ]
+                }
+            },
+
+            getRandomInt () {
+                return Math.floor(Math.random() * (50 - 5 + 1)) + 5
+            }
+
+         }
+
     }
 </script>
 
