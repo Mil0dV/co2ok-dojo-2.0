@@ -104,7 +104,7 @@
         },
 
         mounted(){
-            this.$store.commit('saveUserData');
+            this.$store.commit('getUserData');
         },
 
         methods: {

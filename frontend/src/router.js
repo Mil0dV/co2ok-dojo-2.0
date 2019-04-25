@@ -4,6 +4,17 @@ import store from './store'
 
 Vue.use(Router)
 
+const ifAuthenticated = (to, from, next) => {
+  if (localStorage.getItem('Authenticated')){
+    return next('/dashboard')
+  }
+  else{
+    this.$router.push('login')
+    // return
+  }
+  // next()
+}
+
 const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -21,22 +32,23 @@ const router = new Router({
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: () => import( './views/Dashboard.vue')
+      component: () => import( './views/Dashboard.vue'),
+      // beforeEnter: ifAuthenticated
     }
   ]
 });
 
-router.beforeEach((to, from, next) => {
-  const publicPages = ['/login', '/register']
-  const authRequired = !publicPages.includes(to.path)
-  const loggedIn = window.localStorage.getItem('userSession')
+// router.beforeEach((to, from, next) => {
+//   const publicPages = ['/login', '/register']
+//   const authRequired = !publicPages.includes(to.path)
+//   const loggedIn = window.localStorage.getItem('Authenticated')
 
-  if(authRequired && !loggedIn) {
-    return next('/login')
-  }
+//   if(authRequired && !loggedIn) {
+//     return next('/login')
+//   }
 
-  next();
+//   next();
 
-});
+// });
 
 export default router;

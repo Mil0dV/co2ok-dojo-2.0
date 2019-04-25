@@ -19,7 +19,7 @@ export default new Vuex.Store({
         userToken: window.localStorage.getItem('userToken'),
         userId: window.localStorage.getItem('userId'),
         //return a booleam of user login status
-        userSession: window.localStorage.getItem('userSession')
+        Authenticated: window.localStorage.getItem('Authenticated')
     },
 
     mutations: {
@@ -46,10 +46,10 @@ export default new Vuex.Store({
 
         getUserData(state) {
             axios
-                .get(`http://127.0.0.1:8000/user/authenticateUser/?id=${state.userId}`, {
+                .get(`http://127.0.0.1:8000/user/authenticateUser/?id=${window.localStorage.getItem('userId')}`, {
                     headers: {
                         "X-CSRFToken": `${state.userToken}`,
-                        Authorization: `token ${state.userToken}`
+                        Authorization: `token ${window.localStorage.getItem('userToken')}`
                     }
                 })
                 .then(response => {
@@ -76,7 +76,7 @@ export default new Vuex.Store({
         setLocalUserData(state, data) {
             window.localStorage.setItem('userToken', data.token);
             window.localStorage.setItem('userId', data.id);
-            window.localStorage.setItem('userSession', true)
+            window.localStorage.setItem('Authenticated', true)
             //    let getLocalData = {
             //        userToken: window.localStorage.getItem('userToken'),
             //        userId: window.localStorage.getItem('userId')
@@ -86,9 +86,9 @@ export default new Vuex.Store({
 
         // empty user authenticate data if the are logout
         removeLocalUserData(state) {
-            window.localStorage.removeItem('userToken', null);
+            window.localStorage.removeItem('userToken');
             window.localStorage.removeItem('userId');
-            window.localStorage.setItem('userSession', false);
+            window.localStorage.setItem('Authenticated', false);
             state.userData = '';
             state.userStatus = false
         }

@@ -87,8 +87,8 @@
             }
         },
 
-        created() {
-         this.$store.commit('getUserData');
+        mounted() {
+         this.$store.dispatch('commitGetUserData');
             
         },
 
