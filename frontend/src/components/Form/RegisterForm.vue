@@ -2,14 +2,14 @@
     <v-container class="register__container ma-0 pa-0" fluid align-center grid-list-md text-xs-center>
         <v-layout class="register__layout  ma-0 pa-0" wrap row>
             <v-flex class="register__col-1" xs12 sm12 md6>
-                <v-layout  class="register__col-filler" wrap>
+                <v-layout  class="register__col-filler hidden-sm-and-down" wrap>
 
                 </v-layout>
 
-                <v-layout row wrap>
+                <v-layout row wrap class="hidden-sm-and-down">
                     <v-flex xs12 sm7 lg6 offset-md2 offset-lg5>
                         <div class="login__info animated fadeInUp">
-                            <p class="login__info-text">
+                            <p class="login__info-text ">
                                 With an account you will get access to information how much you’ve contributed to
                                 fighting climate
                                 change
@@ -24,7 +24,7 @@
                 </v-layout>
 
                 <v-layout class="register__layout-form pa-5" justify-center align-center column wrap >
-                    <v-flex class="register__form-mb" justify-center align-center column wrap  xs6 lg4>
+                    <v-flex class="register__form-mb" justify-center align-center column wrap xs12 lg4>
                         <form v-model="valid" class="login__form">
                             <div class="login__header-group animated fadeInUp">
                                 <p class="login__form-header">Account</p>
@@ -397,49 +397,70 @@
     }
 
     .login__group-wrapper > *:first-child {
-        max-width: 300px;
+        max-width: 70%;
     }
 
     .login__group-wrapper > *:nth-child(2) {
-        max-width: 140px;
+        max-width: 25%;
     }
 
     .asterik {
         color: red;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 960px) {
+        .register__layout-form {
+            overflow: visible;
+        }
+
         .login__form {
-            /*margin-top: -90px;*/
-            width: 102%;
-            margin: 0 !important;
-            padding: 0 !important;
+            box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.30);
+            padding: 40px 40px;
+            background: white;
+            margin-top: -225px;
+            margin-left: 0;
+            font-size: 15px;
+            overflow: hidden;
+            width: 450px;
         }
 
         .register__layout-form {
-            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .register__form-mb {
             margin: 0;
-            padding: 0 !important;
         }
 
         .login__form-title {
-            font-size: 30px;
-            line-height: 35px;
-        }
-
-        .login__group-wrapper > *:first-child {
-            max-width: 200px;
-        }
-
-        .login__group-wrapper > *:nth-child(2) {
-            max-width: 25%;
+            font-size: 17px;
+            line-height: 25px;
         }
 
         .login__back {
             padding:5px 15px;
+        }
+
+        .login__group {
+            font-size: 12px;
+        }
+
+        .pa-5 {
+            padding: 20px !important;
+        }
+    }
+
+    @media (max-width:600px) {
+        .login__form {
+            padding: 40px 40px;
+            width: 100%;
+        }
+
+        .login__submit, .login__back {
+            padding: 5px 10px;
+            font-size: 15px;
         }
     }
 
