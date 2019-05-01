@@ -409,6 +409,11 @@
     }
 
     @media (max-width: 960px) {
+        .register__container {
+            height: 100%;
+            background: #F4F4F4;
+        }
+
         .register__layout-form {
             overflow: visible;
         }

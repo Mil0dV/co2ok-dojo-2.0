@@ -4,16 +4,16 @@ import store from './store'
 
 Vue.use(Router)
 
-const ifAuthenticated = (to, from, next) => {
-  if (localStorage.getItem('Authenticated')){
-    return next('/dashboard')
-  }
-  else{
-    this.$router.push('login')
-    // return
-  }
-  // next()
-}
+// const ifAuthenticated = (to, from, next) => {
+//   if (localStorage.getItem('Authenticated')){
+//     return next('/dashboard')
+//   }
+// else{
+//   this.$router.push('login')
+//   // return
+// }
+// // next()
+// }
 
 const router = new Router({
   mode: 'history',
@@ -32,7 +32,7 @@ const router = new Router({
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: () => import( './views/Dashboard.vue'),
+      component: () => import( './views/DashboardR'),
       // beforeEnter: ifAuthenticated
     }
   ]

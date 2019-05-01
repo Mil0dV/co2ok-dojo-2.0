@@ -246,9 +246,20 @@
         height: 100%;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 960px) {
         .navbar__container {
             height: 80px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .navbar__container {
+            height: 65px;
+        }
+
+        .navbar__logo {
+            width: 60px;
+            height: 42px;
         }
     }
 
