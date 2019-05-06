@@ -17,7 +17,7 @@
                             <v-progress-circular indeterminate color="white"></v-progress-circular>
                         </span>
 
-                        <span v-else>
+                        <span v-els
                             Yes, delete
                         </span>
                     </button>

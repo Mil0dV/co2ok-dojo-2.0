@@ -7,7 +7,7 @@
 
         <!-- <div class="transaction__content">
         </div> -->
-        <v-tabs
+        <!-- <v-tabs
          v-model="Graph"
          color="white"
          dark
@@ -17,16 +17,37 @@
          <v-tab v-for="tabName in graphTabName" :key="tabName">
              <p class="black--text">{{tabName}}</p>
          </v-tab>    
-        </v-tabs>
+        </v-tabs> -->
 
-        <v-tabs-items v-model="Graph">
+        <div class="graph-container mb-1">
+            <div class="graph-tabs">
+                <p class="graph-tab-name font-weight-bold"  @click="monthTransactions()">Monthly Transactions</p>
+                <p class="graph-tab-name font-weight-bold"  @click="weekTransactions()">Weekly Transactions</p>
+            </div>
+
+            <div class="graphs">
+                <line-chart :chartData="datacollection" :options="chartOptions" style="width: 900px; height: 400px"/>
+            </div>
+        </div>
+
+        <v-layout row wrap justify-space-between align-center class="mb-3" style="width: 100%;border: 1px solid red;">
+            <v-flex xs12 sm6 md6 lg6 style="border: 1px solid red;">
+                <v-btn depressed flat class="text-capitalize"><v-icon small></v-icon>Previous Week</v-btn>
+                <v-btn depressed flat class="text-capitalize"><v-icon small></v-icon>Next Week</v-btn>
+            </v-flex>
+            <v-flex xs12 sm12 md6 lg6 style="border: 1px solid red;">
+                <p class="font-weight-bold">YEAR 2019</p>
+            </v-flex>
+        </v-layout>
+
+        <!-- <v-tabs-items v-model="Graph">
             <v-tab-item>
-               <!-- <LineChart :chart-data="datacollection"></LineChart> -->
+               <LineChart :chart-data="monthDatacollection"></LineChart>
             </v-tab-item>
             <v-tab-item>
                weekly transactions graph
             </v-tab-item>
-         </v-tabs-items>
+         </v-tabs-items> -->
 
         <div class="transaction__final">
             <div class="export">
@@ -54,44 +75,118 @@ import LineChart from '@/components/Dashboard/chart.vue'
     export default {
         name: "Transactions",
 
-        // components: {
-        //   LineChart
-        // },
+        components: {
+          LineChart
+        },
 
         data(){
             return{
 
               Graph: null,
-              graphTabName: ['Monthly Transactions', 'Weekly Transactions'],
-              datacollection: null
+            //   graphTabName: [{name: 'Monthly Transactions', fnt: this.monthTransactions()}, {name: 'Weekly Transactions', fnt: this.weekTransactions()}],
+              datacollection: null,
+              chartOptions: {
+
+                scales: {
+                  yAxes: [{
+                      ticks: {
+                        //   beginAtZero: true
+                      },
+                      gridLines: {
+                          display: false
+                      }
+                  }],
+  
+                  xAxes: [ {
+                      gridLines: {
+                          display: true
+                      }
+                  }]
+                },
+
+                elements: {
+                   line: {
+                       borderWidth: 2,
+                       backgroundColor: 'rgba(0,0,255,0)',
+                   },
+                   point: {
+                       backgroundColor: 'rgba(148,237,206,0.8)',
+                       radius: 2,
+                       hoverRadius: 4
+                   }
+                },
+
+                responsive: true,
+                maintainAspectRatio: false
+
+               },
+              week: false
 
             }
         },
 
+        created() {
+
+            // this.monthTransactions();
+            this.fillData();
+
+        },
+
         mounted() {
-
-           this.fillData();
-
+        //    this.fillData();
         },
 
         methods: {
 
             fillData () {
-              
+               
                 this.datacollection = {
-                labels: [this.getRandomInt(), this.getRandomInt()],
-                datasets: [
-                    {
-                    label: 'Data One',
-                    backgroundColor: '#f87979',
-                    data: [this.getRandomInt(), this.getRandomInt()]
-                    }, {
-                    label: 'Data One',
-                    backgroundColor: '#f87979',
-                    data: [this.getRandomInt(), this.getRandomInt()]
-                    }
-                ]
+                    labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUNE', 'JULY', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC'],
+                    // labels: this.$store.state.x_asLabel,
+                    datasets: [
+                        {
+                        label: 'Transaction(s)',
+                        borderColor: '#94EDCE',
+                        data: [0, 100, 50, 200, 150, 250, 55, 23, 71, 220, 171, 58]
+                        // data: this.$store.state.graphData
+                        }
+                    ]
                 }
+            },
+
+            monthTransactions() {
+              
+              let chart = document.getElementById('line-chart')
+              this.week = false
+              this.$store.commit('monthGraphData')
+              this.datacollection = {
+                    labels: this.$store.state.x_asLabel,
+                    datasets: [
+                        {
+                         label: 'Month Transaction(s)',
+                         borderColor: '#94EDCE',
+                         data: this.$store.state.graphData
+                        }
+                    ]
+                }
+
+            },
+
+            weekTransactions() {
+
+              this.week = true
+              this.$store.commit('weekGraphData')
+              this.datacollection = {
+                    labels: this.$store.state.x_asLabel,
+                    datasets: [
+                        {
+                         label: 'Week Transaction(s)',
+                         borderColor: '#94EDCE',
+                         data: this.$store.state.graphData
+                        }
+                    ]
+                }
+
             },
 
             getRandomInt () {
@@ -136,6 +231,45 @@ import LineChart from '@/components/Dashboard/chart.vue'
 
     .transaction__final {
         display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .graph-container{
+        display: flex;
+        flex-direction: column;
+        widows: 100%;
+        height: auto;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .graph-tabs{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .graph-tab-name{
+        text-align: left;
+        text-decoration: underline;
+        font-size: 16px;
+        width: 250px;
+        cursor: pointer;
+        color: grey;
+    }
+
+    .graph-tab-name:hover{
+        color: black;
+    }
+
+    .graphs{
+        display: flex;
+        width: 100%;
+        height: auto;
         justify-content: flex-start;
         align-items: center;
     }
