@@ -7,26 +7,26 @@
 
         <!-- <div class="transaction__content">
         </div> -->
-        <v-tabs
-         v-model="Graph"
-         color="white"
-         dark
-         slider-color="#08BA4D"
-         :ripple= false
-        >
-         <v-tab v-for="tabName in graphTabName" :key="tabName">
-             <p class="black--text">{{tabName}}</p>
-         </v-tab>    
-        </v-tabs>
+        <!--<v-tabs-->
+         <!--v-model="Graph"-->
+         <!--color="white"-->
+         <!--dark-->
+         <!--slider-color="#08BA4D"-->
+         <!--:ripple= false-->
+        <!--&gt;-->
+         <!--<v-tab v-for="tabName in graphTabName" :key="tabName">-->
+             <!--<p class="black&#45;&#45;text">{{tabName}}</p>-->
+         <!--</v-tab>    -->
+        <!--</v-tabs>-->
 
-        <v-tabs-items v-model="Graph">
-            <v-tab-item>
-               <!-- <LineChart :chart-data="datacollection"></LineChart> -->
-            </v-tab-item>
-            <v-tab-item>
-               weekly transactions graph
-            </v-tab-item>
-         </v-tabs-items>
+        <!--<v-tabs-items v-model="Graph">-->
+            <!--<v-tab-item>-->
+               <!--&lt;!&ndash; <LineChart :chart-data="datacollection"></LineChart> &ndash;&gt;-->
+            <!--</v-tab-item>-->
+            <!--<v-tab-item>-->
+               <!--weekly transactions graph-->
+            <!--</v-tab-item>-->
+         <!--</v-tabs-items>-->
 
         <div class="transaction__final">
             <div class="export">
@@ -107,7 +107,7 @@ import LineChart from '@/components/Dashboard/chart.vue'
     .transaction__container {
         font-family: 'Poppins', sans-serif;
         border-radius: 4px;
-        min-width: 1146px;
+        max-width: 1146px;
         width: 100%;
         height: 100%;
         display: flex;
@@ -115,6 +115,7 @@ import LineChart from '@/components/Dashboard/chart.vue'
         flex-direction: column;
         justify-content: flex-start;
         padding: 50px 100px 70px 100px;
+        border: 2px solid red;
     }
 
     .transaction__head {
@@ -194,5 +195,21 @@ import LineChart from '@/components/Dashboard/chart.vue'
         background-size: contain;
     }
 
+    @media (max-width: 980px) {
+        .transaction__container {
+            padding: 50px 50px;
+        }
 
+        .transaction__title {
+            font-size: 24px;
+        }
+
+        .export__title {
+            font-size: 20px;
+        }
+
+        .export {
+            border: 5px solid green;
+        }
+    }
 </style>

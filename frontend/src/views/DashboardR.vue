@@ -2,9 +2,9 @@
     <div class="dashboard">
         <div class="dashboard__container">
             <div class="dashboard__header">
-                <p class="dashboard__title hidden-xs-only">Dashboard</p>
+                <p class="dashboard__title">Dashboard</p>
                 <!--<p class="dashboard__welcome">Weclome, {{this.$store.state.userData.userdata.username}}!</p>-->
-                <p class="dashboard__welcome  hidden-xs-only">Weclome, bnvccvbcvbcvb!</p>
+                <p class="dashboard__welcome">Weclome, bnvccvbcvbcvb!</p>
             </div>
 
             <div class="dashboard__tabs hidden-xs-only">
@@ -13,21 +13,21 @@
                 <v-tabs v-model="active" centered class="dashboard__tabs-group"
                         color="#F4F4F4" slider-color="#08BA4D">
                     <v-tab class="dashboard__tab-item text-capitalize"
-                           style="background: transparent;"
+                           style="background: transparent;" @click.native="changeTab(active)"
                            :ripple="false">
                         <p>Transactions</p>
                         <v-icon class="tab__icon" style="transform: rotate(120deg);">sync</v-icon>
                     </v-tab>
 
                     <v-tab class="dashboard__tab-item text-capitalize"
-                           style="background: transparent;"
+                           style="background: transparent;" @click.native="changeTab(active)"
                            :ripple="false">
                         <p>Plug-in Settings</p>
                         <v-icon class="tab__icon">edit</v-icon>
                     </v-tab>
 
                     <v-tab class="dashboard__tab-item text-capitalize"
-                           style="background: transparent;"
+                           style="background: transparent;" @click.native="changeTab(active)"
                            :ripple="false">
                         <p>My Profile</p>
                         <v-icon class="tab__icon">person</v-icon>
@@ -43,7 +43,7 @@
                 <v-tab style="background: transparent; display: none;" :ripple="false">Profiel</v-tab>
 
                 <v-tab-item class="dashboard__content">
-                    <!--<Transactions class="animated fadeInt"></Transactions>-->
+                    <Transactions class="animated fadeInt"></Transactions>
                 </v-tab-item>
 
                 <v-tab-item class="dashboard__content">
@@ -55,24 +55,27 @@
                 </v-tab-item>
             </v-tabs>
 
-            <v-card class="hidden-sm-and-up">
+            <!--Mobile menu-->
+            <v-card class="hidden-sm-and-up mobile__tab">
                 <v-bottom-nav
                         class="bottomBar"
-                        :active.sync="bottomNav"
+                        :active.sync="view"
                         :value="true"
                         color="transparent">
-                    <v-btn :ripple="false" color="teal" flat value="Transactions"
-                           @click="(active = 0) && (view = 'Transactions')">
+                    <v-btn :ripple="false" color="#10DC87" flat value="Transactions"
+                           @click.native="changeTab(0)">
                         <span>Transactions</span>
                         <v-icon style="transform: rotate(120deg);">sync</v-icon>
                     </v-btn>
 
-                    <v-btn :ripple="false" color="teal" flat value="Plug-in" @click="(active = 1) && (view = 'Plugin')">
+                    <v-btn :ripple="false" color="#10DC87" flat value="Plug-in"
+                           @click.native="changeTab(1)">
                         <span>Plug-in</span>
                         <v-icon>edit</v-icon>
                     </v-btn>
 
-                    <v-btn :ripple="false" color="teal" flat value="Profile" @click="(active = 2) && (view = 'Profile')">
+                    <v-btn :ripple="false" color="#10DC87" flat value="Profile"
+                           @click.native="changeTab(2)">
                         <span>Profile</span>
                         <v-icon>person</v-icon>
                     </v-btn>
@@ -86,14 +89,15 @@
                         <component :is="view"></component>
                     </transition>
                 </v-card-text>
-
             </v-card>
         </div>
+
+        {{active}} en {{view}}
     </div>
 </template>
 
 <script>
-    // const Transactions = () => import('@/components/Dashboard/Transactions')
+    const Transactions = () => import('@/components/DashboardR/Transactions')
     const Plugin = () => import('@/components/DashboardR/Plugin')
     const Profile = () => import('@/components/DashboardR/Profile')
 
@@ -102,6 +106,7 @@
         name: "DashboardR",
         components: {
             'Profile': Profile, 'Plugin': Plugin,
+            'Transactions': Transactions
 
         },
 
@@ -119,10 +124,6 @@
             }
         },
 
-        created() {
-
-
-        },
 
         mounted() {
 
@@ -132,20 +133,36 @@
         },
 
         methods: {
+            changeTab(order) {
+                alert('etetetette');
+                if (order === 0) {
+                    this.view = 'Transactions'
+                    this.active = 0
+                } else if (order === 1) {
+                    con
+                    this.view = 'Plugin'
+                    this.active = 1
+                } else if (order === 2) {
+                    this.view = 'Profile'
+                    this.active = 2
+                }
+            },
+
 
             // deze functie checkt de gebruikers loggin status(boolean) en stuur ze naar
             // de account/login pagina
-            ifAthenticated() {
-                // alert(localStorage.getItem('Authenticated'))
-                // if(localStorage.getItem('Authenticated')){
-                //     alert('logged in')
-                // }else{
-                //     this.$router.push('login')
-                //     alert('not auth')
-                // }
-            }
-
+            // ifAthenticated() {
+            // alert(localStorage.getItem('Authenticated'))
+            // if(localStorage.getItem('Authenticated')){
+            //     alert('logged in')
+            // }else{
+            //     this.$router.push('login')
+            //     alert('not auth')
+            // }
+            // }
         }
+        ,
+
     }
 </script>
 
@@ -277,6 +294,10 @@
     }
 
     @media (max-width: 600px) {
+        .mobile__tab {
+            margin-top: 20px;
+        }
+
         .bottomBar {
             background: white !important;
         }
