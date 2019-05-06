@@ -15,27 +15,20 @@
                         <v-icon class="icon-test" medium color="##2F2F2F">home</v-icon>
 
                         <div class="card__content-text">
-                            <p>ShaifB</p>
-                            <!--<p>{{userData.username}}</p>-->
-                            <!--<p>{{userData.email}}</p>-->
-                            <p>shaif.bhaggoe@gmail.com</p>
+                            <p>{{userData.username}}</p>
+                            <p>{{userData.email}}</p>
                         </div>
                     </div>
 
                     <div class="card__content-inner">
                         <v-icon class="icon-test" medium color="##2F2F2F">home</v-icon>
 
-                        <!--<div class="card__content-text">-->
-                        <!--<p>{{userProfileData.country}}</p>-->
-                        <!--<p>{{userProfileData.city}}, {{userProfileData.zipcode}}</p>-->
-                        <!--<p>{{userProfileData.street}} {{userProfileData.number}}</p>-->
-                        <!--</div>  -->
-
                         <div class="card__content-text">
-                            <p>Nederland</p>
-                            <p>Nieuw - Vennep, 2152TE</p>
-                            <p>Sarabande 44</p>
+                            <p>{{userProfileData.country}}</p>
+                            <p>{{userProfileData.city}}, {{userProfileData.zipcode}}</p>
+                            <p>{{userProfileData.street}} {{userProfileData.number}}</p>
                         </div>
+
                     </div>
 
                     <div class="card__content-inner card__content-final">
@@ -289,7 +282,6 @@
         .profile__container {
             padding: 15px 10px;
         }
-
 
 
     }

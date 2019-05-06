@@ -3,13 +3,11 @@
         <div class="dashboard__container">
             <div class="dashboard__header">
                 <p class="dashboard__title">Dashboard</p>
-                <!--<p class="dashboard__welcome">Weclome, {{this.$store.state.userData.userdata.username}}!</p>-->
-                <p class="dashboard__welcome">Weclome, Shaif!</p>
+                <p class="dashboard__welcome">Weclome, {{this.$store.state.userData.userdata.username}}!</p>
             </div>
 
             <div class="dashboard__tabs hidden-xs-only">
-                <!--<p class="dashboard__mail hidden-sm-and-down">{{this.$store.state.userData.userdata.email}}</p>-->
-                <p class="dashboard__mail hidden-sm-and-down">Shaif.bhaggoe@gmail.com</p>
+                <p class="dashboard__mail hidden-sm-and-down">{{this.$store.state.userData.userdata.email}}</p>
                 <v-tabs v-model="active" centered class="dashboard__tabs-group"
                         color="#F4F4F4" slider-color="#08BA4D">
                     <v-tab class="dashboard__tab-item text-capitalize"
