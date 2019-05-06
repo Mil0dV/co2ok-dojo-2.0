@@ -32,7 +32,7 @@ const router = new Router({
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: () => import( './views/DashboardR'),
+      component: () => import( './views/Dashboard'),
       // beforeEnter: ifAuthenticated
     }
   ]

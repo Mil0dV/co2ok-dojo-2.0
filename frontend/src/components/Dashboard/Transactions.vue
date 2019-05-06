@@ -202,7 +202,7 @@ import LineChart from '@/components/Dashboard/chart.vue'
     .transaction__container {
         font-family: 'Poppins', sans-serif;
         border-radius: 4px;
-        min-width: 1146px;
+        max-width: 1146px;
         width: 100%;
         height: 100%;
         display: flex;
@@ -328,5 +328,21 @@ import LineChart from '@/components/Dashboard/chart.vue'
         background-size: contain;
     }
 
+    @media (max-width: 980px) {
+        .transaction__container {
+            padding: 50px 50px;
+        }
+
+        .transaction__title {
+            font-size: 24px;
+        }
+
+        .export__title {
+            font-size: 20px;
+        }
+
+        .export {
+        }
+    }
 
 </style>

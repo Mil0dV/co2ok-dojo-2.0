@@ -6,45 +6,39 @@
                 <p class="dashboard__welcome">Weclome, {{this.$store.state.userData.userdata.username}}!</p>
             </div>
 
-            <div class="dashboard__tabs">
-                <p class="dashboard__mail">{{this.$store.state.userData.userdata.email}}</p>
+            <div class="dashboard__tabs hidden-xs-only">
+                <p class="dashboard__mail hidden-sm-and-down">{{this.$store.state.userData.userdata.email}}</p>
                 <v-tabs v-model="active" centered class="dashboard__tabs-group"
                         color="#F4F4F4" slider-color="#08BA4D">
                     <v-tab class="dashboard__tab-item text-capitalize"
-                           style="background: transparent;"
+                           style="background: transparent;" @click.native="changeTab(active)"
                            :ripple="false">
-                        <p>
-                            Transactions
-                        </p>
+                        <p>Transactions</p>
                         <v-icon class="tab__icon" style="transform: rotate(120deg);">sync</v-icon>
                     </v-tab>
 
                     <v-tab class="dashboard__tab-item text-capitalize"
-                           style="background: transparent;"
+                           style="background: transparent;" @click.native="changeTab(active)"
                            :ripple="false">
-                        <p>
-                            Plug-in Settings
-                        </p>
+                        <p>Plug-in Settings</p>
                         <v-icon class="tab__icon">edit</v-icon>
                     </v-tab>
 
                     <v-tab class="dashboard__tab-item text-capitalize"
-                           style="background: transparent;"
+                           style="background: transparent;" @click.native="changeTab(active)"
                            :ripple="false">
-                        <p>
-                            My Profile
-                        </p>
+                        <p>My Profile</p>
                         <v-icon class="tab__icon">person</v-icon>
                     </v-tab>
                 </v-tabs>
             </div>
 
-            <v-tabs v-model="active" centered grow class="overflow-hidden;"
+            <v-tabs v-model="active" centered grow class="hidden-xs-only"
                     color="#F4F4F4" slider-color="#08BA4D">
 
-                <v-tab  style="background: transparent; display: none;" :ripple="false">Transacties</v-tab>
-                <v-tab  style="background: transparent; display: none;" :ripple="false">Plug-in Design</v-tab>
-                <v-tab  style="background: transparent; display: none;" :ripple="false">Profiel</v-tab>
+                <v-tab style="background: transparent; display: none;" :ripple="false">Transacties</v-tab>
+                <v-tab style="background: transparent; display: none;" :ripple="false">Plug-in Design</v-tab>
+                <v-tab style="background: transparent; display: none;" :ripple="false">Profiel</v-tab>
 
                 <v-tab-item class="dashboard__content">
                     <Transactions class="animated fadeInt"></Transactions>
@@ -58,9 +52,46 @@
                     <Profile class="animated fadeIn"></Profile>
                 </v-tab-item>
             </v-tabs>
+
+            <!--Mobile menu-->
+            <v-card class="hidden-sm-and-up mobile__tab">
+                <v-bottom-nav
+                        class="bottomBar"
+                        :active.sync="view"
+                        :value="true"
+                        color="transparent">
+                    <v-btn :ripple="false" color="#10DC87" flat value="Transactions"
+                           @click.native="changeTab(0)">
+                        <span>Transactions</span>
+                        <v-icon style="transform: rotate(120deg);">sync</v-icon>
+                    </v-btn>
+
+                    <v-btn :ripple="false" color="#10DC87" flat value="Plugin"
+                           @click.native="changeTab(1)">
+                        <span>Plug-in</span>
+                        <v-icon>edit</v-icon>
+                    </v-btn>
+
+                    <v-btn :ripple="false" color="#10DC87" flat value="Profile"
+                           @click.native="changeTab(2)">
+                        <span>Profile</span>
+                        <v-icon>person</v-icon>
+                    </v-btn>
+                </v-bottom-nav>
+                <v-spacer></v-spacer>
+
+                <v-card-text style="overflow: hidden;">
+                    <transition enter-active-class="animated fadeIn"
+                                leave-active-class="animated fadeOut"
+                                enter mode="out-in">
+                        <component :is="view"></component>
+                    </transition>
+                </v-card-text>
+            </v-card>
         </div>
+
     </div>
-</template>
+</template>R
 
 <script>
     const Transactions = () => import('@/components/Dashboard/Transactions')
@@ -71,7 +102,8 @@
     export default {
         name: "Dashboard",
         components: {
-            Profile, Plugin, Transactions,
+            'Profile': Profile, 'Plugin': Plugin,
+            'Transactions': Transactions
 
         },
 
@@ -82,39 +114,49 @@
                 /*twee onderst data gebruiken alleen na dat de profile component 
                 geladen(created en mounted) is*/
                 userProfileData: this.$store.state.userData.userProfileData,
-                userData: this.$store.state.userData.userdata
+                userData: this.$store.state.userData.userdata,
+                bottomNav: 'Transactions',
+                view: 'Transactions',
                 //------------------------------------------------------------------
             }
         },
 
-        created() {
 
-        
-
-        },
 
         mounted() {
-         
-        //  this.ifAthenticated();
-         this.$store.dispatch('commitGetUserData');
-            
+
+            //  this.ifAthenticated();
+            this.$store.dispatch('commitGetUserData');
+
         },
 
         methods: {
+            changeTab(order) {
+                if (order === 0) {
+                    this.view = 'Transactions'
+                    this.active = 0
+                } else if (order === 1) {
+                    con
+                    this.view = 'Plugin'
+                    this.active = 1
+                } else if (order === 2) {
+                    this.view = 'Profile'
+                    this.active = 2
+                }
+            },
 
-          // deze functie checkt de gebruikers loggin status(boolean) en stuur ze naar
-          // de account/login pagina
-          ifAthenticated()
-          {
-              alert(localStorage.getItem('Authenticated'))
-              if(localStorage.getItem('Authenticated')){
-                  alert('logged in')
-              }else{
-                  this.$router.push('login')
-                  alert('not auth')
-              }
-          }
-            
+            // deze functie checkt de gebruikers loggin status(boolean) en stuur ze naar
+            // de account/login pagina
+            ifAthenticated() {
+                alert(localStorage.getItem('Authenticated'))
+                if (localStorage.getItem('Authenticated')) {
+                    alert('logged in')
+                } else {
+                    this.$router.push('login')
+                    alert('not auth')
+                }
+            }
+
         }
     }
 </script>
@@ -124,6 +166,7 @@
         margin: 0 auto;
         width: 100%;
         max-width: 1146px;
+        padding: 0 60px;
     }
 
     .dashboard__container {
@@ -141,14 +184,6 @@
         margin: 0;
         padding: 0;
     }
-
-    /*.theme--light.v-tabs__bar .v-tabs__div {*/
-        /*color: #08BA4D !important;*/
-    /*}*/
-
-    /*.v-tabs__item:not(.v-tabs__item--active) {*/
-        /*border:1px solid red !important;*/
-    /*}*/
 
     .dashboard__welcome {
         margin: 0;
@@ -200,13 +235,13 @@
         align-items: center;
     }
 
-    .dashboard__tab-item  p{
+    .dashboard__tab-item p {
         padding: 0;
         margin: 0;
     }
 
     .tab__icon {
-        color:black;
+        color: black;
         margin-left: 10px;
     }
 
@@ -216,5 +251,56 @@
     }
 
 
+    @media (max-width: 980px) {
+        .dashboard {
+            padding: 0 20px;
+            margin-bottom: 30px;
+        }
 
+        .dashboard__container {
+            width: 100%;
+        }
+
+        .dashboard__tabs {
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .dashboard__tab-item {
+            font-size: 15px;
+            max-width: none;
+            margin-right: 0;
+        }
+
+        .dashboard__title {
+            font-size: 26px;
+        }
+
+        .dashboard__welcome {
+            font-size: 18px;
+        }
+
+        .tab__icon {
+            font-size: 18px;
+        }
+
+        .dashboard__tabs-group {
+            max-width: none;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .mobile__tab {
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        .bottomBar {
+            background: white !important;
+        }
+
+        .dashboard__header {
+            overflow: hidden;
+        }
+    }
 </style>

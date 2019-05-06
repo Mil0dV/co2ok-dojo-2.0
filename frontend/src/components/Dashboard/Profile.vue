@@ -28,6 +28,7 @@
                             <p>{{userProfileData.city}}, {{userProfileData.zipcode}}</p>
                             <p>{{userProfileData.street}} {{userProfileData.number}}</p>
                         </div>
+
                     </div>
 
                     <div class="card__content-inner card__content-final">
@@ -91,7 +92,7 @@
                 editPassword: false,
                 deleteAccount: false,
 
-                /*twee onderst data gebruiken alleen na dat de profile component 
+                /*twee onderst data gebruiken alleen na dat de profile component
                 geladen(created en mounted) is*/
                 userProfileData: this.$store.state.userData.userProfileData,
                 userData: this.$store.state.userData.userdata
@@ -99,22 +100,22 @@
             }
         },
 
-        created(){
-            
+        created() {
+
         },
 
-        mounted(){
+        mounted() {
             this.$store.commit('getUserData');
         },
 
         methods: {
 
-            closeEdit(message){
+            closeEdit(message) {
                 this.editProfile = false
                 this.editPassword = false
                 this.deleteAccount = false
 
-                if(message){
+                if (message) {
                     this.$store.commit('modalStatus', {message})
                 }
             }
@@ -127,7 +128,7 @@
 <style scoped>
     .profile__container {
         border-radius: 4px;
-        min-width: 1146px;
+        max-width: 1146px;
         width: 100%;
         height: 100%;
         display: flex;
@@ -162,10 +163,7 @@
     }
 
     .profile__card {
-        max-width: 362px;
-        width: 100%;
-        min-height: 324px;
-        height: 100%;
+        flex: 1;
         box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.15);
     }
 
@@ -229,5 +227,64 @@
         margin: 0;
         padding: 0;
     }
+
+    @media (max-width: 1110px) {
+        .profile__container {
+            min-width: unset;
+            padding: 50px 50px;
+        }
+
+        .card__title {
+            font-size: 24px;
+        }
+
+        .card__content-text p {
+            font-size: 14px;
+        }
+
+        .card__extension {
+            font-size: 16px;
+        }
+    }
+
+
+    @media (max-width: 960px) {
+        .profile__container {
+            padding: 50px 50px;
+            margin-bottom: 30px;
+        }
+
+        .profile__col-1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .profile__card {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .profile__title {
+            font-size: 24px;
+        }
+
+        .card__title {
+            font-size: 20px;
+        }
+
+        .icon-test {
+            font-size: 20px !important;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .profile__container {
+            padding: 15px 10px;
+        }
+
+
+    }
+
 
 </style>
