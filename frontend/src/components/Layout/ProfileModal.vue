@@ -101,7 +101,7 @@
                 zipcode: this.$store.state.userData.userProfileData.zipcode,
                 street: this.$store.state.userData.userProfileData.street,
                 number: this.$store.state.userData.userProfileData.number,
-                link: this.$store.state.userData.userProfileData.link, 
+                link: this.$store.state.userData.userProfileData.link,
                 send: null,
                 formActive: false,
                 edit: false,
@@ -134,7 +134,7 @@
                         })
                         .then(response => {
                             if (response.data.update) {
-                                
+
                                 let successmessage = {
                                     title: 'Edited Profile Successfully!',
                                     text: 'Your profile data was edited successfully.'
@@ -148,7 +148,7 @@
 
                     // this.$parent.closeEdit(message)
                     this.formActive = false
-                }else{
+                } else {
                     this.$parent.closeEdit(message)
                 }
             },
@@ -279,6 +279,72 @@
         border-radius: 5px;
         background: linear-gradient(to bottom, #10DC87, #08BA4D);
         color: white;
+    }
+
+    @media (max-width: 960px) {
+        .edit__title {
+            font-size: 25px;
+        }
+
+        .edit__form-title {
+            font-size: 18px;
+        }
+
+        .form__button {
+            padding: 10px 32px;
+            font-size: 14px;
+        }
+
+        .button__save {
+            width: unset;
+        }
+
+        .edit__form-group {
+            flex-direction: column;
+        }
+
+        .edit__form, .edit__form-input  {
+            max-width: unset;
+        }
+
+        .edit__form-small {
+            max-width: unset;
+        }
+
+        .label__group > * {
+            flex: 1;
+        }
+
+        .label__group >*:nth-child(2) {
+            margin-left: 10px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .modal__wrapper form {
+            padding: 20px;
+        }
+
+        .label__group {
+            flex-direction: column;
+        }
+
+        .label__group >* {
+            margin-left: 0;
+            width: 100%;
+        }
+
+        .edit__title {
+            font-size: 20px;
+        }
+
+        .form__button-wrapper {
+            width: 100%;
+        }
+
+        .form__button {
+            padding: 12px 20px;
+        }
     }
 
 

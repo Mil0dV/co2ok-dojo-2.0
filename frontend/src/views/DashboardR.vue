@@ -4,12 +4,12 @@
             <div class="dashboard__header">
                 <p class="dashboard__title">Dashboard</p>
                 <!--<p class="dashboard__welcome">Weclome, {{this.$store.state.userData.userdata.username}}!</p>-->
-                <p class="dashboard__welcome">Weclome, bnvccvbcvbcvb!</p>
+                <p class="dashboard__welcome">Weclome, Shaif!</p>
             </div>
 
             <div class="dashboard__tabs hidden-xs-only">
                 <!--<p class="dashboard__mail hidden-sm-and-down">{{this.$store.state.userData.userdata.email}}</p>-->
-                <p class="dashboard__mail hidden-sm-and-down">cvbcvbcvbcvbcvbcvbcv</p>
+                <p class="dashboard__mail hidden-sm-and-down">Shaif.bhaggoe@gmail.com</p>
                 <v-tabs v-model="active" centered class="dashboard__tabs-group"
                         color="#F4F4F4" slider-color="#08BA4D">
                     <v-tab class="dashboard__tab-item text-capitalize"
@@ -68,7 +68,7 @@
                         <v-icon style="transform: rotate(120deg);">sync</v-icon>
                     </v-btn>
 
-                    <v-btn :ripple="false" color="#10DC87" flat value="Plug-in"
+                    <v-btn :ripple="false" color="#10DC87" flat value="Plugin"
                            @click.native="changeTab(1)">
                         <span>Plug-in</span>
                         <v-icon>edit</v-icon>
@@ -92,7 +92,6 @@
             </v-card>
         </div>
 
-        {{active}} en {{view}}
     </div>
 </template>
 
@@ -134,7 +133,6 @@
 
         methods: {
             changeTab(order) {
-                alert('etetetette');
                 if (order === 0) {
                     this.view = 'Transactions'
                     this.active = 0
@@ -259,6 +257,7 @@
     @media (max-width: 980px) {
         .dashboard {
             padding: 0 20px;
+            margin-bottom: 30px;
         }
 
         .dashboard__container {
@@ -296,6 +295,7 @@
     @media (max-width: 600px) {
         .mobile__tab {
             margin-top: 20px;
+            border-radius: 4px;
         }
 
         .bottomBar {

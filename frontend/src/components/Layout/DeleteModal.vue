@@ -156,4 +156,30 @@
         font-size: 16px;
         border: 2px solid #9F9F9F;
     }
+
+    @media (max-width: 600px) {
+        .modal__wrapper {
+            padding: 50px 40px;
+        }
+
+        .modal__title {
+            font-size: 30px;
+        }
+
+        .modal__body {
+            font-size: 14px;
+        }
+
+        .form__small-text {
+            font-size: 12px;
+        }
+
+        .form__button {
+            padding: 14px 20px;
+            font-size: 14px;
+            width: 40%;
+        }
+    }
+
+
 </style>

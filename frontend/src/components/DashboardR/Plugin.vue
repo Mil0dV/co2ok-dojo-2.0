@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div class="plugin__col-2 animated fadeIn" style="animation-delay: 0.7s;">
+        <div class="plugin__col-2 no__border animated fadeIn" style="animation-delay: 0.7s;">
             <div class="col-2__content">
                 <p class="col-2__text">
                     Do you give CO2ok permission to send the customer an email?
@@ -198,6 +198,10 @@
         border-bottom: 1px solid #E2E2E2;
     }
 
+    .no__border {
+        border-bottom: none;
+    }
+
     .col-2__content {
         max-width: 460px;
         display: flex;
@@ -258,7 +262,6 @@
             max-height: unset;
             height: 100%;
             width: 100%;
-            border-bottom: 1px solid #E2E2E2;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -279,11 +282,11 @@
 
     @media (max-width: 600px) {
         .plugin__container {
-            padding: 50px 10px;
+            padding: 15px 10px;
         }
 
         .plugin__title {
-            font-size: 17px;
+            font-size: 24px;
         }
 
         .plugin__header, .col-2__text, .col-2__switch-text {

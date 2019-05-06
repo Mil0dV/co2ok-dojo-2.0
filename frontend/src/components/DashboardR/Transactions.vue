@@ -115,7 +115,6 @@ import LineChart from '@/components/Dashboard/chart.vue'
         flex-direction: column;
         justify-content: flex-start;
         padding: 50px 100px 70px 100px;
-        border: 2px solid red;
     }
 
     .transaction__head {
@@ -209,7 +208,6 @@ import LineChart from '@/components/Dashboard/chart.vue'
         }
 
         .export {
-            border: 5px solid green;
         }
     }
 </style>
