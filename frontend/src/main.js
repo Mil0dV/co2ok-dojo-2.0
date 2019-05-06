@@ -10,6 +10,7 @@ import Vuex from 'vuex'
 Axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 Axios.defaults.xsrfCookieName = "XCSRF-TOKEN";
 Axios.defaults.withCredentials = true
+//asasas
 
 import 'vuetify/dist/vuetify.min.css'
 import store from './store'
