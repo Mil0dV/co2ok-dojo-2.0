@@ -1,7 +1,6 @@
 <template>
     <v-app id="app">
         <Nav/>
-
         <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
             <router-view style="flex:1 1 auto; "></router-view>
         </transition>

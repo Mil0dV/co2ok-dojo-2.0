@@ -40,8 +40,15 @@
             </v-menu>
 
             <v-toolbar-items class="hidden-sm-and-down">
-                <v-btn v-for="item in menu" :key="item.link" class="text-capitalize navbar__items" :ripple="false" flat>{{item.title}}</v-btn>
+                <v-btn v-for="item in menu" :key="item.link"
+                       class="text-capitalize navbar__items"
+                       :class="[currentRouteName === item.title.toLowerCase() ? 'navbar__active' : '']"
+                       :ripple="false" flat>
+                    {{item.title}}
+                </v-btn>
+
                 <v-spacer></v-spacer>
+
                 <v-divider class="ml-4" style="height: 42px; margin-right: 20px;" vertical></v-divider>
 
                 <transition enter-active-class="animated bounceIn"
@@ -138,13 +145,16 @@
             }
         },
 
+        computed: {
+            currentRouteName() {
+                return this.$route.name;
+            }
+        },
 
         watch: {
             '$route'() {
                 this.userLoggedIn = this.$router.currentRoute['name'] === 'dashboard';
             },
-
-
         }
     }
 </script>
@@ -186,6 +196,12 @@
         font-family: 'Poppins', sans-serif;
         font-weight: 800;
         font-size: 17px;
+
+    }
+
+    .navbar__active {
+        top: 3px;
+        border-bottom: 4px solid #08BA4D;
     }
 
     .v-btn:hover:before {
