@@ -145,7 +145,8 @@
             },
 
             checkActive(menu){
-                // if(this.currentRouteName === item.title.toLowerCase() || )
+                if(this.currentRouteName === menu.toLowerCase() || this.currentRouteName === 'steps' && menu.toLowerCase() === 'about')
+                    return true
 
             }
         },
