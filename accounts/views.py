@@ -26,6 +26,7 @@ from rest_framework.status import (
     HTTP_200_OK
 )
 from django.conf import settings
+# import googlemaps
 #--------------- email imports ---------------------
 from django.core.mail import send_mail
 from django.template.loader import get_template
@@ -353,7 +354,23 @@ def sendMail(request):
         }
         return Response(error)
 
-    
+
+# def google_api(request):
+
+#     API_KEY = "AIzaSyDQDsq1Blbm9UZuRGBC93IYKES5Oheplt0"
+
+#     SITE = "douchezaak.nl
+
+#     gmaps = googlemaps.Client(key=API_KEY)
+
+#     # eerst place_id vinden
+#     g_query = gmaps.find_place(SITE, 'textquery')
+#     if g_query['status'] == 'OK':
+#         # I'm always feeling lucky
+#         place_id = g_query[]['candidates'][0]['place_id']
+
+#     # dan via details query formatted_phone_number of international_phone_number
+#     tel_nr = gmaps.place(place_id)['result']['formatted_phone_number']
 
 
 

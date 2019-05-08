@@ -5,49 +5,59 @@
             <v-icon color="#10DC87" style="transform: rotate(120deg)" large>sync</v-icon>
         </div>
 
-        <!-- <div class="transaction__content">
-        </div> -->
-        <!-- <v-tabs
-         v-model="Graph"
-         color="white"
-         dark
-         slider-color="#08BA4D"
-         :ripple= false
-        >
-         <v-tab v-for="tabName in graphTabName" :key="tabName">
-             <p class="black--text">{{tabName}}</p>
-         </v-tab>    
-        </v-tabs> -->
-
         <div class="graph-container mb-1">
             <div class="graph-tabs">
                 <p class="graph-tab-name font-weight-bold"  @click="monthTransactions()">Monthly Transactions</p>
                 <p class="graph-tab-name font-weight-bold"  @click="weekTransactions()">Weekly Transactions</p>
             </div>
 
+            <p class="font-weight-bold black--text" style="font-size: 15px;text-align: center">{{graphLegend}}</p>
+
             <div class="graphs">
                 <line-chart :chartData="datacollection" :options="chartOptions" style="width: 900px; height: 400px"/>
             </div>
         </div>
 
-        <v-layout row wrap justify-space-between align-center class="mb-3" style="width: 100%;border: 1px solid red;">
-            <v-flex xs12 sm6 md6 lg6 style="border: 1px solid red;">
-                <v-btn depressed flat class="text-capitalize"><v-icon small></v-icon>Previous Week</v-btn>
-                <v-btn depressed flat class="text-capitalize"><v-icon small></v-icon>Next Week</v-btn>
+        <v-layout row wrap justify-space-between align-start class="mb-3" style="width: 100%;">
+            <v-flex xs12 sm6 md6 lg6 style="height: 100%;" class="week-ctr-flex">
+                <div class="text-capitalize black--text ctrl-container" style="" v-if="week">
+
+                    <v-tooltip top color="#369555">
+                        <template v-slot:activator="{ on }">
+                          <!-- <img src="../../assets/images/dashboard/prev-month.svg" alt="" v-on="on" class="prev-month"> -->
+                          <div class="month-ctrl" @click="prevMonthCtrl()">
+                              <v-icon medium style="color: #369555; cursor: pointer;" class="animated zoomIn" v-on="on">keyboard_arrow_left</v-icon>
+                              <v-icon medium style="color: #369555; cursor: pointer;" class="animated zoomIn" v-on="on">keyboard_arrow_left</v-icon>
+                          </div>
+                        </template>
+                        <span>{{prevMonth}}</span>
+                    </v-tooltip>
+
+                    <v-icon class="graph-ctr-icon animated bounceIn" style="color: #E0E0E0;" small>keyboard_arrow_left</v-icon>
+                    <p class="graph-ctr-txt animated bounceIn" style="color: #E0E0E0;width: 150px;">Previous Week</p>
+                </div>
+
+                <div class="text-capitalize black--text ctrl-container" style="" v-if="week">
+                    <p class="graph-ctr-txt animated bounceIn">Next Week</p>
+                    <v-icon class="graph-ctr-icon animated bounceIn" small>keyboard_arrow_right</v-icon>
+
+                    <v-tooltip top color="#369555">
+                        <template v-slot:activator="{ on }">
+                          <!-- <img src="../../assets/images/dashboard/next-month.svg" alt="" v-on="on" class="prev-month"> -->
+                          <div class="month-ctrl" @click="nextMonthCtrl()">
+                              <v-icon medium style="color: #E0E0E0; cursor: pointer;" class="animated zoomIn" v-on="on">keyboard_arrow_right</v-icon>
+                              <v-icon medium style="color: #E0E0E0; cursor: pointer;" class="animated zoomIn" v-on="on">keyboard_arrow_right</v-icon>
+                          </div>
+                        </template>
+                        <span>{{nextMonth}}</span>
+                    </v-tooltip>
+
+                </div>
             </v-flex>
-            <v-flex xs12 sm12 md6 lg6 style="border: 1px solid red;">
-                <p class="font-weight-bold">YEAR 2019</p>
+            <v-flex xs12 sm12 md6 lg6 style="height: 100%;" class="year-info-flex">
+                <p class="font-weight-bold">YEAR {{currentYear}}</p>
             </v-flex>
         </v-layout>
-
-        <!-- <v-tabs-items v-model="Graph">
-            <v-tab-item>
-               <LineChart :chart-data="monthDatacollection"></LineChart>
-            </v-tab-item>
-            <v-tab-item>
-               weekly transactions graph
-            </v-tab-item>
-         </v-tabs-items> -->
 
         <div class="transaction__final">
             <div class="export">
@@ -111,7 +121,7 @@ import LineChart from '@/components/dashboard/chart.vue'
                    },
                    point: {
                        backgroundColor: 'rgba(148,237,206,0.8)',
-                       radius: 2,
+                       radius: 3,
                        hoverRadius: 4
                    }
                 },
@@ -120,20 +130,26 @@ import LineChart from '@/components/dashboard/chart.vue'
                 maintainAspectRatio: false
 
                },
-              week: false
+              week: false, //enable/disable de week graph ctrl when weekly transactions is clicked
+              currentYear: this.$moment().year(),
+              currentMonth: this.$moment().format('MMMM'),
+              prevMonth: null,//prev btn tooltip content
+              nextMonth: null,//next btn tooltip content
+              graphLegend: null,//graph info label
+              currentMonthNumber: this.$moment().subtract(1, 'months').format('M'),
+              monthNumber: 0,
+              realTimeMonth: this.$moment().format('MMMM')//current month when next/pren are clicked
 
             }
         },
 
         created() {
 
-            // this.monthTransactions();
             this.fillData();
-
         },
 
         mounted() {
-        //    this.fillData();
+
         },
 
         methods: {
@@ -145,7 +161,7 @@ import LineChart from '@/components/dashboard/chart.vue'
                     // labels: this.$store.state.x_asLabel,
                     datasets: [
                         {
-                        label: 'Transaction(s)',
+                        label: `${this.currentMonth} Transaction(s)`,
                         borderColor: '#94EDCE',
                         data: [0, 100, 50, 200, 150, 250, 55, 23, 71, 220, 171, 58]
                         // data: this.$store.state.graphData
@@ -154,16 +170,14 @@ import LineChart from '@/components/dashboard/chart.vue'
                 }
             },
 
-            monthTransactions() {
-              
-              let chart = document.getElementById('line-chart')
-              this.week = false
-              this.$store.commit('monthGraphData')
-              this.datacollection = {
+            graphUpdatedData() {
+
+                this.datacollection = {
                     labels: this.$store.state.x_asLabel,
                     datasets: [
                         {
-                         label: 'Month Transaction(s)',
+                        //  label: this.graphLegend,
+                         label: '',
                          borderColor: '#94EDCE',
                          data: this.$store.state.graphData
                         }
@@ -172,20 +186,66 @@ import LineChart from '@/components/dashboard/chart.vue'
 
             },
 
+            monthTransactions() {
+              
+              let chart = document.getElementById('line-chart')
+              this.week = false
+              this.graphLegend = `${this.currentMonth} Transaction(s)`
+              this.$store.commit('monthGraphData')
+              this.graphUpdatedData()
+
+            },
+
             weekTransactions() {
+              console.log(this.$moment().subtract(1, 'months').format('MMMM'));
 
               this.week = true
+              this.graphLegend = `${this.currentMonth} week-1 Transaction(s)`
               this.$store.commit('weekGraphData')
-              this.datacollection = {
-                    labels: this.$store.state.x_asLabel,
-                    datasets: [
-                        {
-                         label: 'Week Transaction(s)',
-                         borderColor: '#94EDCE',
-                         data: this.$store.state.graphData
-                        }
-                    ]
-                }
+              this.graphUpdatedData()
+              //next/previous month tooltip content
+              this.prevMonth = this.$moment().subtract(1, 'months').format('MMMM')
+              this.nextMonth = this.currentMonth
+
+            },
+
+            nextMonthCtrl()
+            {
+
+               console.log(this.monthNumber);
+               if(this.monthNumber > 0 && this.realTimeMonth != this.currentMonth){
+   
+                  let nextmonth = this.$moment(this.realTimeMonth,'MMMM').add(2, 'months').format('MMMM')
+                  this.nextMonth = nextmonth
+
+                  let nextmonthLabel = this.$moment(this.realTimeMonth,'MMMM').add(1, 'months').format('MMMM')
+
+                  this.realTimeMonth = nextmonthLabel //update nextmonthLabel data
+                  this.graphLegend = `${nextmonthLabel} week-1 Transaction(s)`
+
+               }
+               
+
+            },
+
+            prevMonthCtrl() {
+
+              //if de monthNumber < the current month digit number
+              if(this.monthNumber < this.currentMonthNumber-1){
+                  this.monthNumber++
+                  let prevmonth = this.$moment(this.realTimeMonth,'MMMM').subtract(2, 'months').format('MMMM')
+                  let prevmonthLabel = this.$moment(this.realTimeMonth,'MMMM').subtract(1, 'months').format('MMMM')
+           
+                  this.prevMonth = prevmonth //update previous tooltip content
+                  this.realTimeMonth = prevmonthLabel //update realTimeMonth data
+                  this.graphLegend = `${prevmonthLabel} week-1 Transaction(s)`
+
+              }else{
+                //   this.prevMonth = 'January'
+                //   this.nextMonth = 'Frebruary'
+                //   this.graphLegend = `January week-1 Transaction(s)`                
+              }
+              
 
             },
 
@@ -327,6 +387,74 @@ import LineChart from '@/components/dashboard/chart.vue'
         background: url('../../assets/images/dashboard/graph.png') no-repeat center center;
         background-size: contain;
     }
+
+    .week-ctr-flex{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .year-info-flex{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+    .week-ctr-flex .ctrl-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        height: 100%;
+    }
+
+    .week-ctr-flex .ctrl-container p{
+        color: #369555;
+        text-align: left;
+        font-size: 15px;
+        height: auto;
+        margin: 0px;
+        padding: 0px;
+        cursor: pointer;
+    }
+
+    .week-ctr-flex .ctrl-container p:hover{
+        text-decoration: underline;
+        /* font-weight: bold; */
+    }
+
+    .week-ctr-flex .ctrl-container .v-icon{
+        color: #369555;
+    }
+
+    .week-ctr-flex .ctrl-container:hover .week-ctr-flex div .v-icon{
+        transform: scale(1.2,1.2);
+    }
+
+    .prev-month{
+        width: 13px;
+        height: 13px;
+        cursor: pointer;
+    }
+
+    prev-month:hover, next-month:hover{
+        transform: scale(1.2,1.2);
+    }
+    
+    .month-ctrl{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: auto;       
+     }
+
+     .month-ctrl .v-icon{
+         width: 6px;
+     }
 
     @media (max-width: 980px) {
         .transaction__container {
