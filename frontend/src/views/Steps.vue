@@ -5,9 +5,9 @@
             <div>
                 <div class="intro__text uk-padding">
                     <p class="steps__green">How it works</p>
-                    <h1 class="steps__title">CO₂ Compensation</h1>
+                    <h1 class="steps__intro-title">CO₂ Compensation</h1>
 
-                    <p class="steps__text">
+                    <p class="steps__intro-text">
                         The transport and production of any purchased item
                         causes the emission of greenhouse gases. Manufacturers
                         try to reduce this emission, but most fail to show actual
@@ -34,17 +34,22 @@
             </div>
 
             <div>
-                <div class="intro__text uk-padding">
-                    <p class="steps__green">How it works</p>
-                    <h1 class="steps__title">CO₂ Compensation</h1>
+                <div class="intro__text steps__content steps__content-right uk-padding">
+                    <div class="steps__wrapper">
+                        <div class="steps__title-container">
+                            <v-icon class="step__icon">cloud</v-icon>
+                            <p class="steps__title">
+                                1. Computing the greenhouse gases
+                            </p>
+                        </div>
 
-                    <p class="steps__text">
-                        The transport and production of any purchased item
-                        causes the emission of greenhouse gases. Manufacturers
-                        try to reduce this emission, but most fail to show actual
-                        progress. A purchase of *that* item you want can
-                        become climate neutral through CO₂-compensation.
-                    </p>
+                        <p class="steps__text">
+                            We compute the greenhouse gases that are emitted
+                            during production and transport. We convert these to
+                            equal amounts of CO₂, for example, 1 gram of methane
+                            equals 100 grams of CO₂.
+                        </p>
+                    </div>
                 </div>
             </div>
         </vk-grid>
@@ -52,17 +57,22 @@
         <!--Stap 2-->
         <vk-grid data-aos="fade-left" gutter="collapse" class="steps__intro  uk-child-width-expand@s uk-text-center">
             <div>
-                <div class="intro__text uk-padding">
-                    <p class="steps__green">How it works</p>
-                    <h1 class="steps__title">CO₂ Compensation</h1>
+                <div class="intro__text steps__content steps__content-left uk-padding">
+                    <div class="steps__wrapper">
+                        <div class="steps__title-container">
+                            <v-icon class="step__icon">cloud</v-icon>
+                            <p class="steps__title">
+                                1. Computing the greenhouse gases
+                            </p>
+                        </div>
 
-                    <p class="steps__text">
-                        The transport and production of any purchased item
-                        causes the emission of greenhouse gases. Manufacturers
-                        try to reduce this emission, but most fail to show actual
-                        progress. A purchase of *that* item you want can
-                        become climate neutral through CO₂-compensation.
-                    </p>
+                        <p class="steps__text">
+                            We compute the greenhouse gases that are emitted
+                            during production and transport. We convert these to
+                            equal amounts of CO₂, for example, 1 gram of methane
+                            equals 100 grams of CO₂.
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -85,17 +95,22 @@
             </div>
 
             <div>
-                <div class="intro__text uk-padding">
-                    <p class="steps__green">How it wordks</p>
-                    <h1 class="steps__title">CO₂ Compensation</h1>
+                <div class="intro__text steps__content steps__content-right uk-padding">
+                    <div class="steps__wrapper">
+                        <div class="steps__title-container">
+                            <v-icon class="step__icon">cloud</v-icon>
+                            <p class="steps__title">
+                                1. Computing the greenhouse gases
+                            </p>
+                        </div>
 
-                    <p class="steps__text">
-                        The transport and production of any purchased item
-                        causes the emission of greenhouse gases. Manufacturers
-                        try to reduce this emission, but most fail to show actual
-                        progress. A purchase of *that* item you want can
-                        become climate neutral through CO₂-compensation.
-                    </p>
+                        <p class="steps__text">
+                            We compute the greenhouse gases that are emitted
+                            during production and transport. We convert these to
+                            equal amounts of CO₂, for example, 1 gram of methane
+                            equals 100 grams of CO₂.
+                        </p>
+                    </div>
                 </div>
             </div>
         </vk-grid>
@@ -104,17 +119,22 @@
         <!--Stap 4-->
         <vk-grid gutter="collapse" data-aos="fade-left" class="steps__intro  uk-child-width-expand@s uk-text-center">
             <div>
-                <div class="intro__text uk-padding">
-                    <p class="steps__green">How it works</p>
-                    <h1 class="steps__title">CO₂ Compensation</h1>
+                <div class="intro__text steps__content steps__content-left uk-padding">
+                    <div class="steps__wrapper">
+                        <div class="steps__title-container">
+                            <v-icon class="step__icon">cloud</v-icon>
+                            <p class="steps__title">
+                                1. Computing the greenhouse gases
+                            </p>
+                        </div>
 
-                    <p class="steps__text">
-                        The transport and production of any purchased item
-                        causes the emission of greenhouse gases. Manufacturers
-                        try to reduce this emission, but most fail to show actual
-                        progress. A purchase of *that* item you want can
-                        become climate neutral through CO₂-compensation.
-                    </p>
+                        <p class="steps__text">
+                            We compute the greenhouse gases that are emitted
+                            during production and transport. We convert these to
+                            equal amounts of CO₂, for example, 1 gram of methane
+                            equals 100 grams of CO₂.
+                        </p>
+                    </div>
                 </div>
             </div>
 
@@ -172,7 +192,7 @@
         margin: 0;
     }
 
-    .steps__title {
+    .steps__intro-title {
         padding: 0;
         margin: 0;
         font-weight: 600;
@@ -185,11 +205,56 @@
         border-top-right-radius: 5px;
     }
 
+    .steps__content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+
+    .steps__content-right {
+        padding-right: 0px;
+        justify-content: flex-end;
+    }
+
+    .steps__content-left {
+        padding-left: 0px;
+        justify-content: flex-start;
+    }
+
+    .steps__wrapper {
+        width: 80%;
+    }
+
     .step__img {
         height: 100%;
         width: 100%;
         max-height: 400px;
         border-radius: 3px;
+    }
+
+    .steps__title-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+    }
+
+    .step__icon {
+        color:#08BA4D;
+        margin-right: 10px;
+    }
+
+    .steps__title {
+        color:black;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .steps__text {
+        padding: 0;
+        margin: 0;
     }
 
 </style>
