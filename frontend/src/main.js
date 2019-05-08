@@ -25,11 +25,9 @@ Vue.use(VAnimateCss);
 Vue.use(Vuetify);
 Vue.use(Vuex);
 Vue.use(VueMoment);
-// Vue.use(require('vue-moment'));
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = Axios
-// Vue.prototype.$moment = VueMoment
 
 new Vue({
   created () {

@@ -302,20 +302,28 @@ def deleteAccount(request):
         userId = request.POST.get('id')
 
     # if checkPassword(request, password, userId):
-    try:
-        user = User.objects.filter(id=userId)
-        user.delete()
-        success: {
-            'delete': True,
-            'msg': 'Account succesfully deleted'
-        }
-        return Response(success)
-    except User.DoesNotExist:
-        error = {
-        'delete': False,
-        'msg': "This user don't exist"
-        }
-        return Response(error)
+    # try:
+    #     user = User.objects.filter(id=userId)
+    #     user.delete()
+    #     success: {
+    #         'delete': True,
+    #         'msg': 'Account succesfully deleted'
+    #     }
+    #     return Response(success)
+    # except User.DoesNotExist:
+    #     error = {
+    #     'delete': False,
+    #     'msg': "This user don't exist"
+    #     }
+    #     return Response(error)
+
+    user = User.objects.filter(id=userId)
+    user.delete()
+    return Response({
+        'delete': True,
+        'msg': 'Account succesfully deleted'
+    })
+
     
 
     # else:
