@@ -43,6 +43,11 @@ const router = new Router({
             path: '/about/how-it-works',
             name: 'steps',
             component: () => import( './views/Steps'),
+        },
+        {
+            path: '/',
+            name: 'steps',
+            component: () => import('./views/Home'),
         }
     ]
 });
