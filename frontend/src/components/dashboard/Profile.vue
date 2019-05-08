@@ -76,9 +76,9 @@
 </template>
 
 <script>
-    const ProfileModal = () => import('@/components/Layout/ProfileModal')
-    const PasswordModal = () => import('@/components/Layout/PasswordModal')
-    const DeleteModal = () => import('@/components/Layout/DeleteModal')
+    const ProfileModal = () => import('@/components/modals/ProfileModal')
+    const PasswordModal = () => import('@/components/modals/PasswordModal')
+    const DeleteModal = () => import('@/components/modals/DeleteModal')
 
     export default {
         name: "Profile",

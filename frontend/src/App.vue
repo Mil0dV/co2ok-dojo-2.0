@@ -4,18 +4,20 @@
         <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
             <router-view style="flex:1 1 auto; "></router-view>
         </transition>
+        <!--<Footer/>-->
         <Modal v-if="$store.state.modalStatus"/>
     </v-app>
 </template>
 
 <script>
-    const Modal = () => import('@/components/Layout/Modal')
-    const Nav = () => import('@/components/Layout/Nav')
+    const Modal = () => import('@/components/modals/Modal')
+    const Nav = () => import('@/components/layout/Nav')
+    const Footer = () => import('@/components/layout/Footer')
 
     export default {
         name: 'App',
         components: {
-            Modal, Nav
+            Modal, Nav, Footer
         },
 
     }

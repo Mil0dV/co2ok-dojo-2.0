@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import LineChart from '@/components/Dashboard/chart.vue'
+import LineChart from '@/components/dashboard/chart.vue'
     export default {
         name: "Transactions",
 

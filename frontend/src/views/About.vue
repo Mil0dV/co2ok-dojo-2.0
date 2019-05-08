@@ -85,6 +85,19 @@
                 </div>
             </div>
         </div>
+
+        <!--&lt;!&ndash;Compensation header&ndash;&gt;-->
+        <!--<div class="about__header">-->
+            <!--<div class="about__header-shade">-->
+                <!--<div class="about__title-wrapper">-->
+                    <!--<h1 class="about__title animated fadeInUp">CO₂-compensation</h1>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="cmp__container">-->
+
+        <!--</div>-->
     </div>
 </template>
 
@@ -169,12 +182,11 @@
     }
 
     .about__title-wrapper {
-        max-width: 1110px;
+        max-width: 1090px;
         width: 100%;
         text-align: left;
         font-size: 24px;
         margin-bottom: 50px;
-        padding: 0 40px;
     }
 
     .about__title {
@@ -192,12 +204,12 @@
     }
 
     .about__col-1 {
-        max-width: 1110px;
+        max-width: 1090px;
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        padding: 150px 40px;
+        justify-content: space-between;
+        padding: 150px 0;
     }
 
     .col-1__content {
@@ -343,6 +355,17 @@
         align-items: center;
         width: 50%;
         padding: 15px;
+    }
+
+
+    .cmp__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 1110px;
+        width: 100%;
+        border: 1px solid red;
     }
 
     @media (max-width: 1120px) {

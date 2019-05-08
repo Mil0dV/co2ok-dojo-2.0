@@ -77,7 +77,7 @@
 
 
 <script>
-    const PasswordForgotModal = () => import('@/components/Layout/PasswordForgotModal')
+    const PasswordForgotModal = () => import('@/components/modals/PasswordForgotModal')
     import axios from 'axios'
 
     export default {

@@ -94,9 +94,9 @@
 </template>R
 
 <script>
-    const Transactions = () => import('@/components/Dashboard/Transactions')
-    const Plugin = () => import('@/components/Dashboard/Plugin')
-    const Profile = () => import('@/components/Dashboard/Profile')
+    const Transactions = () => import('@/components/dashboard/Transactions')
+    const Plugin = () => import('@/components/dashboard/Plugin')
+    const Profile = () => import('@/components/dashboard/Profile')
 
 
     export default {

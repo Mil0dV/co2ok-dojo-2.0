@@ -38,7 +38,11 @@ const router = new Router({
             path: '/about',
             name: 'about',
             component: () => import( './views/About'),
-            // beforeEnter: ifAuthenticated
+        },
+        {
+            path: '/about/how-it-works',
+            name: 'steps',
+            component: () => import( './views/Steps'),
         }
     ]
 });

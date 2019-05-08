@@ -41,8 +41,8 @@
 
             <v-toolbar-items class="hidden-sm-and-down">
                 <v-btn v-for="item in menu" :key="item.link"
-                       class="text-capitalize navbar__items"
-                       :class="[currentRouteName === item.title.toLowerCase() ? 'navbar__active' : '']"
+                       class="text-capitalize navbar__items" @click="$router.push(item.link)"
+                       :class="[checkActive(item.title) ? 'navbar__active' : '']"
                        :ripple="false" flat>
                     {{item.title}}
                 </v-btn>
@@ -110,7 +110,7 @@
         data() {
             return {
                 userLoggedIn: null,
-                menu :[
+                menu: [
                     {title: 'About', link: '/about'},
                     {title: 'Webshops', link: '/webshops'},
                     {title: 'Consumers', link: '/consumers'},
@@ -142,6 +142,11 @@
                     .catch(error => {
                         this.errorMessage()
                     })
+            },
+
+            checkActive(menu){
+                // if(this.currentRouteName === item.title.toLowerCase() || )
+
             }
         },
 
