@@ -170,7 +170,7 @@
         font-family: 'Poppins', sans-serif;
         font-weight: 800;
         flex: 0 1 auto;
-        height: 106px;
+        height: 68px;
         display: flex;
         flex-direction: column;
         justify-content: center;
