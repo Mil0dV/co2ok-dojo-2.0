@@ -6,6 +6,8 @@ import VAnimateCss from 'v-animate-css'
 import Vuetify from 'vuetify'
 import store from './store'
 import Vuex from 'vuex'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 // vue-moment imports
 import VueMoment from 'vue-moment'
 import moment from 'moment-timezone'
@@ -15,7 +17,6 @@ import 'vuetify/dist/vuetify.min.css'
 Axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 Axios.defaults.xsrfCookieName = "XCSRF-TOKEN";
 Axios.defaults.withCredentials = true
-
 
 import 'vuetify/dist/vuetify.min.css'
 
@@ -31,6 +32,9 @@ Vue.prototype.$axios = Axios
 // Vue.prototype.$moment = VueMoment
 
 new Vue({
+  created () {
+    AOS.init()
+  },
   router,
   store,
   moment,

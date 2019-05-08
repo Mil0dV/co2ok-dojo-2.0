@@ -1,14 +1,5 @@
 <template>
     <div class="about__container">
-        <!--About header-->
-        <div class="about__header">
-            <div class="about__header-shade">
-                <div class="about__title-wrapper">
-                    <h1 class="about__title animated fadeInUp">About us</h1>
-                </div>
-            </div>
-        </div>
-
         <!--About content-->
         <div class="about__col-1-wrapper">
             <!--Eerste blok-->
@@ -153,46 +144,12 @@
 
 <style scoped>
     .about__container {
-        width: 100%;
-        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
     }
 
-    .about__header {
-        height: 300px;
-        width: 100%;
-        background-image: url("https://nos.nl/data/image/2019/03/31/540560/2048x1152.jpg");
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-    }
-
-    .about__header-shade {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        background: rgba(0, 0, 0, 0.5);
-    }
-
-    .about__title-wrapper {
-        max-width: 1090px;
-        width: 100%;
-        text-align: left;
-        font-size: 24px;
-        margin-bottom: 50px;
-    }
-
-    .about__title {
-        color: white;
-        font-weight: 500;
-    }
 
     .about__col-1-wrapper {
         width: 100%;

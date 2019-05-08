@@ -85,7 +85,6 @@
                             </v-avatar>
                         </v-btn>
                     </template>
-
                     <v-list>
                         <v-list-tile key="Dashboard">
                             <v-list-tile-title style="border-bottom: 1px solid black;">Engels</v-list-tile-title>
@@ -106,6 +105,9 @@
 
     export default {
         name: "Nav",
+        props: {
+          routeName : String
+        },
 
         data() {
             return {
@@ -145,17 +147,11 @@
             },
 
             checkActive(menu){
-                if(this.currentRouteName === menu.toLowerCase() || this.currentRouteName === 'steps' && menu.toLowerCase() === 'about')
+                if(this.routeName === menu.toLowerCase() || this.routeName === 'steps' && menu.toLowerCase() === 'about')
                     return true
-
             }
         },
 
-        computed: {
-            currentRouteName() {
-                return this.$route.name;
-            }
-        },
 
         watch: {
             '$route'() {
@@ -202,11 +198,11 @@
         font-family: 'Poppins', sans-serif;
         font-weight: 800;
         font-size: 17px;
+        border-bottom: 4px solid transparent;
 
     }
 
     .navbar__active {
-        top: 3px;
         border-bottom: 4px solid #08BA4D;
     }
 

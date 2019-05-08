@@ -1,8 +1,9 @@
 <template>
     <v-app id="app">
-        <Nav/>
+        <Nav :routeName="currentRouteName"/>
+            <Header :routeName="currentRouteName" v-if="checkHeader()"/>
         <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
-            <router-view style="flex:1 1 auto; "></router-view>
+            <router-view :routeName="currentRouteName" style="flex:1 1 auto; "></router-view>
         </transition>
         <!--<Footer/>-->
         <Modal v-if="$store.state.modalStatus"/>
@@ -12,12 +13,36 @@
 <script>
     const Modal = () => import('@/components/modals/Modal')
     const Nav = () => import('@/components/layout/Nav')
+    const Header = () => import('@/components//layout/Header')
     const Footer = () => import('@/components/layout/Footer')
 
     export default {
         name: 'App',
         components: {
-            Modal, Nav, Footer
+            Modal, Nav, Header, Footer
+        },
+
+        data() {
+            return {
+                headerTitle: [
+                    {steps: 'CO₂-compensation'}
+                ]
+            }
+        },
+
+        methods: {
+            checkHeader() {
+                if (this.currentRouteName !== 'dashboard' || 'home' || 'register' || 'login') {
+                    return true
+                }
+            }
+        },
+
+
+        computed: {
+            currentRouteName() {
+                return this.$route.name;
+            }
         },
 
     }
@@ -41,6 +66,6 @@
     input:focus {
         border: 1px solid #08BA4D !important;
         box-shadow: 0 0 1px #08BA4D;
-        outline:none;
+        outline: none;
     }
 </style>
