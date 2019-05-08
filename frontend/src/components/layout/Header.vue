@@ -18,12 +18,9 @@
     }
 
     .header__image {
-        background-image: url("../../assets/images/header/steps.jpg");
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
+        background: url("../../assets/images/header/steps.jpg") fixed  bottom no-repeat;
         background-size: cover;
-        height: 300px;
+        height: 354px;
         width: 100%;
     }
 

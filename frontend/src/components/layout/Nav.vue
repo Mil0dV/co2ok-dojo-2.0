@@ -1,7 +1,7 @@
 <template>
     <v-toolbar class="navbar__container">
         <div class="navbar__wrapper">
-            <v-toolbar-title>
+            <v-toolbar-title style="cursor: pointer" @click="$router.push('/')">
                 <v-img
                         :src="require('@/assets/images/nav/logo.png')"
                         max-height="125"
