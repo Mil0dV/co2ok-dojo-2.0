@@ -45,28 +45,37 @@
         methods: {
          
             deleteAccount() {
-                let modal = {message: 'Your account has been deleted successfully', status: true}
-                this.$store.commit('modalStatus', modal)
+                this.$parent.closeEdit()
                 this.$axios
                     .post('http://127.0.0.1:8000/accounts/deleteAccount/', {
                         body: {
-                            id: this.$store.state.userId
+                            id: window.localStorage.getItem('userId')
                             // password: this.password
                         },
 
-                        header: {"X-CSRFToken": `token ${this.$store.state.userToken}`,}
+                        headers: {"X-CSRFToken": `token ${this.$store.state.userToken}`,}
                     })
                     .then(response => {
                         if (response.data.delete) {
                             this.$store.dispatch('commitRemoveLocalUserData')
-                            this.$router.push('login')
                             this.$parent.dialogSuccess = true
+                            
+                            let successmessage = {
+                                title: 'Deleted Account Successfully!',
+                                text: 'You can always create a new account.'
+                            }
+                            this.$parent.closeEdit(successmessage)
+                            this.$router.push('login')
                             console.log(response);
-
                         }
                     })
                     .catch(error => {
                         this.$parent.dialogError = true
+                        let successmessage = {
+                            title: 'Something went wrong!',
+                            text: 'Try again later.'
+                        }
+                        this.$parent.closeEdit(successmessage)
                     })
             }
 
