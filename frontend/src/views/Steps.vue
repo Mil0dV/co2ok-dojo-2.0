@@ -1,9 +1,9 @@
 <template>
     <div class="steps__container">
         <!--Intro-->
-        <vk-grid gutter="collapse" class="animated fadeInUp steps__intro uk-box-shadow-medium uk-child-width-expand@s uk-text-center">
-            <div>
-                <div class="intro__text uk-padding">
+        <vk-grid gutter="collapse" class="animated fadeInUp uk-flex uk-flex-wrap steps__intro uk-box-shadow-medium uk-child-width-expand@s uk-text-center">
+            <div class="step__text-wrapper">
+                <div class="intro__text step__col uk-padding">
                     <p class="steps__green">How it works</p>
                     <h1 class="steps__intro-title">CO₂ Compensation</h1>
 
@@ -16,25 +16,25 @@
                     </p>
                 </div>
             </div>
-            <div>
-                <div class="uk-light uk-box-shadow-large">
-                    <img class="intro__img" alt="factory"
+            <div class="step__text-wrapper step__img-wrapper">
+                <div class="uk-light step__img-right">
+                    <img class="intro__img uk-box-shadow-large" alt="factory"
                          src="../assets/images/steps/steps-intro.jpg">
                 </div>
             </div>
         </vk-grid>
 
         <!--Stap 1-->
-        <vk-grid data-aos="fade-right" gutter="collapse" class="steps__intro uk-child-width-expand@s uk-text-center">
-            <div>
-                <div class="uk-light uk-box-shadow-large">
-                    <img class="step__img" alt="factory"
+        <vk-grid gutter="collapse" class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">
+            <div data-aos="fade-right" data-aos-duration="1000" class="step__text-wrapper step__img-wrapper">
+                <div class="uk-light step__img-left">
+                    <img class="step__img uk-box-shadow-large" alt="factory"
                          src="../assets/images/steps/step-1.jpg">
                 </div>
             </div>
 
-            <div>
-                <div class="intro__text steps__content steps__content-right uk-padding">
+            <div data-aos-duration="2000" data-aos="fade" class="step__text-wrapper">
+                <div class="intro__text step__col steps__content steps__content-right uk-padding">
                     <div class="steps__wrapper">
                         <div class="steps__title-container">
                             <v-icon class="step__icon">cloud</v-icon>
@@ -55,30 +55,28 @@
         </vk-grid>
 
         <!--Stap 2-->
-        <vk-grid data-aos="fade-left" gutter="collapse" class="steps__intro  uk-child-width-expand@s uk-text-center">
-            <div>
-                <div class="intro__text steps__content steps__content-left uk-padding">
+        <vk-grid gutter="collapse" class="steps__intro uk-child-width-expand@s uk-text-center">
+            <div data-aos-duration="2000" data-aos="fade" class="step__text-wrapper">
+                <div class="intro__text step__col steps__content steps__content-left uk-padding">
                     <div class="steps__wrapper">
                         <div class="steps__title-container">
-                            <v-icon class="step__icon">cloud</v-icon>
+                            <v-icon class="step__icon">shopping_cart</v-icon>
                             <p class="steps__title">
-                                1. Computing the greenhouse gases
+                                2. Purchase with Co2ok
                             </p>
                         </div>
 
                         <p class="steps__text">
-                            We compute the greenhouse gases that are emitted
-                            during production and transport. We convert these to
-                            equal amounts of CO₂, for example, 1 gram of methane
-                            equals 100 grams of CO₂.
+                            If you choose to make your purchase CO₂ok, you will pay
+                            a tiny extra amount upon purchase.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div>
-                <div class="uk-light uk-box-shadow-large">
-                    <img class="step__img" alt="factory"
+            <div data-aos="fade-left" data-aos-duration="1000" class="step__text-wrapper step__img-wrapper">
+                <div class="uk-light step__img-right">
+                    <img class="step__img uk-box-shadow-large" alt="payment"
                          src="../assets/images/steps/step-2.jpg">
                 </div>
             </div>
@@ -86,29 +84,28 @@
 
 
         <!--Stap 3-->
-        <vk-grid data-aos="fade-right" gutter="collapse"  class="steps__intro uk-child-width-expand@s uk-text-center">
-            <div>
-                <div class="uk-light uk-box-shadow-large">
-                    <img class="step__img" alt="factory"
+        <vk-grid gutter="collapse" class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">
+            <div data-aos="fade-right"  data-aos-offset="200" data-aos-duration="1000" class="step__text-wrapper step__img-wrapper">
+                <div class="uk-light step__img-left">
+                    <img class="step__img  uk-box-shadow-large" alt="solar-panels"
                          src="../assets/images/steps/step-3.jpg">
                 </div>
             </div>
 
-            <div>
-                <div class="intro__text steps__content steps__content-right uk-padding">
+            <div data-aos-duration="2000" data-aos="fade" class="step__text-wrapper">
+                <div class="intro__text step__col steps__content steps__content-right uk-padding">
                     <div class="steps__wrapper">
                         <div class="steps__title-container">
-                            <v-icon class="step__icon">cloud</v-icon>
+                            <v-icon class="step__icon">brightness_5</v-icon>
                             <p class="steps__title">
-                                1. Computing the greenhouse gases
+                                3. Financing projects
                             </p>
                         </div>
 
                         <p class="steps__text">
-                            We compute the greenhouse gases that are emitted
-                            during production and transport. We convert these to
-                            equal amounts of CO₂, for example, 1 gram of methane
-                            equals 100 grams of CO₂.
+                            This amount is used to finance projects of durable energy
+                            and CO₂-emission reduction (via our certified partner,
+                            Atmosfair)
                         </p>
                     </div>
                 </div>
@@ -117,30 +114,29 @@
 
 
         <!--Stap 4-->
-        <vk-grid gutter="collapse" data-aos="fade-left" class="steps__intro  uk-child-width-expand@s uk-text-center">
-            <div>
-                <div class="intro__text steps__content steps__content-left uk-padding">
+        <vk-grid gutter="collapse" class="steps__intro uk-child-width-expand@s uk-text-center">
+            <div data-aos-duration="2000" data-aos="fade" class="step__text-wrapper">
+                <div class="intro__text step__col steps__content steps__content-left uk-padding">
                     <div class="steps__wrapper">
                         <div class="steps__title-container">
-                            <v-icon class="step__icon">cloud</v-icon>
+                            <v-icon class="step__icon">check</v-icon>
                             <p class="steps__title">
-                                1. Computing the greenhouse gases
+                                4. Making your purchase climate neutral
                             </p>
                         </div>
 
                         <p class="steps__text">
-                            We compute the greenhouse gases that are emitted
-                            during production and transport. We convert these to
-                            equal amounts of CO₂, for example, 1 gram of methane
-                            equals 100 grams of CO₂.
+                            These projects actively reduce the amount of emitted
+                            CO₂. This CO₂ reduction matches the emission of your
+                            purchase – your purchase is climate neutral!
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div>
-                <div class="uk-light uk-box-shadow-large">
-                    <img class="step__img" alt="factory"
+            <div data-aos="fade-left" data-aos-duration="1000" class="step__text-wrapper step__img-wrapper">
+                <div class="uk-light step__img-right">
+                    <img class="step__img step__img-4 uk-box-shadow-large" alt="payment"
                          src="../assets/images/steps/step-4.jpg">
                 </div>
             </div>
@@ -170,6 +166,9 @@
         justify-content: flex-start;
         align-items: center;
         padding-bottom: 50px;
+        overflow: hidden;
+        margin: 0 auto;
+        width: 100%;
     }
 
     .steps__intro {
@@ -183,7 +182,6 @@
         width: 100%;
         height: 100%;
         text-align: left;
-        overflow: auto;
     }
 
     .steps__green {
@@ -255,6 +253,130 @@
     .steps__text {
         padding: 0;
         margin: 0;
+    }
+
+    @media (max-width: 1200px) {
+        .steps__container {
+            width: 90%;
+        }
+
+        .step__img-4 {
+            max-height: 300px;
+        }
+
+    }
+
+    @media (max-width: 1050px) {
+        .steps__intro-title {
+            font-size: 28px;
+        }
+
+        .steps__green {
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .steps__intro-text, .steps__text {
+            font-size: 14px;
+        }
+
+        .steps__wrapper {
+            width: 90%;
+        }
+
+        .steps__title {
+            font-size: 16px;
+        }
+
+        .step__img {
+            max-height:250px;
+            width: 90%;
+        }
+
+        .intro__img {
+            max-height:250px;
+            width: 90%;
+        }
+
+        .steps__intro {
+            box-shadow: none;
+        }
+
+        .intro__text {
+            padding: 0;
+        }
+
+        .steps__content-left, .steps__content-right {
+            padding: 0;
+        }
+
+        .step__img-right {
+            text-align: right;
+        }
+
+        .step__img-left {
+            text-align: left;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .step__text-wrapper {
+            min-width: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .steps__wrapper {
+            width: 100%;
+        }
+
+        .intro__text {
+            width: 75%;
+        }
+
+        .steps__intro {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .steps__intro-reverse {
+            flex-wrap: wrap-reverse;
+        }
+
+        .step__img-right, .step__img-left {
+            text-align: center;
+        }
+
+        .intro__img, .step__img {
+            max-height:350px;
+            width: 75%;
+        }
+
+        .step__img-wrapper {
+            margin-top: 50px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .step__text-wrapper {
+            min-width: unset;
+        }
+
+        .intro__text {
+            width: 90%;
+        }
+
+        .step__img-wrapper {
+            margin-top: 20px;
+        }
+
+        .intro__img, .step__img {
+            width: 90%;
+            max-height: 400px;
+        }
     }
 
 </style>

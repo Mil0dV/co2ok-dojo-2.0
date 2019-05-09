@@ -1,22 +1,26 @@
 <template>
     <v-toolbar class="navbar__container">
         <div class="navbar__wrapper">
-            <v-toolbar-title style="cursor: pointer" @click="$router.push('/')">
-                <v-img
-                        :src="require('@/assets/images/nav/logo.png')"
-                        max-height="125"
-                        contain
-                        class="navbar__logo"
-                ></v-img>
-            </v-toolbar-title>
+            <router-link to="/">
+                <v-toolbar-title style="cursor: pointer" @click="$router.push('/')">
+                    <v-img
+                            :src="require('@/assets/images/nav/logo.png')"
+                            max-height="125"
+                            contain
+                            class="navbar__logo"
+                    ></v-img>
+                </v-toolbar-title>
+            </router-link>
 
             <v-menu class="hidden-md-and-up">
                 <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
                 <v-list>
                     <v-list-tile v-for="item in menu" :key="item.icon">
-                        <v-list-tile-content>
-                            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                        </v-list-tile-content>
+                        <router-link class="menu__link" :to="item.link">
+                            <v-list-tile-content>
+                                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                            </v-list-tile-content>
+                        </router-link>
                     </v-list-tile>
 
                     <v-list-tile>
@@ -106,7 +110,7 @@
     export default {
         name: "Nav",
         props: {
-          routeName : String
+            routeName: String
         },
 
         data() {
@@ -146,8 +150,8 @@
                     })
             },
 
-            checkActive(menu){
-                if(this.routeName === menu.toLowerCase() || this.routeName === 'steps' && menu.toLowerCase() === 'about')
+            checkActive(menu) {
+                if (this.routeName === menu.toLowerCase() || this.routeName === 'steps' && menu.toLowerCase() === 'about')
                     return true
             }
         },
@@ -199,7 +203,11 @@
         font-weight: 800;
         font-size: 17px;
         border-bottom: 4px solid transparent;
+    }
 
+    .menu__link, .menu__link:visited {
+        color: black;
+        text-decoration: none;
     }
 
     .navbar__active {

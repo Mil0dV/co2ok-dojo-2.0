@@ -58,7 +58,7 @@
                                      alt="Milo" class="crew__image">
                             </div>
 
-                            <h2>{{person.name}}</h2>
+                            <h2 style="color: white;">{{person.name}}</h2>
                             <p>{{person.title}}</p>
                         </div>
 

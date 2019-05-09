@@ -4,7 +4,7 @@
              :style="{'background-image': 'url(' + require(`../../assets/images/header/${routeName}.jpg`) + ')'}">
             <vk-card class="header__image-shade">
                 <div class="header__inner">
-                    <transition enter-active-class="animated fadeInUp"  mode="out-in">
+                    <transition enter-active-class="animated fadeInUp" mode="out-in">
                         <h2 class="header__title" :key="title">{{title}}</h2>
                     </transition>
                 </div>
@@ -99,7 +99,7 @@
     }
 
     .header__inner {
-        max-width: 1146px;
+        max-width: 1090px;
         width: 100%;
         margin: 0 auto;
     }
@@ -110,6 +110,40 @@
         font-weight: 400;
         font-size: 55px;
         margin-bottom: 55px;
+    }
+
+    @media (max-width: 1200px) {
+        .header__inner {
+            width: 90%;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .header__image {
+            background: no-repeat fixed;
+            background-size: cover;
+            height: 300px;
+            width: 100%;
+            display: flex;
+        }
+
+        .header__inner {
+            width: 95%;
+        }
+
+        .header__title {
+            font-size: 40px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .header__title {
+            font-size: 28px;
+        }
+
+        .header__image {
+            height: 200px;
+        }
     }
 
 </style>
