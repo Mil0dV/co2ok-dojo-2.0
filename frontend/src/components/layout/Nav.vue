@@ -2,14 +2,15 @@
     <v-toolbar class="navbar__container">
         <div class="navbar__wrapper">
             <router-link to="/">
-                <v-toolbar-title style="cursor: pointer" @click="$router.push('/')">
-                    <v-img
-                            :src="require('@/assets/images/nav/logo.png')"
-                            max-height="125"
-                            contain
-                            class="navbar__logo"
-                    ></v-img>
-                </v-toolbar-title>
+
+                <v-toolbar-title style="cursor: pointer">
+                <v-img
+                        :src="require('@/assets/images/nav/logo.png')"
+                        max-height="125"
+                        contain
+                        class="navbar__logo"
+                ></v-img>
+               </v-toolbar-title>
             </router-link>
 
             <v-menu class="hidden-md-and-up">

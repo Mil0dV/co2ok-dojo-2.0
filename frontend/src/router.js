@@ -46,7 +46,7 @@ const router = new Router({
         },
         {
             path: '/',
-            name: 'steps',
+            name: 'home',
             component: () => import('./views/Home'),
         }
     ]

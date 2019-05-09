@@ -32,7 +32,7 @@
 
         methods: {
             checkHeader() {
-                if (this.currentRouteName !== 'dashboard' || 'home' || 'register' || 'login') {
+                if (this.currentRouteName !== 'dashboard' || 'home' || 'register' || 'login' || 'home') {
                     return true
                 }
             }

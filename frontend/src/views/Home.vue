@@ -37,8 +37,7 @@
       <div class="transaction-steps mt-5"></div>
       
       <v-layout column justify-center align-center class="mt-5 mb-3 grey lighten-4" style="width: 100%; background-color: #F4F4F4;">
-          <v-flex xs12 sm12 md6 lg6 xlg6 class="partner-txt-flex">
-              <p></p>
+          <v-flex xs12 sm12 md6 lg6 xlg6 class="webshop-txt-flex">
               <p class="" style="text-align: center; font-size: 21px; color: #10DC87; margin: 0px;position: relative; top:10px;">Choose from 22.000+ webshops</p>
               <h3 class="font-weight-bold" style="text-align: center; font-size: 33px; color: #28123E; margin: 0px;">Together we can make a change</h3>
           </v-flex>
@@ -46,9 +45,9 @@
           <v-flex xs12 sm12 md6 lg6 xlg6 class="slider-flex">
               <v-carousel hide-controls style="" height="auto" class="pa-3 grey lighten-4">
 
-                <v-carousel-item v-for="(partner, i) in partners" :key="i">
-                    <div class="partners-img-container"><img v-for="(partnerIcon, i) in partner.icons" 
-                      :key="i" :src="partnerIcon.src" 
+                <v-carousel-item v-for="(webshop, i) in webshops" :key="i">
+                    <div class="webshops-img-container"><img v-for="(webshopIcon, i) in webshop.icons" 
+                      :key="i" :src="webshopIcon.src" 
                       alt="" 
                       style="border: 1px solid red; width: 168px;height:168px;"
                       :style="{animationDelay:'0.2'*i+'s'}"
@@ -59,6 +58,48 @@
               </v-carousel>
           </v-flex>
       </v-layout>
+
+      <v-layout justify-center align-center class="project-layout" style="width: 100%;height: 830px;border: 1px solid red;">
+
+        <v-flex xs12 sm12 md10 lg10 xlg10 class="projects-flex" style="">
+          <h2 class="font-weight-bold" style="margin: 0px;font-size: 34px; text-align:center; color: #28123E;">WITH YOUR HELP WE SUPPORT<br> THESE SUSTAINABLE PROJECTS!</h2>
+          <p class="caption mb-3"  style="margin: 0px;font-size: 13px; text-align:center;">Check out the various <span style="color:#27B0C7;">projects</span> your clicks finance.</p>
+          <v-carousel height="420" class="projects-slider">
+            <v-carousel-item style="border: 1px solid red; width:511px;height:306px;">
+          
+            </v-carousel-item>
+            <p class="caption mt-4 mb-4"  style="margin: 0px;font-size: 20px; text-align:center; color: #28123E;">Sustainable energy sources like the sun, wind and hydro power don’t have negative effects on the climate.<br>Very little greenhouse gases are emitted and there is no air polution.</p>
+          </v-carousel>
+        </v-flex>
+
+      </v-layout>
+
+      <v-layout column justify-center align-center class="mt-2 mb-3 grey lighten-4" style="width: 100%; background-color: #F4F4F4;">
+          <v-flex xs12 sm12 md6 lg6 xlg6 class="webshop-txt-flex">
+              <p class="" style="text-align: center; font-size: 21px; color: #10DC87; margin: 0px;position: relative; top:10px;">Some of our partners</p>
+              <h3 class="font-weight-bold" style="text-align: center; font-size: 33px; color: #28123E; margin: 0px;">Together we can make a change</h3>
+          </v-flex>
+
+          <v-flex xs12 sm12 md6 lg6 xlg6 class="slider-flex">
+              <v-carousel hide-controls height="auto" class="pa-3 grey lighten-4">
+
+                <v-carousel-item v-for="(partner, i) in partners" :key="i">
+                    <div class="webshops-img-container"><img v-for="(partnerIcon, i) in partner.icons" 
+                      :key="i" 
+                      :src="partnerIcon.src" 
+                      alt="" 
+                      style="border: 1px solid red; width: 168px;height:168px;"
+                      :style="{animationDelay:'0.2'*i+'s'}"
+                      class="animated zoomIn"
+                    ></div>
+                </v-carousel-item>  
+
+              </v-carousel>
+          </v-flex>
+      </v-layout>
+
+      <v-btn  depressed class="white--text mb-4 mt-2" style="border-radius: 5px; width: 100%;height: 65px;background: linear-gradient(to right, #10DC87, #08BA4D);font-size:26px;">STARTUP CO₂ok MAKES ONLINE SHOPPING CLIMATE NEUTRAL</v-btn>
+
   </div>
     
 </template>
@@ -74,6 +115,14 @@ data() {
       {img: require('../assets/images/home/ninjaDesign_Register_2.png'), title: 'BECOME A CO₂ok NINJA', content: 'Simply register with us and install the app. The app is safe, open source, and respects your privacy'},
       {img: require('../assets/images/home/ninjaDesign_Trolly.png'), title: 'SHOP', content: 'Start shopping in your Ninja suit. After paying we will receive a commission from the shop.'},
       {img: require('../assets/images/home/ninjaDesign_Hadouken.png'), title: 'BECOME A CO₂ok NINJA', content: 'With this commission we finance projects that directly reduce greenhouse gas emissions. In effect this makes your purchase climate neutral. Thank you 💚.'}
+    ],
+
+    webshops: [
+        {icons: [{src: require('../assets/images/home/ninjaDesign_Register_2.png')}, {src: require('../assets/images/home/ninjaDesign_Register_2.png')}, {src: require('../assets/images/home/ninjaDesign_Register_2.png')}, {src: require('../assets/images/home/ninjaDesign_Register_2.png')}]},
+        {icons: [{src: ''}, {src: ''}, {src: ''}, {src: ''}]},
+        {icons: [{src: ''}, {src: ''}, {src: ''}, {src: ''}]}
+        // {icons: [{src: require('')}, {src: require('')}, {src: require('')}, {src: require('')}]},
+        // {icons: [{src: require('')}, {src: require('')}, {src: require('')}, {src: require('')}]}
     ],
 
     partners: [
@@ -194,7 +243,7 @@ body{
     background-size: 100% 100%;
 }
 
-.partner-txt-flex{
+.webshop-txt-flex{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -222,13 +271,33 @@ body{
   border: 1px solid red;
 }
 
-.partners-img-container{
+.webshops-img-container{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   width: 100%;
   height: auto;
+}
+
+.project-layout{
+   background-image: url('../assets/images/home/homebackground.svg');
+   background-position: left;
+   background-size: contain;
+}
+
+.projects-flex{
+   
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects-slider{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
