@@ -9,14 +9,12 @@
     "compile_lang": "node src/lang/compile.js"
   },
   "dependencies": {
-    "@vuikit/icons": "^0.8.1",
     "@vuikit/theme": "^0.8.1",
     "aos": "^3.0.0-beta.6",
     "axios": "^0.18.0",
     "chart.js": "^2.8.0",
     "moment-timezone": "^0.5.25",
     "v-animate-css": "0.0.3",
-    "vee-validate": "^2.2.3",
     "vue": "^2.6.10",
     "vue-chartjs": "^3.4.2",
     "vue-moment": "^4.0.0",

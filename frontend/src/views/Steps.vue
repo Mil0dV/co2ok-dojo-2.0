@@ -148,10 +148,8 @@
 <script>
     import Vue from 'vue'
     import Vuikit from 'vuikit'
-    import VuikitIcons from '@vuikit/icons'
     import '@vuikit/theme'
 
-    Vue.use(VuikitIcons)
     Vue.use(Vuikit)
     export default {
         name: "Steps",
