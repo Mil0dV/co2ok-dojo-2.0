@@ -1,10 +1,10 @@
 <template>
     <v-app id="app">
         <Nav :routeName="currentRouteName"/>
-            <Header :routeName="currentRouteName" v-if="checkHeader()"/>
-        <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" mode="out-in">
-            <router-view :routeName="currentRouteName" style="flex:1 1 auto; "></router-view>
-        </transition>
+        <transition-group enter-active-class="animated fadeIn"  mode="out-in">
+            <Header :key="showHeader" :routeName="currentRouteName" v-if="showHeader"/>
+            <router-view :key="currentRouteName" :routeName="currentRouteName" style="flex:1 1 auto; "></router-view>
+        </transition-group>
         <!--<Footer/>-->
         <Modal v-if="$store.state.modalStatus"/>
     </v-app>
@@ -24,26 +24,36 @@
 
         data() {
             return {
-                headerTitle: [
-                    {steps: 'CO₂-compensation'}
-                ]
+                showHeader: false
             }
         },
 
         methods: {
             checkHeader() {
-                if (this.currentRouteName !== 'dashboard' || 'home' || 'register' || 'login' || 'home') {
-                    return true
+                if (this.currentRouteName === 'dashboard' || this.currentRouteName === 'register' ||
+                    this.currentRouteName === 'login' || this.currentRouteName === 'home') {
+                    this.showHeader = false
+                } else {
+                    this.showHeader = true
                 }
             }
         },
 
+        mounted() {
+            this.checkHeader()
+        },
 
         computed: {
             currentRouteName() {
                 return this.$route.name;
             }
         },
+
+        watch: {
+            currentRouteName: function () {
+                this.checkHeader()
+            }
+        }
 
     }
 </script>

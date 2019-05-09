@@ -118,7 +118,7 @@
         }
     }
 
-    @media (max-width: 1200px) {
+    @media (max-width: 900px) {
         .header__image {
             background: no-repeat fixed;
             background-size: cover;

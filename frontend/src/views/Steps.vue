@@ -333,7 +333,7 @@
         }
 
         .intro__text {
-            width: 75%;
+            width: 95%;
         }
 
         .steps__intro {
@@ -352,7 +352,7 @@
 
         .intro__img, .step__img {
             max-height:350px;
-            width: 75%;
+            width: 95%;
         }
 
         .step__img-wrapper {

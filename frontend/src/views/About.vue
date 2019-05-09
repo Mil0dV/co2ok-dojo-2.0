@@ -76,19 +76,6 @@
                 </div>
             </div>
         </div>
-
-        <!--&lt;!&ndash;Compensation header&ndash;&gt;-->
-        <!--<div class="about__header">-->
-            <!--<div class="about__header-shade">-->
-                <!--<div class="about__title-wrapper">-->
-                    <!--<h1 class="about__title animated fadeInUp">CO₂-compensation</h1>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="cmp__container">-->
-
-        <!--</div>-->
     </div>
 </template>
 
@@ -231,6 +218,7 @@
         color: #5d5d5d;
         font-size: 36px;
         padding-bottom: 10px;
+        font-weight: 600;
     }
 
 
@@ -287,6 +275,9 @@
     }
 
     .crew__title {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
         background: #053742;
         height: 150px;
         width: 100%;
@@ -314,18 +305,18 @@
         padding: 15px;
     }
 
-
-    .cmp__container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        max-width: 1110px;
-        width: 100%;
-        border: 1px solid red;
-    }
-
     @media (max-width: 1120px) {
+        .about__col-1 {
+            width: 90%;
+            padding: 75px 0;
+        }
+
+        .col-1--title {
+            padding: 0;
+            margin-top: 1px;
+        }
+
+
         .about__crew-wrapper {
             padding: 0 70px;
             display: flex;
@@ -402,11 +393,21 @@
         }
 
         .about__col-1 {
-            padding: unset;
+            padding: 0 0 100px 0;
+        }
+
+        .col-1__content:first-child {
+            max-width: 700px;
+            width: 90%;
+            height: 600px;
+        }
+
+        .login__info {
+            margin-top: 550px;
         }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
         .crew__card {
             max-width: 550px;
             width: 100%;
@@ -419,6 +420,56 @@
 
         .crew__social {
             width: 80%;
+        }
+
+        .col-1__content:first-child {
+            max-width: 700px;
+            width: 90%;
+            height: 300px;
+        }
+
+        .login__info {
+            display: none;
+        }
+    }
+
+    @media (max-width: 650px) {
+        .col-1__text {
+            font-size: 14px;
+        }
+
+        .col-1--title {
+            font-size: 28px;
+        }
+
+        .col-1__content:first-child {
+            max-width: 700px;
+            width: 90%;
+            height: 200px;
+        }
+
+        .about__col-2 {
+            padding: 50px 0;
+        }
+
+        .crew__image {
+            width: 100px;
+            height: 100px;
+        }
+        .crew__title {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .crew__title h2 {
+            margin-top: 10px;
+            font-size: 8vw;
+        }
+
+        .crew__title p {
+            margin-top: -10px;
+            font-size: 4vw;
         }
     }
 

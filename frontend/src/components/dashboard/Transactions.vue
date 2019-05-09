@@ -380,14 +380,6 @@ import LineChart from '@/components/dashboard/chart.vue'
         padding: 5px 20px;
     }
 
-    .transaction__content {
-        max-width: 900px;
-        height: 500px;
-        width: 100%;
-        background: url('../../assets/images/dashboard/graph.png') no-repeat center center;
-        background-size: contain;
-    }
-
     .week-ctr-flex{
         display: flex;
         flex-direction: row;

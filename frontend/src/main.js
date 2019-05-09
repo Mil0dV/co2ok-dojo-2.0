@@ -2,10 +2,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import Axios from 'axios'
-import VAnimateCss from 'v-animate-css'
-import Vuetify from 'vuetify'
+//Vuex imports
 import store from './store'
 import Vuex from 'vuex'
+//Vuetify & animations
+import VAnimateCss from 'v-animate-css'
+import Vuetify from 'vuetify'
+//Aos imports
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 // vue-moment imports
@@ -18,7 +21,6 @@ Axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 Axios.defaults.xsrfCookieName = "XCSRF-TOKEN";
 Axios.defaults.withCredentials = true
 
-import 'vuetify/dist/vuetify.min.css'
 
 // Vue.use(VeeValidate);
 Vue.use(VAnimateCss);
