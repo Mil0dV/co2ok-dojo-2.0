@@ -21,7 +21,6 @@ Axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 Axios.defaults.xsrfCookieName = "XCSRF-TOKEN";
 Axios.defaults.withCredentials = true
 
-
 Vue.use(VAnimateCss);
 Vue.use(Vuetify);
 Vue.use(Vuex);

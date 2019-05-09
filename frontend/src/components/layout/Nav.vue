@@ -2,7 +2,6 @@
     <v-toolbar class="navbar__container">
         <div class="navbar__wrapper">
             <router-link to="/">
-
                 <v-toolbar-title style="cursor: pointer">
                 <v-img
                         :src="require('@/assets/images/nav/logo.png')"

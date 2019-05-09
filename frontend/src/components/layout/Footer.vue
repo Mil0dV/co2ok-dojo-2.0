@@ -11,7 +11,7 @@
 
                 <div class="footer__text-group">
                     <p>+31639766259</p>
-                    <a href="mailto:info@co2ok.eco">info@co2ok.eco</a>
+                    <a aria-label="mail naar" href="mailto:info@co2ok.eco">info@co2ok.eco</a>
                 </div>
 
                 <div class="footer__text-group">

@@ -1,5 +1,4 @@
 // const BundleTracker = require("webpack-bundle-tracker");
-
 // module.exports = {
 //     // baseUrl: "http://0.0.0.0:8080/",
 //     publicPath: "http://192.168.56.1:8080/",
