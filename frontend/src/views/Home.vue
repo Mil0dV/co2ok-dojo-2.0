@@ -39,7 +39,7 @@
 
           <!-- mobile - tablet(xsm - sm) display -->
           <v-flex xs12 sm12 class="hidden-md-and-up steps-container mb-3">
-            <v-carousel hide-controls hide-delimiters height="400px" style="">
+            <v-carousel interval="10000" hide-controls hide-delimiters height="400px" style="">
               <v-carousel-item v-for="(ninjaExtensionStep,i) in ninjaExtensionSteps" :key="i">
                 <div class="mobile-spets-items-container">
                   <img :src="ninjaExtensionStep.img" alt="" class="mb-4 animated zoomIn" :style="{animationDelay:i*'0.2'+'s'}" style="height: 237px;">
@@ -63,7 +63,7 @@
           </v-flex>
 
           <v-flex xs12 sm12 md6 lg6 xlg6 class="slider-flex">
-              <v-carousel light="true" hide-controls style="" class="grey lighten-4 slider-carousel pa-1">
+              <v-carousel :light='carouselLightTheme' hide-controls style="" class="grey lighten-4 slider-carousel pa-1">
 
                 <v-carousel-item v-for="(webshop, i) in webshops" :key="i">
                     <div class="webshops-img-container mt-1 pa-3">
@@ -89,7 +89,7 @@
         <v-flex xs12 sm12 md10 lg10 xlg10 class="projects-flex" style="">
           <h2 class="font-weight-bold support-title" data-aos="fade-up" data-aos-duration="500" style="">WITH YOUR HELP WE SUPPORT<br> THESE SUSTAINABLE PROJECTS!</h2>
           <p class="caption"  style="margin: 0px;font-size: 13px; text-align:center;" data-aos="fade-up" data-aos-delay="200" data-aos-duration="500">Check out the various <span style="color:#27B0C7;">projects</span> your clicks finance.</p>
-          <v-carousel light="true" height="470" class="projects-slider">
+          <v-carousel :light='carouselLightTheme' height="470" class="projects-slider">
             <v-carousel-item 
               v-for="(project, i) in projects"
               :key="i"
@@ -112,7 +112,7 @@
           </v-flex>
 
           <v-flex xs12 sm12 md6 lg6 xlg6 class="slider-flex">
-              <v-carousel light="true" hide-controls class="pa-1 grey lighten-4 partner-carousel" style="">
+              <v-carousel :light='carouselLightTheme' hide-controls class="pa-1 grey lighten-4 partner-carousel" style="font-size: 10px;">
 
                 <v-carousel-item v-for="(partner, i) in partners" :key="i">
                     <div class="webshops-img-container mt-1 pa-3">
@@ -150,6 +150,8 @@ data() {
   
   return{
 
+    carouselLightTheme: false,
+
      ninjaExtensionSteps: [
       {img: require('../assets/images/home/ninjaDesign_Register_2.png'), title: 'BECOME A CO₂ok NINJA', content: 'Simply register with us and install the app. The app is safe, open source, and respects your privacy'},
       {img: require('../assets/images/home/ninjaDesign_Trolly.png'), title: 'SHOP', content: 'Start shopping in your Ninja suit. After paying we will receive a commission from the shop.'},
@@ -178,6 +180,10 @@ data() {
 
 },
 
+create(){
+
+},
+
 mounted() {
 
  this.carouselCtrlStyle();
@@ -190,33 +196,64 @@ methods: {
    
     let controls = document.querySelectorAll('.v-carousel__controls');
     let carousels = document.querySelectorAll('.v-carousel');
-    let carouselAactives = document.querySelectorAll('.v-btn--active');
-    let carouselItemsIcons = document.querySelectorAll('.v-carousel__controls .v-btn__content i');
+    let carouselCtrlNext = document.querySelector('.v-carousel__next .v-icon');
+    let carouselCtrlPrev = document.querySelector('.v-carousel__prev .v-icon');
+    // let carouselActives = document.querySelectorAll('.v-btn--active');
+    let carouselItemsIcons = document.querySelectorAll('.v-item-group .v-btn .v-btn__content .v-icon');
 
     for (let i = 0; i < controls.length; i++) {      
       let control = controls[i];
-      control.style.backgroundColor = 'rgba(255,255,255,0)'
-      console.log(control);   
+      control.style.backgroundColor = 'rgba(255,255,255,0)' 
     }
 
     for (let i = 0; i < carousels.length; i++) {      
       let carousel = carousels[i];
-      carousel.style.boxShadow = 'none'
-      console.log(carousel);   
+      carousel.style.boxShadow = 'none' 
     }
 
-    for (let i = 0; i < carouselAactives.length; i++) {      
-      let carouselAactive = carouselAactives[i];
-      carouselAactive.style.opacity = '1'
-      carouselAactive.style.color = 'green'
-      console.log(carouselAactive);   
+    // for (let i = 0; i < carouselsCtrlNext.length; i++) {      
+      // let carouselCtrlNext = carouselsCtrlNext[i];
+      carouselCtrlNext.style.borderRadius = '100%'
+      carouselCtrlNext.style.padding = '10px'
+      carouselCtrlNext.style.cursor = 'pointer'
+      carouselCtrlNext.style.backgroundColor = '#F1F1F1'
+      carouselCtrlNext.style.color = '#10DC87'
+      carouselCtrlNext.style.position = 'relative'
+      carouselCtrlNext.style.bottom = '30px' 
+    // }
+
+    // for (let i = 0; i < carouselsCtrlPrev.length; i++) {      
+      // let carouselsCtrlPrev = carouselsCtrlNext[i];
+      carouselCtrlPrev.style.borderRadius = '100%'
+      carouselCtrlPrev.style.padding = '10px'
+      carouselCtrlPrev.style.cursor = 'pointer'
+      carouselCtrlPrev.style.backgroundColor = '#FFFFFF'
+      carouselCtrlPrev.style.color = '#10DC87'
+      carouselCtrlPrev.style.position = 'relative'
+      carouselCtrlPrev.style.bottom = '30px' 
+    // }
+
+    if(this.$vuetify.breakpoint.xs){
+      carouselCtrlPrev.style.display = 'none'
+      carouselCtrlNext.style.display = 'none'
+    }else{
+      carouselCtrlPrev.style.display = 'block'
+      carouselCtrlNext.style.display = 'block'
     }
+
+    // for (let i = 0; i < carouselActives.length; i++) {      
+    //   let carouselActive = carouselActives[i];
+    //   carouselActive.style.opacity = '1'
+    //   carouselActive.style.color = 'green'
+    //   console.log(carouselActive);   
+    // }
 
     for (let i = 0; i < carouselItemsIcons.length; i++) {      
       let carouselItemsIcon = carouselItemsIcons[i];
       carouselItemsIcon.style.fontSize = '10px'
-      carouselAactive.style.color = '#DBDBDB'
-      console.log(carouselAactive);   
+      carouselItemsIcon.style.border = '1px solid blue'
+      carouselItemsIcon.style.color = '#10DC87'
+      carouselItemsIcon.style.display = 'none'   
     }
 
   }
@@ -230,7 +267,7 @@ methods: {
 <style scoped>
 
 .home-container{
-    width: 90%;
+    width: 80%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -296,8 +333,8 @@ methods: {
     background-image: url('../assets/images/home/wereldbol.png');
     background-position: right;
     background-size: 100%;
-    position: relative;
-    right: 50px;
+    /* position: relative;
+    right: 50px; */
 }
 
 .ninja-work{
@@ -437,7 +474,7 @@ methods: {
    width: 100%;
    height: 100%;
    position: relative;
-   right: 70px;
+   right: 67px;
 }
 
 
@@ -511,12 +548,30 @@ methods: {
   background-color: rgba(0,0,0,0);
   border: 1px solid red;
 }
+
+.v-carousel__next .v-icon{
+  border: 1px solid red;
+}
+
+.v-item-group .v-btn .v-btn__content .v-icon{
+  border: 1px solid red;
+}
 /*---------------------*/
 
 
 /* responsive style */
 
+@media only screen and (max-width: 1400px){
+  .home-container{
+    width: 90%;
+  }
+}
+
 @media only screen and (max-width: 1000px){
+  .home-container{
+    width: 100%;
+  }
+
   .header-img-flex{
     position: absolute;
     width: 509px;
@@ -565,6 +620,15 @@ methods: {
     max-height: 230px;
     /* padding: 24px; */
   }
+
+  .involed-btn, .shopping-btn{
+    width: 90%;
+  }
+
+  /* .shopping-btn{
+    width: 90%;
+    font-size:10px;
+  } */
 
 }
 
