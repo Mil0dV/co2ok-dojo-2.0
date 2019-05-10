@@ -15,6 +15,7 @@ import 'aos/dist/aos.css'
 import VueMoment from 'vue-moment'
 import moment from 'moment-timezone'
 
+
 import 'vuetify/dist/vuetify.min.css'
 
 Axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
