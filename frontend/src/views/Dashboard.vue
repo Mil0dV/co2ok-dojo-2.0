@@ -91,7 +91,7 @@
         </div>
 
     </div>
-</template>R
+</template>
 
 <script>
     const Transactions = () => import('@/components/dashboard/Transactions')
@@ -163,14 +163,17 @@
 
 <style scoped>
     .dashboard {
+        background: #F4F4F4;
         margin: 0 auto;
         width: 100%;
-        max-width: 1146px;
         padding: 0 60px;
+        height: 100%;
     }
 
     .dashboard__container {
-        margin-top: 38px;
+        width: 100%;
+        max-width: 1146px;
+        margin: 38px auto 0;
         display: flex;
         flex-direction: column;
     }

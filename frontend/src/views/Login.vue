@@ -1,5 +1,5 @@
 <template>
-    <v-container class="register__container ma-0 pa-0" fluid align-center grid-list-md text-xs-center>
+    <div class="register__container ma-0 pa-0" fluid align-center grid-list-md text-xs-center>
         <v-layout class="register__layout  ma-0 pa-0" wrap row>
             <v-flex class="register__col-1" xs12 sm12 md6>
                 <v-layout class="register__col-filler" wrap>
@@ -72,7 +72,7 @@
             </v-flex>
         </v-layout>
         <PasswordForgotModal/>
-    </v-container>
+    </div>
 </template>
 
 
@@ -176,11 +176,12 @@
 <style scoped>
     .register__container {
         height: 100%;
+        width: 100% ;
         background: white;
     }
 
     .register__layout {
-        height: 100%;
+        height: 100% ;
     }
 
     .register__col-1 {
@@ -191,7 +192,6 @@
         align-items: center;
         background: url('../assets/images/login/loginscreen.png') no-repeat center center;
         background-size: cover;
-        min-height: 300px;
     }
 
     .register__col-filler {

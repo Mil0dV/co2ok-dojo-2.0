@@ -146,11 +146,11 @@
 </template>
 
 <script>
-    import Vue from 'vue'
-    import Vuikit from 'vuikit'
-    import '@vuikit/theme'
-
-    Vue.use(Vuikit)
+    // import Vue from 'vue'
+    // import Vuikit from 'vuikit'
+    // import '@vuikit/theme'
+    //
+    // Vue.use(Vuikit)
     export default {
         name: "Steps",
     }

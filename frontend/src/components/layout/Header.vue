@@ -43,6 +43,8 @@
                     case 'webshops':
                         this.title = 'Webshops'
                         break;
+                    case 'faq':
+                        this.title = 'Frequently asked questions'
                 }
             }
         },
@@ -78,7 +80,7 @@
     }
 
     .header__image {
-        background: no-repeat fixed 0 -350px;
+        background: no-repeat fixed 0 ;
         background-size: cover;
         height: 354px;
         width: 100%;

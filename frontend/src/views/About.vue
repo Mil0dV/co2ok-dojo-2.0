@@ -204,14 +204,13 @@
         justify-content: flex-start;
         width: 70%;
         height: 100%;
-        padding: 30px 10px;
         text-align: left;
     }
 
     .col-1--green {
         color: #08BA4D;
         padding: 0;
-        margin: 0;
+        margin-bottom: -2%;
     }
 
     .col-1--title {
