@@ -45,6 +45,13 @@
                         break;
                     case 'faq':
                         this.title = 'Frequently asked questions'
+                        break;
+                    case 'privacy':
+                        this.title = 'Privacy policy'
+                        break;
+                    default:
+                        this.checkHeaderTitle()
+                        break;
                 }
             }
         },
@@ -64,6 +71,12 @@
                         break;
                     case 'webshops':
                         this.title = 'Webshops'
+                        break;
+                    case 'faq':
+                        this.title = 'Frequently asked questions'
+                        break;
+                    case 'privacy':
+                        this.title = 'Privacy policy'
                         break;
                     default:
                         this.checkHeaderTitle()

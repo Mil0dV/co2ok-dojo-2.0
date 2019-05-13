@@ -50,27 +50,22 @@
 
 
                 <div class="about__crew-wrapper">
-
-                    <div class="crew__card" v-for="(person, index) in crew" :key="index">
-                        <div class="crew__title">
-                            <div class="crew__image-wrapper">
-                                <img :src="require(`@/assets/images/crew/${person.image}`)"
-                                     alt="Milo" class="crew__image">
+                    <div v-for="(person, index) in crew" :key="index" class="uk-card uk-card-default crew__card">
+                        <div class="uk-card-header crew__header">
+                            <div class="uk-width-auto crew__image-wrapper">
+                                <img class="uk-border-circle crew__image"
+                                     :src="require(`@/assets/images/crew/${person.image}`)" :alt="person.image">
                             </div>
-
-                            <h2 style="color: white;">{{person.name}}</h2>
-                            <p>{{person.title}}</p>
+                            <div class="uk-width-expand">
+                                <h3 class="uk-margin-remove-bottom crew__title">{{person.name}}</h3>
+                                <p class="uk-margin-remove-top crew__function">{{person.title}}</p>
+                            </div>
                         </div>
-
                         <div class="crew__quote">
                             <p>"{{person.quote}}"</p>
                         </div>
-
-                        <hr class="crew__spr">
-
-                        <div class="crew__social">
-                            <div class="social__wrapper">Twitter</div>
-                            <div class="social__wrapper">LinkedIn</div>
+                        <div class="uk-card-footer crew__footer">
+                            <a href="#" class="uk-button uk-button-text">Read more</a>
                         </div>
                     </div>
                 </div>
@@ -194,6 +189,7 @@
     .col-1__text-wrapper {
         display: flex;
         justify-content: center;
+        align-items: center;
         width: 100%;
         height: 100%;
     }
@@ -210,14 +206,13 @@
     .col-1--green {
         color: #08BA4D;
         padding: 0;
-        margin-bottom: -2%;
     }
 
     .col-1--title {
         color: #5d5d5d;
         font-size: 36px;
-        padding-bottom: 10px;
         font-weight: 600;
+        margin-top: 0;
     }
 
 
@@ -254,13 +249,24 @@
 
     .crew__card {
         width: 325px;
+        border-radius: 5px;
+        margin-bottom: 90px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .crew__header {
+        background: #304C58;
+        width: 100%;
+        padding: 0;
+        margin: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.30);
-        border-radius: 7px;
-        margin-bottom: 80px;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        flex: 2;
     }
 
     .crew__image-wrapper {
@@ -269,40 +275,39 @@
 
     .crew__image {
         border-radius: 100px;
-        width: 125px;
-        height: 125px;
+        width: 112px;
+        height: 112px;
     }
 
+
     .crew__title {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        background: #053742;
-        height: 150px;
-        width: 100%;
-        border-top-right-radius: 7px;
-        border-top-left-radius: 7px;
+        margin-top: 10px;
         color: white;
+        font-size: 20px;
+    }
+
+    .crew__function {
+        color: white;
+        font-size: 14px !important;
+        font-weight: 100 !important;
+    }
+
+    .uk-width-expand {
+        width: 100%;
     }
 
     .crew__quote {
-        padding: 15px 50px 1px 50px;
-    }
-
-    .crew__spr {
-        width: 90%;
-        border: none;
-        border-top: 1px solid darkgrey;
-    }
-
-    .crew__social {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 50%;
         padding: 15px;
+        flex: 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
+
+    .crew__footer {
+        flex: 1;
+    }
+
 
     @media (max-width: 1120px) {
         .about__col-1 {
@@ -455,6 +460,7 @@
             width: 100px;
             height: 100px;
         }
+
         .crew__title {
             display: flex;
             flex-direction: column;

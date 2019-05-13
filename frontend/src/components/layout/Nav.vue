@@ -1,15 +1,15 @@
 <template>
-    <v-toolbar class="navbar__container">
+    <v-toolbar uk-sticky class="navbar__container uk-n">
         <div class="navbar__wrapper">
             <router-link to="/">
                 <v-toolbar-title style="cursor: pointer">
-                <v-img
-                        :src="require('@/assets/images/nav/logo.png')"
-                        max-height="125"
-                        contain
-                        class="navbar__logo"
-                ></v-img>
-               </v-toolbar-title>
+                    <v-img
+                            :src="require('@/assets/images/nav/logo.png')"
+                            max-height="125"
+                            contain
+                            class="navbar__logo"
+                    ></v-img>
+                </v-toolbar-title>
             </router-link>
 
             <v-menu class="hidden-md-and-up">
@@ -24,9 +24,11 @@
                     </v-list-tile>
 
                     <v-list-tile>
-                        <v-list-tile-content>
-                            <v-list-tile-title>Extension</v-list-tile-title>
-                        </v-list-tile-content>
+                        <a href="https://chrome.google.com/webstore/detail/co2okninja/omlkdocjhkgbllabpihhdggplladfipe">
+                            <v-list-tile-content>
+                                <v-list-tile-title>Extension</v-list-tile-title>
+                            </v-list-tile-content>
+                        </a>
                     </v-list-tile>
 
                     <v-list-tile v-if="$store.state.userStatus">
@@ -43,17 +45,17 @@
                 </v-list>
             </v-menu>
 
-            <v-toolbar-items class="hidden-sm-and-down">
+            <v-toolbar-items class="hidden-sm-and-down navbar__desktop">
                 <v-btn v-for="item in menu" :key="item.link"
-                       class="text-capitalize navbar__items" @click="$router.push(item.link)"
-                       :class="[checkActive(item.title) ? 'navbar__active' : '']"
                        :ripple="false" flat>
-                    {{item.title}}
+                    <span class="text-capitalize navbar__items" style="height: 75px;" @click="$router.push(item.link)"
+                          :class="[checkActive(item.title) ? 'navbar__active' : '']">
+                        {{item.title}}
+                    </span>
                 </v-btn>
 
                 <v-spacer></v-spacer>
 
-                <v-divider class="ml-4" style="height: 42px; margin-right: 20px;" vertical></v-divider>
 
                 <transition enter-active-class="animated bounceIn"
                             leave-active-class="animated bounceOut"
@@ -69,13 +71,22 @@
                                 <img src="../../assets/images/nav/logout.png" alt="logout">
                             </div>
                         </div>
+
+                        <v-divider class="ml-4 nav-divider" vertical></v-divider>
+
                     </div>
 
                     <div v-else key="nav2" class="user__extension">
-                        <v-btn class="text-capitalize navbar__items navbar__extension"
-                               style="height: 42px;"
-                               :ripple="false" flat>Extension
-                        </v-btn>
+                        <a class="extension__button"
+                           href="https://chrome.google.com/webstore/detail/co2okninja/omlkdocjhkgbllabpihhdggplladfipe">
+                            <v-btn class="text-capitalize navbar__items navbar__extension"
+                                   style="height: 42px;"
+                                   :ripple="false" flat>Extension
+                            </v-btn>
+                        </a>
+
+                        <v-divider class="ml-4 nav-divider" vertical></v-divider>
+
                     </div>
                 </transition>
 
@@ -85,7 +96,7 @@
                     <template v-slot:activator="{ on }">
                         <v-btn class="text-capitalize navbar__items" :ripple="false" flat>
                             <v-avatar size="25" color="grey lighten-4" v-on="on">
-                                <img src="../../assets/images/nav/NLVlag.png" alt="avatar">
+                                <img src="../../assets/images/nav/english-icon.png" alt="avatar">
                             </v-avatar>
                         </v-btn>
                     </template>
@@ -170,7 +181,7 @@
         font-family: 'Poppins', sans-serif;
         font-weight: 800;
         flex: 0 1 auto;
-        height: 68px;
+        height: 75px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -183,9 +194,10 @@
 
     .navbar__wrapper {
         margin: 0 auto;
-        max-width: 1090px;
+        max-width: 1100px;
         width: 100%;
-        height: 100%;
+        height: 75px;
+
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -198,16 +210,36 @@
         height: 32px;
     }
 
+    .navbar__desktop {
+        padding: 0;
+        margin: 0;
+    }
+
     .navbar__items {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         font-family: 'Poppins', sans-serif;
         font-weight: 800;
         font-size: 17px;
         border-bottom: 4px solid transparent;
+        margin: 0;
     }
 
     .menu__link, .menu__link:visited {
         color: black;
         text-decoration: none;
+    }
+
+    .nav-divider {
+        background: #BCBCBC;
+        align-self: center;
+        height: 50%;
+        min-height: unset;
+    }
+
+    .user__extension {
+        text-decoration: none !important;
     }
 
     .navbar__active {
@@ -220,7 +252,7 @@
 
     .navbar__extension {
         font-weight: 100;
-        min-width: 150px;
+        min-width: 125px;
         color: white;
         border-radius: 5px;
         background: linear-gradient(to right, #10DC87, #08BA4D);
