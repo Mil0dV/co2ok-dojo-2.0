@@ -18,6 +18,11 @@ const router = new Router({
     base: process.env.BASE_URL,
     routes: [
         {
+            path: '/',
+            name: 'home',
+            component: () => import('./views/Home'),
+        },
+        {
             path: '/register',
             name: 'register',
             component: () => import( './views/Register.vue')
@@ -49,11 +54,18 @@ const router = new Router({
             component: () => import( './views/Steps'),
         },
         {
-            path: '/',
-            name: 'home',
-            component: () => import('./views/Home'),
+            path: '/privacy',
+            name: 'privacy',
+            component: () => import('./views/Privacy'),
         }
-    ]
+    ],
+
+    scrollBehavior(to) {
+        if (to.hash) {
+            return window.scrollTo({ top: document.querySelector(to.hash).offsetTop, behavior: 'smooth' });
+        }
+        return window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 });
 
 
