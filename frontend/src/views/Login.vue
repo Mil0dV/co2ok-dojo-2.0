@@ -123,7 +123,7 @@ r
                 let message = {title: 'Oops... Something went wrong!', text: 'Try again later.'}
                 if (this.email !== '' && this.password !== '') {
                     axios
-                        .post('http://127.0.0.1:8000/login/', {
+                        .post(`${this.$store.state.SITE_HOST}/login/`, {
                             body: {
                                 email: this.email,
                                 password: this.password,

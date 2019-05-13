@@ -22,6 +22,7 @@ class WebshopProfile(models.Model):
     street  = models.CharField(max_length=255)
     number  = models.IntegerField()
     link    = models.CharField(max_length=255)
+    merchant_id = models.CharField(max_length=255)
 
     def __str__(self):
         return "profile van {0}".format(self.user.email)

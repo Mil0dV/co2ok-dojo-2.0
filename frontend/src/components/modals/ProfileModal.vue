@@ -117,7 +117,7 @@
 
 
                     this.$axios
-                        .post('http://127.0.0.1:8000/accounts/updateAccount/', {
+                        .post(`${this.$store.state.SITE_HOST}/accounts/updateAccount/`, {
                             body: {
                                 id: this.$store.state.userId,
                                 email: this.email,

@@ -24,6 +24,7 @@ const router = new Router({
         },
         {
             path: '/register',
+            path: '/register/:merchantId',
             name: 'register',
             component: () => import( './views/Register.vue')
         },
@@ -57,6 +58,13 @@ const router = new Router({
             path: '/privacy',
             name: 'privacy',
             component: () => import('./views/Privacy'),
+
+        },
+        //404 page route
+        {
+            path: '*',
+            name: '404',
+            component: () => import('./views/404')
         }
     ],
 

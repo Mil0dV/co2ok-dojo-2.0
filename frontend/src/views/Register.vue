@@ -122,14 +122,14 @@
 
                             <div class="register__button-group animated bounceInUp slower" style="animation-delay: 0.6s;">
                                 <button v-if="next" @click="next = false"  class="login__back">
-                                    <span>< Back</span>
+                                    <span> Back</span>
                                 </button>
 
                                 <button v-if="!next" @click.prevent="next = true" class="login__submit">
                                     <span>Next</span>
                                 </button>
 
-                                <button v-else type="submit" @keyup.enter="sendForm()" @click.prevent="sendForm()"
+                                <button v-else type="submit" @keyup.enter="merchant_idChecker()" @click.prevent="merchant_idChecker()"
                                         class="login__submit">
                                     <span v-if="send === false">Make an account</span>
                                     <v-progress-circular v-else indeterminate color="white">
@@ -150,7 +150,7 @@
 
 
 <script>
-    import axios from 'axios'
+    // import axios from 'axios'
 
     export default {
         name: 'Register',
@@ -180,6 +180,20 @@
             }
         },
 
+        created(){
+
+            let routerParam = this.$route.params.merchantId
+            console.log(routerParam);
+            
+            if(routerParam == '')
+            {
+                alert('you can t visit this page')
+            }
+
+            // this.merchant_idChecker()
+
+        },
+
 
         methods: {
             errorMessage() {
@@ -188,7 +202,34 @@
                 this.$store.commit('modalStatus', modal)
             },
 
-            sendForm() {
+            //check of de webshop eigenaar id in de url al gekoppeld is aan een account
+            merchant_idChecker(){
+
+              let mechantId = this.$route.params.merchantId
+              this.$axios
+              .get(`${this.$store.state.SITE_HOST}/user/merchantIdChecker/?mechantId=${mechantId}`,{
+                  headers: {
+                    "X-CSRFToken": `${this.$store.state.userToken}`,
+                    Authorization: `token ${window.localStorage.getItem('userToken')}`
+                  }
+              }).then(response => {
+                  console.log(response);
+                  
+                  if(response.accountId && response.dynamoId.lenght > 0){
+                      this.register()
+                  }else{
+                      alert('deze id is al gekkopeld aan een account of is niet geldig')
+                  }
+
+              }).catch(error=> {
+                  console.log(error);
+                  
+              })
+
+
+            },
+
+            register() {
                 this.send = true
                 if (this.consent !== '' && this.email !== '' && this.password !== '' &&
                     this.passwordRepeat !== '' && this.company !== '' &&
@@ -196,8 +237,8 @@
                     && this.country !== '' && this.city !== '' && this.zipcode !== ''
                     && this.street !== '' && this.number !== ''
                 ) {
-                    axios
-                        .post('http://127.0.0.1:8000/signup/', {
+                    this.$axios
+                        .post(`${this.$store.state.SITE_HOST}/signup/`, {
                             body: {
                                 company: this.company,
                                 email: this.email,
@@ -210,11 +251,11 @@
                                 number: this.number,
                                 sort: 'webshop',
                                 name: this.name,
-                                link: this.link,
-                                country: 'this.country',
-                                city: this.city,
-                                zipcode: this.zipcode,
-                                street: this.street
+                                // link: this.link,
+                                // country: 'this.country',
+                                // city: this.city,
+                                // zipcode: this.zipcode,
+                                // street: this.street
                             },
                             header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
 

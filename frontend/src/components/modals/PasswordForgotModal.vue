@@ -59,7 +59,7 @@
                 if (this.email !== '') {
 
                     this.$axios
-                        .post('http://127.0.0.1:8000/accounts/sendMail/', {
+                        .post(`${this.$store.state.SITE_HOST}/accounts/sendMail/`, {
                             body: {
                                 email: this.email,
                         },

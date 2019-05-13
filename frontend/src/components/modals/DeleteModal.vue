@@ -47,7 +47,7 @@
             deleteAccount() {
                 this.$parent.closeEdit()
                 this.$axios
-                    .post('http://127.0.0.1:8000/accounts/deleteAccount/', {
+                    .post(`${this.$store.state.SITE_HOST}/accounts/deleteAccount/`, {
                         body: {
                             id: window.localStorage.getItem('userId')
                             // password: this.password

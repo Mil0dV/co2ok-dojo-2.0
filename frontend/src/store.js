@@ -3,12 +3,13 @@ import Vuex from 'vuex'
 import {
     stat
 } from 'fs';
-import axios from 'axios'
+// import axios from 'axios'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
+        SITE_HOST: 'http://127.0.0.1:8000', 
         count: 0,
         modalMessage: '',
         modalStatus: false,
@@ -49,8 +50,8 @@ export default new Vuex.Store({
         },
 
         getUserData(state) {
-            axios
-                .get(`http://127.0.0.1:8000/user/authenticateUser/?id=${window.localStorage.getItem('userId')}`, {
+            this.$axios
+                .get(`${state.SITE_HOST}/user/authenticateUser/?id=${window.localStorage.getItem('userId')}`, {
                     headers: {
                         "X-CSRFToken": `${state.userToken}`,
                         Authorization: `token ${window.localStorage.getItem('userToken')}`

@@ -73,7 +73,7 @@
                 if (this.passwordExtra !== '' && this.newPassword !== '' && this.passwordExtra === this.newPassword) {
 
                     this.$axios
-                        .post('http://127.0.0.1:8000/accounts/updatePassword/', {
+                        .post(`${this.$store.state.SITE_HOST}/accounts/updatePassword/`, {
                             body: {
                                currentPassword: this.currentPassword,
                                newPassword: this.newPassword,
