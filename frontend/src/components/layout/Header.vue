@@ -108,7 +108,7 @@
         text-align: left;
         font-weight: 400;
         font-size: 55px;
-        margin-bottom: 55px;
+        margin-bottom: 10px;
     }
 
     @media (max-width: 1200px) {

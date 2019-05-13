@@ -101,12 +101,12 @@
 </template>
 
 <script>
-    // import Vue from 'vue'
-    // import Vuikit from 'vuikit'
-    // import '@vuikit/theme'
-    // import VkGrid from "vuikit/src/library/grid/components/grid";
-    //
-    // Vue.use(Vuikit)
+    import Vue from 'vue'
+    import Vuikit from 'vuikit'
+    import '@vuikit/theme'
+    import VkGrid from "vuikit/src/library/grid/components/grid";
+
+    Vue.use(Vuikit)
     export default {
         name: "Faq",
         components: {VkGrid}
