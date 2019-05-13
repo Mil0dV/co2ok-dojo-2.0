@@ -56,7 +56,6 @@
 
                 <v-spacer></v-spacer>
 
-
                 <transition enter-active-class="animated bounceIn"
                             leave-active-class="animated bounceOut"
                             mode="out-in">

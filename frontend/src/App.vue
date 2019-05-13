@@ -74,6 +74,7 @@
         width: 100vw;
         min-height: 100vh;
         display: flex;
+        overflow: hidden;
     }
 
     input:focus {

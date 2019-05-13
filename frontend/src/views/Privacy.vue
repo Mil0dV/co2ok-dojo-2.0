@@ -283,7 +283,8 @@
                 margin: 0;
 
                 a {
-                    padding: 8px 20px;
+                    display: block;
+                    padding: 2px 20px;
                     @include transition;
                     @include body;
                     position: relative;
