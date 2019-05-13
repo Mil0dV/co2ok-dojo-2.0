@@ -629,10 +629,6 @@
             width: 100%;
         }
 
-        .header-txt-flex {
-            text-shadow: 2px 2px 2px #000000;
-        }
-
         .header-img-flex {
             position: absolute;
             width: 509px;

@@ -60,11 +60,8 @@ const router = new Router({
         }
     ],
 
-    scrollBehavior(to) { //(smooth)Scroll to the top of the page when accessing a new route
-        if (to.hash) {
-            return window.scrollTo({ top: document.querySelector(to.hash).offsetTop, behavior: 'smooth' });
-        }
-        return window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollBehavior (to, from, savedPosition) {
+        return { x: 0, y: 0 };
     }
 });
 

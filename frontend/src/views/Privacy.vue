@@ -1,6 +1,6 @@
 <template>
     <section id="projects">
-        <div class="uk-container" style="max-width: 1090px; width: 100%;">
+        <div class="uk-container" style="max-width: 1090px; width: 100%; margin-bottom: 100px;">
 
             <div uk-grid style="text-align: left;">
                 <div class="uk-width-1-4@m">
