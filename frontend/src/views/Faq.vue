@@ -4,9 +4,9 @@
             <vk-grid class="uk-child-width-1-1">
 
                 <div>
-                    <h2 data-aos="fade-up"  data-aos-offset="10">Webshops</h2>
+                    <h2>Webshops</h2>
                     <ul uk-accordion="multiple: true">
-                        <li data-aos="fade-up"  data-aos-offset="10">
+                        <li>
                             <a class="uk-accordion-title" href="#">How does CO2 compensation work?</a>
                             <div class="uk-accordion-content">
                                 <p>
@@ -19,7 +19,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li data-aos="fade-up"  data-aos-offset="10">
+                        <li>
                             <a class="uk-accordion-title" href="#">So how do you reduce emissions?</a>
                             <div class="uk-accordion-content">
                                 <p>
@@ -28,7 +28,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li data-aos="fade-up"  data-aos-offset="10">
+                        <li>
                             <a class="uk-accordion-title" href="#">How do you determine the carbon footprint of
                                 products?</a>
                             <div class="uk-accordion-content">
@@ -39,7 +39,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li data-aos="fade-up"  data-aos-offset="10">
+                        <li>
                             <a class="uk-accordion-title" href="#">Will my entire contribution go to CO2
                                 compensation?</a>
                             <div class="uk-accordion-content">
@@ -51,7 +51,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li data-aos="fade-up"  data-aos-offset="10">
+                        <li>
                             <a class="uk-accordion-title" href="#">What kind of projects will we finance?</a>
                             <div class="uk-accordion-content">
                                 <p>
