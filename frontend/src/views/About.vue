@@ -65,7 +65,20 @@
                             <p>"{{person.quote}}"</p>
                         </div>
                         <div class="uk-card-footer crew__footer">
-                            <a href="#" class="uk-button uk-button-text">Read more</a>
+                            <p class=" uk-text-capitalize social__text">
+                                <span>
+                                    <span class="icon__wrapper">
+                                        <vk-icon icon="twitter" class="crew__icon uk-padding-small uk-margin-small"></vk-icon>
+                                    </span>
+                                    Twitter
+                                </span>
+                                <span>
+                                    <span class="icon__wrapper">
+                                        <vk-icon icon="facebook" class="crew__icon uk-padding-small uk-margin-small"></vk-icon>
+                                    </span>
+                                    LinkedIn
+                                </span>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -75,6 +88,12 @@
 </template>
 
 <script>
+    import Vue from 'vue'
+    import Vuikit from 'vuikit'
+    import VuikitIcons from '@vuikit/icons'
+
+    Vue.use(Vuikit)
+    Vue.use(VuikitIcons)
     export default {
         name: "About",
 
@@ -306,6 +325,33 @@
 
     .crew__footer {
         flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    .social__text {
+        font-size: 12px !important;
+        width: 60%;
+        min-width: 200px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+
+    .icon__wrapper {
+        padding: 0 4px;
+        background: #666666;
+    }
+
+    .crew__icon {
+        color:white;
+        padding: 1px;
+        width: 15px;
+        height: 15px;
     }
 
 
