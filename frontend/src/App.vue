@@ -33,7 +33,7 @@
         methods: {
             checkHeader() {
                 if (this.currentRouteName === 'dashboard' || this.currentRouteName === 'register' ||
-                    this.currentRouteName === 'login' || this.currentRouteName === 'home') {
+                    this.currentRouteName === 'login' || this.currentRouteName === 'home' || this.currentRouteName === '404') {
                     this.showHeader = false
                 } else {
                     this.showHeader = true

@@ -66,9 +66,9 @@
                 </div>
 
                 <div>
-                    <h2 data-aos="fade-up"  data-aos-offset="-100">Ninja</h2>
+                    <h2>Ninja</h2>
                     <ul uk-accordion="multiple: true">
-                        <li data-aos="fade-up"  data-aos-offset="-100">
+                        <li>
                             <a class="uk-accordion-title" href="#">Why installing the Ninja App requires permission to
                                 “Read and change all data on websites you visit”?</a>
                             <div class="uk-accordion-content">
@@ -84,7 +84,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li data-aos="fade-up"  data-aos-offset="-100">
+                        <li>
                             <a class="uk-accordion-title" href="#">Does the Ninja App track my purchases or internet
                                 activity?</a>
                             <div class="uk-accordion-content">
@@ -97,7 +97,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li data-aos="fade-up"  data-aos-offset="-100">
+                        <li>
                             <a class="uk-accordion-title" href="#">What stores does the Ninja App work with?</a>
                             <div class="uk-accordion-content">
                                 <p>
@@ -107,7 +107,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li data-aos="fade-up" data-aos-offset="-100">
+                        <li>
                             <a class="uk-accordion-title" href="#">How do shops benefit from being in CO₂ok Ninja
                                 program?</a>
                             <div class="uk-accordion-content">
@@ -118,7 +118,7 @@
                                 </ol>
                             </div>
                         </li>
-                        <li data-aos="fade-up" data-aos-offset="-100">
+                        <li>
                             <a class="uk-accordion-title" href="#">How big is your piece of the cake?</a>
                             <div class="uk-accordion-content">
                                 <p>
@@ -126,7 +126,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li data-aos="fade-up" data-aos-offset="-100">
+                        <li>
                             <a class="uk-accordion-title" href="#">I only shop at Amazon and already use Amazon Smile program, is there any reason for me to install the Ninja App?</a>
                             <div class="uk-accordion-content">
                                 <p>
@@ -134,7 +134,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li data-aos="fade-up" data-aos-offset="-100">
+                        <li>
                             <a class="uk-accordion-title" href="#">How can I be sure that the money will be used to compensate greenhouse gasses?</a>
                             <div class="uk-accordion-content">
                                 <p>
@@ -142,7 +142,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li data-aos="fade-up" data-aos-offset="-100">
+                        <li>
                             <a class="uk-accordion-title" href="#">Does it cost me anything to use the Ninja App?</a>
                             <div class="uk-accordion-content">
                                 <p>
@@ -150,7 +150,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li data-aos="fade-up" data-aos-offset="-100">
+                        <li>
                             <a class="uk-accordion-title" href="#">I am not buying in any of these stores, is there any reason for me to install the Ninja App?</a>
                             <div class="uk-accordion-content">
                                 <p>
@@ -158,7 +158,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li data-aos="fade-up" data-aos-offset="-100">
+                        <li>
                             <a class="uk-accordion-title" href="#">How does it work?</a>
                             <div class="uk-accordion-content">
                                 <p>
@@ -166,7 +166,7 @@
                                 </p>
                             </div>
                         </li>
-                        <li data-aos="fade-up" data-aos-offset="-100">
+                        <li>
                             <a class="uk-accordion-title" href="#">Credits to Altruisto</a>
                             <div class="uk-accordion-content">
                                 <p>

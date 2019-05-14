@@ -22,7 +22,7 @@
             <v-flex xs12 sm12 md6 lg4>
                 <v-layout justify-center align-center column wrap class="hidden-sm-and-down pa-5">
                 </v-layout>
-r
+
                 <v-layout class="register__layout-form pa-5" justify-center align-center column wrap>
                     <v-flex class="register__form-mb" justify-center align-center column wrap xs6 lg4>
                         <form v-model="valid" class="login__form">
@@ -144,10 +144,9 @@ r
                                     this.$store.commit('isLoggedIn', response.data.authenticate)
                                     this.$store.dispatch('commitGetUserData');
                                     //userSession return a boolean of de authenticate status of the user
-                                    if(window.localStorage.getItem('Authenticated'))
-                                    {
+                                    if (window.localStorage.getItem('Authenticated')) {
                                         this.$router.push('dashboard')
-                                    }else{
+                                    } else {
                                         this.$router.push('login')
                                         // alert('not authenticated')
                                         // window.location.href = '/login'
@@ -164,7 +163,7 @@ r
                         .catch(error => {
                             // this.errorMessage(message)
                             console.log(error);
-                            
+
                         })
                     this.send = false
                 }
@@ -178,12 +177,12 @@ r
 <style scoped>
     .register__container {
         height: 100%;
-        width: 100% ;
+        width: 100%;
         background: white;
     }
 
     .register__layout {
-        height: 100% ;
+        height: 100%;
     }
 
     .register__col-1 {
@@ -383,7 +382,7 @@ r
         }
 
         .login__back {
-            padding:5px 15px;
+            padding: 5px 15px;
         }
 
         .login__group {
@@ -395,7 +394,7 @@ r
         }
     }
 
-    @media (max-width:600px) {
+    @media (max-width: 600px) {
         .login__form {
             padding: 40px 40px;
             width: 100%;

@@ -48,7 +48,7 @@
             <v-toolbar-items class="hidden-sm-and-down navbar__desktop">
                 <v-btn v-for="item in menu" :key="item.link"
                        :ripple="false" flat>
-                    <span class="text-capitalize navbar__items" style="height: 75px;" @click="$router.push(item.link)"
+                    <span class="text-capitalize navbar__items" style="height: 75px;" @mouseover="checkActive(item.title)" @click="$router.push(item.link)"
                           :class="[checkActive(item.title) ? 'navbar__active' : '']">
                         {{item.title}}
                     </span>

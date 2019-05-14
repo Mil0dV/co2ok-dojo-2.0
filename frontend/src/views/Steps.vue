@@ -165,7 +165,7 @@
         align-items: center;
         padding-bottom: 50px;
         overflow: hidden;
-        margin: 0 auto;
+        margin: 0 auto 100px;
         width: 100%;
     }
 

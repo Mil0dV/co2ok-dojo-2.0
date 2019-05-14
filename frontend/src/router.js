@@ -23,7 +23,6 @@ const router = new Router({
             component: () => import('./views/Home'),
         },
         {
-            path: '/register',
             path: '/register/:merchantId',
             name: 'register',
             component: () => import( './views/Register.vue')

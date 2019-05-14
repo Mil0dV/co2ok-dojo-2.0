@@ -3,23 +3,23 @@
         <div class="uk-container" style="max-width: 1090px; width: 100%; margin-bottom: 100px;">
 
             <div uk-grid style="text-align: left;">
-                <div class="uk-width-1-4@m">
+                <div  class="uk-width-1-4@m">
                     <div id="privacyMenu" class="privacy-policy-menu">
                         <ul>
-                            <li><a class="active" href="#A">Privacy Policy</a></li>
-                            <li><a href="#B">Information Collection and Use</a></li>
-                            <li><a href="#C">Personal Data</a></li>
-                            <li><a href="#D">Usage Data</a></li>
-                            <li><a href="#E">Tracking &amp; Cookies Data</a></li>
-                            <li><a href="#F">Use of Data</a></li>
-                            <li><a href="#G">Transfer of Data</a></li>
-                            <li><a href="#H">Disclousure of Data</a></li>
-                            <li><a href="#I">Security of Data</a></li>
-                            <li><a href="#J">Service Provider</a></li>
-                            <li><a href="#K">Links of Other Sites</a></li>
-                            <li><a href="#L">Children's Privacy</a></li>
-                            <li><a href="#M">Change of this Policy</a></li>
-                            <li><a href="#N">Contact Us</a></li>
+                            <li><a @click="activeTitle(1)" :class="[activeClass === 1 ? 'active' : '']" href="#A">Privacy Policy</a></li>
+                            <li><a @click="activeTitle(2)" :class="[activeClass === 2 ? 'active' : '']" href="#B">Information Collection and Use</a></li>
+                            <li><a @click="activeTitle(3)" :class="[activeClass === 3 ? 'active' : '']" href="#C">Personal Data</a></li>
+                            <li><a @click="activeTitle(4)" :class="[activeClass === 4 ? 'active' : '']" href="#D">Usage Data</a></li>
+                            <li><a @click="activeTitle(5)" :class="[activeClass === 5 ? 'active' : '']" href="#E">Tracking &amp; Cookies Data</a></li>
+                            <li><a @click="activeTitle(6)" :class="[activeClass === 6 ? 'active' : '']" href="#F">Use of Data</a></li>
+                            <li><a @click="activeTitle(7)" :class="[activeClass === 7 ? 'active' : '']" href="#G">Transfer of Data</a></li>
+                            <li><a @click="activeTitle(8)" :class="[activeClass === 8 ? 'active' : '']" href="#H">Disclousure of Data</a></li>
+                            <li><a @click="activeTitle(9)" :class="[activeClass === 9 ? 'active' : '']" href="#I">Security of Data</a></li>
+                            <li><a @click="activeTitle(10)" :class="[activeClass === 10 ? 'active' : '']" href="#J">Service Provider</a></li>
+                            <li><a @click="activeTitle(11)" :class="[activeClass === 11 ? 'active' : '']" href="#K">Links of Other Sites</a></li>
+                            <li><a @click="activeTitle(12)" :class="[activeClass === 12 ? 'active' : '']" href="#L">Children's Privacy</a></li>
+                            <li><a @click="activeTitle(13)" :class="[activeClass === 13 ? 'active' : '']" href="#M">Change of this Policy</a></li>
+                            <li><a @click="activeTitle(14)" :class="[activeClass === 14 ? 'active' : '']" href="#N">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -207,7 +207,19 @@
 
     Vue.use(Vuikit)
     export default {
-        name: "Privacy"
+        name: "Privacy",
+
+        data() {
+            return {
+                activeClass: 1,
+            }
+        },
+
+        methods: {
+            activeTitle(number){
+                this.activeClass = number
+            }
+        }
     }
 </script>
 
