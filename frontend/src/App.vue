@@ -1,12 +1,12 @@
 <template>
     <v-app id="app">
-        <Nav :routeName="currentRouteName"/>
-        <!--<div class="body">-->
+        <div class="body">
+            <Nav :routeName="currentRouteName"/>
             <!--<transition-group enter-active-class="animated fadeIn" mode="out-in">-->
-                <Header :key="showHeader" :routeName="currentRouteName" v-if="showHeader"/>
-                <router-view :key="currentRouteName" :routeName="currentRouteName"></router-view>
+            <Header :key="showHeader" :routeName="currentRouteName" v-if="showHeader"/>
+            <router-view class="view" :key="currentRouteName" :routeName="currentRouteName"></router-view>
             <!--</transition-group>-->
-        <!--</div>-->
+        </div>
         <Footer/>
         <Modal v-if="$store.state.modalStatus"/>
     </v-app>
@@ -75,6 +75,15 @@
         min-height: 100vh;
         display: flex;
         overflow: hidden;
+    }
+
+    .body {
+        min-height: 100vh;
+        height: 100%;
+    }
+
+    .view {
+        height: 100%;
     }
 
     input:focus {
