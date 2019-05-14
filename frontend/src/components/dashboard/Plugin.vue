@@ -131,8 +131,10 @@
         align-items: center;
     }
 
-    .edit__img {
+    .plugin__title {
+       margin-bottom: 0 !important;
     }
+
 
     .plugin__title {
         font-family: 'Poppins', sans-serif;
