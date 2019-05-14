@@ -125,12 +125,17 @@ export default new Vuex.Store({
 
         monthGraphData(state) {
             state.x_asLabel = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUNE', 'JULY', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC']
-            state.graphData = [0, 100, 50, 200, 150, 250, 55, 23, 71, 220, 171, 58]
+            state.graphData = [Math.round(193.3), Math.round(19.99 + 34.03 + 21.67 + 31.32 + 30.34), Math.round(36.57 + 39.8 + 38.18), Math.round(32.32 + 33.23 + 9.29), Math.round(10.29 + 32.37)]
         },
 
         weekGraphData(state) {
             state.x_asLabel = ['MON', 'TUE', 'WED', 'THU', 'FRY', 'SAT', 'SUN']
             state.graphData = [2, 40, 71, 35, 100, 21, 333]
+        },
+
+        roundGraphData(state, data){
+            let roundedData = Math.round(data)
+            return roundedData
         }
 
     },

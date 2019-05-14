@@ -7,7 +7,7 @@
 
         <div class="graph-container mb-1">
             <div class="graph-tabs">
-                <p class="graph-tab-name font-weight-bold"  @click="monthTransactions()">Monthly Transactions</p>
+                <p class="graph-tab-name font-weight-bold" style="position: relative; top: 10px;"  @click="monthTransactions()">Monthly Transactions</p>
                 <p class="graph-tab-name font-weight-bold"  @click="weekTransactions()">Weekly Transactions</p>
             </div>
 
@@ -160,13 +160,13 @@ import LineChart from '@/components/dashboard/chart.vue'
             fillData () {
                
                 this.datacollection = {
-                    labels: ['','JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUNE', 'JULY', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC'],
+                    labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUNE', 'JULY', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC'],
                     // labels: this.$store.state.x_asLabel,
                     datasets: [
                         {
                         label: `${this.currentMonth} Transaction(s)`,
                         borderColor: '#94EDCE',
-                        data: [0, 100, 50, 200, 150, 250, 55, 23, 71, 220, 171, 58]
+                        data: [Math.round(193.3),Math.round(19.99+34.03+21.67+31.32+30.34),Math.round(36.57+39.8+38.18),Math.round(32.32+33.23+9.29),Math.round(10.29+32.37)]
                         // data: this.$store.state.graphData
                         }
                     ]
@@ -334,7 +334,7 @@ import LineChart from '@/components/dashboard/chart.vue'
 
     .graph-tab-name{
         text-align: left;
-        text-decoration: underline;
+        /* text-decoration: underline; */
         font-size: 16px;
         width: 250px;
         cursor: pointer;
@@ -343,6 +343,7 @@ import LineChart from '@/components/dashboard/chart.vue'
 
     .graph-tab-name:hover{
         color: black;
+        text-decoration: underline;
     }
 
     .graphs{
