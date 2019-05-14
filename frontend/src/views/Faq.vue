@@ -111,7 +111,7 @@
                             <a class="uk-accordion-title" href="#">How do shops benefit from being in CO₂ok Ninja
                                 program?</a>
                             <div class="uk-accordion-content">
-                                <ol>
+                                <ol class="list__faq">
                                     <li>Our users are clients who have a strong incentive to buy from our partner shops
                                         and not their competition.
                                     </li>
@@ -271,17 +271,27 @@
 </template>
 
 <script>
+    import Vue from 'vue'
+    import Vuikit from 'vuikit'
+    import '@vuikit/theme'
+
+    Vue.use(Vuikit)
     export default {
         name: "Faq",
-        // components: {VkGrid}
     }
 </script>
 
 <style lang="scss" >
-    #footer /deep/ {
+    .main /deep/ {
         @import "~uikit/dist/css/uikit.min.css";
     }
 
+
     @import '../styles/main.scss';
     @import '../styles/faq.scss';
+
+    .list__faq > *{
+        border: none !important;
+    }
+
 </style>
