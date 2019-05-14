@@ -28,7 +28,7 @@
                         <form v-model="valid" class="login__form">
                             <div class="login__header-group animated fadeInUp">
                                 <p class="login__form-header">Account</p>
-                                <h1 class="login__form-title">Make an account to get access to more info!</h1>
+                                <p class="login__form-title">Make an account to get access to more info!</p>
                             </div>
 
                             <transition enter-active-class="animated fadeIn"
@@ -40,20 +40,20 @@
                                     <label class="login__group">
                                         <div>Company name<span class="asterik">*</span></div>
                                         <input class="login__group-input" v-model="company"
-                                               type="email" placeholder="Fill in you email...">
+                                               type="email" placeholder="Fill in your company name...">
                                     </label>
 
                                     <label class="login__group">
                                         <div>E-mail<span class="asterik">*</span></div>
                                         <input class="login__group-input" v-model="email"
-                                               type="email" placeholder="Fill in you email...">
+                                               type="email" placeholder="Fill in your email...">
                                     </label>
 
                                     <div class="login__group-password">
                                         <label class="login__group">
                                             <div>Password<span class="asterik">*</span></div>
                                             <input class="login__group-input" v-model="password"
-                                                   type="password" placeholder="Fill in you password...">
+                                                   type="password" placeholder="Fill in your password...">
                                         </label>
                                     </div>
 
@@ -190,7 +190,7 @@
                 alert('you can t visit this page')
             }
 
-            this.merchant_idChecker()
+            // this.merchant_idChecker()
 
         },
 
@@ -218,9 +218,10 @@
               }).then(response => {
                   console.log(response);
                   
-                  if(response.data.accoundIdCheck && response.data.dynamoIdCheck > 0){
-                    //   this.register()
-                    alert('id valid')
+                  if(response.data[0].accountIdCheck && response.data[1].dynamoIdCheck > 0){
+                      console.log('logged');
+                      
+                      this.register()
                   }else{
                       alert('deze id is al gekkopeld aan een account of is niet geldig')
                   }
@@ -234,6 +235,7 @@
             },
 
             register() {
+                let self = this
                 this.send = true
                 if (this.consent !== '' && this.email !== '' && this.password !== '' &&
                     this.passwordRepeat !== '' && this.company !== '' &&
@@ -255,6 +257,7 @@
                                 number: this.number,
                                 sort: 'webshop',
                                 name: this.name,
+                                merchantId: this.$route.params.merchantId,
                                 // link: this.link,
                                 // country: 'this.country',
                                 // city: this.city,
@@ -270,7 +273,7 @@
                                 if (response.data.authenticate) {
                                     this.$store.dispatch('commitSaveUser', response.data)
                                     this.$store.commit('setLocalUserData', response.data)
-                                    this.$router.push('dashboard')
+                                    self.$router.push('/dashboard')
                                 } else {
                                     this.errorMessage()
                                 }
