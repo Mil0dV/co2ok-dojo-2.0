@@ -81,5 +81,7 @@
     #footer /deep/ {
         @import "~uikit/dist/css/uikit.min.css";
     }
+
+    @import '../../styles/main.scss';
     @import '../../styles/footer.scss';
 </style>

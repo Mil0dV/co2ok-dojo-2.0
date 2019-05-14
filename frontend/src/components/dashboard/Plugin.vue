@@ -131,6 +131,9 @@
         align-items: center;
     }
 
+    .edit__img {
+    }
+
     .plugin__title {
        margin-bottom: 0 !important;
     }
