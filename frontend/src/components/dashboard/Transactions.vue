@@ -300,6 +300,7 @@ import LineChart from '@/components/dashboard/chart.vue'
     }
 
     .transaction__title {
+        margin-bottom: 0 !important;
         font-family: 'Poppins', sans-serif;
         font-weight: 600;
         font-size: 36px;
