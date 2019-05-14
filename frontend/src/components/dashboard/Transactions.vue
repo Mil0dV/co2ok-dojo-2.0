@@ -22,35 +22,33 @@
             <v-flex xs12 sm6 md6 lg6 style="height: 100%;" class="week-ctr-flex">
                 <div class="text-capitalize black--text ctrl-container" style="" v-if="week">
 
-                    <v-tooltip top color="#369555">
+                    <!-- <v-tooltip top color="#369555">
                         <template v-slot:activator="{ on }">
-                          <!-- <img src="../../assets/images/dashboard/prev-month.svg" alt="" v-on="on" class="prev-month"> -->
                           <div class="month-ctrl" @click="prevMonthCtrl()">
                               <v-icon medium :style="prevStyle" style="" class="animated zoomIn" v-on="on">keyboard_arrow_left</v-icon>
                               <v-icon medium :style="prevStyle" style="" class="animated zoomIn" v-on="on">keyboard_arrow_left</v-icon>
                           </div>
                         </template>
                         <span>{{prevMonth}}</span>
-                    </v-tooltip>
+                    </v-tooltip> -->
 
                     <v-icon class="graph-ctr-icon animated bounceIn" style="color: #E0E0E0;" small>keyboard_arrow_left</v-icon>
-                    <p class="graph-ctr-txt animated bounceIn" style="color: #E0E0E0;width: 150px;">Previous Week</p>
+                    <p class="graph-ctr-txt animated bounceIn" style="color: #E0E0E0;width: 150px;" @click="prevWeek()">Previous Week</p>
                 </div>
 
                 <div class="text-capitalize black--text ctrl-container" style="" v-if="week">
-                    <p class="graph-ctr-txt animated bounceIn">Next Week</p>
+                    <p class="graph-ctr-txt animated bounceIn"  @click="nextWeek()">Next Week</p>
                     <v-icon class="graph-ctr-icon animated bounceIn" small>keyboard_arrow_right</v-icon>
 
-                    <v-tooltip top color="#369555">
+                    <!-- <v-tooltip top color="#369555">
                         <template v-slot:activator="{ on }">
-                          <!-- <img src="../../assets/images/dashboard/next-month.svg" alt="" v-on="on" class="prev-month"> -->
                           <div class="month-ctrl" @click="nextMonthCtrl()">
                               <v-icon medium :style="nextStyle" style="" class="animated zoomIn" v-on="on">keyboard_arrow_right</v-icon>
                               <v-icon medium :style="nextStyle" style="" class="animated zoomIn" v-on="on">keyboard_arrow_right</v-icon>
                           </div>
                         </template>
                         <span>{{nextMonth}}</span>
-                    </v-tooltip>
+                    </v-tooltip> -->
 
                 </div>
             </v-flex>
@@ -140,6 +138,7 @@ import LineChart from '@/components/dashboard/chart.vue'
               monthNumber: 0,
               realTimeMonth: this.$moment().format('MMMM'), //displayed month when next/pren are clicked
               monthsArr: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Dencember'],
+              daysArr = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
               nextStyle: {color: '#E0E0E0', cursor: 'default'}, // month next btn dunamic styles
               prevStyle: {color: '#369555', cursor: 'pointer'} // month previous btn dunamic styles
 
@@ -152,7 +151,16 @@ import LineChart from '@/components/dashboard/chart.vue'
         },
 
         mounted() {
-
+            let data = [
+                '',
+               { January: [[8,21,7,1,0,3,5],[20,12,3,0,0,10,0],[11,1,5,3,0,11,2],[20,11,0,6,2,9,0]]},
+               { February: [[],[],[],[]]},
+               { March: [[],[],[],[]]},
+               { April: [[],[],[],[]]},
+               { May: [[8,21,7,1,0,3,5],[20,12,3,0,0,10,0],[11,1,5,3,0,11,2],[20,11,0,6,2,9,0]]}
+            ]
+            console.log(data[1]);
+            
         },
 
         methods: {
@@ -211,6 +219,14 @@ import LineChart from '@/components/dashboard/chart.vue'
 
             },
 
+            prevWeek(){
+
+            },
+
+            nextWeek(){
+
+            },
+
             nextMonthCtrl()
             {
 
@@ -260,9 +276,9 @@ import LineChart from '@/components/dashboard/chart.vue'
                   this.prevStyle.color = '#E0E0E0'
                   this.prevStyle.cursor = 'default'
                   this.prevMonth = 'January'
-                   this.realTimeMonth = 'January'
-                   this.graphLegend = `${this.realTimeMonth} week-1 Transaction(s)`
-                   this.nextMonth = 'February'             
+                  this.realTimeMonth = 'January'
+                  this.graphLegend = `${this.realTimeMonth} week-1 Transaction(s)`
+                  this.nextMonth = 'February'             
               }
               
 

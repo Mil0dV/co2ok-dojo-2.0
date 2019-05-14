@@ -130,7 +130,8 @@ export default new Vuex.Store({
 
         weekGraphData(state) {
             state.x_asLabel = ['MON', 'TUE', 'WED', 'THU', 'FRY', 'SAT', 'SUN']
-            state.graphData = [2, 40, 71, 35, 100, 21, 333]
+            state.graphData = [8, 21, 7, 1, 0, 3, 5]
+            
         },
 
         roundGraphData(state, data){
