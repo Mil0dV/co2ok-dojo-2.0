@@ -59,11 +59,9 @@ const router = new Router({
             component: () => import('./views/Privacy'),
 
         },
-        //404 page route
-        {
-            path: '*',
-            name: '404',
-            component: () => import('./views/404')
+        { //404 page, redirects back to home (= /)
+            path: '*', redirect: '/'
+
         }
     ],
 

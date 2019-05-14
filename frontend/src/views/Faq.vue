@@ -112,9 +112,17 @@
                                 program?</a>
                             <div class="uk-accordion-content">
                                 <ol>
-                                    <li>Our users are clients who have a strong incentive to buy from our partner shops and not their competition.</li>
-                                    <li>We are preparing multiple new features such as highlighting partners’ websites in search results. These features directly drive new consumers to partners’ stores.</li>
-                                    <li>Thanks to CO₂ok the brands of the shops are associated with a great cause. They show that climate and our environment matters to them as well and with this they boost their image.</li>
+                                    <li>Our users are clients who have a strong incentive to buy from our partner shops
+                                        and not their competition.
+                                    </li>
+                                    <li>We are preparing multiple new features such as highlighting partners’ websites
+                                        in search results. These features directly drive new consumers to partners’
+                                        stores.
+                                    </li>
+                                    <li>Thanks to CO₂ok the brands of the shops are associated with a great cause. They
+                                        show that climate and our environment matters to them as well and with this they
+                                        boost their image.
+                                    </li>
                                 </ol>
                             </div>
                         </li>
@@ -122,23 +130,37 @@
                             <a class="uk-accordion-title" href="#">How big is your piece of the cake?</a>
                             <div class="uk-accordion-content">
                                 <p>
-                                    We invest 75% of the commission in the CO₂ compensation. The remaining 25% are much needed to keep CO₂ok going. We just started and our margin doesn’t even cover the costs. Our goal is to make an impact and give everybody the chance to easily fight climate change. Eventually, we will reduce our margin – we are not in this to become rich. We will always be open and transparent and therefore we will report our income and spending each year.
+                                    We invest 75% of the commission in the CO₂ compensation. The remaining 25% are much
+                                    needed to keep CO₂ok going. We just started and our margin doesn’t even cover the
+                                    costs. Our goal is to make an impact and give everybody the chance to easily fight
+                                    climate change. Eventually, we will reduce our margin – we are not in this to become
+                                    rich. We will always be open and transparent and therefore we will report our income
+                                    and spending each year.
                                 </p>
                             </div>
                         </li>
                         <li>
-                            <a class="uk-accordion-title" href="#">I only shop at Amazon and already use Amazon Smile program, is there any reason for me to install the Ninja App?</a>
+                            <a class="uk-accordion-title" href="#">I only shop at Amazon and already use Amazon Smile
+                                program, is there any reason for me to install the Ninja App?</a>
                             <div class="uk-accordion-content">
                                 <p>
-                                    First of all, our partners usually donate 2-12 times more through the Ninja App (1-6%) than Amazon does through Amazon Smile (only 0.5% of the final price). So, if you care about having as big a positive impact on the world as you can, using the Ninja App either instead of or in addition to Amazon Smile is a way to achieve that. Moreover, there are a lot of products or services available in our partner stores that are not available on Amazon. For example, travel services (hotels, flights, train tickets, car rentals), financial products, or sport clubs’ official apparel.
+                                    First of all, our partners usually donate 2-12 times more through the Ninja App
+                                    (1-6%) than Amazon does through Amazon Smile (only 0.5% of the final price). So, if
+                                    you care about having as big a positive impact on the world as you can, using the
+                                    Ninja App either instead of or in addition to Amazon Smile is a way to achieve that.
+                                    Moreover, there are a lot of products or services available in our partner stores
+                                    that are not available on Amazon. For example, travel services (hotels, flights,
+                                    train tickets, car rentals), financial products, or sport clubs’ official apparel.
                                 </p>
                             </div>
                         </li>
                         <li>
-                            <a class="uk-accordion-title" href="#">How can I be sure that the money will be used to compensate greenhouse gasses?</a>
+                            <a class="uk-accordion-title" href="#">How can I be sure that the money will be used to
+                                compensate greenhouse gasses?</a>
                             <div class="uk-accordion-content">
                                 <p>
-                                    Atmosfair and Fair Climate Fund provide us with certificates to prove we compensated. Additionally, we will report our income and spending each year.
+                                    Atmosfair and Fair Climate Fund provide us with certificates to prove we
+                                    compensated. Additionally, we will report our income and spending each year.
                                 </p>
                             </div>
                         </li>
@@ -146,15 +168,26 @@
                             <a class="uk-accordion-title" href="#">Does it cost me anything to use the Ninja App?</a>
                             <div class="uk-accordion-content">
                                 <p>
-                                    No, the Ninja App is absolutely free to use. The prices in the online stores are exactly the same whether you use the app or not.
+                                    No, the Ninja App is absolutely free to use. The prices in the online stores are
+                                    exactly the same whether you use the app or not.
                                 </p>
                             </div>
                         </li>
                         <li>
-                            <a class="uk-accordion-title" href="#">I am not buying in any of these stores, is there any reason for me to install the Ninja App?</a>
+                            <a class="uk-accordion-title" href="#">I am not buying in any of these stores, is there any
+                                reason for me to install the Ninja App?</a>
                             <div class="uk-accordion-content">
                                 <p>
-                                    Yes, there are three reasons: 1) We are constantly working on new partnerships, so we may partner with stores that you do use in the near future. It’s easier to have it already installed rather than regularly check if stores that you use have been added. 2) If you even once decide to buy from our partners stores, having the Ninja App already installed can be a difference with the output of CO₂ in the world. It’s better to have it installed just in case, rather than miss an easy opportunity to do a lot of good for free. 3) It is easier to establish new partnerships with a bigger user base: the more users the Ninja App has, the easier it is to convince new stores to join our initiative. Therefore, by installing the Ninja App, you make it more probable that we will partner with shops you use in the future.
+                                    Yes, there are three reasons: 1) We are constantly working on new partnerships, so
+                                    we may partner with stores that you do use in the near future. It’s easier to have
+                                    it already installed rather than regularly check if stores that you use have been
+                                    added. 2) If you even once decide to buy from our partners stores, having the Ninja
+                                    App already installed can be a difference with the output of CO₂ in the world. It’s
+                                    better to have it installed just in case, rather than miss an easy opportunity to do
+                                    a lot of good for free. 3) It is easier to establish new partnerships with a bigger
+                                    user base: the more users the Ninja App has, the easier it is to convince new stores
+                                    to join our initiative. Therefore, by installing the Ninja App, you make it more
+                                    probable that we will partner with shops you use in the future.
                                 </p>
                             </div>
                         </li>
@@ -162,7 +195,13 @@
                             <a class="uk-accordion-title" href="#">How does it work?</a>
                             <div class="uk-accordion-content">
                                 <p>
-                                    After installing the Ninja app you will see a our “Shop CO₂ok” box whilst shopping in one of our partner stores. Simply click this box and you will be redirected back to the partner store (exactly where you were before). From then on, whenever you buy something, CO₂ok receives a portion of the price you pay (usually between 1% and 6%). We donate our profits to carefully selected organisations such as Atmosfair. Some stores will require you to repeat the process after some time. You are a mobile Ninja - see here.
+                                    After installing the Ninja app you will see a our “Shop CO₂ok” box whilst shopping
+                                    in one of our partner stores. Simply click this box and you will be redirected back
+                                    to the partner store (exactly where you were before). From then on, whenever you buy
+                                    something, CO₂ok receives a portion of the price you pay (usually between 1% and
+                                    6%). We donate our profits to carefully selected organisations such as Atmosfair.
+                                    Some stores will require you to repeat the process after some time. You are a mobile
+                                    Ninja - see here.
                                 </p>
                             </div>
                         </li>
@@ -170,7 +209,10 @@
                             <a class="uk-accordion-title" href="#">Credits to Altruisto</a>
                             <div class="uk-accordion-content">
                                 <p>
-                                    We would like to thank Altruisto for putting their code open source so we could fork our own project based on their previous work. Altruisto does a great job at donating to charities through online shoppings. Their GitHub repo can be found here: Altruisto GitHub repository
+                                    We would like to thank Altruisto for putting their code open source so we could fork
+                                    our own project based on their previous work. Altruisto does a great job at donating
+                                    to charities through online shoppings. Their GitHub repo can be found here:
+                                    Altruisto GitHub repository
                                 </p>
                             </div>
                         </li>
@@ -229,20 +271,17 @@
 </template>
 
 <script>
-    import Vue from 'vue'
-    import Vuikit from 'vuikit'
-    import '@vuikit/theme'
-    import VkGrid from "vuikit/src/library/grid/components/grid";
-
-    Vue.use(Vuikit)
     export default {
         name: "Faq",
-        components: {VkGrid}
+        // components: {VkGrid}
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
+    #footer /deep/ {
+        @import "~uikit/dist/css/uikit.min.css";
+    }
+
     @import '../styles/main.scss';
     @import '../styles/faq.scss';
-
 </style>

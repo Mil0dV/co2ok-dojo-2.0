@@ -201,11 +201,11 @@
 </template>
 
 <script>
-    import Vue from 'vue'
-    import Vuikit from 'vuikit'
-    import '@vuikit/theme'
+    // import Vue from 'vue'
+    // import Vuikit from 'vuikit'
+    // import '@vuikit/theme'
 
-    Vue.use(Vuikit)
+    // Vue.use(Vuikit)
     export default {
         name: "Privacy",
 
@@ -223,7 +223,10 @@
     }
 </script>
 
+<style scoped>
+    @import "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/css/uikit.min.css";
+</style>
+
 <style lang="scss" scoped>
     @import '../styles/privacy.scss';
-
 </style>

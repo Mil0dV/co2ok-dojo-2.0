@@ -2,7 +2,7 @@
     <v-container class="register__container ma-0 pa-0" fluid align-center grid-list-md text-xs-center>
         <v-layout class="register__layout  ma-0 pa-0" wrap row>
             <v-flex class="register__col-1" xs12 sm12 md6>
-                <v-layout  class="register__col-filler hidden-sm-and-down" wrap>
+                <v-layout class="register__col-filler hidden-sm-and-down" wrap>
 
                 </v-layout>
 
@@ -20,10 +20,10 @@
             </v-flex>
 
             <v-flex xs12 sm12 md6 lg4>
-                <v-layout  justify-center align-center column wrap class="hidden-sm-and-down pa-5">
+                <v-layout justify-center align-center column wrap class="hidden-sm-and-down pa-5">
                 </v-layout>
 
-                <v-layout class="register__layout-form pa-5" justify-center align-center column wrap >
+                <v-layout class="register__layout-form pa-5" justify-center align-center column wrap>
                     <v-flex class="register__form-mb" justify-center align-center column wrap xs12 lg4>
                         <form v-model="valid" class="login__form">
                             <div class="login__header-group animated fadeInUp">
@@ -35,7 +35,8 @@
                                         leave-active-class="animated fadeOut"
                                         mode="out-in">
 
-                                <div v-if="!next" key="firstSlide" class="login__group animated fadeInUp" style="animation-delay: 0.3s;">
+                                <div v-if="!next" key="firstSlide" class="login__group animated fadeInUp"
+                                     style="animation-delay: 0.3s;">
 
                                     <label class="login__group">
                                         <div>Company name<span class="asterik">*</span></div>
@@ -120,8 +121,9 @@
                                 </div>
                             </transition>
 
-                            <div class="register__button-group animated bounceInUp slower" style="animation-delay: 0.6s;">
-                                <button v-if="next" @click="next = false"  class="login__back">
+                            <div class="register__button-group animated bounceInUp slower"
+                                 style="animation-delay: 0.6s;">
+                                <button v-if="next" @click="next = false" class="login__back">
                                     <span> Back</span>
                                 </button>
 
@@ -129,7 +131,8 @@
                                     <span>Next</span>
                                 </button>
 
-                                <button v-else type="submit" @keyup.enter="merchant_idChecker()" @click.prevent="merchant_idChecker()"
+                                <button v-else type="submit" @keyup.enter="merchant_idChecker()"
+                                        @click.prevent="merchant_idChecker()"
                                         class="login__submit">
                                     <span v-if="send === false">Make an account</span>
                                     <v-progress-circular v-else indeterminate color="white">
@@ -180,20 +183,9 @@
             }
         },
 
-        created(){
-
-            let routerParam = this.$route.params.merchantId
-            console.log(routerParam);
-            
-            if(routerParam == '')
-            {
-                alert('you can t visit this page')
-            }
-
-            // this.merchant_idChecker()
-
+        mounted() {
+          console.log(this.$router.params.merchantId)
         },
-
 
         methods: {
             errorMessage() {
@@ -203,33 +195,33 @@
             },
 
             //check of de webshop eigenaar id in de url al gekoppeld is aan een account
-            merchant_idChecker(){
+            merchant_idChecker() {
 
-              let mechantId = this.$route.params.merchantId
-              this.$axios
-              .post(`${this.$store.state.SITE_HOST}/merchantIdChecker/`,{
-                  body: {
-                      merchantId: mechantId
-                  },
-                  headers: {
-                    "X-CSRFToken": `${this.$store.state.userToken}`,
-                    Authorization: `token ${window.localStorage.getItem('userToken')}`
-                  }
-              }).then(response => {
-                  console.log(response);
-                  
-                  if(response.data[0].accountIdCheck && response.data[1].dynamoIdCheck > 0){
-                      console.log('logged');
-                      
-                      this.register()
-                  }else{
-                      alert('deze id is al gekkopeld aan een account of is niet geldig')
-                  }
+                let mechantId = this.$route.params.merchantId
+                this.$axios
+                    .post(`${this.$store.state.SITE_HOST}/merchantIdChecker/`, {
+                        body: {
+                            merchantId: mechantId
+                        },
+                        headers: {
+                            "X-CSRFToken": `${this.$store.state.userToken}`,
+                            Authorization: `token ${window.localStorage.getItem('userToken')}`
+                        }
+                    }).then(response => {
+                    console.log(response);
 
-              }).catch(error=> {
-                  console.log(error);
-                  
-              })
+                    if (response.data[0].accountIdCheck && response.data[1].dynamoIdCheck > 0) {
+                        console.log('logged');
+
+                        this.register()
+                    } else {
+                        alert('deze id is al gekkopeld aan een account of is niet geldig')
+                    }
+
+                }).catch(error => {
+                    console.log(error);
+
+                })
 
 
             },
@@ -500,7 +492,7 @@
         }
 
         .login__back {
-            padding:5px 15px;
+            padding: 5px 15px;
         }
 
         .login__group {
@@ -512,7 +504,7 @@
         }
     }
 
-    @media (max-width:600px) {
+    @media (max-width: 600px) {
         .login__form {
             padding: 40px 40px;
             width: 100%;
