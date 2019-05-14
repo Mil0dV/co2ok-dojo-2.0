@@ -22,13 +22,13 @@
             <v-flex xs12 sm12 md6 lg4>
                 <v-layout justify-center align-center column wrap class="hidden-sm-and-down pa-5">
                 </v-layout>
-
+r
                 <v-layout class="register__layout-form pa-5" justify-center align-center column wrap>
                     <v-flex class="register__form-mb" justify-center align-center column wrap xs6 lg4>
                         <form v-model="valid" class="login__form">
                             <div class="login__header-group animated fadeInUp">
                                 <p class="login__form-header">Account</p>
-                                <p class="login__form-title">Login to access to more information</p>
+                                <h1 class="login__form-title">Login to access to more information</h1>
                             </div>
 
 

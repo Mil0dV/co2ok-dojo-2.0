@@ -28,7 +28,7 @@
                         <form v-model="valid" class="login__form">
                             <div class="login__header-group animated fadeInUp">
                                 <p class="login__form-header">Account</p>
-                                <p class="login__form-title">Make an account to get access to more info!</p>
+                                <h1 class="login__form-title">Make an account to get access to more info!</h1>
                             </div>
 
                             <transition enter-active-class="animated fadeIn"
