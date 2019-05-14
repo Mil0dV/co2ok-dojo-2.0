@@ -362,8 +362,10 @@
             margin-left: 0;
             font-size: 15px;
             overflow: hidden;
-            max-width: 800px !important;
-            width: 100% !important;
+            max-width: 600px;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
         }
 
         .register__layout-form {
@@ -374,10 +376,15 @@
 
         .register__form-mb {
             margin: 0;
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .login__form-title {
-            font-size: 17px;
+            font-size: 20px;
             line-height: 25px;
         }
 
@@ -398,10 +405,11 @@
         .login__form {
             padding: 40px 40px;
             width: 100%;
+            max-width: 500px;
         }
 
         .login__submit, .login__back {
-            padding: 5px 10px;
+            padding: 5px 20px;
             font-size: 15px;
         }
     }

@@ -175,7 +175,9 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import '../../styles/main.scss';
+
     .navbar__container {
         font-family: 'Poppins', sans-serif;
         font-weight: 800;
@@ -188,7 +190,6 @@
         background: white;
         overflow: hidden;
         box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.25);
-
     }
 
     .navbar__wrapper {

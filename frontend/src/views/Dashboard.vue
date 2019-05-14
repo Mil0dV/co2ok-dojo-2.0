@@ -163,6 +163,7 @@
 
 <style scoped>
     .dashboard {
+        border: 1px solid transparent;
         background: #F4F4F4;
         margin: 0 auto;
         width: 100%;
@@ -173,7 +174,7 @@
     .dashboard__container {
         width: 100%;
         max-width: 1146px;
-        margin: 38px auto 0;
+        margin: 38px auto 100px;
         display: flex;
         flex-direction: column;
     }

@@ -27,13 +27,13 @@
 
           <!-- md - lg - xlg display -->
           <v-flex xs12 sm12 md4 lg4 xlg3 v-for="(ninjaExtensionStep,i) in ninjaExtensionSteps" :key="i" class="hidden-sm-and-down steps-container mb-5">
-              <!-- <img :src="ninjaExtensionStep.img" alt="" class="mb-4 animated bounceIn" :style="{animationDelay:0.5+i-(i*'0.5')+'s'}" data-aos="zoom-in" :data-aos-delay="i*50"> -->
+              <!-- <img :src="ninjaExtensionStep.img" alt="" class="mb-4 animated bounceIn" :styles="{animationDelay:0.5+i-(i*'0.5')+'s'}" data-aos="zoom-in" :data-aos-delay="i*50"> -->
               <img :src="ninjaExtensionStep.img" alt="" class="mb-4" data-aos="zoom-in" :data-aos-delay="i*50" style="height:237px;">
-              <!-- <p class="font-weight-bold animated zoomIn" :style="{animationDelay: 0.7+i-(i*'0.5')+'s'}" style="font-size:21px; color: #10DC87;margin: 0px;" data-aos="zoom-in-up" :data-aos-delay="i*100">Step{{i+1}}</p> -->
+              <!-- <p class="font-weight-bold animated zoomIn" :styles="{animationDelay: 0.7+i-(i*'0.5')+'s'}" styles="font-size:21px; color: #10DC87;margin: 0px;" data-aos="zoom-in-up" :data-aos-delay="i*100">Step{{i+1}}</p> -->
               <p class="font-weight-bold mb-1" style="font-size:21px; color: #10DC87;margin: 0px;" data-aos="zoom-in-up" :data-aos-delay="i*100">Step{{i+1}}</p>
-              <!-- <p class="animated zoomIn" :style="{animationDelay: 0.9+i-(i*'0.5')+'s'}" style="color: #28123E;font-size:15px;margin: 0px;" data-aos="zoom-in-up" :data-aos-delay="i*100">{{ninjaExtensionStep.title}}</p> -->
+              <!-- <p class="animated zoomIn" :styles="{animationDelay: 0.9+i-(i*'0.5')+'s'}" styles="color: #28123E;font-size:15px;margin: 0px;" data-aos="zoom-in-up" :data-aos-delay="i*100">{{ninjaExtensionStep.title}}</p> -->
               <p class="font-weight-bold" style="color: #28123E;font-size:15px;margin: 0px;" data-aos="zoom-in-up" :data-aos-delay="i*100">{{ninjaExtensionStep.title}}</p>   
-              <!-- <p class="animated zoomIn" :style="{animationDelay:1.1+i-(i*'0.5')+'s'}" style="color: #28123E;font-size:16px;text-align: center;" data-aos="zoom-in-up" :data-aos-delay="i*100">{{ninjaExtensionStep.content}}</p> -->
+              <!-- <p class="animated zoomIn" :styles="{animationDelay:1.1+i-(i*'0.5')+'s'}" styles="color: #28123E;font-size:16px;text-align: center;" data-aos="zoom-in-up" :data-aos-delay="i*100">{{ninjaExtensionStep.content}}</p> -->
               <p class="steps-content pa-2" style="color: #28123E;text-align: center;" data-aos="zoom-in-up" :data-aos-delay="i*100">{{ninjaExtensionStep.content}}</p>
           </v-flex>
 
@@ -99,7 +99,7 @@
                   <p class="mt-3 mb-5 animated fadeInUp">{{project.txt}}</p>
                 </div> 
             </v-carousel-item>
-            <!-- <p class="caption mt-4 mb-5"  style="margin: 0px;font-size: 20px; text-align:center; color: #28123E;">Sustainable energy sources like the sun, wind and hydro power don’t have negative effects on the climate.<br>Very little greenhouse gases are emitted and there is no air polution.</p> -->
+            <!-- <p class="caption mt-4 mb-5"  styles="margin: 0px;font-size: 20px; text-align:center; color: #28123E;">Sustainable energy sources like the sun, wind and hydro power don’t have negative effects on the climate.<br>Very little greenhouse gases are emitted and there is no air polution.</p> -->
           </v-carousel>
         </v-flex>
 
@@ -120,8 +120,8 @@
                        :key="i" 
                        :src="partnerIcon.src" 
                        alt="" 
-                       style="border: 1px solid red; width: 168px;height:168px;"
-                       :style="{animationDelay:'0.2'*i+'s'}"
+                       styles="border: 1px solid red; width: 168px;height:168px;"
+                       :styles="{animationDelay:'0.2'*i+'s'}"
                        class="animated zoomIn"
                       > -->
                       <div 
@@ -244,8 +244,8 @@ methods: {
 
     // for (let i = 0; i < carouselActives.length; i++) {      
     //   let carouselActive = carouselActives[i];
-    //   carouselActive.style.opacity = '1'
-    //   carouselActive.style.color = 'green'
+    //   carouselActive.styles.opacity = '1'
+    //   carouselActive.styles.color = 'green'
     //   console.log(carouselActive);   
     // }
 
@@ -712,7 +712,7 @@ methods: {
 /*---------------------*/
 
 
-/* responsive style */
+/* responsive styles */
 
 @media only screen and (max-width: 1400px){
   .home-container{

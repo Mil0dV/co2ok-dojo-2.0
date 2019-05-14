@@ -1,0 +1,189 @@
+
+/* ------- Variables ------- */
+
+$main-color: #08BA4D;
+$secondary-color: #10DC87;
+$main-gradient: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);
+$text-color: #2F2F2F;
+
+/* ------- Main things ------- */
+
+h1, h2, h3, p, a, label, input, ::placeholder {
+  font-family: 'Poppins', sans-serif !important;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #606468;
+  font-weight: 600;
+  margin: 0;
+  font-size: 40px;
+  line-height: 48px;
+  margin-bottom: 20px;
+}
+
+.subheading {
+  color: $main-color;
+  font-size: 18px;
+}
+
+p, a, input, ::placeholder {
+  font-size: 16px !important;
+}
+
+p, label, input {
+  color: $text-color;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  font-size: 14px;
+}
+
+input {
+  display: block;
+  margin-top: 4px;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  border: 1px solid #BCBCBC;
+  padding: 13px;
+  width: 100%;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+    border: 1px solid $main-color;
+  }
+}
+
+::placeholder {
+  color: #959595;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.link {
+  color: $main-color;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  &:hover {
+    color: $main-color;
+    text-decoration: underline;
+  }
+}
+
+.button, .button-secondary {
+  padding: 10px 25px !important;
+  text-align: center;
+  border-radius: 5px;
+  transition: 0.1s;
+}
+
+.button {
+  padding: 12px 25px !important;
+  background: $main-gradient;
+  color: #fff !important;
+  font-weight: 400 !important;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.button-secondary {
+  border: 2px solid #9F9F9F;
+  color: #9F9F9F;
+  background-color: none;
+
+  &:hover {
+    background-color: #9F9F9F;
+    color: white;
+  }
+}
+
+.blockquote {
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+
+  border-left: 6px solid $secondary-color;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 0px 3px 3px 0px;
+}
+
+@media screen and (max-width: 640px) {
+  h1 {
+    font-size: 30px;
+    line-height: 38px;
+    margin-bottom: 15px;
+  }
+
+  .subheading {
+    font-size: 16px;
+  }
+
+  p, a, input, ::placeholder {
+    font-size: 14px !important;
+  }
+
+  label {
+    font-size: 12px;
+  }
+}
+
+
+/* ------- Main ------- */
+
+.main {
+  margin: 0 auto;
+  max-width: 1160px;
+  width: 100%;
+  text-align: left;
+  padding: 50px 0px 70px 0px;
+
+  ul {
+    li {
+      border-radius: 3px;
+      border: 1px solid #BCBCBC;
+
+      .uk-accordion-title {
+        padding: 20px;
+        font-size: 18px !important;
+        font-weight: 600;
+      }
+
+      .uk-accordion-content {
+        margin: 0px 20px 20px 20px;
+        padding-top: 20px;
+        border-top: 1px solid #BCBCBC;
+      }
+    }
+  }
+
+  .dutch {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    ul {
+      li {
+        .uk-accordion-title {
+          font-size: 16px !important;
+        }
+      }
+    }
+  }
+}

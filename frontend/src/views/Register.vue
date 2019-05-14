@@ -28,7 +28,7 @@
                         <form v-model="valid" class="login__form">
                             <div class="login__header-group animated fadeInUp">
                                 <p class="login__form-header">Account</p>
-                                <p class="login__form-title">Make an account to get access to more info!</p>
+                                <h1 class="login__form-title">Make an account to get access to more info!</h1>
                             </div>
 
                             <transition enter-active-class="animated fadeIn"
@@ -474,21 +474,28 @@
             margin-left: 0;
             font-size: 15px;
             overflow: hidden;
-            width: 450px;
+            max-width: 600px;
+            width: 100%;
         }
 
         .register__layout-form {
+            margin-bottom: 100px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .register__form-mb {
-            margin: 0;
+            margin: 0 0 100px;
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .login__form-title {
-            font-size: 17px;
+            font-size: 20px;
             line-height: 25px;
         }
 
@@ -509,10 +516,11 @@
         .login__form {
             padding: 40px 40px;
             width: 100%;
+            max-width: 500px;
         }
 
         .login__submit, .login__back {
-            padding: 5px 10px;
+            padding: 5px 20px;
             font-size: 15px;
         }
     }

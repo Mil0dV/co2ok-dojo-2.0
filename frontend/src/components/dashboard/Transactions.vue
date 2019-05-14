@@ -140,8 +140,8 @@ import LineChart from '@/components/dashboard/chart.vue'
               monthNumber: 0,
               realTimeMonth: this.$moment().format('MMMM'), //displayed month when next/pren are clicked
               monthsArr: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Dencember'],
-              nextStyle: {color: '#E0E0E0', cursor: 'default'}, // month next btn dunamic style
-              prevStyle: {color: '#369555', cursor: 'pointer'} // month previous btn dunamic style
+              nextStyle: {color: '#E0E0E0', cursor: 'default'}, // month next btn dunamic styles
+              prevStyle: {color: '#369555', cursor: 'pointer'} // month previous btn dunamic styles
 
             }
         },
