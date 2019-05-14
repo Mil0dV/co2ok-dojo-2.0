@@ -109,6 +109,7 @@ def signup(request):
                 street = request.data['body']['street']
                 number = request.data['body']['number']
                 link = request.data['body']['link']
+                merchantId = request.data['body']['merchantId']
     
                 WebshopProfile.objects.create(
                     user=user,
@@ -118,7 +119,8 @@ def signup(request):
                     zipCode=zipcode,
                     street=street,
                     number=number,
-                    link=link
+                    link=link,
+                    merchant_id=merchantId
                 )
                 # userToken(request, user)
                 if userAuth:

@@ -9,6 +9,7 @@ from django.conf import settings
 from django.views.generic import TemplateView
 from django.contrib.auth.views import logout
 from accounts import views
+from dashboard import views as dashView
 from .router import router
 
 urlpatterns = [
@@ -27,6 +28,7 @@ urlpatterns = [
     # url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     path("accounts/", include("accounts.urls", namespace="accounts")),
     path("dashboard/", include("dashboard.urls", namespace="dashboard")),
+    path("merchantIdChecker/", dashView.merchantIdChecker, name="merchantIdChecker"),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management

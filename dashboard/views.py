@@ -11,9 +11,10 @@ from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes
 from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
+from rest_framework.permissions import AllowAny
 #------------------------------------------------------------------------------
 import base64
-# from dashboard.models import Merchant, Transaction
+from dashboard.models import Merchant, Transaction
 import datetime
 
 # Create your views here.
@@ -53,32 +54,30 @@ class UserView(viewsets.ModelViewSet):
         }
         return Response(context)
 
-    # check if the merchant has already an account and if the merchant id exist in the dynamoDB
-    # @csrf_exempt
-    # @action(methods=['get'], detail=False)
-    # def merchantIdChecker(self, request):
-    #     merchantId = request.query-params.get('merchantId')
-    #     #check if the sended mercahant id already have an account
-    #     merchantIdCount = Profile.objects.filter(merchant_id=merchantId).count()
-    #     if merchantIdCount == 0:
-    #         return Response({'accoundId': True})
-    #     else:
-    #         return Response({'accountId': False})
-        
-    #     #check if the sended mercahant id exist in the dynamoDB
-    #     merchantId_list = []
-    #     for merchant_id in Transaction.scan(Transaction.merchant_id == merchantId):
-    #         merchantId_count = merchant_id.count()
-    #         if merchantId_count > 0:
-    #             merchantId_list.append(merchantId_count)
-    #         else:
-    #             pass
-            
-    #     return Response({'dynamoId': merchantId_list})
 
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((AllowAny,))
+def merchantIdChecker(request):
+    merchantId_list = []
+    merchantId = request.data['body']['merchantId']
 
+    #check if the sended mercahant id already have an account
+    merchantIdCount = Profile.objects.filter(merchant_id=merchantId).count()
+    if merchantIdCount == 0:
+        merchantId_list.append({'accoundIdCheck': True})
+    else:
+        merchantId_list.append({'accoundIdCheck': False})
 
-
+    #check if the sended mercahant id exist in the dynamoDB  
+    for merchantid in Transaction.scan(Transaction.merchant_id == merchantId):
+        merchantId_count = merchantid.count()
+        if merchantId_count > 0:
+            merchantId_list.append({'dynamoIdCheck':merchantId_count})
+            return Response({'accoundIdCheck': merchantId_list[0].accoundIdCheck, 'dynamoIdCheck': merchantId_list[1].dynamoIdCheck})
+        else:
+            return Response({'dynamoId': 'Not valid'})
+    return Response({'msg': 'Merchant id not valid', 'accoundIdCheck': False, 'dynamoIdCheck': 0})
 
 # def uuid_hex_from_b64(encoded):
 #     decoded = base64.b64decode(encoded)

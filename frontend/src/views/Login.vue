@@ -129,7 +129,7 @@ r
                                 password: this.password,
                                 sort: 'webshop',
                             },
-                            header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
+                            // header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
 
                         })
                         .then(response => {
@@ -137,14 +137,14 @@ r
                                 if (response.data.authenticate) {
                                     this.$store.dispatch('commitSaveUser', response.data)
                                     this.$store.commit('setLocalUserData', response.data)
-                                    console.log('userlocal', response.data.token);
+                                    console.log('userlocal', response.data.authenticate);
 
                                     // this.$store.state.userStatus = true;
                                     // console.log(this.$store.state.userAuthLocalData);
                                     this.$store.commit('isLoggedIn', response.data.authenticate)
                                     this.$store.dispatch('commitGetUserData');
                                     //userSession return a boolean of de authenticate status of the user
-                                    if(this.$store.state.Authenticated)
+                                    if(window.localStorage.getItem('Authenticated'))
                                     {
                                         this.$router.push('dashboard')
                                     }else{
@@ -162,7 +162,9 @@ r
                             }
                         })
                         .catch(error => {
-                            this.errorMessage(message)
+                            // this.errorMessage(message)
+                            console.log(error);
+                            
                         })
                     this.send = false
                 }

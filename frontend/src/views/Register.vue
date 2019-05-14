@@ -190,7 +190,7 @@
                 alert('you can t visit this page')
             }
 
-            // this.merchant_idChecker()
+            this.merchant_idChecker()
 
         },
 
@@ -207,7 +207,10 @@
 
               let mechantId = this.$route.params.merchantId
               this.$axios
-              .get(`${this.$store.state.SITE_HOST}/user/merchantIdChecker/?mechantId=${mechantId}`,{
+              .post(`${this.$store.state.SITE_HOST}/merchantIdChecker/`,{
+                  body: {
+                      merchantId: mechantId
+                  },
                   headers: {
                     "X-CSRFToken": `${this.$store.state.userToken}`,
                     Authorization: `token ${window.localStorage.getItem('userToken')}`
@@ -215,8 +218,9 @@
               }).then(response => {
                   console.log(response);
                   
-                  if(response.accountId && response.dynamoId.lenght > 0){
-                      this.register()
+                  if(response.data.accoundIdCheck && response.data.dynamoIdCheck > 0){
+                    //   this.register()
+                    alert('id valid')
                   }else{
                       alert('deze id is al gekkopeld aan een account of is niet geldig')
                   }
@@ -257,7 +261,7 @@
                                 // zipcode: this.zipcode,
                                 // street: this.street
                             },
-                            header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
+                            // header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
 
                         })
                         .then(response => {

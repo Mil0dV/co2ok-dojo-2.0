@@ -6,6 +6,7 @@ import {
 // import axios from 'axios'
 
 Vue.use(Vuex)
+import axios from 'axios'
 
 export default new Vuex.Store({
     state: {
@@ -50,7 +51,7 @@ export default new Vuex.Store({
         },
 
         getUserData(state) {
-            this.$axios
+           axios
                 .get(`${state.SITE_HOST}/user/authenticateUser/?id=${window.localStorage.getItem('userId')}`, {
                     headers: {
                         "X-CSRFToken": `${state.userToken}`,

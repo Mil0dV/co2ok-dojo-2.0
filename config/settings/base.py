@@ -309,14 +309,14 @@ CORS_ALLOW_METHODS = (
 
 ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = False
+CORS_ALLOW_CREDENTIALS = True
 CORS_EXPOSE_HEADERS = (
     'Access-Control-Allow-Origin: *',
 )
 
 CORS_ORIGIN_WHITELIST = (
-    'localhost:8080',
-    '192.168.56.1:8080/',
+    # 'localhost:8080',
+    # '192.168.56.1:8080/',
 )
 
 #---------- email settings -----------------------------
