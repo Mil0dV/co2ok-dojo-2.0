@@ -140,7 +140,7 @@
                     this.view = 'Transactions'
                     this.active = 0
                 } else if (order === 1) {
-                    con
+                    // con
                     this.view = 'Plugin'
                     this.active = 1
                 } else if (order === 2) {
