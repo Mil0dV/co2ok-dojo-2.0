@@ -153,7 +153,12 @@
 
 
 <script>
-    // import axios from 'axios'
+    import axios from 'axios'
+    import Vue from 'vue'
+    import Vuetify from 'vuetify'
+    import 'vuetify/dist/vuetify.min.css'
+
+    Vue.use(Vuetify);
 
     export default {
         name: 'Register',
@@ -289,6 +294,7 @@
     }
 
     .register__layout {
+        min-height: 93vh;
         height: 100%;
     }
 
