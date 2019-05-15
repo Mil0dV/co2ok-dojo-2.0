@@ -1,84 +1,90 @@
 <template>
-    <v-container class="register__container ma-0 pa-0" fluid align-center grid-list-md text-xs-center>
-        <v-layout class="register__layout  ma-0 pa-0" wrap row>
-            <v-flex class="register__col-1" xs12 sm12 md6>
-                <v-layout class="register__col-filler" wrap>
+        <div class="register__container">
+            <v-layout class="register__layout  ma-0 pa-0" wrap row>
+                <v-flex class="register__col-1" xs12 sm12 md6>
+                    <v-layout class="register__col-filler" wrap>
 
-                </v-layout>
+                    </v-layout>
 
-                <v-layout row wrap class="hidden-sm-and-down">
-                    <v-flex xs12 sm7 lg6 offset-md2 offset-lg5>
-                        <div class="login__info animated fadeInUp">
-                            <p class="login__info-text">
-                                With an account you will get access to information how much you’ve contributed to
-                                fighting climate
-                                change
-                            </p>
-                        </div>
-                    </v-flex>
-                </v-layout>
-            </v-flex>
-
-            <v-flex xs12 sm12 md6 lg4>
-                <v-layout justify-center align-center column wrap class="hidden-sm-and-down pa-5">
-                </v-layout>
-
-                <v-layout class="register__layout-form pa-5" justify-center align-center column wrap>
-                    <v-flex class="register__form-mb" justify-center align-center column wrap xs6 lg4>
-                        <form v-model="valid" class="login__form">
-                            <div class="login__header-group animated fadeInUp">
-                                <p class="login__form-header">Account</p>
-                                <h1 class="login__form-title">Login to access to more information</h1>
+                    <v-layout row wrap class="hidden-sm-and-down">
+                        <v-flex xs12 sm7 lg6 offset-md2 offset-lg5>
+                            <div class="login__info animated fadeInUp">
+                                <p class="login__info-text">
+                                    With an account you will get access to information how much you’ve contributed to
+                                    fighting climate
+                                    change
+                                </p>
                             </div>
+                        </v-flex>
+                    </v-layout>
+                </v-flex>
 
+                <v-flex xs12 sm12 md6 lg4>
+                    <v-layout justify-center align-center column wrap class="hidden-sm-and-down pa-5">
+                    </v-layout>
 
-                            <div class="login__group animated fadeInUp">
-                                <label class="login__group">
-                                    E-mail
-                                    <input class="login__group-input" v-model="email"
-                                           type="email" placeholder="Fill in you email...">
-                                </label>
-
-                                <div class="login__group-password">
-                                    <label class="login__group">
-                                        Password
-                                        <input class="login__group-input" v-model="password"
-                                               type="password" placeholder="Fill in you password...">
-                                    </label>
-                                    <p @click="passReset = true"
-                                       class="login__form-header forgot__password">
-                                        I forgot my password
-                                    </p>
+                    <v-layout class="register__layout-form pa-5" justify-center align-center column wrap>
+                        <v-flex class="register__form-mb" justify-center align-center column wrap xs6 lg4>
+                            <form v-model="valid" class="login__form">
+                                <div class="login__header-group animated fadeInUp">
+                                    <p class="login__form-header">Account</p>
+                                    <h1 class="login__form-title">Login to access to more information</h1>
                                 </div>
-                            </div>
 
-                            <div style="width: 100%; text-align: left;" class="animated fadeInUp ">
-                                <br>
-                                <button type="submit" @keyup.enter="login()"
-                                        @click.prevent="login()"
-                                        class="login__submit">
-                                    <span v-if="send === false">Login</span>
-                                    <v-progress-circular v-else indeterminate color="white">
-                                    </v-progress-circular>
-                                </button>
-                            </div>
 
-                        </form>
-                    </v-flex>
-                </v-layout>
+                                <div class="login__group animated fadeInUp">
+                                    <label class="login__group">
+                                        E-mail
+                                        <input class="login__group-input" v-model="email"
+                                               type="email" placeholder="Fill in you email...">
+                                    </label>
 
-                <v-layout justify-center align-center column wrap class="hidden-sm-and-down pa-5">
-                </v-layout>
-            </v-flex>
-        </v-layout>
-        <PasswordForgotModal/>
-    </v-container>
+                                    <div class="login__group-password">
+                                        <label class="login__group">
+                                            Password
+                                            <input class="login__group-input" v-model="password"
+                                                   type="password" placeholder="Fill in you password...">
+                                        </label>
+                                        <p @click="passReset = true"
+                                           class="login__form-header forgot__password">
+                                            I forgot my password
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div style="width: 100%; text-align: left;" class="animated fadeInUp ">
+                                    <br>
+                                    <button type="submit" @keyup.enter="login()"
+                                            @click.prevent="login()"
+                                            class="login__submit">
+                                        <span v-if="send === false">Login</span>
+                                        <v-progress-circular v-else indeterminate color="white">
+                                        </v-progress-circular>
+                                    </button>
+                                </div>
+
+                            </form>
+                        </v-flex>
+                    </v-layout>
+
+                    <v-layout justify-center align-center column wrap class="hidden-sm-and-down pa-5">
+                    </v-layout>
+                </v-flex>
+            </v-layout>
+            <PasswordForgotModal/>
+        </div>
 </template>
 
 
 <script>
-    const PasswordForgotModal = () => import('@/components/modals/PasswordForgotModal')
     import axios from 'axios'
+    import Vue from 'vue'
+    import Vuetify from 'vuetify'
+    import 'vuetify/dist/vuetify.min.css'
+
+    Vue.use(Vuetify);
+
+    const PasswordForgotModal = () => import('@/components/modals/PasswordForgotModal')
 
     export default {
         name: 'Login',
@@ -176,12 +182,13 @@
 
 <style scoped>
     .register__container {
-        height: 100%;
+        height: 100% !important;
         width: 100%;
         background: white;
     }
 
     .register__layout {
+        min-height: 93vh;
         height: 100%;
     }
 

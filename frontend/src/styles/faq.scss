@@ -1,19 +1,4 @@
-
-/* ------- Variables ------- */
-
-$main-color: #08BA4D;
-$secondary-color: #10DC87;
-$main-gradient: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);
-$text-color: #2F2F2F;
-
 /* ------- Main things ------- */
-
-h1, h2, h3, p, a, label, input, ::placeholder {
-  font-family: 'Poppins', sans-serif !important;
-  margin: 0;
-  padding: 0;
-}
-
 h1 {
   color: #606468;
   font-weight: 600;
@@ -36,10 +21,7 @@ p, label, input {
   color: $text-color;
 }
 
-p {
-  margin: 0;
-  padding: 0;
-}
+
 
 label {
   font-size: 14px;
@@ -65,22 +47,7 @@ input {
   color: #959595;
 }
 
-a {
-  &:hover {
-    text-decoration: none;
-  }
-}
 
-.link {
-  color: $main-color;
-  padding: 0 !important;
-  margin: 0 !important;
-
-  &:hover {
-    color: $main-color;
-    text-decoration: underline;
-  }
-}
 
 .button, .button-secondary {
   padding: 10px 25px !important;

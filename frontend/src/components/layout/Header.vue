@@ -1,28 +1,23 @@
 <template>
-    <vk-grid gutter="small" class="uk-child-width-expand@s uk-text-center header__container">
+    <div uk-grid class="uk-child-width-expand@s uk-text-center header__container">
         <div class="header__image"
-             :style="{'background-image': 'url(' + require(`../../assets/images/header/${routeName}.jpg`) + ')'}">
-            <vk-card class="header__image-shade">
+             :style="{'background-image': 'url(' + require(`../../assets/images/header/${currentRouteName}.jpg`) + ')'}">
+            <div class="uk-card header__image-shade">
                 <div class="header__inner">
                     <transition enter-active-class="animated fadeInUp" mode="out-in">
                         <h2 class="header__title" :key="title">{{title}}</h2>
                     </transition>
                 </div>
-            </vk-card>
+            </div>
         </div>
-    </vk-grid>
+    </div>
 </template>
 
 <script>
-    import Vue from 'vue'
-    import Vuikit from 'vuikit'
-    import '@vuikit/theme'
-
-    Vue.use(Vuikit)
     export default {
         name: "Header",
         props: {
-            routeName: String,
+            image: String,
         },
 
         data() {
@@ -33,7 +28,7 @@
 
         methods: {
             checkHeaderTitle() {
-                switch (this.routeName) {
+                switch (this.image) {
                     case 'steps':
                         this.title = 'CO₂-compensation'
                         break;
@@ -50,7 +45,7 @@
                         this.title = 'Privacy policy'
                         break;
                     default:
-                        this.checkHeaderTitle()
+                        this.title = 'CO₂-compensation'
                         break;
                 }
             }
@@ -60,29 +55,16 @@
             this.checkHeaderTitle()
         },
 
+        computed: {
+            currentRouteName() {
+                return this.$route.name;
+            }
+        },
+
         watch: {
-            '$route'(to, from) {
-                switch (this.routeName) {
-                    case 'steps':
-                        this.title = 'CO₂-compensation'
-                        break;
-                    case 'about':
-                        this.title = 'About us'
-                        break;
-                    case 'webshops':
-                        this.title = 'Webshops'
-                        break;
-                    case 'faq':
-                        this.title = 'Frequently asked questions'
-                        break;
-                    case 'privacy':
-                        this.title = 'Privacy policy'
-                        break;
-                    default:
-                        this.checkHeaderTitle()
-                        break;
-                }
-            },
+            currentRouteName: function () {
+                this.checkHeader()
+            }
         }
     }
 </script>
@@ -93,7 +75,7 @@
     }
 
     .header__image {
-        background: no-repeat fixed 0 ;
+        background: no-repeat fixed 0;
         background-size: cover;
         height: 354px;
         width: 100%;
@@ -121,7 +103,7 @@
         text-align: left;
         font-weight: 400;
         font-size: 55px;
-        margin-bottom: 10px;
+        margin-bottom: 50px;
     }
 
     @media (max-width: 1200px) {

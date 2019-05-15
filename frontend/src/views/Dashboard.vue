@@ -94,11 +94,15 @@
 </template>
 
 <script>
+    import Vue from 'vue'
+    import Vuetify from 'vuetify'
+    import 'vuetify/dist/vuetify.min.css'
+
+    Vue.use(Vuetify);
+
     const Transactions = () => import('@/components/dashboard/Transactions')
     const Plugin = () => import('@/components/dashboard/Plugin')
     const Profile = () => import('@/components/dashboard/Profile')
-
-
     export default {
         name: "Dashboard",
         components: {
@@ -169,6 +173,7 @@
         width: 100%;
         padding: 0 60px;
         height: 100%;
+        min-height: 93vh;
     }
 
     .dashboard__container {

@@ -5,9 +5,8 @@ import Axios from 'axios'
 //Vuex imports
 import store from './store'
 import Vuex from 'vuex'
-//Vuetify & animations
 import VAnimateCss from 'v-animate-css'
-import Vuetify from 'vuetify'
+
 //Aos imports
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -15,15 +14,11 @@ import 'aos/dist/aos.css'
 import VueMoment from 'vue-moment'
 import moment from 'moment-timezone'
 
-
-import 'vuetify/dist/vuetify.min.css'
-
 Axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 Axios.defaults.xsrfCookieName = "XCSRF-TOKEN";
 Axios.defaults.withCredentials = true
 
 Vue.use(VAnimateCss);
-Vue.use(Vuetify);
 Vue.use(Vuex);
 Vue.use(VueMoment);
 

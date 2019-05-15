@@ -2,10 +2,7 @@
     <v-app id="app">
         <div class="body">
             <Nav :routeName="currentRouteName"/>
-            <!--<transition-group enter-active-class="animated fadeIn" mode="out-in">-->
-            <Header :key="showHeader" :routeName="currentRouteName" v-if="showHeader"/>
-            <router-view class="view" :key="currentRouteName" :routeName="currentRouteName"></router-view>
-            <!--</transition-group>-->
+            <router-view class="view animated fadeIn"></router-view>
         </div>
         <Footer/>
         <Modal v-if="$store.state.modalStatus"/>
@@ -14,53 +11,21 @@
 
 <script>
     const Modal = () => import('@/components/modals/Modal')
-    const Nav = () => import('@/components/layout/Nav')
-    const Header = () => import('@/components//layout/Header')
-    const Footer = () => import('@/components/layout/Footer')
+
+    import Nav from '@/components/layout/Nav'
+    import Footer from '@/components/layout/Footer'
 
     export default {
         name: 'App',
         components: {
-            Modal, Nav, Header, Footer
+            Modal, Nav, Footer
         },
-
-        data() {
-            return {
-                showHeader: false
-            }
-        },
-
-        methods: {
-            checkHeader() {
-                if (this.currentRouteName === 'dashboard' || this.currentRouteName === 'register' ||
-                    this.currentRouteName === 'login' || this.currentRouteName === 'home' || this.currentRouteName === '404') {
-                    this.showHeader = false
-                } else {
-                    this.showHeader = true
-                }
-            }
-        },
-
-        mounted() {
-            this.checkHeader()
-        },
-
-        computed: {
-            currentRouteName() {
-                return this.$route.name;
-            }
-        },
-
-        watch: {
-            currentRouteName: function () {
-                this.checkHeader()
-            }
-        }
-
     }
 </script>
 
 <style lang="scss">
+    @import 'styles/app.scss';
+
     #app {
         font-family: 'Poppins', sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -72,8 +37,8 @@
         padding: 0;
         margin: 0;
         width: 100vw;
-        min-height: 100vh;
         display: flex;
+        flex-direction: column;
         overflow: hidden;
     }
 
@@ -83,7 +48,7 @@
     }
 
     .view {
-        height: 100%;
+        height: 100% !important;
     }
 
     input:focus {
