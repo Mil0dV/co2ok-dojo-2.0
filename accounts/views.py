@@ -11,11 +11,10 @@ from django.urls import reverse
 from django.utils.translation import ugettext as _
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
-from rest_framework import viewsets
-from rest_framework.decorators import api_view, action
+from rest_framework import viewsets, permissions
+from rest_framework.decorators import api_view, action, permission_classes
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
-from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from django.core import serializers
 from .serializers import UserSerializer

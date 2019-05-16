@@ -4,7 +4,7 @@
         <v-layout flex row justify-space-around align-start class="header-layout pa-5">
 
             <v-flex xs12 sm12 md12 lg6 xlg6 class="header-txt-flex pa-5">
-                <p class="white--text animated fadeInUp" style="animation-delay:0.2s;">HI WE'RE CO2ok</p>
+                <p class="white--text animated fadeInUp mb-5" style="animation-delay:0.2s;">HI WE'RE CO₂ok</p>
                 <h1 class="font-weight-bold mb-5 animated fadeInUp" style="animation-delay:0.4s; width: 500px;">Become a
                     Ninja and<br> shop climate neutral!</h1>
                 <v-btn depressed color="#28123E" class="white--text mb-2 font-weight-bold animated zoomIn"
@@ -15,7 +15,7 @@
             </v-flex>
 
             <v-flex xs12 sm12 md12 lg6 xlg6 class="header-img-flex">
-                <div class="world-ball animated bounceIn" style="animation-delay: 0.9s;"></div>
+                <div class="world-ball animated zoomIn" style="animation-delay: 0.9s;"></div>
                 <!-- <img src="../assets/images/home/wereldbol.png" alt=""> -->
             </v-flex>
 
@@ -26,30 +26,30 @@
                 WORKS</p>
             <h1 style="width: 95%;margin:0px;animation-delay:1.2s;" class="font-weight-bold animated fadeInUp pb-2"
                 color="#28123E">FOLLOW THESE 3 SIMPLE STEPS</h1>
-            <span style="width: 95%;margin:0px;animation-delay:1.3s;" class="animated fadeInUp" color="#28123E">There are no extra costs for you. The CO₂ compensation is fully covered by the shop.</span>
+            <span style="font-size: 12px;width: 95%;margin:0px;animation-delay:1.3s;" class="animated fadeInUp">There are no extra costs for you. The CO₂ compensation is fully covered by the shop.</span>
         </div>
 
         <v-layout row wrap justify-center align-start class="mt-1">
 
             <!-- md - lg - xlg display -->
             <v-flex xs12 sm12 md4 lg4 xlg3 v-for="(ninjaExtensionStep,i) in ninjaExtensionSteps" :key="i"
-                    class="hidden-sm-and-down steps-container mb-5">
+                    class="steps-container mb-5">
                 <!-- <img :src="ninjaExtensionStep.img" alt="" class="mb-4 animated bounceIn" :styles="{animationDelay:0.5+i-(i*'0.5')+'s'}" data-aos="zoom-in" :data-aos-delay="i*50"> -->
-                <img :src="ninjaExtensionStep.img" alt="" class="mb-4" data-aos="zoom-in" :data-aos-delay="i*50"
+                <img :src="ninjaExtensionStep.img" alt="" class="mb-4" data-aos="zoom-in" :data-aos-delay="i*50" data-aos-duration="1000"
                      style="height:237px;">
                 <!-- <p class="font-weight-bold animated zoomIn" :styles="{animationDelay: 0.7+i-(i*'0.5')+'s'}" styles="font-size:21px; color: #10DC87;margin: 0px;" data-aos="zoom-in-up" :data-aos-delay="i*100">Step{{i+1}}</p> -->
                 <p class="font-weight-bold mb-1" style="font-size:21px; color: #10DC87;margin: 0px;"
-                   data-aos="zoom-in-up" :data-aos-delay="i*100">Step{{i+1}}</p>
+                   data-aos="fade-up" :data-aos-delay="i*100" data-aos-duration="1000">Step{{i+1}}</p>
                 <!-- <p class="animated zoomIn" :styles="{animationDelay: 0.9+i-(i*'0.5')+'s'}" styles="color: #28123E;font-size:15px;margin: 0px;" data-aos="zoom-in-up" :data-aos-delay="i*100">{{ninjaExtensionStep.title}}</p> -->
-                <p class="font-weight-bold" style="color: #28123E;font-size:15px;margin: 0px;" data-aos="zoom-in-up"
-                   :data-aos-delay="i*100">{{ninjaExtensionStep.title}}</p>
+                <p class="font-weight-bold" style="color: #28123E;font-size:15px;margin: 0px;" data-aos="fade-up"
+                   :data-aos-delay="i*100" data-aos-duration="1000">{{ninjaExtensionStep.title}}</p>
                 <!-- <p class="animated zoomIn" :styles="{animationDelay:1.1+i-(i*'0.5')+'s'}" styles="color: #28123E;font-size:16px;text-align: center;" data-aos="zoom-in-up" :data-aos-delay="i*100">{{ninjaExtensionStep.content}}</p> -->
-                <p class="steps-content pa-2" style="color: #28123E;text-align: center;" data-aos="zoom-in-up"
-                   :data-aos-delay="i*100">{{ninjaExtensionStep.content}}</p>
+                <p class="steps-content pa-2" style="color: #28123E;text-align: center;" data-aos="fade-up"
+                   :data-aos-delay="i*100" data-aos-duration="1000">{{ninjaExtensionStep.content}}</p>
             </v-flex>
 
             <!-- mobile - tablet(xsm - sm) display -->
-            <v-flex xs12 sm12 class="hidden-md-and-up steps-container mb-3">
+            <!-- <v-flex xs12 sm12 class="hidden-md-and-up steps-container mb-3">
                 <v-carousel :light="light" interval="10000" hide-controls height="450px" style="">
                     <v-carousel-item v-for="(ninjaExtensionStep,i) in ninjaExtensionSteps" :key="i">
                         <div class="mobile-spets-items-container">
@@ -64,27 +64,26 @@
                         </div>
                     </v-carousel-item>
                 </v-carousel>
-            </v-flex>
+            </v-flex> -->
 
         </v-layout>
 
-        <v-btn data-aos="zoom-in-up" data-aos-duration="600" depressed class="white--text involed-btn font-weight-bold"
+        <v-btn data-aos="fade-up" data-aos-duration="600" depressed class="white--text involed-btn font-weight-bold"
                style="background: linear-gradient(to right, #10DC87, #08BA4D);">GET INVOLVED & FIGHT CLIMATE CHANGE
         </v-btn>
-        <div class="transaction-steps" data-aos="zoom-in"></div>
+        <div class="transaction-steps" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"></div>
 
-        <v-layout column justify-center align-center class="mt-5 mb-3 grey lighten-4"
-                  style="width: 100%; background-color: #F4F4F4;">
-            <v-flex xs12 sm12 md6 lg6 xlg6 class="webshop-txt-flex mt-3">
-                <p data-aos="fade-up" data-aos-duration="600" class=""
+        <v-layout column justify-center align-center class="mt-5 mb-3 grey lighten-4" style="width: 100%; background-color: #F4F4F4;">
+            <v-flex xs12 sm12 md12 lg12 xlg12 class="webshop-txt-flex mt-3">
+                <p data-aos="fade-up" data-aos-duration="1000" class=""
                    style="text-align: center; font-size: 21px; color: #10DC87; margin: 0px;position: relative; top:10px;">
                     Choose from 22.000+ webshops</p>
-                <h3 data-aos="fade-up" data-aos-delay="200" data-aos-duration="600" class="font-weight-bold shops-title"
+                <h3 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" class="font-weight-bold shops-title"
                     style="">Together we can make a change</h3>
             </v-flex>
 
-            <v-flex xs12 sm12 md6 lg6 xlg6 class="slider-flex">
-                <v-carousel :light='carouselLightTheme' hide-controls style=""
+            <v-flex xs12 sm12 md12 lg12 xlg12 class="slider-flex">
+                <!-- <v-carousel :light='carouselLightTheme' hide-controls style=""
                             class="grey lighten-4 slider-carousel pa-1">
 
                     <v-carousel-item v-for="(webshop, i) in webshops" :key="i">
@@ -98,7 +97,19 @@
                         </div>
                     </v-carousel-item>
 
-                </v-carousel>
+                </v-carousel> -->
+                <div style="width: 100%;height: auto;" class="webshops-img-container" v-for="(webshop, i) in webshops" :key="i">
+                  <div
+                      v-for="(webshopIcon, i) in webshop.icons"
+                      :key="i"
+                      :style="{backgroundImage: `url(${webshopIcon.src})`}"
+                      class="partners-imgs"
+                      data-aos="fade-up"
+                      :data-aos-delay="200*i"
+                      data-aos-duration="1000"
+                  ></div>
+                </div>
+
             </v-flex>
         </v-layout>
 
@@ -109,10 +120,10 @@
             </div>
 
             <v-flex xs12 sm12 md10 lg10 xlg10 class="projects-flex" style="">
-                <h2 class="font-weight-bold support-title" data-aos="fade-up" data-aos-duration="500" style="">WITH YOUR
+                <h2 class="font-weight-bold support-title" data-aos="fade-up" data-aos-duration="1000" style="">WITH YOUR
                     HELP WE SUPPORT<br> THESE SUSTAINABLE PROJECTS!</h2>
-                <p class="caption" style="margin: 0px;font-size: 13px; text-align:center;" data-aos="fade-up"
-                   data-aos-delay="200" data-aos-duration="500">Check out the various <span style="color:#27B0C7;">projects</span>
+                <p class="" style="margin: 0px;font-size: 13px; text-align:center;" data-aos="fade-up"
+                   data-aos-delay="200" data-aos-duration="1000">Check out the various <a href="" style="color:#27B0C7;text-decoration: none;">projects</a>
                     your clicks finance.</p>
                 <v-carousel :light='carouselLightTheme' height="470" class="projects-slider">
                     <v-carousel-item
@@ -133,28 +144,18 @@
         <v-layout column justify-center align-center class="mt-3 mb-3 grey lighten-4"
                   style="width: 100%; background-color: #F4F4F4;">
             <v-flex xs12 sm12 md6 lg6 xlg6 class="webshop-txt-flex mt-3">
-                <p data-aos="fade-up" data-aos-duration="600" class="mb-1"
-                   style="text-align: center; font-size: 21px; color: #10DC87; margin: 0px;position: relative; top:10px;">
-                    Some of our partners</p>
-                <h3 data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" class="font-weight-bold"
-                    style="text-align: center; font-size: 33px; color: #28123E; margin: 0px;">Together we can make a
-                    change</h3>
+                <p data-aos="fade-up" data-aos-duration="1000" class="mb-1"
+                   style="text-align: center; font-size: 21px; color: #10DC87; margin: 0px;position: relative; top:10px;">Some of our partners</p>
+                <h3 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="font-weight-bold"
+                    style="text-align: center; font-size: 33px; color: #28123E; margin: 0px;">Together we can make a change</h3>
             </v-flex>
 
             <v-flex xs12 sm12 md6 lg6 xlg6 class="slider-flex">
-                <v-carousel :light='carouselLightTheme' hide-controls class="pa-1 grey lighten-4 partner-carousel"
-                            style="font-size: 10px;">
+                <!-- <v-carousel :light='carouselLightTheme' hide-controls class="pa-1 grey lighten-4 partner-carousel" style="font-size: 10px;"> -->
 
-                    <v-carousel-item v-for="(partner, i) in partners" :key="i">
+                    <!-- <v-carousel-item v-for="(partner, i) in partners" :key="i">
                         <div class="webshops-img-container mt-1 pa-3">
-                            <!-- <img v-for="(partnerIcon, i) in partner.icons"
-                             :key="i"
-                             :src="partnerIcon.src"
-                             alt=""
-                             styles="border: 1px solid red; width: 168px;height:168px;"
-                             :styles="{animationDelay:'0.2'*i+'s'}"
-                             class="animated zoomIn"
-                            > -->
+                           
                             <div
                                     v-for="(partnerIcon, i) in partner.icons"
                                     :key="i"
@@ -162,10 +163,32 @@
                                     class="animated zoomIn webshops-imgs"
                             ></div>
                         </div>
-                    </v-carousel-item>
+                    </v-carousel-item> -->
+                    <!-- </v-carousel> -->
 
-                </v-carousel>
+                    <div class="webshops-img-container" v-for="(partner, i) in partners" :key="i">
+                        <div
+                            v-for="(partnerIcon, i) in partner.icons"
+                            :key="i"
+                            :style="{backgroundImage: `url(${partnerIcon.src})`}"
+                            class="webshops-imgs"
+                            data-aos="fade-up"
+                            :data-aos-delay="200*i"
+                            data-aos-duration="1000"
+                        ></div>
+                    </div>
+
             </v-flex>
+        </v-layout>
+
+        <v-layout wrap row justify-center align-center class="pa-5" style="width: 100%; ">
+          <v-flex xs12 sm12 md6 lg5 xlg6>
+            <h2 data-aos="fade-up" data-aos-duration="1000" class="black--text" style="text-align: left;">"Startup CO₂ok makes<br>online shopping<br>climate neutral."<br><strong>-WWF</strong></h2>
+          </v-flex>
+
+          <v-flex xs12 sm12 md6 lg6 xlg6>
+            <div style="border: 1px solid red; width: 100%;height: 350px;" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="800"></div>
+          </v-flex>
         </v-layout>
 
         <v-btn depressed class="white--text mb-4 mt-2 shopping-btn font-weight-bold"
@@ -218,9 +241,9 @@
                 ],
 
                 partners: [
-                    {icons: [{src: require('../assets/images/home/partners/AtmosFair.png')}, {src: require('../assets/images/home/partners/fairclimatefund.png')}, {src: require('../assets/images/home/partners/starters4.png')}, {src: require('../assets/images/home/partners/sbb.png')}]},
-                    {icons: [{src: require('../assets/images/home/partners/att.com.png')}, {src: require('../assets/images/home/partners/airfrance.us.png')}, {src: require('../assets/images/home/partners/ideal.png')}, {src: require('../assets/images/home/partners/postnl.nl.png')}]},
-                    {icons: [{src: require('../assets/images/home/partners//eprimo.de.png')}, {src: require('../assets/images/home/partners/dhl.png')}, {src: require('../assets/images/home/partners/grammarly.com.png')}, {src: require('../assets/images/home/partners/hotels.com.png')}]},
+                    {icons: [{src: require('../assets/images/home/partners/AtmosFair.png')}, {src: require('../assets/images/home/partners/fairclimatefund.png')}, {src: require('../assets/images/home/partners/starters4.png')}, {src: require('../assets/images/home/partners/sbb.png')}]}
+                    // {icons: [{src: require('../assets/images/home/partners/att.com.png')}, {src: require('../assets/images/home/partners/airfrance.us.png')}, {src: require('../assets/images/home/partners/ideal.png')}, {src: require('../assets/images/home/partners/postnl.nl.png')}]},
+                    // {icons: [{src: require('../assets/images/home/partners//eprimo.de.png')}, {src: require('../assets/images/home/partners/dhl.png')}, {src: require('../assets/images/home/partners/grammarly.com.png')}, {src: require('../assets/images/home/partners/hotels.com.png')}]},
                 ],
 
                 projects: [
@@ -354,7 +377,7 @@
         text-align: left;
         font-size: 21px;
         position: relative;
-        top: 30px;
+        bottom: 0px;
     }
 
     .header-txt-flex h1 {
@@ -410,7 +433,7 @@
     }
 
     .ninja-work span {
-        font-size: 9px;
+
     }
 
     .steps-container {
@@ -628,7 +651,8 @@
 
     .slider-flex {
         display: flex;
-        /* flex-direction: column; */
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         width: 100%;
@@ -656,10 +680,11 @@
     .webshops-img-container {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
         width: 100%;
         height: auto;
+        padding: 48px;
     }
 
     .webshops-imgs, .partners-imgs {
@@ -926,8 +951,9 @@
             padding: 24px;
         }
 
-        .slider-carousel .webshops-img-container {
-            padding: 0px;
+        .webshops-img-container {
+            padding: 10px;
+            justify-content: space-around;
         }
 
         .support-title {

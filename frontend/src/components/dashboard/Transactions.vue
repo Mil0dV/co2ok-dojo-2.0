@@ -7,7 +7,7 @@
 
         <div class="graph-container mb-1">
             <div class="graph-tabs">
-                <p class="graph-tab-name font-weight-bold" style="position: relative; top: 10px;"  @click="monthTransactions()">Monthly Transactions</p>
+                <p class="graph-tab-name font-weight-bold" style=""  @click="monthTransactions()">Monthly Transactions</p>
                 <p class="graph-tab-name font-weight-bold"  @click="weekTransactions()">Weekly Transactions</p>
             </div>
 

@@ -5,7 +5,7 @@ from accounts.models import WebshopProfile as Profile
 #-------------------- rest framework imports -----------------------------------
 from django.core import serializers
 from .serializers import UserSerializer
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
@@ -29,6 +29,7 @@ import datetime
 class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = (permissions.IsAuthenticated,)
 
     @csrf_exempt
     @action(methods=['get'], detail=False)

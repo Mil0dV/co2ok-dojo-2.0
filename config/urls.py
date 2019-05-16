@@ -28,6 +28,7 @@ urlpatterns = [
     # url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     path("accounts/", include("accounts.urls", namespace="accounts")),
     path("dashboard/", include("dashboard.urls", namespace="dashboard")),
+    path("blog/", include("blog.urls", namespace="blog")),
     path("merchantIdChecker/", dashView.merchantIdChecker, name="merchantIdChecker"),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
