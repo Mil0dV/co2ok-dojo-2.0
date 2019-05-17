@@ -56,6 +56,17 @@ class UserView(viewsets.ModelViewSet):
         }
         return Response(context)
 
+    @csrf_exempt
+    @action(methods=['get'], detail=False)
+    def compasationsData(self, request):
+        merchantId = request.query_params.get('id')
+        year = request.query_params.get('year')
+        transactionArr = []
+        for transaction in Transaction.scan(Transaction.merchant_id == merchantId):
+            if str(transaction.timestamp) > year:
+                transactionArr.append({'orders':transaction.compensation_cost, 'date':transaction.timestamp})
+        return Response(transactionArr)
+
 
 @csrf_exempt
 @api_view(['POST'])

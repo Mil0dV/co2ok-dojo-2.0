@@ -80,6 +80,7 @@
 
 <script>
 import LineChart from '@/components/dashboard/chart.vue'
+import Co2okWidget from '../../co2okWidget'
     export default {
         name: "Transactions",
 
@@ -148,6 +149,7 @@ import LineChart from '@/components/dashboard/chart.vue'
         created() {
 
             this.fillData();
+
         },
 
         mounted() {
@@ -159,7 +161,11 @@ import LineChart from '@/components/dashboard/chart.vue'
                { April: [[],[],[],[]]},
                { May: [[8,21,7,1,0,3,5],[20,12,3,0,0,10,0],[11,1,5,3,0,11,2],[20,11,0,6,2,9,0]]}
             ]
-            console.log(data[1]);
+            // console.log(data[1]);
+            // let id ='TWVyY2hhbnQ6N2U2NjU4M2UtYTRmMi00YWNmLThhYWItNzI1MTJiMGEzMmE1'
+            // Co2okWidget.merchantCompasations(id, this.$moment().year())
+            // console.log(Co2okWidget);
+            
             
         },
 
@@ -179,6 +185,7 @@ import LineChart from '@/components/dashboard/chart.vue'
                         }
                     ]
                 }
+                
             },
 
             graphUpdatedData() {
@@ -216,6 +223,9 @@ import LineChart from '@/components/dashboard/chart.vue'
               //next/previous month tooltip content
               this.prevMonth = this.$moment().subtract(1, 'months').format('MMMM')
               this.nextMonth = this.currentMonth
+
+              let id ='TWVyY2hhbnQ6N2U2NjU4M2UtYTRmMi00YWNmLThhYWItNzI1MTJiMGEzMmE1'
+              Co2okWidget.merchantCompasations(id, this.$moment().year())
 
             },
 
