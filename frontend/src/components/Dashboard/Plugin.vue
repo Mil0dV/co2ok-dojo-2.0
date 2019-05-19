@@ -14,6 +14,7 @@
                 <p class="design-title">Select Design</p>
                 <v-radio color="#10DC87" value="radio-1"></v-radio>
                 <img class="plugin__image" src="../../assets/images/dashboard/design-1.png">
+
             </div>
             <div style="width: 100px;"></div>
 
@@ -154,7 +155,9 @@
         height: 100%;
         width: 100%;
         border-bottom: 1px solid #E2E2E2;
+
         display: flex;
+        border: 4px solid green;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -169,6 +172,7 @@
     .plugin__image {
         width: 350px;
         padding-bottom: 30px;
+
     }
 
     .design-title {

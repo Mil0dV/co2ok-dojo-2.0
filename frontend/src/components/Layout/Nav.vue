@@ -18,6 +18,9 @@
 
                 <v-spacer></v-spacer>
 
+                <v-divider class="ml-4 mr-4" style="height: 42px;" vertical></v-divider>
+
+
                 <transition enter-active-class="animated bounceIn"
                             leave-active-class="animated bounceOut"
                             mode="out-in">
@@ -39,7 +42,7 @@
                                style="height: 42px;"
                                :ripple="false" flat>Extension
                         </v-btn>
-                        <v-divider class="ml-4" style="height: 42px;" vertical></v-divider>
+
                     </div>
                 </transition>
 
@@ -87,8 +90,10 @@
 
         methods: {
             logout() {
-                axios
-                    .post('http://127.0.0.1:8000/signout/', {
+
+                this.$axios
+                    .post('http://127.0.0.1:8000/logout/', {
+
                         header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
 
                     })
@@ -99,7 +104,9 @@
                         }
                     })
                     .catch(error => {
-                        this.errorMessage()
+
+                        // this.errorMessage()
+
                     })
             }
         },
@@ -212,5 +219,5 @@
         height: 100%;
     }
 
-
 </style>
+

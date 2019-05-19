@@ -9,7 +9,6 @@
             </div>
         </div>
 
-
         <div class="login__col-2">
             <form v-model="valid" class="login__form">
                 <div class="login__header-group">
@@ -19,7 +18,9 @@
 
                 <transition enter-active-class="animated fadeIn"
                             leave-active-class="animated fadeOut"
-                            :duration="{ enter: 500, leave: 500 }"
+
+                            :duration="{ enter: 500, leave: 200 }"
+
                             mode="out-in">
 
                     <div v-if="!next" key="firstSlide" class="login__group">
@@ -35,6 +36,10 @@
                             <input class="login__group-input" v-model="email"
                                    type="email" placeholder="Fill in you email...">
                         </label>
+
+
+                    </div>
+                    
 
                         <div class="login__group-password">
                             <label class="login__group">
@@ -313,6 +318,7 @@
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
+
     }
 
     .login__accept a {

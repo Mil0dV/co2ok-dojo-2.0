@@ -9,8 +9,6 @@
     "compile_lang": "node src/lang/compile.js"
   },
   "dependencies": {
-    "@vuikit/icons": "^0.8.1",
-    "@vuikit/theme": "^0.8.1",
     "axios": "^0.18.0",
     "frappe-charts": "^1.1.0",
     "jquery": "^3.4.0",

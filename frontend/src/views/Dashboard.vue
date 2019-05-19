@@ -3,6 +3,13 @@
         <div class="dashboard__container">
             <div class="dashboard__header">
                 <p class="dashboard__title">Dashboard</p>
+
+                <p class="dashboard__welcome">Weclome, {{this.$store.state.userData.userdata.username}}!</p>
+            </div>
+
+            <div class="dashboard__tabs">
+                <p class="dashboard__mail">{{this.$store.state.userData.userdata.email}}</p>
+
                 <!--<p class="dashboard__welcome">Welcome, {{this.userName}}!</p>-->
                 <!--<p class="dashboard__welcome">Welcome, {{this.$store.state.userData.userdata.username}}!</p>-->
             </div>
@@ -93,15 +100,7 @@
         //     this.userLoginData();
         // },
 
-        mounted(){
-            this.userLoginData()
-        },
-
         methods: {
-
-            userLoginData (){
-                console.log(this.$store.state.userData)
-            }
 
         }
     }
