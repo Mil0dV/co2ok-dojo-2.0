@@ -89,8 +89,8 @@ def signup(request):
     username = request.data['body']['company']
     email = request.data['body']['email']
     password = request.data['body']['password']
-    sort = request.data['body']['sort']  # determine if user is a merchant(webshop) of a ninja(normal user)       
-    
+    sort = request.data['body']['sort']  # determine if user is a merchant(webshop) of a ninja(normal user)
+
     #check of the entry username and email already exist
     user_name = User.objects.filter(username=username).count()
     if checkEmail(request, email) == 0 and user_name == 0:
@@ -98,7 +98,7 @@ def signup(request):
             user = User.objects.create_user(username=username, email=email, password=password)
             user.save()
             userAuth = authenticate(username=username, password=password)
-    
+
             if sort == 'webshop':#is user a merchant of ninja
                 #webshop profile data
                 # company = request.data['body']['company']
@@ -109,7 +109,7 @@ def signup(request):
                 number = request.data['body']['number']
                 link = request.data['body']['link']
                 merchantId = request.data['body']['merchantId']
-    
+
                 WebshopProfile.objects.create(
                     user=user,
                     user_status=sort,
@@ -130,19 +130,19 @@ def signup(request):
             else:
                 NinjaProfile.objects.create(user=user, user_status=sort, user_points=0)
                 userToken(request, user)
-    
+
                 if userAuth:
                     token, _ = Token.objects.get_or_create(user=user)
                     return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
                 else:
                     print('error:false')
-    
+
         else:
             pass
             #user is None
     else:
         return Response({'error': 'Username or email already exist', 'authenticate': False})
-    
+
 
 
 def checkPassword(request, password, userid):
@@ -245,7 +245,7 @@ def updateAccount(request):
         'msg': 'Profile data succesfully updated'
     }
     return Response(success)
-    
+
     # else:
     #     error = {
     #         'update': False,
@@ -325,7 +325,7 @@ def deleteAccount(request):
         'msg': 'Account succesfully deleted'
     })
 
-    
+
 
     # else:
     #     error = {
@@ -362,6 +362,7 @@ def sendMail(request):
             'msg': 'Wrong email'
         }
         return Response(error)
+
 
 
 # def google_api(request):
