@@ -14,6 +14,9 @@ import 'aos/dist/aos.css'
 import VueMoment from 'vue-moment'
 import moment from 'moment-timezone'
 
+//vue lodash
+import VueLodash from 'vue-lodash'
+
 Axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 Axios.defaults.xsrfCookieName = "XCSRF-TOKEN";
 Axios.defaults.withCredentials = true
@@ -21,6 +24,7 @@ Axios.defaults.withCredentials = true
 Vue.use(VAnimateCss);
 Vue.use(Vuex);
 Vue.use(VueMoment);
+Vue.use(VueLodash)
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = Axios

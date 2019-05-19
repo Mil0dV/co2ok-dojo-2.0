@@ -12,6 +12,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes
 from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 from rest_framework.permissions import AllowAny
+import json
 #------------------------------------------------------------------------------
 import base64
 from dashboard.models import Merchant, Transaction
@@ -58,13 +59,15 @@ class UserView(viewsets.ModelViewSet):
 
     @csrf_exempt
     @action(methods=['get'], detail=False)
-    def compasationsData(self, request):
-        merchantId = request.query_params.get('id')
+    def compnensationsData(self, request):
+        merchantId = request.query_params.get('merchantId')
         year = request.query_params.get('year')
         transactionArr = []
         for transaction in Transaction.scan(Transaction.merchant_id == merchantId):
             if str(transaction.timestamp) > year:
-                transactionArr.append({'orders':transaction.compensation_cost, 'date':transaction.timestamp})
+                getMonth = str(transaction.timestamp).split('-')
+                getDate = str(transaction.timestamp).split()
+                transactionArr.append({'orders': transaction.compensation_cost, 'date': getDate[0], 'month': getMonth[1]})
         return Response(transactionArr)
 
 

@@ -7,7 +7,7 @@
 
         <div class="graph-container mb-1">
             <div class="graph-tabs">
-                <p class="graph-tab-name font-weight-bold" style=""  @click="monthTransactions()">Monthly Transactions</p>
+                <p class="graph-tab-name font-weight-bold" style=""  @click="yearTransactions()">Monthly Transactions</p>
                 <p class="graph-tab-name font-weight-bold"  @click="weekTransactions()">Weekly Transactions</p>
             </div>
 
@@ -92,7 +92,7 @@ import Co2okWidget from '../../co2okWidget'
             return{
 
               Graph: null,
-            //   graphTabName: [{name: 'Monthly Transactions', fnt: this.monthTransactions()}, {name: 'Weekly Transactions', fnt: this.weekTransactions()}],
+            //   graphTabName: [{name: 'Monthly Transactions', fnt: this.yearTransactions()}, {name: 'Weekly Transactions', fnt: this.weekTransactions()}],
               datacollection: null,
               chartOptions: {
 
@@ -141,14 +141,16 @@ import Co2okWidget from '../../co2okWidget'
               monthsArr: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Dencember'],
               daysArr: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
               nextStyle: {color: '#E0E0E0', cursor: 'default'}, // month next btn dunamic styles
-              prevStyle: {color: '#369555', cursor: 'pointer'} // month previous btn dunamic styles
+              prevStyle: {color: '#369555', cursor: 'pointer'}, // month previous btn dunamic styles
+              yearArr: ['',[],[],[],[],[],[],[],[],[],[],[],[]]
 
             }
         },
 
         created() {
 
-            this.fillData();
+            // this.fillData();
+            this.yearTransactions()
 
         },
 
@@ -165,7 +167,7 @@ import Co2okWidget from '../../co2okWidget'
             // let id ='TWVyY2hhbnQ6N2U2NjU4M2UtYTRmMi00YWNmLThhYWItNzI1MTJiMGEzMmE1'
             // Co2okWidget.merchantCompasations(id, this.$moment().year())
             // console.log(Co2okWidget);
-            
+            // this.TransactionsParams()
             
         },
 
@@ -204,13 +206,59 @@ import Co2okWidget from '../../co2okWidget'
 
             },
 
-            monthTransactions() {
+            parseTransactionsData(transactions){
+
+                let currentMonth = this.$moment().format('M')
+                let transDataArr = []
+                let i
+                let parseMonth
+                for(i = 1; i <= currentMonth; i++){
+                    
+                    if(i < 10){
+                        parseMonth = `${'0'+i}`
+                    }else if(i > 9){
+                        parseMonth = i
+                    }
+                    
+                    transactions.filter((transaction) => {
+                        if(transaction.month.search(parseMonth) != -1){
+                            this.yearArr[i].push(transaction.orders)
+                        }
+                    })
+
+                    let uniqYearArr = this._.uniq(this.yearArr[i])
+                    transDataArr.push(this._.floor(this._.sum(uniqYearArr), 2))
+
+                }
+                console.log(this._.uniq(transDataArr))
+                return this._.uniq(transDataArr)
+
+            },
+
+            yearTransactions() {
               
-              let chart = document.getElementById('line-chart')
-              this.week = false
-              this.graphLegend = `${this.currentMonth} Transaction(s)`
-              this.$store.commit('monthGraphData')
-              this.graphUpdatedData()
+            //   let chart = document.getElementById('line-chart')
+                this.week = false //disable the week ctrl btn(next, prev)
+                this.graphLegend = `${this.currentMonth} Transaction(s)` 
+                let self = this
+                this.$axios.get(`${this.$store.state.SITE_HOST}/user/compnensationsData/`, {
+                    params: {
+                        year: self.$moment().year(),
+                        merchantId: self.$store.state.userData.userProfileData.merchantId
+                    },
+                    headers: {
+                       "X-CSRFToken": `${this.$store.state.userToken}`,
+                        Authorization: `token ${window.localStorage.getItem('userToken')}` 
+                    }
+                }).then(response => {
+
+                    let yearGraphData = self.parseTransactionsData(response.data)
+                    self.$store.commit('yearGraphData', yearGraphData)
+                    self.graphUpdatedData()
+
+                }).catch(error => {
+                    console.log(error)
+                })
 
             },
 
@@ -225,9 +273,10 @@ import Co2okWidget from '../../co2okWidget'
               this.nextMonth = this.currentMonth
 
               let id ='TWVyY2hhbnQ6N2U2NjU4M2UtYTRmMi00YWNmLThhYWItNzI1MTJiMGEzMmE1'
-              Co2okWidget.merchantCompasations(id, this.$moment().year())
+            //   Co2okWidget.merchantCompasations(id, this.$moment().year())
 
             },
+            
 
             prevWeek(){
 
