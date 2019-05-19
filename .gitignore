@@ -104,6 +104,5 @@ venv.bak/
 # mypy
 .mypy_cache/
 .vscode/settings.json
-
-#workspace
-*.idea\workspace.xml
+.idea/workspace.xml
+*.xml

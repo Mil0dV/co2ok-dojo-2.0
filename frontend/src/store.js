@@ -9,6 +9,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
+        SITE_HOST: 'http://127.0.0.1:8000',
         count: 0,
         modalMessage: '',
         modalStatus: false,
@@ -19,7 +20,11 @@ export default new Vuex.Store({
         userToken: window.localStorage.getItem('userToken'),
         userId: window.localStorage.getItem('userId'),
         //return a booleam of user login status
-        userSession: window.localStorage.getItem('userSession')
+        Authenticated: window.localStorage.getItem('Authenticated'),
+        //graph variabels
+        x_asLabel: [],
+        graphData: []
+
     },
 
     mutations: {
@@ -33,7 +38,7 @@ export default new Vuex.Store({
         },
 
         isLoggedIn(state, payload) {
-            if(payload){
+            if (payload) {
                 state.userStatus = true
             } else {
                 state.userStatus = false
@@ -44,12 +49,12 @@ export default new Vuex.Store({
             state.userAuthData = payload
         },
 
-        saveUserData(state) {
+        getUserData(state) {
             axios
-                .get(`http://127.0.0.1:8000/user/authenticateUser/?id=${state.userId}`, {
+                .get(`${state.SITE_HOST}/user/authenticateUser/?id=${window.localStorage.getItem('userId')}`, {
                     headers: {
                         "X-CSRFToken": `${state.userToken}`,
-                        Authorization: `token ${state.userToken}`
+                        Authorization: `token ${window.localStorage.getItem('userToken')}`
                     }
                 })
                 .then(response => {
@@ -75,7 +80,7 @@ export default new Vuex.Store({
         setLocalUserData(state, data) {
             window.localStorage.setItem('userToken', data.token);
             window.localStorage.setItem('userId', data.id);
-            window.localStorage.setItem('userSession', true)
+            window.localStorage.setItem('Authenticated', true)
             //    let getLocalData = {
             //        userToken: window.localStorage.getItem('userToken'),
             //        userId: window.localStorage.getItem('userId')
@@ -85,11 +90,51 @@ export default new Vuex.Store({
 
         // empty user authenticate data if the are logout
         removeLocalUserData(state) {
-            window.localStorage.removeItem('userToken', null);
+            window.localStorage.removeItem('userToken');
             window.localStorage.removeItem('userId');
-            window.localStorage.setItem('userSession', false);
+            window.localStorage.setItem('Authenticated', false);
             state.userData = '';
             state.userStatus = false
+        },
+
+        //haal de merchant huidige maand en jaar transacties data uit de dynamoDB
+        merchantTransactionsGraphData(state) {
+
+            // let currentMonth = this.$moment().format('M')
+            let currentYear = this.$moment().year()
+            let merchantId = this.$route.params.merchantId
+
+            axios.get(`${state.SITE_HOST}/transactionsData/
+            ?year=${currentYear}+
+            id=${merchantId}`, {
+                headers: {
+                    "X-CSRFToken": `${state.userToken}`,
+                    Authorization: `token ${window.localStorage.getItem('userToken')}`
+                }
+            }).then(response => {
+                console.log(response);
+
+            }).catch(error => {
+                console.log(error);
+
+            })
+
+        },
+
+        yearGraphData(state, data) {
+            state.x_asLabel = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUNE', 'JULY', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC']
+            state.graphData = data
+        },
+
+        weekGraphData(state) {
+            state.x_asLabel = ['MON', 'TUE', 'WED', 'THU', 'FRY', 'SAT', 'SUN']
+            state.graphData = [8, 21, 7, 1, 0, 3, 5]
+            
+        },
+
+        roundGraphData(state, data){
+            let roundedData = Math.round(data)
+            return roundedData
         }
 
     },
@@ -101,10 +146,10 @@ export default new Vuex.Store({
 
         commitRemoveLocalUserData(store) {
             store.commit('removeLocalUserData');
-        }
+        },
 
-        // commitSaveUserData(store, data){
-        //     store.commit('saveUserData', data);
-        // }
+        commitGetUserData(store) {
+            store.commit('getUserData');
+        }
     }
 })

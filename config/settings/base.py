@@ -86,7 +86,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'crispy_forms',
     'allauth',
-    # 'allauth.account',
+    'allauth.account',
     'allauth.socialaccount',
     'rest_framework',
     'rest_framework.authtoken',
@@ -98,6 +98,7 @@ LOCAL_APPS = [
     # Your stuff: custom apps go here
     'accounts',
     'dashboard',
+    'blog',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -291,8 +292,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated', )
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    #     'rest_framework.permissions.IsAuthenticated', )
 }
 
 # CSRF_COOKIE_NAME = "csrftoken"
@@ -315,8 +316,8 @@ CORS_EXPOSE_HEADERS = (
 )
 
 CORS_ORIGIN_WHITELIST = (
-    'localhost:8080',
-    '192.168.56.1:8080/',
+    # 'localhost:8080',
+    # '192.168.56.1:8080/',
 )
 
 #---------- email settings -----------------------------

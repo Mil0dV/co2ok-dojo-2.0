@@ -11,11 +11,10 @@ from django.urls import reverse
 from django.utils.translation import ugettext as _
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
-from rest_framework import viewsets
-from rest_framework.decorators import api_view, action
+from rest_framework import viewsets, permissions
+from rest_framework.decorators import api_view, action, permission_classes
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
-from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from django.core import serializers
 from .serializers import UserSerializer
@@ -26,6 +25,7 @@ from rest_framework.status import (
     HTTP_200_OK
 )
 from django.conf import settings
+# import googlemaps
 #--------------- email imports ---------------------
 from django.core.mail import send_mail
 from django.template.loader import get_template
@@ -89,8 +89,8 @@ def signup(request):
     username = request.data['body']['company']
     email = request.data['body']['email']
     password = request.data['body']['password']
-    sort = request.data['body']['sort']  # determine if user is a merchant(webshop) of a ninja(normal user)       
-    
+    sort = request.data['body']['sort']  # determine if user is a merchant(webshop) of a ninja(normal user)
+
     #check of the entry username and email already exist
     user_name = User.objects.filter(username=username).count()
     if checkEmail(request, email) == 0 and user_name == 0:
@@ -98,7 +98,7 @@ def signup(request):
             user = User.objects.create_user(username=username, email=email, password=password)
             user.save()
             userAuth = authenticate(username=username, password=password)
-    
+
             if sort == 'webshop':#is user a merchant of ninja
                 #webshop profile data
                 # company = request.data['body']['company']
@@ -108,7 +108,8 @@ def signup(request):
                 street = request.data['body']['street']
                 number = request.data['body']['number']
                 link = request.data['body']['link']
-    
+                merchantId = request.data['body']['merchantId']
+
                 WebshopProfile.objects.create(
                     user=user,
                     user_status=sort,
@@ -117,7 +118,8 @@ def signup(request):
                     zipCode=zipcode,
                     street=street,
                     number=number,
-                    link=link
+                    link=link,
+                    merchant_id=merchantId
                 )
                 # userToken(request, user)
                 if userAuth:
@@ -128,19 +130,19 @@ def signup(request):
             else:
                 NinjaProfile.objects.create(user=user, user_status=sort, user_points=0)
                 userToken(request, user)
-    
+
                 if userAuth:
                     token, _ = Token.objects.get_or_create(user=user)
                     return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
                 else:
                     print('error:false')
-    
+
         else:
             pass
             #user is None
     else:
         return Response({'error': 'Username or email already exist', 'authenticate': False})
-    
+
 
 
 def checkPassword(request, password, userid):
@@ -243,7 +245,7 @@ def updateAccount(request):
         'msg': 'Profile data succesfully updated'
     }
     return Response(success)
-    
+
     # else:
     #     error = {
     #         'update': False,
@@ -301,21 +303,29 @@ def deleteAccount(request):
         userId = request.POST.get('id')
 
     # if checkPassword(request, password, userId):
-    try:
-        user = User.objects.filter(id=userId)
-        user.delete()
-        success: {
-            'delete': True,
-            'msg': 'Account succesfully deleted'
-        }
-        return Response(success)
-    except User.DoesNotExist:
-        error = {
-        'delete': False,
-        'msg': "This user don't exist"
-        }
-        return Response(error)
-    
+    # try:
+    #     user = User.objects.filter(id=userId)
+    #     user.delete()
+    #     success: {
+    #         'delete': True,
+    #         'msg': 'Account succesfully deleted'
+    #     }
+    #     return Response(success)
+    # except User.DoesNotExist:
+    #     error = {
+    #     'delete': False,
+    #     'msg': "This user don't exist"
+    #     }
+    #     return Response(error)
+
+    user = User.objects.filter(id=userId)
+    user.delete()
+    return Response({
+        'delete': True,
+        'msg': 'Account succesfully deleted'
+    })
+
+
 
     # else:
     #     error = {
@@ -353,7 +363,24 @@ def sendMail(request):
         }
         return Response(error)
 
-    
+
+
+# def google_api(request):
+
+#     API_KEY = "AIzaSyDQDsq1Blbm9UZuRGBC93IYKES5Oheplt0"
+
+#     SITE = "douchezaak.nl
+
+#     gmaps = googlemaps.Client(key=API_KEY)
+
+#     # eerst place_id vinden
+#     g_query = gmaps.find_place(SITE, 'textquery')
+#     if g_query['status'] == 'OK':
+#         # I'm always feeling lucky
+#         place_id = g_query[]['candidates'][0]['place_id']
+
+#     # dan via details query formatted_phone_number of international_phone_number
+#     tel_nr = gmaps.place(place_id)['result']['formatted_phone_number']
 
 
 

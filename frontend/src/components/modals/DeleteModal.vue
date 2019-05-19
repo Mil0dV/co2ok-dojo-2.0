@@ -45,28 +45,37 @@
         methods: {
          
             deleteAccount() {
-                let modal = {message: 'Your account has been deleted successfully', status: true}
-                this.$store.commit('modalStatus', modal)
+                this.$parent.closeEdit()
                 this.$axios
-                    .post('http://127.0.0.1:8000/accounts/deleteAccount/', {
+                    .post(`${this.$store.state.SITE_HOST}/accounts/deleteAccount/`, {
                         body: {
-                            id: this.$store.state.userId
+                            id: window.localStorage.getItem('userId')
                             // password: this.password
                         },
 
-                        header: {"X-CSRFToken": `token ${this.$store.state.userToken}`,}
+                        headers: {"X-CSRFToken": `token ${this.$store.state.userToken}`,}
                     })
                     .then(response => {
                         if (response.data.delete) {
                             this.$store.dispatch('commitRemoveLocalUserData')
-                            this.$router.push('login')
                             this.$parent.dialogSuccess = true
+                            
+                            let successmessage = {
+                                title: 'Deleted Account Successfully!',
+                                text: 'You can always create a new account.'
+                            }
+                            this.$parent.closeEdit(successmessage)
+                            this.$router.push('login')
                             console.log(response);
-
                         }
                     })
                     .catch(error => {
                         this.$parent.dialogError = true
+                        let successmessage = {
+                            title: 'Something went wrong!',
+                            text: 'Try again later.'
+                        }
+                        this.$parent.closeEdit(successmessage)
                     })
             }
 
@@ -156,4 +165,30 @@
         font-size: 16px;
         border: 2px solid #9F9F9F;
     }
+
+    @media (max-width: 600px) {
+        .modal__wrapper {
+            padding: 50px 40px;
+        }
+
+        .modal__title {
+            font-size: 30px;
+        }
+
+        .modal__body {
+            font-size: 14px;
+        }
+
+        .form__small-text {
+            font-size: 12px;
+        }
+
+        .form__button {
+            padding: 14px 20px;
+            font-size: 14px;
+            width: 40%;
+        }
+    }
+
+
 </style>

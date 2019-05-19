@@ -73,7 +73,7 @@
                 if (this.passwordExtra !== '' && this.newPassword !== '' && this.passwordExtra === this.newPassword) {
 
                     this.$axios
-                        .post('http://127.0.0.1:8000/accounts/updatePassword/', {
+                        .post(`${this.$store.state.SITE_HOST}/accounts/updatePassword/`, {
                             body: {
                                currentPassword: this.currentPassword,
                                newPassword: this.newPassword,
@@ -223,5 +223,60 @@
         font-size: 10px;
         color: #BCBCBC;
     }
+
+    @media (max-width: 960px) {
+        .edit__title {
+            font-size: 25px;
+        }
+
+        .form__button {
+            padding: 10px 32px;
+            font-size: 14px;
+        }
+
+        .button__save {
+            width: unset;
+        }
+
+        .edit__form-group {
+            flex-direction: column;
+        }
+
+        .edit__form, .edit__form-input  {
+            max-width: unset;
+        }
+
+        .label__group > * {
+            flex: 1;
+        }
+
+        .label__group >*:nth-child(2) {
+            margin-left: 10px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .modal__wrapper form {
+            padding: 20px;
+        }
+
+        .label__group > * {
+            margin-left: 0;
+            width: 100%;
+        }
+
+        .edit__title {
+            font-size: 30px;
+        }
+
+        .form__button-wrapper {
+            width: 100%;
+        }
+
+        .form__button {
+            padding: 12px 20px;
+        }
+    }
+
 
 </style>

@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import NinjaProfile
-from .models import WebshopProfile
+from .models import NinjaProfile, WebshopProfile
 # from django.contrib.auth import admin as auth_admin
 # from django.contrib.auth import get_user_model
 

@@ -2,7 +2,7 @@
     <div class="plugin__container">
         <div class="plugin__head">
             <h1 class="plugin__title">Plug-in Settings</h1>
-            <img src="../../assets/images/dashboard/edit.svg">
+            <img class="edit__img" alt="edit-img"  src="../../assets/images/dashboard/edit.svg">
         </div>
         <p class="plugin__header">
             Choose the design you want being displayed on your webshop:
@@ -13,15 +13,14 @@
             <div class="plugin__design design-1">
                 <p class="design-title">Select Design</p>
                 <v-radio color="#10DC87" value="radio-1"></v-radio>
-                <img class="plugin__image" src="../../assets/images/dashboard/design-1.png">
+                <img alt="design1" class="plugin__image" src="../../assets/images/dashboard/design-1.png">
 
             </div>
-            <div style="width: 100px;"></div>
 
             <div class="plugin__design design-2">
                 <p class="design-title">Select Design</p>
                 <v-radio color="#10DC87" value="radio-2"></v-radio>
-                <img class="plugin__image" src="../../assets/images/dashboard/design-2.png">
+                <img alt="design2" class="plugin__image" src="../../assets/images/dashboard/design-2.png">
             </div>
         </v-radio-group>
 
@@ -52,7 +51,7 @@
             </div>
         </div>
 
-        <div class="plugin__col-2 animated fadeIn" style="animation-delay: 0.7s;">
+        <div class="plugin__col-2 no__border animated fadeIn" style="animation-delay: 0.7s;">
             <div class="col-2__content">
                 <p class="col-2__text">
                     Do you give CO2ok permission to send the customer an email?
@@ -116,7 +115,7 @@
 
     .plugin__container {
         border-radius: 4px;
-        min-width: 1146px;
+        max-width: 1146px;
         width: 100%;
         display: flex;
         background: #FFFFFF;
@@ -131,6 +130,14 @@
         justify-content: flex-start;
         align-items: center;
     }
+
+    .edit__img {
+    }
+
+    .plugin__title {
+       margin-bottom: 0 !important;
+    }
+
 
     .plugin__title {
         font-family: 'Poppins', sans-serif;
@@ -151,28 +158,22 @@
 
     .plugin__col-1 {
         margin-top: 30px;
-        max-height: 132px;
         height: 100%;
         width: 100%;
         border-bottom: 1px solid #E2E2E2;
-
         display: flex;
-        border: 4px solid green;
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
-    }
-
-
-    .plugin__design {
-        /*max-width: 10px;*/
-        /*width: 100%;*/
     }
 
     .plugin__image {
-        width: 350px;
+        max-width: 100%;
+        max-height: 100%;
+        width: 80%;
         padding-bottom: 30px;
+    }
 
+    .plugin__design {
     }
 
     .design-title {
@@ -183,7 +184,6 @@
 
     .v-input--radio-group__input {
         width: 100%;
-        border: 5px solid red;
         max-width: 410px !important;
     }
 
@@ -204,6 +204,10 @@
         justify-content: flex-start;
         padding: 30px 0;
         border-bottom: 1px solid #E2E2E2;
+    }
+
+    .no__border {
+        border-bottom: none;
     }
 
     .col-2__content {
@@ -248,5 +252,54 @@
         margin-left: 24px;
     }
 
+    @media (max-width: 980px) {
+        .plugin__container {
+            min-width: unset;
+            padding: 50px 50px;
+        }
+
+        .plugin__title {
+            font-size: 24px;
+        }
+
+        .plugin__header, .col-2__text, .col-2__switch-text {
+            font-size: 16px;
+        }
+
+        .plugin__col-1 {
+            max-height: unset;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .plugin__image {
+            max-width: 100%;
+            max-height: 100%;
+            width: 80%;
+        }
+
+        .edit__img {
+            max-width: 100%;
+            max-height: 100%;
+            width: 5%;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .plugin__container {
+            padding: 15px 10px;
+        }
+
+        .plugin__title {
+            font-size: 24px;
+        }
+
+        .plugin__header, .col-2__text, .col-2__switch-text {
+            font-size: 15px;
+        }
+    }
 
 </style>

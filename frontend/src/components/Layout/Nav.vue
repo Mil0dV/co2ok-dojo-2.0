@@ -1,84 +1,74 @@
 <template>
-    <v-toolbar class="navbar__container">
-        <div class="navbar__wrapper">
-            <v-toolbar-title>
-                <v-img
-                        :src="require('@/assets/images/nav/logo.png')"
-                        max-height="125"
-                        contain
-                        class="navbar__logo"
-                ></v-img>
-            </v-toolbar-title>
-            <v-toolbar-items class="hidden-sm-and-down">
-                <v-btn class="text-capitalize navbar__items" :ripple="false" flat>About</v-btn>
-                <v-btn class="text-capitalize navbar__items" :ripple="false" flat>Webshops</v-btn>
-                <v-btn class="text-capitalize navbar__items" :ripple="false" flat>Consumers</v-btn>
-                <v-btn class="text-capitalize navbar__items" :ripple="false" flat>News</v-btn>
-                <v-btn class="text-capitalize navbar__items" :ripple="false" flat>FAQ</v-btn>
-
-                <v-spacer></v-spacer>
-
-                <v-divider class="ml-4 mr-4" style="height: 42px;" vertical></v-divider>
-
-
-                <transition enter-active-class="animated bounceIn"
-                            leave-active-class="animated bounceOut"
-                            mode="out-in">
-                    <div v-if="$store.state.userStatus" key="nav1" class="user__logged">
-                        <v-divider class="ml-4 mr-4" style="height: 42px;" vertical></v-divider>
-                        <div class="navbar__pic__container">
-                            <div class="navbar__user-wrapper">
-                                <img class="navbar__pic" src="//logo.clearbit.com/bol.com">
-                            </div>
-
-                            <div @click="logout()" class="navbar__logout">
-                                <img src="../../assets/images/nav/logout.png" alt="logout">
-                            </div>
-                        </div>
+    <div uk-sticky class="uk-navbar-container">
+        <div>
+            <div class="uk-container">
+                <nav uk-navbar>
+                    <div class="uk-navbar-left">
+                        <router-link to="/" class="uk-logo"><img :src="require('@/assets/images/nav/logo.png')"></router-link>
                     </div>
 
-                    <div v-else key="nav2" class="user__extension">
-                        <v-btn class="text-capitalize navbar__items navbar__extension"
-                               style="height: 42px;"
-                               :ripple="false" flat>Extension
-                        </v-btn>
-
+                    <div class="uk-navbar-right uk-visible@m">
+                        <ul class="uk-navbar-nav">
+                            <li :class="[checkActive('about') ? 'navbar__active' : '']"><router-link to="/about">About</router-link></li>
+                            <li :class="[checkActive('webshops') ? 'navbar__active' : '']"><router-link to="/webshops">Webshops</router-link></li>
+                            <li :class="[checkActive('consumers') ? 'navbar__active' : '']"><router-link to="/consumers">Consumers</router-link></li>
+                            <li :class="[checkActive('news') ? 'navbar__active' : '']"><router-link to="/news">News</router-link></li>
+                            <li :class="[checkActive('faq') ? 'navbar__active' : '']"><router-link to="/faq">FAQ</router-link></li>
+                        </ul>
+                        <a class="button">Extension</a>
+                        <div class="line"></div>
+                        <a><img class="language-icon english icon" src="../../assets/images/nav/english-icon.png"></a>
                     </div>
-                </transition>
 
+                    <div class="uk-navbar-right uk-hidden@m">
+                        <a class="uk-navbar-toggle" uk-toggle="target: #offcanvas-nav">
+                            <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
+                        </a>
+                    </div>
 
-                <v-menu open-on-hover transition="slide-x-transition"
-                        bottom>
-                    <template v-slot:activator="{ on }">
-                        <v-btn class="text-capitalize navbar__items" :ripple="false" flat>
-                            <v-avatar size="25" color="grey lighten-4" v-on="on">
-                                <img src="../../assets/images/nav/NLVlag.png" alt="avatar">
-                            </v-avatar>
-                        </v-btn>
-                    </template>
-
-                    <v-list>
-                        <v-list-tile key="Dashboard">
-                            <v-list-tile-title style="border-bottom: 1px solid black;">Engels</v-list-tile-title>
-                        </v-list-tile>
-
-                        <v-list-tile key="Settings">
-                            <v-list-tile-title>Nederlands</v-list-tile-title>
-                        </v-list-tile>
-                    </v-list>
-                </v-menu>
-            </v-toolbar-items>
+                </nav>
+            </div>
         </div>
-    </v-toolbar>
+
+        <div id="offcanvas-nav" uk-offcanvas="overlay: true; flip: true">
+            <div class="uk-offcanvas-bar">
+
+                <ul class="uk-nav uk-nav-default">
+                    <li><router-link to="/about">About</router-link></li>
+                    <li><router-link to="/webshops">Webshops</router-link></li>
+                    <li><router-link to="/consumers">Consumers</router-link></li>
+                    <li><router-link to="/news">News</router-link></li>
+                    <li><router-link to="/faq">FAQ</router-link></li>
+                </ul>
+                <a class="button">Extension</a>
+                <hr>
+                <a><img class="language-icon english icon" src="../../assets/images/nav/english-icon.png"></a>
+                <!--<a><img class="language-icon dutch-icon" src="assets/files/dutch-icon.png"></a>-->
+
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
+    import axios from 'axios'
+
     export default {
         name: "Nav",
+        props: {
+            routeName: String
+        },
 
         data() {
             return {
                 userLoggedIn: null,
+                menu: [
+                    {title: 'About', link: '/about'},
+                    {title: 'Webshops', link: '/webshops'},
+                    {title: 'Consumers', link: '/consumers'},
+                    {title: 'News', link: '/news'},
+                    {title: 'FAQ', link: '/faq'},
+                ]
             }
         },
 
@@ -90,10 +80,8 @@
 
         methods: {
             logout() {
-
-                this.$axios
+                axios
                     .post('http://127.0.0.1:8000/logout/', {
-
                         header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
 
                     })
@@ -104,10 +92,13 @@
                         }
                     })
                     .catch(error => {
-
-                        // this.errorMessage()
-
+                        this.errorMessage()
                     })
+            },
+
+            checkActive(menu) {
+                if (this.routeName === menu.toLowerCase() || this.routeName === 'steps' && menu.toLowerCase() === 'about')
+                    return true
             }
         },
 
@@ -116,108 +107,15 @@
             '$route'() {
                 this.userLoggedIn = this.$router.currentRoute['name'] === 'dashboard';
             },
-
-
         }
     }
 </script>
 
-<style scoped>
-    .navbar__container {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 800;
-        flex: 0 1 auto;
-        height: 106px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        background: white;
-        overflow: hidden;
-        box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.25);
-
+<style lang="scss" scoped>
+    .uk-navbar-container /deep/ {
+        @import "~uikit/dist/css/uikit.min.css";
     }
-
-    .navbar__wrapper {
-        margin: 0 auto;
-        max-width: 1090px;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .navbar__logo {
-        margin: 10px 0;
-        width: 75px;
-        height: 32px;
-    }
-
-    .navbar__items {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 800;
-        font-size: 17px;
-    }
-
-    .v-btn:hover:before {
-        background-color: transparent;
-    }
-
-    .navbar__extension {
-        font-weight: 100;
-        min-width: 150px;
-        color: white;
-        border-radius: 5px;
-        background: linear-gradient(to right, #10DC87, #08BA4D);
-        box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.25);
-        position: relative;
-        top: 0px;
-        transition: 0.2s ease-in-out;
-    }
-
-    .user__logged {
-        display: flex;
-        flex-direction: row;
-        color: black;
-        align-items: center;
-    }
-
-    .navbar__extension:hover {
-        top: -4px;
-        transition: 0.2s ease-in-out;
-    }
-
-    .user__extension {
-        display: flex;
-        align-items: center;
-    }
-
-    .navbar__pic__container {
-        width: 100%;
-        height: 53px;
-        display: flex;
-        flex-direction: row;
-    }
-
-    .navbar__user-wrapper {
-        width: 53px;
-        height: 53px;
-    }
-
-    .navbar__logout {
-        width: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-    }
-
-    .navbar__pic {
-        border-radius: 50px;
-        height: 100%;
-    }
+    @import '../../styles/main.scss';
+    @import '../../styles/nav.scss';
 
 </style>
-
