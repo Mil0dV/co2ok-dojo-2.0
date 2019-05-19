@@ -41,15 +41,15 @@
                 <v-tab style="background: transparent; display: none;" :ripple="false">Profiel</v-tab>
 
                 <v-tab-item class="dashboard__content">
-                    <!--<Transactions class="animated fadeInt"></Transactions>-->
+                    <Transactions class="animated fadeInt"></Transactions>
                 </v-tab-item>
 
                 <v-tab-item class="dashboard__content">
-                    <!--<Plugin class="animated fadeIn"></Plugin>-->
+                    <Plugin class="animated fadeIn"></Plugin>
                 </v-tab-item>
 
                 <v-tab-item class="dashboard__content">
-                    <!--<Profile class="animated fadeIn"></Profile>-->
+                    <Profile class="animated fadeIn"></Profile>
                 </v-tab-item>
             </v-tabs>
 
