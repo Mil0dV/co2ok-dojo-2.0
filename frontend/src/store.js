@@ -3,9 +3,10 @@ import Vuex from 'vuex'
 import {
     stat
 } from 'fs';
-import axios from 'axios'
+// import axios from 'axios'
 
 Vue.use(Vuex)
+import axios from 'axios'
 
 export default new Vuex.Store({
     state: {

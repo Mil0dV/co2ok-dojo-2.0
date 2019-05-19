@@ -134,6 +134,7 @@
                         })
                         .then(response => {
                             if (response.data.update) {
+
                                 let successmessage = {
                                     title: 'Edited Profile Successfully!',
                                     text: 'Your profile data was edited successfully.'

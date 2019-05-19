@@ -53,33 +53,39 @@
         methods: {
             sendForm() { //Checkt of de velden leeg zijn en of de ww hetzelfde is
                 this.formActive = true
-                let message = {
-                    title: 'Oops... Something went wrong!',
-                    text: 'Fill the email field and Try again later.'
-                }
+                let message = {title: 'Oops... Something went wrong!', text: 'Fill the email field and Try again later.'}
 
                 if (this.email !== '') {
 
                     this.$axios
-                        .post('http://127.0.0.1:8000/accounts/sendMail/', {
+                        .post(`${this.$store.state.SITE_HOST}/accounts/sendMail/`, {
                             body: {
                                 email: this.email,
-                            },
-                            header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
+                        },
+                        header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
                         })
                         .then(response => {
                             if (response.data.status) {
-                                message = {
+                                let successmessage = {
                                     title: 'A mail has been sent to your email-adres!',
                                     text: 'Follow the instructions in your mail.'
                                 }
+                                this.$parent.closeEdit(successmessage)
+                            }else{
+                                 let errormessage = {
+                                    title: 'Oops... Something went wrong!',
+                                    text: `${response.data.error}, Try again later.`
+                                }
+                                this.$parent.closeEdit(errormessage)
                             }
                         })
                         .catch(error => {
                             console.log(error)
                         })
+                }else{
+                  this.$parent.closeEdit(message)
                 }
-                this.$parent.closeEdit(message)
+
                 this.formActive = false
             },
         }
@@ -129,7 +135,10 @@
         max-width: 496px;
         width: 100%;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> y-team/feature/frontend
     .modal__body {
         font-size: 18px;
         color: #171717;
