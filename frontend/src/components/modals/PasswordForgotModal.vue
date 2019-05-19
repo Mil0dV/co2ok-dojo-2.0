@@ -35,6 +35,7 @@
                     </button>
                 </div>
             </form>
+
         </v-card>
     </v-dialog>
 </template>
@@ -135,10 +136,6 @@
         max-width: 496px;
         width: 100%;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> y-team/feature/frontend
     .modal__body {
         font-size: 18px;
         color: #171717;
