@@ -54,7 +54,7 @@ export default new Vuex.Store({
                 })
                 .then(response => {
                     //verify if the userdata array is empty
-                    if (state.userData.length == 0) {
+                    if (state.userData.length === 0) {
                         //user array is empty, push userdata
                         state.userData = response.data;
                         state.userStatus = true;
@@ -64,10 +64,9 @@ export default new Vuex.Store({
                         state.userData = '';
                         state.userData = response.data;
                     }
-                    console.log(response.data);
                 })
                 .catch(error => {
-                    console.log(error);
+                    // console.log(error);
                     //  this.errorMessage()
                 })
 

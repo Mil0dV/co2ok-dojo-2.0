@@ -113,6 +113,7 @@
                                 if (response.data.authenticate) {
                                     this.$store.dispatch('commitSaveUser', response.data)
                                     this.$store.commit('setLocalUserData', response.data)
+                                    this.$store.commit('saveUserData');
                                     // console.log(this.$store.state.userAuthLocalData);
                                     this.$store.commit('isLoggedIn', response.data.authenticate)
                                     this.$store.commit('saveUserData');
