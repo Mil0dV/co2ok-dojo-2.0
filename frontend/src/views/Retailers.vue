@@ -133,6 +133,66 @@
                 </div>
             </div>
         </div>
+
+        <div class="uk-section section-4">
+            <div class="uk-container uk-container-width">
+                <div class="section-2--col-1 section-4--header">
+                    <h1 class="main-title">CO₂ok Partners</h1>
+                    <h2 class="sub-title dark--color">Take a look at the webshops which already use the CO₂ok plugin</h2>
+                </div>
+
+                <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+                    <div>
+                        <div class="uk-card shop__card uk-card-default uk-card-body">
+                            <img class="shop__image" src="../assets/images/retailers/shop-1.png">
+                            <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
+                            <p class="shop--text">
+                                “Our webshop is sustainable, but climate neutral as well because of CO₂ok!”
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card shop__card uk-card-default uk-card-body">
+                            <img class="shop__image" src="../assets/images/retailers/shop-2.png">
+                            <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
+                            <p class="shop--text">
+                                “The first time we got called about the CO₂ok-plugin, we didn’t like the idea at all. (The…
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card shop__card uk-card-default uk-card-body">
+                            <img class="shop__image" src="../assets/images/retailers/shop-3.png">
+                            <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
+                            <p class="shop--text">
+                                “We were already environment conscious, but we do buy our products by ship. CO₂ok…
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="uk-section section-1">
+            <div class="uk-container uk-container-width">
+                <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
+                    <div class="uk-width-expand">
+                        <div class="uk-card uk-card-body section-1__col-1">
+                            <h2 class="main-title--large">Think and follow</h2>
+                            <p class="main-text">
+                                Do you still want to think about it but also want to follow us? (don’t worry about the form, just your email is enough! :))
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="uk-width-auto">
+                        <div class="uk-card col-1-card uk-card-default uk-card-body">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 

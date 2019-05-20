@@ -34,6 +34,33 @@
   height: 100%;
 }
 
+
+.section-2--col-1 {
+  .main-title, .sub-title {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.dark--color {
+  color:#2F2F2F;
+  font-size: 14px;
+}
+
+.section-4--header {
+  margin-bottom: 50px;
+}
+
+.shop__card {
+  text-align: left;
+}
+
+.shop--text {
+  color: #2F2F2F;
+  font-family: Open Sans, sans-serif;
+  font-size: 14px;
+}
+
 //------------Section config-------------
 .section--content {
   padding: 0;
