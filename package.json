@@ -1,7 +1,9 @@
 {
   "name": "co2ok_dojo",
   "version": "2.0",
-  "dependencies": {},
+  "dependencies": {
+    "vue-lodash": "^2.0.2"
+  },
   "devDependencies": {
     "browser-sync": "^2.14.0",
     "del": "^2.2.2",

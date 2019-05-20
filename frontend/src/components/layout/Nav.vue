@@ -9,7 +9,7 @@
 
                     <div class="uk-navbar-right uk-visible@m">
                         <ul class="uk-navbar-nav">
-                            <li :class="[checkActive('about') ? 'navbar__active' : '']"><router-link to="/about">About</router-link></li>
+                            <li :class="[checkActive('about') === true ? 'navbar__active' : '']"><router-link to="/about">About</router-link></li>
                             <li :class="[checkActive('webshops') ? 'navbar__active' : '']"><router-link to="/webshops">Webshops</router-link></li>
                             <li :class="[checkActive('consumers') ? 'navbar__active' : '']"><router-link to="/consumers">Consumers</router-link></li>
                             <li :class="[checkActive('news') ? 'navbar__active' : '']"><router-link to="/news">News</router-link></li>
@@ -97,8 +97,10 @@
             },
 
             checkActive(menu) {
-                if (this.routeName === menu.toLowerCase() || this.routeName === 'steps' && menu.toLowerCase() === 'about')
+                if (this.routeName === menu.toLowerCase() || this.routeName === 'steps' && menu.toLowerCase() === 'about') {
                     return true
+                } else {
+                }
             }
         },
 
@@ -118,4 +120,7 @@
     @import '../../styles/main.scss';
     @import '../../styles/nav.scss';
 
+    .navbar__active {
+        border: 3px solid red;
+    }
 </style>

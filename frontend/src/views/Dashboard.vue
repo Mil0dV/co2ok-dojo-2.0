@@ -1,5 +1,5 @@
 <template>
-    <div class="dashboard">
+    <v-app class="dashboard">
         <div class="dashboard__container">
             <div class="dashboard__header">
                 <h1 class="dashboard__title">Dashboard</h1>
@@ -90,7 +90,7 @@
             </v-card>
         </div>
 
-    </div>
+    </v-app>
 </template>
 
 <script>

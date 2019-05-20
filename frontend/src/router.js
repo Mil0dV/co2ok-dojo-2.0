@@ -64,6 +64,11 @@ const router = new Router({
             name: 'blog',
             component: () => import('./views/Blog')
         },
+        {
+            path: '/webshops',
+            name: 'webshops',
+            component: () => import('./views/Webshops')
+        },
         { //404 page, redirects back to home (= /)
             path: '*', redirect: '/'
 
