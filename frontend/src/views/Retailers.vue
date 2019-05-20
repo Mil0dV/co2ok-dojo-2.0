@@ -1,0 +1,162 @@
+<template>
+    <div>
+        <Header :image="header"></Header>
+
+        <div class="uk-section section-1">
+            <div class="uk-container uk-container-width">
+                <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
+                    <div class="uk-width-expand">
+                        <div class="uk-card uk-card-body section-1__col-1">
+                            <h2 class="sub-title">Fight climate change</h2>
+                            <h1 class="main-title">Greener and more customers and sustainable</h1>
+                            <p class="main-text">
+                                As awareness about the importance of preserving the environment continues to grow among
+                                consumers, companies are increasingly looking for ways to “go green”. Of course, you
+                                need to protect your bottom line as well. By enabling your customers to make their
+                                purchase climate neutral with CO₂ok, you can do your bit to drive back climate change.
+                                CO₂ok lets you increase the amount of customers with no upfront or recurring costs.
+                            </p>
+
+                            <br>
+                            <div class="col-1--links">
+                                <button type="button" class="button">Plug-in</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="uk-width-auto">
+                        <div class="uk-card col-1-card uk-card-default uk-card-body">
+                            <ul class="col-1-list">
+                                <li><span class="col-1-icon" uk-icon="icon: heart"></span>Improve your corporate image
+                                </li>
+                                <li><span class="col-1-icon" uk-icon="icon: heart"></span>Help fight climate change</li>
+                                <li><span class="col-1-icon" uk-icon="icon: heart"></span>Sell more</li>
+                                <li><span class="col-1-icon" uk-icon="icon: heart"></span>Setup in minutes</li>
+                                <li><span class="col-1-icon" uk-icon="icon: heart"></span>Free (really!)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="uk-section section-2 section--content">
+            <div class=" uk-container-width section-2-content">
+                <img src="../assets/images/retailers/retailer-icon-1.png">
+
+                <div class="content--wrapper">
+                    <h1 class="content-title">Go Green</h1>
+
+                    <p class="content-text">
+                        As retailer, you naturally try to run your business as sustainably as possible. However, some things are beyond your control – the manufacturing and shipping of your products for example. Manufacturers take too long to become climate neutral. CO₂ok fills this gap and allows your customers to buy everything they want, without contributing to climate change!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="uk-section section-2 section--dark section--content">
+            <div class=" uk-container-width section-2-content">
+                <img src="../assets/images/retailers/retailer-icon-2.png">
+
+                <div class="content--wrapper">
+                    <h1 class="content-title">Higher conversion rate, more turnover</h1>
+
+                    <p class="content-text">
+                        As retailer, you naturally try to run your business as sustainably as possible. However, some things are beyond your control – the manufacturing and shipping of your products for example. Manufacturers take too long to become climate neutral. CO₂ok fills this gap and allows your customers to buy everything they want, without contributing to climate change! This is also called ‘Cause Marketing’.
+                    </p>
+
+                    <p class="content-text">
+                        You reach even more customers if you go along with our marketing campaign. During our campaign you can easily ride along on our network. We post on Facebook, LinkedIn, Twitter and are featured in magazines and on radio! If you would like to know more you can contact Jos.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="uk-section section-2 section--content">
+            <div class=" uk-container-width section-2-content">
+                <img src="../assets/images/retailers/retailer-icon-3.png">
+
+                <div class="content--wrapper">
+                    <h1 class="content-title">Free for Webshops</h1>
+
+                    <p class="content-text">
+                        The plugin is entirely free for webshop owners. It only takes 1 minute to install the CO₂ok-plugin. When you integrated the plugin in your webshop, your customers can make their own choice to contribute. That way they make their purchase climate neutral. The minor extra free is on average 1%.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="uk-section section-2 section--dark section--content">
+            <div class=" uk-container-width section-2-content">
+                <img src="../assets/images/retailers/retailer-icon-4.png">
+
+                <div class="content--wrapper">
+                    <h1 class="content-title">Easy integration and use</h1>
+
+                    <p class="content-text">
+                        Both installing our plugin and using it can be done with just one click. Nothing about the ordering-process changes. You won’t lose customers by any tedious procedures. If you bump into a problem with the plugin, we’re always available through mail or by phone.
+                    </p>
+
+                    <br>
+                    <div class="col-1--links">
+                        <button type="button" class="button">Integrate Plug-in</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="uk-section section-3">
+            <div class="uk-container uk-container-width">
+                <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
+                    <div class="uk-width-expand">
+                        <div class="uk-card uk-card-body section-1__col-1">
+                            <h2 class="sub-title">What to do?</h2>
+                            <h1 class="main-title">How it works</h1>
+                            <p class="main-text">
+                                The compensation gets paid to you by the customer. CO₂ok sends a digital invoice at the end of each 3 month term. With the proceeds we support Atmosfair, a certified organisation which produces several CO₂-compensating projects each year.
+                            </p>
+
+                            <br>
+                            <div class="col-1--links">
+                                <button type="button" class="button">Install Plug-in</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="uk-width-auto">
+                        <div class="uk-card uk-card-body ">
+                            <img class="col-2--image" src="../assets/images/retailers/retailer-1.png"
+                                 alt="Protest climate" uk-img>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    const Header = () => import('@/components/layout/Header')
+
+    export default {
+        name: "Retailers",
+        components: {'Header': Header},
+
+        data() {
+            return {
+                header: 'retailers',
+            }
+        },
+    }
+</script>
+
+<style scoped lang="scss">
+    .main /deep/ {
+        @import "~uikit/dist/css/uikit.min.css";
+    }
+
+    @import '../styles/main.scss';
+    @import '../styles/retailers.scss';
+
+</style>

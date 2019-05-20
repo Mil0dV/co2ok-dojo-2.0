@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="uk-width-auto">
-                        <div class="uk-card uk-card-body">
+                        <div class="uk-card uk-card-body ">
                             <img class="col-2--image" src="../assets/images/webshops/webshops-protest.png"
                                  alt="Protest climate" uk-img>
                         </div>

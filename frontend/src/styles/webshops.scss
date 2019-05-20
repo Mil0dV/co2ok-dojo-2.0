@@ -1,45 +1,4 @@
-//-------------Section 1--------------------------------
-.section-1 {
-  background: #F5FCFF;
-}
-
-.section-1__col-1 {
-  text-align: left;
-  padding: 0;
-  max-width: 656px;
-  min-width: 300px;
-  width: 100%;
-
-  .button {
-    border: none;
-    font-size: 18px;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
-
-.col-1--links {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-size: 18px;
-}
-
-.col-1--links > * {
-  margin: 10px 0 !important;
-  font-size: 18px;
-}
-
-.col-1--links-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.col-1--links-wrapper > * {
-  margin: 10px 0 !important;
-}
+@import 'main__webshop';
 
 .col-2--image {
   max-width: 362px;
@@ -105,13 +64,9 @@
 
 //------------------Responsive-------------------
 @media (max-width: 1200px) {
-  .uk-container-width {
-    width: 100%;
-  }
-
   .col-2--image {
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
   }
 
   .main-title {
@@ -121,36 +76,6 @@
 
 
 @media (max-width: 970px) {
-  .section-1 {
-    justify-content: center;
-    display: flex;
-  }
-
-  .uk-container-width {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-  }
-
-  .uk-width-expand {
-    width: 100%;
-    padding: unset;
-  }
-
-  .col-1 {
-    flex-direction: column;
-    margin: 0;
-    width: 90%;
-  }
-
-  .col-1--links {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   .col-2--image {
     width: 100%;
     height: 100%;
@@ -186,37 +111,20 @@
 
 
 @media (max-width: 670px) {
-  .col-1--links {
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
-  .uk-container-width {
-    padding: 0;
-  }
-
-  .sub-title {
-    font-size: 18px;
-  }
-
-  .main-title {
-    font-size: 24px;
-  }
-
   .section-2--shops {
     max-width: unset;
     width: 70%;
-    margin: 0 10px 20px 0;
+    margin: 10px 0;
   }
 
-  .shop--image {
-    max-width: 300px;
+  .shops--image {
+    max-width: 150px;
+    min-width: 75px;
     width: 100%;
   }
 
   .section-2--col-2 {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
   }

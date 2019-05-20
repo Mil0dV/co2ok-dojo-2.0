@@ -31,6 +31,21 @@
 .uk-navbar-nav li a {
   font-size: 16px;
   color:#2F2F2F;
+}
+
+.dropdown__nav {
+  text-align: left;
+  font-size: 16px;
+  font-weight: 400;
+  color:#2F2F2F;
+
+  li {
+    cursor: pointer;
+
+    &:nth-child(2) {
+      margin: 15px 0;
+    }
+  }
 
 }
 

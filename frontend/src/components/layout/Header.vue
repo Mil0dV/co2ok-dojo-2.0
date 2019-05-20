@@ -38,6 +38,9 @@
                     case 'webshops':
                         this.title = 'Webshops'
                         break;
+                    case 'retailers':
+                        this.title = 'Retailers'
+                        break;
                     case 'faq':
                         this.title = 'Frequently asked questions'
                         break;

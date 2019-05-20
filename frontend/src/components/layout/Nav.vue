@@ -4,20 +4,49 @@
             <div class="uk-container">
                 <nav uk-navbar>
                     <div class="uk-navbar-left">
-                        <router-link to="/" class="uk-logo"><img :src="require('@/assets/images/nav/logo.png')"></router-link>
+                        <router-link to="/" class="uk-logo"><img :src="require('@/assets/images/nav/logo.png')">
+                        </router-link>
                     </div>
 
                     <div class="uk-navbar-right uk-visible@m">
                         <ul class="uk-navbar-nav">
-                            <li :class="[checkActive('about') ? 'navbar__active' : '']"><router-link to="/about">About</router-link></li>
-                            <li :class="[checkActive('webshops') ? 'navbar__active' : '']"><router-link to="/webshops">Webshops</router-link></li>
-                            <li :class="[checkActive('consumers') ? 'navbar__active' : '']"><router-link to="/consumers">Consumers</router-link></li>
-                            <li :class="[checkActive('news') ? 'navbar__active' : '']"><router-link to="/news">News</router-link></li>
-                            <li :class="[checkActive('faq') ? 'navbar__active' : '']"><router-link to="/faq">FAQ</router-link></li>
+                            <li :class="[checkActive('about') ? 'navbar__active' : '']">
+                                <router-link to="/about">About</router-link>
+                            </li>
+                            <li :class="[checkActive('webshops') ? 'navbar__active' : '']">
+                                <router-link to="/webshops">Webshops <span uk-icon="icon: triangle-down"></span>
+                                </router-link>
+                            </li>
+                            <div uk-dropdown="offset: -15">
+                                <ul class="uk-nav uk-dropdown-nav dropdown__nav">
+                                    <li :class="[checkActive('webshops') ? 'navbar__active' : '']">
+                                        <router-link to="/webshops">Webshops</router-link>
+                                    </li>
+                                    <li :class="[checkActive('retailers') ? 'navbar__active' : '']">
+                                        <router-link to="/webshops/retailers">Retailers</router-link>
+                                    </li>
+                                    <li :class="[checkActive('cause-marketing') ? 'navbar__active' : '']">
+                                        <router-link to="/webshops/cause-marketing">Cause Marketing</router-link>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <li :class="[checkActive('consumers') ? 'navbar__active' : '']">
+                                <router-link to="/consumers">Consumers</router-link>
+                            </li>
+                            <li :class="[checkActive('news') ? 'navbar__active' : '']">
+                                <router-link to="/news">News</router-link>
+                            </li>
+                            <li :class="[checkActive('faq') ? 'navbar__active' : '']">
+                                <router-link to="/faq">FAQ</router-link>
+                            </li>
                         </ul>
                         <a class="button">Extension</a>
                         <div class="line"></div>
-                        <a><img class="language-icon english icon" src="../../assets/images/nav/english-icon.png"></a>
+                        <a>
+                            <img class="language-icon english icon" src="../../assets/images/nav/english-icon.png">
+                            <span uk-icon="icon: triangle-down"></span>
+                        </a>
                     </div>
 
                     <div class="uk-navbar-right uk-hidden@m">
@@ -34,11 +63,21 @@
             <div class="uk-offcanvas-bar">
 
                 <ul class="uk-nav uk-nav-default">
-                    <li><router-link to="/about">About</router-link></li>
-                    <li><router-link to="/webshops">Webshops</router-link></li>
-                    <li><router-link to="/consumers">Consumers</router-link></li>
-                    <li><router-link to="/news">News</router-link></li>
-                    <li><router-link to="/faq">FAQ</router-link></li>
+                    <li>
+                        <router-link to="/about">About</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/webshops">Webshops</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/consumers">Consumers</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/news">News</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/faq">FAQ</router-link>
+                    </li>
                 </ul>
                 <a class="button">Extension</a>
                 <hr>
@@ -96,7 +135,7 @@
             checkActive(menu) {
                 if (this.currentRouteName === menu.toLowerCase()) {
                     return true
-               }
+                }
             }
         },
 
@@ -118,6 +157,7 @@
     .uk-navbar-container /deep/ {
         @import "~uikit/dist/css/uikit.min.css";
     }
+
     @import '../../styles/main.scss';
     @import '../../styles/nav.scss';
 
