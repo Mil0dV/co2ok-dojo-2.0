@@ -230,7 +230,7 @@ import Co2okWidget from '../../co2okWidget'
                     transDataArr.push(this._.floor(this._.sum(uniqYearArr), 2))
 
                 }
-                console.log(this._.uniq(transDataArr))
+                // console.log(this._.uniq(uniqYearArr))
                 return this._.uniq(transDataArr)
 
             },

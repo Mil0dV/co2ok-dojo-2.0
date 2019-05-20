@@ -78,8 +78,7 @@
                 <p data-aos="fade-up" data-aos-duration="1000" class=""
                    style="text-align: center; font-size: 21px; color: #10DC87; margin: 0px;position: relative; top:10px;">
                     Choose from 22.000+ webshops</p>
-                <h3 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" class="font-weight-bold shops-title"
-                    style="">Together we can make a change</h3>
+                <h3 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" class="font-weight-bold shops-title" style="">Together we can make a change</h3>
             </v-flex>
 
             <v-flex xs12 sm12 md12 lg12 xlg12 class="slider-flex">
@@ -98,7 +97,7 @@
                     </v-carousel-item>
 
                 </v-carousel> -->
-                <div style="width: 100%;height: auto;" class="webshops-img-container" v-for="(webshop, i) in webshops" :key="i">
+                <div style="" class="webshops-img-container" v-for="(webshop, i) in webshops" :key="i">
                   <div
                       v-for="(webshopIcon, i) in webshop.icons"
                       :key="i"
@@ -182,8 +181,8 @@
         </v-layout>
 
         <v-layout wrap row justify-center align-center class="pa-5" style="width: 100%; ">
-          <v-flex xs12 sm12 md6 lg5 xlg6>
-            <h2 data-aos="fade-up" data-aos-duration="1000" class="black--text" style="text-align: left;">"Startup CO₂ok makes<br>online shopping<br>climate neutral."<br><strong>-WWF</strong></h2>
+          <v-flex xs12 sm12 md6 lg5 xlg6 class="wwf-flex">
+            <h2 data-aos="fade-up" data-aos-duration="1000" class="black--text" style="">"Startup CO₂ok makes<br>online shopping<br>climate neutral."<br><strong>-WWF</strong></h2>
           </v-flex>
 
           <v-flex xs12 sm12 md6 lg6 xlg6>
@@ -778,6 +777,10 @@
         max-height: 270px;
     }
 
+    .wwf-flex h2{
+        text-align: left;
+    }
+
     /* v-carousel styles */
     .v-btn__content {
         border: 1px solid red;
@@ -835,6 +838,8 @@
             align-items: center;
         }
 
+        
+
         .shopping-btn {
             font-size: 17px;
         }
@@ -844,8 +849,14 @@
             padding: 24px;
         }
 
-        .slider-carousel .webshops-img-container {
+        .slider-flex{
+            margin-top: 40px;
+        }
+
+        .webshops-img-container {
             padding: 0px;
+            justify-content: space-around;
+            margin-bottom: 50px;
         }
 
         .partners-imgs, .webshops-imgs {
@@ -871,6 +882,24 @@
           font-size:10px;
         } */
 
+    }
+
+    @media only screen and (max-width: 800px){
+        .steps-content{
+            width: 90%;
+            /* border: 1px solid red; */
+        }
+
+        .wwf-flex{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .wwf-flex h2{
+            text-align: center;
+        }
     }
 
     @media only screen and (max-width: 500px) {
@@ -916,7 +945,7 @@
 
         .steps-content {
             font-size: 13px;
-            width: 85%;
+            width: 90%;
         }
 
         .involed-btn {
@@ -938,7 +967,10 @@
         }
 
         .webshop-txt-flex .shops-title {
-            font-size: 30px;
+            font-size: 25px;
+            width: 90%;
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
 
         .partners-imgs, .webshops-imgs {
@@ -957,7 +989,7 @@
         }
 
         .support-title {
-            font-size: 30px;
+            font-size: 25px;
         }
 
         .project-background {
