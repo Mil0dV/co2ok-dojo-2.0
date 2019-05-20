@@ -15,17 +15,6 @@
     width: 100%;
   }
 
-  a {
-    font-weight: 700;
-    color: $text-color !important;
-    text-transform: inherit !important;
-    margin: 0px 5px;
-  }
-
-  .button {
-    color: #fff !important;
-  }
-
   .line {
     width: 1px;
     height: 30px;
@@ -39,21 +28,10 @@
   }
 }
 
-.button, .button-secondary {
-  padding: 10px 25px!important;
-  text-align: center;
-  border-radius: 5px;
-  transition: 0.1s;
-}
+.uk-navbar-nav li a {
+  font-size: 16px;
+  color:#2F2F2F;
 
-.button {
-  padding: 12px 25px!important;
-  background: $main-gradient;
-  color: #fff!important;
-  font-weight: 400!important;
-  &:hover {
-    opacity: 0.8;
-  }
 }
 
 #offcanvas-nav {

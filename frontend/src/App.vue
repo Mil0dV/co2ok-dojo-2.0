@@ -24,7 +24,7 @@
 </script>
 
 <style lang="scss">
-    @import 'styles/app.scss';
+    @import 'styles/main.scss';
 
     #app {
         font-family: 'Poppins', sans-serif;

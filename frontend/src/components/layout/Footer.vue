@@ -22,27 +22,27 @@
                         <li>
                             <router-link to="/about">About Us</router-link>
                         </li>
-                        <li><a href="#">Webshops</a></li>
+                        <li><router-link to="/webshops">Webshops</router-link></li>
                         <li>
                             <ul>
-                                <li><a href="#">Retailers-info</a></li>
-                                <li><a href="#">Cause Marketing</a></li>
-                                <li><a href="#">Plugin Installation</a></li>
+                                <li><router-link to="/webshops/retailers">Retailers-info</router-link></li>
+                                <li><router-link to="webshops/cause-marketing">Cause Marketing</router-link></li>
+                                <li><router-link to="/webshops/plugin-installation">Plugin Installation</router-link></li>
                             </ul>
                         </li>
-                        <li><a href="#">Consumers</a></li>
+                        <li><router-link to="/consumers">Consumers</router-link></li>
                         <li>
                             <ul>
                                 <li>
                                     <router-link to="/about/how-it-works">CO<sub>2</sub>-Compensation</router-link>
                                 </li>
-                                <li><a href="#">Cause Marketing</a></li>
+                                <li><router-link to="/webshops/cause-marketing">Cause Marketing</router-link></li>
                                 <li><a target="_blank"
                                        href="https://chrome.google.com/webstore/detail/co2okninja/omlkdocjhkgbllabpihhdggplladfipe">Plugin
                                     Installation</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">News</a></li>
+                        <li><router-link to="/blogs">News</router-link></li>
                         <li>
                             <router-link to="/faq">FAQ</router-link>
                         </li>

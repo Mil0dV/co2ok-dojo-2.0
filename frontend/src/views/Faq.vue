@@ -247,7 +247,7 @@
                                     <p>
                                         Initially, 75% of your contribution will go to CO2 compensation through
                                         Atmosfair.
-                                        Our 25% margin will be used to to make CO2ok sustainable and get all online
+                                        Our 25% margin will be used to to make CO₂ok sustainable and get all online
                                         stores
                                         to use our plugin to offer CO2 compensation. Eventually, we will reduce our
                                         margin –

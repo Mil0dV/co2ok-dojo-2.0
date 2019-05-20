@@ -1,12 +1,9 @@
-$main-color: #08BA4D;
-$secondary-color: #10DC87;
-$main-gradient: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);
-$text-color: #2F2F2F;
-
 /* ------- Main things ------- */
+@import 'variables';
 
+/*----------Config--------*/
 h1, h2, h3, p, a, label, input, ::placeholder {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -20,13 +17,8 @@ h1 {
   margin-bottom: 20px;
 }
 
-.subheading {
-  color: $main-color;
-  font-size: 18px;
-}
-
 p, a, input, ::placeholder {
-  font-size: 16px !important;
+  font-size: 16px;
 }
 
 p, label, input {
@@ -36,6 +28,13 @@ p, label, input {
 p {
   margin: 0;
   padding: 0;
+}
+
+a {
+  font-weight: 700;
+  color: $text-color;
+  text-transform: inherit !important;
+  margin: 0px 5px;
 }
 
 label {
@@ -58,6 +57,12 @@ input {
   }
 }
 
+.uk-container-width {
+  max-width: 1090px;
+  width: 100%;
+  padding: 50px 0;
+}
+
 ::placeholder {
   color: #959595;
 }
@@ -69,12 +74,67 @@ a {
 }
 
 .link {
-  color: $main-color;
-  padding: 0 !important;
+  color: $secondary-color;
+  padding: 0;
   margin: 0 !important;
+  font-weight: 400;
 
   &:hover {
     color: $main-color;
     text-decoration: underline;
+  }
+}
+
+.subheading {
+  color: $main-color;
+  font-size: 18px;
+}
+
+.sub-title {
+  color: $main-color;
+  font-size: 22px;
+}
+
+.main-title {
+  font-size: 26px;
+  color:#606468;
+  font-weight: 400;
+}
+
+.main-text {
+  color:#2F2F2F;
+  font-size: 14px;
+  font-family: Open Sans, sans-serif !important;
+}
+
+.button {
+  color: #fff !important;
+}
+
+.button, .button-secondary {
+  padding: 10px 25px!important;
+  text-align: center;
+  border-radius: 5px;
+  transition: 0.1s;
+}
+
+.button {
+  padding: 12px 25px!important;
+  background: $main-gradient;
+  color: #fff!important;
+  font-weight: 400!important;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.button-secondary {
+  border: 2px solid #9F9F9F;
+  color: #9F9F9F;
+  background-color: none;
+
+  &:hover {
+    background-color: #9F9F9F;
+    color: white;
   }
 }

@@ -75,7 +75,7 @@
     }
 
     .header__image {
-        background: no-repeat fixed 0;
+        /*background: no-repeat fixed 0;*/
         background-size: cover;
         height: 354px;
         width: 100%;
@@ -114,7 +114,7 @@
 
     @media (max-width: 900px) {
         .header__image {
-            background: no-repeat fixed;
+            background: no-repeat ;
             background-size: cover;
             height: 300px;
             width: 100%;
@@ -122,7 +122,7 @@
         }
 
         .header__inner {
-            width: 95%;
+            width: 82%;
         }
 
         .header__title {

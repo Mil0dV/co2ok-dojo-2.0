@@ -64,7 +64,7 @@
                             <div class="steps__title-container">
                                 <v-icon class="step__icon">shopping_cart</v-icon>
                                 <p class="steps__title">
-                                    2. Purchase with Co2ok
+                                    2. Purchase with CO₂ok
                                 </p>
                             </div>
 
