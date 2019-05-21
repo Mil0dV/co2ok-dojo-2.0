@@ -52,7 +52,7 @@
                     </ul>
                 </div>
                 <div class="uk-width-1-3@m footer-column">
-                    <h2>Social</h2>
+                    <h2 style="margin-bottom: 10px; ">Social</h2>
                     <ul class="social-media-icons">
                         <li><a target="_blank" href="https://www.instagram.com/co2ok.eco/"><i
                                 class="fab fa-instagram"></i></a></li>

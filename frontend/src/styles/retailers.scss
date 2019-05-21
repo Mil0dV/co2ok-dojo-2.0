@@ -66,9 +66,7 @@
   padding: 0;
 }
 
-.section--dark {
-  background: #f7f7f7;
-}
+
 
 //--------------------------Section 2-------------
 .section-2 {
@@ -181,6 +179,10 @@
   max-width: 200px;
   width: 100%;
   height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px auto;
 }
 
 .login__buttons {

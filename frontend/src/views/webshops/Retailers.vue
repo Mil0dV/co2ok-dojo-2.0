@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main">
         <Header :image="header"></Header>
 
         <div class="uk-section section-1">
@@ -19,7 +19,7 @@
 
                             <br>
                             <div class="col-1--links">
-                                <button type="button" class="button">Plug-in</button>
+                                <a href="https://chrome.google.com/webstore/detail/co2okninja/omlkdocjhkgbllabpihhdggplladfipe" class="button">Plug-in</a>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
 
         <div class="uk-section section-2 section--content">
             <div class=" uk-container-width section-2-content">
-                <img src="../../assets/images/retailers/retailer-icon-1.png">
+                <img src="../../assets/images/webshops/retailers/retailer-icon-1.png">
 
                 <div class="content--wrapper">
                     <h1 class="content-title">Go Green</h1>
@@ -57,7 +57,7 @@
 
         <div class="uk-section section-2 section--dark section--content">
             <div class=" uk-container-width section-2-content">
-                <img src="../../assets/images/retailers/retailer-icon-2.png">
+                <img src="../../assets/images/webshops/retailers/retailer-icon-2.png">
 
                 <div class="content--wrapper">
                     <h1 class="content-title">Higher conversion rate, more turnover</h1>
@@ -75,7 +75,7 @@
 
         <div class="uk-section section-2 section--content">
             <div class=" uk-container-width section-2-content">
-                <img src="../../assets/images/retailers/retailer-icon-3.png">
+                <img src="../../assets/images/webshops/retailers/retailer-icon-3.png">
 
                 <div class="content--wrapper">
                     <h1 class="content-title">Free for Webshops</h1>
@@ -89,7 +89,7 @@
 
         <div class="uk-section section-2 section--dark section--content">
             <div class=" uk-container-width section-2-content">
-                <img src="../../assets/images/retailers/retailer-icon-4.png">
+                <img src="../../assets/images/webshops/retailers/retailer-icon-4.png">
 
                 <div class="content--wrapper">
                     <h1 class="content-title">Easy integration and use</h1>
@@ -100,7 +100,7 @@
 
                     <br>
                     <div class="col-1--links">
-                        <button type="button" class="button">Integrate Plug-in</button>
+                        <a href="https://chrome.google.com/webstore/detail/co2okninja/omlkdocjhkgbllabpihhdggplladfipe" class="button">Integrate Plug-in</a>
                     </div>
                 </div>
             </div>
@@ -119,14 +119,14 @@
 
                             <br>
                             <div class="col-1--links">
-                                <button type="button" class="button">Install Plug-in</button>
+                                <a href="https://chrome.google.com/webstore/detail/co2okninja/omlkdocjhkgbllabpihhdggplladfipe" class="button">Install Plug-in</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="uk-width-auto">
                         <div class="uk-card uk-card-body ">
-                            <img class="col-2--image" src="../../assets/images/retailers/retailer-1.png"
+                            <img class="col-2--image" src="../../assets/images/webshops/retailers/retailer-1.png"
                                  alt="Protest climate" uk-img>
                         </div>
                     </div>
@@ -144,7 +144,7 @@
                 <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <img class="shop__image" src="../../assets/images/retailers/shop-1.png">
+                            <img class="shop__image" src="../../assets/images/webshops/retailers/shop-1.png">
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
                             <p class="shop--text">
                                 “Our webshop is sustainable, but climate neutral as well because of CO₂ok!”
@@ -153,7 +153,7 @@
                     </div>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <img class="shop__image" src="../../assets/images/retailers/shop-2.png">
+                            <img class="shop__image" src="../../assets/images/webshops/retailers/shop-2.png">
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
                             <p class="shop--text">
                                 “The first time we got called about the CO₂ok-plugin, we didn’t like the idea at all. (The…
@@ -162,7 +162,7 @@
                     </div>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <img class="shop__image" src="../../assets/images/retailers/shop-3.png">
+                            <img class="shop__image" src="../../assets/images/webshops/retailers/shop-3.png">
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
                             <p class="shop--text">
                                 “We were already environment conscious, but we do buy our products by ship. CO₂ok…
@@ -188,7 +188,7 @@
                     <div class="uk-width-1-2 to-right">
                         <div class="uk-card col-2-card uk-card-default uk-card-body">
                             <form class="login__form">
-                                <div class="login__group animated fadeInUp">
+                                <div class="login__group">
                                     <label class="login__group">
                                         Name
                                         <input class="login__group-input"
@@ -214,10 +214,9 @@
                                     </label>
                                 </div>
 
-                                <div style="width: 100%; text-align: left;" class="animated fadeInUp login__buttons">
+                                <div style="width: 100%; text-align: left;" class="login__buttons">
                                     <button type="button" class="button button-empty btn-large">Empty form</button>
                                     <button type="button" class="button btn-large">Submit</button>
-
                                 </div>
                             </form>
                         </div>

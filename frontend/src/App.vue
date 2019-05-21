@@ -36,7 +36,7 @@
         // background: #F4F4F4;   zou je deze propertie alleen in pagina's waar de achterground #f4f4f4 is, anders wordt het in de hele app gebruikt als defauld background
         padding: 0;
         margin: 0;
-        width: 100vw;
+        /*width: 100vw;*/
         display: flex;
         flex-direction: column;
         overflow: hidden;

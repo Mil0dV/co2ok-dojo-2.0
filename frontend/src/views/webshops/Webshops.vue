@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main">
         <Header :image="header"></Header>
 
         <div class="uk-section section-1">
@@ -19,7 +19,7 @@
 
                             <br>
                             <div class="col-1--links">
-                                <button type="button" class="button">Plug-in</button>
+                                <a href="https://chrome.google.com/webstore/detail/co2okninja/omlkdocjhkgbllabpihhdggplladfipe" class="button">Plug-in</a>
 
                                 <div class="col-1--links-wrapper">
                                     <router-link class="link" to="/webshops/retailers">
@@ -36,7 +36,7 @@
 
                     <div class="uk-width-auto">
                         <div class="uk-card uk-card-body ">
-                            <img class="col-2--image" src="../../assets/images/webshops/webshops-protest.png"
+                            <img class="col-2--image" src="../../assets/images/webshops/shops/webshops-protest.png"
                                  alt="Protest climate" uk-img>
                         </div>
                     </div>
@@ -58,8 +58,11 @@
                         </div>
                     </div>
 
-                    <div v-for="i in 29" :key="`4${i}`" class="section-2--shops shops--image">
-                        <img :src="require(`@/assets/images/webshops/webshop-${i}.png`)" >
+                    <div class="shop--image-wrapper section-2--shops" v-for="i in 29" :key="`4${i}`">
+                        <div
+                             class="section-2--shops shops--image"
+                             :style="{'background-image': 'url(' + require(`@/assets/images/webshops/shops/webshop-${i}.png`) + ')'}">
+                        </div>
                     </div>
                 </div>
             </div>

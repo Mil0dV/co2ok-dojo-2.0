@@ -27,6 +27,24 @@
   margin: 0 15px 20px 0;
 }
 
+//.shop--image-wrapper {
+//  height: 100%;
+//  width: 100%;
+//
+//  &:hover {
+//    background: red;
+//    //background: rgba(0, 0, 0, 0.5);
+//    //background: rgba(9,210,87, 0.8)
+//  }
+//}
+
+.shops--image {
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center;
+  width: 100%;
+}
+
 .shop-btn {
   background: white;
   border-radius: 5px;

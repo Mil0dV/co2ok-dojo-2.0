@@ -41,7 +41,7 @@
                                 <router-link to="/faq">FAQ</router-link>
                             </li>
                         </ul>
-                        <a class="button">Extension</a>
+                        <a href="https://chrome.google.com/webstore/detail/co2okninja/omlkdocjhkgbllabpihhdggplladfipe" class="button">Extension</a>
                         <div class="line"></div>
                         <a>
                             <img class="language-icon english icon" src="../../assets/images/nav/english-icon.png">
@@ -51,7 +51,8 @@
 
                     <div class="uk-navbar-right uk-hidden@m">
                         <a class="uk-navbar-toggle" uk-toggle="target: #offcanvas-nav">
-                            <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
+                            <span uk-navbar-toggle-icon></span>
+                            <!--<span class="uk-margin-small-left">Menu</span>-->
                         </a>
                     </div>
 
