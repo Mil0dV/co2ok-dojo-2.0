@@ -41,6 +41,9 @@
                     case 'retailers':
                         this.title = 'Retailers'
                         break;
+                    case 'cause-marketing':
+                        this.title = 'Cause Marketing'
+                        break;
                     case 'faq':
                         this.title = 'Frequently asked questions'
                         break;
@@ -78,7 +81,7 @@
     }
 
     .header__image {
-        /*background: no-repeat fixed 0;*/
+        background: no-repeat fixed  bottom;
         background-size: cover;
         height: 354px;
         width: 100%;

@@ -36,14 +36,14 @@
                                     <label class="login__group">
                                         E-mail
                                         <input class="login__group-input" v-model="email"
-                                               type="email" placeholder="Fill in you email...">
+                                               type="email" placeholder="Fill in your email...">
                                     </label>
 
                                     <div class="login__group-password">
                                         <label class="login__group">
                                             Password
                                             <input class="login__group-input" v-model="password"
-                                                   type="password" placeholder="Fill in you password...">
+                                                   type="password" placeholder="Fill in your password...">
                                         </label>
                                         <p @click="passReset = true"
                                            class="login__form-header forgot__password">

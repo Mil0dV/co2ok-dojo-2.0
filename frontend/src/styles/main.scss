@@ -57,6 +57,10 @@ input {
   }
 }
 
+.asterik {
+  color: red;
+}
+
 .uk-container-width {
   max-width: 1090px;
   width: 100%;
@@ -113,7 +117,7 @@ a {
 }
 
 .button {
-  color: #fff !important;
+  color: #fff;
 }
 
 .button, .button-secondary {
@@ -126,7 +130,7 @@ a {
 .button {
   padding: 12px 25px!important;
   background: $main-gradient;
-  color: #fff!important;
+  color: #fff;
   font-weight: 400!important;
   &:hover {
     opacity: 0.8;
