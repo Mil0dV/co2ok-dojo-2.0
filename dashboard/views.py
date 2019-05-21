@@ -65,9 +65,11 @@ class UserView(viewsets.ModelViewSet):
         transactionArr = []
         for transaction in Transaction.scan(Transaction.merchant_id == merchantId):
             if str(transaction.timestamp) > year:
-                getMonth = str(transaction.timestamp).split('-')
+                dateSplited = str(transaction.timestamp).split('-')
+                getWeek = str(dateSplited[2]).split(' ')
                 getDate = str(transaction.timestamp).split()
-                transactionArr.append({'orders': transaction.compensation_cost, 'date': getDate[0], 'month': getMonth[1]})
+                transactionArr.append({'orders': transaction.compensation_cost,
+                                       'date': getDate[0], 'month': dateSplited[1], 'week': getWeek[0]})
         return Response(transactionArr)
 
 

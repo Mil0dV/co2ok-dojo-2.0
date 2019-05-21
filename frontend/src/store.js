@@ -24,7 +24,8 @@ export default new Vuex.Store({
         Authenticated: window.localStorage.getItem('Authenticated'),
         //graph variabels
         x_asLabel: [],
-        graphData: []
+        graphData: [],
+        blog: []
 
     },
 
@@ -137,6 +138,10 @@ export default new Vuex.Store({
         roundGraphData(state, data){
             let roundedData = Math.round(data)
             return roundedData
+        },
+
+        getBlogs(state, data){
+            state.blog = data
         }
 
     },

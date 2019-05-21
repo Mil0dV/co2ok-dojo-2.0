@@ -142,7 +142,8 @@ import Co2okWidget from '../../co2okWidget'
               daysArr: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
               nextStyle: {color: '#E0E0E0', cursor: 'default'}, // month next btn dunamic styles
               prevStyle: {color: '#369555', cursor: 'pointer'}, // month previous btn dunamic styles
-              yearArr: ['',[],[],[],[],[],[],[],[],[],[],[],[]]
+              yearArr: ['',[],[],[],[],[],[],[],[],[],[],[],[]],
+              monthsWeeksArr: ['',[],[],[],[],[],[],[],[],[],[],[],[]]
 
             }
         },
@@ -210,8 +211,14 @@ import Co2okWidget from '../../co2okWidget'
 
                 let currentMonth = this.$moment().format('M')
                 let transDataArr = []
-                let i
+                let monthWeekArr = [] //contains weeks of month
+                let i //month for loop index
+                let w //weeks for loop index
+                let d //days for loop index
                 let parseMonth
+                let parseWeek
+                let dayOfMonth
+                let weekOfMonth
                 for(i = 1; i <= currentMonth; i++){
                     
                     if(i < 10){
@@ -226,10 +233,41 @@ import Co2okWidget from '../../co2okWidget'
                         }
                     })
 
+                    dayOfMonth = this.$moment(i, 'M').daysInMonth()
+                    weekOfMonth = Math.ceil(dayOfMonth/7)
+                    console.log(Math.ceil(weekOfMonth));
+                    for (w = 1; w <= weekOfMonth; w++) {
+
+                        let dateWeek = `${this.monthsArr[i-1]} - ${w}`
+                        let weekDaysArr = this.monthsWeeksArr[i].push([])
+
+                         if(w < 10){
+                            parseWeek = `${'0'+w}`
+                        }else if(w > 9){
+                            parseWeek = w
+                        }
+
+                        // console.log(this.monthsWeeksArr[w]);  
+
+                        // transactions.filter((transaction) => {
+                        //     if(transaction.month.search(parseMonth) != -1 && transaction.week.search(parseWeek) != -1){
+                        //         // weekDaysArr[w].push(transaction.orders)
+                        //         weekDaysArr.push(transaction.date) 
+                        //     }
+                        //     else{
+                        //          this.monthsWeeksArr[i].push(0)       
+                        //     }
+                        // })     
+                        
+                    }
+                    //  console.log(monthWeekArr);
+                    
                     let uniqYearArr = this._.uniq(this.yearArr[i])
                     transDataArr.push(this._.floor(this._.sum(uniqYearArr), 2))
 
                 }
+                // console.log(this.monthsWeeksArr);  
+  
                 // console.log(this._.uniq(uniqYearArr))
                 return this._.uniq(transDataArr)
 
@@ -251,6 +289,7 @@ import Co2okWidget from '../../co2okWidget'
                         Authorization: `token ${window.localStorage.getItem('userToken')}` 
                     }
                 }).then(response => {
+console.log(response.data);
 
                     let yearGraphData = self.parseTransactionsData(response.data)
                     self.$store.commit('yearGraphData', yearGraphData)
