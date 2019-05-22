@@ -1,3 +1,10 @@
+module.exports = {
+    publicPath: process.env.NODE_ENV === 'production'
+        ? '/'
+        : '/'
+}
+
+
 // const BundleTracker = require("webpack-bundle-tracker");
 // module.exports = {
 //     // baseUrl: "http://0.0.0.0:8080/",

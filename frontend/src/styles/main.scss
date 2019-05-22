@@ -131,6 +131,7 @@ a {
   padding: 12px 25px!important;
   background: $main-gradient;
   color: #fff;
+  border: 1px solid $main-gradient;
   font-weight: 400!important;
   &:hover {
     opacity: 0.8;

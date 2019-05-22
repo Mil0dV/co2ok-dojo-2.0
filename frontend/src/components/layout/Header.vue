@@ -44,6 +44,9 @@
                     case 'cause-marketing':
                         this.title = 'Cause Marketing'
                         break;
+                    case 'installation':
+                        this.title = 'Plug-in Installation'
+                        break;
                     case 'faq':
                         this.title = 'Frequently asked questions'
                         break;
@@ -51,7 +54,7 @@
                         this.title = 'Privacy policy'
                         break;
                     default:
-                        this.title = 'CO₂-compensation'
+                        this.title = 'CO₂ compensation'
                         break;
                 }
             }
@@ -81,11 +84,11 @@
     }
 
     .header__image {
-        background: no-repeat fixed  bottom;
-        background-size: cover;
+        background: no-repeat center center;
         height: 354px;
         width: 100%;
         display: flex;
+        background-size: cover; /* or contain depending on what you want */
     }
 
     .header__image-shade {

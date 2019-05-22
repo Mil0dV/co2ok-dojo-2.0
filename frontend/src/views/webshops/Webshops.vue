@@ -92,6 +92,6 @@
 
 
     @import '../../styles/main';
-    @import '../../styles/webshops';
+    @import '../../styles/webshops/webshops';
 
 </style>

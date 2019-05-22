@@ -245,6 +245,6 @@
     }
 
     @import '../../styles/main';
-    @import '../../styles/cause';
+    @import '../../styles/webshops/cause';
 
 </style>

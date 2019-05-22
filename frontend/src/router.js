@@ -79,6 +79,11 @@ const router = new Router({
             name: 'cause-marketing',
             component: () => import('./views/webshops/Cause')
         },
+        {
+            path: '/webshops/plug-in-installation',
+            name: 'plug-in-installation',
+            component: () => import('./views/webshops/Installation')
+        },
         { //404 page, redirects back to home (= /)
             path: '*', redirect: '/'
 
