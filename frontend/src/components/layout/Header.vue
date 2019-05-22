@@ -53,6 +53,9 @@
                     case 'privacy':
                         this.title = 'Privacy policy'
                         break;
+                    case 'projects':
+                        this.title = 'CO₂-compensation projects'
+                        break;
                     default:
                         this.title = 'CO₂ compensation'
                         break;

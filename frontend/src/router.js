@@ -85,6 +85,11 @@ const router = new Router({
             name: 'plug-in-installation',
             component: () => import('./views/webshops/Installation')
         },
+        {
+            path: '/projects',
+            name: 'projects',
+            component: () => import('./views/Projects')
+        },
         { //404 page, redirects back to home (= /)
             path: '*', redirect: '/'
 

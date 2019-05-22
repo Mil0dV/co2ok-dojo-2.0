@@ -1,5 +1,5 @@
 /* ------- Main things ------- */
-@import 'variables';
+@import 'variables.scss';
 
 /*----------Config--------*/
 h1, h2, h3, p, a, label, input, ::placeholder {
@@ -65,6 +65,16 @@ input {
   max-width: 1090px;
   width: 100%;
   padding: 50px 0;
+}
+
+.uk-container-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.uk-container-row{
+  display: flex;
+  flex-direction: row;
 }
 
 .main-title--large {
