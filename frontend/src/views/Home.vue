@@ -154,7 +154,7 @@
 
                     <!-- <v-carousel-item v-for="(partner, i) in partners" :key="i">
                         <div class="webshops-img-container mt-1 pa-3">
-                           
+
                             <div
                                     v-for="(partnerIcon, i) in partner.icons"
                                     :key="i"
@@ -283,7 +283,7 @@
                 let carouselCtrlNext = document.querySelector('.v-carousel__next .v-icon');
                 let carouselCtrlPrev = document.querySelector('.v-carousel__prev .v-icon');
                 // let carouselActives = document.querySelectorAll('.v-btn--active');
-                let carouselItemsIcons = document.querySelectorAll('.v-item-group .v-btn .v-btn__content .v-icon');
+                // let carouselItemsIcons = document.querySelectorAll('.v-item-group .v-btn .v-btn__content .v-icon');
 
                 for (let i = 0; i < controls.length; i++) {
                     let control = controls[i];
@@ -838,7 +838,7 @@
             align-items: center;
         }
 
-        
+
 
         .shopping-btn {
             font-size: 17px;

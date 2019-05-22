@@ -36,7 +36,7 @@ const router = new Router({
             path: '/dashboard',
             name: 'dashboard',
             component: () => import( './views/Dashboard'),
-            // beforeEnter: ifAuthenticated
+            beforeEnter: ifAuthenticated
         },
         {
             path: '/about',
@@ -90,7 +90,7 @@ const router = new Router({
         }
     ],
 
-    scrollBehavior (to, from, savedPosition) {
+    scrollBehavior () {
         return { x: 0, y: 0 };
     }
 });
