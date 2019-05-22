@@ -17,7 +17,7 @@
                                 <router-link to="/webshops">Webshops <span uk-icon="icon: triangle-down"></span>
                                 </router-link>
                             </li>
-                            <div uk-dropdown="offset: -15">
+                            <div class="dropdown__menu-wrapper" uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
                                     <li>
                                         <router-link to="/webshops">Webshops</router-link>
@@ -34,6 +34,14 @@
                             <li :class="[checkActive('consumers') ? 'navbar__active' : '']">
                                 <router-link to="/consumers">Consumers</router-link>
                             </li>
+                            <div class="dropdown__menu-wrapper" v-if="checkActive('consumers')" uk-dropdown="offset: -15">
+                                <ul class="uk-nav uk-dropdown-nav dropdown__nav">
+                                    <li>
+                                        <router-link to="/webshops">Logout</router-link>
+                                    </li>
+                                </ul>
+                            </div>
+
                             <li :class="[checkActive('news') ? 'navbar__active' : '']">
                                 <router-link to="/news">News</router-link>
                             </li>
@@ -160,11 +168,6 @@
 </script>
 
 <style lang="scss" scoped>
-    .uk-navbar-container /deep/ {
-        @import "~uikit/dist/css/uikit.min.css";
-    }
-
-    @import '../../styles/main.scss';
     @import '../../styles/nav.scss';
 
     .navbar__active {

@@ -4,7 +4,7 @@
             <h1>Profile</h1>
             <div class="dashboard__items">
                 <div class="dashboard__row-1">
-                    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                    <div class="uk-card uk-card-consumer uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
                         <div class="uk-card-media-left uk-cover-container">
                             <img src="../assets/images/ninja/profile-1.png" alt="profile" uk-cover>
                             <canvas width="362" height="274"></canvas>
@@ -30,7 +30,7 @@
                     </div>
 
 
-                    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                    <div class="uk-card uk-card-consumer uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
                         <div class="cause-container">
                             <div class="uk-card-body">
                                 <p class="main-sub">Pick a cause</p>

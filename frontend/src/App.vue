@@ -25,6 +25,7 @@
 
 <style lang="scss">
     @import 'styles/main.scss';
+    @import "~uikit/dist/css/uikit.min.css";
 
     #app {
         font-family: 'Poppins', sans-serif;
