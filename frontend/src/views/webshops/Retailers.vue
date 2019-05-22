@@ -200,11 +200,8 @@
 </script>
 
 <style scoped lang="scss">
-    .main /deep/ {
-        @import "../../../node_modules/uikit/dist/css/uikit.min.css";
-    }
 
-    @import '../../styles/main';
+    @import '../../styles/variables';
     @import '../../styles/webshops/retailers';
     @import '../../styles/webshops/webshop__form';
 

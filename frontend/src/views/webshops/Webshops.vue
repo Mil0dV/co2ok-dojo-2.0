@@ -86,12 +86,5 @@
 </script>
 
 <style scoped lang="scss">
-    .main /deep/ {
-        @import "../../../node_modules/uikit/dist/css/uikit.min.css";
-    }
-
-
-    @import '../../styles/main';
     @import '../../styles/webshops/webshops';
-
 </style>
