@@ -129,8 +129,8 @@
 
         mounted() {
 
-            //  this.ifAthenticated();
-            this.$store.dispatch('commitGetUserData');
+            //  this.ifAuthenticated();
+            this.$store.dispatch('commitGetUserData');            
 
         },
 
@@ -151,7 +151,7 @@
 
             // deze functie checkt de gebruikers loggin status(boolean) en stuur ze naar
             // de account/login pagina
-            ifAthenticated() {
+            ifAuthenticated() {
                 alert(localStorage.getItem('Authenticated'))
                 if (localStorage.getItem('Authenticated')) {
                     alert('logged in')

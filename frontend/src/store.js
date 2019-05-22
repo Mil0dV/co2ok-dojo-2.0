@@ -25,7 +25,8 @@ export default new Vuex.Store({
         //graph variabels
         x_asLabel: [],
         graphData: [],
-        blog: []
+        blogs: [],
+        component: 'blog' //use in blo.vue as dynamic template
 
     },
 
@@ -129,9 +130,9 @@ export default new Vuex.Store({
             state.graphData = data
         },
 
-        weekGraphData(state) {
+        weekGraphData(state, data) {
             state.x_asLabel = ['MON', 'TUE', 'WED', 'THU', 'FRY', 'SAT', 'SUN']
-            state.graphData = [8, 21, 7, 1, 0, 3, 5]
+            state.graphData = data
             
         },
 
@@ -141,7 +142,7 @@ export default new Vuex.Store({
         },
 
         getBlogs(state, data){
-            state.blog = data
+            state.blogs = data
         }
 
     },
