@@ -19,13 +19,13 @@
                             </li>
                             <div uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
-                                    <li :class="[checkActive('webshops') ? 'navbar__active' : '']">
+                                    <li>
                                         <router-link to="/webshops">Webshops</router-link>
                                     </li>
-                                    <li :class="[checkActive('retailers') ? 'navbar__active' : '']">
+                                    <li>
                                         <router-link to="/webshops/retailers">Retailers</router-link>
                                     </li>
-                                    <li :class="[checkActive('cause-marketing') ? 'navbar__active' : '']">
+                                    <li>
                                         <router-link to="/webshops/cause-marketing">Cause Marketing</router-link>
                                     </li>
                                 </ul>
@@ -135,6 +135,11 @@
 
             checkActive(menu) {
                 if (this.currentRouteName === menu.toLowerCase()) {
+                    return true
+                }
+
+                if(menu === 'webshops' && this.currentRouteName === 'retailers' || menu === 'webshops' && this.currentRouteName === 'cause-marketing' || menu === 'webshops' && this.currentRouteName === 'plug-in-installation'){
+                    console.log(this.currentRouteName)
                     return true
                 }
             }

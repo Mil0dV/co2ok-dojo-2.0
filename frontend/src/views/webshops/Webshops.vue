@@ -19,7 +19,7 @@
 
                             <br>
                             <div class="col-1--links">
-                                <a href="https://chrome.google.com/webstore/detail/co2okninja/omlkdocjhkgbllabpihhdggplladfipe" class="button">Plug-in</a>
+                                <router-link to="/webshops/plug-in-installation" class="button">Plug-in</router-link>
 
                                 <div class="col-1--links-wrapper">
                                     <router-link class="link" to="/webshops/retailers">
