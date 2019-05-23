@@ -72,6 +72,24 @@ class UserView(viewsets.ModelViewSet):
                                        'date': getDate[0], 'month': dateSplited[1], 'week': getWeek[0]})
         return Response(transactionArr)
 
+    @csrf_exempt
+    @action(methods=['get'], detail=False)
+    def weeklyTransaction(self, request):
+        merchantId = request.query_params.get('merchantId')
+        yearMonth = request.query_params.get('yearMonth')
+        endWeek = request.query_params.get('endWeek')
+        startWeek = request.query_params.get('startWeek')
+        transactionArr = []
+        for transaction in Transaction.scan(Transaction.merchant_id == merchantId):
+            dateSplited = str(transaction.timestamp).split('-')
+            getWeek = str(dateSplited[2]).split(' ')
+            getDate = str(transaction.timestamp).split()
+            formatDate = "{}-{}".format(dateSplited[0], dateSplited[1]) #return year-month
+            if str(formatDate) == str(yearMonth) and str(getWeek[0]) >= str(startWeek) and str(getWeek[0]) <= str(endWeek):
+                transactionArr.append({'orders': transaction.compensation_cost,
+                                       'date': getDate[0], 'month': dateSplited[1], 'day': getWeek[0]})
+        return Response(transactionArr)
+
 
 @csrf_exempt
 @api_view(['POST'])
