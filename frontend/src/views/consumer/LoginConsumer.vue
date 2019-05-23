@@ -1,7 +1,14 @@
 <template>
     <div class="login-c__container">
         <div class="login-c__background login-c__row">
-
+            <div class="bkgr__filler"></div>
+            <div class="bkgr__filler bkgr__text">
+                <div class="green-border__login">
+                    <p class="green-border__text">
+                        With your account you will get acces to information how much you’ve contributed to fighting climate change.
+                    </p>
+                </div>
+            </div>
         </div>
 
         <div class="login-c__form-wrapper login-c__row">
@@ -23,21 +30,9 @@
                         I forgot my password
                     </p>
                 </div>
-
-                <button type="submit"
-                        class="login__submit">
-                    <span >Login</span>
-                </button>
-
-                <p class="social-buttons">
-                    <a target="_blank" href="https://www.facebook.com/CO2ok/"><i class="fab  fa-facebook-f"></i></a>
-                    or
-                    <a target="_blank" href="https://twitter.com/CO2ok_eco"><i class="fab fa-twitter"></i></a>
-                </p>
             </div>
 
 
-            <br><br><br><br>
             <p>register</p>
 
 
@@ -59,11 +54,6 @@
                         I forgot my password
                     </p>
                 </div>
-
-                <button type="submit"
-                        class="login__submit">
-                    <span >Register</span>
-                </button>
             </div>
         </div>
     </div>

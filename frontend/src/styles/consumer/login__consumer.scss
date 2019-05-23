@@ -12,4 +12,35 @@
 .login-c__background {
   background: url('../../assets/images/ninja/login.jpg') no-repeat center center;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
 }
+
+.bkgr__filler {
+  border: 5px solid purple;
+  height: 100%;
+}
+
+.bkgr__text {
+  display: flex;
+}
+
+.green-border__login {
+  border-left: 10px solid #10DC87;
+  background: white;
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 322px;
+  max-height: 136px;
+  width: 100%;
+  text-align: left;
+}
+
+.green-border__text {
+  margin: 24px 62px 23px 38px;
+  max-width: 322px;
+  width: 100%;
+}
+
