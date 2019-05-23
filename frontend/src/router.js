@@ -26,17 +26,17 @@ const router = new Router({
         {
             path: '/register/:merchantId',
             name: 'register',
-            component: () => import( './views/Register.vue')
+            component: () => import( './views/dashboard/Register.vue')
         },
         {
             path: '/login',
             name: 'login',
-            component: () => import( './views/Login.vue')
+            component: () => import( './views/dashboard/Login.vue')
         },
         {
             path: '/dashboard',
             name: 'dashboard',
-            component: () => import( './views/Dashboard'),
+            component: () => import( './views/dashboard/Dashboard'),
             beforeEnter: ifAuthenticated
         },
         {
@@ -93,7 +93,7 @@ const router = new Router({
         {
             path: '/consumers',
             name: 'consumers',
-            component: () => import('./views/Consumer')
+            component: () => import('./views/consumer/Consumer')
         },
         { //404 page, redirects back to home (= /)
             path: '*', redirect: '/'

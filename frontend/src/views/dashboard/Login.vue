@@ -197,7 +197,7 @@
         justify-content: center;
         flex-direction: column;
         align-items: center;
-        background: url('../assets/images/login/loginscreen.png') no-repeat center center;
+        background: url('../../assets/images/login/loginscreen.png') no-repeat center center;
         background-size: cover;
     }
 

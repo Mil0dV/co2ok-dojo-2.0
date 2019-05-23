@@ -6,7 +6,7 @@
                 <div class="dashboard__row-1">
                     <div class="uk-card uk-card-consumer uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
                         <div class="uk-card-media-left uk-cover-container">
-                            <img src="../assets/images/ninja/profile-1.png" alt="profile" uk-cover>
+                            <img src="../../assets/images/ninja/profile-1.png" alt="profile" uk-cover>
                             <canvas width="362" height="274"></canvas>
                         </div>
                         <div>
@@ -39,19 +39,19 @@
 
                                 <div class="cause-wrapper">
                                     <div class="cause">
-                                        <img class="uk-box-shadow-medium" src="../assets/images/ninja/profile-2.png">
+                                        <img class="uk-box-shadow-medium" src="../../assets/images/ninja/profile-2.png">
                                         <p class="main-text cause-text lighter">Biogas installations <i
                                                 class="subheading fas fa-info-circle"></i></p>
                                     </div>
 
                                     <div class="cause">
-                                        <img class="uk-box-shadow-medium" src="../assets/images/ninja/profile-3.png">
+                                        <img class="uk-box-shadow-medium" src="../../assets/images/ninja/profile-3.png">
                                         <p class="main-text cause-text lighter">Solar panels <i
                                                 class="subheading fas fa-info-circle"></i></p>
                                     </div>
 
                                     <div class="cause">
-                                        <img class="uk-box-shadow-medium" src="../assets/images/ninja/profile-4.png">
+                                        <img class="uk-box-shadow-medium" src="../../assets/images/ninja/profile-4.png">
                                         <p class="main-text cause-text lighter">Save80 cookers <i
                                                 class="subheading fas fa-info-circle"></i></p>
                                     </div>
@@ -100,5 +100,5 @@
 </script>
 
 <style scoped>
-    @import '../styles/ninja.scss';
+    @import '../../styles/ninja.scss';
 </style>
