@@ -43,6 +43,11 @@
   width: 100%;
 }
 
+.login__width {
+  width: 90%;
+  //border: 4px solid blue;
+}
+
 .login-c__section {
   display: flex;
   flex-direction: column;
@@ -57,9 +62,10 @@
 }
 
 .login-c__form {
+  //border: 2px solid red;
+  width: 90%;
   padding: 100px 0 40px 0;
   max-width: 515px;
-  width: 100%;
   margin-left: 75px;
   text-align: left;
 }

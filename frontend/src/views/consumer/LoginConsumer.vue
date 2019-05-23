@@ -12,48 +12,48 @@
         </div>
 
         <div class="login-c__section login-c__row">
-            <!--<div class="login-c__filler"></div>-->
+            <div class="login__width">
+                <div class="login-c__wrapper">
+                    <div class="login-c__form">
+                        <p class="subheading">Login consumers</p>
+                        <h1 class="main-title">Login to get acces to more information!</h1>
 
-            <!--Login-->
-            <div class="login-c__wrapper">
-                <div class="login-c__form">
-                    <p class="subheading">Login consumers</p>
-                    <h1 class="main-title">Login to get acces to more information!</h1>
+                        <div class="c-input__wrapper">
+                            <label class="login-c__label">E-mail</label>
+                            <input type="email" class="login-c__input" placeholder="Fill in your e-mail">
+                        </div>
 
-                    <div class="c-input__wrapper">
-                        <label class="login-c__label">E-mail</label>
-                        <input type="email" class="login-c__input" placeholder="Fill in your e-mail">
+                        <div class="c-input__wrapper">
+                            <label class="login-c__label">Password</label>
+                            <input type="password" class="login-c__input" placeholder="Fill in your e-mail">
+                        </div>
+
+                        <p class="subheading sub__password">I forgot my password</p>
+
+                        <p class="button login-c__button">Login</p>
                     </div>
+                </div>
 
-                    <div class="c-input__wrapper">
-                        <label class="login-c__label">Password</label>
-                        <input type="password" class="login-c__input" placeholder="Fill in your e-mail">
+                <!--Register-->
+                <div class="login-c__wrapper ">
+                    <div class="login-c__form register-c__form">
+                        <h3 class="sub-title-c">Don’t have an account yet?</h3>
+
+                        <div class="c-input__wrapper">
+                            <label class="login-c__label">E-mail</label>
+                            <input type="email" class="login-c__input" placeholder="Fill in your e-mail">
+                        </div>
+
+                        <div class="c-input__wrapper">
+                            <label class="login-c__label">Password</label>
+                            <input type="password" class="login-c__input" placeholder="Fill in your e-mail">
+                        </div>
+
+                        <p class="button login-c__button">Make an account</p>
                     </div>
-
-                    <p class="subheading sub__password">I forgot my password</p>
-
-                    <p class="button login-c__button">Login</p>
                 </div>
             </div>
 
-            <!--Register-->
-            <div class="login-c__wrapper ">
-                <div class="login-c__form register-c__form">
-                    <h3 class="sub-title-c">Don’t have an account yet?</h3>
-
-                    <div class="c-input__wrapper">
-                        <label class="login-c__label">E-mail</label>
-                        <input type="email" class="login-c__input" placeholder="Fill in your e-mail">
-                    </div>
-
-                    <div class="c-input__wrapper">
-                        <label class="login-c__label">Password</label>
-                        <input type="password" class="login-c__input" placeholder="Fill in your e-mail">
-                    </div>
-
-                    <p class="button login-c__button">Make an account</p>
-                </div>
-            </div>
         </div>
     </div>
 </template>
