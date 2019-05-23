@@ -5,7 +5,6 @@
 }
 
 .login-c__row {
-  border: 1px solid red;
   flex: 1;
 }
 
@@ -17,12 +16,12 @@
 }
 
 .bkgr__filler {
-  border: 5px solid purple;
   height: 100%;
 }
 
 .bkgr__text {
   display: flex;
+  justify-content: flex-end;
 }
 
 .green-border__login {
@@ -32,15 +31,79 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 322px;
+  max-width: 422px;
   max-height: 136px;
   width: 100%;
   text-align: left;
+  margin-right: 100px;
 }
 
 .green-border__text {
-  margin: 24px 62px 23px 38px;
-  max-width: 322px;
+  padding: 10px 10px 10px 20px;
   width: 100%;
 }
+
+.login-c__section {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-c__filler {
+  flex: 1;
+}
+
+.login-c__wrapper {
+  flex: 1;
+}
+
+.login-c__form {
+  padding: 100px 0 40px 0;
+  max-width: 515px;
+  width: 100%;
+  margin-left: 75px;
+  text-align: left;
+}
+
+.subheading {
+  font-size: 16px;
+}
+
+.main-title {
+  font-size: 42px;
+}
+
+.login-c__label {
+  color:#2F2F2F;
+  font-size: 14px;
+}
+
+.sub__password {
+  text-decoration: underline;
+}
+
+.login-c__button {
+  margin-top: 40px;
+  max-width: 157px;
+}
+
+.sub-title-c {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.register-c__form {
+  border-top: 1px solid #DDDDDD;
+  padding-top: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
 

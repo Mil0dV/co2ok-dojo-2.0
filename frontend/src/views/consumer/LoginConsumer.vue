@@ -11,48 +11,47 @@
             </div>
         </div>
 
-        <div class="login-c__form-wrapper login-c__row">
-            <div class="login__group animated fadeInUp">
-                <label class="login__group">
-                    E-mail
-                    <input class="login__group-input" v-model="email"
-                           type="email" placeholder="Fill in your email...">
-                </label>
+        <div class="login-c__section login-c__row">
+            <!--<div class="login-c__filler"></div>-->
 
-                <div class="login__group-password">
-                    <label class="login__group">
-                        Password
-                        <input class="login__group-input" v-model="password"
-                               type="password" placeholder="Fill in your password...">
-                    </label>
-                    <p @click="passReset = true"
-                       class="login__form-header forgot__password">
-                        I forgot my password
-                    </p>
+            <!--Login-->
+            <div class="login-c__wrapper">
+                <div class="login-c__form">
+                    <p class="subheading">Login consumers</p>
+                    <h1 class="main-title">Login to get acces to more information!</h1>
+
+                    <div class="c-input__wrapper">
+                        <label class="login-c__label">E-mail</label>
+                        <input type="email" class="login-c__input" placeholder="Fill in your e-mail">
+                    </div>
+
+                    <div class="c-input__wrapper">
+                        <label class="login-c__label">Password</label>
+                        <input type="password" class="login-c__input" placeholder="Fill in your e-mail">
+                    </div>
+
+                    <p class="subheading sub__password">I forgot my password</p>
+
+                    <p class="button login-c__button">Login</p>
                 </div>
             </div>
 
+            <!--Register-->
+            <div class="login-c__wrapper ">
+                <div class="login-c__form register-c__form">
+                    <h3 class="sub-title-c">Don’t have an account yet?</h3>
 
-            <p>register</p>
+                    <div class="c-input__wrapper">
+                        <label class="login-c__label">E-mail</label>
+                        <input type="email" class="login-c__input" placeholder="Fill in your e-mail">
+                    </div>
 
+                    <div class="c-input__wrapper">
+                        <label class="login-c__label">Password</label>
+                        <input type="password" class="login-c__input" placeholder="Fill in your e-mail">
+                    </div>
 
-            <div class="login__group animated fadeInUp">
-                <label class="login__group">
-                    E-mail
-                    <input class="login__group-input" v-model="email"
-                           type="email" placeholder="Fill in your email...">
-                </label>
-
-                <div class="login__group-password">
-                    <label class="login__group">
-                        Password
-                        <input class="login__group-input" v-model="password"
-                               type="password" placeholder="Fill in your password...">
-                    </label>
-                    <p @click="passReset = true"
-                       class="login__form-header forgot__password">
-                        I forgot my password
-                    </p>
+                    <p class="button login-c__button">Make an account</p>
                 </div>
             </div>
         </div>
