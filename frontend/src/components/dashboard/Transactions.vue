@@ -63,7 +63,7 @@
                 <p class="export__text">How would you like to export the transaction statistics.</p>
 
                 <div class="export__buttons">
-                    <button class="export__btn">
+                    <button class="export__btn" @click="exportPDF()">
                         <v-icon color="white" light style="font-size: 15px; margin-right: 8px;">insert_drive_file</v-icon>
                         PDF
                     </button>
@@ -80,6 +80,7 @@
 
 <script>
 import LineChart from '@/components/dashboard/chart.vue'
+import jsPDF from 'jspdf'
 import Co2okWidget from '../../co2okWidget'
     export default {
         name: "Transactions",
@@ -153,7 +154,13 @@ import Co2okWidget from '../../co2okWidget'
               weekDate: null, //use in weektransaction() to get transactions of the sended week
               lastWeek: null,
               startWeek: null,
-              daysArrIndex: 0 //use in nextweek()
+              daysArrIndex: 0, //use in nextweek()
+              pdfOptions: {
+                orientation: 'landscape',
+                unit: 'in',
+                format: [4, 2]
+              },
+              pdfData: []
 
             }
         },
@@ -163,6 +170,8 @@ import Co2okWidget from '../../co2okWidget'
             this.yearTransactions()    
             this.prevMonth = this.$moment().subtract(1, 'months').format('MMMM')
             this.nextMonth = this.currentMonth    
+            this.generatePDFdata()
+            // this.exportPDF()
 
         },
 
@@ -172,6 +181,72 @@ import Co2okWidget from '../../co2okWidget'
         },
 
         methods: {
+
+            exportPDF(){
+
+                let pdfName = 'transaction'; 
+                let doc = new jsPDF();
+
+                let months = this.$moment().format('M')
+                let self = this
+                let columns = []
+                let rows = []
+
+                for (let m = 1; m <= months; m++) {
+                    columns.push(self.monthsArr[m-1])
+                    rows.push(self.yearArr[m])
+                }
+
+                // let pdfTemplate ="<h2>C020k Year Transactions Data</h2> <table> <tr>
+
+                //       for (let c = 0; c < columns.length; c++) {
+                //           "<th>"+columns[index]+"</th>"
+                //       }
+
+                //     "</tr>"
+                    
+                //      for (let m = 0; m < months; m++) {
+                //           "<tr>"+
+                //             for (let r = 0; r < rows.length; r++) {
+                //                 "<td>"+
+                //                     rows[m][r]
+                //                 "</td>"
+                //             }
+                //           "</tr>"
+                //       }
+
+                //   "</table>"
+
+                let pdfTemplate = `
+                  <h2 style="text-align:center;margin-bottom:20px;color:#08BA4D">C020k Year Transactions Data</h2>
+                  <table style="border-collapse: collapse;width: 100%;height: auto;margin: auto;position:relative;right:100px;"> 
+                    <tr>
+                      <th style="border: 1px solid #dddddd;text-align: left;padding:8px;font-weight:bold;">January</th>
+                      <th style="border: 1px solid #dddddd;text-align: left;padding:8px;font-weight:bold;">February</th>
+                      <th style="border: 1px solid #dddddd;text-align: left;padding:8px;font-weight:bold;">March</th>
+                      <th style="border: 1px solid #dddddd;text-align: left;padding:8px;font-weight:bold;">April</th>
+                      <th style="border: 1px solid #dddddd;text-align: left;padding:8px;font-weight:bold;">May</th>
+                    </tr>
+                    <tr>
+                     <td style="border: 1px solid #dddddd;text-align: left;padding:80px">${this.pdfData[0]}</td>
+                     <td style="border: 1px solid #dddddd;text-align: left;padding:80px">${this.pdfData[1]}</td>
+                     <td style="border: 1px solid #dddddd;text-align: left;padding:80px">${this.pdfData[2]}</td>
+                     <td style="border: 1px solid #dddddd;text-align: left;padding:80px">${this.pdfData[3]}</td>
+                     <td style="border: 1px solid #dddddd;text-align: left;padding:80px">${this.pdfData[4]}</td>
+                    </tr>
+                  </table>
+                `
+                
+                // doc.text(pdfTemplate, 10, 10);
+                doc.fromHTML(pdfTemplate, 50, 30);
+
+                // doc.autoTable(columns, rows);     
+                doc.save(pdfName + '.pdf');
+
+                console.log(this.pdfData);
+                console.log(columns); 
+
+            },
 
             fillData () {
                
@@ -279,13 +354,15 @@ import Co2okWidget from '../../co2okWidget'
                     }
                     
                     let uniqYearArr = this._.uniq(this.yearArr[i])
+                    this.pdfData.push(this._.floor(this._.sum(uniqYearArr), 2))
                     transDataArr.push(this._.floor(this._.sum(uniqYearArr), 2))
 
                 }
 
                 // console.log(this.monthsWeeksArr);  
                 // console.log(this._.chunk(this.weekDaysNameArr[5],7))
-  
+                console.log(transDataArr);
+                
                 return this._.uniq(transDataArr)
 
             },
@@ -362,6 +439,7 @@ import Co2okWidget from '../../co2okWidget'
                         Authorization: `token ${window.localStorage.getItem('userToken')}` 
                     }
                 }).then(response => {
+console.log(response.data);
 
                     let yearGraphData = self.parseTransactionsData(response.data)
                     self.$store.commit('yearGraphData', yearGraphData)
@@ -464,6 +542,8 @@ import Co2okWidget from '../../co2okWidget'
                    this.weekTransactionRequest(this.lastWeek , this.weekDate, startweek)
                    this.weekPrevStyle.color = '#369555'
                    this.weekPrevStyle.cursor = 'pointer'
+                   console.log(daysChunkedArr);
+                   
                 //    console.log(this.lastWeek,this.weekDate, startweek);
                }else{
                     this.weekNextStyle.color = '#E0E0E0'
@@ -553,6 +633,33 @@ import Co2okWidget from '../../co2okWidget'
                   this.nextMonth = 'February'             
               }
               
+
+            },
+
+            generatePDFdata(){
+
+                let pdf = []
+                let months = this.$moment().format('M')
+                let daysOfMonth
+                let weekOfMonth
+                let chunkedPDF
+
+                for (let m = 1; m <= months; m++) {
+                    
+                    pdf.push([])
+                    daysOfMonth = this.$moment(m, 'M').daysInMonth()
+                    weekOfMonth = Math.ceil(daysOfMonth/7)
+
+                    for (let w = 1; w <= daysOfMonth; w++) {
+                        pdf[m-1].push(w)
+                    }
+
+                    chunkedPDF = this._.chunk(pdf[m],7)
+
+                }
+
+                console.log(chunkedPDF);
+                
 
             },
 
