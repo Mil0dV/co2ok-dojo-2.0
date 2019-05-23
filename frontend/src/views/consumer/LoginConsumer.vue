@@ -1,8 +1,8 @@
 <template>
     <div class="login-c__container">
         <div class="login-c__background login-c__row">
-            <div class="bkgr__filler"></div>
-            <div class="bkgr__filler bkgr__text">
+            <div class="bkgr__filler hide--tablet"></div>
+            <div class="bkgr__filler bkgr__text hide--tablet">
                 <div class="green-border__login">
                     <p class="green-border__text">
                         With your account you will get acces to information how much you’ve contributed to fighting climate change.
