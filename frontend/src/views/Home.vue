@@ -202,6 +202,7 @@
 <script>
     import Vue from 'vue'
     import Vuetify from 'vuetify'
+    import 'vuetify/dist/vuetify.min.css'
 
     Vue.use(Vuetify);
 
@@ -338,8 +339,6 @@
     }
 
 </script>
-
-<style scoped src="vuetify/dist/vuetify.min.css"></style>
 
 <style scoped>
 
