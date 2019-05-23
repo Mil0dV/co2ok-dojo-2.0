@@ -37,7 +37,7 @@ const router = new Router({
             path: '/dashboard',
             name: 'dashboard',
             component: () => import( './views/dashboard/Dashboard'),
-            beforeEnter: ifAuthenticated
+            // beforeEnter: ifAuthenticated
         },
         {
             path: '/about',
@@ -91,13 +91,17 @@ const router = new Router({
             component: () => import('./views/Projects')
         },
         {
-            path: '/consumers',
-            name: 'consumers',
+            path: '/consumers/profile',
+            name: 'consumers-profile',
             component: () => import('./views/consumer/Consumer')
+        },
+        {
+            path: '/consumers/login',
+            name: 'consumers-login',
+            component: () => import('./views/consumer/LoginConsumer')
         },
         { //404 page, redirects back to home (= /)
             path: '*', redirect: '/'
-
         }
     ],
 

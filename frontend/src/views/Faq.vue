@@ -299,7 +299,7 @@
     }
 
 
-    @import '../styles/main.scss';
+    @import '../styles/layout/main';
     @import '../styles/faq.scss';
 
     .list__faq > * {

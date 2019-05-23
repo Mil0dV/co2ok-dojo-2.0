@@ -100,5 +100,5 @@
 </script>
 
 <style scoped>
-    @import '../../styles/ninja.scss';
+    @import '../../styles/consumer/ninja.scss';
 </style>

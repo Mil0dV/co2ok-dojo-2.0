@@ -32,12 +32,14 @@
                             </div>
 
                             <li :class="[checkActive('consumers') ? 'navbar__active' : '']">
-                                <router-link to="/consumers">Consumers</router-link>
+                                <router-link to="/consumers/login">Consumers</router-link>
                             </li>
-                            <div class="dropdown__menu-wrapper" v-if="checkActive('consumers')" uk-dropdown="offset: -15">
+                            <div class="dropdown__menu-wrapper" uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
                                     <li>
-                                        <router-link to="/webshops">Logout</router-link>
+                                        <router-link to="/consumers/profile">Profile</router-link>
+                                    </li><li>
+                                        <router-link to="/">Logout</router-link>
                                     </li>
                                 </ul>
                             </div>
@@ -168,7 +170,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../../styles/nav.scss';
+    @import '../../styles/layout/nav';
 
     .navbar__active {
         border-bottom: 4px solid #10DC87;

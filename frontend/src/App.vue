@@ -24,7 +24,7 @@
 </script>
 
 <style lang="scss">
-    @import 'styles/main.scss';
+    @import 'styles/layout/main';
     @import "~uikit/dist/css/uikit.min.css";
 
     #app {

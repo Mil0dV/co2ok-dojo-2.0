@@ -1,0 +1,15 @@
+.login-c__container {
+  min-height: 93vh;
+  width: 100%;
+  display: flex;
+}
+
+.login-c__row {
+  border: 1px solid red;
+  flex: 1;
+}
+
+.login-c__background {
+  background: url('../../assets/images/ninja/login.jpg') no-repeat center center;
+  background-size: cover;
+}

@@ -201,7 +201,7 @@
 
 <style scoped lang="scss">
 
-    @import '../../styles/variables';
+    @import '../../styles/layout/variables';
     @import '../../styles/webshops/retailers';
     @import '../../styles/webshops/webshop__form';
 
