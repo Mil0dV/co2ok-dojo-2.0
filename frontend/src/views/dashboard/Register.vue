@@ -243,7 +243,7 @@
                     this.$axios
                         .post(`${this.$store.state.SITE_HOST}/signup/`, {
                             body: {
-                                company: this.company,
+                                username: this.company,
                                 email: this.email,
                                 password: this.password,
                                 link: this.link,

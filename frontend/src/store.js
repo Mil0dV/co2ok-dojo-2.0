@@ -7,6 +7,7 @@ import {
 
 Vue.use(Vuex)
 import axios from 'axios'
+// import {router} from "../src/router.js"
 
 export default new Vuex.Store({
     state: {
@@ -16,6 +17,7 @@ export default new Vuex.Store({
         modalStatus: false,
         userAuthData: [],
         userData: [],
+        ninjaData: [],
         userStatus: false,
         // userAuthLocalData: [],
         userToken: window.localStorage.getItem('userToken'),
@@ -26,11 +28,13 @@ export default new Vuex.Store({
         x_asLabel: [],
         graphData: [],
         blogs: [],
-        component: 'blog' //use in blo.vue as dynamic template
+        component: 'blog', //use in blo.vue as dynamic template
+        generatedNinjaName: ''
 
     },
 
     mutations: {
+
         modalStatus(state, payload) {
             if (!state.modalStatus) {
                 state.modalStatus = true
@@ -53,32 +57,81 @@ export default new Vuex.Store({
         },
 
         getUserData(state) {
-            axios
-                .get(`${state.SITE_HOST}/user/authenticateUser/?id=${window.localStorage.getItem('userId')}`, {
-                    headers: {
-                        "X-CSRFToken": `${state.userToken}`,
-                        Authorization: `token ${window.localStorage.getItem('userToken')}`
-                    }
-                })
-                .then(response => {
-                    //verify if the userdata array is empty
-                    if (state.userData.length == 0) {
-                        //user array is empty, push userdata
-                        state.userData = response.data;
-                        state.userStatus = true;
+           if (window.localStorage.getItem('Authenticated')) {
+                axios
+                    .get(`${state.SITE_HOST}/user/userData/`, {
+                        params: {
+                            id: window.localStorage.getItem('userId')
+                        },
+                        headers: {
+                            "X-CSRFToken": `${state.userToken}`,
+                            Authorization: `token ${window.localStorage.getItem('userToken')}`
+                        }
+                    })
+                    .then(response => {
+                        //verify if the userdata array is empty
+                        if (state.userData.length == 0) {
+                            //user array is empty, push userdata
+                            state.userData = response.data;
+                            state.userStatus = true;
 
-                    } else {
-                        // user array !empty, empty it and push user data
-                        state.userData = '';
-                        state.userData = response.data;
-                    }
+                        } else {
+                            // user array !empty, empty it and push user data
+                            state.userData = '';
+                            state.userData = response.data;
+                        }
 
-                })
-                .catch(error => {
-                    console.log(error);
-                    //  this.errorMessage()
-                })
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        //  this.errorMessage()
+                    })
+           }else{
+            console.log('not authenticated');
+            
+           }
 
+        },
+
+        ninjaUserData(state){
+
+            if (window.localStorage.getItem('Authenticated')) {
+                axios
+                    .get(`${state.SITE_HOST}/ninja/ninjaData/`, {
+                        params: {
+                            id: window.localStorage.getItem('userId')
+                        },
+                        headers: {
+                            "X-CSRFToken": `${state.userToken}`,
+                            Authorization: `token ${window.localStorage.getItem('userToken')}`
+                        }
+                    }).then(response => {
+
+                        //verify if the userdata array is empty
+                        if (state.ninjaData.length == 0) {
+                            //user array is empty, push userdata
+                            state.ninjaData = response.data;
+                            state.userStatus = true;
+
+                        } else {
+                            // user array !empty, empty it and push user data
+                            state.ninjaData = '';
+                            state.ninjaData = response.data;
+                        }
+                        console.log(response.data);
+                        
+
+                    }).catch(error => {
+                        console.log(error);
+                        
+                    })
+            }
+
+        },
+
+        generateUserName(state) {
+            let result = 'ninja@'
+             state.generatedNinjaName = result += Math.random().toString(36).substring(2, 7)
         },
 
         setLocalUserData(state, data) {

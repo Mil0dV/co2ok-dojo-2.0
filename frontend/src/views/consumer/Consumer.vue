@@ -1,6 +1,6 @@
 <template>
     <div class="ninja__container">
-        <div class="uk-container ninja__dashboard  uk-container-width">
+        <div class="uk-container ninja__dashboard  uk-container-width" v-if="Authenticated">
             <h1>Profile</h1>
             <div class="dashboard__items">
                 <div class="dashboard__row-1">
@@ -65,7 +65,7 @@
                 <div class="dashboard__row-2">
                     <span class="ninja__stars">
                         <p class="star-title"><i class="far fa-star"></i> Ninja stars obtained:</p>
-                        <p>35</p>
+                        <p>{{this.$store.state.ninjaData.ninjaProfileData.ninjaPoints}}</p>
                     </span>
                     <hr>
                     <div class="ninja-text">
@@ -73,18 +73,16 @@
                             Tell your friends and family about the Ninja App and share the link to fight climate change.
                         </p>
 
-                        <p class="green-border">https://www.co2ok.ninja/169</p>
+                        <p class="green-border">{{domain}}/{{this.$store.state.ninjaData.ninjaData.id}}</p>
 
                         <div class="main-text">
                             <p>Share our vision, make others happy with the Ninja App :)</p>
                             <p class="social-buttons">
-                                <a target="_blank" href="https://www.facebook.com/CO2ok/"><i class="fab  fa-facebook-f"></i></a>
+                                <a target="_blank" :href="share_facebook"><i class="fab  fa-facebook-f"></i></a>
                                 or
-                                <a target="_blank" href="https://twitter.com/CO2ok_eco"><i class="fab fa-twitter"></i></a>
+                                <a target="_blank" :href="share_twitter"><i class="fab fa-twitter"></i></a>
                             </p>
                         </div>
-
-
 
                     </div>
                 </div>
@@ -95,7 +93,31 @@
 
 <script>
     export default {
-        name: "NinjaProfile"
+        name: "NinjaProfile",
+
+        data() {
+            return{
+
+                Authenticated: window.localStorage.getItem('Authenticated'),
+                domain: window.location.protocol+'//'+window.location.hostname+':'+window.location.port,
+                share_facebook: `https://www.facebook.com/sharer?u=https%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.ninjaData.id}`,
+                share_twitter: `https://twitter.com/intent/tweet?text=Help%20me%20fight%20climate%20change%20while%20shopping%20-%20easy%20and%20for%20free!%20http%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.ninjaData.id}`
+
+            }
+        },
+
+        created() {
+
+            if (this.Authenticated == null) {
+               this.$router.push('/consumers/login')
+            }
+            this.$store.commit('ninjaUserData')
+            
+        },
+
+        methods: {
+
+        }
     }
 </script>
 

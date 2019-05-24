@@ -35,7 +35,7 @@ class UserView(viewsets.ModelViewSet):
     @csrf_exempt
     @action(methods=['get'], detail=False)
     # @api_view(['GET'])
-    def authenticateUser(self, request):
+    def userData(self, request):
         userId = request.query_params.get('id')
 
         user = self.get_queryset().get(pk=userId)
