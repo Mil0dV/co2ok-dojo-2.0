@@ -73,14 +73,14 @@
                             Tell your friends and family about the Ninja App and share the link to fight climate change.
                         </p>
 
-                        <p class="green-border">{{domain}}/{{this.$store.state.ninjaData.ninjaData.id}}</p>
+                        <p class="green-border">{{this.$store.state.domain}}/{{this.$store.state.ninjaData.ninjaData.id}}</p>
 
                         <div class="main-text">
                             <p>Share our vision, make others happy with the Ninja App :)</p>
                             <p class="social-buttons">
-                                <a target="_blank" :href="share_facebook"><i class="fab  fa-facebook-f"></i></a>
+                                <a target="_blank" :href="`https://www.facebook.com/sharer?u=https%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.ninjaData.id}`"><i class="fab  fa-facebook-f"></i></a>
                                 or
-                                <a target="_blank" :href="share_twitter"><i class="fab fa-twitter"></i></a>
+                                <a target="_blank" :href="`https://twitter.com/intent/tweet?text=Help%20me%20fight%20climate%20change%20while%20shopping%20-%20easy%20and%20for%20free!%20http%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.ninjaData.id}`"><i class="fab fa-twitter"></i></a>
                             </p>
                         </div>
 
@@ -96,23 +96,26 @@
         name: "NinjaProfile",
 
         data() {
-            return{
-
+            return {
                 Authenticated: window.localStorage.getItem('Authenticated'),
-                domain: window.location.protocol+'//'+window.location.hostname+':'+window.location.port,
-                share_facebook: `https://www.facebook.com/sharer?u=https%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.ninjaData.id}`,
-                share_twitter: `https://twitter.com/intent/tweet?text=Help%20me%20fight%20climate%20change%20while%20shopping%20-%20easy%20and%20for%20free!%20http%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.ninjaData.id}`
-
+                // share_facebook: `https://www.facebook.com/sharer?u=https%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.ninjaData.id}`,
+                // share_twitter: `https://twitter.com/intent/tweet?text=Help%20me%20fight%20climate%20change%20while%20shopping%20-%20easy%20and%20for%20free!%20http%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.ninjaData.id}`
             }
         },
 
         created() {
 
-            if (this.Authenticated == null) {
+            if (window.localStorage.getItem('Authenticated') == null) {
                this.$router.push('/consumers/login')
             }
-            this.$store.commit('ninjaUserData')
+            // this.$store.commit('ninjaUserData')
             
+        },
+
+        mounted() {
+
+            this.$store.dispatch('commitNinjaUserData');
+
         },
 
         methods: {

@@ -12,6 +12,7 @@ import axios from 'axios'
 export default new Vuex.Store({
     state: {
         SITE_HOST: 'http://127.0.0.1:8000',
+        domain: window.location.protocol + '//' + window.location.hostname + ':' + window.location.port,
         count: 0,
         modalMessage: '',
         modalStatus: false,
@@ -29,7 +30,7 @@ export default new Vuex.Store({
         graphData: [],
         blogs: [],
         component: 'blog', //use in blo.vue as dynamic template
-        generatedNinjaName: ''
+        generatedNinjaName: '',
 
     },
 
@@ -211,6 +212,10 @@ export default new Vuex.Store({
 
         commitGetUserData(store) {
             store.commit('getUserData');
+        },
+
+        commitNinjaUserData(store){
+            store.commit('ninjaUserData')
         }
     }
 })

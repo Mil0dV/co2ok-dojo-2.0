@@ -141,12 +141,12 @@
                                 this.$store.dispatch('commitSaveUser', response.data)
                                 this.$store.commit('setLocalUserData', response.data)
                                 this.$store.commit('isLoggedIn', response.data.authenticate)
-                                this.$store.commit('ninjaUserData');
+                                this.$store.dispatch('commitNinjaUserData');
 
                                 if (window.localStorage.getItem('Authenticated')) {
-                                        this.$router.push('/consumers/profile')
+                                    this.$router.push('/consumers/profile')
                                 } else {
-                                        this.$router.push('login')
+                                    this.$router.push('login')
                                 }
 
                             }else{
