@@ -94,6 +94,18 @@ register(){
             },
         }).then(response => {
 
+            if(response.data.authenticate){
+
+                this.$store.dispatch('commitSaveUser', response.data)
+                this.$store.commit('setLocalUserData', response.data)
+                this.$store.commit('isLoggedIn', response.data.authenticate)
+                this.$store.dispatch('commitNinjaUserData')
+                self.$router.push('/consumers/profile')
+
+            }else{
+                console.log(response.data.error);
+                
+            }
             console.log(response.data);
 
         }).catch(error => {
