@@ -9,8 +9,8 @@
         <h1 class="white--text display-3 font-weight-bold animated fadeInUp">Sign up</h1>
     </div>
 
-    <div class="steps-layout">
-        <div v-for="(ninjaExtensionStep,i) in ninjaExtensionSteps" :key="i" class="steps-container pa-3">
+    <v-layout column class="steps-layout">
+        <v-flex xs12 sm4 md4 lg4 xsl4 v-for="(ninjaExtensionStep,i) in ninjaExtensionSteps" :key="i" class="steps-container pa-3">
                 <img :src="ninjaExtensionStep.img" alt="" class="mb-2" data-aos="zoom-in" :data-aos-delay="i*50" data-aos-duration="1000">
                 <!-- <div :style="{backgroundImage: `url(${ninjaExtensionStep.img})`}" class="mb-4 steps-img" data-aos="zoom-in" :data-aos-delay="i*50" data-aos-duration="1000"></div> -->
                 <p class="font-weight-bold mb-1" style="font-size:21px; color: #10DC87;margin: 0px;"
@@ -19,23 +19,23 @@
                    :data-aos-delay="i*100" data-aos-duration="1000">{{ninjaExtensionStep.title}}</p>
                 <!-- <p class="steps-content pa-2" style="color: #28123E;text-align: center;" data-aos="fade-up"
                    :data-aos-delay="i*100" data-aos-duration="1000">{{ninjaExtensionStep.content}}</p> -->
-        </div>
-    </div>
+        </v-flex>
+    </v-layout>
 
-    <v-layout column justify-center align-center class="pt-5 pb-5 signup-layout" style="width: 100%;">
-        <v-flex xs12 sm12 md8 lg6 xlg6 class="input-fields-flex">
+    <v-layout column justify-center align-center class="pt-5 pb-5 mb-5 signup-layout" style="">
+        <v-flex xs12 sm12 md8 lg6 xlg6 class="input-fields-flex pt-4 pb-3">
             <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="">E-mail</p>
-            <input type="email" v-model="email" placeholder="Fill your e-mail" class="pt-3 pb-3 mb-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <input type="email" v-model="email" placeholder="Fill your e-mail" class="pt-4 pb-4 mb-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="">Password</p>
-            <input type="password" v-model="password" placeholder="Fill your password" class="pt-3 pb-3 mb-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <input type="password" v-model="password" placeholder="Fill your password" class="pt-4 pb-4 mb-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
         </v-flex>
 
-        <v-flex xs12 sm12 md8 lg6 xlg6 class="submit-flex mt-3">
+        <v-flex xs12 sm12 md8 lg6 xlg6 class="submit-flex">
             <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                 We won't share your email adress or other <br>
                 user data, read here about our <router-link to="/privacy" class="privacy">Privacy Policy</router-link>
             </p>
-            <v-btn depressed class="submit-btn" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300" @click="register()">Make an account</v-btn>
+            <v-btn depressed class="submit-btn text-capitalize" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300" @click="register()">Make an account</v-btn>
         </v-flex>
     </v-layout>
 
@@ -44,6 +44,10 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+ Vue.use(Vuetify);
 export default {
     
 name: 'invitation',
@@ -124,8 +128,6 @@ register(){
 }
 </script>
 
-<style scoped src="vuetify/dist/vuetify.min.css"></style>
-
 <style scoped>
 
     .invitation-container{
@@ -205,13 +207,16 @@ register(){
     }
 
     .signup-layout{
+        width: 80%;
         /* box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.30); */
-        background-color: #F5FCFF;
+        box-shadow: 0 5px 15px rgba(0,0,0,.08);
+        border-radius: 5px;
+        /* background-color: #F5FCFF; */
         margin-top: 48px;
     }
 
     .input-fields-flex{
-        width: 60%;
+        width: 70%;
         height: auto;
         display: flex;
         flex-direction: column;
@@ -235,7 +240,7 @@ register(){
     }
 
     .submit-flex{
-        width: 60%;
+        width: 70%;
         height: auto;
         display: flex;
         flex-direction: row;
@@ -256,9 +261,13 @@ register(){
     .submit-btn{
         background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);
         color: white;
-        padding: 12px 25px;
+        /* padding: 12px 25px; */
+        height: 50px;
+        width: 160px;
         border-radius: 5px;
         cursor: pointer;
+        position: relative;
+        right: 7px;
     }
 
     @media only screen and (max-width: 500px) {
@@ -272,23 +281,25 @@ register(){
         }
 
         .steps-layout{
-            flex-direction: column;
+            /* flex-direction: column; */
             justify-content: center;
             align-items: center;
         }
 
         .steps-container{
-            width: 90%;
+            /* width: 90%; */
             justify-content: center;
             margin-bottom: 20px;
         }
 
         .signup-layout{
-        margin-top: 18px;
-    }
+          margin-top: 18px;
+          width: 100%;
+        }
 
         .input-fields-flex, .submit-flex{
-            width: 90%;
+            width: 92%;
+            padding: 0px;
         }
 
         .submit-flex{
@@ -304,11 +315,11 @@ register(){
 
     @media only screen and (max-width: 800px) {
         .steps-container{
-            width: 29%;
+            /* width: 29%; */
         }
 
         .input-fields-flex, .submit-flex{
-            width: 80%;
+            width: 92%;
         }
     }
 

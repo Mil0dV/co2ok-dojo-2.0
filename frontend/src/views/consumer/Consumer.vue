@@ -1,6 +1,6 @@
 <template>
     <div class="ninja__container">
-        <div class="uk-container ninja__dashboard  uk-container-width" v-if="Authenticated">
+        <div class="uk-container ninja__dashboard  uk-container-width">
             <h1>Profile</h1>
             <div class="dashboard__items">
                 <div class="dashboard__row-1">
@@ -29,7 +29,6 @@
                         </div>
                     </div>
 
-
                     <div class="uk-card uk-card-consumer uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
                         <div class="cause-container">
                             <div class="uk-card-body">
@@ -38,22 +37,20 @@
                                     when using Co2ok?</p>
 
                                 <div class="cause-wrapper">
-                                    <div class="cause">
+                                    <div class="cause" id="biogas" @click="supportedProject_status()">
                                         <img class="uk-box-shadow-medium" src="../../assets/images/ninja/profile-2.png">
-                                        <p class="main-text cause-text lighter">Biogas installations <i
-                                                class="subheading fas fa-info-circle"></i></p>
+                                        <p class="main-text cause-text lighter">Biogas installations <a href="https://www.atmosfair.de/en/climate-protection-projects/biogas-biomass/" target="_blank"><i class="subheading fas fa-info-circle"></i></a></p>
                                     </div>
 
-                                    <div class="cause">
+                                    <div class="cause" id="solar-panel" @click="supportedProject_status()">
                                         <img class="uk-box-shadow-medium" src="../../assets/images/ninja/profile-3.png">
-                                        <p class="main-text cause-text lighter">Solar panels <i
-                                                class="subheading fas fa-info-circle"></i></p>
+                                        <p class="main-text cause-text lighter">Solar panels <a href="https://www.atmosfair.de/en/climate-protection-projects/energy_efficiency/" target="_blank"><i
+                                                class="subheading fas fa-info-circle"></i></a></p>
                                     </div>
 
-                                    <div class="cause">
+                                    <div class="cause" id="cookers" @click="supportedProject_status()">
                                         <img class="uk-box-shadow-medium" src="../../assets/images/ninja/profile-4.png">
-                                        <p class="main-text cause-text lighter">Save80 cookers <i
-                                                class="subheading fas fa-info-circle"></i></p>
+                                        <p class="main-text cause-text lighter">Save80 cookers</p>
                                     </div>
                                 </div>
                             </div>
@@ -98,6 +95,8 @@
         data() {
             return {
                 Authenticated: window.localStorage.getItem('Authenticated'),
+                projectsAlert: false,
+                ninjaSupportedProject: this.$store.state.ninjaData.ninjaProfileData.supportedProject //return supported project
                 // share_facebook: `https://www.facebook.com/sharer?u=https%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.ninjaData.id}`,
                 // share_twitter: `https://twitter.com/intent/tweet?text=Help%20me%20fight%20climate%20change%20while%20shopping%20-%20easy%20and%20for%20free!%20http%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.ninjaData.id}`
             }
@@ -108,6 +107,7 @@
             if (window.localStorage.getItem('Authenticated') == null) {
                this.$router.push('/consumers/login')
             }
+            this.supportedProject('get') //get the current user sopported project
             // this.$store.commit('ninjaUserData')
             
         },
@@ -115,10 +115,75 @@
         mounted() {
 
             this.$store.dispatch('commitNinjaUserData');
+            this.supportedProject('get') //get the current user sopported project
 
         },
 
         methods: {
+
+            supportedProject_status(){
+
+                let newProject = event.currentTarget.id
+
+                if(this.ninjaSupportedProject != '' && this.ninjaSupportedProject != newProject){
+
+                    this.supportedProject(newProject, function callback(newproject, currentProject){
+                        currentProject.style.border = '0px solid white' 
+                        newproject.style.border = '5px solid #09BA4E' // change hoosed project border
+                    })
+                    alert(`You are already supported the ${this.ninjaSupportedProject} project. Are you sure you want change project`)
+
+                }else if(this.ninjaSupportedProject != '' && this.ninjaSupportedProject == newProject){
+
+                    alert(`you already spported the ${newProject} project`)
+
+                }else if(this.ninjaSupportedProject == ''){
+
+                    this.supportedProject(newProject, function callback(newproject, currentProject){
+                        currentProject.style.border = '0px solid white'       
+                        newproject.style.border = '5px solid #09BA4E' // change hoosed project border
+                    })
+                    alert(`are you sure want to support the ${this.ninjaSupportedProject} project`)
+
+                }
+            },
+
+            supportedProject(project, callback){
+
+                let self = this
+                this.$axios.get(`${this.$store.state.SITE_HOST}/ninja/supported_project/`, {
+                    params: {
+                        id:  window.localStorage.getItem('userId'),
+                        project: project
+                    },
+                    headers: {
+                        "X-CSRFToken": `${self.$store.state.userToken}`,
+                        Authorization: `token ${window.localStorage.getItem('userToken')}`
+                    }
+                }).then(response => {
+
+                    // console.log(response.data);
+                    if(response.data.update){
+                        self.ninjaSupportedProject = response.data.newProject//update project name in userProfileData
+                        let new_supportedProjectId = document.querySelector(`#${response.data.newProject} img`)
+                        let current_supportedProjectId = document.querySelector(`#${response.data.currentProject} img`)
+                        new_supportedProjectId.style.border = '5px solid #09BA4E' // change hoosed project border
+                        callback(new_supportedProjectId, current_supportedProjectId)
+                    }else{
+                        if(response.data.currentProject != ''){
+                            
+                            let current_supportedProjectId = document.querySelector(`#${response.data.currentProject} img`)
+                            current_supportedProjectId.style.border = '5px solid #09BA4E' // change hoosed project border
+                        }
+                    }
+
+                }).catch(error => {
+
+                    console.log(error);
+                    
+                })
+
+            }
 
         }
     }
