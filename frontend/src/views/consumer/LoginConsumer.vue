@@ -134,7 +134,6 @@
             },
 
             errorMessage(message) {
-                this.send = false
                 this.$store.commit('modalStatus', {message})
             },
 

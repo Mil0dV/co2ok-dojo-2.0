@@ -160,7 +160,7 @@
                             We’ve got a marketingkit for your Cause Marketing! Send an e-mail to jos@co2ok.eco to receive it.
                         </p>
                         <br>
-                        <button type="button" class="button">Contact Jobs</button>
+                        <button type="button" class="button" @click="openForm()">Contact Jobs</button>
                     </div>
 
                     <div class="final-col final-2">
@@ -182,15 +182,17 @@
                 </div>
             </div>
         </div>
+        <PasswordForgotModal/>
     </div>
 </template>
 
 <script>
     const Header = () => import('@/components/layout/Header')
+    const PasswordForgotModal = () => import('@/components/modals/PasswordForgotModal')
 
     export default {
         name: "About",
-        components: {'Header': Header},
+        components: {'Header': Header, 'PasswordForgotModal' : PasswordForgotModal},
 
         data() {
             return {
@@ -236,6 +238,10 @@
                     }
                 ]
             }
+        },
+
+        openForm() {
+
         }
     }
 </script>
