@@ -54,8 +54,9 @@
                                 <router-link to="/faq">FAQ</router-link>
                             </li>
                         </ul>
-                        <a v-if="!userLoggedIn" href="https://chrome.google.com/webstore/detail/co2okninja/omlkdocjhkgbllabpihhdggplladfipe" class="button">Extension</a>
+                        <a  v-if="!userLoggedIn" :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget" class="button">Extension</a>
                         <p v-else>test</p>
+
                         <div class="line"></div>
                         <p>
                             <img class="language-icon english icon" src="../../assets/images/nav/english-icon.png">
@@ -94,7 +95,7 @@
                         <router-link to="/faq">FAQ</router-link>
                     </li>
                 </ul>
-                <a class="button">Extension</a>
+                <a :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget" class="button">Extension</a>
                 <hr>
                 <a><img class="language-icon english icon" src="../../assets/images/nav/english-icon.png"></a>
                 <!--<a><img class="language-icon dutch-icon" src="assets/files/dutch-icon.png"></a>-->
@@ -133,7 +134,7 @@
             logout() {
                 axios
                     .post('http://127.0.0.1:8000/logout/', {
-                        header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
+                        // header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
 
                     })
                     .then(response => {

@@ -45,8 +45,8 @@ const router = new Router({
 
         },
         {
-            path: '/blog',
-            name: 'blog',
+            path: '/news',
+            name: 'news',
             component: () => import('./views/Blog')
         },
         {
@@ -100,6 +100,16 @@ const router = new Router({
             path: '/consumers/login',
             name: 'consumers-login',
             component: () => import('./views/consumer/LoginConsumer')
+        },
+        {
+            path: '/:id(\\d+)',
+            name: 'consumers-invitation',
+            component: () => import('./views/consumer/Invitation')
+        },
+        {
+            path: '/welcome',
+            name: 'welcome',
+            component: () => import('./views/consumer/Welcome')
         },
         { //404 page, redirects back to home (= /)
             path: '*', redirect: '/'

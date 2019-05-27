@@ -20,17 +20,17 @@
 
                         <div class="c-input__wrapper">
                             <label class="login-c__label">E-mail</label>
-                            <input type="email" class="login-c__input" placeholder="Fill in your e-mail">
+                            <input type="email" class="login-c__input" placeholder="Fill in your e-mail" v-model="email">
                         </div>
 
                         <div class="c-input__wrapper">
                             <label class="login-c__label">Password</label>
-                            <input type="password" class="login-c__input" placeholder="Fill in your e-mail">
+                            <input type="password" class="login-c__input" placeholder="Fill in your e-mail" v-model="password">
                         </div>
 
                         <p class="subheading sub__password">I forgot my password</p>
 
-                        <p class="button login-c__button">Login</p>
+                        <p class="button login-c__button" @click="login()">Login</p>
                     </div>
                 </div>
 
@@ -41,15 +41,15 @@
 
                         <div class="c-input__wrapper">
                             <label class="login-c__label">E-mail</label>
-                            <input type="email" class="login-c__input" placeholder="Fill in your e-mail">
+                            <input type="email" class="login-c__input" placeholder="Fill in your e-mail" v-model="email">
                         </div>
 
                         <div class="c-input__wrapper">
                             <label class="login-c__label">Password</label>
-                            <input type="password" class="login-c__input" placeholder="Fill in your e-mail">
+                            <input type="password" class="login-c__input" placeholder="Fill in your e-mail" v-model="password">
                         </div>
 
-                        <p class="button login-c__button">Make an account</p>
+                        <p class="button login-c__button" @click="register()">Make an account</p>
                     </div>
                 </div>
             </div>
@@ -60,8 +60,117 @@
 
 <script>
     export default {
-        name: "LoginConsumer"
-    }
+        name: "LoginConsumer",
+
+        data () {
+            return{
+                email: '',
+                password: ''
+            }
+        },
+
+        created() {
+
+            this.$store.commit('generateUserName')
+
+        },
+
+        methods: {
+
+            register() {
+
+                if(this.email != '' && this.password != ''){
+
+                    // let gernarateUsername = this.generateUserName()
+                    let self = this
+                    this.$axios
+                        .post(`${this.$store.state.SITE_HOST}/signup/`, {
+                            body: {
+                                username: self.$store.state.generatedNinjaName,
+                                email: this.email,
+                                password: this.password,
+                                sort: 'ninja'
+                            },
+                        })
+                        .then(response => {
+
+                            if(response.data.authenticate){
+                                self.$store.dispatch('commitSaveUser', response.data)
+                                self.$store.commit('setLocalUserData', response.data)
+                                this.$store.dispatch('ninjaUserData');
+                                self.$router.push('/consumers/profile')
+                            }else{
+
+                                console.log(response.data.error);
+
+                            }
+                            console.log(response.data);
+                            
+                        })
+                        .catch(error => {
+
+                            console.log(error);
+                            
+                        })
+
+                }else{
+                    this.$store.commit('modalStatus', { message: 'give an email and password' })
+                    console.log('give an email and password');
+                    
+                }
+
+            },
+
+            login() {
+
+                if(this.email != '' && this.password != ''){
+
+                     this.$axios
+                        .post(`${this.$store.state.SITE_HOST}/login/`, {
+                            body: {
+                                email: this.email,
+                                password: this.password,
+                                sort: 'ninja'
+                            },
+                        })
+                        .then(response => {
+
+                            if(response.data.authenticate){
+
+                                // this.$store.commit('removeLocalUserData')
+                                this.$store.dispatch('commitSaveUser', response.data)
+                                this.$store.commit('setLocalUserData', response.data)
+                                this.$store.commit('isLoggedIn', response.data.authenticate)
+                                this.$store.dispatch('commitNinjaUserData');
+
+                                if (window.localStorage.getItem('Authenticated')) {
+                                    this.$router.push('/consumers/profile')
+                                } else {
+                                    this.$router.push('login')
+                                }
+
+                            }else{
+                                console.log(response.data.error);
+                                
+                            }
+                            console.log(response.data); 
+
+                        })
+                        .catch(error => {
+
+                            console.log(error);
+
+                        })
+
+                }else{
+                    this.$store.commit('modalStatus', { message: 'give an email and password' })
+                    console.log('give an email and password');
+                }
+
+            }
+
+     }
+}
 </script>
 
 <style lang="scss" scoped>

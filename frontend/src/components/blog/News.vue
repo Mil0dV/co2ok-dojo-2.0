@@ -60,6 +60,10 @@ created(){
     this.getBlogs()
     console.log(this.blogs)
 },
+
+mounted(){
+     this.getBlogs()
+},
     
 methods: {
 

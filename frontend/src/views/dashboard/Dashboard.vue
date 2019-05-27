@@ -1,6 +1,6 @@
 <template>
     <v-app class="dashboard">
-        <div class="dashboard__container">
+        <div class="dashboard__container" v-if="Authenticated">
             <div class="dashboard__header">
                 <h1 class="dashboard__title">Dashboard</h1>
                 <h5 class="dashboard__welcome">Weclome, {{this.$store.state.userData.userdata.username}}!</h5>
@@ -115,22 +115,28 @@
             return {
                 active: null,
                 userToken: this.$store.state.userToken,
-                /*twee onderst data gebruiken alleen na dat de profile component 
+                /*twee onderste data gebruiken alleen na dat de profile component 
                 geladen(created en mounted) is*/
                 userProfileData: this.$store.state.userData.userProfileData,
                 userData: this.$store.state.userData.userdata,
                 bottomNav: 'Transactions',
                 view: 'Transactions',
+                Authenticated: window.localStorage.getItem('Authenticated')
                 //------------------------------------------------------------------
             }
         },
 
-
+        created() {
+            if (this.Authenticated == null) {
+               this.$router.push('/login')
+            }
+        },
 
         mounted() {
 
-            //  this.ifAuthenticated();
-            this.$store.dispatch('commitGetUserData');            
+            this.$store.dispatch('commitGetUserData');    
+            console.log(this.Authenticated);
+                    
 
         },
 

@@ -99,6 +99,7 @@ LOCAL_APPS = [
     'accounts',
     'dashboard',
     'blog',
+    'ninja_profile',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

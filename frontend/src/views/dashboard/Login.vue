@@ -88,6 +88,7 @@
             login() {
                 this.send = true
                 let message = {title: 'Oops... Something went wrong!', text: 'Try again later.'}
+                let self = this
                 if (this.email !== '' && this.password !== '') {
                     axios
                         .post(`${this.$store.state.SITE_HOST}/login/`, {
@@ -96,7 +97,6 @@
                                 password: this.password,
                                 sort: 'webshop',
                             },
-                            // header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
 
                         })
                         .then(response => {
@@ -106,8 +106,6 @@
                                     this.$store.commit('setLocalUserData', response.data)
                                     console.log('userlocal', response.data.authenticate);
 
-                                    // this.$store.state.userStatus = true;
-                                    // console.log(this.$store.state.userAuthLocalData);
                                     this.$store.commit('isLoggedIn', response.data.authenticate)
                                     this.$store.dispatch('commitGetUserData');
                                     //userSession return a boolean of de authenticate status of the user
@@ -115,8 +113,6 @@
                                         this.$router.push('dashboard')
                                     } else {
                                         this.$router.push('login')
-                                        // alert('not authenticated')
-                                        // window.location.href = '/login'
                                     }
                                 } else {
                                     let errormessage = {

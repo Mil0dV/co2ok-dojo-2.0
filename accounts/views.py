@@ -86,7 +86,7 @@ def checkEmail(request, useremail):
 @permission_classes((AllowAny,))
 def signup(request):
     # get login data from webshop user form
-    username = request.data['body']['company']
+    username = request.data['body']['username']
     email = request.data['body']['email']
     password = request.data['body']['password']
     sort = request.data['body']['sort']  # determine if user is a merchant(webshop) of a ninja(normal user)
@@ -135,7 +135,7 @@ def signup(request):
                     token, _ = Token.objects.get_or_create(user=user)
                     return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
                 else:
-                    print('error:false')
+                    return Response({'error': 'Something went wrong, try manualy to login', 'authenticate': False})
 
         else:
             pass
@@ -149,6 +149,34 @@ def checkPassword(request, password, userid):
     currentUser = User.objects.get(id=userid)
     checkPass = currentUser.check_password(password)
     return checkPass
+
+
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((AllowAny,))
+def invitation_signup(request):
+    email = request.data['body']['email']
+    password = request.data['body']['password']
+    username = request.data['body']['username']
+    inviter_id = request.data['body']['inviterId']
+    #check of email not exist
+    if checkEmail(request, email) == 0:
+        #create new ninja
+        ninja = User.objects.create_user(username=username, email=email, password=password)
+        ninja_is_auth = authenticate(username=username, password=password)
+        #create ninja profile
+        NinjaProfile.objects.create(user=ninja, user_status='ninja', user_points=0)
+        #check user authentification, generate token and update inviter points
+        if ninja_is_auth:
+            current_inviter_points = NinjaProfile.objects.get(user__pk=inviter_id).user_points
+            new_inviter_points = current_inviter_points + 1
+            NinjaProfile.objects.filter(user__pk=inviter_id).update(user_points=new_inviter_points)
+            token, _= Token.objects.get_or_create(user=ninja)
+            return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
+        else:
+            return Response({'error': 'Something went wrong, try manualy to login', 'authenticate': False})
+    else:
+        return Response({'error': 'Email already exist', 'authenticate': False})
 
 
 
