@@ -294,7 +294,7 @@
                                 if (response.data.authenticate) {
                                     this.$store.dispatch('commitSaveUser', response.data)
                                     this.$store.commit('setLocalUserData', response.data)
-                                    self.$router.push('/dashboard')
+                                    self.$router.push('/webshops/dashboard')
                                 } else {
                                     this.errorMessage()
                                 }
