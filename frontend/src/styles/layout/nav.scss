@@ -12,6 +12,10 @@
 
   .uk-container {
     max-width: 1100px;
+    width: 98%;
+  }
+
+  .nav--wrapper {
     width: 100%;
   }
 
@@ -86,6 +90,13 @@
 
   .dutch-icon {
     opacity: 0.4;
+  }
+}
+
+
+@media screen and (max-width: 1146px) {
+  .uk-container {
+    width: 90% !important;
   }
 }
 

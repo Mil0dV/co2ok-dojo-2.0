@@ -2,7 +2,7 @@
     <div uk-sticky class="uk-navbar-container">
         <div>
             <div class="uk-container">
-                <nav uk-navbar>
+                <nav class="nav--wrapper" uk-navbar>
                     <div class="uk-navbar-left">
                         <router-link to="/" class="uk-logo"><img :src="require('@/assets/images/nav/logo.png')">
                         </router-link>
@@ -64,9 +64,14 @@
                                 <router-link to="/faq">FAQ</router-link>
                             </li>
                         </ul>
-                        <a v-if="!userLoggedIn" :href="this.$store.state.ninjaExtensionLink"
+                        <a v-if="userLoggedIn" :href="this.$store.state.ninjaExtensionLink"
                            :target="this.$store.state.extensionLinkTarget" class="button">Extension</a>
-                        <p v-else>test</p>
+                        <ul v-else class="uk-navbar-nav">
+                            <li @click="logout()">
+                                <a>Logout</a>
+                            </li>
+                        </ul>
+
 
                         <div class="line"></div>
                         <p>
@@ -97,7 +102,19 @@
                         <router-link to="/webshops">Webshops</router-link>
                     </li>
                     <li>
-                        <router-link to="/consumers">Consumers</router-link>
+                        <router-link to="/webshops/retailers">Retailers</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/webshops/cause-marketing">Cause Marketing</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/webshops/projects">Projects</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/webshops/login">Login webshop</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/consumers/login">Consumers</router-link>
                     </li>
                     <li>
                         <router-link to="/news">News</router-link>

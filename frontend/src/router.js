@@ -80,7 +80,7 @@ const router = new Router({
             component: () => import( './views/dashboard/Login.vue')
         },
         {
-            path: 'webshops/dashboard',
+            path: '/webshops/dashboard',
             name: 'dashboard',
             component: () => import( './views/dashboard/Dashboard'),
             // beforeEnter: ifAuthenticated
