@@ -91,7 +91,7 @@
                 let self = this
                 if (this.email !== '' && this.password !== '') {
                     axios
-                        .post(`${this.$store.state.SITE_HOST}/login/`, {
+                        .post(`${this.$store.state.SITE_HOST}/webshops/login/`, {
                             body: {
                                 email: this.email,
                                 password: this.password,
@@ -110,9 +110,9 @@
                                     this.$store.dispatch('commitGetUserData');
                                     //userSession return a boolean of de authenticate status of the user
                                     if (window.localStorage.getItem('Authenticated')) {
-                                        this.$router.push('dashboard')
+                                        this.$router.push('/webshops/dashboard')
                                     } else {
-                                        this.$router.push('login')
+                                        this.$router.push('/webshops/login')
                                     }
                                 } else {
                                     let errormessage = {
