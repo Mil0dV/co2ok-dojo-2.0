@@ -116,7 +116,7 @@
                                                     color="success"
                                                     class="accept-box"
                                         ></v-checkbox>
-                                        <a href="https://www.co2ok.eco/privacy">I accept the terms and agreements</a>
+                                        <a target="_blank" href="https://www.co2ok.eco/privacy">I accept the terms and agreements</a>
                                     </div>
                                 </div>
                             </transition>
