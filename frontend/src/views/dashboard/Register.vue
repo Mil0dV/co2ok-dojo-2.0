@@ -188,8 +188,14 @@
             }
         },
 
+        created(){
+
+            this.getMerchantData()
+
+        },
+
         mounted() {
-          console.log(this.$router.params.merchantId)
+          console.log(this.$route.params.merchantId)
         },
 
         methods: {
@@ -228,6 +234,29 @@
 
                 })
 
+            },
+
+            // get merchant name and email from dynamodb
+            getMerchantData(){
+
+                let id = this.$route.params.merchantId
+                this.$axios.get(`${this.$store.state.SITE_HOST}/user/merchant_data/`, {
+                    headers: {
+                        "X-CSRFToken": `${this.$store.state.userToken}`,
+                        Authorization: `token ${window.localStorage.getItem('userToken')}`
+                    },
+                    params: {
+                        merchantId: id
+                    }
+                }).then(response => {
+
+                    console.log(response.data);
+                    
+
+                }).catch(error => {
+                    console.log(error);
+                    
+                })
 
             },
 
@@ -255,13 +284,8 @@
                                 sort: 'webshop',
                                 name: this.name,
                                 merchantId: this.$route.params.merchantId,
-                                // link: this.link,
-                                // country: 'this.country',
-                                // city: this.city,
-                                // zipcode: this.zipcode,
-                                // street: this.street
+                               
                             },
-                            // header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
 
                         })
                         .then(response => {

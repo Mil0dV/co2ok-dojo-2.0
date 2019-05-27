@@ -61,8 +61,8 @@ const router = new Router({
 
         },
         {
-            path: '/blog',
-            name: 'blog',
+            path: '/news',
+            name: 'news',
             component: () => import('./views/Blog')
         },
         {

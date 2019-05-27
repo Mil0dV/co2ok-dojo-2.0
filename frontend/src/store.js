@@ -29,7 +29,7 @@ export default new Vuex.Store({
         x_asLabel: [],
         graphData: [],
         blogs: [],
-        component: 'blog', //use in blo.vue as dynamic template
+        component: 'news', //use in blo.vue as dynamic template
         generatedNinjaName: '',
         ninjaExtensionLink: '',
         extensionLinkTarget: '',
@@ -60,6 +60,7 @@ export default new Vuex.Store({
             state.userAuthData = payload
         },
 
+        // merchant profile en user data
         getUserData(state) {
            if (window.localStorage.getItem('Authenticated')) {
                 axios
@@ -74,15 +75,20 @@ export default new Vuex.Store({
                     })
                     .then(response => {
                         //verify if the userdata array is empty
-                        if (state.userData.length == 0) {
-                            //user array is empty, push userdata
-                            state.userData = response.data;
-                            state.userStatus = true;
+                        if(response.data.authData){
+                            if (state.userData.length == 0) {
+                                //user array is empty, push userdata
+                                state.userData = response.data;
+                                state.userStatus = true;
 
-                        } else {
-                            // user array !empty, empty it and push user data
-                            state.userData = '';
-                            state.userData = response.data;
+                            } else {
+                                // user array !empty, empty it and push user data
+                                state.userData = '';
+                                state.userData = response.data;
+                            }
+                        }else{
+                            console.log('user should be redirect to the login page');
+                            
                         }
 
                     })
@@ -123,7 +129,7 @@ export default new Vuex.Store({
                             state.ninjaData = '';
                             state.ninjaData = response.data;
                         }
-                        console.log(response.data);
+                        // console.log(response.data);
                         
 
                     }).catch(error => {

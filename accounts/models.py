@@ -40,12 +40,13 @@ class WebshopProfile(models.Model):
     def __str__(self):
         return "profile van {0}".format(self.user.email)
 
-    #check if the usr id & token sended from the front-end exist
-    def check_user_auth_data(self, id):
-        user_id = User.objects.filter(id=id).count()
+    #check if the usr id & token sended from the front-end exist ansd if the email en password useed to login have a merchant profile
+    def check_user_auth_data(self, id, cls):
+        user_id = User.objects.filter(pk=id)
         token = Token.objects.filter(user_id=id).count()
+        merchant_id = cls.objects.filter(user_id=id).count()
         user_idToken_exist = False
-        if user_id > 0 and token > 0:
+        if user_id.count() > 0 and merchant_id > 0:
             user_idToken_exist = True
         else:
             user_idToken_exist = False

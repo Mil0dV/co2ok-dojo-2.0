@@ -16,8 +16,8 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
-import Blog from '../components/blog/blogComponent.vue'
-import News from '../components/blog/newsComponent.vue'
+import News from '../components/blog/News.vue'
+import NewsContent from '../components/blog/NewsContent.vue'
 
 Vue.use(Vuetify);
 export default {
@@ -36,8 +36,8 @@ export default {
     },
 
     components: {
-        'blog': Blog,
-        'news': News
+        'news': News,
+        'contebt': NewsContent
     },
 
     computed: {
