@@ -22,7 +22,7 @@
 
             <div class="blog-content">
 
-                <div class="blog-items pb-4 mb-3" v-for="(blog, i) in this.$store.state.blogs" :key="i" data-aos="zoom-in-up"
+                <div class="blog-items pb-4 mb-3" :id="blog.id" v-for="(blog, i) in this.$store.state.blogs" :key="i" data-aos="zoom-in-up"
                       data-aos-duration="1000"
                       :data-aos-delay="i*200">
                     <div class="blog-img mb-4"
@@ -30,10 +30,10 @@
                     ></div>
                     <div class='blog-contents-container pa-1'>
                         <span>Posted By: Milo de Fries | {{formatBlogDate(blog.posted_on)}} 16:49</span>
-                        <p class='blog-title'>{{blog.blog_title}}</p>
+                        <p class='blog-title' v-html="blog.blog_title"></p>
                         <v-divider style="width:85%;"></v-divider>
-                        <p class="blog-content-txt">{{stripBlogContent(blog.blog_content)}}</p>
-                        <div class="readmore-container"><button class="readmore-btn text-capitalize mt-3">Read more<v-icon small color="#10DC87" style="position:relative;left:10px;">arrow_forward</v-icon></button></div>
+                        <p class="blog-content-txt" v-html="stripBlogContent(blog.blog_preface)"></p>
+                        <div :class="[blog.id]" class="readmore-container" @click="newsContent()"><button class="readmore-btn text-capitalize mt-3">Read more<v-icon small color="#10DC87" style="position:relative;left:10px;">arrow_forward</v-icon></button></div>
                     </div>
                 </div>
 
@@ -76,6 +76,8 @@ methods: {
                 Authorization: `token ${window.localStorage.getItem('userToken')}`
             }
         }).then(response => {
+            console.log(response.data);
+            
             self.$store.commit('getBlogs', response.data)
             console.log(response);
             
@@ -93,6 +95,13 @@ methods: {
       formatBlogDate(content){
           let date = content.substr(0,10)
           return date
+      },
+
+      newsContent(){
+        // this.$store.state.component = 'content'
+        let articleId = event.currentTarget.classList
+        console.log(articleId);
+        
       }
 
     }
