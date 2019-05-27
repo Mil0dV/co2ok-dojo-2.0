@@ -79,7 +79,7 @@
 
             register() {
 
-                if(this.email != '' && this.password != ''){
+                if(this.email !== '' && this.password !== ''){
 
                     // let gernarateUsername = this.generateUserName()
                     let self = this
