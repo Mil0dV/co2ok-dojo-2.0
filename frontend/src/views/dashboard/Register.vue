@@ -123,17 +123,17 @@
 
                             <div class="register__button-group animated bounceInUp slower"
                                  style="animation-delay: 0.6s;">
-                                <button v-if="next" @click="next = false" class="login__back">
+                                <button v-if="next" @click="next = false" class="button button-empty">
                                     <span> Back</span>
                                 </button>
 
-                                <button v-if="!next" @click.prevent="next = true" class="login__submit">
+                                <button v-if="!next" @click.prevent="next = true" class="button">
                                     <span>Next</span>
                                 </button>
 
                                 <button v-else type="submit" @keyup.enter="merchant_idChecker()"
                                         @click.prevent="merchant_idChecker()"
-                                        class="login__submit">
+                                        class="button">
                                     <span v-if="send === false">Make an account</span>
                                     <v-progress-circular v-else indeterminate color="white">
                                     </v-progress-circular>
@@ -154,6 +154,7 @@
 
 <script>
     import axios from 'axios'
+
     import Vue from 'vue'
     import Vuetify from 'vuetify'
     import 'vuetify/dist/vuetify.min.css'
@@ -188,14 +189,12 @@
             }
         },
 
-        created(){
-
+        created() {
             this.getMerchantData()
-
         },
 
         mounted() {
-          console.log(this.$route.params.merchantId)
+            console.log(this.$route.params.merchantId)
         },
 
         methods: {
@@ -231,13 +230,17 @@
 
                 }).catch(error => {
                     console.log(error);
-
+                    let message = {
+                        title: 'Something went wrong...',
+                        text: "Incorrect URL."
+                    }
+                    this.$store.commit('modalStatus', {message})
                 })
 
             },
 
             // get merchant name and email from dynamodb
-            getMerchantData(){
+            getMerchantData() {
 
                 let id = this.$route.params.merchantId
                 this.$axios.get(`${this.$store.state.SITE_HOST}/user/merchant_data/`, {
@@ -251,13 +254,12 @@
                 }).then(response => {
 
                     console.log(response.data);
-                    
+
 
                 }).catch(error => {
                     console.log(error);
-                    
+                    //Als de id niet klopt, redirect dan naar de homepage
                 })
-
             },
 
             register() {
@@ -284,7 +286,7 @@
                                 sort: 'webshop',
                                 name: this.name,
                                 merchantId: this.$route.params.merchantId,
-                               
+
                             },
 
                         })
@@ -304,7 +306,12 @@
                             this.errorMessage()
                         })
                 } else {
-                    this.errorMessage()
+                    let message = {
+                        title: 'Something went wrong...',
+                        text: 'You did not fill in your form correctly.'
+                    }
+                    this.$store.commit('modalStatus', {message})
+                    // this.errorMessage()
                 }
             }
         }
@@ -315,6 +322,12 @@
     .register__container {
         height: 100%;
         background: white;
+    }
+
+    .button-empty {
+        background: white;
+        color: #2F2F2F;
+        border: 1px solid #848484;
     }
 
     .register__layout {

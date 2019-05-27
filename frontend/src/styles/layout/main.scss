@@ -71,9 +71,9 @@ input, .input-c__input {
 }
 
 .uk-container-width {
-  max-width: 1090px;
+  max-width: 1090px !important;
   width: 100%;
-  padding: 50px 0;
+  padding: 50px 0 !important;
 }
 
 .uk-container-column {

@@ -86,7 +86,7 @@ const router = new Router({
             // beforeEnter: ifAuthenticated
         },
         {
-            path: '/projects',
+            path: '/webshops/projects',
             name: 'projects',
             component: () => import('./views/Projects')
         },

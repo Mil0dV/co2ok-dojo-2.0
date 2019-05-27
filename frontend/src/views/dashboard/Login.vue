@@ -16,7 +16,7 @@
                 <div class="login-c__wrapper">
                     <form v-model="valid" class="login-c__form">
                         <p class="subheading">Login</p>
-                        <h1 class="main-title">Login to get acces to more information!</h1>
+                        <h1 class="main-title">Login to get access to more information!</h1>
 
                         <div class="c-input__wrapper">
                             <label class="login-c__label">E-mail</label>
@@ -25,7 +25,7 @@
 
                         <div class="c-input__wrapper">
                             <label class="login-c__label">Password</label>
-                            <input type="password" v-model="password" class="login-c__input" placeholder="Fill in your e-mail">
+                            <input type="password" v-model="password" class="login-c__input" placeholder="Fill in your password">
                         </div>
 
                         <p @click="passReset = true" class="subheading sub__password">I forgot my password</p>
@@ -91,7 +91,7 @@
                 let self = this
                 if (this.email !== '' && this.password !== '') {
                     axios
-                        .post(`${this.$store.state.SITE_HOST}/signin/`, {
+                        .post(`${this.$store.state.SITE_HOST}/login/`, {
                             body: {
                                 email: this.email,
                                 password: this.password,

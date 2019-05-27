@@ -128,7 +128,7 @@
 
         created() {
             if (this.Authenticated == null) {
-               this.$router.push('/login')
+               this.$router.push('/webshops/login')
             }
         },
 

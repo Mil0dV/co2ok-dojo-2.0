@@ -14,7 +14,8 @@
                                 <router-link to="/about">About</router-link>
                             </li>
                             <li :class="[checkActive('webshops') ? 'navbar__active' : '']">
-                                <router-link to="/webshops">Webshops <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
+                                <router-link to="/webshops">Webshops <span class="nav__triangle"
+                                                                           uk-icon="icon: triangle-down"></span>
                                 </router-link>
                             </li>
                             <div class="dropdown__menu-wrapper" uk-dropdown="offset: -15">
@@ -29,20 +30,29 @@
                                         <router-link to="/webshops/cause-marketing">Cause Marketing</router-link>
                                     </li>
                                     <li>
+                                        <router-link to="/webshops/projects">Projects</router-link>
+                                    </li>
+                                    <li>
                                         <router-link to="/webshops/login">Login</router-link>
                                     </li>
                                 </ul>
                             </div>
 
                             <li :class="[checkActive('consumers') ? 'navbar__active' : '']">
-                                <router-link to="/consumers/login">Consumers  <span uk-icon="icon: triangle-down"></span></router-link>
+                                <router-link to="/consumers/login">Consumers
+                                    <span v-if="this.$store.state.Authenticated === true"
+                                          uk-icon="icon: triangle-down"
+                                          class="animated bounceIn">
+                                    </span>
+                                </router-link>
                             </li>
-                            <div class="dropdown__menu-wrapper" uk-dropdown="offset: -15">
+                            <div v-if="this.$store.state.Authenticated === true" class="dropdown__menu-wrapper" uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
                                     <li>
                                         <router-link to="/consumers/profile">Profile</router-link>
-                                    </li><li>
-                                        <router-link to="/">Logout</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link to="/consumers/login">Logout</router-link>
                                     </li>
                                 </ul>
                             </div>
@@ -54,7 +64,8 @@
                                 <router-link to="/faq">FAQ</router-link>
                             </li>
                         </ul>
-                        <a  v-if="!userLoggedIn" :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget" class="button">Extension</a>
+                        <a v-if="!userLoggedIn" :href="this.$store.state.ninjaExtensionLink"
+                           :target="this.$store.state.extensionLinkTarget" class="button">Extension</a>
                         <p v-else>test</p>
 
                         <div class="line"></div>
@@ -95,7 +106,8 @@
                         <router-link to="/faq">FAQ</router-link>
                     </li>
                 </ul>
-                <a :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget" class="button">Extension</a>
+                <a :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget"
+                   class="button">Extension</a>
                 <hr>
                 <a><img class="language-icon english icon" src="../../assets/images/nav/english-icon.png"></a>
                 <!--<a><img class="language-icon dutch-icon" src="assets/files/dutch-icon.png"></a>-->
@@ -153,9 +165,9 @@
                     return true
                 }
 
-                if(menu === 'webshops' && this.currentRouteName === 'retailers' || menu === 'webshops' && this.currentRouteName === 'cause-marketing'
+                if (menu === 'webshops' && this.currentRouteName === 'retailers' || menu === 'webshops' && this.currentRouteName === 'cause-marketing'
                     || menu === 'webshops' && this.currentRouteName === 'plug-in-installation' || menu === 'webshops' && this.currentRouteName === 'webshops-register'
-                    || menu === 'webshops' && this.currentRouteName === 'webshops-login' || menu === 'webshops' && this.currentRouteName === 'dashboard'){
+                    || menu === 'webshops' && this.currentRouteName === 'webshops-login' || menu === 'webshops' && this.currentRouteName === 'dashboard') {
                     console.log(this.currentRouteName)
                     return true
                 }

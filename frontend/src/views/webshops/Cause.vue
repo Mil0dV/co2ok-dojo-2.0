@@ -14,7 +14,7 @@
 
                             <br>
                             <div class="col-1--links">
-                                <button type="button" class="button">Fight Climate Change</button>
+                                <router-link to="/webshops/plug-in-installation" class="button">Fight Climate Change</router-link>
                             </div>
                         </div>
                     </div>
@@ -160,7 +160,7 @@
                             We’ve got a marketingkit for your Cause Marketing! Send an e-mail to jos@co2ok.eco to receive it.
                         </p>
                         <br>
-                        <button type="button" class="button" @click="openForm()">Contact Jobs</button>
+                        <p class="button" @click="contactForm()">Contact Jobs</p>
                     </div>
 
                     <div class="final-col final-2">
@@ -182,17 +182,17 @@
                 </div>
             </div>
         </div>
-        <PasswordForgotModal/>
+        <ModalContact v-if="$store.state.modalStatus"/>
     </div>
 </template>
 
 <script>
     const Header = () => import('@/components/layout/Header')
-    const PasswordForgotModal = () => import('@/components/modals/PasswordForgotModal')
+    const ModalContact = () => import('@/components/modals/ModalContact')
 
     export default {
         name: "About",
-        components: {'Header': Header, 'PasswordForgotModal' : PasswordForgotModal},
+        components: {'Header': Header, 'ModalContact' : ModalContact},
 
         data() {
             return {
@@ -240,8 +240,14 @@
             }
         },
 
-        openForm() {
-
+        methods: {
+            contactForm() {
+                let message = {
+                    title: 'Contact e-mail',
+                    text: 'Please fill in your e-mail'
+                }
+                this.$store.commit('modalStatus', {message})
+            }
         }
     }
 </script>

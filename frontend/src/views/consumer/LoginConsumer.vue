@@ -45,13 +45,13 @@
                         <div class="c-input__wrapper">
                             <label class="login-c__label">E-mail</label>
                             <input type="email" class="login-c__input" placeholder="Fill in your e-mail"
-                                   v-model="email">
+                                   v-model="registerMail">
                         </div>
 
                         <div class="c-input__wrapper">
                             <label class="login-c__label">Password</label>
                             <input type="password" class="login-c__input" placeholder="Fill in your e-mail"
-                                   v-model="password">
+                                   v-model="registerPass">
                         </div>
 
                         <p class="button login-c__button" @click="register()">Make an account</p>
@@ -75,7 +75,9 @@
         data() {
             return {
                 email: '',
-                password: ''
+                password: '',
+                registerMail: '',
+                registerPass: '',
             }
         },
 
@@ -88,7 +90,7 @@
         methods: {
 
             register() {
-                if (this.email !== '' && this.password !== '') {
+                if (this.registerMail !== '' && this.registerPass !== '') {
 
                     // let gernarateUsername = this.generateUserName()
                     let self = this
@@ -96,8 +98,8 @@
                         .post(`${this.$store.state.SITE_HOST}/signup/`, {
                             body: {
                                 username: self.$store.state.generatedNinjaName,
-                                email: this.email,
-                                password: this.password,
+                                email: this.registerMail,
+                                password: this.registerPass,
                                 sort: 'ninja'
                             },
                         })

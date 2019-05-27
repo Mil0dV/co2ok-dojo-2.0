@@ -6,7 +6,7 @@ import Axios from 'axios'
 import store from './store'
 import Vuex from 'vuex'
 import VAnimateCss from 'v-animate-css'
-import "uikit/dist/css/uikit.min.css";
+import 'uikit/dist/css/uikit.min.css'
 
 //Aos imports
 import AOS from 'aos'

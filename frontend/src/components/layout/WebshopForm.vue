@@ -53,12 +53,13 @@
                 </div>
             </div>
         </div>
-        <PasswordForgotModal/>
+        <Modal v-if="$store.state.modalStatus"/>
     </div>
 </template>
 
 <script>
-    const PasswordForgotModal = () => import('@/components/modals/PasswordForgotModal')
+    const Modal = () => import('@/components/modals/Modal')
+
 
     export default {
         name: "WebshopForm",
@@ -66,7 +67,7 @@
             content: Object
         },
         components: {
-            PasswordForgotModal
+            Modal
         },
 
 
@@ -102,7 +103,7 @@
                 else {
                     let message = {
                         title: 'Something went wrong....',
-                        text: 'Please fill in you e-mail'
+                        text: 'Please fill in your e-mail'
                     }
                     this.$store.commit('modalStatus', {message})
                 }

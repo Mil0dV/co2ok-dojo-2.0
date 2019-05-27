@@ -5,7 +5,6 @@
             <router-view class="view animated fadeIn"></router-view>
         </div>
         <Footer/>
-        <Modal v-if="$store.state.modalStatus"/>
     </v-app>
 </template>
 
@@ -14,21 +13,16 @@
     import Vuetify from 'vuetify'
     import Nav from '@/components/layout/Nav'
     import Footer from '@/components/layout/Footer'
-    const Modal = () => import('@/components/modals/Modal')
 
     Vue.use(Vuetify);
 
     export default {
         name: 'App',
         components: {
-            Modal, Nav, Footer
+            Nav, Footer
         },
     }
 </script>
-
-<style>
-    @import "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/css/uikit.min.css";
-</style>
 
 <style lang="scss">
     @import 'styles/layout/main';
