@@ -91,7 +91,7 @@
                 let self = this
                 if (this.email !== '' && this.password !== '') {
                     axios
-                        .post(`${this.$store.state.SITE_HOST}/webshops/login/`, {
+                        .post(`${this.$store.state.SITE_HOST}/signin/`, {
                             body: {
                                 email: this.email,
                                 password: this.password,
@@ -129,7 +129,13 @@
                         })
                     this.send = false
                 }
-
+                else {
+                    let errormessage = {
+                        title: 'Empty form',
+                        text: 'Fill in your e-mal & password'
+                    }
+                    this.errorMessage(errormessage)
+                }
                 // this.errorMessage(message)
             }
         }

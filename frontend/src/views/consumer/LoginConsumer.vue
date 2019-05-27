@@ -5,7 +5,8 @@
             <div class="bkgr__filler bkgr__text hide--tablet">
                 <div class="green-border__login">
                     <p class="green-border__text">
-                        With your account you will get acces to information how much you’ve contributed to fighting climate change.
+                        With your account you will get acces to information how much you’ve contributed to fighting
+                        climate change.
                     </p>
                 </div>
             </div>
@@ -16,16 +17,18 @@
                 <div class="login-c__wrapper">
                     <div class="login-c__form">
                         <p class="subheading">Login consumers</p>
-                        <h1 class="main-title">Login to get acces to more information!</h1>
+                        <h1 class="main-title consumer-title">Login to get acces to more information!</h1>
 
                         <div class="c-input__wrapper">
                             <label class="login-c__label">E-mail</label>
-                            <input type="email" class="login-c__input" placeholder="Fill in your e-mail" v-model="email">
+                            <input type="email" class="login-c__input" placeholder="Fill in your e-mail"
+                                   v-model="email">
                         </div>
 
                         <div class="c-input__wrapper">
                             <label class="login-c__label">Password</label>
-                            <input type="password" class="login-c__input" placeholder="Fill in your e-mail" v-model="password">
+                            <input type="password" class="login-c__input" placeholder="Fill in your e-mail"
+                                   v-model="password">
                         </div>
 
                         <p class="subheading sub__password">I forgot my password</p>
@@ -41,29 +44,36 @@
 
                         <div class="c-input__wrapper">
                             <label class="login-c__label">E-mail</label>
-                            <input type="email" class="login-c__input" placeholder="Fill in your e-mail" v-model="email">
+                            <input type="email" class="login-c__input" placeholder="Fill in your e-mail"
+                                   v-model="email">
                         </div>
 
                         <div class="c-input__wrapper">
                             <label class="login-c__label">Password</label>
-                            <input type="password" class="login-c__input" placeholder="Fill in your e-mail" v-model="password">
+                            <input type="password" class="login-c__input" placeholder="Fill in your e-mail"
+                                   v-model="password">
                         </div>
 
                         <p class="button login-c__button" @click="register()">Make an account</p>
                     </div>
                 </div>
             </div>
-
         </div>
+        <PasswordForgotModal/>
     </div>
 </template>
 
 <script>
+    const PasswordForgotModal = () => import('@/components/modals/PasswordForgotModal')
+
     export default {
         name: "LoginConsumer",
+        components: {
+            PasswordForgotModal
+        },
 
-        data () {
-            return{
+        data() {
+            return {
                 email: '',
                 password: ''
             }
@@ -78,8 +88,7 @@
         methods: {
 
             register() {
-
-                if(this.email !== '' && this.password !== ''){
+                if (this.email !== '' && this.password !== '') {
 
                     // let gernarateUsername = this.generateUserName()
                     let self = this
@@ -94,38 +103,44 @@
                         })
                         .then(response => {
 
-                            if(response.data.authenticate){
+                            if (response.data.authenticate) {
                                 self.$store.dispatch('commitSaveUser', response.data)
                                 self.$store.commit('setLocalUserData', response.data)
                                 this.$store.dispatch('ninjaUserData');
                                 self.$router.push('/consumers/profile')
-                            }else{
+                            } else {
 
                                 console.log(response.data.error);
 
                             }
                             console.log(response.data);
-                            
+
                         })
                         .catch(error => {
 
                             console.log(error);
-                            
+
                         })
 
-                }else{
-                    this.$store.commit('modalStatus', { message: 'give an email and password' })
-                    console.log('give an email and password');
-                    
+                } else {
+                    let errormessage = {
+                        title: 'Empty form',
+                        text: 'Fill in your e-mal & password'
+                    }
+                    this.errorMessage(errormessage)
+
                 }
 
             },
 
+            errorMessage(message) {
+                this.send = false
+                this.$store.commit('modalStatus', {message})
+            },
+
             login() {
-
-                if(this.email != '' && this.password != ''){
-
-                     this.$axios
+                if (this.email !== '' && this.password !== '') {
+                    this.$axios
                         .post(`${this.$store.state.SITE_HOST}/login/`, {
                             body: {
                                 email: this.email,
@@ -134,8 +149,7 @@
                             },
                         })
                         .then(response => {
-
-                            if(response.data.authenticate){
+                            if (response.data.authenticate) {
 
                                 // this.$store.commit('removeLocalUserData')
                                 this.$store.dispatch('commitSaveUser', response.data)
@@ -146,31 +160,27 @@
                                 if (window.localStorage.getItem('Authenticated')) {
                                     this.$router.push('/consumers/profile')
                                 } else {
-                                    this.$router.push('login')
+                                    this.$router.push('/consumers/login')
                                 }
 
-                            }else{
+                            } else {
                                 console.log(response.data.error);
-                                
                             }
-                            console.log(response.data); 
-
+                            console.log(response.data);
                         })
                         .catch(error => {
-
                             console.log(error);
-
                         })
-
-                }else{
-                    this.$store.commit('modalStatus', { message: 'give an email and password' })
-                    console.log('give an email and password');
+                } else {
+                    let errormessage = {
+                        title: 'Empty form',
+                        text: 'Fill in your e-mal & password'
+                    }
+                    this.errorMessage(errormessage)
                 }
-
             }
-
-     }
-}
+        }
+    }
 </script>
 
 <style lang="scss" scoped>
