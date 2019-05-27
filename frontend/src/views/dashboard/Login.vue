@@ -1,88 +1,49 @@
 <template>
-        <div class="register__container">
-            <v-layout class="register__layout  ma-0 pa-0" wrap row>
-                <v-flex class="register__col-1" xs12 sm12 md6>
-                    <v-layout class="register__col-filler" wrap>
-
-                    </v-layout>
-
-                    <v-layout row wrap class="hidden-sm-and-down">
-                        <v-flex xs12 sm7 lg6 offset-md2 offset-lg5>
-                            <div class="login__info animated fadeInUp">
-                                <p class="login__info-text">
-                                    With an account you will get access to information how much you’ve contributed to
-                                    fighting climate
-                                    change
-                                </p>
-                            </div>
-                        </v-flex>
-                    </v-layout>
-                </v-flex>
-
-                <v-flex xs12 sm12 md6 lg4>
-                    <v-layout justify-center align-center column wrap class="hidden-sm-and-down pa-5">
-                    </v-layout>
-
-                    <v-layout class="register__layout-form pa-5" justify-center align-center column wrap>
-                        <v-flex class="register__form-mb" justify-center align-center column wrap xs6 lg4>
-                            <form v-model="valid" class="login__form">
-                                <div class="login__header-group animated fadeInUp">
-                                    <p class="login__form-header">Account</p>
-                                    <h1 class="login__form-title">Login to access to more information</h1>
-                                </div>
-
-
-                                <div class="login__group animated fadeInUp">
-                                    <label class="login__group">
-                                        E-mail
-                                        <input class="login__group-input" v-model="email"
-                                               type="email" placeholder="Fill in your email...">
-                                    </label>
-
-                                    <div class="login__group-password">
-                                        <label class="login__group">
-                                            Password
-                                            <input class="login__group-input" v-model="password"
-                                                   type="password" placeholder="Fill in your password...">
-                                        </label>
-                                        <p @click="passReset = true"
-                                           class="login__form-header forgot__password">
-                                            I forgot my password
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div style="width: 100%; text-align: left;" class="animated fadeInUp ">
-                                    <br>
-                                    <button type="submit" @keyup.enter="login()"
-                                            @click.prevent="login()"
-                                            class="login__submit">
-                                        <span v-if="send === false">Login</span>
-                                        <v-progress-circular v-else indeterminate color="white">
-                                        </v-progress-circular>
-                                    </button>
-                                </div>
-
-                            </form>
-                        </v-flex>
-                    </v-layout>
-
-                    <v-layout justify-center align-center column wrap class="hidden-sm-and-down pa-5">
-                    </v-layout>
-                </v-flex>
-            </v-layout>
-            <PasswordForgotModal/>
+    <div class="login-c__container">
+        <div class="login-c__background login-c__row">
+            <div class="bkgr__filler hide--tablet"></div>
+            <div class="bkgr__filler bkgr__text hide--tablet">
+                <div class="green-border__login">
+                    <p class="green-border__text">
+                        With your account you will get acces to information how much you’ve contributed to fighting climate change
+                    </p>
+                </div>
+            </div>
         </div>
+
+        <div class="login-c__section login-c__row">
+            <div class="login__width">
+                <div class="login-c__wrapper">
+                    <form v-model="valid" class="login-c__form">
+                        <p class="subheading">Login</p>
+                        <h1 class="main-title">Login to get acces to more information!</h1>
+
+                        <div class="c-input__wrapper">
+                            <label class="login-c__label">E-mail</label>
+                            <input type="email"  v-model="email" class="login-c__input" placeholder="Fill in your e-mail">
+                        </div>
+
+                        <div class="c-input__wrapper">
+                            <label class="login-c__label">Password</label>
+                            <input type="password" v-model="password" class="login-c__input" placeholder="Fill in your e-mail">
+                        </div>
+
+                        <p @click="passReset = true" class="subheading sub__password">I forgot my password</p>
+
+                        <p @keyup.enter="login()"
+                           @click.prevent="login()"
+                           class="button login-c__button">Login</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <PasswordForgotModal/>
+    </div>
 </template>
 
 
 <script>
     import axios from 'axios'
-    import Vue from 'vue'
-    import Vuetify from 'vuetify'
-    import 'vuetify/dist/vuetify.min.css'
-
-    Vue.use(Vuetify);
 
     const PasswordForgotModal = () => import('@/components/modals/PasswordForgotModal')
 
@@ -179,245 +140,28 @@
     }
 </script>
 
-<style scoped>
-    .register__container {
-        height: 100% !important;
-        width: 100%;
-        background: white;
-    }
+<style lang="scss" scoped>
+    @import '../../styles/layout/main.scss';
+    @import '../../styles/consumer/login__consumer.scss';
 
-    .register__layout {
-        min-height: 93vh;
-        height: 100%;
-    }
-
-    .register__col-1 {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
+    .login-c__background {
         background: url('../../assets/images/login/loginscreen.png') no-repeat center center;
+        /*background: url('../../assets/images/register/registerscreen.png') no-repeat center center;*/
         background-size: cover;
     }
 
-    .register__col-filler {
-        flex: 2;
-    }
 
-    .register__layout-form {
-        overflow: hidden;
-    }
-
-    .login__info {
-        background: white;
-        border-left: 10px solid #10D884;
-        width: 100%;
-        box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.30);
-    }
-
-    .login__info-text {
-        margin: 0;
-        padding: 20px 40px;
-        text-align: left;
-    }
-
-    .login__form {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        margin-left: 10px;
-    }
-
-    .login__header-group {
-        text-align: left;
-    }
-
-    .login__form-header {
-        color: #10D884;
-        margin: 0;
-        padding: 0;
-        font-size: 15px;
-    }
-
-    .login__form-title {
-        text-align: left;
-        line-height: 50px;
-        font-size: 42px;
-        font-weight: 600;
-        color: #606468;
-        margin: 0;
-        padding: 0;
-    }
-
-    .login__group {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        text-align: left;
-        margin: 10px 0;
-        width: 100%;
-    }
-
-    .login__accept {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-    }
-
-    .login__accept a {
-        margin-bottom: 5px;
-        flex: 30;
-        color: black;
-        text-decoration: none;
-    }
-
-    .login__accept a:visited {
-        color: black;
-    }
-
-    .login__group-input {
-        border-radius: 3px;
-        border: 1px solid #BCBCBC;
-        height: 40px;
-        padding: 10px;
-        width: 100%;
-    }
-
-    .login__group-password {
-        width: 100%;
-        text-align: left;
-    }
-
-
-    .register__button-group {
-        margin-top: 30px;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .login__submit {
-        font-family: 'Poppins', sans-serif;
-        color: white;
-        background-image: linear-gradient(to right, #10DC87, #08BA4D);
-        background-size: 100% auto;
-        padding: 10px 30px;
-        border-radius: 3px;
-        top: 0px;
-        position: relative;
-        transition: 0.2s ease-in-out;
-        font-size: 17px;
-    }
-
-    .login__back {
-        padding: 10px 30px;
-        border-radius: 3px;
-        top: 0px;
-        position: relative;
-        transition: 0.2s ease-in-out;
-        font-size: 17px;
-        border: 2px solid #9F9F9F;
-        background: transparent;
-        color: #9F9F9F;
-    }
-
-    .login__submit:hover, .login__back:hover {
-        top: -5px;
-        background-size: 200% auto;
-        background-position: right center;
-        transition: 0.2s ease-in-out;
-    }
-
-    .login__group-wrapper {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .login__group-wrapper > *:first-child {
-        max-width: 300px;
-    }
-
-    .login__group-wrapper > *:nth-child(2) {
-        max-width: 140px;
-    }
-
-    .asterik {
-        color: red;
-    }
-
-    @media (max-width: 960px) {
-        .register__container {
-            height: 100%;
-            background: #F4F4F4;
+    @media screen and (max-width: 1150px) {
+        .login-c__section {
+            width: 90%;
+            max-height: 600px;
         }
 
-        .register__layout-form {
-            overflow: visible;
-        }
-
-        .login__form {
-            box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.30);
-            padding: 40px 40px;
-            background: white;
-            margin-top: -225px;
-            margin-left: 0;
-            font-size: 15px;
-            overflow: hidden;
-            max-width: 600px;
-            width: 100%;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .register__layout-form {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .register__form-mb {
-            margin: 0;
-            max-width: 800px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .login__form-title {
-            font-size: 20px;
-            line-height: 25px;
-        }
-
-        .login__back {
-            padding: 5px 15px;
-        }
-
-        .login__group {
-            font-size: 12px;
-        }
-
-        .pa-5 {
-            padding: 20px !important;
+        .login-c__background {
+            flex: 8;
         }
     }
 
-    @media (max-width: 600px) {
-        .login__form {
-            padding: 40px 40px;
-            width: 100%;
-            max-width: 500px;
-        }
 
-        .login__submit, .login__back {
-            padding: 5px 20px;
-            font-size: 15px;
-        }
-    }
 
 </style>

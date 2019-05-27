@@ -1,19 +1,22 @@
 <template>
-    <div id="app">
+    <v-app id="app">
         <div class="body">
             <Nav/>
             <router-view class="view animated fadeIn"></router-view>
         </div>
         <Footer/>
         <Modal v-if="$store.state.modalStatus"/>
-    </div>
+    </v-app>
 </template>
 
 <script>
-    const Modal = () => import('@/components/modals/Modal')
-
+    import Vue from 'vue'
+    import Vuetify from 'vuetify'
     import Nav from '@/components/layout/Nav'
     import Footer from '@/components/layout/Footer'
+    const Modal = () => import('@/components/modals/Modal')
+
+    Vue.use(Vuetify);
 
     export default {
         name: 'App',
@@ -23,9 +26,12 @@
     }
 </script>
 
+<style>
+    @import "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/css/uikit.min.css";
+</style>
+
 <style lang="scss">
     @import 'styles/layout/main';
-    @import "~uikit/dist/css/uikit.min.css";
 
     #app {
         font-family: 'Poppins', sans-serif;

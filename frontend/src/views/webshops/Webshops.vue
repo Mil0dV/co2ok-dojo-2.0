@@ -58,10 +58,9 @@
                         </div>
                     </div>
 
-                    <div class="shop--image-wrapper section-2--shops" v-for="i in 29" :key="`4${i}`">
-                        <div
-                             class="section-2--shops shops--image"
-                             :style="{'background-image': 'url(' + require(`@/assets/images/webshops/shops/webshop-${i}.png`) + ')'}">
+                    <div :style="{'background-image': 'url(' + require(`@/assets/images/webshops/shops/webshop-${i}.png`) + ')'}"
+                         class=" shops--image section-2--shops"  v-for="i in 29" :key="`4${i}`">
+                        <div class="section-2--shops shop--image-wrapper ">
                         </div>
                     </div>
                 </div>
@@ -86,5 +85,6 @@
 </script>
 
 <style scoped lang="scss">
+    @import '../../styles/layout/main.scss';
     @import '../../styles/webshops/webshops';
 </style>

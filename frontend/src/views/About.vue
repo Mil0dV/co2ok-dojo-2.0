@@ -168,7 +168,10 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import '../styles/layout/main.scss';
+
+
     .about__container {
         display: flex;
         flex-direction: column;
@@ -292,6 +295,7 @@
     }
 
     .crew__card {
+        min-height: 300px;
         width: 325px;
         border-radius: 5px;
         margin-bottom: 90px;

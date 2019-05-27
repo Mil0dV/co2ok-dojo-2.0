@@ -64,7 +64,7 @@
 .login-c__form {
   //border: 2px solid red;
   width: 90%;
-  padding: 100px 0 40px 0;
+  padding: 100px 0 0 0;
   max-width: 515px;
   margin-left: 75px;
   text-align: left;
@@ -75,6 +75,7 @@
 }
 
 .main-title {
+  margin-top: -20px;
   font-size: 42px;
 }
 
@@ -85,11 +86,13 @@
 
 .sub__password {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .login-c__button {
   margin-top: 40px;
   max-width: 157px;
+  cursor: pointer;
 }
 
 .sub-title-c {
@@ -113,6 +116,7 @@
 
   .login-c__background {
     min-height: 400px;
+    max-height: 400px;
   }
 
   .hide--tablet {

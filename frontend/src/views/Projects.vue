@@ -137,6 +137,5 @@
 </script>
 
 <style scoped>
-    /*@import '../styles/main.scss';*/
     @import '../styles/projects.scss';
 </style>

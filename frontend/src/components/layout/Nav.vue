@@ -14,7 +14,7 @@
                                 <router-link to="/about">About</router-link>
                             </li>
                             <li :class="[checkActive('webshops') ? 'navbar__active' : '']">
-                                <router-link to="/webshops">Webshops <span uk-icon="icon: triangle-down"></span>
+                                <router-link to="/webshops">Webshops <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
                                 </router-link>
                             </li>
                             <div class="dropdown__menu-wrapper" uk-dropdown="offset: -15">
@@ -28,11 +28,14 @@
                                     <li>
                                         <router-link to="/webshops/cause-marketing">Cause Marketing</router-link>
                                     </li>
+                                    <li>
+                                        <router-link to="/webshops/login">Login</router-link>
+                                    </li>
                                 </ul>
                             </div>
 
                             <li :class="[checkActive('consumers') ? 'navbar__active' : '']">
-                                <router-link to="/consumers/login">Consumers</router-link>
+                                <router-link to="/consumers/login">Consumers  <span uk-icon="icon: triangle-down"></span></router-link>
                             </li>
                             <div class="dropdown__menu-wrapper" uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
@@ -51,12 +54,13 @@
                                 <router-link to="/faq">FAQ</router-link>
                             </li>
                         </ul>
-                        <a href="https://chrome.google.com/webstore/detail/co2okninja/omlkdocjhkgbllabpihhdggplladfipe" class="button">Extension</a>
+                        <a v-if="!userLoggedIn" href="https://chrome.google.com/webstore/detail/co2okninja/omlkdocjhkgbllabpihhdggplladfipe" class="button">Extension</a>
+                        <p v-else>test</p>
                         <div class="line"></div>
-                        <a>
+                        <p>
                             <img class="language-icon english icon" src="../../assets/images/nav/english-icon.png">
-                            <span uk-icon="icon: triangle-down"></span>
-                        </a>
+                            <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
+                        </p>
                     </div>
 
                     <div class="uk-navbar-right uk-hidden@m">
@@ -148,7 +152,9 @@
                     return true
                 }
 
-                if(menu === 'webshops' && this.currentRouteName === 'retailers' || menu === 'webshops' && this.currentRouteName === 'cause-marketing' || menu === 'webshops' && this.currentRouteName === 'plug-in-installation'){
+                if(menu === 'webshops' && this.currentRouteName === 'retailers' || menu === 'webshops' && this.currentRouteName === 'cause-marketing'
+                    || menu === 'webshops' && this.currentRouteName === 'plug-in-installation' || menu === 'webshops' && this.currentRouteName === 'webshops-register'
+                    || menu === 'webshops' && this.currentRouteName === 'webshops-login' || menu === 'webshops' && this.currentRouteName === 'dashboard'){
                     console.log(this.currentRouteName)
                     return true
                 }

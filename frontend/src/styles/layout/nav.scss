@@ -46,12 +46,20 @@
 
   li {
     cursor: pointer;
+    margin-bottom: 15px;
 
-    &:nth-child(2) {
-      margin: 15px 0;
+    &:last-child {
+      margin-bottom: 0;
     }
   }
+}
 
+.uk-navbar-right .button:hover {
+  color:white;
+}
+
+.nav__triangle {
+  cursor: pointer;
 }
 
 #offcanvas-nav {

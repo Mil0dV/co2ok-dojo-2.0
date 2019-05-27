@@ -294,12 +294,6 @@
 </script>
 
 <style scoped lang="scss">
-    .main /deep/ {
-        @import "~uikit/dist/css/uikit.min.css";
-    }
-
-
-    @import '../styles/layout/main';
     @import '../styles/faq.scss';
 
     .list__faq > * {

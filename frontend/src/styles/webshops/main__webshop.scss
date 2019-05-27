@@ -1,5 +1,13 @@
 
 //-------------Section 1--------------------------------
+.row-link{
+  transition: 0.3s ease-in-out;
+
+  span {
+    transition: 0.3s ease-in-out;
+  }
+}
+
 .section-1 {
   background: #F5FCFF;
 }
@@ -25,11 +33,25 @@
   }
 }
 
+.link{
+  transition: 0.3s ease-in-out;
+  span {
+    transition: 0.3s ease-in-out;
+  }
+}
+
 .col-1--links {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   font-size: 18px;
+
+  .link:hover {
+    span {
+      padding-left: 10px;
+      transition: 0.3s ease-in-out;
+    }
+  }
 }
 
 .col-1--links > * {
@@ -46,6 +68,11 @@
   margin: 10px 0 !important;
 }
 
+
+.uk-link:hover, a:hover {
+  color:white;
+  transition: 0.3s ease-in-out;
+}
 
 //------------------Responsive-------------------
 @media (max-width: 1200px) {

@@ -24,22 +24,6 @@ const router = new Router({
             component: () => import('./views/Home'),
         },
         {
-            path: '/register/:merchantId',
-            name: 'register',
-            component: () => import( './views/dashboard/Register.vue')
-        },
-        {
-            path: '/login',
-            name: 'login',
-            component: () => import( './views/dashboard/Login.vue')
-        },
-        {
-            path: '/dashboard',
-            name: 'dashboard',
-            component: () => import( './views/dashboard/Dashboard'),
-            // beforeEnter: ifAuthenticated
-        },
-        {
             path: '/about',
             name: 'about',
             component: () => import( './views/About'),
@@ -86,6 +70,22 @@ const router = new Router({
             component: () => import('./views/webshops/Installation')
         },
         {
+            path: '/webshops/register/:merchantId',
+            name: 'webshops-register',
+            component: () => import( './views/dashboard/Register.vue')
+        },
+        {
+            path: '/webshops/login',
+            name: 'webshops-login',
+            component: () => import( './views/dashboard/Login.vue')
+        },
+        {
+            path: 'webshops/dashboard',
+            name: 'dashboard',
+            component: () => import( './views/dashboard/Dashboard'),
+            // beforeEnter: ifAuthenticated
+        },
+        {
             path: '/projects',
             name: 'projects',
             component: () => import('./views/Projects')
@@ -94,6 +94,7 @@ const router = new Router({
             path: '/consumers/profile',
             name: 'consumers-profile',
             component: () => import('./views/consumer/Consumer')
+            // beforeEnter: ifAuthenticated
         },
         {
             path: '/consumers/login',

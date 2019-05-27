@@ -1,7 +1,7 @@
 <template>
     <div>
         <Header :image="header"></Header>
-        <div class="uk-section section-1">
+        <div class="uk-section section-1" >
             <div class="uk-container uk-container-width">
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
@@ -29,7 +29,7 @@
             </div>
         </div>
 
-        <div class="uk-section">
+        <div class="uk-section" >
             <div class="uk-container uk-container-width section-2-row">
                 <div class="row__content">
                     <div class="row__icon">
@@ -111,13 +111,14 @@
                     <h2 class="sub-title dark--color">The Numbers</h2>
                     <h1 class="main-title">Stand to Reason</h1>
                 </div>
+                <br><br>
 
                 <div class="graph__section">
 
                     <div v-for="data in chartData" :key="data.percentage" class="graph-wrapper">
                         <div class="flex-wrapper">
                             <div class="single-chart">
-                                <svg viewBox="0 0 36 36" class="circular-chart green">
+                                <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
                                     <path class="circle-bg"
                                           d="M18 2.0845
           a 15.9155 15.9155 0 0 1 0 31.831
@@ -241,5 +242,4 @@
 
 <style scoped lang="scss">
     @import '../../styles/webshops/cause';
-
 </style>

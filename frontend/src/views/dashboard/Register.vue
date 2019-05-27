@@ -189,7 +189,7 @@
         },
 
         mounted() {
-          console.log(this.$router.params.merchantId)
+          // console.log(this.$router.params.merchantId)
         },
 
         methods: {

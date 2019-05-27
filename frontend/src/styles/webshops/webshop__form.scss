@@ -93,6 +93,13 @@
   border: 1px solid #848484;
 }
 
+.uk-link:hover, a:hover {
+  color:white;
+}
+
+.button-empty:hover {
+  color:black;
+}
 
 //------------------Responsive-------------------
 @media (max-width: 1200px) {

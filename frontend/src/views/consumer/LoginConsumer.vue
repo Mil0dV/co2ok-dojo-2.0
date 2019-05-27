@@ -64,6 +64,6 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     @import '../../styles/consumer/login__consumer.scss';
 </style>

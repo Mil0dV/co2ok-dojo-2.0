@@ -41,12 +41,12 @@ label {
   font-size: 14px;
 }
 
-input {
+input, .input-c__input {
   display: block;
   margin-top: 4px;
   margin-bottom: 15px;
   border-radius: 3px;
-  border: 1px solid #BCBCBC;
+  border: 1px solid #BCBCBC !important;
   padding: 13px;
   width: 100%;
   box-sizing: border-box;
@@ -155,6 +155,18 @@ a {
   &:hover {
     opacity: 0.8;
   }
+}
+
+.uk-link, a {
+  color:black;
+
+  &:hover {
+    color: black ;
+  }
+}
+
+.uk-link:hover, a:hover {
+  color: black;
 }
 
 .button-secondary {
