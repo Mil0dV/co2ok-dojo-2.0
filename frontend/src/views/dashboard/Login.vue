@@ -115,11 +115,11 @@
                                         this.$router.push('/webshops/login')
                                     }
                                 } else {
-                                    let errormessage = {
-                                        title: 'Oops... Something went wrong!',
-                                        text: response.data.error
+                                    let message = {
+                                        title: 'Something went wrong....',
+                                        text: 'Incorrect user credentials'
                                     }
-                                    this.errorMessage(errormessage)
+                                    this.$store.commit('modalStatus', {message})
                                 }
                             }
                         })
@@ -130,13 +130,12 @@
                     this.send = false
                 }
                 else {
-                    let errormessage = {
-                        title: 'Empty form',
-                        text: 'Fill in your e-mal & password'
+                    let message = {
+                        title: 'Something went wrong....',
+                        text: 'Please fill in your e-mail'
                     }
-                    this.errorMessage(errormessage)
+                    this.$store.commit('modalStatus', {message})
                 }
-                // this.errorMessage(message)
             }
         }
     }

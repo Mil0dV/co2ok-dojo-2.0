@@ -53,7 +53,6 @@
                 </div>
             </div>
         </div>
-        <Modal v-if="$store.state.modalStatus"/>
     </div>
 </template>
 
