@@ -109,34 +109,33 @@
                                 self.$store.dispatch('commitSaveUser', response.data)
                                 self.$store.commit('setLocalUserData', response.data)
                                 this.$store.dispatch('ninjaUserData');
+                                this.$store.commit('isLoggedIn', response.data.authenticate)
                                 self.$router.push('/consumers/profile')
                             } else {
 
-                                console.log(response.data.error);
+                                console.log(response.data.error + 'erererererer');
 
                             }
-                            console.log(response.data);
+                            console.log(response.data  + 'erererererer12423423424');
 
                         })
                         .catch(error => {
-
+                            let message = {
+                                title: 'Something went wrong...',
+                                text: 'Make sure that you correctly filled in all fields'
+                            }
+                            this.$store.commit('modalStatus', {message})
                             console.log(error);
-
                         })
 
                 } else {
-                    let errormessage = {
+                    let message = {
                         title: 'Empty form',
-                        text: 'Fill in your e-mal & password'
+                        text: 'Fill in your e-mail & password'
                     }
-                    this.errorMessage(errormessage)
-
+                    this.$store.commit('modalStatus', {message})
                 }
 
-            },
-
-            errorMessage(message) {
-                this.$store.commit('modalStatus', {message})
             },
 
             login() {
@@ -173,11 +172,11 @@
                             console.log(error);
                         })
                 } else {
-                    let errormessage = {
+                    let message = {
                         title: 'Empty form',
-                        text: 'Fill in your e-mal & password'
+                        text: 'Fill in your e-mail & password'
                     }
-                    this.errorMessage(errormessage)
+                    this.$store.commit('modalStatus', {message})
                 }
             }
         }

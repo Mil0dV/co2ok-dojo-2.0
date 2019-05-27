@@ -23,6 +23,12 @@
         components: {
             Nav, Footer, Modal
         },
+
+        computed: {
+            loginStatus: function() {
+                return this.$store.state.userStatus;
+            }
+        }
     }
 </script>
 

@@ -132,7 +132,7 @@
                 else {
                     let message = {
                         title: 'Something went wrong....',
-                        text: 'Please fill in your e-mail'
+                        text: 'Please fill in your e-mail & password'
                     }
                     this.$store.commit('modalStatus', {message})
                 }

@@ -6,6 +6,7 @@
                     <div class="uk-navbar-left">
                         <router-link to="/" class="uk-logo"><img :src="require('@/assets/images/nav/logo.png')">
                         </router-link>
+                        <p>{{this.$store.state.userStatus}}</p>
                     </div>
 
                     <div class="uk-navbar-right uk-visible@m">
@@ -38,15 +39,20 @@
                                 </ul>
                             </div>
 
-                            <li :class="[checkActive('consumers') ? 'navbar__active' : '']">
-                                <router-link to="/consumers/login">Consumers
-                                    <span v-if="this.$store.state.Authenticated === true"
-                                          uk-icon="icon: triangle-down"
+                            <li v-if="!$store.state.userStatus"
+                                :class="[checkActive('consumers') ? 'navbar__active' : '']">
+                                <router-link  to="/consumers/login">
+                                    Consumers
+                                </router-link>
+                            </li>
+                            <li v-else>
+                                <router-link to="/consumers/profile">Consumers
+                                    <span uk-icon="icon: triangle-down"
                                           class="animated bounceIn">
                                     </span>
                                 </router-link>
                             </li>
-                            <div v-if="this.$store.state.Authenticated === true" class="dropdown__menu-wrapper" uk-dropdown="offset: -15">
+                            <div v-if="$store.state.userStatus" class="dropdown__menu-wrapper" uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
                                     <li>
                                         <router-link to="/consumers/profile">Profile</router-link>
@@ -64,14 +70,13 @@
                                 <router-link to="/faq">FAQ</router-link>
                             </li>
                         </ul>
-                        <a v-if="userLoggedIn" :href="this.$store.state.ninjaExtensionLink"
+                        <a v-if="!$store.state.userStatus" :href="this.$store.state.ninjaExtensionLink"
                            :target="this.$store.state.extensionLinkTarget" class="button">Extension</a>
                         <ul v-else class="uk-navbar-nav">
                             <li @click="logout()">
                                 <a>Logout</a>
                             </li>
                         </ul>
-
 
                         <div class="line"></div>
                         <p>
@@ -164,12 +169,12 @@
                 axios
                     .post('http://127.0.0.1:8000/logout/', {
                         // header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
-
                     })
                     .then(response => {
                         if (response.data.logout) {
+                            this.$store.commit('isLoggedIn', false)
                             this.$store.commit('removeLocalUserData')
-                            this.$router.push('/login')
+                            this.$router.push('/')
                         }
                     })
                     .catch(error => {

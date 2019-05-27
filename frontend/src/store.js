@@ -49,9 +49,11 @@ export default new Vuex.Store({
         },
 
         isLoggedIn(state, payload) {
-            if (payload) {
+            if (payload === 'true') {
+                alert('test')
                 state.userStatus = true
             } else {
+                alert('test232322')
                 state.userStatus = false
             }
         },

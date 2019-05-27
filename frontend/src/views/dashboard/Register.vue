@@ -8,7 +8,7 @@
 
                 <v-layout row wrap class="hidden-sm-and-down">
                     <v-flex xs12 sm7 lg6 offset-md2 offset-lg5>
-                        <div class="login__info animated fadeInUp">
+                        <div class="login__info">
                             <p class="login__info-text ">
                                 With an account you will get access to information how much you’ve contributed to
                                 fighting climate
@@ -26,7 +26,7 @@
                 <v-layout class="register__layout-form pa-5" justify-center align-center column wrap>
                     <v-flex class="register__form-mb" justify-center align-center column wrap xs12 lg4>
                         <form v-model="valid" class="login__form">
-                            <div class="login__header-group animated fadeInUp">
+                            <div class="login__header-group">
                                 <p class="login__form-header">Account</p>
                                 <p class="login__form-title">Make an account to get access to more info!</p>
                             </div>
@@ -35,7 +35,7 @@
                                         leave-active-class="animated fadeOut"
                                         mode="out-in">
 
-                                <div v-if="!next" key="firstSlide" class="login__group animated fadeInUp"
+                                <div v-if="!next" key="firstSlide" class="login__group"
                                      style="animation-delay: 0.3s;">
 
                                     <label class="login__group">
@@ -121,7 +121,7 @@
                                 </div>
                             </transition>
 
-                            <div class="register__button-group animated bounceInUp slower"
+                            <div class="register__button-group "
                                  style="animation-delay: 0.6s;">
                                 <button v-if="next" @click="next = false" class="button button-empty">
                                     <span> Back</span>

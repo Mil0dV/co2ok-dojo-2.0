@@ -27,20 +27,30 @@
                             <ul>
                                 <li><router-link to="/webshops/retailers">Retailers-info</router-link></li>
                                 <li><router-link to="webshops/cause-marketing">Cause Marketing</router-link></li>
-                                <li><router-link to="/webshops/plugin-installation">Plugin Installation</router-link></li>
+                                <span v-if="$store.state.userStatus">
+                                     <li><router-link to="/webshops/dashboard">Dashboard</router-link></li>
+                                     <li @click="logout()"><a>Logout</a></li>
+                                </span>
+                                <span v-else>
+                                    <li><router-link to="/webshops/login">Login</router-link></li>
+                                </span>
                             </ul>
                         </li>
                         <li><router-link to="/consumers">Consumers</router-link></li>
                         <li>
                             <ul>
-                                <li>
-                                    <router-link to="/about/how-it-works">CO<sub>2</sub>-Compensation</router-link>
-                                </li>
-                                <li><router-link to="/webshops/cause-marketing">Cause Marketing</router-link></li>
-                                <li><a target="_blank"
-                                       href="https://chrome.google.com/webstore/detail/co2okninja/omlkdocjhkgbllabpihhdggplladfipe">Plugin
-                                    Installation</a></li>
+                                <li><router-link to="/welcome">Plugin Installation</router-link></li>
+                                <span v-if="$store.state.userStatus">
+                                     <li><router-link to="/consumers/profile">Profile</router-link></li>
+                                     <li @click="logout()"><a>Logout</a></li>
+                                </span>
+                                <span v-else>
+                                    <li><router-link to="/consumers/login">Login</router-link></li>
+                                </span>
                             </ul>
+                        </li>
+                        <li>
+                            <router-link to="/about/how-it-works">CO<sub>2</sub>-Compensation</router-link>
                         </li>
                         <li><router-link to="/blogs">News</router-link></li>
                         <li>
@@ -71,8 +81,29 @@
 </template>
 
 <script>
+    import axios from 'axios'
+
     export default {
-        name: "Footer"
+        name: "Footer",
+
+        methods: {
+            logout() {
+                axios
+                    .post('http://127.0.0.1:8000/logout/', {
+                        // header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
+                    })
+                    .then(response => {
+                        if (response.data.logout) {
+                            this.$store.commit('isLoggedIn', false)
+                            this.$store.commit('removeLocalUserData')
+                            this.$router.push('/')
+                        }
+                    })
+                    .catch(error => {
+                        this.errorMessage()
+                    })
+            },
+        }
     }
 </script>
 
