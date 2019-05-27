@@ -26,7 +26,6 @@ export default {
     data() {
         return {
 
-         component: 'blog'
 
         }
     },
@@ -37,7 +36,7 @@ export default {
 
     components: {
         'news': News,
-        'contebt': NewsContent
+        'content': NewsContent
     },
 
     computed: {
