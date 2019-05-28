@@ -49,10 +49,10 @@ export default new Vuex.Store({
         },
 
         isLoggedIn(state, payload) {
-            if (payload === 'true') {
-                Vue.set(state.userStatus, status, true)
+            if (payload === true) {
+                state.userStatus = true
             } else {
-                Vue.set(state.userStatus, status, false)
+                state.userStatus = false
             }
         },
 

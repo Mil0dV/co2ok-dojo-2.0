@@ -6,7 +6,6 @@
                     <div class="uk-navbar-left">
                         <router-link to="/" class="uk-logo"><img :src="require('@/assets/images/nav/logo.png')">
                         </router-link>
-                        <p>{{this.$store.state.userStatus}}</p>
                     </div>
 
                     <div class="uk-navbar-right uk-visible@m">
@@ -57,9 +56,7 @@
                                     <li>
                                         <router-link to="/consumers/profile">Profile</router-link>
                                     </li>
-                                    <li>
-                                        <router-link to="/consumers/login">Logout</router-link>
-                                    </li>
+                                    <li @click="logout('consumer')"><a>Logout</a></li>
                                 </ul>
                             </div>
 
