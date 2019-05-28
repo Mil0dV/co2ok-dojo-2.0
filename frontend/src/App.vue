@@ -34,6 +34,8 @@
 
 <style lang="scss">
     @import 'styles/layout/main';
+    @import '../node_modules/uikit/dist/css/uikit.min.css';
+
 
     #app {
         font-family: 'Poppins', sans-serif;

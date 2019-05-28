@@ -187,7 +187,6 @@
                 if (menu === 'webshops' && this.currentRouteName === 'retailers' || menu === 'webshops' && this.currentRouteName === 'cause-marketing'
                     || menu === 'webshops' && this.currentRouteName === 'plug-in-installation' || menu === 'webshops' && this.currentRouteName === 'webshops-register'
                     || menu === 'webshops' && this.currentRouteName === 'webshops-login' || menu === 'webshops' && this.currentRouteName === 'dashboard') {
-                    console.log(this.currentRouteName)
                     return true
                 }
             }

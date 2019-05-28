@@ -68,7 +68,7 @@
         },
         created() {
 
-            console.log(this.$route)
+            // console.log(this.$route)
         },
 
         methods: {

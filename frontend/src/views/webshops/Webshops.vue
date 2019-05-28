@@ -50,6 +50,7 @@
                     <h1 class="main-title">Shops</h1>
                     <h2 class="sub-title">These shops are CO₂ok</h2>
                 </div>
+                <br>
 
                 <div class="section-2--col-2">
                     <a target="_blank" :href="i.link" :style="{'background-image': 'url(' + require(`@/assets/images/webshops/shops/${i.image}.png`) + ')'}"

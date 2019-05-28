@@ -355,6 +355,7 @@
     }
 
     .login__info {
+        border-radius: 0px 5px 5px 0px;
         background: white;
         border-left: 10px solid #10D884;
         width: 100%;

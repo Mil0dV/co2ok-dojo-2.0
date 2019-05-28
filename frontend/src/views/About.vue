@@ -233,6 +233,7 @@
     }
 
     .login__info {
+        border-radius: 0px 5px 5px 0px;
         margin-top: 250px;
         margin-left: -5%;
         background: white;
