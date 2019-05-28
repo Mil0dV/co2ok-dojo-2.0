@@ -1,9 +1,25 @@
 <template>
-    <h1 class="black--text display-5 font-weight-bold">blog page</h1>
+  
+<div class="news-container">
+
+    <div class="news-header animated fadeIn">
+        <h3 class="display-3 white--text font-weight-bold mb-5 animated fadeInUp">News</h3>
+    </div>
+
+    <component :is="this.$store.state.component"></component>
+</div>
+
 </template>
 
 
 <script>
+import Vue from 'vue'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+import News from '../components/blog/News.vue'
+import NewsContent from '../components/blog/NewsContent.vue'
+
+Vue.use(Vuetify);
 export default {
     name: 'blog',
 
@@ -11,38 +27,57 @@ export default {
         return {
 
 
-
         }
     },
 
     created(){
-        this.getBlogs()
+        
+    },
+
+    components: {
+        'news': News,
+        'content': NewsContent
+    },
+
+    computed: {
+
     },
 
     methods: {
 
-      getBlogs() {
-
-        this.$axios.get(`${this.$store.state.SITE_HOST}/blog/`,{
-            headers: {
-                "X-CSRFToken": `${this.$store.state.userToken}`,
-                Authorization: `token ${window.localStorage.getItem('userToken')}`
-            }
-        }).then(response => {
-            console.log(response);
-            
-        }).catch(error => {
-            console.log(error);
-            
-        })
-
-      }
 
     }
 }
 </script>
 
 <style scoped>
+
+.news-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.news-header{
+    width: 100%;
+    height: 354px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    background-image: url('../assets/images/blog/iStock.png');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 100%;
+    margin-bottom: 55px;
+}
+
+.news-header h3{
+    margin-left: 150px;
+}
+
 
 </style>
 

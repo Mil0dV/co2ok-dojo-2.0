@@ -1,0 +1,293 @@
+@import 'main__webshop';
+
+//-----------Retailer------------------
+.col-1-card {
+  max-width: 392px;
+  max-height: 262px;
+  width: 100%;
+  height: 100%;
+}
+
+.col-1-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.col-1-list li {
+  list-style-type: none;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.col-1-icon {
+  color: $main-color;
+  margin-right: 10px;
+}
+
+.col-2--image {
+  max-width: 362px;
+  max-height: 300px;
+  width: 100%;
+  height: 100%;
+}
+
+
+.section-2--col-1 {
+  .main-title, .sub-title {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.dark--color {
+  color: #2F2F2F;
+  font-size: 14px;
+}
+
+.section-4--header {
+  margin-bottom: 50px;
+}
+
+.section-4 {
+  padding: 0 0 150px 0;
+}
+
+.section-3 {
+  padding-bottom: 0;
+}
+
+.shop__card {
+  margin: 0 auto;
+}
+
+.shop--text {
+  text-align: left;
+  color: #2F2F2F;
+  font-family: Open Sans, sans-serif;
+  font-size: 14px;
+}
+
+//------------Section config-------------
+.section--content {
+  padding: 0;
+}
+
+.section--dark {
+  background: #f7f7f7;
+}
+
+//--------------------------Section 2-------------
+.section-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.section-2-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  img {
+    padding: 0;
+    margin: 0 30px  0 0;
+    max-width: 100px;
+    min-width: 100px;
+    max-height: 100px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.content--wrapper {
+  max-width: 822px;
+  width: 100%;
+  text-align: left;
+}
+
+.content-title {
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.content-text {
+  font-size: 14px;
+}
+
+//------------------Responsive-------------------
+@media (max-width: 1200px) {
+  .main-title {
+    line-height: unset;
+  }
+
+  .col-2--image {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 1095px) {
+  .col-1 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .section-1__col-1 {
+    width: 100%;
+    max-width: unset;
+  }
+
+  .uk-width-auto {
+    max-width: unset;
+    width: 50%;
+  }
+
+  .col-1-card {
+    max-width: 900px;
+    max-height: 262px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .form__section {
+    flex-direction: column;
+  }
+
+  .to-right {
+    margin: 50px 0 0 0;
+  }
+
+  .uk-width-1-2 {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .section-2 {
+    padding: 20px 0;
+  }
+
+}
+
+
+@media (max-width: 970px) {
+  .col-2--image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .section-1 {
+    justify-content: center;
+    display: flex;
+  }
+
+  .uk-container-width {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .uk-width-expand {
+    width: 100%;
+    padding: unset;
+  }
+
+  .col-1 {
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+  }
+
+  .col-1--links {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .col-2--image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .main-title {
+    line-height: unset;
+  }
+
+  .col-1--links-wrapper > * {
+    margin: unset !important;
+  }
+
+  .uk-width-auto .uk-card-body {
+    padding: 30px 30px;
+  }
+
+  .uk-width-auto {
+    max-width: unset;
+    width: 100%;
+  }
+
+  .uk-first-column {
+    justify-content: center;
+  }
+
+  .col-2-card, .final__section {
+    max-width: unset;
+    min-width: unset;
+    width:100%;
+  }
+
+  .form__section {
+    .uk-grid >* {
+      padding-left: 0;
+    }
+  }
+
+  .shop--text {
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 670px) {
+  .col-1--links {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .uk-container-width {
+    padding: 0;
+  }
+
+  .sub-title {
+    font-size: 18px;
+  }
+
+  .main-title {
+    font-size: 24px;
+  }
+
+  .login__buttons {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .btn-large {
+      margin-top: 20px;
+    }
+  }
+
+  .login__form {
+    padding-bottom: unset;
+  }
+}
+

@@ -54,7 +54,7 @@
         <div class="plugin__col-2 no__border animated fadeIn" style="animation-delay: 0.7s;">
             <div class="col-2__content">
                 <p class="col-2__text">
-                    Do you give CO2ok permission to send the customer an email?
+                    Do you give CO₂ok permission to send the customer an email?
                 </p>
 
                 <div class="col-2__switch">

@@ -1,0 +1,205 @@
+.ninja__container {
+  padding-top: 50px;
+  height: 100%;
+  width: 100%;
+  background: #F4F4F4;
+}
+
+.ninja__dashboard {
+  width: 95%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: flex-start;
+}
+
+.dashboard__items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.uk-card-consumer {
+  max-width: 754px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.main-text {
+  font-size: 16px;
+  color: #2F2F2F;
+  font-weight: 500;
+}
+
+.main-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: #2F2F2F;
+}
+
+
+.op-text {
+  color: #848484;
+  font-weight: 400;
+}
+
+.main-sub {
+  color: #2F2F2F;
+  font-weight: 600;
+  font-size: 21px;
+}
+
+.lighter {
+  font-weight: 400;
+}
+
+.cause-container {
+  width: 100%;
+}
+
+.cause-wrapper {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cause {
+  transition: 0.3s ease-in-out;
+}
+
+.cause img {
+  cursor: pointer;
+  max-width: 205px;
+  max-height: 125px;
+  width: 100%;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+.cause:hover img {
+  border: 3px solid #10DC87;
+  transition: 0.3s ease-in-out;
+}
+
+.cause-text {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.dashboard__row-2 {
+  max-width: 360px;
+  width: 28%;
+}
+
+.ninja__stars {
+  margin-top: unset;
+  //border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.star-title {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.ninja-text > * {
+  margin-bottom: 20px;
+}
+
+.fa-facebook-f {
+  text-align: center;
+  line-height: 45px;
+  background: #2A5297;
+  color: white;
+  border-radius: 5px;
+  width: 43px;
+  height: 43px;
+  font-size: 30px;
+}
+
+.fa-twitter {
+  text-align: center;
+  line-height: 45px;
+  background: #1DA1F3;
+  color: white;
+  border-radius: 5px;
+  width: 43px;
+  height: 43px;
+  font-size: 30px;
+}
+
+.social-buttons {
+  display: flex;
+  margin-top: 10px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.social-buttons > * {
+  margin: 0 10px;
+}
+
+@media screen and (max-width: 1120px) {
+  .ninja__dashboard {
+    width: 90%;
+  }
+
+  .dashboard__items {
+    flex-direction: column;
+  }
+
+  .uk-card-consumer {
+    max-width: unset;
+  }
+
+  .uk-cover-container {
+    text-align: left;
+  }
+
+  .cause img {
+    max-width: 250px;
+    max-height: 250px;
+  }
+
+  .dashboard__row-2 {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .cause-wrapper {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .cause {
+    min-width: 270px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .cause {
+    min-width: unset;
+  }
+
+  .cause img {
+    max-width: unset;
+    max-height: 250px;
+  }
+
+  .green-border {
+    width: 50%;
+  }
+
+}
+
+
+
+
+
+
+

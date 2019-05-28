@@ -35,26 +35,31 @@ class UserView(viewsets.ModelViewSet):
     @csrf_exempt
     @action(methods=['get'], detail=False)
     # @api_view(['GET'])
-    def authenticateUser(self, request):
+    def userData(self, request):
         userId = request.query_params.get('id')
-
-        user = self.get_queryset().get(pk=userId)
-        serializer = self.get_serializer_class()(user)
-        #get current user profile data
-        profile = Profile.objects.get(user_id=userId)
-        context = {
-            'userdata': serializer.data,
-            'userProfileData': {
-                'user_status': profile.user_status,
-                'country': profile.country,
-                'city': profile.city,
-                'zipcode': profile.zipCode,
-                'street': profile.street,
-                'number': profile.number,
-                'link': profile.link,
-                'merchantId': profile.merchant_id
+        merchant_authData_exist = Profile.check_user_auth_data(self, userId, Profile)
+        print(merchant_authData_exist)
+        if merchant_authData_exist:
+            user = self.get_queryset().get(pk=userId)
+            serializer = self.get_serializer_class()(user)
+            #get current user profile data
+            profile = Profile.objects.get(user_id=userId)
+            context = {
+                'userdata': serializer.data,
+                'userProfileData': {
+                    'user_status': profile.user_status,
+                    'country': profile.country,
+                    'city': profile.city,
+                    'zipcode': profile.zipCode,
+                    'street': profile.street,
+                    'number': profile.number,
+                    'link': profile.link,
+                    'merchantId': profile.merchant_id
+                },
+                'authData': True
             }
-        }
+        else:
+            return Response({'authData': False, 'account': 'Merchant account not existed'})
         return Response(context)
 
     @csrf_exempt
@@ -65,10 +70,41 @@ class UserView(viewsets.ModelViewSet):
         transactionArr = []
         for transaction in Transaction.scan(Transaction.merchant_id == merchantId):
             if str(transaction.timestamp) > year:
-                getMonth = str(transaction.timestamp).split('-')
+                dateSplited = str(transaction.timestamp).split('-')
+                getWeek = str(dateSplited[2]).split(' ')
                 getDate = str(transaction.timestamp).split()
-                transactionArr.append({'orders': transaction.compensation_cost, 'date': getDate[0], 'month': getMonth[1]})
+                transactionArr.append({'orders': transaction.compensation_cost,
+                                       'date': getDate[0], 'month': dateSplited[1], 'week': getWeek[0]})
         return Response(transactionArr)
+
+    @csrf_exempt
+    @action(methods=['get'], detail=False)
+    def weeklyTransaction(self, request):
+        merchantId = request.query_params.get('merchantId')
+        yearMonth = request.query_params.get('yearMonth')
+        endWeek = request.query_params.get('endWeek')
+        startWeek = request.query_params.get('startWeek')
+        transactionArr = []
+        for transaction in Transaction.scan(Transaction.merchant_id == merchantId):
+            dateSplited = str(transaction.timestamp).split('-')
+            getWeek = str(dateSplited[2]).split(' ')
+            getDate = str(transaction.timestamp).split()
+            formatDate = "{}-{}".format(dateSplited[0], dateSplited[1]) #return year-month
+            if str(formatDate) == str(yearMonth) and str(getWeek[0]) >= str(startWeek) and str(getWeek[0]) <= str(endWeek):
+                transactionArr.append({'orders': transaction.compensation_cost,
+                                       'date': getDate[0], 'month': dateSplited[1], 'day': getWeek[0]})
+        return Response(transactionArr)
+
+    @csrf_exempt
+    @action(methods=['get'], detail=False)
+    #return the merchant name and email from the dynamodb
+    #does not work properly because of the merchant_id in Transaction model who have more than one id in Merchant model
+    def merchant_data(self, request):
+        merchant_id = request.query_params.get('merchantId')
+        merchantdata = []
+        for merchant in Merchant.scan(Merchant.id == merchant_id):
+            merchantdata.append({'name': merchant.name, 'email': merchant.email})
+        return Response(merchantdata)
 
 
 @csrf_exempt

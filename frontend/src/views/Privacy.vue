@@ -275,10 +275,6 @@
     }
 </script>
 
-<style scoped>
-    @import "https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/css/uikit.min.css";
-</style>
-
 <style lang="scss" scoped>
     @import '../styles/privacy.scss';
 </style>

@@ -1,0 +1,155 @@
+// VARIABLES FONTS
+$heading: "Poppins", sans-serif;
+$body: "Open Sans", sans-serif;
+
+// VARIABLES COLORS
+$white: #fff;
+$black: #222;
+$darkgrey: #555;
+$grey: #888;
+$offgrey: #BCBCBC;
+$lightgrey: #ccc;
+
+$green: #10DC87;
+$darkgreen: #08BA4D;
+$bluegrey: #606468;
+$darkblue: #152439;
+
+// MIXINS
+@mixin transition {
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+@mixin heading {
+  font-family: $heading;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+@mixin subheading {
+  font-family: $heading;
+  font-weight: 700;
+}
+
+@mixin body {
+  font-family: $body;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+footer {
+  padding: 50px 0;
+  background-color: $darkblue;
+
+  .footer-container {
+    width: 1090px;
+  }
+
+  h2 {
+    @include heading;
+    color: $white;
+    font-weight: 500;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      @include body;
+      color: $white;
+
+      ul {
+        margin: 10px;
+        padding: 4px 20px;
+        border-left: 1px solid $white;
+      }
+
+      a {
+        @include transition;
+        @include body;
+        color: $white;
+
+        &:hover {
+          color: $green;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  ul.social-media-icons {
+    justify-content: left;
+    align-items: left;
+    display: flex;
+
+    li {
+      padding: 0 20px 0 0;
+
+      a {
+        i {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}
+
+
+// VARIABLES FONTS
+$heading: "Poppins", sans-serif;
+$body: "Open Sans", sans-serif;
+
+// VARIABLES COLORS
+$white: #fff;
+$black: #222;
+$darkgrey: #555;
+$grey: #888;
+$lightgrey: #ccc;
+
+$green: #10DC87;
+$darkgreen: #08BA4D;
+$bluegrey: #606468;
+$darkblue: #152439;
+
+// MIXINS
+@mixin transition {
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+@mixin heading {
+  font-family: $heading;
+  font-size: 28px;
+  font-weight: 500;
+}
+@mixin subheading {
+  font-family: $heading;
+  font-weight: 700;
+}
+@mixin body {
+  font-family: $body;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17pt;
+}
+
+section#nav-desktop {
+  width: 100%;
+  position: fixed;
+  display: block;
+}
+section#nav-mobile {
+  display: none;
+  position: fixed;
+  width: 100%;
+  z-index: 500;
+  height: 50px;
+}

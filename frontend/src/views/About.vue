@@ -39,22 +39,29 @@
                                     <transition enter-active-class="animated bounceIn"
                                                 leave-active-class="animated bounceOut"
                                                 mode="out-in">
-                                        <span key="1" @click="moreText = true" v-if="!moreText" class="link">Read more</span>
+                                        <span key="1" @click="moreText = true" v-if="!moreText"
+                                              class="link">Read more</span>
                                         <span key="2" @click="moreText = false" v-else class="link">Less</span>
                                     </transition>
                                 </p>
 
                                 <br>
-
                                 <transition enter-active-class="animated fadeIn"
                                             leave-active-class="animated fadeOut"
                                             mode="out-in">
                                     <p v-if="moreText">
                                         We are climate fighters, fighting against climate change caused by humans.
 
-                                        Climate change is a serious problem. Trump won’t do anything, the government isn’t the quickest either. Even though the consumer is willing to compensate for the impact on the environment, there are limited opportunities which are offered to the consumer.
+                                        Climate change is a serious problem. Trump won’t do anything, the government
+                                        isn’t the quickest either. Even though the consumer is willing to compensate for
+                                        the impact on the environment, there are limited opportunities which are offered
+                                        to the consumer.
 
-                                        When the consumer is able to buy their product in a climate neutral way, CO₂ emission can be reduced. This way the consumer has the means to contribute to a healthy and pleasant environment for now and future generations. Entrepreneurs are an important influence through the means of offering such tools. However there is no easy way for entrepreneurs to offer their products climate neutral
+                                        When the consumer is able to buy their product in a climate neutral way, CO₂
+                                        emission can be reduced. This way the consumer has the means to contribute to a
+                                        healthy and pleasant environment for now and future generations. Entrepreneurs
+                                        are an important influence through the means of offering such tools. However
+                                        there is no easy way for entrepreneurs to offer their products climate neutral
                                     </p>
                                 </transition>
                             </div>
@@ -87,22 +94,30 @@
                                 <p>"{{person.quote}}"</p>
                             </div>
                             <div class="uk-card-footer crew__footer">
-                                <p class=" uk-text-capitalize social__text">
-                                <span>
+                                <div class="social--wrapper">
+                                    <a target="_blank"
+                                       href="https://twitter.com/CO2ok_eco"
+                                       class=" uk-text-capitalize social__text twitter--hover">
                                     <span class="icon__wrapper">
                                         <span uk-icon="twitter"
-                                              class="crew__icon uk-padding-small uk-margin-small"></span>
+                                              class="crew__icon">
+                                        </span>
                                     </span>
-                                    Twitter
-                                </span>
-                                    <span>
-                                    <span class="icon__wrapper">
-                                        <span uk-icon="linkedin"
-                                              class="crew__icon uk-padding-small uk-margin-small"></span>
-                                    </span>
-                                    LinkedIn
-                                </span>
-                                </p>
+                                        Twitter
+                                    </a>
+
+                                    <a target="_blank"
+                                       href="https://www.linkedin.com/company/11418867"
+                                       class=" uk-text-capitalize social__text linkedin--hover">
+                                        <span class="icon__wrapper">
+                                            <span uk-icon="linkedin"
+                                                  class="crew__icon">
+
+                                            </span>
+                                        </span>
+                                        LinkedIn
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -118,7 +133,7 @@
 
     export default {
         name: "About",
-        components: {'Header' :  Header},
+        components: {'Header': Header},
 
         data() {
             return {
@@ -168,7 +183,10 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import '../styles/layout/main.scss';
+
+
     .about__container {
         display: flex;
         flex-direction: column;
@@ -215,6 +233,7 @@
     }
 
     .login__info {
+        border-radius: 0px 5px 5px 0px;
         margin-top: 250px;
         margin-left: -5%;
         background: white;
@@ -292,6 +311,7 @@
     }
 
     .crew__card {
+        min-height: 300px;
         width: 325px;
         border-radius: 5px;
         margin-bottom: 90px;
@@ -355,27 +375,50 @@
         align-items: center;
     }
 
+    .social--wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
 
     .social__text {
         font-size: 12px !important;
-        width: 60%;
-        min-width: 200px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-
+        width: 100%;
+        color: #BABABA;
+        font-weight: 500;
+        cursor: pointer;
     }
 
     .icon__wrapper {
-        padding: 0 4px;
-        background: #666666;
+        transition: 0.3s ease-in-out;
+        height: 5px;
+        padding: 0;
+        margin: 0;
+        background: #BABABA;
     }
 
     .crew__icon {
         color: white;
-        padding: 1px;
-        width: 15px;
-        height: 15px;
+        padding: 0px 3px;
+        width: 14px;
+        height: 10px;
+    }
+
+    .twitter--hover:hover {
+        .icon__wrapper {
+            transition: 0.3s ease-in-out;
+
+            background: #1DA1F2;
+        }
+    }
+
+    .linkedin--hover:hover {
+        .icon__wrapper {
+            transition: 0.3s ease-in-out;
+
+            background: #4875B4;
+        }
     }
 
 

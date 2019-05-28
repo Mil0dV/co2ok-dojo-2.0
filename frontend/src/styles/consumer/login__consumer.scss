@@ -1,0 +1,201 @@
+.login-c__container {
+  min-height: 93vh;
+  width: 100%;
+  display: flex;
+}
+
+.login-c__row {
+  flex: 1;
+}
+
+.login-c__background {
+  background: url('../../assets/images/ninja/login.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+.bkgr__filler {
+  height: 100%;
+}
+
+.bkgr__text {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.green-border__login {
+  border-left: 10px solid #10DC87;
+  background: white;
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 422px;
+  max-height: 136px;
+  width: 100%;
+  text-align: left;
+  margin-right: 100px;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.green-border__text {
+  padding: 10px 10px 10px 20px;
+  width: 100%;
+}
+
+.login__width {
+  width: 90%;
+  //border: 4px solid blue;
+}
+
+.login-c__section {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-c__filler {
+  flex: 1;
+}
+
+.login-c__wrapper {
+  flex: 1;
+}
+
+.login-c__form {
+  //border: 2px solid red;
+  width: 90%;
+  padding: 40px 0 0 0;
+  max-width: 515px;
+  margin-left: 75px;
+  text-align: left;
+}
+
+.subheading {
+  font-size: 16px;
+}
+
+.consumer-title{
+  margin-top: -10px;
+}
+
+.main-title {
+  margin-top: -10px;
+  font-size: 42px;
+}
+
+.login-c__label {
+  color:#2F2F2F;
+  font-size: 14px;
+}
+
+.sub__password {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login-c__button {
+  margin-top: 40px;
+  max-width: 157px;
+  cursor: pointer;
+}
+
+.sub-title-c {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.register-c__form {
+  border-top: 1px solid #DDDDDD;
+  padding-top: 50px;
+}
+
+@media screen and (max-width: 1150px) {
+  .login-c__container {
+    flex-direction: column;
+  }
+
+  .login-c__row {
+    flex: 1;
+  }
+
+  .login-c__background {
+    min-height: 400px;
+    max-height: 400px;
+  }
+
+  .hide--tablet {
+    display: none;
+  }
+
+  .login-c__section {
+    margin: -250px auto 100px;
+    background: white;
+    border-radius: 5px;
+    width: 80%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08)
+  }
+
+  .login__width {
+    margin: 0 auto;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login-c__wrapper {
+    max-width: 900px;
+    width: 100%;
+  }
+
+  .login-c__form {
+    margin: 0 auto;
+    width: 100%;
+    max-width: unset;
+  }
+
+  .login-c__input {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .login-c__input {
+    width: 100%;
+  }
+
+  .login__width {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    flex: 1;
+  }
+
+  .login-c__form {
+    padding: 50px 0 0 0 ;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .login-c__section {
+    border-radius: 10px;
+    width: 90%;
+  }
+
+  .main-title {
+    font-size: 28px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

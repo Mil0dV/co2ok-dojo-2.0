@@ -1,0 +1,78 @@
+@import 'main__webshop';
+
+.install__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1146px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.install-col-1 {
+ border-right: 1px solid #DDDDDD;
+}
+.install-col {
+  padding-right: 50px;
+  max-width: 523px;
+  min-width: 200px;
+  width: 80%;
+  text-align: left;
+
+
+  h3 {
+    font-size: 21px;
+    font-weight: 600;
+  }
+
+  ol{
+    padding: 0;
+    margin-left: 15px;
+
+    li {
+      margin: 20px 0;
+      font-size: 16px;
+    }
+  }
+}
+
+.list__image img {
+  margin: 0;
+  padding: 0;
+}
+
+.small-install {
+  max-width: 217px;
+  width: 100%;
+}
+
+@media (max-width: 1170px) {
+  .install__container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .install-col-1 {
+    border-right: none;
+    margin-bottom: 50px;
+  }
+
+  .install-col {
+    max-width: unset;
+
+    h3 {
+      font-size: 28px;
+      font-weight: 600;
+    }
+  }
+}
+
+@media (max-width: 1170px) {
+  .install-col {
+    width: 100%;
+
+    h3 {
+      font-size: 21px;
+    }
+  }
+}

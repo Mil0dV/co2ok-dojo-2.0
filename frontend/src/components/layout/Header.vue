@@ -5,7 +5,7 @@
             <div class="uk-card header__image-shade">
                 <div class="header__inner">
                     <transition enter-active-class="animated fadeInUp" mode="out-in">
-                        <h2 class="header__title" :key="title">{{title}}</h2>
+                        <h1 class="header__title" :key="title">{{title}}</h1>
                     </transition>
                 </div>
             </div>
@@ -38,14 +38,26 @@
                     case 'webshops':
                         this.title = 'Webshops'
                         break;
+                    case 'retailers':
+                        this.title = 'Retailers'
+                        break;
+                    case 'cause-marketing':
+                        this.title = 'Cause Marketing'
+                        break;
+                    case 'installation':
+                        this.title = 'Plug-in Installation'
+                        break;
                     case 'faq':
                         this.title = 'Frequently asked questions'
                         break;
                     case 'privacy':
                         this.title = 'Privacy policy'
                         break;
+                    case 'projects':
+                        this.title = 'CO₂-compensation projects'
+                        break;
                     default:
-                        this.title = 'CO₂-compensation'
+                        this.title = 'CO₂ compensation'
                         break;
                 }
             }
@@ -75,11 +87,11 @@
     }
 
     .header__image {
-        background: no-repeat fixed 0;
-        background-size: cover;
+        background: no-repeat center center;
         height: 354px;
         width: 100%;
         display: flex;
+        background-size: cover; /* or contain depending on what you want */
     }
 
     .header__image-shade {
@@ -114,7 +126,7 @@
 
     @media (max-width: 900px) {
         .header__image {
-            background: no-repeat fixed;
+            background: no-repeat ;
             background-size: cover;
             height: 300px;
             width: 100%;
@@ -122,7 +134,7 @@
         }
 
         .header__inner {
-            width: 95%;
+            width: 82%;
         }
 
         .header__title {

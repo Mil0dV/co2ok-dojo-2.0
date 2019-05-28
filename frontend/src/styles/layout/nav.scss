@@ -1,0 +1,109 @@
+/* ------- Navigation ------- */
+
+.uk-navbar-container {
+  background: #fff !important;
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+
+  .uk-logo {
+    width: 84px;
+  }
+
+  .uk-container {
+    max-width: 1100px;
+    width: 98%;
+  }
+
+  .nav--wrapper {
+    width: 100%;
+  }
+
+  .line {
+    width: 1px;
+    height: 30px;
+    background-color: #BCBCBC;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .language-icon {
+    width: 28px;
+  }
+}
+
+.uk-navbar-nav li a {
+  font-size: 16px;
+  color:#2F2F2F;
+}
+
+.dropdown__menu-wrapper {
+  border-radius: 5px;
+}
+
+.dropdown__nav {
+  text-align: left;
+  font-size: 16px;
+  font-weight: 400;
+  color:#2F2F2F;
+  border-radius: 5px;
+
+  li {
+    cursor: pointer;
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.uk-navbar-right .button:hover {
+  color:white;
+}
+
+.nav__triangle {
+  cursor: pointer;
+}
+
+#offcanvas-nav {
+  .uk-offcanvas-bar {
+    padding: 30px;
+  }
+
+  .uk-nav {
+    margin-bottom: 20px !important;
+  }
+
+  hr {
+    width: 100%;
+    border-color: #fff;
+    opacity: 0.3;
+    margin-top: 45px;
+    margin-bottom: 30px;
+  }
+
+  .language-icon {
+    width: 28px;
+    margin-right: 10px;
+  }
+
+  .dutch-icon {
+    opacity: 0.4;
+  }
+}
+
+
+@media screen and (max-width: 1146px) {
+  .uk-container {
+    width: 90% !important;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .uk-navbar-container {
+    .uk-logo {
+      margin-left: 10px;
+    }
+  }
+}

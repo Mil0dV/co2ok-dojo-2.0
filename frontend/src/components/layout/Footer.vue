@@ -22,27 +22,37 @@
                         <li>
                             <router-link to="/about">About Us</router-link>
                         </li>
-                        <li><a href="#">Webshops</a></li>
+                        <li><router-link to="/webshops">Webshops</router-link></li>
                         <li>
                             <ul>
-                                <li><a href="#">Retailers-info</a></li>
-                                <li><a href="#">Cause Marketing</a></li>
-                                <li><a href="#">Plugin Installation</a></li>
+                                <li><router-link to="/webshops/retailers">Retailers-info</router-link></li>
+                                <li><router-link to="webshops/cause-marketing">Cause Marketing</router-link></li>
+                                <span v-if="$store.state.userStatus">
+                                     <li><router-link to="/webshops/dashboard">Dashboard</router-link></li>
+                                     <li @click="logout()"><a>Logout</a></li>
+                                </span>
+                                <span v-else>
+                                    <li><router-link to="/webshops/login">Login</router-link></li>
+                                </span>
                             </ul>
                         </li>
-                        <li><a href="#">Consumers</a></li>
+                        <li><router-link to="/consumers">Consumers</router-link></li>
                         <li>
                             <ul>
-                                <li>
-                                    <router-link to="/about/how-it-works">CO<sub>2</sub>-Compensation</router-link>
-                                </li>
-                                <li><a href="#">Cause Marketing</a></li>
-                                <li><a target="_blank"
-                                       href="https://chrome.google.com/webstore/detail/co2okninja/omlkdocjhkgbllabpihhdggplladfipe">Plugin
-                                    Installation</a></li>
+                                <li><router-link to="/welcome">Plugin Installation</router-link></li>
+                                <span v-if="$store.state.userStatus">
+                                     <li><router-link to="/consumers/profile">Profile</router-link></li>
+                                     <li @click="logout()"><a>Logout</a></li>
+                                </span>
+                                <span v-else>
+                                    <li><router-link to="/consumers/login">Login</router-link></li>
+                                </span>
                             </ul>
                         </li>
-                        <li><a href="#">News</a></li>
+                        <li>
+                            <router-link to="/about/how-it-works">CO<sub>2</sub>-Compensation</router-link>
+                        </li>
+                        <li><router-link to="/blogs">News</router-link></li>
                         <li>
                             <router-link to="/faq">FAQ</router-link>
                         </li>
@@ -52,7 +62,7 @@
                     </ul>
                 </div>
                 <div class="uk-width-1-3@m footer-column">
-                    <h2>Social</h2>
+                    <h2 style="margin-bottom: 10px; ">Social</h2>
                     <ul class="social-media-icons">
                         <li><a target="_blank" href="https://www.instagram.com/co2ok.eco/"><i
                                 class="fab fa-instagram"></i></a></li>
@@ -71,8 +81,29 @@
 </template>
 
 <script>
+    import axios from 'axios'
+
     export default {
-        name: "Footer"
+        name: "Footer",
+
+        methods: {
+            logout() {
+                axios
+                    .post('http://127.0.0.1:8000/logout/', {
+                        // header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
+                    })
+                    .then(response => {
+                        if (response.data.logout) {
+                            this.$store.commit('isLoggedIn', false)
+                            this.$store.commit('removeLocalUserData')
+                            this.$router.push('/')
+                        }
+                    })
+                    .catch(error => {
+                        this.errorMessage()
+                    })
+            },
+        }
     }
 </script>
 
@@ -82,6 +113,6 @@
         @import "~uikit/dist/css/uikit.min.css";
     }
 
-    @import '../../styles/main.scss';
-    @import '../../styles/footer.scss';
+    @import '../../styles/layout/main';
+    @import '../../styles/layout/footer';
 </style>

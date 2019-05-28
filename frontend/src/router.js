@@ -13,6 +13,7 @@ const ifAuthenticated = (to, from, next) => {
 // next()
 }
 
+
 const router = new Router({
     mode: 'history',
     base: process.env.BASE_URL,
@@ -21,22 +22,6 @@ const router = new Router({
             path: '/',
             name: 'home',
             component: () => import('./views/Home'),
-        },
-        {
-            path: '/register/:merchantId',
-            name: 'register',
-            component: () => import( './views/Register.vue')
-        },
-        {
-            path: '/login',
-            name: 'login',
-            component: () => import( './views/Login.vue')
-        },
-        {
-            path: '/dashboard',
-            name: 'dashboard',
-            component: () => import( './views/Dashboard'),
-            // beforeEnter: ifAuthenticated
         },
         {
             path: '/about',
@@ -60,17 +45,78 @@ const router = new Router({
 
         },
         {
-            path: '/blog',
-            name: 'blog',
+            path: '/news',
+            name: 'news',
             component: () => import('./views/Blog')
+        },
+        {
+            path: '/webshops',
+            name: 'webshops',
+            component: () => import('./views/webshops/Webshops')
+        },
+        {
+            path: '/webshops/retailers',
+            name: 'retailers',
+            component: () => import('./views/webshops/Retailers')
+        },
+        {
+            path: '/webshops/cause-marketing',
+            name: 'cause-marketing',
+            component: () => import('./views/webshops/Cause')
+        },
+        {
+            path: '/webshops/plug-in-installation',
+            name: 'plug-in-installation',
+            component: () => import('./views/webshops/Installation')
+        },
+        {
+            path: '/webshops/register/:merchantId',
+            name: 'webshops-register',
+            component: () => import( './views/dashboard/Register.vue')
+        },
+        {
+            path: '/webshops/login',
+            name: 'webshops-login',
+            component: () => import( './views/dashboard/Login.vue')
+        },
+        {
+            path: '/webshops/dashboard',
+            name: 'dashboard',
+            component: () => import( './views/dashboard/Dashboard'),
+            // beforeEnter: ifAuthenticated
+        },
+        {
+            path: '/webshops/projects',
+            name: 'projects',
+            component: () => import('./views/Projects')
+        },
+        {
+            path: '/consumers/profile',
+            name: 'consumers-profile',
+            component: () => import('./views/consumer/Consumer')
+            // beforeEnter: ifAuthenticated
+        },
+        {
+            path: '/consumers/login',
+            name: 'consumers-login',
+            component: () => import('./views/consumer/LoginConsumer')
+        },
+        {
+            path: '/:id(\\d+)',
+            name: 'consumers-invitation',
+            component: () => import('./views/consumer/Invitation')
+        },
+        {
+            path: '/welcome',
+            name: 'welcome',
+            component: () => import('./views/consumer/Welcome')
         },
         { //404 page, redirects back to home (= /)
             path: '*', redirect: '/'
-
         }
     ],
 
-    scrollBehavior (to, from, savedPosition) {
+    scrollBehavior () {
         return { x: 0, y: 0 };
     }
 });

@@ -4,12 +4,12 @@
         <div class="steps__container">
             <div uk-grid
                  class="uk-flex uk-flex-wrap steps__intro uk-box-shadow-medium uk-child-width-expand@s uk-text-center">
-                <div class="step__text-wrapper">
+                <div class="step__text-wrapper intro--smaller step__img-left">
                     <div class="intro__text step__col uk-padding">
                         <p class="steps__green">How it works</p>
-                        <h1 class="steps__intro-title">CO₂ Compensation</h1>
+                        <h2 class="main-title--large">CO₂ Compensation</h2>
 
-                        <p class="steps__intro-text">
+                        <p class="main-text">
                             The transport and production of any purchased item
                             causes the emission of greenhouse gases. Manufacturers
                             try to reduce this emission, but most fail to show actual
@@ -18,8 +18,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="step__text-wrapper step__img-wrapper">
-                    <div class="uk-light step__img-right">
+                <div class="step__text-wrapper smaller-step step__img-wrapper">
+                    <div class="uk-light step__img-left ">
                         <img class="intro__img uk-box-shadow-large" alt="factory"
                              src="../assets/images/steps/steps-intro.jpg">
                     </div>
@@ -28,8 +28,8 @@
 
             <!--Stap 1-->
             <div uk-grid class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">
-                <div class="step__text-wrapper step__img-wrapper">
-                    <div class="uk-light step__img-left">
+                <div class="step__text-wrapper  step__img-left step__img-wrapper">
+                    <div class="uk-light">
                         <img class="step__img uk-box-shadow-large" alt="factory"
                              src="../assets/images/steps/step-1.jpg">
                     </div>
@@ -39,13 +39,13 @@
                     <div class="intro__text step__col steps__content steps__content-right uk-padding">
                         <div class="steps__wrapper">
                             <div class="steps__title-container">
-                                <v-icon class="step__icon">cloud</v-icon>
+                                <i class="fas fa-smog step__icon"></i>
                                 <p class="steps__title">
                                     1. Computing the greenhouse gases
                                 </p>
                             </div>
 
-                            <p class="steps__text">
+                            <p class="main-text">
                                 We compute the greenhouse gases that are emitted
                                 during production and transport. We convert these to
                                 equal amounts of CO₂, for example, 1 gram of methane
@@ -58,17 +58,17 @@
 
             <!--Stap 2-->
             <div uk-grid class="steps__intro uk-child-width-expand@s uk-text-center">
-                <div class="step__text-wrapper">
+                <div class="step__text-wrapper step__img-left">
                     <div class="intro__text step__col steps__content steps__content-left uk-padding">
                         <div class="steps__wrapper">
                             <div class="steps__title-container">
-                                <v-icon class="step__icon">shopping_cart</v-icon>
+                                <i class="fas fa-shopping-cart step__icon"></i>
                                 <p class="steps__title">
-                                    2. Purchase with Co2ok
+                                    2. Purchase with CO₂ok
                                 </p>
                             </div>
 
-                            <p class="steps__text">
+                            <p class="main-text">
                                 If you choose to make your purchase CO₂ok, you will pay
                                 a tiny extra amount upon purchase.
                             </p>
@@ -87,7 +87,7 @@
 
             <!--Stap 3-->
             <div uk-grid class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">
-                <div class="step__text-wrapper step__img-wrapper">
+                <div class="step__text-wrapper step__img-left step__img-wrapper">
                     <div class="uk-light step__img-left">
                         <img class="step__img  uk-box-shadow-large" alt="solar-panels"
                              src="../assets/images/steps/step-3.jpg">
@@ -98,13 +98,13 @@
                     <div class="intro__text step__col steps__content steps__content-right uk-padding">
                         <div class="steps__wrapper">
                             <div class="steps__title-container">
-                                <v-icon class="step__icon">brightness_5</v-icon>
+                                <i class="fas fa-solar-panel step__icon"></i>
                                 <p class="steps__title">
                                     3. Financing projects
                                 </p>
                             </div>
 
-                            <p class="steps__text">
+                            <p class="main-text">
                                 This amount is used to finance projects of durable energy
                                 and CO₂-emission reduction (via our certified partner,
                                 Atmosfair)
@@ -117,17 +117,17 @@
 
             <!--Stap 4-->
             <div uk-grid class="steps__intro uk-child-width-expand@s uk-text-center">
-                <div class="step__text-wrapper">
+                <div class="step__text-wrapper step__img-left">
                     <div class="intro__text step__col steps__content steps__content-left uk-padding">
                         <div class="steps__wrapper">
                             <div class="steps__title-container">
-                                <v-icon class="step__icon">check</v-icon>
+                                <i class="fas fa-check step__icon"></i>
                                 <p class="steps__title">
                                     4. Making your purchase climate neutral
                                 </p>
                             </div>
 
-                            <p class="steps__text">
+                            <p class="main-text">
                                 These projects actively reduce the amount of emitted
                                 CO₂. This CO₂ reduction matches the emission of your
                                 purchase – your purchase is climate neutral!
@@ -163,7 +163,9 @@
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import '../styles/layout/main.scss';
+
     .steps__container {
         display: flex;
         flex-direction: column;
@@ -172,7 +174,7 @@
         padding-bottom: 50px;
         overflow: hidden;
         margin: 0 auto 100px;
-        width: 100%;
+        width: 90%;
     }
 
     .steps__intro {
@@ -182,10 +184,21 @@
         border-radius: 7px;
     }
 
+    .step__text-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+
     .intro__text {
         width: 100%;
-        height: 100%;
         text-align: left;
+    }
+
+    .step__img-left {
+        text-align: left;
+        padding: 0;
+        width: 100%;
     }
 
     .steps__green {
@@ -260,14 +273,13 @@
     }
 
     @media (max-width: 1200px) {
-        .steps__container {
-            width: 90%;
+        .main-title--large {
+            font-size: 30px;
         }
 
         .step__img-4 {
             max-height: 300px;
         }
-
     }
 
     @media (max-width: 1050px) {
@@ -297,17 +309,20 @@
             width: 90%;
         }
 
+        .smaller-step {
+            width: 80%;
+        }
+
+
         .intro__img {
-            max-height: 250px;
+            margin-left: 45px;
+            padding: 0 !important;
+            max-height: unset;
             width: 90%;
         }
 
         .steps__intro {
             box-shadow: none;
-        }
-
-        .intro__text {
-            padding: 0;
         }
 
         .steps__content-left, .steps__content-right {
@@ -324,6 +339,19 @@
     }
 
     @media (max-width: 900px) {
+        .intro__img {
+            margin-left: unset;
+            width: 100%;
+        }
+        .smaller-step, .step__img-left {
+            padding: 0;
+            width: 100%;
+        }
+
+        .steps__intro {
+            margin: 0 auto;
+        }
+
         .step__text-wrapper {
             min-width: 500px;
             display: flex;
