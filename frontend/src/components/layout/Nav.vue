@@ -76,10 +76,12 @@
                         </ul>
 
                         <div class="line"></div>
-                        <p>
-                            <img class="language-icon english icon" src="../../assets/images/nav/english-icon.png">
-                            <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
-                        </p>
+                        <ul class="uk-navbar-nav">
+                            <li>
+                                <img class="language-icon english icon" src="../../assets/images/nav/english-icon.png">
+                                <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
+                            </li>
+                        </ul>
                     </div>
 
                     <div class="uk-navbar-right uk-hidden@m">
