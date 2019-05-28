@@ -7,8 +7,8 @@
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
                         <div class="uk-card uk-card-body section-1__col-1">
-                            <h2 class="sub-title">Fight climate change</h2>
-                            <h1 class="main-title">Greener and more customers and sustainable</h1>
+                            <h3 class="sub-title">Fight climate change</h3>
+                            <h2 class="main-title">Greener and more customers and sustainable</h2>
                             <p class="main-text">
                                 As awareness about the importance of preserving the environment continues to grow among
                                 consumers, companies are increasingly looking for ways to “go green”. Of course, you
