@@ -126,7 +126,14 @@ a {
 .main-title {
   font-size: 26px;
   color:#606468;
-  font-weight: 400;
+  font-weight: 700;
+}
+
+.main-title--green {
+  width: 100%;
+  text-align: center;
+  color: $main-color;
+  font-weight: 700;
 }
 
 .main-text {

@@ -3,7 +3,7 @@
         <v-card class="modal__wrapper">
             <form>
                 <div class="edit__title">
-                    <p>Forgot password?</p>
+                    <h1 class="main-title--green">Forgot password?</h1>
                 </div>
 
                 <v-card-text class="modal__body">
@@ -56,7 +56,7 @@
         methods: {
             sendForm() { //Checkt of de velden leeg zijn en of de ww hetzelfde is
                 this.formActive = true
-                let message = {title: 'Oops... Something went wrong!', text: 'Fill the email field and Try again later.'}
+                let message = {title: 'Oops... Something went wrong!', text: 'Fill in the email field and Try again later.'}
 
                 if (this.email !== '') {
 
@@ -86,16 +86,17 @@
                             console.log(error)
                         })
                 }else{
-                  this.$parent.closeEdit(message)
+                    this.$parent.closeEdit(message)
                 }
-
                 this.formActive = false
             },
         }
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import '../../styles/layout/main.scss';
+
     .modal__wrapper {
         border-radius: 10px;
         display: flex;
@@ -118,11 +119,7 @@
     }
 
     .edit__title {
-        font-size: 36px;
-        text-align: left;
-        color: #08BA4D;
-        font-weight: 600;
-        margin-bottom: 24px;
+        width: 100%;
     }
 
     .edit__form-group {

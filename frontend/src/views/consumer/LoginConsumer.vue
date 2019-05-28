@@ -27,11 +27,11 @@
 
                         <div class="c-input__wrapper">
                             <label class="login-c__label">Password</label>
-                            <input type="password" class="login-c__input" placeholder="Fill in your e-mail"
+                            <input type="password" class="login-c__input" placeholder="Fill in your password"
                                    v-model="password">
                         </div>
 
-                        <p class="subheading sub__password">I forgot my password</p>
+                        <p @click="passReset = true"class="subheading sub__password">I forgot my password</p>
 
                         <p class="button login-c__button" @click="login()">Login</p>
                     </div>
@@ -50,7 +50,7 @@
 
                         <div class="c-input__wrapper">
                             <label class="login-c__label">Password</label>
-                            <input type="password" class="login-c__input" placeholder="Fill in your e-mail"
+                            <input type="password" class="login-c__input" placeholder="Fill in your password"
                                    v-model="registerPass">
                         </div>
 
@@ -78,6 +78,7 @@
                 password: '',
                 registerMail: '',
                 registerPass: '',
+                passReset: false,
             }
         },
 
@@ -164,12 +165,22 @@
                                 }
 
                             } else {
-                                console.log(response.data.error);
+                                let message = {
+                                    title: 'Incorrect credentials',
+                                    text: 'Please check if you correctly filled in you user credentials.'
+                                }
+                                this.$store.commit('modalStatus', {message})
+                                // console.log(response.data.error);
                             }
-                            console.log(response.data);
+                            // console.log(response.data);
                         })
                         .catch(error => {
-                            console.log(error);
+                            let message = {
+                                title: 'Something went wrong....',
+                                text: "We're sorry. That doesn't look right. Try again later."
+                            }
+                            this.$store.commit('modalStatus', {message})
+                            // console.log(error);
                         })
                 } else {
                     let message = {
@@ -178,6 +189,11 @@
                     }
                     this.$store.commit('modalStatus', {message})
                 }
+            },
+
+            closeEdit(message) {
+                this.passReset = false
+                this.$store.commit('modalStatus', {message})
             }
         }
     }
