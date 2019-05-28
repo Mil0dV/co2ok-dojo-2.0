@@ -4,7 +4,7 @@
             <div class="bkgr__filler hide--tablet"></div>
             <div class="bkgr__filler bkgr__text hide--tablet">
                 <div class="green-border__login">
-                    <p class="green-border__text">
+                    <p class="green-border__text main-text">
                         With your account you will get acces to information how much you’ve contributed to fighting climate change
                     </p>
                 </div>
@@ -15,8 +15,8 @@
             <div class="login__width">
                 <div class="login-c__wrapper">
                     <form v-model="valid" class="login-c__form">
-                        <p class="subheading">Login</p>
-                        <h1 class="main-title">Login to get access to more information!</h1>
+                        <h3 class="sub-title--small">Login</h3>
+                        <h2 class="main-title">Login to get access to more information!</h2>
 
                         <div class="c-input__wrapper">
                             <label class="login-c__label">E-mail</label>

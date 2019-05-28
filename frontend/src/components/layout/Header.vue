@@ -5,7 +5,7 @@
             <div class="uk-card header__image-shade">
                 <div class="header__inner">
                     <transition enter-active-class="animated fadeInUp" mode="out-in">
-                        <h2 class="header__title" :key="title">{{title}}</h2>
+                        <h1 class="header__title" :key="title">{{title}}</h1>
                     </transition>
                 </div>
             </div>

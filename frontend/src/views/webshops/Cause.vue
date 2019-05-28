@@ -6,7 +6,7 @@
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
                         <div class="uk-card uk-card-body section-1__col-1">
-                            <h1 class="main-title">Only benefits</h1>
+                            <h2 class="main-title">Only benefits</h2>
                             <p class="main-text">
                                 By associating your webshop with a good cause your customers are more inclined to choose
                                 your webshop and return. This is also called ‘Cause Marketing’
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="row__text">
-                        <h1 class="main-title">More revenue</h1>
+                        <h2 class="main-title">More revenue</h2>
                         <p class="main-text">
                             Cause marketing generates 7x more revenue than price discounts for toy manufacturer.
                         </p>
@@ -54,7 +54,7 @@
                     </div>
 
                     <div class="row__text">
-                        <h1 class="main-title">Climate Change is Hot</h1>
+                        <h2 class="main-title">Climate Change is Hot</h2>
                         <p class="main-text">
                             Climate change is the most well-known CSR subject for consumers – 59% can even define it and
                             give an example.
@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="row__text">
-                        <h1 class="main-title">Positive Public Relations</h1>
+                        <h2 class="main-title">Positive Public Relations</h2>
                         <p class="main-text">
                             The non-profits and companies use each other: the good cause is getting attention and money,
                             the company can contribute and improves its image.
@@ -92,7 +92,7 @@
                     </div>
 
                     <div class="row__text">
-                        <h1 class="main-title">More Marketing Opportunities</h1>
+                        <h2 class="main-title">More Marketing Opportunities</h2>
                         <p class="main-text">
                             Cause Marketing improves “Brand Story” and helps with customer loyalty.
                         </p>
@@ -109,7 +109,7 @@
             <div class="uk-container uk-container-width">
                 <div class="section-2--col-1 section-4--header">
                     <h2 class="sub-title dark--color">The Numbers</h2>
-                    <h1 class="main-title">Stand to Reason</h1>
+                    <h2 class="main-title">Stand to Reason</h2>
                 </div>
                 <br><br>
 
@@ -136,7 +136,7 @@
                         </div>
 
                         <div class="graph__text">
-                            <h1 class="main-title">{{data.title}}</h1>
+                            <h2 class="main-title">{{data.title}}</h2>
                             <p class="main-text">
                                 {{data.text}}
                             </p>
@@ -155,7 +155,7 @@
                 <h2 class="sub-title">CO₂ok’s</h2>
                 <div class="final-col-wrapper">
                     <div class="final-col final-1">
-                        <h1 class="main-title">Marketing Kit</h1>
+                        <h2 class="main-title">Marketing Kit</h2>
                         <p class="main-text">
                             We’ve got a marketingkit for your Cause Marketing! Send an e-mail to jos@co2ok.eco to receive it.
                         </p>
@@ -164,7 +164,7 @@
                     </div>
 
                     <div class="final-col final-2">
-                        <h1 class="main-title">Want to know more?</h1>
+                        <h2 class="main-title">Want to know more?</h2>
                         <a class="link row-link" href="#">
                             Statistics about Cause
                             Marketing <span uk-icon="icon: arrow-right"></span>
@@ -172,7 +172,7 @@
                     </div>
 
                     <div class="final-col final-1">
-                        <h1 class="main-title">Fight Climate Change</h1>
+                        <h2 class="main-title">Fight Climate Change</h2>
                         <p class="main-text">
                             More revenue and help fight climate change?
                         </p>

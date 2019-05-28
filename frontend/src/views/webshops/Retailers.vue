@@ -45,7 +45,7 @@
                 <img src="../../assets/images/webshops/retailers/retailer-icon-1.png">
 
                 <div class="content--wrapper">
-                    <h1 class="content-title">Go Green</h1>
+                    <h2 class="main-title">Go Green</h2>
 
                     <p class="content-text">
                         As retailer, you naturally try to run your business as sustainably as possible. However, some things are beyond your control – the manufacturing and shipping of your products for example. Manufacturers take too long to become climate neutral. CO₂ok fills this gap and allows your customers to buy everything they want, without contributing to climate change!
@@ -60,7 +60,7 @@
                 <img src="../../assets/images/webshops/retailers/retailer-icon-2.png">
 
                 <div class="content--wrapper">
-                    <h1 class="content-title">Higher conversion rate, more turnover</h1>
+                    <h2 class="main-title">Higher conversion rate, more turnover</h2>
 
                     <p class="content-text">
                         As retailer, you naturally try to run your business as sustainably as possible. However, some things are beyond your control – the manufacturing and shipping of your products for example. Manufacturers take too long to become climate neutral. CO₂ok fills this gap and allows your customers to buy everything they want, without contributing to climate change! This is also called ‘Cause Marketing’.
@@ -78,7 +78,7 @@
                 <img src="../../assets/images/webshops/retailers/retailer-icon-3.png">
 
                 <div class="content--wrapper">
-                    <h1 class="content-title">Free for Webshops</h1>
+                    <h2 class="main-title">Free for Webshops</h2>
 
                     <p class="content-text">
                         The plugin is entirely free for webshop owners. It only takes 1 minute to install the CO₂ok-plugin. When you integrated the plugin in your webshop, your customers can make their own choice to contribute. That way they make their purchase climate neutral. The minor extra free is on average 1%.
@@ -92,7 +92,7 @@
                 <img src="../../assets/images/webshops/retailers/retailer-icon-4.png">
 
                 <div class="content--wrapper">
-                    <h1 class="content-title">Easy integration and use</h1>
+                    <h2 class="main-title">Easy integration and use</h2>
 
                     <p class="content-text">
                         Both installing our plugin and using it can be done with just one click. Nothing about the ordering-process changes. You won’t lose customers by any tedious procedures. If you bump into a problem with the plugin, we’re always available through mail or by phone.
@@ -137,8 +137,8 @@
         <div class="uk-section section-4">
             <div class="uk-container uk-container-width">
                 <div class="section-2--col-1 section-4--header">
-                    <h1 class="main-title">CO₂ok Partners</h1>
-                    <h2 class="sub-title dark--color">Take a look at the webshops which already use the CO₂ok plugin</h2>
+                    <h2 class="main-title">CO₂ok Partners</h2>
+                    <h3 class="sub-title dark--color">Take a look at the webshops which already use the CO₂ok plugin</h3>
                 </div>
 
                 <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
@@ -200,9 +200,6 @@
 </script>
 
 <style scoped lang="scss">
-
-    @import '../../styles/layout/variables';
+    @import '../../styles/layout/main.scss';
     @import '../../styles/webshops/retailers';
-    @import '../../styles/webshops/webshop__form';
-
 </style>

@@ -145,7 +145,7 @@
 
 .row-link:hover {
   color: #08BA4D;
-  transition: 0.3s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 
 .row__text {
@@ -153,7 +153,7 @@
     padding-left: 10px;
     span {
       padding-left: 10px;
-      transition: 0.3s ease-in-out;
+      transition: 0.1s ease-in-out;
     }
   }
 }
@@ -162,7 +162,7 @@
   .row-link:hover {
     span {
       padding-left: 10px;
-      transition: 0.3s ease-in-out;
+      transition: 0.1s ease-in-out;
     }
   }
 }

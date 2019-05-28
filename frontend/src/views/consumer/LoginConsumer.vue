@@ -4,7 +4,7 @@
             <div class="bkgr__filler hide--tablet"></div>
             <div class="bkgr__filler bkgr__text hide--tablet">
                 <div class="green-border__login">
-                    <p class="green-border__text">
+                    <p class="green-border__text main-text">
                         With your account you will get acces to information how much you’ve contributed to fighting
                         climate change.
                     </p>
@@ -16,9 +16,10 @@
             <div class="login__width">
                 <div class="login-c__wrapper">
                     <div class="login-c__form">
-                        <p class="subheading">Login consumers</p>
-                        <h1 class="main-title consumer-title">Login to get acces to more information!</h1>
+                        <h3 class="sub-title--small">Login consumers</h3>
+                        <h2 class="main-title">Login to get acces to more information!</h2>
 
+                        <br>
                         <div class="c-input__wrapper">
                             <label class="login-c__label">E-mail</label>
                             <input type="email" class="login-c__input" placeholder="Fill in your e-mail"
@@ -42,6 +43,7 @@
                     <div class="login-c__form register-c__form">
                         <h3 class="sub-title-c">Don’t have an account yet?</h3>
 
+                        <br>
                         <div class="c-input__wrapper">
                             <label class="login-c__label">E-mail</label>
                             <input type="email" class="login-c__input" placeholder="Fill in your e-mail"
@@ -200,5 +202,6 @@
 </script>
 
 <style lang="scss" scoped>
+    @import '../../styles/layout/main.scss';
     @import '../../styles/consumer/login__consumer.scss';
 </style>

@@ -89,6 +89,7 @@ input, .input-c__input {
 .main-title--large {
   color:#606468;
   font-size: 42px;
+  font-weight: 700;
 }
 
 ::placeholder {
@@ -124,6 +125,12 @@ a {
   font-size: 22px;
 }
 
+.sub-title--small {
+  color: $main-color;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
 .main-title {
   font-size: 26px;
   color:#606468;
@@ -140,7 +147,7 @@ a {
 .main-text {
   color:#2F2F2F;
   font-size: 14px;
-  font-family: Open Sans, sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
 }
 
 .button {
