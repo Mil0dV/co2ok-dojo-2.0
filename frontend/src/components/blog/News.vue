@@ -7,7 +7,18 @@
            <p class="feed-header-p animated fadeInUp">Instagram feed</p>
            <h1 class="mb-3 animated fadeInUp">Follow us on Instagram</h1>
 
-           <div class="feeds"></div>
+           <div class="feeds">
+               <!-- <div class="insta-container" style="">
+                   <a :href="link" target="_blank" style="" class="insta-link">
+                       <img :src="image"/>
+                    </a>
+                </div> -->
+                <div id="instafeed"></div>
+                <div class="insta-ctrl">
+                    <v-icon medium v-if="instaPrev" @click="instaFeedsPrev" style="border: 1px solid #6E6E6E;background-color: #6E6E6E;color: white;border-radius: 100%;padding: 7px;cursor: pointer;" class="insta-ctrl-btn mr-1">keyboard_arrow_left</v-icon>
+                    <v-icon medium v-if="instaNext" @click="instaFeedsNext" style="border: 1px solid #6E6E6E;background-color: #6E6E6E;color: white;border-radius: 100%;padding: 7px;cursor: pointer;" class="insta-ctrl-btn ml-1">keyboard_arrow_right</v-icon>
+                </div>
+           </div>
 
         </v-flex>
 
@@ -29,11 +40,11 @@
                       :style="{backgroundImage: `url(${blog.blog_image})`}"
                     ></div>
                     <div class='blog-contents-container pa-1'>
-                        <span>Posted By: Milo de Fries | {{formatBlogDate(blog.posted_on)}} 16:49</span>
+                        <span>Posted By: Milo de Fries | {{$parent.formatBlogDate(blog.posted_on)}} 16:49</span>
                         <p class='blog-title' v-html="blog.blog_title"></p>
                         <v-divider style="width:85%;"></v-divider>
-                        <p class="blog-content-txt" v-html="stripBlogContent(blog.blog_preface)"></p>
-                        <div :class="[blog.id]" class="readmore-container" @click="newsContent()"><button class="readmore-btn text-capitalize mt-3">Read more<v-icon small color="#10DC87" style="position:relative;left:10px;">arrow_forward</v-icon></button></div>
+                        <p class="blog-content-txt" v-html="$parent.stripBlogContent(blog.blog_preface)"></p>
+                        <div class="readmore-container" @click="$parent.newsContent(blog.id)"><button class="readmore-btn text-capitalize mt-3">Read more<v-icon small color="#10DC87" style="position:relative;left:10px;">arrow_forward</v-icon></button></div>
                     </div>
                 </div>
 
@@ -53,12 +64,36 @@ export default {
 data(){
     return {
         blogs: this.$store.state.blogs,
+        instaOptions: {
+            get: 'user',
+            userId: '1281738789',
+            limit: 12,
+            resolution: 'standard_resolution',
+            // height: '500px',
+            accessToken: '1281738789.1677ed0.8209b3e1a44045f3aa1130e303c3e295',
+            template: '<div class="insta-container animated" style="z-index: 0;width: 300px; height: 400px;display:flex;justify:center;align-items:center;"><a href="{{link}}" target="_blank" style="width: 300px;height:400px;border-radius: 5px;"><img src="{{image}}" style="width: 100%;height:100%;border-radius: 5px;"/></a></div>',
+            sortBy: 'most-recent'
+            // filter: function(image) {
+            //     return image.tags.indexOf('TAG_NAME') >= 0;
+            // }
+        },
+        instaNext: true,
+        instaPrev: false,
+        slide: 0,
+        slideAnimation: 'slideInRight'
     }
 },
 
 created(){
-    this.getBlogs()
-    console.log(this.blogs)
+
+    this.$parent.getBlogs()
+    let Instafeed = require("instafeed.js");
+
+    Instafeed = new Instafeed(
+        this.instaOptions
+    );
+    Instafeed.run();
+
 },
 
 mounted(){
@@ -67,44 +102,58 @@ mounted(){
     
 methods: {
 
-      getBlogs() {
-        
-        let self = this
-        this.$axios.get(`${this.$store.state.SITE_HOST}/blog/`,{
-            headers: {
-                "X-CSRFToken": `${this.$store.state.userToken}`,
-                Authorization: `token ${window.localStorage.getItem('userToken')}`
-            }
-        }).then(response => {
-            console.log(response.data);
-            
-            self.$store.commit('getBlogs', response.data)
-            console.log(response);
-            
-        }).catch(error => {
-            console.log(error);
-            
-        })
+instaFeedsNext(){
 
-      },
+    let instaContainer = document.querySelector('#instafeed')
+    let feedBySlide = 2 //number of image sliding out
+    let slideCount = (this.instaOptions.limit/feedBySlide)-1
+    let paginationNumber = 600 // number of pixel moving while sliding
+    this.slide += paginationNumber
+    
+        if(this.slide <= paginationNumber*slideCount){
 
-      stripBlogContent(content){
-          return content.substr(0,150)+'...'
-      },
+            this.instaPrev = true
+            instaContainer.style.transition = 'margin-left 0.5s linear 0s'
+            instaContainer.style.marginLeft = `-${this.slide}px`
 
-      formatBlogDate(content){
-          let date = content.substr(0,10)
-          return date
-      },
+        }else {
+            this.slide = paginationNumber*slideCount
+            this.instaNext = false
+            this.instaPrev = true
+        }
 
-      newsContent(){
-        // this.$store.state.component = 'content'
-        let articleId = event.currentTarget.classList
-        console.log(articleId);
-        
-      }
+},
 
+instaFeedsPrev(){
+
+    let instaContainer = document.querySelector('#instafeed')
+    let feedBySlide = 2 //number of image sliding out
+    let slideCount = (this.instaOptions.limit/feedBySlide)-1
+    let paginationNumber = 600 // number of pixel moving while sliding
+    this.slide -= paginationNumber
+
+    if(this.slide >= paginationNumber){
+
+        this.instaNext = true
+        this.instaPrev = true
+        instaContainer.style.transition = 'margin-left 0.5s linear 0s'
+        instaContainer.style.marginLeft = `-${this.slide}px`
+
+     }else if(this.slide == paginationNumber){
+        this.slide = paginationNumber
+        this.instaNext = true
+        this.instaPrev = false
+    }else{
+        this.instaNext = true
+        this.instaPrev = false
+        instaContainer.style.transition = 'margin-left 0.5s linear 0s'
+        instaContainer.style.marginLeft = `-${this.slide}px`
+        this.slide = 0
     }
+
+}
+
+}
 }
 </script>
 
@@ -162,12 +211,62 @@ methods: {
 }
 
 .feeds{
+    width: 2000px;
+    height: auto;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content:flex-start;
+    align-items: center;
+    overflow-x: scroll;
+}
+
+::-webkit-scrollbar{
+    width: 0px;
+}
+
+#instafeed{
     width: 100%;
     height: auto;
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
+}
+
+.insta-ctrl{
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: absolute;
+    z-index: 3;
+}
+
+.insta-container{
+    border: 1px solid blue;
+    width: 100%; 
+    height: 500px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.insta-ctrl-btn:hover{
+    transform: scale(0.9,0.9)
+}
+
+.feeds a{
+    width: 300px;
+    height:500px;
+    border: 1px solid green
+}
+
+.insta-container a img{
+     width: 300px;
+    height:500px;
+    border: 1px solid magenta
 }
 
 .blogs-flex{
@@ -236,7 +335,7 @@ methods: {
     width: 100%;
     height: 218px;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top;
     background-size: cover;
     border-radius: 5px 5px 0px 0px;
 }

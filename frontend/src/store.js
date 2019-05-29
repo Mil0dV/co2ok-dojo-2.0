@@ -12,7 +12,7 @@ import axios from 'axios'
 export default new Vuex.Store({
     state: {
         // SITE_HOST: 'http://127.0.0.1:8000',
-        SITE_HOST: 'http://test.co2ok.ninja:8000/',
+        SITE_HOST: 'http://test.co2ok.ninja:8000',
         domain: window.location.protocol + '//' + window.location.hostname + ':' + window.location.port,
         count: 0,
         modalMessage: '',
@@ -30,6 +30,7 @@ export default new Vuex.Store({
         x_asLabel: [],
         graphData: [],
         blogs: [],
+        article:[],
         component: 'news', //use in blog.vue as dynamic template
         generatedNinjaName: '',
         ninjaExtensionLink: '',
@@ -219,6 +220,29 @@ export default new Vuex.Store({
 
         getBlogs(state, data){
             state.blogs = data
+        },
+
+        getArticle(state, id){
+
+            axios.get(`${state.SITE_HOST}/blog/article/`, {
+                params: {
+                    id: id
+                }
+            }).then(response => {
+
+                if (state.article.length == 0) {
+                    state.article.push(response.data)
+                }else{
+
+                    state.article.length = 0
+                    console.log(state.article);
+                    state.article.push(response.data)
+                }
+
+            }).catch(error => {
+                console.log(error);
+            })
+
         },
 
         //ninja extension install button link adapter(check if user is using chrome/firefox, desktop/mobile/tablet)

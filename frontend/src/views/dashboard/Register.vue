@@ -214,8 +214,8 @@
                             merchantId: mechantId
                         },
                         headers: {
-                            "X-CSRFToken": `${this.$store.state.userToken}`,
-                            Authorization: `token ${window.localStorage.getItem('userToken')}`
+                            // "X-CSRFToken": `${this.$store.state.userToken}`,
+                            // Authorization: `token ${window.localStorage.getItem('userToken')}`
                         }
                     }).then(response => {
                     console.log(response);
