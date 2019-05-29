@@ -54,7 +54,7 @@
 
                 <div class="section-2--col-2">
                     <a target="_blank" :href="i.link" :style="{'background-image': 'url(' + require(`@/assets/images/webshops/shops/${i.image}.png`) + ')'}"
-                         class=" shops--image section-2--shops" v-for="i in webshop" :key="`4${i}`">
+                         class=" shops--image section-2--shops" v-for="i in webshop" :key="i.link">
                         <div class="section-2--shops shop--image-wrapper ">
                         </div>
                     </a>
