@@ -7,7 +7,18 @@
            <p class="feed-header-p animated fadeInUp">Instagram feed</p>
            <h1 class="mb-3 animated fadeInUp">Follow us on Instagram</h1>
 
-           <div class="feeds"></div>
+           <div class="feeds">
+               <!-- <div class="insta-container" style="">
+                   <a :href="link" target="_blank" style="" class="insta-link">
+                       <img :src="image"/>
+                    </a>
+                </div> -->
+                <div id="instafeed"></div>
+                <div class="insta-ctrl">
+                    <v-icon medium v-if="instaPrev" @click="instaFeedsPrev" style="border: 1px solid #6E6E6E;background-color: #6E6E6E;color: white;border-radius: 100%;padding: 7px;cursor: pointer;" class="insta-ctrl-btn mr-1">keyboard_arrow_left</v-icon>
+                    <v-icon medium v-if="instaNext" @click="instaFeedsNext" style="border: 1px solid #6E6E6E;background-color: #6E6E6E;color: white;border-radius: 100%;padding: 7px;cursor: pointer;" class="insta-ctrl-btn ml-1">keyboard_arrow_right</v-icon>
+                </div>
+           </div>
 
         </v-flex>
 
@@ -53,12 +64,35 @@ export default {
 data(){
     return {
         blogs: this.$store.state.blogs,
+        instaOptions: {
+            get: 'user',
+            userId: '1281738789',
+            limit: 12,
+            resolution: 'standard_resolution',
+            // height: '500px',
+            accessToken: '1281738789.1677ed0.8209b3e1a44045f3aa1130e303c3e295',
+            template: '<div class="insta-container animated" style="z-index: 0;width: 300px; height: 400px;display:flex;justify:center;align-items:center;"><a href="{{link}}" target="_blank" style="width: 300px;height:400px;border-radius: 5px;"><img src="{{image}}" style="width: 100%;height:100%;border-radius: 5px;"/></a></div>',
+            sortBy: 'most-recent'
+            // filter: function(image) {
+            //     return image.tags.indexOf('TAG_NAME') >= 0;
+            // }
+        },
+        instaNext: true,
+        instaPrev: false,
+        slide: 0,
+        slideAnimation: 'slideInRight'
     }
 },
 
 created(){
 
     this.$parent.getBlogs()
+    let Instafeed = require("instafeed.js");
+
+    Instafeed = new Instafeed(
+        this.instaOptions
+    );
+    Instafeed.run();
 
 },
 
@@ -67,6 +101,57 @@ mounted(){
 },
     
 methods: {
+
+instaFeedsNext(){
+
+    let instaContainer = document.querySelector('#instafeed')
+    let feedBySlide = 2 //number of image sliding out
+    let slideCount = (this.instaOptions.limit/feedBySlide)-1
+    let paginationNumber = 600 // number of pixel moving while sliding
+    this.slide += paginationNumber
+    
+        if(this.slide <= paginationNumber*slideCount){
+
+            this.instaPrev = true
+            instaContainer.style.transition = 'margin-left 0.5s linear 0s'
+            instaContainer.style.marginLeft = `-${this.slide}px`
+
+        }else {
+            this.slide = paginationNumber*slideCount
+            this.instaNext = false
+            this.instaPrev = true
+        }
+
+},
+
+instaFeedsPrev(){
+
+    let instaContainer = document.querySelector('#instafeed')
+    let feedBySlide = 2 //number of image sliding out
+    let slideCount = (this.instaOptions.limit/feedBySlide)-1
+    let paginationNumber = 600 // number of pixel moving while sliding
+    this.slide -= paginationNumber
+
+    if(this.slide >= paginationNumber){
+
+        this.instaNext = true
+        this.instaPrev = true
+        instaContainer.style.transition = 'margin-left 0.5s linear 0s'
+        instaContainer.style.marginLeft = `-${this.slide}px`
+
+     }else if(this.slide == paginationNumber){
+        this.slide = paginationNumber
+        this.instaNext = true
+        this.instaPrev = false
+    }else{
+        this.instaNext = true
+        this.instaPrev = false
+        instaContainer.style.transition = 'margin-left 0.5s linear 0s'
+        instaContainer.style.marginLeft = `-${this.slide}px`
+        this.slide = 0
+    }
+
+}
 
 }
 }
@@ -126,12 +211,62 @@ methods: {
 }
 
 .feeds{
+    width: 2000px;
+    height: auto;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content:flex-start;
+    align-items: center;
+    overflow-x: scroll;
+}
+
+::-webkit-scrollbar{
+    width: 0px;
+}
+
+#instafeed{
     width: 100%;
     height: auto;
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
+}
+
+.insta-ctrl{
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: absolute;
+    z-index: 3;
+}
+
+.insta-container{
+    border: 1px solid blue;
+    width: 100%; 
+    height: 500px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.insta-ctrl-btn:hover{
+    transform: scale(0.9,0.9)
+}
+
+.feeds a{
+    width: 300px;
+    height:500px;
+    border: 1px solid green
+}
+
+.insta-container a img{
+     width: 300px;
+    height:500px;
+    border: 1px solid magenta
 }
 
 .blogs-flex{
@@ -200,7 +335,7 @@ methods: {
     width: 100%;
     height: 218px;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top;
     background-size: cover;
     border-radius: 5px 5px 0px 0px;
 }
