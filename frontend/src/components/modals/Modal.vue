@@ -2,7 +2,7 @@
     <v-dialog v-model="$store.state.modalStatus" max-width="500" class="modal__container">
         <v-card class="modal__wrapper">
             <div class="modal__container">
-                <h1 class="modal__title">{{$store.state.modalMessage.title}}</h1>
+                <h2 class="modal__title">{{$store.state.modalMessage.title}}</h2>
 
                 <v-card-text class="modal__body">
                     {{$store.state.modalMessage.text}}

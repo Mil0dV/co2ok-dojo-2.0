@@ -17,6 +17,12 @@ h1 {
   margin-bottom: 20px;
 }
 
+h2 {
+  font-size: 36px;
+  color: #606468;
+  font-weight: 600;
+}
+
 p, a, input, ::placeholder {
   font-size: 16px;
 }
@@ -117,12 +123,12 @@ a {
 
 .subheading {
   color: $main-color;
-  font-size: 18px;
+  font-size: 17px;
 }
 
 .sub-title {
   color: $main-color;
-  font-size: 22px;
+  font-size: 17px;
 }
 
 .sub-title--small {
@@ -132,9 +138,7 @@ a {
 }
 
 .main-title {
-  font-size: 26px;
   color:#606468;
-  font-weight: 700;
 }
 
 .main-title--green {

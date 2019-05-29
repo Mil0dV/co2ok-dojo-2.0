@@ -2,11 +2,13 @@
     <v-app class="dashboard">
         <div class="dashboard__container" v-if="Authenticated">
             <div class="dashboard__header">
-                <h1 class="dashboard__title">Dashboard</h1>
+                <h2 class="dashboard__title">Dashboard</h2>
                 <h5 class="dashboard__welcome">Weclome, {{this.$store.state.userData.userdata.username}}!</h5>
+                <!--<h3 class="dashboard__welcome">Weclome, a31!</h3>-->
             </div>
 
             <div class="dashboard__tabs hidden-xs-only">
+                <!--<p class="dashboard__mail hidden-sm-and-down">a31@mail.nl</p>-->
                 <p class="dashboard__mail hidden-sm-and-down">{{this.$store.state.userData.userdata.email}}</p>
                 <v-tabs v-model="active" centered class="dashboard__tabs-group"
                         color="#F4F4F4" slider-color="#08BA4D">
@@ -133,11 +135,8 @@
         },
 
         mounted() {
-
-            this.$store.dispatch('commitGetUserData');    
+            this.$store.dispatch('commitGetUserData');
             console.log(this.Authenticated);
-                    
-
         },
 
         methods: {
@@ -171,7 +170,10 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import '../../styles/layout/main.scss';
+
+
     .dashboard {
         border: 1px solid transparent;
         background: #F4F4F4;

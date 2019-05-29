@@ -52,6 +52,12 @@
 .login-c__section {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.login-d__section {
+  justify-content: flex-start;
 }
 
 .login-c__filler {
@@ -63,9 +69,7 @@
 }
 
 .login-c__form {
-  //border: 2px solid red;
   width: 90%;
-  padding: 40px 0 0 0;
   max-width: 515px;
   margin-left: 75px;
   text-align: left;
@@ -96,8 +100,13 @@
 
 .login-c__button {
   margin-top: 40px;
-  max-width: 157px;
+  max-width: 180px;
+  width: auto;
   cursor: pointer;
+}
+
+.login-c__larger {
+  max-width: 200px;
 }
 
 .sub-title-c {
@@ -105,9 +114,10 @@
   font-weight: 600;
 }
 
-.register-c__form {
-  border-top: 1px solid #DDDDDD;
-  padding-top: 50px;
+.divider__login {
+  margin-left: 75px;
+  max-width: 515px;
+  width: 90%;
 }
 
 @media screen and (max-width: 1150px) {

@@ -27,12 +27,21 @@
                     <div class="uk-width-auto">
                         <div class="uk-card col-1-card uk-card-default uk-card-body">
                             <ul class="col-1-list">
-                                <li><span class="col-1-icon" uk-icon="icon: heart"></span>Improve your corporate image
+                                <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>Improve
+                                    your corporate image
                                 </li>
-                                <li><span class="col-1-icon" uk-icon="icon: heart"></span>Help fight climate change</li>
-                                <li><span class="col-1-icon" uk-icon="icon: heart"></span>Sell more</li>
-                                <li><span class="col-1-icon" uk-icon="icon: heart"></span>Setup in minutes</li>
-                                <li><span class="col-1-icon" uk-icon="icon: heart"></span>Free (really!)</li>
+                                <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>Help
+                                    fight climate change
+                                </li>
+                                <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>Sell
+                                    more
+                                </li>
+                                <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>Setup
+                                    in minutes
+                                </li>
+                                <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>Free
+                                    (really!)
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -48,7 +57,10 @@
                     <h2 class="main-title">Go Green</h2>
 
                     <p class="content-text">
-                        As retailer, you naturally try to run your business as sustainably as possible. However, some things are beyond your control – the manufacturing and shipping of your products for example. Manufacturers take too long to become climate neutral. CO₂ok fills this gap and allows your customers to buy everything they want, without contributing to climate change!
+                        As retailer, you naturally try to run your business as sustainably as possible. However, some
+                        things are beyond your control – the manufacturing and shipping of your products for example.
+                        Manufacturers take too long to become climate neutral. CO₂ok fills this gap and allows your
+                        customers to buy everything they want, without contributing to climate change!
                     </p>
                 </div>
             </div>
@@ -63,11 +75,17 @@
                     <h2 class="main-title">Higher conversion rate, more turnover</h2>
 
                     <p class="content-text">
-                        As retailer, you naturally try to run your business as sustainably as possible. However, some things are beyond your control – the manufacturing and shipping of your products for example. Manufacturers take too long to become climate neutral. CO₂ok fills this gap and allows your customers to buy everything they want, without contributing to climate change! This is also called ‘Cause Marketing’.
+                        As retailer, you naturally try to run your business as sustainably as possible. However, some
+                        things are beyond your control – the manufacturing and shipping of your products for example.
+                        Manufacturers take too long to become climate neutral. CO₂ok fills this gap and allows your
+                        customers to buy everything they want, without contributing to climate change! This is also
+                        called ‘Cause Marketing’.
                     </p>
 
                     <p class="content-text">
-                        You reach even more customers if you go along with our marketing campaign. During our campaign you can easily ride along on our network. We post on Facebook, LinkedIn, Twitter and are featured in magazines and on radio! If you would like to know more you can contact Jos.
+                        You reach even more customers if you go along with our marketing campaign. During our campaign
+                        you can easily ride along on our network. We post on Facebook, LinkedIn, Twitter and are
+                        featured in magazines and on radio! If you would like to know more you can contact Jos.
                     </p>
                 </div>
             </div>
@@ -81,7 +99,10 @@
                     <h2 class="main-title">Free for Webshops</h2>
 
                     <p class="content-text">
-                        The plugin is entirely free for webshop owners. It only takes 1 minute to install the CO₂ok-plugin. When you integrated the plugin in your webshop, your customers can make their own choice to contribute. That way they make their purchase climate neutral. The minor extra free is on average 1%.
+                        The plugin is entirely free for webshop owners. It only takes 1 minute to install the
+                        CO₂ok-plugin. When you integrated the plugin in your webshop, your customers can make their own
+                        choice to contribute. That way they make their purchase climate neutral. The minor extra free is
+                        on average 1%.
                     </p>
                 </div>
             </div>
@@ -95,7 +116,9 @@
                     <h2 class="main-title">Easy integration and use</h2>
 
                     <p class="content-text">
-                        Both installing our plugin and using it can be done with just one click. Nothing about the ordering-process changes. You won’t lose customers by any tedious procedures. If you bump into a problem with the plugin, we’re always available through mail or by phone.
+                        Both installing our plugin and using it can be done with just one click. Nothing about the
+                        ordering-process changes. You won’t lose customers by any tedious procedures. If you bump into a
+                        problem with the plugin, we’re always available through mail or by phone.
                     </p>
 
                     <br>
@@ -111,15 +134,18 @@
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
                         <div class="uk-card uk-card-body section-1__col-1">
-                            <h2 class="sub-title">What to do?</h2>
-                            <h1 class="main-title">How it works</h1>
+                            <h3 class="sub-title">What to do?</h3>
+                            <h2 class="main-title">How it works</h2>
                             <p class="main-text">
-                                The compensation gets paid to you by the customer. CO₂ok sends a digital invoice at the end of each 3 month term. With the proceeds we support Atmosfair, a certified organisation which produces several CO₂-compensating projects each year.
+                                The compensation gets paid to you by the customer. CO₂ok sends a digital invoice at the
+                                end of each 3 month term. With the proceeds we support Atmosfair, a certified
+                                organisation which produces several CO₂-compensating projects each year.
                             </p>
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/plug-in-installation" class="button">Install Plug-in</router-link>
+                                <router-link to="/webshops/plug-in-installation" class="button">Install Plug-in
+                                </router-link>
                             </div>
                         </div>
                     </div>
@@ -138,13 +164,15 @@
             <div class="uk-container uk-container-width">
                 <div class="section-2--col-1 section-4--header">
                     <h2 class="main-title">CO₂ok Partners</h2>
-                    <h3 class="sub-title dark--color">Take a look at the webshops which already use the CO₂ok plugin</h3>
+                    <h3 class="sub-title dark--color">Take a look at the webshops which already use the CO₂ok
+                        plugin</h3>
                 </div>
 
                 <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <img alt="retailer shop 1" class="shop__image" src="../../assets/images/webshops/retailers/shop-1.png">
+                            <img alt="retailer shop 1" class="shop__image"
+                                 src="../../assets/images/webshops/retailers/shop-1.png">
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
                             <p class="shop--text">
                                 “Our webshop is sustainable, but climate neutral as well because of CO₂ok!”
@@ -153,16 +181,19 @@
                     </div>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <img alt="retailer shop 2" class="shop__image" src="../../assets/images/webshops/retailers/shop-2.png">
+                            <img alt="retailer shop 2" class="shop__image"
+                                 src="../../assets/images/webshops/retailers/shop-2.png">
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
                             <p class="shop--text">
-                                “The first time we got called about the CO₂ok-plugin, we didn’t like the idea at all. (The…
+                                “The first time we got called about the CO₂ok-plugin, we didn’t like the idea at all.
+                                (The…
                             </p>
                         </div>
                     </div>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <img alt="retailer shop 3" class="shop__image" src="../../assets/images/webshops/retailers/shop-3.png">
+                            <img alt="retailer shop 3" class="shop__image"
+                                 src="../../assets/images/webshops/retailers/shop-3.png">
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
                             <p class="shop--text">
                                 “We were already environment conscious, but we do buy our products by ship. CO₂ok…
@@ -172,7 +203,7 @@
                 </div>
             </div>
         </div>
-        <WebshopForm :content="formContent" />
+        <WebshopForm :content="formContent"/>
     </div>
 </template>
 

@@ -3,7 +3,7 @@
         <v-card class="modal__wrapper">
             <form>
                 <div class="edit__title">
-                    <h1 class="main-title--green">Forgot password?</h1>
+                    <h2 class="main-title--green">Forgot password?</h2>
                 </div>
 
                 <v-card-text class="modal__body">

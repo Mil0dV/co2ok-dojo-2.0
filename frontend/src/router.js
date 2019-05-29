@@ -83,7 +83,7 @@ const router = new Router({
             path: '/webshops/dashboard',
             name: 'dashboard',
             component: () => import( './views/dashboard/Dashboard'),
-            // beforeEnter: ifAuthenticated
+            beforeEnter: ifAuthenticated
         },
         {
             path: '/webshops/projects',
@@ -93,8 +93,8 @@ const router = new Router({
         {
             path: '/consumers/profile',
             name: 'consumers-profile',
-            component: () => import('./views/consumer/Consumer')
-            // beforeEnter: ifAuthenticated
+            component: () => import('./views/consumer/Consumer'),
+            beforeEnter: ifAuthenticated
         },
         {
             path: '/consumers/login',

@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <div class="login-c__section login-c__row">
+        <div class="login-c__section login-d__section login-c__row">
             <div class="login__width">
                 <div class="login-c__wrapper">
                     <form v-model="valid" class="login-c__form">

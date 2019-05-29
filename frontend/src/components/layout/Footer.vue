@@ -20,13 +20,22 @@
                             <router-link to="/">Home</router-link>
                         </li>
                         <li>
-                            <router-link to="/about">About Us</router-link>
+                            <router-link to="/about">About</router-link>
                         </li>
-                        <li><router-link to="/webshops">Webshops</router-link></li>
+                        <li>
+                            <router-link to="/webshops">Webshops</router-link>
+                        </li>
                         <li>
                             <ul>
-                                <li><router-link to="/webshops/retailers">Retailers-info</router-link></li>
-                                <li><router-link to="webshops/cause-marketing">Cause Marketing</router-link></li>
+                                <li>
+                                    <router-link to="/webshops/retailers">Retailers</router-link>
+                                </li>
+                                <li>
+                                    <router-link to="webshops/cause-marketing">Cause Marketing</router-link>
+                                </li>
+                                <li>
+                                    <router-link to="/webshops/projects">Projects</router-link>
+                                </li>
                                 <span v-if="$store.state.userStatus">
                                      <li><router-link to="/webshops/dashboard">Dashboard</router-link></li>
                                      <li @click="logout()"><a>Logout</a></li>
@@ -36,23 +45,16 @@
                                 </span>
                             </ul>
                         </li>
-                        <li><router-link to="/consumers">Consumers</router-link></li>
-                        <li>
-                            <ul>
-                                <li><router-link to="/welcome">Plugin Installation</router-link></li>
-                                <span v-if="$store.state.userStatus">
-                                     <li><router-link to="/consumers/profile">Profile</router-link></li>
-                                     <li @click="logout()"><a>Logout</a></li>
-                                </span>
-                                <span v-else>
-                                    <li><router-link to="/consumers/login">Login</router-link></li>
-                                </span>
-                            </ul>
+                        <li v-if="!$store.state.userStatus">
+                            <router-link to="/consumers/login">Consumers</router-link>
                         </li>
+                        <span v-else>
+                            <li><router-link to="/consumers/profile">Profile</router-link></li>
+                            <li @click="logout()"><a>Logout</a></li>
+                        </span>
                         <li>
-                            <router-link to="/about/how-it-works">CO<sub>2</sub>-Compensation</router-link>
+                            <router-link to="/blogs">News</router-link>
                         </li>
-                        <li><router-link to="/blogs">News</router-link></li>
                         <li>
                             <router-link to="/faq">FAQ</router-link>
                         </li>
@@ -108,7 +110,7 @@
 </script>
 
 
-<style lang="scss" >
+<style lang="scss">
     #footer /deep/ {
         @import "~uikit/dist/css/uikit.min.css";
     }

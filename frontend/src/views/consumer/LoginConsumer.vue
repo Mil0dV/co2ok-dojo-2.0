@@ -38,8 +38,10 @@
                     </div>
                 </div>
 
+                <hr class="divider__login">
+
                 <!--Register-->
-                <div class="login-c__wrapper ">
+                <div class="login-c__wrapper">
                     <div class="login-c__form register-c__form">
                         <h3 class="sub-title-c">Don’t have an account yet?</h3>
 
@@ -56,7 +58,7 @@
                                    v-model="registerPass">
                         </div>
 
-                        <p class="button login-c__button" @click="register()">Make an account</p>
+                        <p class="button login-c__button login-c__larger" @click="register()">Make an account</p>
                     </div>
                 </div>
             </div>

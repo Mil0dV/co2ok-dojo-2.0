@@ -76,7 +76,7 @@ export default new Vuex.Store({
                     .then(response => {
                         //verify if the userdata array is empty
                         if(response.data.authData){
-                            if (state.userData.length == 0) {
+                            if (state.userData.length === 0) {
                                 //user array is empty, push userdata
                                 state.userData = response.data;
                                 state.userStatus = true;
@@ -87,8 +87,12 @@ export default new Vuex.Store({
                                 state.userData = response.data;
                             }
                         }else{
+                            let message = {
+                                title: 'Something went wrong....',
+                                text: 'Incorrect user credentials'
+                            }
+                            this.$store.commit('modalStatus', {message})
                             console.log('user should be redirect to the login page');
-                            
                         }
 
                     })
