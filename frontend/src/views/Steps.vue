@@ -30,7 +30,7 @@
             <div uk-grid class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">
                 <div class="step__text-wrapper  step__img-left step__img-wrapper">
                     <div class="uk-light">
-                        <img class="step__img uk-box-shadow-large" alt="factory"
+                        <img class="step__img uk-box-shadow-large" alt="2 factory"
                              src="../assets/images/steps/step-1.jpg">
                     </div>
                 </div>

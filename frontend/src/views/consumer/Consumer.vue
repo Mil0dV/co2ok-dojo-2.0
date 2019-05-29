@@ -40,7 +40,7 @@
 
                                 <div class="cause-wrapper">
                                     <div class="cause" id="biogas" @click="supportedProject_status()">
-                                        <img class="uk-box-shadow-medium" src="../../assets/images/ninja/profile-2.png">
+                                        <img alt="ninja profile 2" class="uk-box-shadow-medium" src="../../assets/images/ninja/profile-2.png">
                                         <p class="main-text cause-text lighter">Biogas installations <a
                                                 href="https://www.atmosfair.de/en/climate-protection-projects/biogas-biomass/"
                                                 target="_blank">
@@ -48,7 +48,7 @@
                                     </div>
 
                                     <div class="cause" id="solar-panel" @click="supportedProject_status()">
-                                        <img class="uk-box-shadow-medium" src="../../assets/images/ninja/profile-3.png">
+                                        <img alt="ninja profile 3" class="uk-box-shadow-medium" src="../../assets/images/ninja/profile-3.png">
                                         <p class="main-text cause-text lighter">Solar panels
                                             <i class="subheading fas fa-info-circle"></i></p>
                                     </div>

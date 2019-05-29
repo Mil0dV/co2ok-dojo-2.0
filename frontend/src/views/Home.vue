@@ -35,7 +35,7 @@
             <v-flex xs12 sm12 md4 lg4 xlg3 v-for="(ninjaExtensionStep,i) in ninjaExtensionSteps" :key="i"
                     class="steps-container mb-5">
                 <!-- <img :src="ninjaExtensionStep.img" alt="" class="mb-4 animated bounceIn" :styles="{animationDelay:0.5+i-(i*'0.5')+'s'}" data-aos="zoom-in" :data-aos-delay="i*50"> -->
-                <img :src="ninjaExtensionStep.img" alt="" class="mb-4" data-aos="zoom-in" :data-aos-delay="i*50" data-aos-duration="1000"
+                <img :src="ninjaExtensionStep.img" alt="extension 1" class="mb-4" data-aos="zoom-in" :data-aos-delay="i*50" data-aos-duration="1000"
                      style="height:237px;">
                 <!-- <p class="font-weight-bold animated zoomIn" :styles="{animationDelay: 0.7+i-(i*'0.5')+'s'}" styles="font-size:21px; color: #10DC87;margin: 0px;" data-aos="zoom-in-up" :data-aos-delay="i*100">Step{{i+1}}</p> -->
                 <p class="font-weight-bold mb-1" style="font-size:21px; color: #10DC87;margin: 0px;"
@@ -115,7 +115,7 @@
         <v-layout justify-start align-center class="project-layout mt-4" style="">
 
             <div class="project-background">
-                <img src="../assets/images/home/homebackground -2.png" alt="">
+                <img src="../assets/images/home/homebackground -2.png" alt="Home background">
             </div>
 
             <v-flex xs12 sm12 md10 lg10 xlg10 class="projects-flex" style="">
@@ -130,7 +130,7 @@
                             :key="i"
                             class="project-slider-items">
                         <div class="pa-3">
-                            <img :src="project.img" alt="">
+                            <img :src="project.img" :alt="i">
                             <p class="mt-3 mb-5 animated fadeInUp">{{project.txt}}</p>
                         </div>
                     </v-carousel-item>

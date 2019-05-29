@@ -33,7 +33,7 @@
             <div class="uk-container uk-container-width section-2-row">
                 <div class="row__content">
                     <div class="row__icon">
-                        <img src="../../assets/images/webshops/cause-marketing/icon-1.png">
+                        <img alt="cause marketing icon 1" src="../../assets/images/webshops/cause-marketing/icon-1.png">
                     </div>
 
                     <div class="row__text">
@@ -50,7 +50,7 @@
 
                 <div class="row__content">
                     <div class="row__icon">
-                        <img src="../../assets/images/webshops/cause-marketing/icon-2.png">
+                        <img alt="cause marketing icon 2" src="../../assets/images/webshops/cause-marketing/icon-2.png">
                     </div>
 
                     <div class="row__text">
@@ -70,7 +70,7 @@
             <div class="uk-container uk-container-width section-2-row second__column">
                 <div class="row__content">
                     <div class="row__icon">
-                        <img src="../../assets/images/webshops/cause-marketing/icon-3.png">
+                        <img alt="cause marketing icon 3" src="../../assets/images/webshops/cause-marketing/icon-3.png">
                     </div>
 
                     <div class="row__text">
@@ -88,7 +88,7 @@
 
                 <div class="row__content">
                     <div class="row__icon">
-                        <img src="../../assets/images/webshops/cause-marketing/icon-4.png">
+                        <img alt="cause marketing icon 4" src="../../assets/images/webshops/cause-marketing/icon-4.png">
                     </div>
 
                     <div class="row__text">

@@ -42,7 +42,7 @@
 
         <div class="uk-section section-2 section--content">
             <div class=" uk-container-width section-2-content">
-                <img src="../../assets/images/webshops/retailers/retailer-icon-1.png">
+                <img alt="retailer icon 1" src="../../assets/images/webshops/retailers/retailer-icon-1.png">
 
                 <div class="content--wrapper">
                     <h2 class="main-title">Go Green</h2>
@@ -57,7 +57,7 @@
 
         <div class="uk-section section-2 section--dark section--content">
             <div class=" uk-container-width section-2-content">
-                <img src="../../assets/images/webshops/retailers/retailer-icon-2.png">
+                <img alt="retailer icon 2" src="../../assets/images/webshops/retailers/retailer-icon-2.png">
 
                 <div class="content--wrapper">
                     <h2 class="main-title">Higher conversion rate, more turnover</h2>
@@ -75,7 +75,7 @@
 
         <div class="uk-section section-2 section--content">
             <div class=" uk-container-width section-2-content">
-                <img src="../../assets/images/webshops/retailers/retailer-icon-3.png">
+                <img alt="retailer icon 3" src="../../assets/images/webshops/retailers/retailer-icon-3.png">
 
                 <div class="content--wrapper">
                     <h2 class="main-title">Free for Webshops</h2>
@@ -89,7 +89,7 @@
 
         <div class="uk-section section-2 section--dark section--content">
             <div class=" uk-container-width section-2-content">
-                <img src="../../assets/images/webshops/retailers/retailer-icon-4.png">
+                <img alt="retailer icon 4" src="../../assets/images/webshops/retailers/retailer-icon-4.png">
 
                 <div class="content--wrapper">
                     <h2 class="main-title">Easy integration and use</h2>
@@ -144,7 +144,7 @@
                 <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <img class="shop__image" src="../../assets/images/webshops/retailers/shop-1.png">
+                            <img alt="retailer shop 1" class="shop__image" src="../../assets/images/webshops/retailers/shop-1.png">
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
                             <p class="shop--text">
                                 “Our webshop is sustainable, but climate neutral as well because of CO₂ok!”
@@ -153,7 +153,7 @@
                     </div>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <img class="shop__image" src="../../assets/images/webshops/retailers/shop-2.png">
+                            <img alt="retailer shop 2" class="shop__image" src="../../assets/images/webshops/retailers/shop-2.png">
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
                             <p class="shop--text">
                                 “The first time we got called about the CO₂ok-plugin, we didn’t like the idea at all. (The…
@@ -162,7 +162,7 @@
                     </div>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <img class="shop__image" src="../../assets/images/webshops/retailers/shop-3.png">
+                            <img alt="retailer shop 3" class="shop__image" src="../../assets/images/webshops/retailers/shop-3.png">
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
                             <p class="shop--text">
                                 “We were already environment conscious, but we do buy our products by ship. CO₂ok…

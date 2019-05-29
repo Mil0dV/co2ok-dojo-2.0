@@ -4,7 +4,7 @@
             <div class="uk-container">
                 <nav class="nav--wrapper" uk-navbar>
                     <div class="uk-navbar-left">
-                        <router-link to="/" class="uk-logo"><img :src="require('@/assets/images/nav/logo.png')">
+                        <router-link to="/" class="uk-logo"><img alt="co2ok logo" :src="require('@/assets/images/nav/logo.png')">
                         </router-link>
                     </div>
 
@@ -78,7 +78,7 @@
                         <div class="line"></div>
                         <ul class="uk-navbar-nav">
                             <li>
-                                <img class="language-icon english icon" src="../../assets/images/nav/english-icon.png">
+                                <img alt="engelse vlag" class="language-icon english icon" src="../../assets/images/nav/english-icon.png">
                                 <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
                             </li>
                         </ul>
@@ -130,7 +130,7 @@
                 <a :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget"
                    class="button">Extension</a>
                 <hr>
-                <a><img class="language-icon english icon" src="../../assets/images/nav/english-icon.png"></a>
+                <a><img alt="engelse vlag mobiel" class="language-icon english icon" src="../../assets/images/nav/english-icon.png"></a>
                 <!--<a><img class="language-icon dutch-icon" src="assets/files/dutch-icon.png"></a>-->
 
             </div>
