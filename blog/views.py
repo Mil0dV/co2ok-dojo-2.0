@@ -17,6 +17,9 @@ class BlogView(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
     @csrf_exempt
-    @action(methods=['get'], detail=True)
+    @action(methods=['get'], detail=False)
     def article(self, request):
-        pass
+        blog_id = request.query_params.get('id')
+        article = self.get_queryset().get(pk=blog_id)
+        serializer = self.get_serializer_class()(article)
+        return Response(serializer.data)

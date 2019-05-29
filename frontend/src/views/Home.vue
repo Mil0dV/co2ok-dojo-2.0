@@ -68,7 +68,7 @@
 
         </v-layout>
 
-        <v-btn  depressed class="white--text involed-btn font-weight-bold"
+        <v-btn depressed class="white--text involed-btn font-weight-bold"
                style="background: linear-gradient(to right, #10DC87, #08BA4D);">GET INVOLVED & FIGHT CLIMATE CHANGE
         </v-btn>
         <div class="transaction-steps"></div>
@@ -116,7 +116,7 @@
             </div>
 
             <v-flex xs12 sm12 md10 lg10 xlg10 class="projects-flex" style="">
-                <h2 class="font-weight-bold support-title"  style="">WITH YOUR
+                <h2 class="font-weight-bold support-title" style="">WITH YOUR
                     HELP WE SUPPORT<br> THESE SUSTAINABLE PROJECTS!</h2>
                 <p class="" style="margin: 0px;font-size: 13px; text-align:center;">Check out the various <a href="" style="color:#27B0C7;text-decoration: none;">projects</a>
                     your clicks finance.</p>
@@ -179,7 +179,7 @@
           </v-flex>
 
           <v-flex xs12 sm12 md6 lg6 xlg6>
-            <div style="border: 1px solid red; width: 100%;height: 350px;" ></div>
+            <div style="border: 1px solid red; width: 100%;height: 350px;"></div>
           </v-flex>
         </v-layout>
 

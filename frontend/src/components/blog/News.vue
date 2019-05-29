@@ -29,11 +29,11 @@
                       :style="{backgroundImage: `url(${blog.blog_image})`}"
                     ></div>
                     <div class='blog-contents-container pa-1'>
-                        <span>Posted By: Milo de Fries | {{formatBlogDate(blog.posted_on)}} 16:49</span>
+                        <span>Posted By: Milo de Fries | {{$parent.formatBlogDate(blog.posted_on)}} 16:49</span>
                         <p class='blog-title' v-html="blog.blog_title"></p>
                         <v-divider style="width:85%;"></v-divider>
-                        <p class="blog-content-txt" v-html="stripBlogContent(blog.blog_preface)"></p>
-                        <div :class="[blog.id]" class="readmore-container" @click="newsContent()"><button class="readmore-btn text-capitalize mt-3">Read more<v-icon small color="#10DC87" style="position:relative;left:10px;">arrow_forward</v-icon></button></div>
+                        <p class="blog-content-txt" v-html="$parent.stripBlogContent(blog.blog_preface)"></p>
+                        <div class="readmore-container" @click="$parent.newsContent(blog.id)"><button class="readmore-btn text-capitalize mt-3">Read more<v-icon small color="#10DC87" style="position:relative;left:10px;">arrow_forward</v-icon></button></div>
                     </div>
                 </div>
 
@@ -57,8 +57,9 @@ data(){
 },
 
 created(){
-    this.getBlogs()
-    console.log(this.blogs)
+
+    this.$parent.getBlogs()
+
 },
 
 mounted(){
@@ -67,44 +68,7 @@ mounted(){
     
 methods: {
 
-      getBlogs() {
-        
-        let self = this
-        this.$axios.get(`${this.$store.state.SITE_HOST}/blog/`,{
-            headers: {
-                "X-CSRFToken": `${this.$store.state.userToken}`,
-                Authorization: `token ${window.localStorage.getItem('userToken')}`
-            }
-        }).then(response => {
-            console.log(response.data);
-            
-            self.$store.commit('getBlogs', response.data)
-            console.log(response);
-            
-        }).catch(error => {
-            console.log(error);
-            
-        })
-
-      },
-
-      stripBlogContent(content){
-          return content.substr(0,150)+'...'
-      },
-
-      formatBlogDate(content){
-          let date = content.substr(0,10)
-          return date
-      },
-
-      newsContent(){
-        // this.$store.state.component = 'content'
-        let articleId = event.currentTarget.classList
-        console.log(articleId);
-        
-      }
-
-    }
+}
 }
 </script>
 

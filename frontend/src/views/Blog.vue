@@ -26,7 +26,6 @@ export default {
     data() {
         return {
 
-
         }
     },
 
@@ -36,7 +35,7 @@ export default {
 
     components: {
         'news': News,
-        'content': NewsContent
+        'newsContent': NewsContent
     },
 
     computed: {
@@ -45,6 +44,43 @@ export default {
 
     methods: {
 
+      getBlogs() {
+        
+        let self = this
+        this.$axios.get(`${this.$store.state.SITE_HOST}/blog/`,{
+            headers: {
+                // "X-CSRFToken": `${this.$store.state.userToken}`,
+                // Authorization: `token ${window.localStorage.getItem('userToken')}`
+            }
+        }).then(response => {
+            console.log(response.data);
+            
+            self.$store.commit('getBlogs', response.data)
+            console.log(response);
+            
+        }).catch(error => {
+            console.log(error);
+            
+        })
+
+      },
+        
+      stripBlogContent(content){
+          return content.substr(0,150)+'...'
+      },
+
+      formatBlogDate(content){
+          let date = content.substr(0,10)
+          return date
+      },
+
+      newsContent(articleId){
+
+        this.$store.state.component = 'newsContent'
+        // let articleId = event.currentTarget.parentNode.parentNode.id
+        this.$store.commit('getArticle', articleId)
+
+      }
 
     }
 }

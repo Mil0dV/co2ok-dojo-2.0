@@ -14,7 +14,7 @@
                             <div class="uk-card-body">
                                 <div>
                                     <p class="main-text">You’ve compensated:</p>
-                                    <h3 class="main-title">1300 kgs</h3>
+                                    <h3 class="main-title">{{co2Counter}} kgs</h3>
 
                                     <hr>
                                     <div>
@@ -109,7 +109,8 @@
             return {
                 Authenticated: window.localStorage.getItem('Authenticated'),
                 projectsAlert: false,
-                ninjaSupportedProject: this.$store.state.ninjaData.ninjaProfileData.supportedProject //return supported project
+                ninjaSupportedProject: this.$store.state.ninjaData.ninjaProfileData.supportedProject, //return supported project
+                co2Counter: 1300
                 // share_facebook: `https://www.facebook.com/sharer?u=https%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.ninjaData.id}`,
                 // share_twitter: `https://twitter.com/intent/tweet?text=Help%20me%20fight%20climate%20change%20while%20shopping%20-%20easy%20and%20for%20free!%20http%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.ninjaData.id}`
             }
@@ -122,6 +123,8 @@
             }
             this.supportedProject('get') //get the current user sopported project
             // this.$store.commit('ninjaUserData')
+
+            setInterval(this.co2counter, 2000)
 
         },
 
@@ -206,6 +209,10 @@
                     console.log(error);
                 })
 
+            },
+
+            co2counter(){
+               this.co2Counter = Math.floor(Math.random() * 1000) + 1
             }
 
         }
