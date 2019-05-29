@@ -35,17 +35,17 @@
             <v-flex xs12 sm12 md4 lg4 xlg3 v-for="(ninjaExtensionStep,i) in ninjaExtensionSteps" :key="i"
                     class="steps-container mb-5">
                 <!-- <img :src="ninjaExtensionStep.img" alt="" class="mb-4 animated bounceIn" :styles="{animationDelay:0.5+i-(i*'0.5')+'s'}" data-aos="zoom-in" :data-aos-delay="i*50"> -->
-                <img :src="ninjaExtensionStep.img" alt="extension 1" class="mb-4" data-aos="zoom-in" :data-aos-delay="i*50" data-aos-duration="1000"
+                <img :src="ninjaExtensionStep.img" alt="extension 1" class="mb-4"
                      style="height:237px;">
                 <!-- <p class="font-weight-bold animated zoomIn" :styles="{animationDelay: 0.7+i-(i*'0.5')+'s'}" styles="font-size:21px; color: #10DC87;margin: 0px;" data-aos="zoom-in-up" :data-aos-delay="i*100">Step{{i+1}}</p> -->
                 <p class="font-weight-bold mb-1" style="font-size:21px; color: #10DC87;margin: 0px;"
-                   data-aos="fade-up" :data-aos-delay="i*100" data-aos-duration="1000">Step{{i+1}}</p>
+                  >Step{{i+1}}</p>
                 <!-- <p class="animated zoomIn" :styles="{animationDelay: 0.9+i-(i*'0.5')+'s'}" styles="color: #28123E;font-size:15px;margin: 0px;" data-aos="zoom-in-up" :data-aos-delay="i*100">{{ninjaExtensionStep.title}}</p> -->
-                <p class="font-weight-bold" style="color: #28123E;font-size:15px;margin: 0px;" data-aos="fade-up"
-                   :data-aos-delay="i*100" data-aos-duration="1000">{{ninjaExtensionStep.title}}</p>
+                <p class="font-weight-bold" style="color: #28123E;font-size:15px;margin: 0px;"
+                   >{{ninjaExtensionStep.title}}</p>
                 <!-- <p class="animated zoomIn" :styles="{animationDelay:1.1+i-(i*'0.5')+'s'}" styles="color: #28123E;font-size:16px;text-align: center;" data-aos="zoom-in-up" :data-aos-delay="i*100">{{ninjaExtensionStep.content}}</p> -->
                 <p class="steps-content pa-2" style="color: #28123E;text-align: center;" data-aos="fade-up"
-                   :data-aos-delay="i*100" data-aos-duration="1000">{{ninjaExtensionStep.content}}</p>
+                   >{{ninjaExtensionStep.content}}</p>
             </v-flex>
 
             <!-- mobile - tablet(xsm - sm) display -->
@@ -68,17 +68,17 @@
 
         </v-layout>
 
-        <v-btn data-aos="fade-up" data-aos-duration="600" depressed class="white--text involed-btn font-weight-bold"
+        <v-btn  depressed class="white--text involed-btn font-weight-bold"
                style="background: linear-gradient(to right, #10DC87, #08BA4D);">GET INVOLVED & FIGHT CLIMATE CHANGE
         </v-btn>
-        <div class="transaction-steps" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"></div>
+        <div class="transaction-steps"></div>
 
         <v-layout column justify-center align-center class="mt-5 mb-3 grey lighten-4" style="width: 100%; background-color: #F4F4F4;">
             <v-flex xs12 sm12 md12 lg12 xlg12 class="webshop-txt-flex mt-3">
-                <p data-aos="fade-up" data-aos-duration="1000" class=""
+                <p class=""
                    style="text-align: center; font-size: 21px; color: #10DC87; margin: 0px;position: relative; top:10px;">
                     Choose from 22.000+ webshops</p>
-                <h3 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" class="font-weight-bold shops-title" style="">Together we can make a change</h3>
+                <h3 class="font-weight-bold shops-title" style="">Together we can make a change</h3>
             </v-flex>
 
             <v-flex xs12 sm12 md12 lg12 xlg12 class="slider-flex">
@@ -103,9 +103,6 @@
                       :key="i"
                       :style="{backgroundImage: `url(${webshopIcon.src})`}"
                       class="partners-imgs"
-                      data-aos="fade-up"
-                      :data-aos-delay="200*i"
-                      data-aos-duration="1000"
                   ></div>
                 </div>
 
@@ -119,10 +116,9 @@
             </div>
 
             <v-flex xs12 sm12 md10 lg10 xlg10 class="projects-flex" style="">
-                <h2 class="font-weight-bold support-title" data-aos="fade-up" data-aos-duration="1000" style="">WITH YOUR
+                <h2 class="font-weight-bold support-title"  style="">WITH YOUR
                     HELP WE SUPPORT<br> THESE SUSTAINABLE PROJECTS!</h2>
-                <p class="" style="margin: 0px;font-size: 13px; text-align:center;" data-aos="fade-up"
-                   data-aos-delay="200" data-aos-duration="1000">Check out the various <a href="" style="color:#27B0C7;text-decoration: none;">projects</a>
+                <p class="" style="margin: 0px;font-size: 13px; text-align:center;">Check out the various <a href="" style="color:#27B0C7;text-decoration: none;">projects</a>
                     your clicks finance.</p>
                 <v-carousel :light='carouselLightTheme' height="470" class="projects-slider">
                     <v-carousel-item
@@ -143,9 +139,9 @@
         <v-layout column justify-center align-center class="mt-3 mb-3 grey lighten-4"
                   style="width: 100%; background-color: #F4F4F4;">
             <v-flex xs12 sm12 md6 lg6 xlg6 class="webshop-txt-flex mt-3">
-                <p data-aos="fade-up" data-aos-duration="1000" class="mb-1"
+                <p class="mb-1"
                    style="text-align: center; font-size: 21px; color: #10DC87; margin: 0px;position: relative; top:10px;">Some of our partners</p>
-                <h3 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="font-weight-bold"
+                <h3 class="font-weight-bold"
                     style="text-align: center; font-size: 33px; color: #28123E; margin: 0px;">Together we can make a change</h3>
             </v-flex>
 
@@ -171,9 +167,6 @@
                             :key="i"
                             :style="{backgroundImage: `url(${partnerIcon.src})`}"
                             class="webshops-imgs"
-                            data-aos="fade-up"
-                            :data-aos-delay="200*i"
-                            data-aos-duration="1000"
                         ></div>
                     </div>
 
@@ -182,11 +175,11 @@
 
         <v-layout wrap row justify-center align-center class="pa-5" style="width: 100%; ">
           <v-flex xs12 sm12 md6 lg5 xlg6 class="wwf-flex">
-            <h2 data-aos="fade-up" data-aos-duration="1000" class="black--text" style="">"Startup CO₂ok makes<br>online shopping<br>climate neutral."<br><strong>-WWF</strong></h2>
+            <h2 class="black--text" style="">"Startup CO₂ok makes<br>online shopping<br>climate neutral."<br><strong>-WWF</strong></h2>
           </v-flex>
 
           <v-flex xs12 sm12 md6 lg6 xlg6>
-            <div style="border: 1px solid red; width: 100%;height: 350px;" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="800"></div>
+            <div style="border: 1px solid red; width: 100%;height: 350px;" ></div>
           </v-flex>
         </v-layout>
 
