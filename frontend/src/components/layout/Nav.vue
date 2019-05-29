@@ -4,7 +4,9 @@
             <div class="uk-container">
                 <nav class="nav--wrapper" uk-navbar>
                     <div class="uk-navbar-left">
-                        <router-link to="/" class="uk-logo"><img alt="co2ok logo" :src="require('@/assets/images/nav/logo.png')">
+                        <router-link to="/" class="uk-logo">
+                            <img alt="co2ok logo"
+                                 :src="require('@/assets/images/nav/logo.png')">
                         </router-link>
                     </div>
 
@@ -40,7 +42,7 @@
 
                             <li v-if="!$store.state.userStatus"
                                 :class="[checkActive('consumers') ? 'navbar__active' : '']">
-                                <router-link  to="/consumers/login">
+                                <router-link to="/consumers/login">
                                     Consumers
                                 </router-link>
                             </li>
@@ -51,7 +53,8 @@
                                     </span>
                                 </router-link>
                             </li>
-                            <div v-if="$store.state.userStatus" class="dropdown__menu-wrapper" uk-dropdown="offset: -15">
+                            <div v-if="$store.state.userStatus" class="dropdown__menu-wrapper"
+                                 uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
                                     <li>
                                         <router-link to="/consumers/profile">Profile</router-link>
@@ -76,12 +79,42 @@
                         </ul>
 
                         <div class="line"></div>
-                        <ul class="uk-navbar-nav">
-                            <li>
-                                <img alt="engelse vlag" class="language-icon english icon" src="../../assets/images/nav/english-icon.png">
-                                <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
-                            </li>
-                        </ul>
+                        <transition enter-acitve-class="animated bounceIn"
+                                    leave-active-class="animated bounceOut"
+                                    mode="out-in">
+                            <ul key="en" v-if="$store.state.language === 'en'" class="uk-navbar-nav">
+                                <li @click="switchLang('en')" style="cursor: pointer">
+                                    <img alt="engelse vlag" class="language-icon english icon"
+                                         src="../../assets/images/nav/english-icon.png">
+                                    <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
+                                </li>
+                                <div class="dropdown__menu-wrapper" uk-dropdown="offset:10">
+                                    <ul class="uk-nav uk-dropdown-nav dropdown__nav dropdown__lang">
+                                        <li @click="switchLang('nl')">
+                                            <img alt="nederlandse vlag" class="language-icon english icon"
+                                                 src="../../assets/images/nav/dutch-icon.png">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ul>
+                            <ul v-else class="uk-navbar-nav" key="nl">
+                                <li @click="switchLang('nl')" style="cursor: pointer">
+                                    <img alt="engelse vlag" class="language-icon english icon"
+                                         src="../../assets/images/nav/dutch-icon.png">
+                                    <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
+                                </li>
+                                <div class="dropdown__menu-wrapper" uk-dropdown="offset:10">
+                                    <ul class="uk-nav uk-dropdown-nav dropdown__nav dropdown__lang">
+                                        <li @click="switchLang('en')">
+                                            <img alt="nederlandse vlag" class="language-icon english icon"
+                                                 src="../../assets/images/nav/english-icon.png">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </transition>
+
+
                     </div>
 
                     <div class="uk-navbar-right uk-hidden@m">
@@ -130,7 +163,8 @@
                 <a :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget"
                    class="button">Extension</a>
                 <hr>
-                <a><img alt="engelse vlag mobiel" class="language-icon english icon" src="../../assets/images/nav/english-icon.png"></a>
+                <a><img alt="engelse vlag mobiel" class="language-icon english icon"
+                        src="../../assets/images/nav/english-icon.png"></a>
                 <!--<a><img class="language-icon dutch-icon" src="assets/files/dutch-icon.png"></a>-->
 
             </div>
@@ -164,6 +198,10 @@
         },
 
         methods: {
+            switchLang(lang) {
+                this.$store.commit('languageStatus', lang)
+            },
+
             logout() {
                 axios
                     .post('http://127.0.0.1:8000/logout/', {
