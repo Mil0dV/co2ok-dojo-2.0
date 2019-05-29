@@ -29,7 +29,7 @@ export default new Vuex.Store({
         x_asLabel: [],
         graphData: [],
         blogs: [],
-        component: 'news', //use in blo.vue as dynamic template
+        component: 'news', //use in blog.vue as dynamic template
         generatedNinjaName: '',
         ninjaExtensionLink: '',
         extensionLinkTarget: '',
