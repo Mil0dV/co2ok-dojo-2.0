@@ -45,9 +45,13 @@ module.exports = {
         subtitle3: 'CO₂ok Partners',
         title3: 'Neem een kijkje bij de webshops die al gebruik maken van de  CO₂ok plugin',
 
-        quote1: '“Onze webshop is duurzaam, maar ook klimaatneutraal vanwege CO₂ok!\n”',
-        quote2: '“De eerste keer dat we over de CO₂ok-plugin werden gebeld, hielden we helemaal niet van het idee. (De…\n',
-        quote3: ' “We waren al milieubewust, maar we kopen onze producten wel per schip. CO₂ok ...\n',
+        quote1: '“Onze webshop is al duurzaam, maar nu ook klimaatneutraal door CO₂ok!\n' +
+            '– Petra Jenema ”',
+        quote2: '“De eerste keer dat ik werd gebeld over de CO₂ok-plugin, zag ik hem totáál niet zitten. (De tweede en derde keer trouwens ook niet). Het concept van CO₂ compensatie kende ik wel en vind ik een goed idee. Maar ja, extra tekst en afbeeldingen kosten bezoekers – zeggen ze. En ook: ‘Je moet de customer-journey kort houden.’\n' +
+            '\n' +
+            'Maar deze plugin draagt bij aan het duurzame verhaal van mijn webwinkel. Het ondersteunt de geloofwaardigheid en draagt zo bij aan de omzet. Sinds de installatie zijn de verkopen gestegen. En meer klanten dan verwacht compenseren CO₂. Daarom ben ik blij met de CO₂ok-plugin” \n' +
+            '– Cor Sandburg',
+        quote3: '“Wij zijn zelf al erg milieu bewust, maar kopen onze producten wel in via boten. CO₂ok geeft ons de kans om alle CO₂ kosten weer recht te trekken.”',
 
     }
 }

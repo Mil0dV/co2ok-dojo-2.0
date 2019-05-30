@@ -152,6 +152,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    flex: 1;
   }
 
   .login-c__wrapper {
@@ -163,32 +166,21 @@
     margin: 0 auto;
     width: 100%;
     max-width: unset;
+    padding: 0;
   }
 
-  .login-c__input {
-    width: 80%;
+  .login-c__section {
+    padding: 30px 0;
   }
-}
 
-@media screen and (max-width: 1150px) {
   .login-c__input {
     width: 100%;
-  }
-
-  .login__width {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    flex: 1;
   }
 
   .login-c__form {
     padding: 50px 0 0 0 ;
   }
-}
 
-@media screen and (max-width: 1150px) {
   .login-c__section {
     border-radius: 10px;
     width: 90%;

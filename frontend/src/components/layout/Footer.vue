@@ -34,7 +34,7 @@
                                     <router-link to="webshops/cause-marketing">Cause Marketing</router-link>
                                 </li>
                                 <li>
-                                    <router-link to="/webshops/projects">Projects</router-link>
+                                    <router-link to="/projects">Projects</router-link>
                                 </li>
                                 <span v-if="$store.state.userStatus">
                                      <li><router-link to="/webshops/dashboard">Dashboard</router-link></li>

@@ -4,14 +4,14 @@
         <v-layout flex row justify-space-around align-start class="header-layout pa-5">
 
             <v-flex xs12 sm12 md12 lg6 xlg6 class="header-txt-flex pa-5">
-                <p class="white--text animated fadeInUp mb-5" style="animation-delay:0.2s;">HI WE'RE CO₂ok</p>
+                <p class="white--text  mb-5" style="animation-delay:0.2s;">HI WE'RE CO₂ok</p>
                 <h1 class="font-weight-bold mb-5 animated fadeInUp" style="animation-delay:0.4s; width: 500px;">Become a
                     Ninja and<br> shop climate neutral!</h1>
-                <v-btn depressed color="#28123E" class="white--text mb-2 font-weight-bold animated zoomIn"
+                <v-btn depressed color="#28123E" class="white--text mb-2 font-weight-bold"
                        style='animation-delay:0.6s;margin: 0px; padding:0px; font-size: 15px;width: 230px;height: 45px;border-radius: 9px;'>
                     INSTALL THE EXTENSION
                 </v-btn>
-                <span class="caption white--text animated fadeInLeft" style="animation-delay:0.7s;">Activate the extension and you’ll be shopping climate neutral without a cost!</span>
+                <span class="caption white--text" style="animation-delay:0.7s;">Activate the extension and you’ll be shopping climate neutral without a cost!</span>
             </v-flex>
 
             <v-flex xs12 sm12 md12 lg6 xlg6 class="header-img-flex">

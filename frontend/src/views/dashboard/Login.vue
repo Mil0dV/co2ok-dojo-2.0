@@ -5,7 +5,7 @@
             <div class="bkgr__filler bkgr__text hide--tablet">
                 <div class="green-border__login">
                     <p class="green-border__text main-text">
-                        With your account you will get acces to information how much you’ve contributed to fighting climate change
+                        With your account you will get access to information how much you’ve contributed to fighting climate change
                     </p>
                 </div>
             </div>

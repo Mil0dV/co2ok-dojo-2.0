@@ -9,6 +9,7 @@
 
 //-------------------Section 2-----------------
 .section-2--col-1 {
+  margin-bottom: 30px;
   .main-title, .sub-title {
     padding: 0;
     margin: 0;
@@ -80,6 +81,14 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.section-1 {
+  padding-bottom: 0;
+}
+
+.section-2 {
+  padding: 0;
 }
 
 

@@ -32,7 +32,7 @@
                                         <router-link to="/webshops/cause-marketing">Cause Marketing</router-link>
                                     </li>
                                     <li>
-                                        <router-link to="/webshops/projects">Projects</router-link>
+                                        <router-link to="/projects">Projects</router-link>
                                     </li>
                                     <li>
                                         <router-link to="/webshops/login">Login</router-link>
@@ -145,7 +145,7 @@
                         <router-link to="/webshops/cause-marketing">Cause Marketing</router-link>
                     </li>
                     <li>
-                        <router-link to="/webshops/projects">Projects</router-link>
+                        <router-link to="/projects">Projects</router-link>
                     </li>
                     <li>
                         <router-link to="/webshops/login">Login webshop</router-link>

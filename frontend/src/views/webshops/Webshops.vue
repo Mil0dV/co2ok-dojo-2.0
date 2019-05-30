@@ -15,13 +15,9 @@
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/plug-in-installation" class="button">Plug-in</router-link>
+                                <router-link to="/webshops/retailers" class="button">Plug-in</router-link>
 
                                 <div class="col-1--links-wrapper">
-                                    <router-link class="link" to="/webshops/retailers">
-                                        {{locale.link1}} <span uk-icon="icon: arrow-right"></span>
-                                    </router-link>
-
                                     <router-link class="link" to="/webshops/cause-marketing">
                                         {{locale.link2}} <span uk-icon="icon: arrow-right"></span>
                                     </router-link>
@@ -44,7 +40,7 @@
             <div class="uk-container uk-container-width">
                 <div class="section-2--col-1">
                     <h1 class="main-title">{{locale.title2}}</h1>
-                    <h2 class="sub-title">{{locale.subTitle2}}</h2>
+                    <h2 class="sub-title sub-title--s2">{{locale.subTitle2}}</h2>
                 </div>
                 <br>
 
