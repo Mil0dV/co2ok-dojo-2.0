@@ -3,15 +3,15 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const ifAuthenticated = (to, from, next) => {
-    if (localStorage.getItem('Authenticated')) {
-        return next('/dashboard')
-    } else {
-        this.$router.push('login')
-        // return
-    }
-// next()
-}
+// const ifAuthenticated = (to, from, next) => {
+//     if (localStorage.getItem('Authenticated')) {
+//         return next('/dashboard')
+//     } else {
+//         this.$router.push('login')
+//         // return
+//     }
+// // next()
+// }
 
 
 const router = new Router({
@@ -83,7 +83,7 @@ const router = new Router({
             path: '/webshops/dashboard',
             name: 'dashboard',
             component: () => import( './views/dashboard/Dashboard'),
-            beforeEnter: ifAuthenticated
+            // beforeEnter: ifAuthenticated
         },
         {
             path: '/projects',
@@ -94,7 +94,7 @@ const router = new Router({
             path: '/consumers/profile',
             name: 'consumers-profile',
             component: () => import('./views/consumer/Consumer'),
-            beforeEnter: ifAuthenticated
+            // beforeEnter: ifAuthenticated
         },
         {
             path: '/consumers/login',
