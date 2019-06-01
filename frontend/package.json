@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "compile_lang": "node src/lang/compile.js",
+    "compile_lang": "node src/lang/compile.js"
   },
   "dependencies": {
     "aos": "^3.0.0-beta.6",

@@ -1,17 +1,18 @@
 <template>
 
     <div class="home-container">
-        <v-layout flex row justify-space-around align-start class="header-layout pa-5">
+        <v-layout flex row justify-space-around align-start class="header-layout">
 
-            <v-flex xs12 sm12 md12 lg6 xlg6 class="header-txt-flex pa-5">
-                <p class="white--text  mb-5" style="animation-delay:0.2s;">HI WE'RE CO₂ok</p>
+            <v-flex xs12 sm12 md12 lg6 xlg6 class="header-txt-flex">
+                <div class="hidden-md-and-up header-filter"></div>
+                <p class="mb-5" style="animation-delay:0.2s;">HI WE'RE CO₂ok</p>
                 <h1 class="font-weight-bold mb-5 animated fadeInUp" style="animation-delay:0.4s; width: 500px;">Become a
                     Ninja and<br> shop climate neutral!</h1>
                 <v-btn depressed color="#28123E" class="white--text mb-2 font-weight-bold"
                        style='animation-delay:0.6s;margin: 0px; padding:0px; font-size: 15px;width: 230px;height: 45px;border-radius: 9px;'>
                     INSTALL THE EXTENSION
                 </v-btn>
-                <span class="caption white--text" style="animation-delay:0.7s;">Activate the extension and you’ll be shopping climate neutral without a cost!</span>
+                <span class="caption" style="animation-delay:0.7s;">Activate the extension and you’ll be shopping climate neutral without a cost!</span>
             </v-flex>
 
             <v-flex xs12 sm12 md12 lg6 xlg6 class="header-img-flex">
@@ -173,7 +174,7 @@
             </v-flex>
         </v-layout>
 
-        <v-layout wrap row justify-center align-center class="pa-5" style="width: 100%; ">
+        <v-layout wrap row justify-center align-center class="wwf-layout" style="width: 100%; ">
           <v-flex xs12 sm12 md6 lg5 xlg6 class="wwf-flex">
             <h2 class="black--text" style="">"Startup CO₂ok makes<br>online shopping<br>climate neutral."<br><strong>-WWF</strong></h2>
           </v-flex>
@@ -354,6 +355,16 @@
         background-repeat: no-repeat;
         background-position: top;
         background-size: 100% 100%;
+        padding: 48px;
+    }
+
+    .header-filter{
+        width: 90%;
+        height: 410px;
+        background-color: #10DC87;
+        opacity: 0.5;
+        position: absolute;
+        top: 0px;
     }
 
     .header-txt-flex {
@@ -363,6 +374,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        padding: 48px;
     }
 
     .header-txt-flex p {
@@ -370,6 +382,7 @@
         font-size: 21px;
         position: relative;
         bottom: 0px;
+        color: white;
     }
 
     .header-txt-flex h1 {
@@ -382,7 +395,9 @@
 
     .header-txt-flex span {
         text-align: left;
-        font-size: 12px;
+        font-size: 16px;
+        color:white;
+        z-index: 2;
     }
 
     .header-img-flex {
@@ -770,6 +785,10 @@
         max-height: 270px;
     }
 
+    .wwf-layout{
+        padding: 48px;
+    }
+
     .wwf-flex h2{
         text-align: left;
     }
@@ -883,15 +902,37 @@
             /* border: 1px solid red; */
         }
 
+        .wwf-layout{
+            padding: 20px;
+        }
+
         .wwf-flex{
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 30px;
+            width: 100%;
         }
 
         .wwf-flex h2{
             text-align: center;
+            font-size: 25px;
+        }
+
+        .header-txt-flex p, .header-txt-flex h1, .header-txt-flex span{
+            color: rgb(229, 235, 240);
+        }
+
+        .header-layout{
+            padding: 20px;
+        }
+
+        .header-txt-flex{
+            padding: 0px;
+            width: 100%;
+        }
+
+        .world-ball{
         }
     }
 

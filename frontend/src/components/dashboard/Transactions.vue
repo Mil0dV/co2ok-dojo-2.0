@@ -432,14 +432,13 @@ import Co2okWidget from '../../co2okWidget'
                 this.$axios.get(`${this.$store.state.SITE_HOST}/user/compnensationsData/`, {
                     params: {
                         year: self.$moment().year(),
-                        merchantId: self.$store.state.userData.userProfileData.merchantId
+                        merchantId: self.$store.state.userData.profileData.merchantId
                     },
                     headers: {
                        "X-CSRFToken": `${this.$store.state.userToken}`,
                         Authorization: `token ${window.localStorage.getItem('userToken')}` 
                     }
                 }).then(response => {
-console.log(response.data);
 
                     let yearGraphData = self.parseTransactionsData(response.data)
                     self.$store.commit('yearGraphData', yearGraphData)
@@ -458,7 +457,7 @@ console.log(response.data);
                         yearMonth: weekdate,
                         endWeek: lastweek,
                         startWeek: beginweek,
-                        merchantId: self.$store.state.userData.userProfileData.merchantId
+                        merchantId: self.$store.state.userData.profileData.merchantId
                     },
                     headers: {
                        "X-CSRFToken": `${self.$store.state.userToken}`,
@@ -466,7 +465,6 @@ console.log(response.data);
                     }
                 }).then(response => {
 
-                    console.log(response.data);
                     let weekGraphData = self.parseTransactionsWeekData(response.data)
                     self.$store.commit('weekGraphData', weekGraphData)
                     self.graphUpdatedData()

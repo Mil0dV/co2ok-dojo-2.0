@@ -124,7 +124,7 @@ def signup(request):
                 # userToken(request, user)
                 if userAuth:
                     token, _ = Token.objects.get_or_create(user=user)
-                    return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
+                    return Response({'token': token.key, 'id': token.user_id, 'authenticate': True, 'status': sort}, status=HTTP_200_OK)
                 else:
                     print('error:false')
             else:
@@ -133,7 +133,7 @@ def signup(request):
 
                 if userAuth:
                     token, _ = Token.objects.get_or_create(user=user)
-                    return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
+                    return Response({'token': token.key, 'id': token.user_id, 'authenticate': True, 'status': sort}, status=HTTP_200_OK)
                 else:
                     return Response({'error': 'Something went wrong, try manualy to login', 'authenticate': False})
 
@@ -172,7 +172,7 @@ def invitation_signup(request):
             new_inviter_points = current_inviter_points + 1
             NinjaProfile.objects.filter(user__pk=inviter_id).update(user_points=new_inviter_points)
             token, _= Token.objects.get_or_create(user=ninja)
-            return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
+            return Response({'token': token.key, 'id': token.user_id, 'authenticate': True, 'status': 'ninja'}, status=HTTP_200_OK)
         else:
             return Response({'error': 'Something went wrong, try manualy to login', 'authenticate': False})
     else:
@@ -209,7 +209,7 @@ def signin(request):
             if user:
                 login(request, user)
                 token, _ = Token.objects.get_or_create(user=user)
-                return Response({'token': token.key, 'id': token.user_id, 'authenticate': True}, status=HTTP_200_OK)
+                return Response({'token': token.key, 'id': token.user_id, 'authenticate': True, 'status': sort}, status=HTTP_200_OK)
             else:
                 print('error:false')
         else:
@@ -389,6 +389,20 @@ def sendMail(request):
             'status': False,
             'msg': 'Wrong email'
         }
+        return Response(error)
+
+
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((AllowAny,))
+def check_inviter_id(request):
+    inviter_id = request.data['body']['id']
+    id_count = User.objects.filter(id=inviter_id).count()
+    if id_count > 0:
+        success = {'exist': True, 'msg': 'Id checked'}
+        return Response(success)
+    else:
+        error = {'exist': False, 'msg': 'Inviter id don t exist'}
         return Response(error)
 
 

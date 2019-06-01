@@ -46,7 +46,7 @@ class UserView(viewsets.ModelViewSet):
             profile = Profile.objects.get(user_id=userId)
             context = {
                 'userdata': serializer.data,
-                'userProfileData': {
+                'profileData': {
                     'user_status': profile.user_status,
                     'country': profile.country,
                     'city': profile.city,

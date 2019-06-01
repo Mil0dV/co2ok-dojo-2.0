@@ -70,7 +70,7 @@
                 <div class="dashboard__row-2">
                     <span class="ninja__stars">
                         <p class="star-title"><i class="far fa-star"></i> Ninja stars obtained:</p>
-                        <p class="star-title">{{this.$store.state.ninjaData.ninjaProfileData.ninjaPoints}}</p>
+                        <p class="star-title">{{$store.state.ninjaData.profileData.ninjaPoints}}</p>
                     </span>
                     <hr>
                     <div class="ninja-text">
@@ -79,17 +79,17 @@
                         </p>
 
                         <p class="green-border">
-                            {{this.$store.state.domain}}/{{this.$store.state.ninjaData.ninjaData.id}}</p>
+                            {{this.$store.state.domain}}/{{this.$store.state.ninjaData.userData.id}}</p>
 
                         <div class="main-text">
                             <p>Share our vision, make others happy with the Ninja App :)</p>
                             <p class="social-buttons">
                                 <a target="_blank"
-                                   :href="`https://www.facebook.com/sharer?u=https%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.ninjaData.id}`"><i
+                                   :href="`https://www.facebook.com/sharer?u=https%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.userData.id}`"><i
                                         class="fab  fa-facebook-f"></i></a>
                                 or
                                 <a target="_blank"
-                                   :href="`https://twitter.com/intent/tweet?text=Help%20me%20fight%20climate%20change%20while%20shopping%20-%20easy%20and%20for%20free!%20http%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.ninjaData.id}`"><i
+                                   :href="`https://twitter.com/intent/tweet?text=Help%20me%20fight%20climate%20change%20while%20shopping%20-%20easy%20and%20for%20free!%20http%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.userData.id}`"><i
                                         class="fab fa-twitter"></i></a>
                             </p>
                         </div>
@@ -109,10 +109,8 @@
             return {
                 Authenticated: window.localStorage.getItem('Authenticated'),
                 projectsAlert: false,
-                ninjaSupportedProject: this.$store.state.ninjaData.ninjaProfileData.supportedProject, //return supported project
+                // ninjaSupportedProject: $store.state.ninjaData.profileData.supportedProject, //return supported project
                 co2Counter: 1300
-                // share_facebook: `https://www.facebook.com/sharer?u=https%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.ninjaData.id}`,
-                // share_twitter: `https://twitter.com/intent/tweet?text=Help%20me%20fight%20climate%20change%20while%20shopping%20-%20easy%20and%20for%20free!%20http%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.ninjaData.id}`
             }
         },
 
@@ -121,17 +119,14 @@
             if (window.localStorage.getItem('Authenticated') == null) {
                 this.$router.push('/consumers/login')
             }
-            this.supportedProject('get') //get the current user sopported project
+            this.$store.dispatch('commitNinjaUserData');
             // this.$store.commit('ninjaUserData')
-
-            setInterval(this.co2counter, 2000)
-
         },
 
         mounted() {
 
-            this.$store.dispatch('commitNinjaUserData');
             this.supportedProject('get') //get the current user sopported project
+            setInterval(this.co2counter, 2000)
 
         },
 
@@ -141,7 +136,7 @@
 
                 let newProject = event.currentTarget.id
 
-                if (this.ninjaSupportedProject !== '' && this.ninjaSupportedProject !== newProject) {
+                if (this.$store.state.ninjaData.profileData.supportedProject !== '' && this.$store.state.ninjaData.profileData.supportedProject !== newProject) {
 
                     this.supportedProject(newProject, function callback(newproject, currentProject) {
                         currentProject.style.border = '0px solid white'
@@ -150,18 +145,18 @@
 
                     let message = {
                         title: 'Pick a cause',
-                        text: `You now support the ${this.ninjaSupportedProject} project.`
+                        text: `You now support the ${this.$store.state.ninjaData.profileData.supportedProject} project.`
                     }
                     this.$store.commit('modalStatus', {message})
 
-                } else if (this.ninjaSupportedProject !== '' && this.ninjaSupportedProject === newProject) {
+                } else if (this.$store.state.ninjaData.profileData.supportedProject !== '' && this.$store.state.ninjaData.profileData.supportedProject === newProject) {
                     let message = {
                         title: 'Pick a cause',
-                        text: `You now support the ${this.ninjaSupportedProject} project.`
+                        text: `You now support the ${this.$store.state.ninjaData.profileData.supportedProject} project.`
                     }
                     this.$store.commit('modalStatus', {message})
 
-                } else if (this.ninjaSupportedProject === '') {
+                } else if (this.$store.state.ninjaData.profileData.supportedProject === '') {
 
                     this.supportedProject(newProject, function callback(newproject, currentProject) {
                         currentProject.style.border = '0px solid white'
@@ -169,7 +164,7 @@
                     })
                     let message = {
                         title: 'Pick a cause',
-                        text: `You now support the ${this.ninjaSupportedProject} project.`
+                        text: `You now support the ${this.$store.state.ninjaData.profileData.supportedProject} project.`
                     }
                     this.$store.commit('modalStatus', {message})
 
@@ -192,7 +187,7 @@
 
                     // console.log(response.data);
                     if (response.data.update) {
-                        self.ninjaSupportedProject = response.data.newProject//update project name in userProfileData
+                        self.$store.state.ninjaData.profileData.supportedProject = response.data.newProject//update project name in userProfileData
                         let new_supportedProjectId = document.querySelector(`#${response.data.newProject} img`)
                         let current_supportedProjectId = document.querySelector(`#${response.data.currentProject} img`)
                         new_supportedProjectId.style.border = '5px solid #09BA4E' // change hoosed project border

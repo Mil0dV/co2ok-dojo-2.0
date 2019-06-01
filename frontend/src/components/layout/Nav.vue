@@ -22,6 +22,9 @@
                             </li>
                             <div class="dropdown__menu-wrapper" uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
+                                     <li v-if="$store.state.Authenticated && $store.state.status == 'webshop'">
+                                        <router-link to="/webshops/dashboard">Dashboard</router-link>
+                                    </li>
                                     <li>
                                         <router-link to="/webshops">Webshops</router-link>
                                     </li>
@@ -34,26 +37,29 @@
                                     <li>
                                         <router-link to="/projects">Projects</router-link>
                                     </li>
-                                    <li>
+                                    <li @click="logout('consumer')" v-if="$store.state.Authenticated && $store.state.status == 'webshop'"><a>Logout</a></li>
+                                    <li v-else>
                                         <router-link to="/webshops/login">Login</router-link>
                                     </li>
                                 </ul>
                             </div>
 
-                            <li v-if="!$store.state.userStatus"
-                                :class="[checkActive('consumers') ? 'navbar__active' : '']">
-                                <router-link to="/consumers/login">
-                                    Consumers
-                                </router-link>
-                            </li>
-                            <li v-else>
+                            <li v-if="$store.state.Authenticated &&  $store.state.status == 'ninja'">
                                 <router-link to="/consumers/profile">Consumers
                                     <span uk-icon="icon: triangle-down"
                                           class="animated bounceIn">
                                     </span>
                                 </router-link>
                             </li>
-                            <div v-if="$store.state.userStatus" class="dropdown__menu-wrapper"
+
+                             <li v-else
+                                :class="[checkActive('consumers') ? 'navbar__active' : '']">
+                                <router-link to="/consumers/login">
+                                    Consumers
+                                </router-link>
+                            </li>
+
+                            <div v-if="$store.state.Authenticated && $store.state.status == 'ninja'" class="dropdown__menu-wrapper"
                                  uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
                                     <li>
@@ -70,7 +76,7 @@
                                 <router-link to="/faq">FAQ</router-link>
                             </li>
                         </ul>
-                        <a v-if="!$store.state.userStatus" :href="this.$store.state.ninjaExtensionLink"
+                        <a v-if="!$store.state.Authenticated" :href="this.$store.state.ninjaExtensionLink"
                            :target="this.$store.state.extensionLinkTarget" class="button">Extension</a>
                         <ul v-else class="uk-navbar-nav">
                             <li @click="logout()">
@@ -189,6 +195,12 @@
                     {title: 'FAQ', link: '/faq'},
                 ]
             }
+        },
+
+        created(){
+
+            this.$store.commit('installNinjaButton')
+            
         },
 
         mounted() {

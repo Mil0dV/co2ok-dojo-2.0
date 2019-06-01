@@ -26,6 +26,7 @@ export default new Vuex.Store({
         userId: window.localStorage.getItem('userId'),
         //return a booleam of user login status
         Authenticated: window.localStorage.getItem('Authenticated'),
+        status: window.localStorage.getItem('status'), // get the user status(ninja/merchant)
         //graph variabels
         x_asLabel: [],
         graphData: [],
@@ -83,6 +84,7 @@ export default new Vuex.Store({
                         }
                     })
                     .then(response => {
+                        
                         //verify if the userdata array is empty
                         if(response.data.authData){
                             if (state.userData.length === 0) {
@@ -162,20 +164,21 @@ export default new Vuex.Store({
             window.localStorage.setItem('userToken', data.token);
             window.localStorage.setItem('userId', data.id);
             window.localStorage.setItem('Authenticated', true)
-            //    let getLocalData = {
-            //        userToken: window.localStorage.getItem('userToken'),
-            //        userId: window.localStorage.getItem('userId')
-            //    }
-            //     state.userAuthLocalData = getLocalData;
+            window.localStorage.setItem('status', data.status)
         },
 
         // empty user authenticate data if the are logout
         removeLocalUserData(state) {
             window.localStorage.removeItem('userToken');
             window.localStorage.removeItem('userId');
+            window.localStorage.removeItem('status');
             window.localStorage.setItem('Authenticated', false);
             state.userData = '';
             state.userStatus = false
+            state.userId = ''
+            state.userToken = ''
+            state.status = ''
+            state.Authenticated = false
         },
 
         //haal de merchant huidige maand en jaar transacties data uit de dynamoDB

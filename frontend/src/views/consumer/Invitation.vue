@@ -80,48 +80,68 @@ data() {
 
 created() {
     this.$store.commit('generateUserName')
+    this.checkId()
 },
 
 methods: {
 
-register(){
+    // check if inviter id exist in the db
+    checkId(){
 
-    let self = this
-    if(this.email != '' && this.password != ''){
-
-        this.$axios.post(`${self.$store.state.SITE_HOST}/invitation_signup/`,{
+        let self = this
+        this.$axios.post(`${this.$store.state.SITE_HOST}/check_inviter_id/`,{
             body: {
-                email: self.email,
-                password: self.password,
-                inviterId: self.inviterId,
-                username: self.$store.state.generatedNinjaName
-            },
-        }).then(response => {
-
-            if(response.data.authenticate){
-
-                this.$store.dispatch('commitSaveUser', response.data)
-                this.$store.commit('setLocalUserData', response.data)
-                this.$store.commit('isLoggedIn', response.data.authenticate)
-                this.$store.dispatch('commitNinjaUserData')
-                self.$router.push('/consumers/profile')
-
-            }else{
-                console.log(response.data.error);
-                
+                id : self.inviterId
             }
+        }).then(response => {
             console.log(response.data);
-
+            if(!response.data.exist){
+                self.$router.push('/')
+            }
         }).catch(error => {
             console.log(error);
         })
 
-    }else{
-        console.log('fill email and password');
-        
-    }
+    },
 
-}
+    register(){
+
+        let self = this
+        if(this.email != '' && this.password != ''){
+
+            this.$axios.post(`${self.$store.state.SITE_HOST}/invitation_signup/`,{
+                body: {
+                    email: self.email,
+                    password: self.password,
+                    inviterId: self.inviterId,
+                    username: self.$store.state.generatedNinjaName
+                },
+            }).then(response => {
+
+                if(response.data.authenticate){
+
+                    this.$store.dispatch('commitSaveUser', response.data)
+                    this.$store.commit('setLocalUserData', response.data)
+                    this.$store.commit('isLoggedIn', response.data.authenticate)
+                    this.$store.dispatch('commitNinjaUserData')
+                    self.$router.push('/consumers/profile')
+
+                }else{
+                    console.log(response.data.error);
+
+                }
+                console.log(response.data);
+
+            }).catch(error => {
+                console.log(error);
+            })
+
+        }else{
+            console.log('fill email and password');
+
+        }
+
+    }
 
 }
 

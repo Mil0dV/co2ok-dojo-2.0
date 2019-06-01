@@ -295,7 +295,10 @@
                                 this.send = false
                                 if (response.data.authenticate) {
                                     this.$store.dispatch('commitSaveUser', response.data)
+                                    this.$store.state.status = 'webshop'
+                                    this.$store.state.Authenticated = true
                                     this.$store.commit('setLocalUserData', response.data)
+                                    this.$store.commit('isLoggedIn', true) //set userStatus variable in the store to true
                                     self.$router.push('/webshops/dashboard')
                                 } else {
                                     this.errorMessage()

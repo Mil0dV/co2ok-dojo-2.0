@@ -1,28 +1,28 @@
 <template>
    <div class="article-container">
        
-       <v-layout row justify-center align-start class="article-layout">
+       <v-layout row wrap justify-center align-start class="article-layout">
 
-           <v-flex xs10 sm8 md8 lg8 xlg6 class="article-flex">
+           <v-flex xs12 sm8 md8 lg8 xlg6 class="article-flex">
                <div class="return mb-3" @click="backToBlogs()"><v-icon small color="#818181" style="">arrow_backward</v-icon><p>Go back to the news page</p></div>
                <div class="article-flex-container" v-for="(article, i) in articles" :key="i">
                     <div class="article-img" :style="{backgroundImage: `url(${$store.state.SITE_HOST}${article.blog_image})`}"></div>
                     <span class="mt-3">Posted By: Milo de Fries | {{$parent.formatBlogDate(article.posted_on)}}</span>
                     <v-divider style="width:100%;"></v-divider>
-                    <h2 class="aticle-title mb-2">{{article.blog_title}}</h2>
-                    <div class="article-content" v-html="article.blog_content"></div>
+                    <h2 class="aticle-title mb-2" style="text-align: left;">{{article.blog_title}}</h2>
+                    <div class="article-content" style="text-align: left;" v-html="article.blog_content"></div>
                </div>
                <div class="return mt-3 mb-3" @click="backToBlogs()"><v-icon small color="#818181" style="">arrow_backward</v-icon><p>Go back to the news page</p></div>
            </v-flex>
 
-           <v-flex xs2 sm4 md4 lg4 xlg6 class="all-article-flex pl-5 mt-5">
-               <span style="color:#08BA4D;">Other blogs</span>
-               <h1>Read also our <br>other blogs</h1>
+           <v-flex xs12 sm4 md4 lg4 xlg6 class="all-article-flex">
+               <span style="color:#08BA4D; text-align: left;">Other blogs</span>
+               <h1 style="text-align: left;">Read also our <br>other blogs</h1>
                <div class="all-article">
                    <div class="other-articles mb-5" :id="blog.id" v-for="(blog, i) in this.$store.state.blogs" :key="i">
                        <div class="blog-img mb-2" :style="{backgroundImage: `url(${blog.blog_image})`}"></div>
-                       <p class="font-weight-bold">{{blog.blog_title}}</p>
-                       <div class="readmore-container" @click="$parent.newsContent(blog.id)"><button class="readmore-btn text-capitalize" style="color: #10DC87;">Read more<v-icon small color="#10DC87" style="position:relative;left:0px;">arrow_forward</v-icon></button></div>
+                       <p class="font-weight-bold" style="text-align: left;">{{blog.blog_title}}</p>
+                       <div class="readmore-container" @click="$parent.newsContent(blog.id)"><button class="readmore-btn text-capitalize" style="color: #10DC87;">Read more<v-icon class="read-more-arrow" small color="#10DC87" style="position:relative;left:5px;">arrow_forward</v-icon></button></div>
                    </div>
                </div>
            </v-flex>
@@ -154,6 +154,8 @@ methods: {
 }
 
 .all-article-flex{
+    padding-left: 48px;
+    margin-top: 48px;
 }
 
 .all-article{
@@ -163,6 +165,7 @@ methods: {
     align-items: flex-start;
     width: 100%;
     height: auto;
+    margin-top: 48px;
 }
 
 .other-articles{
@@ -186,5 +189,62 @@ methods: {
 .readmore-container{
     margin-top: 0px;
 }
+
+.readmore-container:hover .read-more-arrow{
+    transition: margin-left 0.3s linear 0s;
+    margin-left: 3px;
+}
+
+@media only screen and (max-width: 800px){
+
+    .article-layout{
+        width: 90%;
+    }
+    .aticle-title{
+        font-size: 20px;
+    }
+
+    .all-article-flex{
+        padding-left: 0px;
+        margin-top: 30px;
+    }
+
+    .all-article{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .all-article-flex h1{
+        font-size: 30px;
+    }
+
+    .other-articles .blog-img{
+        /* width: 100%;
+        height: 190px; */
+    }
+
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1030px){
+
+    .article-layout{
+        width:95%;
+    }
+
+    .all-article-flex{
+        padding-left: 50px;
+    }
+
+    .other-articles .blog-img{
+        width: 190px;
+        height: 150px;
+    }
+
+    .all-article-flex h1{
+        font-size: 25px;
+    }
+
+}
+
 
 </style>
