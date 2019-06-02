@@ -144,6 +144,9 @@
                     <li>
                         <router-link to="/webshops">Webshops</router-link>
                     </li>
+                    <li v-if="$store.state.Authenticated && $store.state.status == 'webshop'">
+                        <router-link to="/webshops/dashboard">Dashboard</router-link>
+                    </li>
                     <li>
                         <router-link to="/webshops/retailers">Retailers</router-link>
                     </li>
@@ -156,7 +159,10 @@
                     <li>
                         <router-link to="/webshops/login">Login webshop</router-link>
                     </li>
-                    <li>
+                    <li  v-if="$store.state.Authenticated && $store.state.status == 'ninja'">
+                        <router-link to="/consumers/profile">Profile</router-link>
+                    </li>
+                    <li v-else>
                         <router-link to="/consumers/login">Consumers</router-link>
                     </li>
                     <li>
@@ -165,6 +171,7 @@
                     <li>
                         <router-link to="/faq">FAQ</router-link>
                     </li>
+                    <li @click="logout('consumer')" v-if="$store.state.Authenticated && $store.state.status == 'webshop' || $store.state.Authenticated && $store.state.status == 'ninja'"><a>Logout</a></li>
                 </ul>
                 <a :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget"
                    class="button">Extension</a>

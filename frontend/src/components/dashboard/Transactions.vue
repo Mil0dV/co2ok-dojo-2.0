@@ -126,6 +126,10 @@ import Co2okWidget from '../../co2okWidget'
                    }
                 },
 
+                legend: {
+                    display: false
+                },
+
                 responsive: true,
                 maintainAspectRatio: false
 
