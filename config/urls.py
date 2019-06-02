@@ -25,6 +25,7 @@ urlpatterns = [
     #acounts urls 
     path("login/", views.signin, name="login"),
     path("signup/", views.signup, name="signup"),
+    path("check_inviter_id/", views.check_inviter_id, name="checkInviterId"),
     path("logout/", views.signout, name="logout"),
     path('invitation_signup/', views.invitation_signup, name='invitation_signup'),
     # url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),

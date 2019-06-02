@@ -102,11 +102,15 @@
                         .then(response => {
                             if (response) {
                                 if (response.data.authenticate) {
+                                    console.log(response.data);
+                                    
                                     this.$store.dispatch('commitSaveUser', response.data)
+                                    this.$store.state.status = 'webshop'
+                                    this.$store.state.Authenticated = true
                                     this.$store.commit('setLocalUserData', response.data)
-                                    console.log('userlocal', response.data.authenticate);
 
-                                    this.$store.commit('isLoggedIn', response.data.authenticate)
+                                    this.$store.commit('isLoggedIn', true) //set userStatus variable in the store to true
+                                    
                                     this.$store.dispatch('commitGetUserData');
                                     //userSession return a boolean of de authenticate status of the user
                                     if (window.localStorage.getItem('Authenticated')) {
@@ -115,6 +119,8 @@
                                         this.$router.push('/webshops/login')
                                     }
                                 } else {
+                                    alert(self.$store.state.status)
+                                    alert(self.$store.state.userStatus)
                                     let message = {
                                         title: 'Something went wrong....',
                                         text: 'Incorrect user credentials'

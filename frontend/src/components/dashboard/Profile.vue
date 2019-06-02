@@ -94,7 +94,7 @@
 
                 /*twee onderst data gebruiken alleen na dat de profile component
                 geladen(created en mounted) is*/
-                userProfileData: this.$store.state.userData.userProfileData,
+                userProfileData: this.$store.state.userData.profileData,
                 userData: this.$store.state.userData.userdata
 
             }

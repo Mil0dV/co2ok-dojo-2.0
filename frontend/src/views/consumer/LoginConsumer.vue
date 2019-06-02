@@ -112,9 +112,11 @@
 
                             if (response.data.authenticate) {
                                 self.$store.dispatch('commitSaveUser', response.data)
+                                this.$store.state.status = 'ninja'
+                                this.$store.state.Authenticated = true
                                 self.$store.commit('setLocalUserData', response.data)
                                 this.$store.dispatch('ninjaUserData');
-                                this.$store.commit('isLoggedIn', response.data.authenticate)
+                                this.$store.commit('isLoggedIn', true) //set userStatus variable in the store to true
                                 self.$router.push('/consumers/profile')
                             } else {
 
@@ -158,10 +160,12 @@
 
                                 // this.$store.commit('removeLocalUserData')
                                 this.$store.dispatch('commitSaveUser', response.data)
+                                this.$store.state.status = 'ninja'
+                                this.$store.state.Authenticated = true
                                 this.$store.commit('setLocalUserData', response.data)
-                                this.$store.commit('isLoggedIn', response.data.authenticate)
+                                this.$store.commit('isLoggedIn', true) //set userStatus variable in the store to true
                                 this.$store.dispatch('commitNinjaUserData');
-
+                        
                                 if (window.localStorage.getItem('Authenticated')) {
                                     this.$router.push('/consumers/profile')
                                 } else {
@@ -184,7 +188,7 @@
                                 text: "We're sorry. That doesn't look right. Try again later."
                             }
                             this.$store.commit('modalStatus', {message})
-                            // console.log(error);
+                            console.log(error);
                         })
                 } else {
                     let message = {

@@ -119,7 +119,7 @@
                 userToken: this.$store.state.userToken,
                 /*twee onderste data gebruiken alleen na dat de profile component 
                 geladen(created en mounted) is*/
-                userProfileData: this.$store.state.userData.userProfileData,
+                userProfileData: this.$store.state.userData.profileData,
                 userData: this.$store.state.userData.userdata,
                 bottomNav: 'Transactions',
                 view: 'Transactions',
@@ -132,6 +132,7 @@
             if (this.Authenticated == null) {
                this.$router.push('/webshops/login')
             }
+             console.log(this.$store.state.userData.profileData);
         },
 
         mounted() {

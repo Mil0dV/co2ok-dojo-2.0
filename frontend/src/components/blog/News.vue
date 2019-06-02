@@ -14,7 +14,7 @@
                     </a>
                 </div> -->
                 <div id="instafeed"></div>
-                <div class="insta-ctrl">
+                <div class="insta-ctrl hidden-md-and-down">
                     <v-icon medium v-if="instaPrev" @click="instaFeedsPrev" style="border: 1px solid #6E6E6E;background-color: #6E6E6E;color: white;border-radius: 100%;padding: 7px;cursor: pointer;" class="insta-ctrl-btn mr-1">keyboard_arrow_left</v-icon>
                     <v-icon medium v-if="instaNext" @click="instaFeedsNext" style="border: 1px solid #6E6E6E;background-color: #6E6E6E;color: white;border-radius: 100%;padding: 7px;cursor: pointer;" class="insta-ctrl-btn ml-1">keyboard_arrow_right</v-icon>
                 </div>
@@ -34,7 +34,7 @@
             <div class="blog-content">
 
                 <div class="blog-items pb-4 mb-3" :id="blog.id" v-for="(blog, i) in this.$store.state.blogs" :key="i" data-aos="zoom-in-up"
-                      data-aos-duration="1000"
+                      data-aos-duration="500"
                       :data-aos-delay="i*200">
                     <div class="blog-img mb-4"
                       :style="{backgroundImage: `url(${blog.blog_image})`}"
@@ -44,7 +44,7 @@
                         <p class='blog-title' v-html="blog.blog_title"></p>
                         <v-divider style="width:85%;"></v-divider>
                         <p class="blog-content-txt" v-html="$parent.stripBlogContent(blog.blog_preface)"></p>
-                        <div class="readmore-container" @click="$parent.newsContent(blog.id)"><button class="readmore-btn text-capitalize mt-3">Read more<v-icon small color="#10DC87" style="position:relative;left:10px;">arrow_forward</v-icon></button></div>
+                        <div class="readmore-container" @click="$parent.newsContent(blog.id)"><button class="readmore-btn text-capitalize mt-3">Read more<v-icon small color="#10DC87" class="read-more-arrow" style="position:relative;left:5px;">arrow_forward</v-icon></button></div>
                     </div>
                 </div>
 
@@ -71,7 +71,7 @@ data(){
             resolution: 'standard_resolution',
             // height: '500px',
             accessToken: '1281738789.1677ed0.8209b3e1a44045f3aa1130e303c3e295',
-            template: '<div class="insta-container animated" style="z-index: 0;width: 300px; height: 400px;display:flex;justify:center;align-items:center;"><a href="{{link}}" target="_blank" style="width: 300px;height:400px;border-radius: 5px;"><img src="{{image}}" style="width: 100%;height:100%;border-radius: 5px;"/></a></div>',
+            template: '<div class="insta-container animated zoomIn" style="z-index: 0;width: 300px; height: 400px;display:flex;justify:center;align-items:center;"><a href="{{link}}" target="_blank" style="width: 300px;height:400px;border-radius: 5px;"><img src="{{image}}" style="width: 100%;height:100%;border-radius: 5px;"/></a></div>',
             sortBy: 'most-recent'
             // filter: function(image) {
             //     return image.tags.indexOf('TAG_NAME') >= 0;
@@ -159,41 +159,16 @@ instaFeedsPrev(){
 
 <style scoped>
 
-.news-container{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.news-header{
-    width: 100%;
-    height: 354px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    background-image: url('../../assets/images/blog/iStock.png');
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100% 100%;
-    margin-bottom: 55px;
-}
-
-.news-header h3{
-    margin-left: 150px;
-}
-
 .feeds-layout{
     width: 100%;
     justify-items: center;
-    align-items: start;
+    align-items: flex-start;
 }
 
 .feeds-flex {
-    width: 70%;
+    width: 100%;
     margin: auto;
+    margin-left: 15%;
 }
 
 .feeds-flex .feed-header-p, .blogs-flex .blog-header-p{
@@ -211,7 +186,7 @@ instaFeedsPrev(){
 }
 
 .feeds{
-    width: 2000px;
+    width: 100%;
     height: auto;
     display: flex;
     /* flex-direction: row; */
@@ -383,6 +358,59 @@ instaFeedsPrev(){
     margin-left: 35px;
     color: #10DC87;
 }
+
+.readmore-container:hover .read-more-arrow{
+    transition: margin-left 0.3s linear 0s;
+    margin-left: 3px;
+}
+
+@media only screen and (max-width: 800px){
+
+    .feeds-flex {
+        margin-left: 0px;
+    }
+
+    .feeds-flex .feed-header-p, .blogs-flex .blog-header-p{
+        text-align: center;
+    }
+
+    .feeds-flex h1, .blog-flex-header{
+        text-align: center;
+        font-size: 25px;
+    }
+
+    .feeds-layout{
+        align-items: center;
+    }
+
+    .blogs-flex{
+        justify-content: center;
+        align-items: center;
+        width: 95%;
+    }
+
+    .blog-header h5{
+        margin-left: 20px;
+        font-size: 20px;
+    }
+
+    .blog-header p{
+        margin-left: 20px;
+    }
+
+    .blog-content{
+        flex-direction: column;
+    }
+
+    .blog-items{
+        width: 100%;
+    }
+
+    .blog-title{
+        font-size: 18px;
+    }
+
+ }
 
 </style>
 
