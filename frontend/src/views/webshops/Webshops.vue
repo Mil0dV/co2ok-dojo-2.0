@@ -15,7 +15,7 @@
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/retailers" class="button">Plug-in</router-link>
+                                <router-link to="/webshops/retailers" class="button">Retailer</router-link>
 
                                 <div class="col-1--links-wrapper">
                                     <router-link class="link" to="/webshops/cause-marketing">

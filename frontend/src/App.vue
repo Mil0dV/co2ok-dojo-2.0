@@ -57,11 +57,6 @@
         min-height: 100vh;
         height: 100%;
     }
-
-    .view {
-        height: 100% !important;
-    }
-
     input:focus {
         border: 1px solid #08BA4D !important;
         box-shadow: 0 0 1px #08BA4D;
