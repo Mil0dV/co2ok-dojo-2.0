@@ -34,7 +34,7 @@ const router = new Router({
             component: () => import( './views/Faq'),
         },
         {
-            path: '/about/how-it-works',
+            path: '/compensation',
             name: 'steps',
             component: () => import( './views/Steps'),
         },

@@ -69,9 +69,12 @@
 
         </v-layout>
 
-        <v-btn depressed class="white--text involed-btn font-weight-bold"
-               style="background: linear-gradient(to right, #10DC87, #08BA4D);">GET INVOLVED & FIGHT CLIMATE CHANGE
-        </v-btn>
+        <router-link to="/webshops" style="width: 100%;">
+            <v-btn depressed class="white--text involed-btn font-weight-bold"
+                   style="background: linear-gradient(to right, #10DC87, #08BA4D);">GET INVOLVED & FIGHT CLIMATE CHANGE
+            </v-btn>
+        </router-link>
+
         <div class="transaction-steps"></div>
 
         <v-layout column justify-center align-center class="mt-5 mb-3 grey lighten-4" style="width: 100%; background-color: #F4F4F4;">

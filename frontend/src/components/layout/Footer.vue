@@ -26,6 +26,9 @@
                             <router-link to="/webshops">Webshops</router-link>
                         </li>
                         <li>
+                            <router-link to="/compensation">CO₂-compensation</router-link>
+                        </li>
+                        <li>
                             <ul>
                                 <li>
                                     <router-link to="/webshops/retailers">Retailers</router-link>
