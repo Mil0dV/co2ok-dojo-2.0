@@ -81,7 +81,7 @@ class UserView(viewsets.ModelViewSet):
             year_arr.append([])
             m = months
             if months < 9:
-                m = '0{}'.format(months+1)
+                m = '0{}'.format(months+1) # +1 because de array begin at 0 and the first month begin at 1
             else:
                 m = months+1
             year_arr.append([])
