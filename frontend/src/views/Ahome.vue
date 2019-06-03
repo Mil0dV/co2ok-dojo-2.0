@@ -4,18 +4,16 @@
             <div class="section-1__filler">
                 <img src="../assets/images/home/logo.svg" alt="intro co2ok"
                      class="intro__img animated fadeIn">
-                <transition enter-active-class="animated fadeInUp" leave-active-class="animated flipOutY"
-                            mode="out-in">
-
+                <transition >
                          <span class="img-lang" v-if="currentLanguage === 'en'" key="en">
                               <img
                                       src="../assets/images/home/intro_text-en.svg"
                                       alt="intro co2ok text"
-                                      class="intro__img-text desktop__intro img-text-margin-en animated fadeIn">
+                                      class="intro__img-text desktop__intro img-text-margin-en delay__animation animated flipInX">
                              <img
                                      src="../assets/images/home/intro_text-en-mobile.svg"
                                      alt="intro co2ok text"
-                                     class="intro__img-text mobile__intro img-text-margin-en animated  fadeIn">
+                                     class="intro__img-text mobile__intro img-text-margin-en delay__animation animated flipInX">
                          </span>
 
 
@@ -23,12 +21,12 @@
                              <img
                                      src="../assets/images/home/intro_text-nl.svg"
                                      alt="intro co2ok text"
-                                     class="intro__img-text desktop__intro img-text-margin-nl animated fadeIn">
+                                     class="intro__img-text desktop__intro img-text-margin-nl delay__animation animated flipInX">
 
                              <img
                                      src="../assets/images/home/intro_text-nl-mobile.svg"
                                      alt="intro co2ok text"
-                                     class="intro__img-text mobile__intro img-text-margin-nl animated fadeIn">
+                                     class="intro__img-text mobile__intro img-text-margin-nl delay__animation animated flipInX">
                          </span>
 
                 </transition>

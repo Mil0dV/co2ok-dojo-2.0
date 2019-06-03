@@ -53,6 +53,12 @@
   }
 }
 
+.delay__animation {
+  animation-delay: 0.2s;
+  animation-duration: 1s;
+}
+
+
 .intro__img {
   position: absolute;
   top:0;
@@ -289,6 +295,7 @@
     max-height: 194px;
   }
 }
+
 
 @media (max-width: 1180px) {
   .intro__img {
