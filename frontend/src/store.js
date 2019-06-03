@@ -11,8 +11,8 @@ import axios from 'axios'
 
 export default new Vuex.Store({
     state: {
-        // SITE_HOST: 'http://127.0.0.1:8000',
-        SITE_HOST: 'http://test.co2ok.ninja:8000',
+        SITE_HOST: 'http://127.0.0.1:8000',
+        // SITE_HOST: 'http://test.co2ok.ninja:8000',
         domain: window.location.protocol + '//' + window.location.hostname + ':' + window.location.port,
         count: 0,
         modalMessage: '',
@@ -37,7 +37,8 @@ export default new Vuex.Store({
         ninjaExtensionLink: '',
         extensionLinkTarget: '',
         browserLogo: '',
-        language: 'en'
+        language: 'en',
+        passResetEmail: ''
     },
 
     mutations: {
@@ -84,6 +85,7 @@ export default new Vuex.Store({
                         }
                     })
                     .then(response => {
+                        console.log(response.data);
                         
                         //verify if the userdata array is empty
                         if(response.data.authData){
@@ -132,7 +134,8 @@ export default new Vuex.Store({
                             Authorization: `token ${window.localStorage.getItem('userToken')}`
                         }
                     }).then(response => {
-
+                        console.log(response.data);
+                        
                         //verify if the userdata array is empty
                         if (state.ninjaData.length == 0) {
                             //user array is empty, push userdata

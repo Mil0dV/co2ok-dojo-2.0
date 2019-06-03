@@ -29,6 +29,8 @@ from django.conf import settings
 #--------------- email imports ---------------------
 from django.core.mail import send_mail
 from django.template.loader import get_template
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 # Create your views here.
 
@@ -366,27 +368,44 @@ def deleteAccount(request):
 @csrf_exempt
 @api_view(['POST'])
 @permission_classes((AllowAny,))
-def sendMail(request):
+def password_recover_mail(request):
     try:
         userEmail = request.data['body']['email']
+        password = request.data['body']['temporaryPassword']
     except:
         userEmail = request.POST.get('email')
+        password = request.POST.get('temporaryPassword')
 
     if checkEmail(request, userEmail) != 0:
-        subject = "Password reset"
-        message = 'Click the link to reset your password, temporary password: k,jasflkuhsrlkjjbl'
-        from_email = settings.EMAIL_HOST_USER
-        to_list = [userEmail]
-        send_mail(subject, message, from_email, to_list, fail_silently=True)
+        rcovery_mail = Mail(
+            from_email=settings.EMAIL_HOST_USER,
+            to_emails=userEmail,
+            subject='Password recovery',
+            html_content='<div style = "width: 700px; height: auto; display: flex;flex-direction:column; justify-content:center;align-items:center;">Password recovery<h3 style="text-align-left;"> </h3><p style="margi-bottom: 5px;text-align-left;">Hallo,<br>hallo,<br><br>You recently requested a password reset. You will find below your temporary password. Do not forget to change it once login.<br>Temporary password: {}<br><br>Tank you for helping us fight climate change<br><br>Milo de Vries, Co2ok</p> </div>'.format(password))
+
+        try:
+            sg = SendGridAPIClient(settings.SG_API_KEY)
+            response = sg.send(rcovery_mail)
+            print(response.status_code)
+            print(response.body)
+            print(response.headers)
+        except Exception as e:
+            print(e.message)
+
+        # subject = "Password reset"
+        # message = 'Click the link to reset your password, temporary password: k,jasflkuhsrlkjjbl'
+        # from_email = settings.EMAIL_HOST_USER
+        # to_list = [userEmail]
+        # send_mail(subject, message, from_email, to_list, fail_silently=True)
         # email_template = get_template('mail template').render(contenu du message)
         success = {
-            'status': True,
+            'send': True,
             'msg': 'An email has been sended'
         }
         return Response(success)
     else:
         error = {
-            'status': False,
+            'send': False,
             'msg': 'Wrong email'
         }
         return Response(error)

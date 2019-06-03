@@ -1,5 +1,5 @@
 <template>
-    <div class="profile__container">
+    <div class="profile__container" v-if="!$store.state.userData.userdata.is_superuser">
         <div class="profile__head">
             <h1 class="profile__title">Profile</h1>
             <v-icon color="#10DC87" large>person</v-icon>

@@ -13,7 +13,7 @@
                 <div class="edit__form-group">
                     <div class="edit__form">
                         <label class="edit__form-label">
-                            <input type="mail" v-model="email" class="edit__form-input"
+                            <input type="mail" v-model="$store.state.passResetEmail" class="edit__form-input"
                                    placeholder="Your email...">
                         </label>
                     </div>
@@ -48,7 +48,7 @@
 
         data() {
             return {
-                email: '',
+                email: this.$store.state.passResetEmail,
                 formActive: false,
             }
         },

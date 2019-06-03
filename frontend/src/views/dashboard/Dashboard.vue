@@ -7,28 +7,31 @@
                 <!--<h3 class="dashboard__welcome">Weclome, a31!</h3>-->
             </div>
 
-            <div class="dashboard__tabs hidden-xs-only">
+            <div class="dashboard__tabs hidden-xs-only" v-if="!$store.state.userData.userdata.is_superuser">
                 <!--<p class="dashboard__mail hidden-sm-and-down">a31@mail.nl</p>-->
                 <p class="dashboard__mail hidden-sm-and-down">{{this.$store.state.userData.userdata.email}}</p>
                 <v-tabs v-model="active" centered class="dashboard__tabs-group"
                         color="#F4F4F4" slider-color="#08BA4D">
                     <v-tab class="dashboard__tab-item text-capitalize"
                            style="background: transparent;" @click.native="changeTab(active)"
-                           :ripple="false">
+                           :ripple="false"
+                           v-if="!$store.state.userData.userdata.is_superuser">
                         <p>Transactions</p>
                         <v-icon class="tab__icon" style="transform: rotate(120deg);">sync</v-icon>
                     </v-tab>
 
                     <v-tab class="dashboard__tab-item text-capitalize"
                            style="background: transparent;" @click.native="changeTab(active)"
-                           :ripple="false">
+                           :ripple="false"
+                           v-if="!$store.state.userData.userdata.is_superuser">
                         <p>Plug-in Settings</p>
                         <v-icon class="tab__icon">edit</v-icon>
                     </v-tab>
 
                     <v-tab class="dashboard__tab-item text-capitalize"
                            style="background: transparent;" @click.native="changeTab(active)"
-                           :ripple="false">
+                           :ripple="false"
+                           v-if="!$store.state.userData.userdata.is_superuser">
                         <p>My Profile</p>
                         <v-icon class="tab__icon">person</v-icon>
                     </v-tab>

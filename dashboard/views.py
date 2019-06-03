@@ -38,29 +38,63 @@ class UserView(viewsets.ModelViewSet):
     def userData(self, request):
         userId = request.query_params.get('id')
         merchant_authData_exist = Profile.check_user_auth_data(self, userId, Profile)
+        userIs_superuser = User.objects.get(pk=userId).is_superuser
         print(merchant_authData_exist)
-        if merchant_authData_exist:
+        if merchant_authData_exist or userIs_superuser:
             user = self.get_queryset().get(pk=userId)
             serializer = self.get_serializer_class()(user)
             #get current user profile data
-            profile = Profile.objects.get(user_id=userId)
-            context = {
-                'userdata': serializer.data,
-                'profileData': {
-                    'user_status': profile.user_status,
-                    'country': profile.country,
-                    'city': profile.city,
-                    'zipcode': profile.zipCode,
-                    'street': profile.street,
-                    'number': profile.number,
-                    'link': profile.link,
-                    'merchantId': profile.merchant_id
-                },
-                'authData': True
-            }
+            if userIs_superuser:
+               context = {'userdata': serializer.data, 'authData': True}
+            else:
+                profile = Profile.objects.get(user_id=userId)
+                context = {
+                    'userdata': serializer.data,
+                    'profileData': {
+                        'user_status': profile.user_status,
+                        'country': profile.country,
+                        'city': profile.city,
+                        'zipcode': profile.zipCode,
+                        'street': profile.street,
+                        'number': profile.number,
+                        'link': profile.link,
+                        'merchantId': profile.merchant_id
+                    },
+                    'authData': True
+                }
         else:
             return Response({'authData': False, 'account': 'Merchant account not existed'})
         return Response(context)
+
+    @csrf_exempt
+    @action(methods=['get'], detail=False)
+    def allTransactions(self, request):
+        year_arr = []
+        year_month_arr = []
+        date = datetime.datetime.now()
+        split_dateTime = str(date).split() #return de date and time splited[date,time]
+        split_date = str(split_dateTime[0]).split('-') #return date splited by - [year, month, day]
+        current_month = split_date[1] #return de number of current month
+        int_month = int(current_month) #convert current month digit to number
+
+        for months in range(int_month):
+            year_arr.append([])
+            m = months
+            if months < 9:
+                m = '0{}'.format(months+1)
+            else:
+                m = months+1
+            year_arr.append([])
+            year_month_arr.append('{}-{}'.format(split_date[0], m))
+
+        for transaction in Transaction.scan():
+            for ym in year_month_arr:
+                dateSplited = str(transaction.timestamp).split('-')
+                formatDate = "{}-{}".format(dateSplited[0], dateSplited[1])  # return year-month
+                if str(formatDate) == str(ym):
+                    year_arr[year_month_arr.index(ym)].append(transaction.compensation_cost)
+
+        return Response(year_arr)
 
     @csrf_exempt
     @action(methods=['get'], detail=False)

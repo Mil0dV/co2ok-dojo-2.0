@@ -66,11 +66,13 @@ data(){
         blogs: this.$store.state.blogs,
         instaOptions: {
             get: 'user',
-            userId: '1281738789',
-            limit: 12,
+            // userId: process.env.INSTA_USER_ID,
+            userId: '6780198652',
+            limit: 24,
             resolution: 'standard_resolution',
             // height: '500px',
-            accessToken: '1281738789.1677ed0.8209b3e1a44045f3aa1130e303c3e295',
+            accessToken: '6780198652.1677ed0.80d6f1f003594055b2112c307d8807c3',
+            // accessToken: process.env.INSTA_ACCESS_TOKEN,
             template: '<div class="insta-container animated zoomIn" style="z-index: 0;width: 300px; height: 400px;display:flex;justify:center;align-items:center;"><a href="{{link}}" target="_blank" style="width: 300px;height:400px;border-radius: 5px;"><img src="{{image}}" style="width: 100%;height:100%;border-radius: 5px;"/></a></div>',
             sortBy: 'most-recent'
             // filter: function(image) {

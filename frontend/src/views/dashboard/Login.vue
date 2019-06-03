@@ -44,8 +44,10 @@
 
 <script>
     import axios from 'axios'
+    // import mailer from '../../nodemailer'
 
     const PasswordForgotModal = () => import('@/components/modals/PasswordForgotModal')
+    const sgMail = require('@sendgrid/mail')
 
     export default {
         name: 'Login',
@@ -68,7 +70,9 @@
         },
         created() {
 
-            // console.log(this.$route)
+            // mailer.sendmail('kevineasky@gmail.com')
+            // this.passwordRecoveryEmail()
+
         },
 
         methods: {
@@ -119,8 +123,6 @@
                                         this.$router.push('/webshops/login')
                                     }
                                 } else {
-                                    alert(self.$store.state.status)
-                                    alert(self.$store.state.userStatus)
                                     let message = {
                                         title: 'Something went wrong....',
                                         text: 'Incorrect user credentials'
@@ -142,6 +144,43 @@
                     }
                     this.$store.commit('modalStatus', {message})
                 }
+            },  
+
+            passwordRecoveryEmail(){
+
+                let self = this
+                let result = 'ninja@pass.'
+                let generatedPass = result += Math.random().toString(36).substring(2, 7)
+
+                axios.post(`${this.$store.state.SITE_HOST}/password_recover_mail/`,{
+                    body:{
+                        temporaryPassword: generatedPass,
+                        email: self.$store.state.passwordRecoveryEmail
+                    }
+                }).then(response => {
+                    console.log(response.data);
+                    if(response.data.send){
+
+                    }
+                }).catch(error => {
+                    console.log(error);
+                })
+
+                // sgMail.setApiKey(process.env.SEND_GRID_USER_NAME, process.env.SEND_GRID_PASSWORD);
+                // const mailOptions = {
+                //   to: 'kevineasky@gmail.com',
+                //   from: process.env.EMAIL,
+                //   subject: 'Password recovery',
+                //   html: `<div style = "width: 700px; height: auto; display: flex;flex-direction:column; justify-content:center;align-items:center;">Password recovery<h3 style="text-align-left;"> </h3><p style="margi-bottom: 5px;text-align-left;">Hallo,<br>hallo,<br><br>You recently requested a password reset. You will find below your temporary password. Do not forget to change it once login.<br>Temporary password: ${generatedPass}<br><br>Tank you for helping us fight climate change<br><br>Milo de Vries, Co2ok</p> </div>`
+                // }
+                // sgMail.send(mailOptions, (err, json) => {
+                //     if(err){
+                //         console.log(err);
+                //     }else{
+                //         console.log(json);
+                //     }
+                // })
+
             }
         }
     }
