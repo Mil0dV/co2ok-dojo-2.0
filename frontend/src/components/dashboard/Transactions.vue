@@ -53,7 +53,9 @@
                 </div>
             </v-flex>
             <v-flex xs12 sm12 md6 lg6 style="height: 100%;" class="year-info-flex">
+                <v-icon medium :style="prevStyle" style="" class="animated zoomIn">keyboard_arrow_left</v-icon>
                 <p class="font-weight-bold">YEAR {{currentYear}}</p>
+                <v-icon medium :style="nextStyle" style="" class="animated zoomIn">keyboard_arrow_right</v-icon>
             </v-flex>
         </v-layout>
 
@@ -173,7 +175,7 @@ import Co2okWidget from '../../co2okWidget'
 
             //check if the loged user is a superuser
             if(this.$store.state.userData.userdata.is_superuser){
-                this.mechantsYearTransactions()
+                this.mechantsYearTransactions(this.$moment().year())
             }else{
                 this.yearTransactions()
             }    
@@ -441,12 +443,14 @@ import Co2okWidget from '../../co2okWidget'
 
             },
 
-            mechantsYearTransactions(){
+            mechantsYearTransactions(year){
                 
                 let allTransactionsArr = []
                 let self = this
                 this.$axios.get(`${this.$store.state.SITE_HOST}/user/allTransactions/`, {
-
+                    params:{
+                        year: year
+                    },
                     headers: {
                        "X-CSRFToken": `${this.$store.state.userToken}`,
                         Authorization: `token ${window.localStorage.getItem('userToken')}` 
@@ -456,8 +460,8 @@ import Co2okWidget from '../../co2okWidget'
 
                     // console.log(response.data)
                     response.data.forEach((transaction) => {
-                        let allTransactionsSum = this._.floor(this._.sum(transaction), 2)
-                        allTransactionsArr.push(allTransactionsSum)
+                        // let allTransactionsSum = this._.floor(this._.sum(transaction), 2)
+                        allTransactionsArr.push(transaction.length)
                     })
                     self.$store.commit('yearGraphData', allTransactionsArr)
                     self.updateGraphData()
@@ -763,6 +767,7 @@ import Co2okWidget from '../../co2okWidget'
         height: auto;
         justify-content: flex-start;
         align-items: center;
+        border: 1px solid green;
     }
 
     .export {
@@ -822,7 +827,8 @@ import Co2okWidget from '../../co2okWidget'
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        align-items: flex-end;
+        align-items: flex-start;
+        border: 1px solid red;
     }
 
     .week-ctr-flex .ctrl-container{

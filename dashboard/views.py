@@ -75,7 +75,12 @@ class UserView(viewsets.ModelViewSet):
         split_dateTime = str(date).split() #return de date and time splited[date,time]
         split_date = str(split_dateTime[0]).split('-') #return date splited by - [year, month, day]
         current_month = split_date[1] #return de number of current month
-        int_month = int(current_month) #convert current month digit to number
+        current_year = request.query_params.get('year')
+        int_month = int(current_month)  # convert current month digit to number
+        if str(split_date[0]) == current_year:
+            int_month = int(current_month)  
+        else:
+            int_month = 12 
 
         for months in range(int_month):
             year_arr.append([])
@@ -85,12 +90,13 @@ class UserView(viewsets.ModelViewSet):
             else:
                 m = months+1
             year_arr.append([])
-            year_month_arr.append('{}-{}'.format(split_date[0], m))
+            year_month_arr.append('{}-{}'.format(current_year, m))
 
         for transaction in Transaction.scan():
             for ym in year_month_arr:
                 dateSplited = str(transaction.timestamp).split('-')
                 formatDate = "{}-{}".format(dateSplited[0], dateSplited[1])  # return year-month
+                print(formatDate, ym)
                 if str(formatDate) == str(ym):
                     year_arr[year_month_arr.index(ym)].append(transaction.compensation_cost)
 
