@@ -7,11 +7,11 @@
 
         <div class="graph-container mb-1">
             <div class="graph-tabs">
-                <p class="graph-tab-name font-weight-bold" style=""  @click="yearTransactions()">Monthly Transactions</p>
-                <p class="graph-tab-name font-weight-bold"  @click="weekTransactions()">Weekly Transactions</p>
+                <p class="graph-tab-name font-weight-bold" style=""  @click="yearTransactions()" v-if="!$store.state.userData.userdata.is_superuser">Monthly Transactions</p>
+                <p class="graph-tab-name font-weight-bold"  @click="weekTransactions()" v-if="!$store.state.userData.userdata.is_superuser">Weekly Transactions</p>
             </div>
 
-            <p class="font-weight-bold black--text" style="font-size: 15px;text-align: center">{{graphLegend}}</p>
+            <p class="font-weight-bold black--text" style="font-size: 15px;text-align: center" v-if="!$store.state.userData.userdata.is_superuser">{{graphLegend}}</p>
 
             <div class="graphs">
                 <line-chart :chartData="datacollection" :options="chartOptions" style="width: 900px; height: 400px"/>
@@ -53,7 +53,9 @@
                 </div>
             </v-flex>
             <v-flex xs12 sm12 md6 lg6 style="height: 100%;" class="year-info-flex">
+                <v-icon medium :style="prevStyle" style="" class="animated zoomIn">keyboard_arrow_left</v-icon>
                 <p class="font-weight-bold">YEAR {{currentYear}}</p>
+                <v-icon medium :style="nextStyle" style="" class="animated zoomIn">keyboard_arrow_right</v-icon>
             </v-flex>
         </v-layout>
 
@@ -171,7 +173,12 @@ import Co2okWidget from '../../co2okWidget'
 
         created() {
 
-            this.yearTransactions()    
+            //check if the loged user is a superuser
+            if(this.$store.state.userData.userdata.is_superuser){
+                this.mechantsYearTransactions(this.$moment().year())
+            }else{
+                this.yearTransactions()
+            }    
             this.prevMonth = this.$moment().subtract(1, 'months').format('MMMM')
             this.nextMonth = this.currentMonth    
             this.generatePDFdata()
@@ -252,24 +259,7 @@ import Co2okWidget from '../../co2okWidget'
 
             },
 
-            fillData () {
-               
-                this.datacollection = {
-                    labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUNE', 'JULY', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC'],
-                    // labels: this.$store.state.x_asLabel,
-                    datasets: [
-                        {
-                        label: `${this.currentMonth} Transaction(s)`,
-                        borderColor: '#94EDCE',
-                        data: [Math.round(193.3),Math.round(19.99+34.03+21.67+31.32+30.34),Math.round(36.57+39.8+38.18),Math.round(32.32+33.23+9.29),Math.round(10.29+32.37)]
-                        // data: this.$store.state.graphData
-                        }
-                    ]
-                }
-                
-            },
-
-            graphUpdatedData() {
+            updateGraphData() {
 
             this.datacollection = {
                 labels: this.$store.state.x_asLabel,
@@ -428,7 +418,6 @@ import Co2okWidget from '../../co2okWidget'
             },
 
             yearTransactions() {
-              console.log(this.monthNumber);
             //   let chart = document.getElementById('line-chart')
                 this.week = false //disable the week ctrl btn(next, prev)
                 this.graphLegend = `${this.currentMonth} Transaction(s)` 
@@ -446,12 +435,43 @@ import Co2okWidget from '../../co2okWidget'
 
                     let yearGraphData = self.parseTransactionsData(response.data)
                     self.$store.commit('yearGraphData', yearGraphData)
-                    self.graphUpdatedData()
+                    self.updateGraphData()
 
                 }).catch(error => {
                     console.log(error)
                 })
 
+            },
+
+            mechantsYearTransactions(year){
+                
+                let allTransactionsArr = []
+                let self = this
+                this.$axios.get(`${this.$store.state.SITE_HOST}/user/allTransactions/`, {
+                    params:{
+                        year: year
+                    },
+                    headers: {
+                       "X-CSRFToken": `${this.$store.state.userToken}`,
+                        Authorization: `token ${window.localStorage.getItem('userToken')}` 
+                    }
+
+                }).then(response => {
+
+                    // console.log(response.data)
+                    response.data.forEach((transaction) => {
+                        // let allTransactionsSum = this._.floor(this._.sum(transaction), 2)
+                        allTransactionsArr.push(transaction.length)
+                    })
+                    self.$store.commit('yearGraphData', allTransactionsArr)
+                    self.updateGraphData()
+
+                }).catch(error => {
+
+                    console.log(error);
+
+                })
+                
             },
 
             weekTransactionRequest(lastweek, weekdate, beginweek){
@@ -471,7 +491,7 @@ import Co2okWidget from '../../co2okWidget'
 
                     let weekGraphData = self.parseTransactionsWeekData(response.data)
                     self.$store.commit('weekGraphData', weekGraphData)
-                    self.graphUpdatedData()
+                    self.updateGraphData()
 
                 }).catch(error => {
                     console.log(error)
@@ -660,9 +680,6 @@ import Co2okWidget from '../../co2okWidget'
 
                 }
 
-                console.log(chunkedPDF);
-                
-
             },
 
             getRandomInt () {
@@ -750,6 +767,7 @@ import Co2okWidget from '../../co2okWidget'
         height: auto;
         justify-content: flex-start;
         align-items: center;
+        border: 1px solid green;
     }
 
     .export {
@@ -809,7 +827,8 @@ import Co2okWidget from '../../co2okWidget'
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        align-items: flex-end;
+        align-items: flex-start;
+        border: 1px solid red;
     }
 
     .week-ctr-flex .ctrl-container{
