@@ -5,7 +5,7 @@
             <div class="bkgr__filler bkgr__text hide--tablet">
                 <div class="green-border__login">
                     <p class="green-border__text main-text">
-                        With your account you will get access to information how much you’ve contributed to fighting climate change
+                       {{locale['login_text']}}
                     </p>
                 </div>
             </div>
@@ -15,24 +15,26 @@
             <div class="login__width">
                 <div class="login-c__wrapper">
                     <form v-model="valid" class="login-c__form">
-                        <h3 class="sub-title--small">Login</h3>
-                        <h2 class="main-title">Login to get access to more information!</h2>
+                        <h3 class="sub-title--small">{{locale['login_sort2']}}</h3>
+                        <h2 class="main-title">{{locale['title']}}</h2>
 
                         <div class="c-input__wrapper">
-                            <label class="login-c__label">E-mail</label>
-                            <input type="email"  v-model="email" class="login-c__input" placeholder="Fill in your e-mail">
+                            <label class="login-c__label">{{locale['input1']}}</label>
+                            <input type="email" v-model="email" class="login-c__input"
+                                   :placeholder="locale['input_email']">
                         </div>
 
                         <div class="c-input__wrapper">
-                            <label class="login-c__label">Password</label>
-                            <input type="password" v-model="password" class="login-c__input" placeholder="Fill in your password">
+                            <label class="login-c__label">{{locale['input2']}}</label>
+                            <input type="password" v-model="password" class="login-c__input"
+                                   :placeholder="locale['input_password']">
                         </div>
 
-                        <p @click="passReset = true" class="subheading sub__password">I forgot my password</p>
+                        <p @click="passReset = true" class="subheading sub__password">{{locale['forgot']}}</p>
 
                         <p @keyup.enter="login()"
                            @click.prevent="login()"
-                           class="button login-c__button">Login</p>
+                           class="button login-c__button">{{locale['login']}}</p>
                     </form>
                 </div>
             </div>
@@ -43,6 +45,7 @@
 
 
 <script>
+    import language from '../../lang/lang_login'
     import axios from 'axios'
 
     const PasswordForgotModal = () => import('@/components/modals/PasswordForgotModal')
@@ -55,6 +58,7 @@
 
         data() {
             return {
+                locale: language,
                 password: '',
                 send: false,
                 valid: false,
@@ -66,12 +70,24 @@
                 passReset: false,
             }
         },
-        created() {
 
-            // console.log(this.$route)
+        mounted() {
+            this.checkLanguage()
         },
 
         methods: {
+            checkLanguage(lang) {
+                if (lang === 'en') {
+                    this.locale = language.lang_en_login
+                } else {
+                    if (this.currentLanguage === 'en') {
+                        this.locale = language.lang_en_login
+                    } else {
+                        this.locale = language.lang_nl_login
+                    }
+                }
+            },
+
             errorMessage(message) {
                 this.send = false
                 this.$store.commit('modalStatus', {message})
@@ -103,14 +119,14 @@
                             if (response) {
                                 if (response.data.authenticate) {
                                     console.log(response.data);
-                                    
+
                                     this.$store.dispatch('commitSaveUser', response.data)
                                     this.$store.state.status = 'webshop'
                                     this.$store.state.Authenticated = true
                                     this.$store.commit('setLocalUserData', response.data)
 
                                     this.$store.commit('isLoggedIn', true) //set userStatus variable in the store to true
-                                    
+
                                     this.$store.dispatch('commitGetUserData');
                                     //userSession return a boolean of de authenticate status of the user
                                     if (window.localStorage.getItem('Authenticated')) {
@@ -134,14 +150,25 @@
                             console.log(error);
                         })
                     this.send = false
-                }
-                else {
+                } else {
                     let message = {
                         title: 'Something went wrong....',
                         text: 'Please fill in your e-mail & password'
                     }
                     this.$store.commit('modalStatus', {message})
                 }
+            }
+        },
+
+        computed: {
+            currentLanguage() {
+                return this.$store.state.language
+            }
+        },
+
+        watch: {
+            currentLanguage(value) {
+                this.checkLanguage(value)
             }
         }
     }
@@ -168,7 +195,6 @@
             flex: 8;
         }
     }
-
 
 
 </style>

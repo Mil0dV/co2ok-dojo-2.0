@@ -1,5 +1,5 @@
 module.exports = {
-    lang_nl_login_consumer: {
+    lang_nl_login: {
         'subTitle' : 'Login consumers',
         'title' : 'Log in om toegang te krijgen tot meer informatie!',
 
@@ -13,6 +13,11 @@ module.exports = {
 
         'input_email' : 'Vul uw e-mail adres in',
         'input_password' : 'Vul uw wachtwoord in',
+
+        'register' : 'Nog geen account?',
+
+        'forgot' : 'Ik ben mijn wachtwoord vergeten',
+        'login' : 'Inloggen',
 
         'account': 'Maak een account aan'
     }

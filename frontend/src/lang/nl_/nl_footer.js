@@ -13,5 +13,8 @@ module.exports = {
         'link10' : 'Nieuws',
         'link11' : 'FAQ',
         'link12' : 'Privacy Verklaring',
+        'link13' : 'Profiel',
+        'link14' : 'Inloggen',
+        'link15' : 'Uitloggen',
     }
 }

@@ -13,5 +13,8 @@ module.exports = {
         'link10' : 'News',
         'link11' : 'FAQ',
         'link12' : 'Privacy Policy',
+        'link13' : 'Profile',
+        'link14' : 'Login',
+        'link15' : 'Logout',
     }
 }

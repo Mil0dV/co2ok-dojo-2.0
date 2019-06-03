@@ -28,38 +28,74 @@
 
         methods: {
             checkHeaderTitle() {
-                switch (this.image) {
-                    case 'steps':
-                        this.title = 'CO₂-compensation'
-                        break;
-                    case 'about':
-                        this.title = 'About us'
-                        break;
-                    case 'webshops':
-                        this.title = 'Webshops'
-                        break;
-                    case 'retailers':
-                        this.title = 'Retailers'
-                        break;
-                    case 'cause-marketing':
-                        this.title = 'Cause Marketing'
-                        break;
-                    case 'installation':
-                        this.title = 'Plug-in Installation'
-                        break;
-                    case 'faq':
-                        this.title = 'Frequently asked questions'
-                        break;
-                    case 'privacy':
-                        this.title = 'Privacy policy'
-                        break;
-                    case 'projects':
-                        this.title = 'CO₂-compensation projects'
-                        break;
-                    default:
-                        this.title = 'CO₂ compensation'
-                        break;
+                if(this.currentLanguage === 'en'){
+                    switch (this.image) {
+                        case 'steps':
+                            this.title = 'CO₂-compensation'
+                            break;
+                        case 'about':
+                            this.title = 'About us'
+                            break;
+                        case 'webshops':
+                            this.title = 'Webshops'
+                            break;
+                        case 'retailers':
+                            this.title = 'Retailers'
+                            break;
+                        case 'cause-marketing':
+                            this.title = 'Cause Marketing'
+                            break;
+                        case 'installation':
+                            this.title = 'Plug-in Installation'
+                            break;
+                        case 'faq':
+                            this.title = 'Frequently asked questions'
+                            break;
+                        case 'privacy':
+                            this.title = 'Privacy policy'
+                            break;
+                        case 'projects':
+                            this.title = 'CO₂-compensation projects'
+                            break;
+                        default:
+                            this.title = 'CO₂ compensation'
+                            break;
+                    }
+                } else {
+                    switch (this.image) {
+                        case 'steps':
+                            this.title = 'CO₂-compensatie'
+                            break;
+                        case 'about':
+                            this.title = 'Over ons'
+                            break;
+                        case 'webshops':
+                            this.title = 'Webshops'
+                            break;
+                        case 'retailers':
+                            this.title = 'Retailers'
+                            break;
+                        case 'cause-marketing':
+                            this.title = 'Cause Marketing'
+                            break;
+                        case 'installation':
+                            this.title = 'Plug-in Installatie'
+                            break;
+                        case 'faq':
+                            this.title = 'Veelgestelde vragen'
+                            break;
+                        case 'privacy':
+                            this.title = 'Privacy voorwaarden'
+                            break;
+                        case 'projects':
+                            this.title = 'CO₂-compensatie projecten'
+                            break;
+                        default:
+                            this.title = 'CO₂ compensatie'
+                            break;
+                    }
                 }
+
             }
         },
 
@@ -70,12 +106,16 @@
         computed: {
             currentRouteName() {
                 return this.$route.name;
+            },
+
+            currentLanguage() {
+                return this.$store.state.language
             }
         },
 
         watch: {
-            currentRouteName: function () {
-                this.checkHeader()
+            currentLanguage(value) {
+                this.checkHeaderTitle(value)
             }
         }
     }

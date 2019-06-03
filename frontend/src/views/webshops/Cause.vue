@@ -6,14 +6,14 @@
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
                         <div class="uk-card uk-card-body section-1__col-1">
-                            <h2 class="main-title">{{locale.s1_title}}</h2>
+                            <h2 class="main-title">{{locale['s1_title']}}</h2>
                             <p class="main-text">
-                                {{locale.s1_text}}
+                                {{locale['s1_text']}}
                             </p>
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/plug-in-installation" class="button">{{locale.s1_btn}}</router-link>
+                                <router-link to="/webshops/plug-in-installation" class="button">{{locale['s1_btn']}}</router-link>
                             </div>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
 
                 <div class="graph__section">
 
-                    <div v-for="data in chartData" :key="data.percentage" class="graph-wrapper">
+                    <div  class="graph-wrapper">
                         <div class="flex-wrapper">
                             <div class="single-chart">
                                 <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
@@ -127,20 +127,119 @@
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text x="18" y="20.35" class="percentage">{{data.percentage}}%</text>
+                                    <text x="18" y="20.35" class="percentage">{{locale['s3_row1_percentage1']}}%</text>
                                 </svg>
                             </div>
                         </div>
 
                         <div class="graph__text">
-                            <h2 class="main-title">{{data.title}}</h2>
+                            <h2 class="main-title">{{locale['s3_consumers']}}</h2>
                             <p class="main-text">
-                                {{data.text}}
+                                {{locale['s3_row1_text']}}
                             </p>
 
                             <br>
                             <a class="link row-link" href="#">
-                                {{data.link}} <span uk-icon="icon: arrow-right"></span>
+                                {{locale['s3_row1_link']}} <span uk-icon="icon: arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div  class="graph-wrapper">
+                        <div class="flex-wrapper">
+                            <div class="single-chart">
+                                <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
+                                    <path class="circle-bg"
+                                          d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                          stroke-dasharray="90, 100"
+                                          d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <text x="18" y="20.35" class="percentage">{{locale['s3_row1_percentage2']}}%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="graph__text">
+                            <h2 class="main-title">{{locale['s3_respondents']}}</h2>
+                            <p class="main-text">
+                                {{locale['s3_row2_text']}}
+                            </p>
+
+                            <br>
+                            <a class="link row-link" href="#">
+                                {{locale['s3_row2_link']}} <span uk-icon="icon: arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div  class="graph-wrapper">
+                        <div class="flex-wrapper">
+                            <div class="single-chart">
+                                <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
+                                    <path class="circle-bg"
+                                          d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                          stroke-dasharray="90, 100"
+                                          d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <text x="18" y="20.35" class="percentage">{{locale['s3_row1_percentage3']}}%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="graph__text">
+                            <h2 class="main-title">{{locale['s3_consumers']}}</h2>
+                            <p class="main-text">
+                                {{locale['s3_row3_text']}}
+                            </p>
+
+                            <br>
+                            <a class="link row-link" href="#">
+                                {{locale['s3_row3_link']}} <span uk-icon="icon: arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div  class="graph-wrapper">
+                        <div class="flex-wrapper">
+                            <div class="single-chart">
+                                <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
+                                    <path class="circle-bg"
+                                          d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                          stroke-dasharray="90, 100"
+                                          d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <text x="18" y="20.35" class="percentage">{{locale['s3_row1_percentage4']}}%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="graph__text">
+                            <h2 class="main-title">{{locale['s3_consumers']}}</h2>
+                            <p class="main-text">
+                                {{locale['s3_row4_text']}}
+                            </p>
+
+                            <br>
+                            <a class="link row-link" href="#">
+                                {{locale['s3_row4_link']}} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
                     </div>
@@ -236,6 +335,10 @@
                     }
                 ]
             }
+        },
+
+        mounted() {
+            this.checkLanguage()
         },
 
         methods: {

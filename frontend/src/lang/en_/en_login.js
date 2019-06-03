@@ -1,6 +1,6 @@
 module.exports = {
-    lang_en_login_consumer: {
-        'subTitle' : 'Login klanten',
+    lang_en_login: {
+        'subTitle' : 'Login consumers',
         'title' :  'Login to get access to more information!',
 
         'login_sort1' : 'Login Consumers',
@@ -14,6 +14,11 @@ module.exports = {
         'input_email' : 'Fill in your e-mail',
         'input_password' : 'Fill in you password',
 
+        'register' : 'Don’t have an account yet?',
+
+        'forgot' : 'I forgot my password',
+
+        'login' : 'Login',
         'account': 'Make an account'
     }
 }

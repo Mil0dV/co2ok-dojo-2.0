@@ -4,23 +4,22 @@
             <div class="section-1__filler">
                 <img src="../assets/images/home/logo.svg" alt="intro co2ok"
                      class="intro__img animated fadeIn">
-                <span class="intro__text-wrapper animated fadeInUp">
-                     <transition enter-active-class="animated slideInUp"
-                                 mode="out-in">
+                <transition enter-active-class="animated fadeInUp" leave-active-class="animated flipOutY"
+                            mode="out-in">
 
-                         <span v-if="currentLanguage === 'en'" key="en">
+                         <span class="img-lang" v-if="currentLanguage === 'en'" key="en">
                               <img
                                       src="../assets/images/home/intro_text-en.svg"
                                       alt="intro co2ok text"
                                       class="intro__img-text desktop__intro img-text-margin-en animated fadeIn">
                              <img
-                                      src="../assets/images/home/intro_text-en-mobile.svg"
-                                      alt="intro co2ok text"
-                                      class="intro__img-text mobile__intro img-text-margin-en animated  fadeIn">
+                                     src="../assets/images/home/intro_text-en-mobile.svg"
+                                     alt="intro co2ok text"
+                                     class="intro__img-text mobile__intro img-text-margin-en animated  fadeIn">
                          </span>
 
 
-                         <span v-else key="nl">
+                    <span v-else key="nl">
                              <img
                                      src="../assets/images/home/intro_text-nl.svg"
                                      alt="intro co2ok text"
@@ -33,7 +32,6 @@
                          </span>
 
                 </transition>
-                </span>
             </div>
         </div>
 
