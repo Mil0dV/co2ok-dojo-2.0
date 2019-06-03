@@ -2,7 +2,7 @@
     <v-app id="app">
         <div class="body">
             <Nav/>
-            <router-view class="view animated fadeIn"></router-view>
+            <router-view class="view-route animated fadeIn"></router-view>
         </div>
         <Footer/>
         <Modal v-if="$store.state.modalStatus"/>
@@ -27,8 +27,8 @@
         computed: {
             loginStatus: function() {
                 return this.$store.state.userStatus;
-            }
-        }
+            },
+        },
     }
 </script>
 
@@ -57,6 +57,12 @@
         min-height: 100vh;
         height: 100%;
     }
+
+    .view-route {
+        min-height: 97vh;
+        height: 100%;
+    }
+
     input:focus {
         border: 1px solid #08BA4D !important;
         box-shadow: 0 0 1px #08BA4D;

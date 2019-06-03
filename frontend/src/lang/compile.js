@@ -2,20 +2,20 @@ var fs = require('fs');
 
 
 // import all language files
-var nl_home = require('./nl_/nl_retailers.js');
-var en_home = require('./en_/en_retailers.js');
+var nl_home = require('./nl_/nl_home2.js');
+var en_home = require('./en_/en_home2.js');
 
 console.log('execute compile.js');
 
 // name of home language kit
 // add more language kit files later
-var home_language_kit = "src/lang/lang_retailers.json";
+var home_language_kit = "src/lang/lang_home2.json";
 
 // exmaple homepage language object
 // add more language objects later
 var home_language_kit_object = {
-    lang_nl_retailer: nl_home.lang_nl_retailers,
-    lang_en_retailer: en_home.lang_en_retailers
+    lang_nl_home2: nl_home.lang_nl_home2,
+    lang_en_home2: en_home.lang_en_home2
 };
 
 // create New Home Language Kit

@@ -7,6 +7,7 @@ module.exports = {
         'webshops_3' : 'Projecten',
         'webshops_4' : 'Login',
         'webshops_5' : 'Logout',
+        'webshops_6' : 'Dashboard',
 
         'consumers' : 'Klanten',
         'consumers_1' : 'Profiel',

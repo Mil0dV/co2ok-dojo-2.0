@@ -13,74 +13,77 @@
                     <div class="uk-navbar-right uk-visible@m">
                         <ul class="uk-navbar-nav">
                             <li :class="[checkActive('about') ? 'navbar__active' : '']">
-                                <router-link to="/about">About</router-link>
+                                <router-link to="/about">{{locale.about}}</router-link>
                             </li>
                             <li :class="[checkActive('webshops') ? 'navbar__active' : '']">
-                                <router-link to="/webshops">Webshops <span class="nav__triangle"
+                                <router-link to="/webshops">{{locale.webshops}}<span class="nav__triangle"
                                                                            uk-icon="icon: triangle-down"></span>
                                 </router-link>
                             </li>
                             <div class="dropdown__menu-wrapper" uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
-                                     <li v-if="$store.state.Authenticated && $store.state.status == 'webshop'">
-                                        <router-link to="/webshops/dashboard">Dashboard</router-link>
+                                    <li v-if="$store.state.Authenticated && $store.state.status == 'webshop'">
+                                        <router-link to="/webshops/dashboard">{{locale.webshops_6}}</router-link>
                                     </li>
                                     <li>
-                                        <router-link to="/webshops">Webshops</router-link>
+                                        <router-link to="/webshops">{{locale.webshops}}</router-link>
                                     </li>
                                     <li>
-                                        <router-link to="/webshops/retailers">Retailers</router-link>
+                                        <router-link to="/webshops/retailers">{{locale.webshops_1}}</router-link>
                                     </li>
                                     <li>
-                                        <router-link to="/webshops/cause-marketing">Cause Marketing</router-link>
+                                        <router-link to="/webshops/cause-marketing">{{locale.webshops_2}}</router-link>
                                     </li>
                                     <li>
-                                        <router-link to="/projects">Projects</router-link>
+                                        <router-link to="/projects">{{locale.webshops_3}}</router-link>
                                     </li>
-                                    <li @click="logout('consumer')" v-if="$store.state.Authenticated && $store.state.status == 'webshop'"><a>Logout</a></li>
+                                    <li @click="logout('consumer')"
+                                        v-if="$store.state.Authenticated && $store.state.status == 'webshop'">
+                                        <a>{{locale.consumers_2}}</a></li>
                                     <li v-else>
-                                        <router-link to="/webshops/login">Login</router-link>
+                                        <router-link to="/webshops/login">{{locale.webshops_4}}</router-link>
                                     </li>
                                 </ul>
                             </div>
 
                             <li v-if="$store.state.Authenticated &&  $store.state.status == 'ninja'">
-                                <router-link to="/consumers/profile">Consumers
+                                <router-link to="/consumers/profile">{{locale.consumers}}
                                     <span uk-icon="icon: triangle-down"
                                           class="animated bounceIn">
                                     </span>
                                 </router-link>
                             </li>
 
-                             <li v-else
+                            <li v-else
                                 :class="[checkActive('consumers') ? 'navbar__active' : '']">
                                 <router-link to="/consumers/login">
-                                    Consumers
+                                    {{locale.consumers}}
                                 </router-link>
                             </li>
 
-                            <div v-if="$store.state.Authenticated && $store.state.status == 'ninja'" class="dropdown__menu-wrapper"
+                            <div v-if="$store.state.Authenticated && $store.state.status == 'ninja'"
+                                 class="dropdown__menu-wrapper"
                                  uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
                                     <li>
-                                        <router-link to="/consumers/profile">Profile</router-link>
+                                        <router-link to="/consumers/profile">{{locale.consumers_1}}</router-link>
                                     </li>
-                                    <li @click="logout('consumer')"><a>Logout</a></li>
+                                    <li @click="logout('consumer')"><a>{{locale.consumers_2}}</a></li>
                                 </ul>
                             </div>
 
                             <li :class="[checkActive('news') ? 'navbar__active' : '']">
-                                <router-link to="/news">News</router-link>
+                                <router-link to="/news">{{locale.news}}</router-link>
                             </li>
                             <li :class="[checkActive('faq') ? 'navbar__active' : '']">
-                                <router-link to="/faq">FAQ</router-link>
+                                <router-link to="/faq">{{locale.faq}}</router-link>
                             </li>
                         </ul>
                         <a v-if="!$store.state.Authenticated" :href="this.$store.state.ninjaExtensionLink"
-                           :target="this.$store.state.extensionLinkTarget" class="button">Extension</a>
+                           :target="this.$store.state.extensionLinkTarget" class="button">{{locale.extension}}</a>
                         <ul v-else class="uk-navbar-nav">
                             <li @click="logout()">
-                                <a>Logout</a>
+                                <a>{{locale.consumers_2}}</a>
                             </li>
                         </ul>
 
@@ -139,42 +142,44 @@
 
                 <ul class="uk-nav uk-nav-default">
                     <li>
-                        <router-link to="/about">About</router-link>
+                        <router-link to="/about">{{locale.about}}</router-link>
                     </li>
                     <li>
-                        <router-link to="/webshops">Webshops</router-link>
+                        <router-link to="/webshops">{{locale.webshops}}</router-link>
                     </li>
                     <li v-if="$store.state.Authenticated && $store.state.status == 'webshop'">
-                        <router-link to="/webshops/dashboard">Dashboard</router-link>
+                        <router-link to="/webshops/dashboard">{{locale.webshops_6}}</router-link>
                     </li>
                     <li>
-                        <router-link to="/webshops/retailers">Retailers</router-link>
+                        <router-link to="/webshops/retailers">{{locale.webshops_1}}</router-link>
                     </li>
                     <li>
-                        <router-link to="/webshops/cause-marketing">Cause Marketing</router-link>
+                        <router-link to="/webshops/cause-marketing">{{locale.webshops_2}}</router-link>
                     </li>
                     <li>
-                        <router-link to="/projects">Projects</router-link>
+                        <router-link to="/projects">{{locale.webshops_3}}</router-link>
                     </li>
                     <li>
-                        <router-link to="/webshops/login">Login webshop</router-link>
+                        <router-link to="/webshops/login">{{locale.webshops_4}} webshop</router-link>
                     </li>
-                    <li  v-if="$store.state.Authenticated && $store.state.status == 'ninja'">
-                        <router-link to="/consumers/profile">Profile</router-link>
+                    <li v-if="$store.state.Authenticated && $store.state.status == 'ninja'">
+                        <router-link to="/consumers/profile">{{locale.consumers_1}}</router-link>
                     </li>
                     <li v-else>
-                        <router-link to="/consumers/login">Consumers</router-link>
+                        <router-link to="/consumers/login">{{locale.consumers}}</router-link>
                     </li>
                     <li>
-                        <router-link to="/news">News</router-link>
+                        <router-link to="/news">{{locale.news}}</router-link>
                     </li>
                     <li>
-                        <router-link to="/faq">FAQ</router-link>
+                        <router-link to="/faq">{{locale.faq}}</router-link>
                     </li>
-                    <li @click="logout('consumer')" v-if="$store.state.Authenticated && $store.state.status == 'webshop' || $store.state.Authenticated && $store.state.status == 'ninja'"><a>Logout</a></li>
+                    <li @click="logout('consumer')"
+                        v-if="$store.state.Authenticated && $store.state.status == 'webshop' || $store.state.Authenticated && $store.state.status == 'ninja'">
+                        <a>Logout</a></li>
                 </ul>
                 <a :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget"
-                   class="button">Extension</a>
+                   class="button">{{locale.extensions}}</a>
                 <hr>
                 <a><img alt="engelse vlag mobiel" class="language-icon english icon"
                         src="../../assets/images/nav/english-icon.png"></a>
@@ -187,6 +192,7 @@
 
 <script>
     import axios from 'axios'
+    import navLang from '../../lang/lang_nav'
 
     export default {
         name: "Nav",
@@ -200,20 +206,22 @@
                     {title: 'Consumers', link: '/consumers'},
                     {title: 'News', link: '/news'},
                     {title: 'FAQ', link: '/faq'},
-                ]
+                ],
+                locale: navLang,
             }
         },
 
-        created(){
-
+        created() {
             this.$store.commit('installNinjaButton')
-            
+
         },
 
         mounted() {
             if (this.$store.state.userData.length > 0) {
                 this.userLoggedIn = true;
             }
+
+            this.checkLanguage()
         },
 
         methods: {
@@ -248,12 +256,28 @@
                     || menu === 'webshops' && this.currentRouteName === 'webshops-login' || menu === 'webshops' && this.currentRouteName === 'dashboard') {
                     return true
                 }
+            },
+
+            checkLanguage(lang) {
+                if (lang === 'en') {
+                    this.locale = navLang.lang_en_nav
+                } else {
+                    if (this.currentLanguage === 'en') {
+                        this.locale = navLang.lang_en_nav
+                    } else {
+                        this.locale = navLang.lang_nl_nav
+                    }
+                }
             }
         },
 
         computed: {
             currentRouteName() {
                 return this.$route.name;
+            },
+
+            currentLanguage() {
+                return this.$store.state.language
             }
         },
 
@@ -261,6 +285,10 @@
             '$route'() {
                 this.userLoggedIn = this.$router.currentRoute['name'] === 'dashboard';
             },
+
+            currentLanguage(value) {
+                this.checkLanguage(value)
+            }
         }
     }
 </script>

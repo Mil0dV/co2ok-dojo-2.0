@@ -334,8 +334,8 @@
     }
 
     .register__layout {
-        min-height: 93vh;
         height: 100%;
+        min-height: 97vh;
     }
 
     .register__col-1 {
