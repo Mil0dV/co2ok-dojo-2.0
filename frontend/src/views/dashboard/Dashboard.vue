@@ -132,15 +132,18 @@
         },
 
         created() {
+
             if (this.Authenticated == null) {
                this.$router.push('/webshops/login')
             }
-             console.log(this.$store.state.userData.profileData);
+            this.transactionsYears()
+
         },
 
         mounted() {
+
             this.$store.dispatch('commitGetUserData');
-            console.log(this.Authenticated);
+
         },
 
         methods: {
@@ -168,7 +171,29 @@
                     this.$router.push('login')
                     alert('not auth')
                 }
+            },
+
+            transactionsYears(){
+
+                let self = this
+                this.$axios.get(`${this.$store.state.SITE_HOST}/user/years/`, {
+                    headers: {
+                        "X-CSRFToken": `${this.$store.state.userToken}`,
+                        Authorization: `token ${window.localStorage.getItem('userToken')}`
+                    }
+                }).then(response => {
+
+                    let uniqArr = this._.reverse(this._.uniq(response.data))
+                    // uniqArr.forEach(element => {
+                        self.$store.commit('transactionsYears', uniqArr)
+                    // });
+
+                }).catch(error => {
+                    console.log(error)
+                })
+
             }
+
 
         }
     }

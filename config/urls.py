@@ -35,6 +35,7 @@ urlpatterns = [
     path("blog/", include("blog.urls", namespace="blog")),
     path("ninja/", include("ninja_profile.urls", namespace="ninja")),
     path("merchantIdChecker/", dashView.merchantIdChecker, name="merchantIdChecker"),
+    path("merchant_data/", dashView.merchant_data, name="merchant_data"),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management

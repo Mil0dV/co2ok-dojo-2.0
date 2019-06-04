@@ -137,14 +137,24 @@ class UserView(viewsets.ModelViewSet):
 
     @csrf_exempt
     @action(methods=['get'], detail=False)
-    #return the merchant name and email from the dynamodb
-    #does not work properly because of the merchant_id in Transaction model who have more than one id in Merchant model
-    def merchant_data(self, request):
-        merchant_id = request.query_params.get('merchantId')
-        merchantdata = []
-        for merchant in Merchant.scan(Merchant.id == merchant_id):
-            merchantdata.append({'name': merchant.name, 'email': merchant.email})
-        return Response(merchantdata)
+    #return the transactions years in ptnamodb
+    def years(self, request):
+        years_arr = []
+        for transaction in Transaction.scan():
+            timestamp = transaction.timestamp
+            date_time = str(timestamp).split()
+            date = str(date_time[0]).split('-')
+            year = date[0]
+            print(year)
+            years_arr.append(year)
+        return Response(years_arr)
+
+
+def uuid_hex_from_b64(encoded):
+    decoded = base64.b64decode(encoded)
+    if len(decoded.split(b":")) > 1:
+        return decoded.split(b":")[1]
+    return encoded[1:]
 
 
 @csrf_exempt
@@ -157,9 +167,9 @@ def merchantIdChecker(request):
     #check if the sended mercahant id already have an account
     merchantIdCount = Profile.objects.filter(merchant_id=merchantId).count()
     if merchantIdCount == 0:
-        merchantId_list.append({'accountIdCheck': True})
+        merchantId_list.append({'accountIdCheck': True}) #don't have accout yet
     else:
-        merchantId_list.append({'accountIdCheck': False})
+        merchantId_list.append({'accountIdCheck': False}) #already have an accout
 
     #check if the sended mercahant id exist in the dynamoDB
     for merchantid in Transaction.scan(Transaction.merchant_id == merchantId):
@@ -172,15 +182,20 @@ def merchantIdChecker(request):
             return Response({'dynamoId': 'Not valid'})
     return Response({'msg': 'Merchant id not valid', 'accountIdCheck': False, 'dynamoIdCheck': 0})
 
+#return the merchant name and email from the dynamodb
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((AllowAny,))
+def merchant_data(request):
+    merchant_id = request.data['body']['merchantId']
+    merchantId_encoded = uuid_hex_from_b64(merchant_id)
+    encoded_id = str(merchantId_encoded).split("'")
 
-def transactionsData(request):
-    pass
+    for merchant in Merchant.scan(Merchant.id == encoded_id[1]):
+        merchant_name = str(merchant.name).split('.')
+        context = {'name': merchant_name[1], 'link': merchant.name, 'email': merchant.email}
+        return Response(context)
 
-    # def uuid_hex_from_b64(encoded):
-    #     decoded = base64.b64decode(encoded)
-    #     if len(decoded.split(b":")) > 1:
-    #         return decoded.split(b":")[1]
-    #     return encoded[1:]
 
     # merchants = []
 

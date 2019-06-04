@@ -38,7 +38,8 @@ export default new Vuex.Store({
         extensionLinkTarget: '',
         browserLogo: '',
         language: 'en',
-        passResetEmail: ''
+        passResetEmail: '',
+        years: [] //array of alle transactions years in pynamodb
     },
 
     mutations: {
@@ -217,6 +218,15 @@ export default new Vuex.Store({
             state.x_asLabel = ['MON', 'TUE', 'WED', 'THU', 'FRY', 'SAT', 'SUN']
             state.graphData = data
 
+        },
+
+        transactionsYears(state, data){
+            if(state.years.length == 0){
+                state.years.push(data)
+            }else{
+                state.years.length = 0
+                state.years.push(data)
+            }
         },
 
         roundGraphData(state, data){

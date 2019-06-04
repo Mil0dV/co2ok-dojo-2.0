@@ -14,7 +14,7 @@
             <p class="font-weight-bold black--text" style="font-size: 15px;text-align: center" v-if="!$store.state.userData.userdata.is_superuser">{{graphLegend}}</p>
 
             <div class="graphs">
-                <line-chart :chartData="datacollection" :options="chartOptions" style="width: 900px; height: 400px"/>
+                <line-chart :chartData="datacollection" :options="chartOptions" style="width: 1000px; height: 400px"/>
             </div>
         </div>
 
@@ -53,9 +53,9 @@
                 </div>
             </v-flex>
             <v-flex xs12 sm12 md6 lg6 style="height: 100%;" class="year-info-flex">
-                <v-icon medium :style="prevStyle" style="" class="animated zoomIn">keyboard_arrow_left</v-icon>
-                <p class="font-weight-bold">YEAR {{currentYear}}</p>
-                <v-icon medium :style="nextStyle" style="" class="animated zoomIn">keyboard_arrow_right</v-icon>
+                <v-icon medium :style="prevStyle" style="position: relative;bottom: 2px;" class="animated zoomIn mr-2" @click="prevYear()">keyboard_arrow_left</v-icon>
+                <p class="font-weight-bold">YEAR {{yearLabel}}</p>
+                <v-icon medium :style="nextStyle" style="position: relative;bottom: 2px;" class="animated zoomIn ml-2" @click="nextYear()">keyboard_arrow_right</v-icon>
             </v-flex>
         </v-layout>
 
@@ -166,7 +166,9 @@ import Co2okWidget from '../../co2okWidget'
                 unit: 'in',
                 format: [4, 2]
               },
-              pdfData: []
+              pdfData: [],
+              yearArrIndex: this.$store.state.years[0].indexOf(this.$moment().year().toString()),
+              yearLabel: this.$moment().year()
 
             }
         },
@@ -575,6 +577,43 @@ import Co2okWidget from '../../co2okWidget'
 
             },
 
+            nextYear(){
+
+                if(this.yearArrIndex < this.$store.state.years[0].length-1){
+                    this.nextStyle.color = '#369555'
+                    this.nextStyle.cursor = 'pointer'
+                    this.prevStyle.color = '#369555'
+                    this.prevStyle.cursor = 'pointer'
+                    this.yearArrIndex++
+                    this.mechantsYearTransactions(this.$store.state.years[0][this.yearArrIndex])
+                    this.yearLabel = this.$store.state.years[0][this.yearArrIndex]
+                }else if(this.yearArrIndex > this.$store.state.years[0].length){
+                    this.yearArrIndex = this.$store.state.years[0].length
+                }else{
+                    this.nextStyle.color = '#E0E0E0'
+                    this.nextStyle.cursor = 'default'
+                }
+
+            },
+
+            prevYear(){
+
+                if(this.yearArrIndex > 0){
+                    this.prevStyle.color = '#369555'
+                    this.prevStyle.cursor = 'pointer'
+                    this.nextStyle.color = '#369555'
+                    this.nextStyle.cursor = 'pointer'
+                    this.yearArrIndex--
+                    this.mechantsYearTransactions(this.$store.state.years[0][this.yearArrIndex])
+                    this.yearLabel = this.$store.state.years[0][this.yearArrIndex]
+                }else if(this.yearArrIndex == 0){
+                    this.prevStyle.color = '#E0E0E0'
+                    this.prevStyle.cursor = 'default'
+                    this.yearArrIndex = 0
+                }
+
+            },
+
             prevWeek(){
 
                 if(this.daysArrIndex > 0){
@@ -767,7 +806,6 @@ import Co2okWidget from '../../co2okWidget'
         height: auto;
         justify-content: flex-start;
         align-items: center;
-        border: 1px solid green;
     }
 
     .export {
@@ -828,7 +866,6 @@ import Co2okWidget from '../../co2okWidget'
         flex-direction: row;
         justify-content: flex-end;
         align-items: flex-start;
-        border: 1px solid red;
     }
 
     .week-ctr-flex .ctrl-container{
