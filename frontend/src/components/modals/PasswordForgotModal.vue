@@ -13,7 +13,7 @@
                 <div class="edit__form-group">
                     <div class="edit__form">
                         <label class="edit__form-label">
-                            <input type="mail" v-model="$store.state.passResetEmail" class="edit__form-input"
+                            <input type="mail" v-model="email" class="edit__form-input"
                                    placeholder="Your email...">
                         </label>
                     </div>
@@ -24,7 +24,7 @@
                             @click.prevent="[!formActive ? $parent.closeEdit() :  '']">Cancel
                     </button>
 
-                    <button class="form__button button__save" @click.prevent="sendForm()">
+                    <button class="form__button button__save" @click.prevent="passwordRecoveryEmail()">
                         <span v-if="formActive">
                             <v-progress-circular indeterminate color="white"></v-progress-circular>
                         </span>
@@ -48,27 +48,31 @@
 
         data() {
             return {
-                email: this.$store.state.passResetEmail,
+                email: '',
                 formActive: false,
             }
         },
 
         methods: {
-            sendForm() { //Checkt of de velden leeg zijn en of de ww hetzelfde is
+            passwordRecoveryEmail() { //Checkt of de velden leeg zijn en of de ww hetzelfde is
                 this.formActive = true
+                let self = this
+                let result = 'ninja@pass.'
+                let generatedPass = result += Math.random().toString(36).substring(2, 7)
                 let message = {title: 'Oops... Something went wrong!', text: 'Fill in the email field and Try again later.'}
 
                 if (this.email !== '') {
 
                     this.$axios
-                        .post(`${this.$store.state.SITE_HOST}/accounts/sendMail/`, {
+                        .post(`${this.$store.state.SITE_HOST}/password_recover_mail/`, {
                             body: {
-                                email: this.email,
-                        },
-                        header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
+                                temporaryPassword: generatedPass,
+                                email: self.email
+                            }
                         })
                         .then(response => {
-                            if (response.data.status) {
+                            console.log(response.data)
+                            if (response.data.send) {
                                 let successmessage = {
                                     title: 'A mail has been sent to your email-adres!',
                                     text: 'Follow the instructions in your mail.'

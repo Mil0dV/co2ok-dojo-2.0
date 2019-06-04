@@ -14,7 +14,7 @@
                             <div class="uk-card-body">
                                 <div>
                                     <p class="main-text">You’ve compensated:</p>
-                                    <h3 class="main-title">{{co2Counter}} kgs</h3>
+                                    <h3 class="main-title animated">{{co2Counter}} kgs</h3>
 
                                     <hr>
                                     <div>
@@ -92,6 +92,8 @@
                                    :href="`https://twitter.com/intent/tweet?text=Help%20me%20fight%20climate%20change%20while%20shopping%20-%20easy%20and%20for%20free!%20http%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.userData.id}`"><i
                                         class="fab fa-twitter"></i></a>
                             </p>
+                            <p @click="deleteAccount = true">Delete</p>
+                            <p @click="editPassword = true">Update</p>
                         </div>
 
                     </div>
@@ -102,11 +104,19 @@
 </template>
 
 <script>
+    const PasswordModal = () => import('@/components/modals/PasswordModal')
+    const DeleteModal = () => import('@/components/modals/DeleteModal')
     export default {
         name: "NinjaProfile",
 
+        components: {
+            PasswordModal, DeleteModal
+        },
+
         data() {
             return {
+                editPassword: false,
+                deleteAccount: false,
                 Authenticated: window.localStorage.getItem('Authenticated'),
                 projectsAlert: false,
                 // ninjaSupportedProject: $store.state.ninjaData.profileData.supportedProject, //return supported project
@@ -131,6 +141,16 @@
         },
 
         methods: {
+
+            closeEdit(message) {
+                this.editProfile = false
+                this.editPassword = false
+                this.deleteAccount = false
+
+                if (message) {
+                    this.$store.commit('modalStatus', {message})
+                }
+            },
 
             supportedProject_status() {
 
@@ -207,6 +227,13 @@
             },
 
             co2counter(){
+                let co2counter = document.querySelector('.main-title')
+                if(co2counter.classList.contains('flipInY')){
+                    co2counter.classList.remove('flipInY')
+                    co2counter.classList.add('flipInY')
+                }else{
+                    co2counter.classList.add('flipInY')
+                }
                this.co2Counter = Math.floor(Math.random() * 1000) + 1
             }
 

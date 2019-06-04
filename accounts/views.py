@@ -375,8 +375,8 @@ def password_recover_mail(request):
     except:
         userEmail = request.POST.get('email')
         password = request.POST.get('temporaryPassword')
-
-    if checkEmail(request, userEmail) != 0:
+    checkEmail = User.objects.filter(email=userEmail).count()
+    if checkEmail > 0:
         rcovery_mail = Mail(
             from_email=settings.EMAIL_HOST_USER,
             to_emails=userEmail,
@@ -392,6 +392,11 @@ def password_recover_mail(request):
         except Exception as e:
             print(e.message)
 
+        # update password in db
+        user = User.objects.get(email=userEmail)
+        user.set_password(password)
+        user.save()
+
         # subject = "Password reset"
         # message = 'Click the link to reset your password, temporary password: k,jasflkuhsrlkjjbl'
         # from_email = settings.EMAIL_HOST_USER
@@ -406,7 +411,7 @@ def password_recover_mail(request):
     else:
         error = {
             'send': False,
-            'msg': 'Wrong email'
+            'msg': 'Email does not exist'
         }
         return Response(error)
 
