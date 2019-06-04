@@ -8,9 +8,7 @@
                         <h2>Ninja</h2>
                         <ul uk-accordion="multiple: true">
                             <li>
-                                <a class="uk-accordion-title" href="#">Why installing the Ninja App requires permission
-                                    to
-                                    “Read and change all data on websites you visit”?</a>
+                                <a class="uk-accordion-title" href="#">Why installing the Ninja App requires permission to “Read and change all data on websites you visit'?</a>
                                 <div class="uk-accordion-content">
                                     <p>
                                         For the Ninja App to work properly it needs to have access to the information
@@ -260,7 +258,7 @@
                                 <a class="uk-accordion-title" href="#">What kind of projects will we finance?</a>
                                 <div class="uk-accordion-content">
                                     <p>
-                                        n addition to renewable energy projects such as solar, wind and hydropower, we
+                                       In addition to renewable energy projects such as solar, wind and hydropower, we
                                         will
                                         also fund projects that increase energy efficiency. For instance, the Save80
                                         cooking

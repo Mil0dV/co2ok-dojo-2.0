@@ -96,12 +96,12 @@
                 username: this.$store.state.userData.userdata.username,
                 password: '',
                 passwordExtra: '',
-                country: this.$store.state.userData.userProfileData.country,
-                city: this.$store.state.userData.userProfileData.city,
-                zipcode: this.$store.state.userData.userProfileData.zipcode,
-                street: this.$store.state.userData.userProfileData.street,
-                number: this.$store.state.userData.userProfileData.number,
-                link: this.$store.state.userData.userProfileData.link,
+                country: this.$store.state.userData.profileData.country,
+                city: this.$store.state.userData.profileData.city,
+                zipcode: this.$store.state.userData.profileData.zipcode,
+                street: this.$store.state.userData.profileData.street,
+                number: this.$store.state.userData.profileData.number,
+                link: this.$store.state.userData.profileData.link,
                 send: null,
                 formActive: false,
                 edit: false,
@@ -110,6 +110,7 @@
 
         methods: {
             updateProfile() {
+                self = this
                 this.formActive = true
                 let message = {title: 'Oops... Something went wrong!', text: 'Some field are empty,Try again later.'}
                 if (this.email !== '' && this.country !== '' && this.city !== '' && this.zipcode !== '' &&
@@ -119,15 +120,15 @@
                     this.$axios
                         .post(`${this.$store.state.SITE_HOST}/accounts/updateAccount/`, {
                             body: {
-                                id: this.$store.state.userId,
-                                email: this.email,
+                                id: self.$store.state.userId,
+                                email: self.email,
                                 // password: this.password,
-                                country: this.country,
-                                city: this.city,
-                                zipcode: this.zipcode,
-                                street: this.street,
-                                number: this.number,
-                                link: this.link
+                                country: self.country,
+                                city: self.city,
+                                zipcode: self.zipcode,
+                                street: self.street,
+                                number: self.number,
+                                link: self.link
                             }
 
                             // header: {"X-CSRFToken": `token ${this.$store.state.userToken}`,}

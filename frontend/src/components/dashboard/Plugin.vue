@@ -1,5 +1,5 @@
 <template>
-    <div class="plugin__container">
+    <div class="plugin__container" v-if="!$store.state.userData.userdata.is_superuser">
         <div class="plugin__head">
             <h1 class="plugin__title">Plug-in Settings</h1>
             <img class="edit__img" alt="edit-img"  src="../../assets/images/dashboard/edit.svg">

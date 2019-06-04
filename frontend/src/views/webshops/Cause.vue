@@ -6,15 +6,14 @@
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
                         <div class="uk-card uk-card-body section-1__col-1">
-                            <h2 class="main-title">Only benefits</h2>
+                            <h2 class="main-title">{{locale.s1_title}}</h2>
                             <p class="main-text">
-                                By associating your webshop with a good cause your customers are more inclined to choose
-                                your webshop and return. This is also called ‘Cause Marketing’
+                                {{locale.s1_text}}
                             </p>
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/plug-in-installation" class="button">Fight Climate Change</router-link>
+                                <router-link to="/webshops/plug-in-installation" class="button">{{locale.s1_btn}}</router-link>
                             </div>
                         </div>
                     </div>
@@ -33,35 +32,34 @@
             <div class="uk-container uk-container-width section-2-row">
                 <div class="row__content">
                     <div class="row__icon">
-                        <img src="../../assets/images/webshops/cause-marketing/icon-1.png">
+                        <img alt="cause marketing icon 1" src="../../assets/images/webshops/cause-marketing/icon-1.png">
                     </div>
 
                     <div class="row__text">
-                        <h2 class="main-title">More revenue</h2>
+                        <h2 class="main-title">{{locale['s2_title1']}}</h2>
                         <p class="main-text">
-                            Cause marketing generates 7x more revenue than price discounts for toy manufacturer.
+                            {{locale['s2_text-1']}}
                         </p>
                         <br>
                         <a class="link row-link" href="#">
-                            Marketing Experiment 2016 <span uk-icon="icon: arrow-right"></span>
+                            {{locale['s2_link-1']}} <span uk-icon="icon: arrow-right"></span>
                         </a>
                     </div>
                 </div>
 
                 <div class="row__content">
                     <div class="row__icon">
-                        <img src="../../assets/images/webshops/cause-marketing/icon-2.png">
+                        <img alt="cause marketing icon 2" src="../../assets/images/webshops/cause-marketing/icon-2.png">
                     </div>
 
                     <div class="row__text">
-                        <h2 class="main-title">Climate Change is Hot</h2>
+                        <h2 class="main-title">{{locale['s2_title2']}}</h2>
                         <p class="main-text">
-                            Climate change is the most well-known CSR subject for consumers – 59% can even define it and
-                            give an example.
+                            {{locale['s2_text-2']}}
                         </p>
                         <br>
                         <a class="link row-link" href="#">
-                            Cone Communication Study 2015 <span uk-icon="icon: arrow-right"></span>
+                            {{locale['s2_link-2']}} <span uk-icon="icon: arrow-right"></span>
                         </a>
                     </div>
                 </div>
@@ -70,35 +68,34 @@
             <div class="uk-container uk-container-width section-2-row second__column">
                 <div class="row__content">
                     <div class="row__icon">
-                        <img src="../../assets/images/webshops/cause-marketing/icon-3.png">
+                        <img alt="cause marketing icon 3" src="../../assets/images/webshops/cause-marketing/icon-3.png">
                     </div>
 
                     <div class="row__text">
-                        <h2 class="main-title">Positive Public Relations</h2>
+                        <h2 class="main-title">{{locale['s2_title3']}}</h2>
                         <p class="main-text">
-                            The non-profits and companies use each other: the good cause is getting attention and money,
-                            the company can contribute and improves its image.
+                            {{locale['s2_text-3']}}
                         </p>
                         <br>
                         <a class="link row-link" href="#">
-                            Groene Amsterdammer (Dutch only) <span uk-icon="icon: arrow-right"></span>
+                            {{locale['s2_link-3']}} <span uk-icon="icon: arrow-right"></span>
                         </a>
                     </div>
                 </div>
 
                 <div class="row__content">
                     <div class="row__icon">
-                        <img src="../../assets/images/webshops/cause-marketing/icon-4.png">
+                        <img alt="cause marketing icon 4" src="../../assets/images/webshops/cause-marketing/icon-4.png">
                     </div>
 
                     <div class="row__text">
-                        <h2 class="main-title">More Marketing Opportunities</h2>
+                        <h2 class="main-title">{{locale['s2_title4']}}</h2>
                         <p class="main-text">
-                            Cause Marketing improves “Brand Story” and helps with customer loyalty.
+                            {{locale['s2_text-4']}}
                         </p>
                         <br>
                         <a class="link row-link" href="#">
-                            Forbes 2017 <span uk-icon="icon: arrow-right"></span>
+                            {{locale['s2_link-4']}} <span uk-icon="icon: arrow-right"></span>
                         </a>
                     </div>
                 </div>
@@ -108,8 +105,8 @@
         <div class="uk-section section-4 section--dark">
             <div class="uk-container uk-container-width">
                 <div class="section-2--col-1 section-4--header">
-                    <h2 class="sub-title dark--color">The Numbers</h2>
-                    <h2 class="main-title">Stand to Reason</h2>
+                    <h2 class="sub-title dark--color">{{locale['s3_subTitle']}}</h2>
+                    <h2 class="main-title">{{locale['s3_title']}}</h2>
                 </div>
                 <br><br>
 
@@ -155,29 +152,28 @@
                 <h2 class="sub-title">CO₂ok’s</h2>
                 <div class="final-col-wrapper">
                     <div class="final-col final-1">
-                        <h2 class="main-title">Marketing Kit</h2>
+                        <h2 class="main-title">{{locale['s4_row1_title']}}</h2>
                         <p class="main-text">
-                            We’ve got a marketingkit for your Cause Marketing! Send an e-mail to jos@co2ok.eco to receive it.
+                            {{locale['s4_row1_text']}}
                         </p>
                         <br>
-                        <p class="button" @click="contactForm()">Contact Jobs</p>
+                        <p class="button" @click="contactForm()">{{locale['s4_row1_link']}}</p>
                     </div>
 
                     <div class="final-col final-2">
-                        <h2 class="main-title">Want to know more?</h2>
+                        <h2 class="main-title">{{locale['s4_row2_title']}}</h2>
                         <a class="link row-link" href="#">
-                            Statistics about Cause
-                            Marketing <span uk-icon="icon: arrow-right"></span>
+                            {{locale['s4_row2_link']}} <span uk-icon="icon: arrow-right"></span>
                         </a>
                     </div>
 
                     <div class="final-col final-1">
-                        <h2 class="main-title">Fight Climate Change</h2>
+                        <h2 class="main-title">{{locale['s4_row3_title']}}</h2>
                         <p class="main-text">
-                            More revenue and help fight climate change?
+                            {{locale['s4_row3_text']}}
                         </p>
                         <br>
-                        <router-link to="/webshops/plug-in-installation" class="button">Install Plug-in</router-link>
+                        <router-link to="/webshops/plug-in-installation" class="button">{{locale['s4_row3_link']}}</router-link>
                     </div>
                 </div>
             </div>
@@ -189,6 +185,7 @@
 <script>
     const Header = () => import('@/components/layout/Header')
     const ModalContact = () => import('@/components/modals/ModalContact')
+    import causeLang from '../../lang/lang_cause'
 
     export default {
         name: "About",
@@ -197,6 +194,7 @@
         data() {
             return {
                 header: 'cause-marketing',
+                locale: causeLang,
                 chartData: [
                     {
                         percentage: 90,
@@ -247,6 +245,30 @@
                     text: 'Please fill in your e-mail'
                 }
                 this.$store.commit('modalStatus', {message})
+            },
+
+            checkLanguage(lang) {
+                if(lang === 'en'){
+                    this.locale = causeLang.lang_en_cause
+                } else {
+                    if (this.currentLanguage === 'en') {
+                        this.locale = causeLang.lang_en_cause
+                    } else {
+                        this.locale = causeLang.lang_nl_cause
+                    }
+                }
+            }
+        },
+
+        computed: {
+            currentLanguage() {
+                return this.$store.state.language
+            }
+        },
+
+        watch: {
+            currentLanguage(value) {
+                this.checkLanguage(value)
             }
         }
     }

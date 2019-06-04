@@ -5,13 +5,13 @@
             <div class="bkgr__filler bkgr__text hide--tablet">
                 <div class="green-border__login">
                     <p class="green-border__text main-text">
-                        With your account you will get acces to information how much you’ve contributed to fighting climate change
+                        With your account you will get access to information how much you’ve contributed to fighting climate change
                     </p>
                 </div>
             </div>
         </div>
 
-        <div class="login-c__section login-c__row">
+        <div class="login-c__section login-d__section login-c__row">
             <div class="login__width">
                 <div class="login-c__wrapper">
                     <form v-model="valid" class="login-c__form">
@@ -44,8 +44,10 @@
 
 <script>
     import axios from 'axios'
+    // import mailer from '../../nodemailer'
 
     const PasswordForgotModal = () => import('@/components/modals/PasswordForgotModal')
+    const sgMail = require('@sendgrid/mail')
 
     export default {
         name: 'Login',
@@ -68,7 +70,9 @@
         },
         created() {
 
-            // console.log(this.$route)
+            // mailer.sendmail('kevineasky@gmail.com')
+            // this.passwordRecoveryEmail()
+
         },
 
         methods: {
@@ -102,11 +106,15 @@
                         .then(response => {
                             if (response) {
                                 if (response.data.authenticate) {
+                                    console.log(response.data);
+                                    
                                     this.$store.dispatch('commitSaveUser', response.data)
+                                    this.$store.state.status = 'webshop'
+                                    this.$store.state.Authenticated = true
                                     this.$store.commit('setLocalUserData', response.data)
-                                    console.log('userlocal', response.data.authenticate);
 
-                                    this.$store.commit('isLoggedIn', response.data.authenticate)
+                                    this.$store.commit('isLoggedIn', true) //set userStatus variable in the store to true
+                                    
                                     this.$store.dispatch('commitGetUserData');
                                     //userSession return a boolean of de authenticate status of the user
                                     if (window.localStorage.getItem('Authenticated')) {
@@ -136,6 +144,43 @@
                     }
                     this.$store.commit('modalStatus', {message})
                 }
+            },  
+
+            passwordRecoveryEmail(){
+
+                let self = this
+                let result = 'ninja@pass.'
+                let generatedPass = result += Math.random().toString(36).substring(2, 7)
+
+                axios.post(`${this.$store.state.SITE_HOST}/password_recover_mail/`,{
+                    body:{
+                        temporaryPassword: generatedPass,
+                        email: self.$store.state.passwordRecoveryEmail
+                    }
+                }).then(response => {
+                    console.log(response.data);
+                    if(response.data.send){
+
+                    }
+                }).catch(error => {
+                    console.log(error);
+                })
+
+                // sgMail.setApiKey(process.env.SEND_GRID_USER_NAME, process.env.SEND_GRID_PASSWORD);
+                // const mailOptions = {
+                //   to: 'kevineasky@gmail.com',
+                //   from: process.env.EMAIL,
+                //   subject: 'Password recovery',
+                //   html: `<div style = "width: 700px; height: auto; display: flex;flex-direction:column; justify-content:center;align-items:center;">Password recovery<h3 style="text-align-left;"> </h3><p style="margi-bottom: 5px;text-align-left;">Hallo,<br>hallo,<br><br>You recently requested a password reset. You will find below your temporary password. Do not forget to change it once login.<br>Temporary password: ${generatedPass}<br><br>Tank you for helping us fight climate change<br><br>Milo de Vries, Co2ok</p> </div>`
+                // }
+                // sgMail.send(mailOptions, (err, json) => {
+                //     if(err){
+                //         console.log(err);
+                //     }else{
+                //         console.log(json);
+                //     }
+                // })
+
             }
         }
     }

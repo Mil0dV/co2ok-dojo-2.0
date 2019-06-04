@@ -2,31 +2,36 @@
     <v-app class="dashboard">
         <div class="dashboard__container" v-if="Authenticated">
             <div class="dashboard__header">
-                <h1 class="dashboard__title">Dashboard</h1>
+                <h2 class="dashboard__title">Dashboard</h2>
                 <h5 class="dashboard__welcome">Weclome, {{this.$store.state.userData.userdata.username}}!</h5>
+                <!--<h3 class="dashboard__welcome">Weclome, a31!</h3>-->
             </div>
 
-            <div class="dashboard__tabs hidden-xs-only">
+            <div class="dashboard__tabs hidden-xs-only" v-if="!$store.state.userData.userdata.is_superuser">
+                <!--<p class="dashboard__mail hidden-sm-and-down">a31@mail.nl</p>-->
                 <p class="dashboard__mail hidden-sm-and-down">{{this.$store.state.userData.userdata.email}}</p>
                 <v-tabs v-model="active" centered class="dashboard__tabs-group"
                         color="#F4F4F4" slider-color="#08BA4D">
                     <v-tab class="dashboard__tab-item text-capitalize"
                            style="background: transparent;" @click.native="changeTab(active)"
-                           :ripple="false">
+                           :ripple="false"
+                           v-if="!$store.state.userData.userdata.is_superuser">
                         <p>Transactions</p>
                         <v-icon class="tab__icon" style="transform: rotate(120deg);">sync</v-icon>
                     </v-tab>
 
                     <v-tab class="dashboard__tab-item text-capitalize"
                            style="background: transparent;" @click.native="changeTab(active)"
-                           :ripple="false">
+                           :ripple="false"
+                           v-if="!$store.state.userData.userdata.is_superuser">
                         <p>Plug-in Settings</p>
                         <v-icon class="tab__icon">edit</v-icon>
                     </v-tab>
 
                     <v-tab class="dashboard__tab-item text-capitalize"
                            style="background: transparent;" @click.native="changeTab(active)"
-                           :ripple="false">
+                           :ripple="false"
+                           v-if="!$store.state.userData.userdata.is_superuser">
                         <p>My Profile</p>
                         <v-icon class="tab__icon">person</v-icon>
                     </v-tab>
@@ -117,7 +122,7 @@
                 userToken: this.$store.state.userToken,
                 /*twee onderste data gebruiken alleen na dat de profile component 
                 geladen(created en mounted) is*/
-                userProfileData: this.$store.state.userData.userProfileData,
+                userProfileData: this.$store.state.userData.profileData,
                 userData: this.$store.state.userData.userdata,
                 bottomNav: 'Transactions',
                 view: 'Transactions',
@@ -127,16 +132,17 @@
         },
 
         created() {
+
             if (this.Authenticated == null) {
                this.$router.push('/webshops/login')
             }
+            this.transactionsYears()
+
         },
 
         mounted() {
 
-            this.$store.dispatch('commitGetUserData');    
-            console.log(this.Authenticated);
-                    
+            this.$store.dispatch('commitGetUserData');
 
         },
 
@@ -165,13 +171,38 @@
                     this.$router.push('login')
                     alert('not auth')
                 }
+            },
+
+            transactionsYears(){
+
+                let self = this
+                this.$axios.get(`${this.$store.state.SITE_HOST}/user/years/`, {
+                    headers: {
+                        "X-CSRFToken": `${this.$store.state.userToken}`,
+                        Authorization: `token ${window.localStorage.getItem('userToken')}`
+                    }
+                }).then(response => {
+
+                    let uniqArr = this._.reverse(this._.uniq(response.data))
+                    // uniqArr.forEach(element => {
+                        self.$store.commit('transactionsYears', uniqArr)
+                    // });
+
+                }).catch(error => {
+                    console.log(error)
+                })
+
             }
+
 
         }
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import '../../styles/layout/main.scss';
+
+
     .dashboard {
         border: 1px solid transparent;
         background: #F4F4F4;

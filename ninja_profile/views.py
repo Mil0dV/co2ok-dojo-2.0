@@ -33,8 +33,8 @@ class NinjaView(viewsets.ModelViewSet):
 
             profile = Profile.objects.get(user_id=ninjaId)
             context = {
-                'ninjaData': serializer.data,
-                'ninjaProfileData': {
+                'userData': serializer.data,
+                'profileData': {
                     'status': profile.user_status,
                     'ninjaPoints': profile.user_points,
                     'isNinja': profile.is_user_ninja,

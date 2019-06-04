@@ -1,17 +1,18 @@
 <template>
 
     <div class="home-container">
-        <v-layout flex row justify-space-around align-start class="header-layout pa-5">
+        <v-layout flex row justify-space-around align-start class="header-layout">
 
-            <v-flex xs12 sm12 md12 lg6 xlg6 class="header-txt-flex pa-5">
-                <p class="white--text animated fadeInUp mb-5" style="animation-delay:0.2s;">HI WE'RE CO₂ok</p>
+            <v-flex xs12 sm12 md12 lg6 xlg6 class="header-txt-flex">
+                <div class="hidden-md-and-up header-filter"></div>
+                <p class="mb-5" style="animation-delay:0.2s;">HI WE'RE CO₂ok</p>
                 <h1 class="font-weight-bold mb-5 animated fadeInUp" style="animation-delay:0.4s; width: 500px;">Become a
                     Ninja and<br> shop climate neutral!</h1>
-                <v-btn depressed color="#28123E" class="white--text mb-2 font-weight-bold animated zoomIn"
+                <v-btn depressed color="#28123E" class="white--text mb-2 font-weight-bold"
                        style='animation-delay:0.6s;margin: 0px; padding:0px; font-size: 15px;width: 230px;height: 45px;border-radius: 9px;'>
                     INSTALL THE EXTENSION
                 </v-btn>
-                <span class="caption white--text animated fadeInLeft" style="animation-delay:0.7s;">Activate the extension and you’ll be shopping climate neutral without a cost!</span>
+                <span class="caption" style="animation-delay:0.7s;">Activate the extension and you’ll be shopping climate neutral without a cost!</span>
             </v-flex>
 
             <v-flex xs12 sm12 md12 lg6 xlg6 class="header-img-flex">
@@ -35,17 +36,17 @@
             <v-flex xs12 sm12 md4 lg4 xlg3 v-for="(ninjaExtensionStep,i) in ninjaExtensionSteps" :key="i"
                     class="steps-container mb-5">
                 <!-- <img :src="ninjaExtensionStep.img" alt="" class="mb-4 animated bounceIn" :styles="{animationDelay:0.5+i-(i*'0.5')+'s'}" data-aos="zoom-in" :data-aos-delay="i*50"> -->
-                <img :src="ninjaExtensionStep.img" alt="" class="mb-4" data-aos="zoom-in" :data-aos-delay="i*50" data-aos-duration="1000"
+                <img :src="ninjaExtensionStep.img" alt="extension 1" class="mb-4"
                      style="height:237px;">
                 <!-- <p class="font-weight-bold animated zoomIn" :styles="{animationDelay: 0.7+i-(i*'0.5')+'s'}" styles="font-size:21px; color: #10DC87;margin: 0px;" data-aos="zoom-in-up" :data-aos-delay="i*100">Step{{i+1}}</p> -->
                 <p class="font-weight-bold mb-1" style="font-size:21px; color: #10DC87;margin: 0px;"
-                   data-aos="fade-up" :data-aos-delay="i*100" data-aos-duration="1000">Step{{i+1}}</p>
+                  >Step{{i+1}}</p>
                 <!-- <p class="animated zoomIn" :styles="{animationDelay: 0.9+i-(i*'0.5')+'s'}" styles="color: #28123E;font-size:15px;margin: 0px;" data-aos="zoom-in-up" :data-aos-delay="i*100">{{ninjaExtensionStep.title}}</p> -->
-                <p class="font-weight-bold" style="color: #28123E;font-size:15px;margin: 0px;" data-aos="fade-up"
-                   :data-aos-delay="i*100" data-aos-duration="1000">{{ninjaExtensionStep.title}}</p>
+                <p class="font-weight-bold" style="color: #28123E;font-size:15px;margin: 0px;"
+                   >{{ninjaExtensionStep.title}}</p>
                 <!-- <p class="animated zoomIn" :styles="{animationDelay:1.1+i-(i*'0.5')+'s'}" styles="color: #28123E;font-size:16px;text-align: center;" data-aos="zoom-in-up" :data-aos-delay="i*100">{{ninjaExtensionStep.content}}</p> -->
                 <p class="steps-content pa-2" style="color: #28123E;text-align: center;" data-aos="fade-up"
-                   :data-aos-delay="i*100" data-aos-duration="1000">{{ninjaExtensionStep.content}}</p>
+                   >{{ninjaExtensionStep.content}}</p>
             </v-flex>
 
             <!-- mobile - tablet(xsm - sm) display -->
@@ -68,17 +69,20 @@
 
         </v-layout>
 
-        <v-btn data-aos="fade-up" data-aos-duration="600" depressed class="white--text involed-btn font-weight-bold"
-               style="background: linear-gradient(to right, #10DC87, #08BA4D);">GET INVOLVED & FIGHT CLIMATE CHANGE
-        </v-btn>
-        <div class="transaction-steps" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"></div>
+        <router-link to="/webshops" style="width: 100%;">
+            <v-btn depressed class="white--text involed-btn font-weight-bold"
+                   style="background: linear-gradient(to right, #10DC87, #08BA4D);">GET INVOLVED & FIGHT CLIMATE CHANGE
+            </v-btn>
+        </router-link>
+
+        <div class="transaction-steps"></div>
 
         <v-layout column justify-center align-center class="mt-5 mb-3 grey lighten-4" style="width: 100%; background-color: #F4F4F4;">
             <v-flex xs12 sm12 md12 lg12 xlg12 class="webshop-txt-flex mt-3">
-                <p data-aos="fade-up" data-aos-duration="1000" class=""
+                <p class=""
                    style="text-align: center; font-size: 21px; color: #10DC87; margin: 0px;position: relative; top:10px;">
                     Choose from 22.000+ webshops</p>
-                <h3 data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" class="font-weight-bold shops-title" style="">Together we can make a change</h3>
+                <h3 class="font-weight-bold shops-title" style="">Together we can make a change</h3>
             </v-flex>
 
             <v-flex xs12 sm12 md12 lg12 xlg12 class="slider-flex">
@@ -103,9 +107,6 @@
                       :key="i"
                       :style="{backgroundImage: `url(${webshopIcon.src})`}"
                       class="partners-imgs"
-                      data-aos="fade-up"
-                      :data-aos-delay="200*i"
-                      data-aos-duration="1000"
                   ></div>
                 </div>
 
@@ -115,14 +116,13 @@
         <v-layout justify-start align-center class="project-layout mt-4" style="">
 
             <div class="project-background">
-                <img src="../assets/images/home/homebackground -2.png" alt="">
+                <img src="../assets/images/home/homebackground -2.png" alt="Home background">
             </div>
 
             <v-flex xs12 sm12 md10 lg10 xlg10 class="projects-flex" style="">
-                <h2 class="font-weight-bold support-title" data-aos="fade-up" data-aos-duration="1000" style="">WITH YOUR
+                <h2 class="font-weight-bold support-title" style="">WITH YOUR
                     HELP WE SUPPORT<br> THESE SUSTAINABLE PROJECTS!</h2>
-                <p class="" style="margin: 0px;font-size: 13px; text-align:center;" data-aos="fade-up"
-                   data-aos-delay="200" data-aos-duration="1000">Check out the various <a href="" style="color:#27B0C7;text-decoration: none;">projects</a>
+                <p class="" style="margin: 0px;font-size: 13px; text-align:center;">Check out the various <a href="" style="color:#27B0C7;text-decoration: none;">projects</a>
                     your clicks finance.</p>
                 <v-carousel :light='carouselLightTheme' height="470" class="projects-slider">
                     <v-carousel-item
@@ -130,7 +130,7 @@
                             :key="i"
                             class="project-slider-items">
                         <div class="pa-3">
-                            <img :src="project.img" alt="">
+                            <img :src="project.img" :alt="i">
                             <p class="mt-3 mb-5 animated fadeInUp">{{project.txt}}</p>
                         </div>
                     </v-carousel-item>
@@ -143,9 +143,9 @@
         <v-layout column justify-center align-center class="mt-3 mb-3 grey lighten-4"
                   style="width: 100%; background-color: #F4F4F4;">
             <v-flex xs12 sm12 md6 lg6 xlg6 class="webshop-txt-flex mt-3">
-                <p data-aos="fade-up" data-aos-duration="1000" class="mb-1"
+                <p class="mb-1"
                    style="text-align: center; font-size: 21px; color: #10DC87; margin: 0px;position: relative; top:10px;">Some of our partners</p>
-                <h3 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="font-weight-bold"
+                <h3 class="font-weight-bold"
                     style="text-align: center; font-size: 33px; color: #28123E; margin: 0px;">Together we can make a change</h3>
             </v-flex>
 
@@ -171,22 +171,19 @@
                             :key="i"
                             :style="{backgroundImage: `url(${partnerIcon.src})`}"
                             class="webshops-imgs"
-                            data-aos="fade-up"
-                            :data-aos-delay="200*i"
-                            data-aos-duration="1000"
                         ></div>
                     </div>
 
             </v-flex>
         </v-layout>
 
-        <v-layout wrap row justify-center align-center class="pa-5" style="width: 100%; ">
+        <v-layout wrap row justify-center align-center class="wwf-layout" style="width: 100%; ">
           <v-flex xs12 sm12 md6 lg5 xlg6 class="wwf-flex">
-            <h2 data-aos="fade-up" data-aos-duration="1000" class="black--text" style="">"Startup CO₂ok makes<br>online shopping<br>climate neutral."<br><strong>-WWF</strong></h2>
+            <h2 class="black--text" style="">"Startup CO₂ok makes<br>online shopping<br>climate neutral."<br><strong>-WWF</strong></h2>
           </v-flex>
 
           <v-flex xs12 sm12 md6 lg6 xlg6>
-            <div style="border: 1px solid red; width: 100%;height: 350px;" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="800"></div>
+            <div style="border: 1px solid red; width: 100%;height: 350px;"></div>
           </v-flex>
         </v-layout>
 
@@ -361,6 +358,16 @@
         background-repeat: no-repeat;
         background-position: top;
         background-size: 100% 100%;
+        padding: 48px;
+    }
+
+    .header-filter{
+        width: 90%;
+        height: 410px;
+        background-color: #10DC87;
+        opacity: 0.5;
+        position: absolute;
+        top: 0px;
     }
 
     .header-txt-flex {
@@ -370,6 +377,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        padding: 48px;
     }
 
     .header-txt-flex p {
@@ -377,6 +385,7 @@
         font-size: 21px;
         position: relative;
         bottom: 0px;
+        color: white;
     }
 
     .header-txt-flex h1 {
@@ -389,7 +398,9 @@
 
     .header-txt-flex span {
         text-align: left;
-        font-size: 12px;
+        font-size: 16px;
+        color:white;
+        z-index: 2;
     }
 
     .header-img-flex {
@@ -777,6 +788,10 @@
         max-height: 270px;
     }
 
+    .wwf-layout{
+        padding: 48px;
+    }
+
     .wwf-flex h2{
         text-align: left;
     }
@@ -890,15 +905,37 @@
             /* border: 1px solid red; */
         }
 
+        .wwf-layout{
+            padding: 20px;
+        }
+
         .wwf-flex{
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 30px;
+            width: 100%;
         }
 
         .wwf-flex h2{
             text-align: center;
+            font-size: 25px;
+        }
+
+        .header-txt-flex p, .header-txt-flex h1, .header-txt-flex span{
+            color: rgb(229, 235, 240);
+        }
+
+        .header-layout{
+            padding: 20px;
+        }
+
+        .header-txt-flex{
+            padding: 0px;
+            width: 100%;
+        }
+
+        .world-ball{
         }
     }
 

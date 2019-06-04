@@ -3,15 +3,16 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const ifAuthenticated = (to, from, next) => {
-    if (localStorage.getItem('Authenticated')) {
-        return next('/dashboard')
-    } else {
-        this.$router.push('login')
-        // return
-    }
-// next()
-}
+// const ifAuthenticated = (to, from, next) => {
+//     if (localStorage.getItem('Authenticated')) {
+//         return next('/dashboard')
+//     } else {
+//         this.$router.push('login')
+//         // return
+//     }
+// // next()
+// }
+
 
 
 const router = new Router({
@@ -24,6 +25,11 @@ const router = new Router({
             component: () => import('./views/Home'),
         },
         {
+            path: '/home',
+            name: 'home2',
+            component: () => import('./views/Ahome'),
+        },
+        {
             path: '/about',
             name: 'about',
             component: () => import( './views/About'),
@@ -34,7 +40,7 @@ const router = new Router({
             component: () => import( './views/Faq'),
         },
         {
-            path: '/about/how-it-works',
+            path: '/compensation',
             name: 'steps',
             component: () => import( './views/Steps'),
         },
@@ -48,6 +54,11 @@ const router = new Router({
             path: '/news',
             name: 'news',
             component: () => import('./views/Blog')
+        },
+        {
+          path: '/news/:id(\\d+)',
+          name: 'article',
+          component: () => import('./views/Article')
         },
         {
             path: '/webshops',
@@ -86,14 +97,14 @@ const router = new Router({
             // beforeEnter: ifAuthenticated
         },
         {
-            path: '/webshops/projects',
+            path: '/projects',
             name: 'projects',
             component: () => import('./views/Projects')
         },
         {
             path: '/consumers/profile',
             name: 'consumers-profile',
-            component: () => import('./views/consumer/Consumer')
+            component: () => import('./views/consumer/Consumer'),
             // beforeEnter: ifAuthenticated
         },
         {

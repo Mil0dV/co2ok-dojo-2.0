@@ -2,6 +2,7 @@
   min-height: 93vh;
   width: 100%;
   display: flex;
+  overflow:hidden;
 }
 
 .login-c__row {
@@ -52,6 +53,12 @@
 .login-c__section {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.login-d__section {
+  justify-content: flex-start;
 }
 
 .login-c__filler {
@@ -63,9 +70,7 @@
 }
 
 .login-c__form {
-  //border: 2px solid red;
   width: 90%;
-  padding: 40px 0 0 0;
   max-width: 515px;
   margin-left: 75px;
   text-align: left;
@@ -96,8 +101,13 @@
 
 .login-c__button {
   margin-top: 40px;
-  max-width: 157px;
+  max-width: 180px;
+  width: auto;
   cursor: pointer;
+}
+
+.login-c__larger {
+  max-width: 200px;
 }
 
 .sub-title-c {
@@ -105,9 +115,10 @@
   font-weight: 600;
 }
 
-.register-c__form {
-  border-top: 1px solid #DDDDDD;
-  padding-top: 50px;
+.divider__login {
+  margin-left: 75px;
+  max-width: 515px;
+  width: 90%;
 }
 
 @media screen and (max-width: 1150px) {
@@ -142,6 +153,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    flex: 1;
   }
 
   .login-c__wrapper {
@@ -153,32 +167,21 @@
     margin: 0 auto;
     width: 100%;
     max-width: unset;
+    padding: 0;
   }
 
-  .login-c__input {
-    width: 80%;
+  .login-c__section {
+    padding: 30px 0;
   }
-}
 
-@media screen and (max-width: 1150px) {
   .login-c__input {
     width: 100%;
-  }
-
-  .login__width {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    flex: 1;
   }
 
   .login-c__form {
     padding: 50px 0 0 0 ;
   }
-}
 
-@media screen and (max-width: 1150px) {
   .login-c__section {
     border-radius: 10px;
     width: 90%;

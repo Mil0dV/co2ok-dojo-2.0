@@ -7,27 +7,19 @@
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
                         <div class="uk-card uk-card-body section-1__col-1">
-                            <h3 class="sub-title">Fight climate change</h3>
-                            <h2 class="main-title">Greener and more customers and sustainable</h2>
+                            <h3 class="sub-title">{{locale.subTitle}}</h3>
+                            <h2 class="main-title">{{locale.title}}</h2>
                             <p class="main-text">
-                                As awareness about the importance of preserving the environment continues to grow among
-                                consumers, companies are increasingly looking for ways to “go green”. Of course, you
-                                need to protect your bottom line as well. By enabling your customers to make their
-                                purchase climate neutral with CO₂ok, you can do your bit to drive back climate change.
-                                CO₂ok lets you increase the amount of customers with no upfront or recurring costs.
+                                {{locale.mainText}}
                             </p>
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/plug-in-installation" class="button">Plug-in</router-link>
+                                <router-link to="/webshops/retailers" class="button">Retailer</router-link>
 
                                 <div class="col-1--links-wrapper">
-                                    <router-link class="link" to="/webshops/retailers">
-                                        More about Retailers <span uk-icon="icon: arrow-right"></span>
-                                    </router-link>
-
                                     <router-link class="link" to="/webshops/cause-marketing">
-                                        More about Cause Marketing <span uk-icon="icon: arrow-right"></span>
+                                        {{locale.link2}} <span uk-icon="icon: arrow-right"></span>
                                     </router-link>
                                 </div>
                             </div>
@@ -47,14 +39,14 @@
         <div class="uk-section section-2">
             <div class="uk-container uk-container-width">
                 <div class="section-2--col-1">
-                    <h1 class="main-title">Shops</h1>
-                    <h2 class="sub-title">These shops are CO₂ok</h2>
+                    <h1 class="main-title">{{locale.title2}}</h1>
+                    <h2 class="sub-title sub-title--s2">{{locale.subTitle2}}</h2>
                 </div>
                 <br>
 
                 <div class="section-2--col-2">
                     <a target="_blank" :href="i.link" :style="{'background-image': 'url(' + require(`@/assets/images/webshops/shops/${i.image}.png`) + ')'}"
-                         class=" shops--image section-2--shops" v-for="i in webshop" :key="`4${i}`">
+                         class=" shops--image section-2--shops" v-for="i in webshop" :key="i.link">
                         <div class="section-2--shops shop--image-wrapper ">
                         </div>
                     </a>
@@ -66,6 +58,7 @@
 
 <script>
     const Header = () => import('@/components/layout/Header')
+    import webshopsLang from '../../lang/lang_webshops'
 
     export default {
         name: "Webshops",
@@ -74,6 +67,7 @@
         data() {
             return {
                 header: 'webshops',
+                locale: webshopsLang,
                 webshop: [
                     {
                         image: 'shop-1',
@@ -194,6 +188,36 @@
                 ]
             }
         },
+
+        mounted() {
+            this.checkLanguage()
+        },
+
+        methods: {
+            checkLanguage(lang) {
+                if(lang === 'en'){
+                    this.locale = webshopsLang.lang_en_webshops
+                } else {
+                    if (this.currentLanguage === 'en') {
+                        this.locale = webshopsLang.lang_en_webshops
+                    } else {
+                        this.locale = webshopsLang.lang_nl_webshops
+                    }
+                }
+            }
+        },
+
+        computed: {
+            currentLanguage() {
+                return this.$store.state.language
+            }
+        },
+
+        watch: {
+            currentLanguage(value) {
+                this.checkLanguage(value)
+            }
+        }
     }
 </script>
 

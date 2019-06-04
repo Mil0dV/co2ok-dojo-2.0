@@ -7,14 +7,14 @@
 
         <div class="graph-container mb-1">
             <div class="graph-tabs">
-                <p class="graph-tab-name font-weight-bold" style=""  @click="yearTransactions()">Monthly Transactions</p>
-                <p class="graph-tab-name font-weight-bold"  @click="weekTransactions()">Weekly Transactions</p>
+                <p class="graph-tab-name font-weight-bold" style=""  @click="yearTransactions()" v-if="!$store.state.userData.userdata.is_superuser">Monthly Transactions</p>
+                <p class="graph-tab-name font-weight-bold"  @click="weekTransactions()" v-if="!$store.state.userData.userdata.is_superuser">Weekly Transactions</p>
             </div>
 
-            <p class="font-weight-bold black--text" style="font-size: 15px;text-align: center">{{graphLegend}}</p>
+            <p class="font-weight-bold black--text" style="font-size: 15px;text-align: center" v-if="!$store.state.userData.userdata.is_superuser">{{graphLegend}}</p>
 
             <div class="graphs">
-                <line-chart :chartData="datacollection" :options="chartOptions" style="width: 900px; height: 400px"/>
+                <line-chart :chartData="datacollection" :options="chartOptions" style="width: 1000px; height: 400px"/>
             </div>
         </div>
 
@@ -53,7 +53,9 @@
                 </div>
             </v-flex>
             <v-flex xs12 sm12 md6 lg6 style="height: 100%;" class="year-info-flex">
-                <p class="font-weight-bold">YEAR {{currentYear}}</p>
+                <v-icon medium :style="prevStyle" style="position: relative;bottom: 2px;" class="animated zoomIn mr-2" @click="prevYear()"  v-if="$store.state.userData.userdata.is_superuser">keyboard_arrow_left</v-icon>
+                <p class="font-weight-bold">YEAR {{yearLabel}}</p>
+                <v-icon medium :style="nextStyle" style="position: relative;bottom: 2px;" class="animated zoomIn ml-2" @click="nextYear()"  v-if="$store.state.userData.userdata.is_superuser">keyboard_arrow_right</v-icon>
             </v-flex>
         </v-layout>
 
@@ -126,6 +128,10 @@ import Co2okWidget from '../../co2okWidget'
                    }
                 },
 
+                legend: {
+                    display: false
+                },
+
                 responsive: true,
                 maintainAspectRatio: false
 
@@ -160,14 +166,21 @@ import Co2okWidget from '../../co2okWidget'
                 unit: 'in',
                 format: [4, 2]
               },
-              pdfData: []
+              pdfData: [],
+              yearArrIndex: this.$store.state.years[0].indexOf(this.$moment().year().toString()),
+              yearLabel: this.$moment().year()
 
             }
         },
 
         created() {
 
-            this.yearTransactions()    
+            //check if the loged user is a superuser
+            if(this.$store.state.userData.userdata.is_superuser){
+                this.mechantsYearTransactions(this.$moment().year())
+            }else{
+                this.yearTransactions()
+            }    
             this.prevMonth = this.$moment().subtract(1, 'months').format('MMMM')
             this.nextMonth = this.currentMonth    
             this.generatePDFdata()
@@ -248,24 +261,7 @@ import Co2okWidget from '../../co2okWidget'
 
             },
 
-            fillData () {
-               
-                this.datacollection = {
-                    labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUNE', 'JULY', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC'],
-                    // labels: this.$store.state.x_asLabel,
-                    datasets: [
-                        {
-                        label: `${this.currentMonth} Transaction(s)`,
-                        borderColor: '#94EDCE',
-                        data: [Math.round(193.3),Math.round(19.99+34.03+21.67+31.32+30.34),Math.round(36.57+39.8+38.18),Math.round(32.32+33.23+9.29),Math.round(10.29+32.37)]
-                        // data: this.$store.state.graphData
-                        }
-                    ]
-                }
-                
-            },
-
-            graphUpdatedData() {
+            updateGraphData() {
 
             this.datacollection = {
                 labels: this.$store.state.x_asLabel,
@@ -424,7 +420,6 @@ import Co2okWidget from '../../co2okWidget'
             },
 
             yearTransactions() {
-              console.log(this.monthNumber);
             //   let chart = document.getElementById('line-chart')
                 this.week = false //disable the week ctrl btn(next, prev)
                 this.graphLegend = `${this.currentMonth} Transaction(s)` 
@@ -432,18 +427,73 @@ import Co2okWidget from '../../co2okWidget'
                 this.$axios.get(`${this.$store.state.SITE_HOST}/user/compnensationsData/`, {
                     params: {
                         year: self.$moment().year(),
-                        merchantId: self.$store.state.userData.userProfileData.merchantId
+                        merchantId: self.$store.state.userData.profileData.merchantId
                     },
                     headers: {
                        "X-CSRFToken": `${this.$store.state.userToken}`,
                         Authorization: `token ${window.localStorage.getItem('userToken')}` 
                     }
                 }).then(response => {
-console.log(response.data);
 
                     let yearGraphData = self.parseTransactionsData(response.data)
                     self.$store.commit('yearGraphData', yearGraphData)
-                    self.graphUpdatedData()
+                    self.updateGraphData()
+
+                }).catch(error => {
+                    console.log(error)
+                })
+
+            },
+
+            mechantsYearTransactions(year){
+                
+                let allTransactionsArr = []
+                let self = this
+                this.$axios.get(`${this.$store.state.SITE_HOST}/user/allTransactions/`, {
+                    params:{
+                        year: year
+                    },
+                    headers: {
+                       "X-CSRFToken": `${this.$store.state.userToken}`,
+                        Authorization: `token ${window.localStorage.getItem('userToken')}` 
+                    }
+
+                }).then(response => {
+
+                    // console.log(response.data)
+                    response.data.forEach((transaction) => {
+                        // let allTransactionsSum = this._.floor(this._.sum(transaction), 2)
+                        allTransactionsArr.push(transaction.length)
+                    })
+                    self.$store.commit('yearGraphData', allTransactionsArr)
+                    self.updateGraphData()
+
+                }).catch(error => {
+
+                    console.log(error);
+
+                })
+                
+            },
+
+            weekTransactionRequest(lastweek, weekdate, beginweek){
+                let self = this
+                this.$axios.get(`${this.$store.state.SITE_HOST}/user/weeklyTransaction/`, {
+                    params: {
+                        yearMonth: weekdate,
+                        endWeek: lastweek,
+                        startWeek: beginweek,
+                        merchantId: self.$store.state.userData.profileData.merchantId
+                    },
+                    headers: {
+                       "X-CSRFToken": `${self.$store.state.userToken}`,
+                        Authorization: `token ${window.localStorage.getItem('userToken')}` 
+                    }
+                }).then(response => {
+
+                    let weekGraphData = self.parseTransactionsWeekData(response.data)
+                    self.$store.commit('weekGraphData', weekGraphData)
+                    self.updateGraphData()
 
                 }).catch(error => {
                     console.log(error)
@@ -553,6 +603,43 @@ console.log(response.data);
 
             },
 
+            nextYear(){
+
+                if(this.yearArrIndex < this.$store.state.years[0].length-1){
+                    this.nextStyle.color = '#369555'
+                    this.nextStyle.cursor = 'pointer'
+                    this.prevStyle.color = '#369555'
+                    this.prevStyle.cursor = 'pointer'
+                    this.yearArrIndex++
+                    this.mechantsYearTransactions(this.$store.state.years[0][this.yearArrIndex])
+                    this.yearLabel = this.$store.state.years[0][this.yearArrIndex]
+                }else if(this.yearArrIndex > this.$store.state.years[0].length){
+                    this.yearArrIndex = this.$store.state.years[0].length
+                }else{
+                    this.nextStyle.color = '#E0E0E0'
+                    this.nextStyle.cursor = 'default'
+                }
+
+            },
+
+            prevYear(){
+
+                if(this.yearArrIndex > 0){
+                    this.prevStyle.color = '#369555'
+                    this.prevStyle.cursor = 'pointer'
+                    this.nextStyle.color = '#369555'
+                    this.nextStyle.cursor = 'pointer'
+                    this.yearArrIndex--
+                    this.mechantsYearTransactions(this.$store.state.years[0][this.yearArrIndex])
+                    this.yearLabel = this.$store.state.years[0][this.yearArrIndex]
+                }else if(this.yearArrIndex == 0){
+                    this.prevStyle.color = '#E0E0E0'
+                    this.prevStyle.cursor = 'default'
+                    this.yearArrIndex = 0
+                }
+
+            },
+
             prevWeek(){
 
                 if(this.daysArrIndex > 0){
@@ -657,9 +744,6 @@ console.log(response.data);
                     chunkedPDF = this._.chunk(pdf[m],7)
 
                 }
-
-                console.log(chunkedPDF);
-                
 
             },
 
@@ -807,7 +891,7 @@ console.log(response.data);
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        align-items: flex-end;
+        align-items: flex-start;
     }
 
     .week-ctr-flex .ctrl-container{

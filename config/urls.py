@@ -25,14 +25,17 @@ urlpatterns = [
     #acounts urls 
     path("login/", views.signin, name="login"),
     path("signup/", views.signup, name="signup"),
-    path("logout/", views.signout, name="logout"),
+    path("check_inviter_id/", views.check_inviter_id, name="checkInviterId"),
+    path("logout/", views.signout, name="logout"), 
     path('invitation_signup/', views.invitation_signup, name='invitation_signup'),
+    path('password_recover_mail/', views.password_recover_mail, name='password_recover_mail'),
     # url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     path("accounts/", include("accounts.urls", namespace="accounts")),
     path("dashboard/", include("dashboard.urls", namespace="dashboard")),
     path("blog/", include("blog.urls", namespace="blog")),
     path("ninja/", include("ninja_profile.urls", namespace="ninja")),
     path("merchantIdChecker/", dashView.merchantIdChecker, name="merchantIdChecker"),
+    path("merchant_data/", dashView.merchant_data, name="merchant_data"),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management

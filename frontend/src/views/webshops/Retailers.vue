@@ -7,14 +7,10 @@
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
                         <div class="uk-card uk-card-body section-1__col-1">
-                            <h3 class="sub-title">Fight climate change</h3>
-                            <h2 class="main-title">Greener and more customers and sustainable</h2>
+                            <h3 class="sub-title">{{locale.subTitle}}</h3>
+                            <h2 class="main-title">{{locale.title}}</h2>
                             <p class="main-text">
-                                As awareness about the importance of preserving the environment continues to grow among
-                                consumers, companies are increasingly looking for ways to “go green”. Of course, you
-                                need to protect your bottom line as well. By enabling your customers to make their
-                                purchase climate neutral with CO₂ok, you can do your bit to drive back climate change.
-                                CO₂ok lets you increase the amount of customers with no upfront or recurring costs.
+                                {{locale.mainText}}
                             </p>
 
                             <br>
@@ -27,12 +23,21 @@
                     <div class="uk-width-auto">
                         <div class="uk-card col-1-card uk-card-default uk-card-body">
                             <ul class="col-1-list">
-                                <li><span class="col-1-icon" uk-icon="icon: heart"></span>Improve your corporate image
+                                <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>
+                                    {{locale.icon1}}
                                 </li>
-                                <li><span class="col-1-icon" uk-icon="icon: heart"></span>Help fight climate change</li>
-                                <li><span class="col-1-icon" uk-icon="icon: heart"></span>Sell more</li>
-                                <li><span class="col-1-icon" uk-icon="icon: heart"></span>Setup in minutes</li>
-                                <li><span class="col-1-icon" uk-icon="icon: heart"></span>Free (really!)</li>
+                                <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>
+                                    {{locale.icon2}}
+                                </li>
+                                <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>
+                                    {{locale.icon3}}
+                                </li>
+                                <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>
+                                    {{locale.icon4}}
+                                </li>
+                                <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>                                    {{locale.icon3}}
+                                    {{locale.icon5}}
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -42,13 +47,13 @@
 
         <div class="uk-section section-2 section--content">
             <div class=" uk-container-width section-2-content">
-                <img src="../../assets/images/webshops/retailers/retailer-icon-1.png">
+                <img alt="retailer icon 1" src="../../assets/images/webshops/retailers/retailer-icon-1.png">
 
                 <div class="content--wrapper">
-                    <h2 class="main-title">Go Green</h2>
+                    <h2 class="main-title">{{locale.row1}} </h2>
 
                     <p class="content-text">
-                        As retailer, you naturally try to run your business as sustainably as possible. However, some things are beyond your control – the manufacturing and shipping of your products for example. Manufacturers take too long to become climate neutral. CO₂ok fills this gap and allows your customers to buy everything they want, without contributing to climate change!
+                        {{locale.row_text1}}
                     </p>
                 </div>
             </div>
@@ -57,17 +62,17 @@
 
         <div class="uk-section section-2 section--dark section--content">
             <div class=" uk-container-width section-2-content">
-                <img src="../../assets/images/webshops/retailers/retailer-icon-2.png">
+                <img alt="retailer icon 2" src="../../assets/images/webshops/retailers/retailer-icon-2.png">
 
                 <div class="content--wrapper">
-                    <h2 class="main-title">Higher conversion rate, more turnover</h2>
+                    <h2 class="main-title">{{locale.row2}}</h2>
 
                     <p class="content-text">
-                        As retailer, you naturally try to run your business as sustainably as possible. However, some things are beyond your control – the manufacturing and shipping of your products for example. Manufacturers take too long to become climate neutral. CO₂ok fills this gap and allows your customers to buy everything they want, without contributing to climate change! This is also called ‘Cause Marketing’.
+                        {{locale.row_text2}}
                     </p>
 
                     <p class="content-text">
-                        You reach even more customers if you go along with our marketing campaign. During our campaign you can easily ride along on our network. We post on Facebook, LinkedIn, Twitter and are featured in magazines and on radio! If you would like to know more you can contact Jos.
+                        {{locale.row_text2_extra}}
                     </p>
                 </div>
             </div>
@@ -75,13 +80,13 @@
 
         <div class="uk-section section-2 section--content">
             <div class=" uk-container-width section-2-content">
-                <img src="../../assets/images/webshops/retailers/retailer-icon-3.png">
+                <img alt="retailer icon 3" src="../../assets/images/webshops/retailers/retailer-icon-3.png">
 
                 <div class="content--wrapper">
-                    <h2 class="main-title">Free for Webshops</h2>
+                    <h2 class="main-title">{{locale.row3}}</h2>
 
                     <p class="content-text">
-                        The plugin is entirely free for webshop owners. It only takes 1 minute to install the CO₂ok-plugin. When you integrated the plugin in your webshop, your customers can make their own choice to contribute. That way they make their purchase climate neutral. The minor extra free is on average 1%.
+                        {{locale.row_text3}}
                     </p>
                 </div>
             </div>
@@ -89,18 +94,18 @@
 
         <div class="uk-section section-2 section--dark section--content">
             <div class=" uk-container-width section-2-content">
-                <img src="../../assets/images/webshops/retailers/retailer-icon-4.png">
+                <img alt="retailer icon 4" src="../../assets/images/webshops/retailers/retailer-icon-4.png">
 
                 <div class="content--wrapper">
-                    <h2 class="main-title">Easy integration and use</h2>
+                    <h2 class="main-title">{{locale.row4}}</h2>
 
                     <p class="content-text">
-                        Both installing our plugin and using it can be done with just one click. Nothing about the ordering-process changes. You won’t lose customers by any tedious procedures. If you bump into a problem with the plugin, we’re always available through mail or by phone.
+                        {{locale.row_text4}}
                     </p>
 
                     <br>
                     <div class="col-1--links">
-                        <router-link to="/webshops/plug-in-installation" class="button">Integrate Plug-in</router-link>
+                        <router-link to="/webshops/plug-in-installation" class="button">{{locale.row_button}}</router-link>
                     </div>
                 </div>
             </div>
@@ -111,15 +116,16 @@
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
                         <div class="uk-card uk-card-body section-1__col-1">
-                            <h2 class="sub-title">What to do?</h2>
-                            <h1 class="main-title">How it works</h1>
+                            <h3 class="sub-title">{{locale.subTitle2}}</h3>
+                            <h2 class="main-title">{{locale.title2}}</h2>
                             <p class="main-text">
-                                The compensation gets paid to you by the customer. CO₂ok sends a digital invoice at the end of each 3 month term. With the proceeds we support Atmosfair, a certified organisation which produces several CO₂-compensating projects each year.
+                                {{locale.mainText2}}
                             </p>
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/plug-in-installation" class="button">Install Plug-in</router-link>
+                                <router-link to="/webshops/plug-in-installation" class="button">{{locale.row_button2}}
+                                </router-link>
                             </div>
                         </div>
                     </div>
@@ -137,48 +143,52 @@
         <div class="uk-section section-4">
             <div class="uk-container uk-container-width">
                 <div class="section-2--col-1 section-4--header">
-                    <h2 class="main-title">CO₂ok Partners</h2>
-                    <h3 class="sub-title dark--color">Take a look at the webshops which already use the CO₂ok plugin</h3>
+                    <h2 class="main-title">{{locale.subtitle3}}</h2>
+                    <h3 class="sub-title dark--color">{{locale.title3}}</h3>
                 </div>
 
                 <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <img class="shop__image" src="../../assets/images/webshops/retailers/shop-1.png">
+                            <img alt="retailer shop 1" class="shop__image"
+                                 src="../../assets/images/webshops/retailers/shop-1.png">
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
                             <p class="shop--text">
-                                “Our webshop is sustainable, but climate neutral as well because of CO₂ok!”
+                                {{locale.quote1}}
                             </p>
                         </div>
                     </div>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <img class="shop__image" src="../../assets/images/webshops/retailers/shop-2.png">
+                            <img alt="retailer shop 2" class="shop__image"
+                                 src="../../assets/images/webshops/retailers/shop-2.png">
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
                             <p class="shop--text">
-                                “The first time we got called about the CO₂ok-plugin, we didn’t like the idea at all. (The…
+                                {{locale.quote2}}
                             </p>
                         </div>
                     </div>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <img class="shop__image" src="../../assets/images/webshops/retailers/shop-3.png">
+                            <img alt="retailer shop 3" class="shop__image"
+                                 src="../../assets/images/webshops/retailers/shop-3.png">
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
                             <p class="shop--text">
-                                “We were already environment conscious, but we do buy our products by ship. CO₂ok…
+                                {{locale.quote3}}
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <WebshopForm :content="formContent" />
+        <WebshopForm :content="formContent"/>
     </div>
 </template>
 
 <script>
     const Header = () => import('@/components/layout/Header')
     const WebshopForm = () => import('@/components/layout/WebshopForm')
+    import retailersLang from '../../lang/lang_retailers'
 
     export default {
         name: "Retailers",
@@ -193,9 +203,40 @@
                 formContent: {
                     title: 'Think and follow',
                     text: 'Do you still want to think about it but also want to follow us? (don’t worry about the form, just your email is enough! :))'
+                },
+                locale: retailersLang,
+            }
+        },
+
+        mounted() {
+            this.checkLanguage()
+        },
+
+        methods: {
+            checkLanguage(lang) {
+                if(lang === 'en'){
+                    this.locale = retailersLang.lang_en_retailer
+                } else {
+                    if (this.currentLanguage === 'en') {
+                        this.locale = retailersLang.lang_en_retailer
+                    } else {
+                        this.locale = retailersLang.lang_nl_retailer
+                    }
                 }
             }
         },
+
+        computed: {
+            currentLanguage() {
+                return this.$store.state.language
+            }
+        },
+
+        watch: {
+            currentLanguage(value) {
+                this.checkLanguage(value)
+            }
+        }
     }
 </script>
 

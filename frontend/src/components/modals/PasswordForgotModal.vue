@@ -3,7 +3,7 @@
         <v-card class="modal__wrapper">
             <form>
                 <div class="edit__title">
-                    <h1 class="main-title--green">Forgot password?</h1>
+                    <h2 class="main-title--green">Forgot password?</h2>
                 </div>
 
                 <v-card-text class="modal__body">
@@ -13,7 +13,7 @@
                 <div class="edit__form-group">
                     <div class="edit__form">
                         <label class="edit__form-label">
-                            <input type="mail" v-model="email" class="edit__form-input"
+                            <input type="mail" v-model="$store.state.passResetEmail" class="edit__form-input"
                                    placeholder="Your email...">
                         </label>
                     </div>
@@ -48,7 +48,7 @@
 
         data() {
             return {
-                email: '',
+                email: this.$store.state.passResetEmail,
                 formActive: false,
             }
         },

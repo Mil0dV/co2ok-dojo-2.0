@@ -190,11 +190,14 @@
         },
 
         created() {
+
             this.getMerchantData()
+
         },
 
         mounted() {
-            console.log(this.$route.params.merchantId)
+
+            
         },
 
         methods: {
@@ -208,22 +211,16 @@
             merchant_idChecker() {
 
                 let mechantId = this.$route.params.merchantId
-                this.$axios
-                    .post(`${this.$store.state.SITE_HOST}/merchantIdChecker/`, {
-                        body: {
-                            merchantId: mechantId
-                        },
-                        headers: {
-                            "X-CSRFToken": `${this.$store.state.userToken}`,
-                            Authorization: `token ${window.localStorage.getItem('userToken')}`
-                        }
-                    }).then(response => {
-                    console.log(response);
+                this.$axios.post(`${this.$store.state.SITE_HOST}/merchantIdChecker/`, {
+                    body: {
+                        merchantId: mechantId
+                    }
+                }).then(response => {
 
                     if (response.data[0].accountIdCheck && response.data[1].dynamoIdCheck > 0) {
-                        console.log('logged');
 
                         this.register()
+                        
                     } else {
                         alert('deze id is al gekkopeld aan een account of is niet geldig')
                     }
@@ -243,18 +240,17 @@
             getMerchantData() {
 
                 let id = this.$route.params.merchantId
-                this.$axios.get(`${this.$store.state.SITE_HOST}/user/merchant_data/`, {
-                    headers: {
-                        "X-CSRFToken": `${this.$store.state.userToken}`,
-                        Authorization: `token ${window.localStorage.getItem('userToken')}`
-                    },
-                    params: {
+                let self = this
+                this.$axios.post(`${this.$store.state.SITE_HOST}/merchant_data/`, {
+                    body: {
                         merchantId: id
                     }
                 }).then(response => {
 
-                    console.log(response.data);
-
+                    let data = response.data
+                    self.company = data.name
+                    self.email = data.email
+                    self.link = data.link
 
                 }).catch(error => {
                     console.log(error);
@@ -295,7 +291,10 @@
                                 this.send = false
                                 if (response.data.authenticate) {
                                     this.$store.dispatch('commitSaveUser', response.data)
+                                    this.$store.state.status = 'webshop'
+                                    this.$store.state.Authenticated = true
                                     this.$store.commit('setLocalUserData', response.data)
+                                    this.$store.commit('isLoggedIn', true) //set userStatus variable in the store to true
                                     self.$router.push('/webshops/dashboard')
                                 } else {
                                     this.errorMessage()
@@ -331,8 +330,8 @@
     }
 
     .register__layout {
-        min-height: 93vh;
         height: 100%;
+        min-height: 97vh;
     }
 
     .register__col-1 {
