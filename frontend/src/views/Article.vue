@@ -19,7 +19,7 @@
                <span style="color:#08BA4D; text-align: left;" class="animated fadeInUp">Other blogs</span>
                <h1 style="text-align: left;" class="animated fadeInUp">Read also our <br>other blogs</h1>
                <div class="all-article">
-                   <div class="other-articles mb-5" :id="blog.id" v-for="(blog, i) in this.$store.state.blogs" :key="i">
+                   <div class="other-articles mb-5" :id="blog.id" v-for="(blog,i) in this.$store.state.blogs" :key="i">
                        <div class="blog-img mb-2 animated zoomIn" :style="{backgroundImage: `url(${blog.blog_image})`}"></div>
                        <p class="font-weight-bold" style="text-align: left;margin-bottom:7px;">{{blog.blog_title}}</p>
                        <router-link :to="`/news/${blog.id}`" class="readmore-container" style="position:relative; right: 5px;"><div class="readmore-container" @click="article(blog.id)"><button class="readmore-btn text-capitalize" style="color:#10DC87;margin-top: 0px;">Read more<v-icon small color="#10DC87" class="read-more-arrow" style="position:relative;left:5px;">arrow_forward</v-icon></button></div></router-link>
