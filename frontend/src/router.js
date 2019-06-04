@@ -55,6 +55,11 @@ const router = new Router({
             component: () => import('./views/Blog')
         },
         {
+          path: '/news/:id(\\d+)',
+          name: 'article',
+          component: () => import('./views/Article')
+        },
+        {
             path: '/webshops',
             name: 'webshops',
             component: () => import('./views/webshops/Webshops')
