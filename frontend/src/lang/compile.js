@@ -2,20 +2,20 @@ var fs = require('fs');
 
 
 // import all language files
-var nl_home = require('./nl_/nl_home2.js');
-var en_home = require('./en_/en_home2.js');
+var nl_home = require('./nl_/nl_webshopform.js');
+var en_home = require('./en_/en_webshopform.js');
 
 console.log('execute compile.js');
 
 // name of home language kit
 // add more language kit files later
-var home_language_kit = "src/lang/lang_home2.json";
+var home_language_kit = "src/lang/lang_webshopform.json";
 
 // exmaple homepage language object
 // add more language objects later
 var home_language_kit_object = {
-    lang_nl_home2: nl_home.lang_nl_home2,
-    lang_en_home2: en_home.lang_en_home2
+    lang_nl_webshopform: nl_home.lang_nl_webshopform,
+    lang_en_webshopform: en_home.lang_en_webshopform
 };
 
 // create New Home Language Kit

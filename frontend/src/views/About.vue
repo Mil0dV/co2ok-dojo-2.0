@@ -106,7 +106,7 @@
 
 <script>
     const Header = () => import('@/components/layout/Header')
-    import aboutLang from '../lang/lang_about'
+    import language from '../lang/lang_about'
 
     export default {
         name: "About",
@@ -116,7 +116,7 @@
             return {
                 moreText: false,
                 header: 'about',
-                locale: aboutLang,
+                locale: language,
 
                 crew: [
                     {
@@ -167,12 +167,12 @@
         methods: {
             checkLanguage(lang) {
                 if(lang === 'en'){
-                    this.locale = aboutLang.lang_en_about
+                    this.locale = language.lang_en_about
                 } else {
                     if (this.currentLanguage === 'en') {
-                        this.locale = aboutLang.lang_en_about
+                        this.locale = language.lang_en_about
                     } else {
-                        this.locale = aboutLang.lang_nl_about
+                        this.locale = language.lang_nl_about
                     }
                 }
             }

@@ -29,15 +29,16 @@
   align-items: flex-end;
 
   h1 {
-    color:#A2A2A2;
+    color: #A2A2A2;
   }
 }
 
 .section-2__filler {
   align-items: flex-start;
+
   h1 {
     padding-left: 3px;
-    color:white;
+    color: white;
   }
 }
 
@@ -89,7 +90,7 @@
 .intro__img {
   z-index: 99999;
   position: absolute;
-  top:0;
+  top: 0;
   bottom: 0;
   left: -6px;
   right: 0;
@@ -391,15 +392,12 @@
     height: 100%;
   }
 
-  .intro__img {
-    bottom:380px;
-  }
-
   .desktop__intro {
     display: none;
   }
 
   .mobile__intro {
+    margin-bottom: -60px;
     display: flex;
     flex-direction: column;
 
@@ -428,20 +426,36 @@
     }
   }
 
+  .mobile__intro {
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-size: 20px;
+      letter-spacing: 0.4em;
 
-  .section-2__content, .section-2__row-1, .section-5__content,
-  .section-4__content {
-    max-width: unset;
-    width: 90%;
+      &:nth-child(2) {
+        margin-top: -20px;
+      }
+    }
+
+    .section-2__content, .section-2__row-1, .section-5__content,
+    .section-4__content {
+      max-width: unset;
+      width: 90%;
+    }
+
+    .intro__img {
+      left: -3px;
+    }
   }
-
-  .intro__img {
-    left: -3px;
-  }
-
 }
 
 @media (max-width: 670px) {
+  .home__section-1, .section-1__filler, .section-2__filler {
+    min-height: 550px;
+    height: 100%;
+  }
+
   .section-2__content, .section-2__row-1, .section-5__content,
   .section-4__content, .section-3__content {
     max-width: unset;
@@ -476,35 +490,68 @@
     min-height: unset;
     height: 100%;
   }
-
-  .mobile__intro {
-    h1 {
-      font-size: 20px;
-      letter-spacing: 0.4em;
-    }
-  }
 }
 
 
 @media (max-width: 550px) {
+
+  .section-2__row-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .mobile__intro {
     h1 {
       font-size: 18px;
       letter-spacing: 0.4em;
     }
   }
+
+  .section-5__content {
+    width: 80%;
+
+    .button__home {
+      font-size: 14px;
+    }
+  }
 }
 
 @media (max-width: 470px) {
+  .intro__img {
+    bottom: 200px;
+  }
+
   .mobile__intro {
     h1 {
       font-size: 18px;
       letter-spacing: 0.2em;
     }
   }
+
+  .mobile__intro {
+    margin-bottom: 100px;
+  }
 }
 
+@media (max-width: 380px) {
 
+  .mobile__intro {
+    h1 {
+      font-size: 14px;
+      letter-spacing: 0.2em;
+    }
+  }
+
+  .section-5__content {
+    width: 80%;
+
+    .button__home {
+      font-size: 3vw;
+    }
+  }
+}
 
 
 
