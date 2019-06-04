@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="uk-width-1-2 to-right">
-                    <div class="uk-card col-2-card uk-card-default uk-card-body">
+                    <div class="uk-card login__form-container col-2-card uk-card-default uk-card-body">
                         <form class="login__form">
                             <div class="login__group">
                                 <label class="login__group">

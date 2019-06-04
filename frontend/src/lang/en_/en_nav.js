@@ -8,6 +8,7 @@ module.exports = {
         'webshops_4' : 'Login',
         'webshops_5' : 'Logout',
         'webshops_6' : 'Dashboard',
+        'webshops_7': 'Plug-in installation',
 
         'consumers' : 'Consumers',
         'consumers_1' : 'Profile',

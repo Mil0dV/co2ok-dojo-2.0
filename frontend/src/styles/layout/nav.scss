@@ -58,8 +58,12 @@
   }
 }
 
-  .uk-navbar-right .button:hover {
+.uk-navbar-right .button:hover {
   color:white;
+}
+
+.uk-sticky-placeholder {
+  border: 2px solid red !important;
 }
 
 .nav__triangle {
@@ -69,6 +73,10 @@
 #offcanvas-nav {
   .uk-offcanvas-bar {
     padding: 30px;
+
+    li {
+      padding: 7px 0;
+    }
   }
 
   .uk-nav {
@@ -90,6 +98,17 @@
 
   .dutch-icon {
     opacity: 0.4;
+  }
+}
+
+.mobile__dropdown {
+  margin-left: 20px;
+  border-left: 2px solid rgba(255,255,255,.5);
+
+
+  li a{
+    padding-left: 10px;
+    color:rgba(255,255,255,.5);
   }
 }
 

@@ -4,32 +4,26 @@
             <div class="section-1__filler">
                 <img src="../assets/images/home/logo.svg" alt="intro co2ok"
                      class="intro__img animated fadeIn">
-                <transition >
-                         <span class="img-lang" v-if="currentLanguage === 'en'" key="en">
-                              <img
-                                      src="../assets/images/home/intro_text-en.svg"
-                                      alt="intro co2ok text"
-                                      class="intro__img-text desktop__intro img-text-margin-en delay__animation animated flipInX">
-                             <img
-                                     src="../assets/images/home/intro_text-en-mobile.svg"
-                                     alt="intro co2ok text"
-                                     class="intro__img-text mobile__intro img-text-margin-en delay__animation animated flipInX">
-                         </span>
 
+                <div class="intro__text__wrapper">
+                    <h1 class="desktop__intro animated fadeInUp">{{locale['intro_first_desktop']}}</h1>
 
-                    <span v-else key="nl">
-                             <img
-                                     src="../assets/images/home/intro_text-nl.svg"
-                                     alt="intro co2ok text"
-                                     class="intro__img-text desktop__intro img-text-margin-nl delay__animation animated flipInX">
+                    <div class="mobile__intro mobile__intro-1 animated fadeInUp">
+                        <h1>{{locale['intro_first_mobile-1']}}</h1>
+                        <h1>{{locale['intro_first_mobile-2']}}</h1>
+                    </div>
+                </div>
+            </div>
 
-                             <img
-                                     src="../assets/images/home/intro_text-nl-mobile.svg"
-                                     alt="intro co2ok text"
-                                     class="intro__img-text mobile__intro img-text-margin-nl delay__animation animated flipInX">
-                         </span>
+            <div class="section-2__filler">
+                <div class="intro__text__wrapper">
+                    <h1 class="desktop__intro animated fadeInUp">{{locale['intro_second_desktop']}}</h1>
 
-                </transition>
+                    <div class="mobile__intro mobile__intro-2 animated fadeInUp">
+                        <h1>{{locale['intro_second_mobile-1']}}</h1>
+                        <h1>{{locale['intro_second_mobile-2']}}</h1>
+                    </div>
+                </div>
             </div>
         </div>
 
