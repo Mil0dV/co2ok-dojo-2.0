@@ -190,7 +190,12 @@ import Co2okWidget from '../../co2okWidget'
 
         mounted() {
          
-            
+             if(this.$store.state.userData.userdata.is_superuser){
+                this.mechantsYearTransactions(this.$moment().year())
+            }else{
+                this.yearTransactions()
+            } 
+
         },
 
         methods: {
@@ -465,6 +470,7 @@ import Co2okWidget from '../../co2okWidget'
                         // let allTransactionsSum = this._.floor(this._.sum(transaction), 2)
                         allTransactionsArr.push(transaction.length)
                     })
+                    console.log(allTransactionsArr)
                     self.$store.commit('yearGraphData', allTransactionsArr)
                     self.updateGraphData()
 

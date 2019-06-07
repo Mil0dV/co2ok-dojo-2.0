@@ -71,34 +71,53 @@ class UserView(viewsets.ModelViewSet):
     def allTransactions(self, request):
         year_arr = []
         year_month_arr = []
+        year18_19 = []
         date = datetime.datetime.now()
         split_dateTime = str(date).split() #return de date and time splited[date,time]
         split_date = str(split_dateTime[0]).split('-') #return date splited by - [year, month, day]
         current_month = split_date[1] #return de number of current month
         current_year = request.query_params.get('year')
         int_month = int(current_month)  # convert current month digit to number
-        if str(split_date[0]) == current_year:
-            int_month = int(current_month)  
-        else:
-            int_month = 12 
+        # if str(split_date[0]) == current_year:
+        #     int_month = int(current_month)  
+        # else:
+        #     int_month = 12 
+        int_month = 12
 
         for months in range(int_month):
-            year_arr.append([])
+            # year_arr.append([])
             m = months
             if months < 9:
                 m = '0{}'.format(months+1) # +1 because de array begin at 0 and the first month begin at 1
             else:
                 m = months+1
             year_arr.append([])
-            year_month_arr.append('{}-{}'.format(current_year, m))
+            # year_month_arr.append('{}-{}'.format(current_year, m))
+
+        for month18 in range(7):
+            m = month18+6
+            if m <= 9:
+                m = '0{}'.format(m)
+            elif m >= 10:
+                m = m
+            year18_19.append('2018-{}'.format(m))
+
+        for month19 in range(5):
+            m = month19+1
+            if m < 9:
+                m = '0{}'.format(m)
+            else:
+                m = m
+            year18_19.append('2019-{}'.format(m))
 
         for transaction in Transaction.scan():
-            for ym in year_month_arr:
+            # for ym in year_month_arr:
+            for ym in year18_19:
                 dateSplited = str(transaction.timestamp).split('-')
                 formatDate = "{}-{}".format(dateSplited[0], dateSplited[1])  # return year-month
-                print(formatDate, ym)
+                # if str(formatDate) == str(ym):
                 if str(formatDate) == str(ym):
-                    year_arr[year_month_arr.index(ym)].append(transaction.compensation_cost)
+                    year_arr[year18_19.index(ym)].append(transaction.timestamp)
 
         return Response(year_arr)
 
@@ -131,8 +150,7 @@ class UserView(viewsets.ModelViewSet):
             getDate = str(transaction.timestamp).split()
             formatDate = "{}-{}".format(dateSplited[0], dateSplited[1]) #return year-month
             if str(formatDate) == str(yearMonth) and str(getWeek[0]) >= str(startWeek) and str(getWeek[0]) <= str(endWeek):
-                transactionArr.append({'orders': transaction.compensation_cost,
-                                       'date': getDate[0], 'month': dateSplited[1], 'day': getWeek[0]})
+                transactionArr.append({'orders': transaction.compensation_cost,'date': getDate[0], 'month': dateSplited[1], 'day': getWeek[0]})
         return Response(transactionArr)
 
     @csrf_exempt

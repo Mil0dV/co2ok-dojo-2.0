@@ -92,14 +92,16 @@
                                    :href="`https://twitter.com/intent/tweet?text=Help%20me%20fight%20climate%20change%20while%20shopping%20-%20easy%20and%20for%20free!%20http%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.userData.id}`"><i
                                         class="fab fa-twitter"></i></a>
                             </p>
-                            <p @click="deleteAccount = true">Delete</p>
-                            <p @click="editPassword = true">Update</p>
+                            <!-- <p @click="deleteAccount = true">Delete</p>
+                            <p @click="editPassword = true">Update</p> -->
                         </div>
 
                     </div>
                 </div>
             </div>
         </div>
+        <PasswordModal/>
+        <DeleteModal/>
     </div>
 </template>
 
