@@ -32,43 +32,6 @@ from django.template.loader import get_template
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
-# Create your views here.
-
-
-# def signup(request):
-#     signup_form = Signup(request.POST or None)
-#     if request.method == "POST":
-#         #    signup_form = Signup(request.POST or None)
-#        if signup_form.is_valid():
-#             #get user registration record data
-#             email = signup_form.cleaned_data['email']
-#             username = signup_form.cleaned_data['username']
-#             user_status = signup_form.cleaned_data.get('user_status')
-#             password = signup_form.cleaned_data['password']
-#             #register user as new user
-#             if request.user is not None:
-#                 User.objects.create_user(username=username, email=email, password=password)
-#                 #authenticate the new user record data
-#                 user = authenticate(username=username, password=password)
-#                 #create current user profile
-#                 NinjaProfile.objects.create(user=user, user_status=user_status, user_points=0)
-#                 #sign new user in
-#                 login(request, user)
-#                 #check if user is merchant or normal user to redirect him to the dashboard of profile
-#                 if user_status == 'user':
-#                     return redirect('/accounts/profile')
-#                 else:
-#                     return redirect('/dashboard/profile')
-#         # else:
-#         #     print('form is not valid')
-#     else:
-#         form = Signup()
-
-#     context = {
-#         'signup_form': signup_form
-#     }
-#     return render(request, 'accounts/signup.html', context)
-
 
 def userToken(request, user):
     if user:
@@ -355,8 +318,6 @@ def deleteAccount(request):
         'msg': 'Account succesfully deleted'
     })
 
-
-
     # else:
     #     error = {
     #         'delete': False,
@@ -375,8 +336,8 @@ def password_recover_mail(request):
     except:
         userEmail = request.POST.get('email')
         password = request.POST.get('temporaryPassword')
-
-    if checkEmail(request, userEmail) != 0:
+    checkEmail = User.objects.filter(email=userEmail).count()
+    if checkEmail > 0:
         rcovery_mail = Mail(
             from_email=settings.EMAIL_HOST_USER,
             to_emails=userEmail,
@@ -392,6 +353,11 @@ def password_recover_mail(request):
         except Exception as e:
             print(e.message)
 
+        # update password in db
+        user = User.objects.get(email=userEmail)
+        user.set_password(password)
+        user.save()
+
         # subject = "Password reset"
         # message = 'Click the link to reset your password, temporary password: k,jasflkuhsrlkjjbl'
         # from_email = settings.EMAIL_HOST_USER
@@ -406,7 +372,7 @@ def password_recover_mail(request):
     else:
         error = {
             'send': False,
-            'msg': 'Wrong email'
+            'msg': 'Email does not exist'
         }
         return Response(error)
 
@@ -425,29 +391,55 @@ def check_inviter_id(request):
         return Response(error)
 
 
-
-# def google_api(request):
-
-#     API_KEY = "AIzaSyDQDsq1Blbm9UZuRGBC93IYKES5Oheplt0"
-
-#     SITE = "douchezaak.nl
-
-#     gmaps = googlemaps.Client(key=API_KEY)
-
-#     # eerst place_id vinden
-#     g_query = gmaps.find_place(SITE, 'textquery')
-#     if g_query['status'] == 'OK':
-#         # I'm always feeling lucky
-#         place_id = g_query[]['candidates'][0]['place_id']
-
-#     # dan via details query formatted_phone_number of international_phone_number
-#     tel_nr = gmaps.place(place_id)['result']['formatted_phone_number']
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((AllowAny,))
+def signout(request):
+    logout(request)
+    return Response({'logout': True})
 
 
+@login_required
+def profile(request):
+    context = {
+        'domainname': request.get_host() if request.get_host().strip() else 'test.co2ok.ninja'
+    }
+    return render(request, 'accounts/profile.html', context)
 
 
+# def signup(request):
+#     signup_form = Signup(request.POST or None)
+#     if request.method == "POST":
+#         #    signup_form = Signup(request.POST or None)
+#        if signup_form.is_valid():
+#             #get user registration record data
+#             email = signup_form.cleaned_data['email']
+#             username = signup_form.cleaned_data['username']
+#             user_status = signup_form.cleaned_data.get('user_status')
+#             password = signup_form.cleaned_data['password']
+#             #register user as new user
+#             if request.user is not None:
+#                 User.objects.create_user(username=username, email=email, password=password)
+#                 #authenticate the new user record data
+#                 user = authenticate(username=username, password=password)
+#                 #create current user profile
+#                 NinjaProfile.objects.create(user=user, user_status=user_status, user_points=0)
+#                 #sign new user in
+#                 login(request, user)
+#                 #check if user is merchant or normal user to redirect him to the dashboard of profile
+#                 if user_status == 'user':
+#                     return redirect('/accounts/profile')
+#                 else:
+#                     return redirect('/dashboard/profile')
+#         # else:
+#         #     print('form is not valid')
+#     else:
+#         form = Signup()
 
-
+#     context = {
+#         'signup_form': signup_form
+#     }
+#     return render(request, 'accounts/signup.html', context)
 
 
 # def signin(request):
@@ -481,17 +473,3 @@ def check_inviter_id(request):
 #     }
 #     return render(request, 'accounts/login.html', context)
 
-@csrf_exempt
-@api_view(['POST'])
-@permission_classes((AllowAny,))
-def signout(request):
-    logout(request)
-    return Response({'logout': True})
-
-
-@login_required
-def profile(request):
-    context = {
-        'domainname': request.get_host() if request.get_host().strip() else 'test.co2ok.ninja'
-    }
-    return render(request, 'accounts/profile.html', context)

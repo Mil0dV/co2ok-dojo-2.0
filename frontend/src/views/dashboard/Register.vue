@@ -192,6 +192,7 @@
         created() {
 
             this.getMerchantData()
+            this.keyupEnter()
 
         },
 
@@ -236,7 +237,7 @@
 
             },
 
-            // get merchant name and email from dynamodb
+            // get merchant name and email from dynamodb and auto fill it in the respective fields
             getMerchantData() {
 
                 let id = this.$route.params.merchantId
@@ -247,16 +248,36 @@
                     }
                 }).then(response => {
 
-                    let data = response.data
-                    self.company = data.name
-                    self.email = data.email
-                    self.link = data.link
+                    if(response.data.idCheck){
+                        let data = response.data
+                        let adressData = response.data.adress_data
+                        self.company = data.name
+                        self.email = data.email
+                        self.link = data.link
+
+                        if(response.data.adress_data.place_id){
+
+                            self.country = adressData.country
+                            self.city = adressData.locality
+                            self.zipcode = adressData.postal_code
+                            self.street = adressData.route
+                            self.number = adressData.street_number
+
+                        }else{
+                            alert('We are not able to get your adress data from google api.')
+                        }
+
+                    }else{
+                        //deze alert door een modal vervangen
+                        alert('Merchant id not valid')
+                    }
 
                 }).catch(error => {
                     console.log(error);
                     //Als de id niet klopt, redirect dan naar de homepage
                 })
             },
+
 
             register() {
                 let self = this
@@ -297,12 +318,21 @@
                                     this.$store.commit('isLoggedIn', true) //set userStatus variable in the store to true
                                     self.$router.push('/webshops/dashboard')
                                 } else {
-                                    this.errorMessage()
+                                    let message = {
+                                        title: 'Something went wrong...',
+                                        text: response.data.error
+                                    }
+                                    this.$store.commit('modalStatus', {message})
                                 }
                             }
                         })
                         .catch(error => {
-                            this.errorMessage()
+                            let message = {
+                                title: 'Something went wrong...',
+                                text: error
+                            }
+                            this.$store.commit('modalStatus', {message})
+                            console.log(error);
                         })
                 } else {
                     let message = {
@@ -312,7 +342,24 @@
                     this.$store.commit('modalStatus', {message})
                     // this.errorMessage()
                 }
-            }
+            },
+
+            keyupEnter(){
+
+                let self = this
+                window.addEventListener('keyup', function(e){
+                    if(e.keyCode == 13){
+
+                        if (self.email !== '' && self.password !== ''){
+                            self.login()
+                            self.email = ''
+                            self.password = ''
+                        }
+
+                    }
+                })
+
+            },
         }
     }
 </script>

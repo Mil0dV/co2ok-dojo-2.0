@@ -106,3 +106,4 @@ venv.bak/
 .vscode/settings.json
 .idea/workspace.xml
 *.xml
+connfig/settings/email_settings.py

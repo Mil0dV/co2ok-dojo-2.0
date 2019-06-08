@@ -33,6 +33,12 @@
         computed: {
             loginStatus: function() {
                 return this.$store.state.userStatus;
+            },
+        },
+
+        computed: {
+            loginStatus: function() {
+                return this.$store.state.userStatus;
             }
         }
     }

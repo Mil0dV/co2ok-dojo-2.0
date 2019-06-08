@@ -33,7 +33,7 @@ class WebshopProfile(models.Model):
     city    = models.CharField(max_length=255)
     zipCode = models.CharField(max_length=255)
     street  = models.CharField(max_length=255)
-    number  = models.IntegerField()
+    number  = models.CharField(max_length=10)
     link    = models.CharField(max_length=255)
     merchant_id = models.CharField(max_length=255)
 

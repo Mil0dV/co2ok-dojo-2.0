@@ -53,9 +53,9 @@
                 </div>
             </v-flex>
             <v-flex xs12 sm12 md6 lg6 style="height: 100%;" class="year-info-flex">
-                <v-icon medium :style="prevStyle" style="position: relative;bottom: 2px;" class="animated zoomIn mr-2" @click="prevYear()"  v-if="$store.state.userData.userdata.is_superuser">keyboard_arrow_left</v-icon>
+                <v-icon medium :style="prevStyle" style="position: relative;bottom: 2px;" class="animated zoomIn mr-2" @click="prevYear()">keyboard_arrow_left</v-icon>
                 <p class="font-weight-bold">YEAR {{yearLabel}}</p>
-                <v-icon medium :style="nextStyle" style="position: relative;bottom: 2px;" class="animated zoomIn ml-2" @click="nextYear()"  v-if="$store.state.userData.userdata.is_superuser">keyboard_arrow_right</v-icon>
+                <v-icon medium :style="nextStyle" style="position: relative;bottom: 2px;" class="animated zoomIn ml-2" @click="nextYear()">keyboard_arrow_right</v-icon>
             </v-flex>
         </v-layout>
 
@@ -175,12 +175,6 @@ import Co2okWidget from '../../co2okWidget'
 
         created() {
 
-            //check if the loged user is a superuser
-            if(this.$store.state.userData.userdata.is_superuser){
-                this.mechantsYearTransactions(this.$moment().year())
-            }else{
-                this.yearTransactions()
-            }    
             this.prevMonth = this.$moment().subtract(1, 'months').format('MMMM')
             this.nextMonth = this.currentMonth    
             this.generatePDFdata()
@@ -189,8 +183,20 @@ import Co2okWidget from '../../co2okWidget'
         },
 
         mounted() {
+
+            //check if the loged user is a superuser
+            if(this.$store.state.userData.userdata.is_superuser){
+                this.mechantsYearTransactions(this.$moment().year())
+            }else{
+                this.yearTransactions()
+            }  
          
-            
+             if(this.$store.state.userData.userdata.is_superuser){
+                this.mechantsYearTransactions(this.$moment().year())
+            }else{
+                this.yearTransactions()
+            } 
+
         },
 
         methods: {
@@ -465,6 +471,7 @@ import Co2okWidget from '../../co2okWidget'
                         // let allTransactionsSum = this._.floor(this._.sum(transaction), 2)
                         allTransactionsArr.push(transaction.length)
                     })
+                    console.log(allTransactionsArr)
                     self.$store.commit('yearGraphData', allTransactionsArr)
                     self.updateGraphData()
 
@@ -494,32 +501,6 @@ import Co2okWidget from '../../co2okWidget'
                     let weekGraphData = self.parseTransactionsWeekData(response.data)
                     self.$store.commit('weekGraphData', weekGraphData)
                     self.updateGraphData()
-
-                }).catch(error => {
-                    console.log(error)
-                })
-
-            },
-
-            weekTransactionRequest(lastweek, weekdate, beginweek){
-                let self = this
-                this.$axios.get(`${this.$store.state.SITE_HOST}/user/weeklyTransaction/`, {
-                    params: {
-                        yearMonth: weekdate,
-                        endWeek: lastweek,
-                        startWeek: beginweek,
-                        merchantId: self.$store.state.userData.userProfileData.merchantId
-                    },
-                    headers: {
-                       "X-CSRFToken": `${self.$store.state.userToken}`,
-                        Authorization: `token ${window.localStorage.getItem('userToken')}` 
-                    }
-                }).then(response => {
-
-                    console.log(response.data);
-                    let weekGraphData = self.parseTransactionsWeekData(response.data)
-                    self.$store.commit('weekGraphData', weekGraphData)
-                    self.graphUpdatedData()
 
                 }).catch(error => {
                     console.log(error)
