@@ -5,6 +5,7 @@
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+  height: 8vh;
 
   .uk-logo {
     width: 84px;
@@ -34,7 +35,7 @@
 
 .uk-navbar-nav li a {
   font-size: 16px;
-  color:#2F2F2F;
+  color: #2F2F2F;
 }
 
 .dropdown__menu-wrapper {
@@ -45,7 +46,7 @@
   text-align: left;
   font-size: 16px;
   font-weight: 400;
-  color:#2F2F2F;
+  color: #2F2F2F;
   border-radius: 5px;
 
   li {
@@ -59,7 +60,7 @@
 }
 
 .uk-navbar-right .button:hover {
-  color:white;
+  color: white;
 }
 
 .uk-sticky-placeholder {
@@ -103,12 +104,12 @@
 
 .mobile__dropdown {
   margin-left: 20px;
-  border-left: 2px solid rgba(255,255,255,.5);
+  border-left: 2px solid rgba(255, 255, 255, .5);
 
 
-  li a{
+  li a {
     padding-left: 10px;
-    color:rgba(255,255,255,.5);
+    color: rgba(255, 255, 255, .5);
   }
 }
 
@@ -117,6 +118,10 @@
   .uk-container {
     width: 90% !important;
   }
+
+  .uk-navbar-container {
+    height: 10vh;
+  }
 }
 
 @media screen and (max-width: 960px) {
@@ -124,5 +129,9 @@
     .uk-logo {
       margin-left: 10px;
     }
+  }
+
+  .uk-navbar-container {
+    height: 15vh;
   }
 }

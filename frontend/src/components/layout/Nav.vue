@@ -13,7 +13,7 @@
                     <div class="uk-navbar-right uk-visible@m">
                         <ul class="uk-navbar-nav">
                             <li :class="[checkActive('about') ? 'navbar__active' : '']">
-                                <router-link to="/about">{{locale.about}}</router-link>
+                                <router-link to="/about">{{locale.about}}asd</router-link>
                             </li>
                             <li :class="[checkActive('webshops') ? 'navbar__active' : '']">
                                 <router-link to="/webshops">{{locale.webshops}}
