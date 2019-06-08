@@ -1,5 +1,5 @@
 module.exports = {
-    lang_en_compensation: {
+    lang_en_how: {
         's1_subtitle': 'How it works',
         's1_title': 'CO₂ Compensation',
         's1_text': 'The transport and production of any purchased item causes the emission of greenhouse gases. Manufacturers try to reduce this emission, but most fail to show actual progress. A purchase of *that* item you want can become climate neutral through CO₂-compensation.',

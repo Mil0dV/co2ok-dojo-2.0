@@ -4,7 +4,7 @@ module.exports = {
         'webshops' : 'For Webshops',
         'webshops_1' : 'Retailers',
         'webshops_2' : 'Cause Marketing',
-        'webshops_3' : 'Projects',
+        'webshops_3' : 'CO₂-compensatie projects',
         'webshops_4' : 'Login',
         'webshops_5' : 'Logout',
         'webshops_6' : 'Dashboard',

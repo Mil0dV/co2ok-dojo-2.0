@@ -7,7 +7,7 @@ module.exports = {
         'link4' : 'CO₂-compensatie',
         'link5' : 'Retailers',
         'link6' : 'Cause Marketing',
-        'link7' : 'Projecten',
+        'link7' : 'CO₂-compensatie projecten',
         'link8' : 'Login',
         'link9' : 'Voor Consumenten',
         'link10' : 'Nieuws',

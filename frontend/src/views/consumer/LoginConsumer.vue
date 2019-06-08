@@ -5,7 +5,7 @@
             <div class="bkgr__filler bkgr__text hide--tablet">
                 <div class="green-border__login">
                     <p class="green-border__text main-text">
-                        {{locale['login_text']}}
+                        {{locale['login_text2']}}
                     </p>
                 </div>
             </div>
@@ -15,7 +15,7 @@
             <div class="login__width">
                 <div class="login-c__wrapper">
                     <div class="login-c__form">
-                        <h3 class="sub-title--small">{{locale['login_sort2']}}</h3>
+                        <h3 class="sub-title--small">{{locale['login_sort1']}}</h3>
                         <h2 class="main-title">{{locale['title']}}</h2>
 
                         <br>

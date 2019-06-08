@@ -152,10 +152,5 @@
 
 
 <style lang="scss">
-    #footer /deep/ {
-        @import "~uikit/dist/css/uikit.min.css";
-    }
-
-    @import '../../styles/layout/main';
     @import '../../styles/layout/footer';
 </style>

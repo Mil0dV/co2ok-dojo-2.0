@@ -31,7 +31,7 @@
                 if(this.currentLanguage === 'en'){
                     switch (this.image) {
                         case 'steps':
-                            this.title = 'CO₂-compensation'
+                            this.title = 'How it works'
                             break;
                         case 'about':
                             this.title = 'About us'
@@ -67,7 +67,7 @@
                 } else {
                     switch (this.image) {
                         case 'steps':
-                            this.title = 'CO₂-compensatie'
+                            this.title = 'Hoe het werkt'
                             break;
                         case 'about':
                             this.title = 'Over ons'

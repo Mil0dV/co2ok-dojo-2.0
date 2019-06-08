@@ -12,40 +12,56 @@
 
                     <div class="uk-navbar-right uk-visible@m">
                         <ul class="uk-navbar-nav">
-                            <li :class="[checkActive('about') ? 'navbar__active' : '']">
-                                <router-link to="/about">{{locale.about}}asd</router-link>
+                            <li>
+                                <router-link :class="[checkActive('about') ? 'navbar__active' : '']" to="/about">
+                                    {{locale.about}}
+                                </router-link>
                             </li>
-                            <li :class="[checkActive('webshops') ? 'navbar__active' : '']">
-                                <router-link to="/webshops">{{locale.webshops}}
+                            <li>
+                                <router-link :class="[checkActive('webshops') ? 'navbar__active' : '']" to="/webshops">
+                                    {{locale.webshops}}
                                     <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
                                 </router-link>
                             </li>
                             <div class="dropdown__menu-wrapper" uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
                                     <li v-if="$store.state.Authenticated && $store.state.status === 'webshop'">
-                                        <router-link to="/webshops/dashboard">{{locale.webshops_6}}</router-link>
-                                    </li>
-                                    <li>
-                                        <router-link to="/webshops">{{locale.webshops}}</router-link>
-                                    </li>
-                                    <li>
-                                        <router-link to="/webshops/retailers">{{locale.webshops_1}}</router-link>
-                                    </li>
-                                    <li>
-                                        <router-link to="/webshops/cause-marketing">{{locale.webshops_2}}</router-link>
-                                    </li>
-                                    <li>
-                                        <router-link to="/projects">{{locale.webshops_3}}</router-link>
-                                    </li>
-                                    <li>
-                                        <router-link to="/webshops/plug-in-installation">{{locale.webshops_7}}
+                                        <router-link :class="[checkActive('webshops6') ? 'navbar__active' : '']"
+                                                     to="/webshops/dashboard">{{locale.webshops_6}}
                                         </router-link>
                                     </li>
-                                    <li @click="logout('consumer')"
+                                    <li>
+                                        <router-link :class="[checkActive('webshops') ? 'navbar__active' : '']"
+                                                     to="/webshops">{{locale.webshops}}asd
+                                        </router-link>
+                                    </li>
+                                    <li>
+                                        <router-link :class="[checkActive('webshops1') ? 'navbar__active' : '']"
+                                                     to="/webshops/retailers">{{locale.webshops_1}}
+                                        </router-link>
+                                    </li>
+                                    <li>
+                                        <router-link :class="[checkActive('webshops2') ? 'navbar__active' : '']"
+                                                     to="/webshops/cause-marketing">{{locale.webshops_2}}
+                                        </router-link>
+                                    </li>
+                                    <li>
+                                        <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
+                                                     to="/projects">{{locale.webshops_3}}
+                                        </router-link>
+                                    </li>
+                                    <li>
+                                        <router-link :class="[checkActive('webshops7') ? 'navbar__active' : '']"
+                                                     to="/webshops/plug-in-installation">{{locale.webshops_7}}
+                                        </router-link>
+                                    </li>
+                                    <li class="opval" @click="logout('consumer')"
                                         v-if="$store.state.Authenticated && $store.state.status === 'webshop'">
                                         <a>{{locale.consumers_2}}</a></li>
-                                    <li v-else>
-                                        <router-link to="/webshops/login">{{locale.webshops_4}}</router-link>
+                                    <li class="opval" v-else>
+                                        <router-link :class="[checkActive('webshops4') ? 'navbar__active' : '']"
+                                                     to="/webshops/login">{{locale.webshops_4}}
+                                        </router-link>
                                     </li>
                                 </ul>
                             </div>
@@ -58,9 +74,9 @@
                                 </router-link>
                             </li>
 
-                            <li v-else
-                                :class="[checkActive('consumers') ? 'navbar__active' : '']">
-                                <router-link to="/consumers/login">
+                            <li v-else>
+                                <router-link :class="[checkActive('consumers') ? 'navbar__active' : '']"
+                                             to="/consumers/login">
                                     {{locale.consumers}}
                                 </router-link>
                             </li>
@@ -76,11 +92,15 @@
                                 </ul>
                             </div>
 
-                            <li :class="[checkActive('news') ? 'navbar__active' : '']">
-                                <router-link to="/news">{{locale.news}}</router-link>
+                            <li>
+                                <router-link :class="[checkActive('news') ? 'navbar__active' : '']" to="/news">
+                                    {{locale.news}}
+                                </router-link>
                             </li>
-                            <li :class="[checkActive('faq') ? 'navbar__active' : '']">
-                                <router-link to="/faq">{{locale.faq}}</router-link>
+                            <li>
+                                <router-link :class="[checkActive('faq') ? 'navbar__active' : '']" to="/faq">
+                                    {{locale.faq}}
+                                </router-link>
                             </li>
                         </ul>
                         <a v-if="!$store.state.Authenticated" :href="this.$store.state.ninjaExtensionLink"
@@ -101,7 +121,7 @@
                                          src="../../assets/images/nav/english-icon.png">
                                     <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
                                 </li>
-                                <div class="dropdown__menu-wrapper" uk-dropdown="offset:10">
+                                <div class="dropdown__menu-wrapper dropdown__smaller" uk-dropdown="offset:10">
                                     <ul class="uk-nav uk-dropdown-nav dropdown__nav dropdown__lang">
                                         <li @click="switchLang('nl')">
                                             <img alt="nederlandse vlag" class="language-icon english icon"
@@ -203,6 +223,7 @@
                                     <img alt="nederlandse vlag" class="language-icon english icon"
                                          src="../../assets/images/nav/dutch-icon.png">
                                 </li>
+                                as
                             </ul>
                         </div>
                     </ul>
@@ -288,9 +309,10 @@
                     return true
                 }
 
-                if (menu === 'webshops' && this.currentRouteName === 'retailers' || menu === 'webshops' && this.currentRouteName === 'cause-marketing'
-                    || menu === 'webshops' && this.currentRouteName === 'plug-in-installation' || menu === 'webshops' && this.currentRouteName === 'webshops-register'
-                    || menu === 'webshops' && this.currentRouteName === 'webshops-login' || menu === 'webshops' && this.currentRouteName === 'dashboard') {
+                if (menu === 'webshops1' && this.currentRouteName === 'retailers' || menu === 'webshops2' && this.currentRouteName === 'cause-marketing'
+                    || menu === 'webshops3' && this.currentRouteName === 'projects'  || menu === 'webshops7' && this.currentRouteName === 'plug-in-installation'
+                    || menu === 'webshops' && this.currentRouteName === 'webshops-register' || menu === 'webshops' && this.currentRouteName === 'webshops-login'
+                    || menu === 'webshops' && this.currentRouteName === 'dashboard') {
                     return true
                 }
             },

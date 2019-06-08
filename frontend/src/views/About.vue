@@ -18,21 +18,25 @@
                     <div class="col-1__content col-1__text-wrapper">
                         <div class="col-1__text">
                             <p class="sub-title">{{locale.subTitle}}</p>
-                            <h2 class="main-title">{{locale.title}}</h2>
                             <div>
                                 <p>
                                     {{locale.shortText}}
-                                    <br>
+                                </p>
+
+
+                                <div class="more">
                                     <transition enter-active-class="animated bounceIn"
                                                 leave-active-class="animated bounceOut"
                                                 mode="out-in">
-                                        <span key="1" @click="moreText = true" v-if="!moreText"
-                                              class="link">{{locale.read}}</span>
-                                        <span key="2" @click="moreText = false" v-else class="link">{{locale.less}}</span>
-                                    </transition>
-                                </p>
+                                    <span key="1" @click="moreText = true" v-if="!moreText"
+                                          class="link">{{locale.read}}</span>
 
-                                <br>
+                                        <span key="2" @click="moreText = false" v-else
+                                              class="link">{{locale.less}}</span>
+                                    </transition>
+                                </div>
+
+
                                 <transition enter-active-class="animated fadeIn"
                                             leave-active-class="animated fadeOut"
                                             mode="out-in">
@@ -193,6 +197,5 @@
 </script>
 
 <style lang="scss" scoped>
-    /*@import '../styles/layout/main.scss';*/
     @import '../styles/about.scss';
 </style>

@@ -2,9 +2,9 @@
     <v-app id="app">
         <div class="body">
             <Nav class="animated fadeInDown"/>
-            <router-view class="view-route animated fadeIn"></router-view>
+            <router-view class="animated fadeIn"></router-view>
+            <Footer/>
         </div>
-        <Footer/>
         <Modal v-if="$store.state.modalStatus"/>
     </v-app>
 </template>
@@ -57,12 +57,7 @@
 
     .body {
         min-height: 100vh;
-        height: 100%;
-    }
-
-    .view-route {
-        min-height: 97vh;
-        height: 100%;
+        height: auto;
     }
 
     input:focus {
