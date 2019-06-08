@@ -2,12 +2,11 @@
     <div class="home__container">
         <div class="uk-section home__section-1">
             <div class="section-1__filler">
-                <img src="../assets/images/home/logo.svg" alt="intro co2ok"
-                     class="intro__img animated fadeIn">
+                <img src="../assets/images/home2/logo-1.svg" alt="intro co2ok"
+                     class="intro__logo animated fadeIn" style="animation-duration: 4s;">
 
                 <div class="intro__text__wrapper">
                     <h1 class="desktop__intro animated fadeInUp">{{locale['intro_first_desktop']}}</h1>
-
                     <div class="mobile__intro mobile__intro-1 animated fadeInUp">
                         <h1>{{locale['intro_first_mobile-1']}}</h1>
                         <h1>{{locale['intro_first_mobile-2']}}</h1>
@@ -16,9 +15,11 @@
             </div>
 
             <div class="section-2__filler">
+                <img src="../assets/images/home2/logo-2.svg" alt="intro co2ok"
+                     class="intro__logo intro__logo-lower animated fadein" style="animation-duration: 4s;">
+
                 <div class="intro__text__wrapper">
                     <h1 class="desktop__intro animated fadeInUp">{{locale['intro_second_desktop']}}</h1>
-
                     <div class="mobile__intro mobile__intro-2 animated fadeInUp">
                         <h1>{{locale['intro_second_mobile-1']}}</h1>
                         <h1>{{locale['intro_second_mobile-2']}}</h1>
@@ -42,7 +43,7 @@
                 </div>
 
                 <div class="section-2__row-2">
-                    <img class="section-2__image" alt="video player" src="../assets/images/home/video.png">
+                    <img class="section-2__image" alt="video player" src="../assets/images/home2/video.png">
                 </div>
             </div>
         </div>
@@ -51,7 +52,7 @@
             <div class="section-3__content">
                 <h3 class="sub-title">{{locale['section_3_sub']}}</h3>
                 <h2 class="main-title">{{locale['section_3_title']}}</h2>
-                <img alt="graph" class="section-3__image" src="../assets/images/home/graph.png">
+                <img alt="graph" class="section-3__image" src="../assets/images/home2/graph.png">
             </div>
         </div>
 
@@ -64,11 +65,11 @@
                 <div class="section-4__projects">
                     <div class="project__images-container">
                         <img alt="project1" class="project__image project__sides"
-                             src="../assets/images/home/project-1.png">
+                             src="../assets/images/home2/project-1.png">
                         <img alt="project1" class="project__image project__main"
-                             src="../assets/images/home/project-2.png">
+                             src="../assets/images/home2/project-2.png">
                         <img alt="project1" class="project__image project__sides"
-                             src="../assets/images/home/project-3.png">
+                             src="../assets/images/home2/project-3.png">
                     </div>
 
                     <div class="project__text">
@@ -90,13 +91,13 @@
 
                 <div class="section-5__images">
                     <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home/logo1.png">
+                         src="../assets/images/home2/logo1.png">
                     <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home/logo2.png">
+                         src="../assets/images/home2/logo2.png">
                     <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home/logo3.png">
+                         src="../assets/images/home2/logo3.png">
                     <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home/logo4.png">
+                         src="../assets/images/home2/logo4.png">
                 </div>
 
                 <router-link to="/webshops/" class="button__home">{{locale['section_5_btn']}}</router-link>

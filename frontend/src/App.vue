@@ -1,7 +1,7 @@
 <template>
     <v-app id="app">
         <div class="body">
-            <Nav/>
+            <Nav class="animated fadeInDown"/>
             <router-view class="view-route animated fadeIn"></router-view>
         </div>
         <Footer/>
