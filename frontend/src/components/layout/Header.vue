@@ -57,6 +57,9 @@
                         case 'projects':
                             this.title = 'CO₂-compensation projects'
                             break;
+                        case 'news':
+                            this.title = 'News'
+                            break;
                         default:
                             this.title = 'CO₂ compensation'
                             break;
@@ -89,6 +92,9 @@
                             break;
                         case 'projects':
                             this.title = 'CO₂-compensatie projecten'
+                            break;
+                        case 'news':
+                            this.title = 'Nieuws'
                             break;
                         default:
                             this.title = 'CO₂ compensatie'

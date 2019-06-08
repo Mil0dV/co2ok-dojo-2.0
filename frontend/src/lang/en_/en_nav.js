@@ -1,7 +1,7 @@
 module.exports = {
     lang_en_nav: {
         'about' : 'About',
-        'webshops' : 'Webshops',
+        'webshops' : 'For Webshops',
         'webshops_1' : 'Retailers',
         'webshops_2' : 'Cause Marketing',
         'webshops_3' : 'Projects',
@@ -10,7 +10,7 @@ module.exports = {
         'webshops_6' : 'Dashboard',
         'webshops_7': 'Plug-in installation',
 
-        'consumers' : 'Consumers',
+        'consumers' : 'For Consumers',
         'consumers_1' : 'Profile',
         'consumers_2' : 'Logout',
         'news' : 'News',

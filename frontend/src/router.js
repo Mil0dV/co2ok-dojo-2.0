@@ -18,11 +18,11 @@ const router = new Router({
     mode: 'history',
     base: process.env.BASE_URL,
     routes: [
-        // {
-        //     path: '/',
-        //     name: 'home',
-        //     component: () => import('./views/Home'),
-        // },
+        {
+            path: '/home',
+            name: 'home',
+            component: () => import('./views/Home'),
+        },
         {
             path: '/',
             name: 'home2',

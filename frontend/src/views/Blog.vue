@@ -1,5 +1,5 @@
 <template>
-  
+
 <div class="news-container">
 
     <div class="news-header animated fadeIn">
@@ -30,7 +30,7 @@ export default {
     },
 
     created(){
-        
+
     },
 
     components: {
@@ -45,7 +45,7 @@ export default {
     methods: {
 
       getBlogs() {
-        
+
         let self = this
         this.$axios.get(`${this.$store.state.SITE_HOST}/blog/`,{
             headers: {
@@ -54,17 +54,17 @@ export default {
             }
         }).then(response => {
             console.log(response.data);
-            
+
             self.$store.commit('getBlogs', response.data)
             console.log(response);
-            
+
         }).catch(error => {
             console.log(error);
-            
+
         })
 
       },
-        
+
       stripBlogContent(content){
           return content.substr(0,150)+'...'
       },

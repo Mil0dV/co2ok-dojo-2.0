@@ -122,37 +122,37 @@
                     {
                         name: 'Milo de Vries', title: 'Founder and factotum',
                         quote: 'Saving the climate, one gram at a time',
-                        image: 'milo.jpg',
+                        image: 'milo.jpeg',
                         twitter: '', facebook: ''
                     },
                     {
                         name: 'Jos van Nieuwburg', title: 'Co-Founder',
                         quote: 'The climate is important and us companies can de a lot with that',
-                        image: 'jos.jpg',
+                        image: 'jos.jpeg',
                         twitter: '', facebook: ''
                     },
                     {
                         name: 'Maaike Braat', title: 'Scientist',
                         quote: 'It always can be quicker and better and this is a step in the right direction',
-                        image: 'maaike.jpg',
+                        image: 'maaike.jpeg',
                         twitter: '', facebook: ''
                     },
                     {
                         name: 'Michiel van Tienhoven', title: 'Programmer and Graphic Designer',
                         quote: 'More green is always better, after all we only have one planet earth',
-                        image: 'michiel-1.jpg',
+                        image: 'michiel-1.jpeg',
                         twitter: '', facebook: ''
                     },
                     {
                         name: 'Alham Saber', title: 'Partner manager',
                         quote: 'Silence is evil itself. Not to speak to speak. Not to act is to act',
-                        image: 'ahlam.jpg',
+                        image: 'ahlam.jpeg',
                         twitter: '', facebook: ''
                     },
                     {
                         name: 'Sanne Tielemans', title: 'Executive Secretary',
                         quote: 'The greener, the better',
-                        image: 'sanne.jpg',
+                        image: 'sanne.jpeg',
                         twitter: '', facebook: ''
                     },
 
@@ -193,6 +193,6 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../styles/layout/main.scss';
+    /*@import '../styles/layout/main.scss';*/
     @import '../styles/about.scss';
 </style>

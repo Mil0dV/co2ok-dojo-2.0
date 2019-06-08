@@ -1,7 +1,7 @@
 module.exports = {
     lang_nl_nav: {
         'about' : 'Over',
-        'webshops' : 'Webshops',
+        'webshops' : 'Voor Webshops',
         'webshops_1' : 'Retailers',
         'webshops_2' : 'Cause Marketing',
         'webshops_3' : 'Projecten',
@@ -10,7 +10,7 @@ module.exports = {
         'webshops_6' : 'Dashboard',
         'webshops_7': 'Plug-in installatie',
 
-        'consumers' : 'Klanten',
+        'consumers' : 'Voor Klanten',
         'consumers_1' : 'Profiel',
         'consumers_2' : 'Logout',
         'news' : 'Nieuws',

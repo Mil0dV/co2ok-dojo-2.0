@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="section-2__row-2">
-                    <img class="section-2__image" src="../assets/images/home/video.png">
+                    <img class="section-2__image" alt="video player" src="../assets/images/home/video.png">
                 </div>
             </div>
         </div>
@@ -155,5 +155,4 @@
 
 <style scoped lang="scss">
     @import '../styles/home.scss';
-    @import '../styles/layout/main.scss';
 </style>
