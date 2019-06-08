@@ -32,7 +32,7 @@
                                    v-model="password">
                         </div>
 
-                        <p @click="passReset = true"class="subheading sub__password">I forgot my password</p>
+                        <p @click="passReset = true" class="subheading sub__password">I forgot my password</p>
 
                         <p class="button login-c__button" @click="login()">Login</p>
                     </div>
@@ -89,7 +89,7 @@
         created() {
 
             this.$store.commit('generateUserName')
-
+            this.keyupEnter()
         },
 
         methods: {
@@ -197,6 +197,27 @@
                     }
                     this.$store.commit('modalStatus', {message})
                 }
+            },
+
+            keyupEnter(){
+
+                let self = this
+                window.addEventListener('keyup', function(e){
+                    if(e.keyCode == 13){
+
+                        if (self.email !== '' && self.password !== ''){
+                            self.login()
+                            self.email = ''
+                            self.password = ''
+                        }else if(self.registerMail !== '' && self.registerPass !== ''){
+                            self.register()
+                            self.registerMail = ''
+                            self.registerPass = ''
+                        }
+
+                    }
+                })
+
             },
 
             closeEdit(message) {

@@ -14,7 +14,7 @@
                             <div class="uk-card-body">
                                 <div>
                                     <p class="main-text">You’ve compensated:</p>
-                                    <h3 class="main-title animated">{{co2Counter}} kgs</h3>
+                                    <h3 class="main-title" style="display: flex; flex-direction: row;justify-content:flex-start;align-items:center;"><h3 class="co2-counter main-title animated" style="margin-right: 5px;">{{co2Counter}}</h3> kgs</h3>
 
                                     <hr>
                                     <div>
@@ -92,31 +92,35 @@
                                    :href="`https://twitter.com/intent/tweet?text=Help%20me%20fight%20climate%20change%20while%20shopping%20-%20easy%20and%20for%20free!%20http%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.userData.id}`"><i
                                         class="fab fa-twitter"></i></a>
                             </p>
-                            <!-- <p @click="deleteAccount = true">Delete</p>
-                            <p @click="editPassword = true">Update</p> -->
+                            <!-- <p @click="editProfile = true">Edit Profile</p> -->
+                            <p @click="editPassword = true">Change Password</p>
+                            <p @click="deleteAccount = true">Delete Account</p>
                         </div>
 
                     </div>
                 </div>
             </div>
         </div>
+        <ProfileModal/>
         <PasswordModal/>
         <DeleteModal/>
     </div>
 </template>
 
 <script>
+    const ProfileModal = () => import('@/components/modals/ProfileModal')
     const PasswordModal = () => import('@/components/modals/PasswordModal')
     const DeleteModal = () => import('@/components/modals/DeleteModal')
     export default {
         name: "NinjaProfile",
 
         components: {
-            PasswordModal, DeleteModal
+            ProfileModal, PasswordModal, DeleteModal
         },
 
         data() {
             return {
+                editProfile: false,
                 editPassword: false,
                 deleteAccount: false,
                 Authenticated: window.localStorage.getItem('Authenticated'),
@@ -133,12 +137,15 @@
             }
             this.$store.dispatch('commitNinjaUserData');
             // this.$store.commit('ninjaUserData')
+            setInterval(this.co2counterIn, 2000)
+            setInterval(this.co2counterOut, 3000)
         },
 
         mounted() {
 
             this.supportedProject('get') //get the current user sopported project
-            setInterval(this.co2counter, 2000)
+            setInterval(this.co2counterIn, 2000)
+            setInterval(this.co2counterOut, 3000)
 
         },
 
@@ -228,15 +235,29 @@
 
             },
 
-            co2counter(){
-                let co2counter = document.querySelector('.main-title')
-                if(co2counter.classList.contains('flipInY')){
-                    co2counter.classList.remove('flipInY')
-                    co2counter.classList.add('flipInY')
-                }else{
-                    co2counter.classList.add('flipInY')
+            co2counterIn(){
+                let animation = 'flipInY'
+                let co2counter = document.querySelector('.co2-counter')
+                if(co2counter !== null){
+
+                    if(!co2counter.classList.contains(animation)){
+                        co2counter.classList.add(animation)
+                     }
+
                 }
+               
                this.co2Counter = Math.floor(Math.random() * 1000) + 1
+            },
+
+            co2counterOut(){
+                let animation = 'flipInY'
+                let co2counter = document.querySelector('.co2-counter')
+                if(co2counter !== null){
+                    if(co2counter.classList.contains(animation)){
+                        co2counter.classList.remove(animation)
+                    }
+                }
+                
             }
 
         }

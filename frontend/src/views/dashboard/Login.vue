@@ -70,6 +70,7 @@
         },
         created() {
 
+            this.keyupEnter()
             // mailer.sendmail('kevineasky@gmail.com')
             // this.passwordRecoveryEmail()
 
@@ -181,7 +182,24 @@
                 //     }
                 // })
 
-            }
+            },
+
+            keyupEnter(){
+
+                let self = this
+                window.addEventListener('keyup', function(e){
+                    if(e.keyCode == 13){
+
+                        if (self.email !== '' && self.password !== ''){
+                            self.login()
+                            self.email = ''
+                            self.password = ''
+                        }
+
+                    }
+                })
+
+            },
         }
     }
 </script>

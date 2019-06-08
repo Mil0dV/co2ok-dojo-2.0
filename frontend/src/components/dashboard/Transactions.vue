@@ -175,12 +175,6 @@ import Co2okWidget from '../../co2okWidget'
 
         created() {
 
-            //check if the loged user is a superuser
-            if(this.$store.state.userData.userdata.is_superuser){
-                this.mechantsYearTransactions(this.$moment().year())
-            }else{
-                this.yearTransactions()
-            }    
             this.prevMonth = this.$moment().subtract(1, 'months').format('MMMM')
             this.nextMonth = this.currentMonth    
             this.generatePDFdata()
@@ -189,6 +183,13 @@ import Co2okWidget from '../../co2okWidget'
         },
 
         mounted() {
+
+            //check if the loged user is a superuser
+            if(this.$store.state.userData.userdata.is_superuser){
+                this.mechantsYearTransactions(this.$moment().year())
+            }else{
+                this.yearTransactions()
+            }  
          
              if(this.$store.state.userData.userdata.is_superuser){
                 this.mechantsYearTransactions(this.$moment().year())

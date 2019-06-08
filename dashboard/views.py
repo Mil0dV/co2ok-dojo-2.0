@@ -17,14 +17,7 @@ import json
 import base64
 from dashboard.models import Merchant, Transaction
 import datetime
-
-# Create your views here.
-# @login_required
-# def profile(request):
-#     context = {
-
-#     }
-#     return render(request, 'dashboard/profile.html', context)
+import googlemaps
 
 
 class UserView(viewsets.ModelViewSet):
@@ -66,58 +59,59 @@ class UserView(viewsets.ModelViewSet):
             return Response({'authData': False, 'account': 'Merchant account not existed'})
         return Response(context)
 
+    # run if user is superuser
     @csrf_exempt
     @action(methods=['get'], detail=False)
     def allTransactions(self, request):
         year_arr = []
         year_month_arr = []
-        year18_19 = []
+        # year18_19 = [] # use to display transactions data from 06-2018 - 05-2019
         date = datetime.datetime.now()
         split_dateTime = str(date).split() #return de date and time splited[date,time]
         split_date = str(split_dateTime[0]).split('-') #return date splited by - [year, month, day]
         current_month = split_date[1] #return de number of current month
         current_year = request.query_params.get('year')
         int_month = int(current_month)  # convert current month digit to number
-        # if str(split_date[0]) == current_year:
-        #     int_month = int(current_month)  
-        # else:
-        #     int_month = 12 
-        int_month = 12
+        if str(split_date[0]) == current_year:
+            int_month = int(current_month)  
+        else:
+            int_month = 12 
+
+        # int_month = 12  # use to display transactions data from 06-2018 - 05-2019
 
         for months in range(int_month):
-            # year_arr.append([])
-            m = months
-            if months < 9:
-                m = '0{}'.format(months+1) # +1 because de array begin at 0 and the first month begin at 1
-            else:
-                m = months+1
-            year_arr.append([])
-            # year_month_arr.append('{}-{}'.format(current_year, m))
-
-        for month18 in range(7):
-            m = month18+6
-            if m <= 9:
-                m = '0{}'.format(m)
-            elif m >= 10:
+            m = months+1  # +1 because de array begin at 0 and the first month begin at 1
+            if months <= 9:
+                m = '0{}'.format(m) 
+            elif months >= 10:
                 m = m
-            year18_19.append('2018-{}'.format(m))
+            year_arr.append([]) 
+            year_month_arr.append('{}-{}'.format(current_year, m))
+        ####################################### use to display transactions data from 06-2018 - 05-2019 ##############################################################
+        # for month18 in range(7):
+        #     m = month18+6
+        #     if m <= 9:
+        #         m = '0{}'.format(m)
+        #     elif m >= 10:
+        #         m = m
+        #     year18_19.append('2018-{}'.format(m))
 
-        for month19 in range(5):
-            m = month19+1
-            if m < 9:
-                m = '0{}'.format(m)
-            else:
-                m = m
-            year18_19.append('2019-{}'.format(m))
-
+        # for month19 in range(5):
+        #     m = month19+1
+        #     if m < 9:
+        #         m = '0{}'.format(m)
+        #     else:
+        #         m = m
+        #     year18_19.append('2019-{}'.format(m))
+        #########################################################################################################
         for transaction in Transaction.scan():
-            # for ym in year_month_arr:
-            for ym in year18_19:
+            for ym in year_month_arr:
+                # for ym in year18_19: # use to display transactions data from 06-2018 - 05-2019
                 dateSplited = str(transaction.timestamp).split('-')
                 formatDate = "{}-{}".format(dateSplited[0], dateSplited[1])  # return year-month
-                # if str(formatDate) == str(ym):
                 if str(formatDate) == str(ym):
-                    year_arr[year18_19.index(ym)].append(transaction.timestamp)
+                    # if str(formatDate) == str(ym): # use to display transactions data from 06-2018 - 05-2019
+                    year_arr[year_month_arr.index(ym)].append(transaction.timestamp)
 
         return Response(year_arr)
 
@@ -206,45 +200,43 @@ def merchantIdChecker(request):
 @permission_classes((AllowAny,))
 def merchant_data(request):
     merchant_id = request.data['body']['merchantId']
-    merchantId_encoded = uuid_hex_from_b64(merchant_id)
+    # try if the merchant id is valid, if not end the procces and return false
+    try:
+        merchantId_encoded = uuid_hex_from_b64(merchant_id)
+    except:
+        return Response({'idCheck': False})
+
     encoded_id = str(merchantId_encoded).split("'")
 
     for merchant in Merchant.scan(Merchant.id == encoded_id[1]):
         merchant_name = str(merchant.name).split('.')
-        context = {'name': merchant_name[1], 'link': merchant.name, 'email': merchant.email}
+        adress_data = google_api(request, merchant.name)
+        context = {'name': merchant_name[1], 'link': merchant.name, 'email': merchant.email, 'adress_data': adress_data, 'idCheck': True}
         return Response(context)
 
 
-    # merchants = []
+# get merchant adress data via google map api base on the merchant site link
+def google_api(request, site):
+    
+    API_KEY = "AIzaSyDQDsq1Blbm9UZuRGBC93IYKES5Oheplt0"
+    SITE = site
+    gmaps = googlemaps.Client(key=API_KEY)
 
-    # for merchant in Merchant.scan():
-    #     merchants.append(merchant)
+    # eerst place_id vinden
+    g_query = gmaps.find_place(SITE, 'textquery')
+    if g_query['status'] == 'OK':
+        # I'm always feeling lucky
+        place_id = g_query['candidates'][0]['place_id']
 
-    # transactions = []
+        # than via details query formatted_phone_number of international_phone_number
+        # tel_nr = gmaps.place(place_id)['result']['formatted_phone_number']
 
-    # for transaction in Transaction.scan():
-    #     transaction.merchant_id = uuid_hex_from_b64(transaction.merchant_id)
-    # #     if str(transaction.timestamp) > "2018-12-11":
-    #     # if str(transaction.timestamp) > "2019-04":
-    # #       if str(transaction.timestamp) < "2019-04":
-    #     transactions.append(transaction)
-
-    # print("Totaal orders: " + str(len(transactions)))
-    # day_of_month = float(datetime.datetime.today().day - 1)  # t/m gister dus
-    # print("orders/dag: " + str(len(transactions)/day_of_month))
-    # print("orders prognose: " + str(len(transactions)/day_of_month * 30))
-
-    # for merchant in merchants:
-    #     print(merchant.name)
-    #     total = 0
-    #     count = 0
-    #     for transaction in transactions:
-    #         # print(transaction.merchant_id)
-    #         if transaction.merchant_id == merchant.id:
-    #             print(transaction.compensation_cost, transaction.timestamp.strftime("%Y-%m-%d"))
-    #             total += transaction.compensation_cost
-    #             count += 1
-    #     print(merchant.name + " orders: " + str(count) + " total: " + str(total))
-
-    # for transaction in transactions:
-    #     print(transaction.merchant_id, transaction.compensation_cost, transaction.timestamp)
+        # get address data 
+        adress = gmaps.place(place_id)['result']['address_components']
+        adress_dict = {'place_id': True}
+        for a in adress:
+            adress_dict[a['types'][0]] = a['long_name']
+    
+        return adress_dict
+    else:
+        return {'place_id': False}
