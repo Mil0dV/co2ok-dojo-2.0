@@ -21,10 +21,9 @@
                         <h2>Webshops</h2>
                         <ul uk-accordion="multiple: true">
                             <li v-for="i in 7" :key="i">
-                                <a class="uk-accordion-title" href="#">{{locale['faq10_title']}}</a>
+                                <a class="uk-accordion-title" href="#">{{locale[`faq${i+9}_title`]}}</a>
                                 <div class="uk-accordion-content">
-                                    <p>
-                                      {{locale['faq10_text']}}
+                                    <p v-html="locale[`faq${i+9}_text`]">
                                     </p>
                                 </div>
                             </li>
