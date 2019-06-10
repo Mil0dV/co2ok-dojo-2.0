@@ -3,11 +3,11 @@
         <div class="uk-section home__section-1">
             <div class="section-1__filler">
                 <img src="../assets/images/home2/logo-1.svg" alt="intro co2ok"
-                     class="intro__logo animated fadeIn" style="animation-duration: 4s;">
+                     class="intro__logo">
 
                 <div class="intro__text__wrapper">
-                    <h1 class="desktop__intro animated fadeInUp">{{locale['intro_first_desktop']}}</h1>
-                    <div class="mobile__intro mobile__intro-1 animated fadeInUp">
+                    <h1 class="desktop__intro">{{locale['intro_first_desktop']}}</h1>
+                    <div class="mobile__intro mobile__intro-1">
                         <h1>{{locale['intro_first_mobile-1']}}</h1>
                         <h1>{{locale['intro_first_mobile-2']}}</h1>
                     </div>
@@ -16,11 +16,11 @@
 
             <div class="section-2__filler">
                 <img src="../assets/images/home2/logo-2.svg" alt="intro co2ok"
-                     class="intro__logo intro__logo-lower animated fadein" style="animation-duration: 4s;">
+                     class="intro__logo intro__logo-lower">
 
                 <div class="intro__text__wrapper">
-                    <h1 class="desktop__intro animated fadeInUp">{{locale['intro_second_desktop']}}</h1>
-                    <div class="mobile__intro mobile__intro-2 animated fadeInUp">
+                    <h1 class="desktop__intro">{{locale['intro_second_desktop']}}</h1>
+                    <div class="mobile__intro mobile__intro-2">
                         <h1>{{locale['intro_second_mobile-1']}}</h1>
                         <h1>{{locale['intro_second_mobile-2']}}</h1>
                     </div>

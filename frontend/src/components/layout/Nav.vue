@@ -32,7 +32,7 @@
                                     </li>
                                     <li>
                                         <router-link :class="[checkActive('webshops') ? 'navbar__active' : '']"
-                                                     to="/webshops">{{locale.webshops}}asd
+                                                     to="/webshops">{{locale.webshops}}
                                         </router-link>
                                     </li>
                                     <li>
