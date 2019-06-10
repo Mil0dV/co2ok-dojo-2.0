@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="section-2__row-2">
-                    <iframe class="section-2__image" width="500" height="500"
+                    <iframe title="co2ok intro" class="section-2__image" width="500" height="500"
                             src="https://www.youtube.com/embed/g6tr7eCndHw"
                             frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -57,7 +57,7 @@
             <div class="section-3__content">
                 <h3 class="sub-title">{{locale['section_3_sub']}}</h3>
                 <h2 class="main-title">{{locale['section_3_title']}}</h2>
-                <img alt="graph" class="section-3__image" src="../assets/images/home2/graph.png">
+                <img alt="graph" class="section-3__image" src="../assets/images/home2/graph.jpg">
             </div>
         </div>
 
@@ -70,11 +70,11 @@
                 <div class="section-4__projects">
                     <div class="project__images-container">
                         <img alt="project1" class="project__image project__sides"
-                             src="../assets/images/home2/project-1.png">
+                             src="../assets/images/home2/project-1.jpg">
                         <img alt="project1" class="project__image project__main"
-                             src="../assets/images/home2/project-2.png">
+                             src="../assets/images/home2/project-2.jpg">
                         <img alt="project1" class="project__image project__sides"
-                             src="../assets/images/home2/project-3.png">
+                             src="../assets/images/home2/project-3.jpg">
                     </div>
 
                     <div class="project__text">
@@ -96,13 +96,13 @@
 
                 <div class="section-5__images">
                     <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home2/logo1.png">
+                         src="../assets/images/home2/logo1.jpg">
                     <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home2/logo2.png">
+                         src="../assets/images/home2/logo2.jpg">
                     <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home2/logo3.png">
+                         src="../assets/images/home2/logo3.jpg">
                     <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home2/logo4.png">
+                         src="../assets/images/home2/logo4.jpg">
                 </div>
 
                 <router-link to="/webshops/" class="button__home">{{locale['section_5_btn']}}</router-link>

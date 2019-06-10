@@ -103,7 +103,7 @@
                                 </router-link>
                             </li>
                         </ul>
-                        <a v-if="!$store.state.Authenticated" :href="this.$store.state.ninjaExtensionLink"
+                        <a rel="noopener" v-if="!$store.state.Authenticated" :href="this.$store.state.ninjaExtensionLink"
                            :target="this.$store.state.extensionLinkTarget" class="button">{{locale.extension}}</a>
                         <ul v-else class="uk-navbar-nav">
                             <li @click="logout()">
@@ -205,7 +205,7 @@
                         v-if="$store.state.Authenticated && $store.state.status === 'webshop' || $store.state.Authenticated && $store.state.status === 'ninja'">
                         <a>Logout</a></li>
                 </ul>
-                <a :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget"
+                <a rel="noopener" :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget"
                    class="button">{{locale.extension}}</a>
                 <hr>
                 <transition enter-acitve-class="animated bounceIn"
