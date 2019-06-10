@@ -137,12 +137,13 @@
                this.$router.push('/webshops/login')
             }
             this.transactionsYears()
+            this.getUserData()
 
         },
 
         mounted() {
 
-            this.$store.dispatch('commitGetUserData');
+            // this.getUserData()
 
         },
 
@@ -173,6 +174,81 @@
                 }
             },
 
+            storeTransactionsData() {
+
+                let merchantId
+                let self = this
+                if (this.$store.state.userData.userdata.is_superuser) {
+                    merchantId = ''
+                } else {
+                    merchantId = this.$store.state.userData.profileData.merchantId
+                }
+
+                this.$axios.get(`${this.$store.state.SITE_HOST}/user/store_transactions_data/`, {
+                    params: {
+                        merchantId: merchantId,
+                        userStatus: self.$store.state.userData.userdata.is_superuser
+                    },
+                    headers: {
+                        "X-CSRFToken": `${self.$store.state.userToken}`,
+                        Authorization: `token ${window.localStorage.getItem('userToken')}`
+                    }
+                }).then(response => {
+
+                    console.log(response.data)
+
+                }).catch(error => {
+                    console.log(error)
+                })
+
+            },
+
+            getUserData() {
+
+                let self = this
+                if (window.localStorage.getItem('Authenticated')) {
+
+                    this.$axios.get(`${this.$store.state.SITE_HOST}/user/userData/`, {
+                            params: {
+                                 id: window.localStorage.getItem('userId')
+                            },
+                            headers: {
+                                "X-CSRFToken": `${self.$store.state.userToken}`,
+                                Authorization: `token ${window.localStorage.getItem('userToken')}`
+                            }
+                        }).then(response => {
+
+                            self.$store.commit('getUserData', response.data);
+                            console.log(self.$store.state.userData)
+                             if(response.data.authData){
+                                 
+                                // self.$store.commit('getUserData', response.data);
+                                // console.log(self.$store.state.userData)
+
+                             }else{
+
+                                let message = {
+                                    title: 'Something went wrong....',
+                                    text: 'Incorrect user credentials'
+                                 }
+                                 self.$store.commit('modalStatus', {message})
+                                 console.log('user should be redirect to the login page');
+                             }
+
+                             if(response.data){
+                                //  self.storeTransactionsData()
+                             }
+
+                        }).catch(error => {
+                             console.log(error);
+                                 //  this.errorMessage()
+                        })
+                }else{
+                    console.log('not authenticated');
+                }
+
+            },
+
             transactionsYears(){
 
                 let self = this
@@ -193,7 +269,6 @@
                 })
 
             }
-
 
         }
     }

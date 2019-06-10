@@ -105,7 +105,7 @@
         },
 
         mounted() {
-            this.$store.commit('getUserData');
+            
         },
 
         methods: {
