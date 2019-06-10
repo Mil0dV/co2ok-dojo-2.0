@@ -24,6 +24,8 @@ class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = (permissions.IsAuthenticated,)
+    transactions_arr = [] 
+
 
     @csrf_exempt
     @action(methods=['get'], detail=False)
@@ -58,6 +60,24 @@ class UserView(viewsets.ModelViewSet):
         else:
             return Response({'authData': False, 'account': 'Merchant account not existed'})
         return Response(context)
+
+    # fix for pynamodb Provisioned Throughput Exceeded Exception
+    @csrf_exempt
+    @action(methods=['get'], detail=False)
+    def store_transactions_data(self, request):
+        user_status = request.query_params.get('userStatus')
+        if len(self.transactions_arr) > 0:
+            self.transactions_arr.clear()
+
+        if user_status == 'true':
+            for trans in Transaction.scan():
+                self.transactions_arr.append({'timestamp': trans.timestamp, 'compensation_cost': trans.compensation_cost})
+        else:
+            merchantid = request.query_params.get('merchantId')
+            for trans in Transaction.scan(Transaction.merchant_id == merchantid):
+                self.transactions_arr.append({'timestamp': trans.timestamp, 'compensation_cost': trans.compensation_cost})
+
+        return Response(self.transactions_arr)
 
     # run if user is superuser
     @csrf_exempt
@@ -104,67 +124,68 @@ class UserView(viewsets.ModelViewSet):
         #         m = m
         #     year18_19.append('2019-{}'.format(m))
         #########################################################################################################
-        for transaction in Transaction.scan():
+        # for transaction in Transaction.scan():
+        for transaction in self.transactions_arr:
             for ym in year_month_arr:
                 # for ym in year18_19: # use to display transactions data from 06-2018 - 05-2019
-                dateSplited = str(transaction.timestamp).split('-')
+                dateSplited = str(transaction['timestamp']).split('-')
                 formatDate = "{}-{}".format(dateSplited[0], dateSplited[1])  # return year-month
                 if str(formatDate) == str(ym):
                     # if str(formatDate) == str(ym): # use to display transactions data from 06-2018 - 05-2019
-                    year_arr[year_month_arr.index(ym)].append(transaction.timestamp)
-
-        return Response(year_arr)
-
-    @csrf_exempt
-    @action(methods=['get'], detail=False)
-    def allTransactions(self, request):
-        year_arr = []
-        year_month_arr = []
-        date = datetime.datetime.now()
-        split_dateTime = str(date).split() #return de date and time splited[date,time]
-        split_date = str(split_dateTime[0]).split('-') #return date splited by - [year, month, day]
-        current_month = split_date[1] #return de number of current month
-        current_year = request.query_params.get('year')
-        int_month = int(current_month)  # convert current month digit to number
-        if str(split_date[0]) == current_year:
-            int_month = int(current_month)  
-        else:
-            int_month = 12 
-
-        for months in range(int_month):
-            year_arr.append([])
-            m = months
-            if months < 9:
-                m = '0{}'.format(months+1) # +1 because de array begin at 0 and the first month begin at 1
-            else:
-                m = months+1
-            year_arr.append([])
-            year_month_arr.append('{}-{}'.format(current_year, m))
-
-        for transaction in Transaction.scan():
-            for ym in year_month_arr:
-                dateSplited = str(transaction.timestamp).split('-')
-                formatDate = "{}-{}".format(dateSplited[0], dateSplited[1])  # return year-month
-                print(formatDate, ym)
-                if str(formatDate) == str(ym):
-                    year_arr[year_month_arr.index(ym)].append(transaction.compensation_cost)
+                    year_arr[year_month_arr.index(ym)].append(transaction['compensation_cost'])
 
         return Response(year_arr)
 
     @csrf_exempt
     @action(methods=['get'], detail=False)
     def compnensationsData(self, request):
+        year_arr = []
+        year_month_arr = []
+        date = datetime.datetime.now()
+        split_dateTime = str(date).split()  # return de date and time splited[date,time]
+        split_date = str(split_dateTime[0]).split('-')  # return date splited by - [year, month, day]
+        current_month = split_date[1]  # return de number of current month
         merchantId = request.query_params.get('merchantId')
         year = request.query_params.get('year')
-        transactionArr = []
-        for transaction in Transaction.scan(Transaction.merchant_id == merchantId):
-            if str(transaction.timestamp) > year:
-                dateSplited = str(transaction.timestamp).split('-')
-                getWeek = str(dateSplited[2]).split(' ')
-                getDate = str(transaction.timestamp).split()
-                transactionArr.append({'orders': transaction.compensation_cost,
-                                       'date': getDate[0], 'month': dateSplited[1], 'week': getWeek[0]})
-        return Response(transactionArr)
+        int_month = int(current_month)  # convert current month digit to number
+
+        if str(split_date[0]) == year:
+            int_month = int(current_month)
+        else:
+            int_month = 12
+
+        for months in range(int_month):
+            m = months+1  # +1 because de array begin at 0 and the first month begin at 1
+            if months <= 9:
+                m = '0{}'.format(m)
+            elif months >= 10:
+                m = m
+            year_arr.append([])
+            year_month_arr.append('{}-{}'.format(year, m))
+
+        for transaction in self.transactions_arr:
+            for ym in year_month_arr:
+                dateSplited = str(transaction['timestamp']).split('-')
+                formatDate = "{}-{}".format(dateSplited[0], dateSplited[1])  # return year-month
+                if str(formatDate) == str(ym):
+                    year_arr[year_month_arr.index(ym)].append(transaction['compensation_cost'])
+                    
+        return Response(year_arr)
+
+
+    # def compnensationsData(self, request):
+    #     merchantId = request.query_params.get('merchantId')
+    #     year = request.query_params.get('year')
+    #     next_year = request.query_params.get('nextyear')
+    #     transactionArr = []
+    #     for transaction in Transaction.scan(Transaction.merchant_id == merchantId):
+    #         if str(transaction.timestamp) > year and str(transaction.timestamp) < next_year:
+    #             dateSplited = str(transaction.timestamp).split('-')
+    #             getWeek = str(dateSplited[2]).split(' ')
+    #             getDate = str(transaction.timestamp).split()
+    #             transactionArr.append({'orders': transaction.compensation_cost,
+    #                                    'date': getDate[0], 'month': dateSplited[1], 'week': getWeek[0]})
+    #     return Response(transactionArr)
 
     @csrf_exempt
     @action(methods=['get'], detail=False)
@@ -174,18 +195,18 @@ class UserView(viewsets.ModelViewSet):
         endWeek = request.query_params.get('endWeek')
         startWeek = request.query_params.get('startWeek')
         transactionArr = []
-        for transaction in Transaction.scan(Transaction.merchant_id == merchantId):
-            dateSplited = str(transaction.timestamp).split('-')
+        for transaction in self.transactions_arr:
+            dateSplited = str(transaction['timestamp']).split('-')
             getWeek = str(dateSplited[2]).split(' ')
-            getDate = str(transaction.timestamp).split()
+            getDate = str(transaction['timestamp']).split()
             formatDate = "{}-{}".format(dateSplited[0], dateSplited[1]) #return year-month
             if str(formatDate) == str(yearMonth) and str(getWeek[0]) >= str(startWeek) and str(getWeek[0]) <= str(endWeek):
-                transactionArr.append({'orders': transaction.compensation_cost,'date': getDate[0], 'month': dateSplited[1], 'day': getWeek[0]})
+                transactionArr.append({'orders': transaction['compensation_cost'],'date': getDate[0], 'month': dateSplited[1], 'day': getWeek[0]})
         return Response(transactionArr)
 
     @csrf_exempt
     @action(methods=['get'], detail=False)
-    #return the transactions years in ptnamodb
+    #return the transactions years in pynamodb
     def years(self, request):
         years_arr = []
         for transaction in Transaction.scan():
@@ -193,7 +214,6 @@ class UserView(viewsets.ModelViewSet):
             date_time = str(timestamp).split()
             date = str(date_time[0]).split('-')
             year = date[0]
-            print(year)
             years_arr.append(year)
         return Response(years_arr)
 

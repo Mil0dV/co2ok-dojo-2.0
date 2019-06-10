@@ -7,6 +7,10 @@ import {
 
 Vue.use(Vuex)
 import axios from 'axios'
+import Qs from 'qs'
+
+// axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
+// axios.defaults.transformRequest = [obj => Qs.stringify(obj)]
 // import {router} from "../src/router.js"
 
 export default new Vuex.Store({
@@ -40,6 +44,8 @@ export default new Vuex.Store({
         language: 'en',
         passResetEmail: '',
         years: [] //array of alle transactions years in pynamodb
+        // store transaction from pynamo and store it in een local arr in dashboard/view.py array
+        
     },
 
     mutations: {
@@ -73,52 +79,62 @@ export default new Vuex.Store({
         },
 
         // merchant profile en user data
-        getUserData(state) {
-           if (window.localStorage.getItem('Authenticated')) {
+        getUserData(state, data) {
+                        
+            // if (state.userData.length === 0) {
+                //user array is empty, push userdata
+                state.userData = data
+                state.userStatus = true;
+
+            // } else {
+                // user array !empty, empty it and push user data
+                // state.userData = '';
+                // state.userData.push(data)
+            // }
+
+        },
+
+        ninjaUserData(state){
+
+            if (window.localStorage.getItem('Authenticated')) {
                 axios
-                    .get(`${state.SITE_HOST}/user/userData/`, {
+                    .get(`${state.SITE_HOST}/ninja/ninjaData/`, {
                         params: {
-                            id: window.localStorage.getItem('userId')
+                            id: window.localStorage.getItem('userId'),
+                            // token: window.localStorage.getItem('userToken')
                         },
                         headers: {
                             "X-CSRFToken": `${state.userToken}`,
                             Authorization: `token ${window.localStorage.getItem('userToken')}`
                         }
-                    })
-                    .then(response => {
+                    }).then(response => {
                         console.log(response.data);
                         
                         //verify if the userdata array is empty
-                        if(response.data.authData){
-                            if (state.userData.length === 0) {
-                                //user array is empty, push userdata
-                                state.userData = response.data;
-                                state.userStatus = true;
+                        if (state.ninjaData.length == 0) {
+                            //user array is empty, push userdata
+                            state.ninjaData = response.data;
+                            state.userStatus = true;
 
-                            } else {
-                                // user array !empty, empty it and push user data
-                                state.userData = '';
-                                state.userData = response.data;
-                            }
-                        }else{
-                            let message = {
-                                title: 'Something went wrong....',
-                                text: 'Incorrect user credentials'
-                            }
-                            this.$store.commit('modalStatus', {message})
-                            console.log('user should be redirect to the login page');
+                        } else {
+                            // user array !empty, empty it and push user data
+                            state.ninjaData = '';
+                            state.ninjaData = response.data;
                         }
+                        // console.log(response.data);
 
-                    })
-                    .catch(error => {
+
+                    }).catch(error => {
                         console.log(error);
-                        //  this.errorMessage()
+
                     })
-           }else{
-            console.log('not authenticated');
+            }
 
-           }
+        },
 
+        generateUserName(state) {
+            let result = 'ninja@'
+             state.generatedNinjaName = result += Math.random().toString(36).substring(2, 7)
         },
 
         ninjaUserData(state){
@@ -322,9 +338,14 @@ export default new Vuex.Store({
             store.commit('removeLocalUserData');
         },
 
-        commitGetUserData(store) {
-            store.commit('getUserData');
+        commitGetUserData(store, data) {
+            store.commit('getUserData', data);
         },
+
+        // async storeTransaction({dispatch, commit}){
+        //     await dispatch('commitGetUserData')
+        //     commit('storeTransactionsData')
+        // },
 
         commitNinjaUserData(store){
             store.commit('ninjaUserData')

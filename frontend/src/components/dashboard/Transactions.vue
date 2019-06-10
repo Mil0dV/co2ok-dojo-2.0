@@ -7,7 +7,7 @@
 
         <div class="graph-container mb-1">
             <div class="graph-tabs">
-                <p class="graph-tab-name font-weight-bold" style=""  @click="yearTransactions()" v-if="!$store.state.userData.userdata.is_superuser">Monthly Transactions</p>
+                <p class="graph-tab-name font-weight-bold" style=""  @click="yearTransactions(yearLabel)" v-if="!$store.state.userData.userdata.is_superuser">Monthly Transactions</p>
                 <p class="graph-tab-name font-weight-bold"  @click="weekTransactions()" v-if="!$store.state.userData.userdata.is_superuser">Weekly Transactions</p>
             </div>
 
@@ -53,6 +53,11 @@
                 </div>
             </v-flex>
             <v-flex xs12 sm12 md6 lg6 style="height: 100%;" class="year-info-flex">
+                <select name="" id="" @change="transactionsDataFormat()" style="width: auto; height: 30px; border: 1px solid #E5E5E5; border-radius: 5px; padding-left: 10px;padding-right: 10px;color: black;font-size: 14px;font-weight: bold;">
+                    <option value="">Choose a data format</option>
+                    <option value="transactions">Transactions</option>
+                    <option value="compensations">Compensations Sum</option>
+                </select>
                 <v-icon medium :style="prevStyle" style="position: relative;bottom: 2px;" class="animated zoomIn mr-2" @click="prevYear()">keyboard_arrow_left</v-icon>
                 <p class="font-weight-bold">YEAR {{yearLabel}}</p>
                 <v-icon medium :style="nextStyle" style="position: relative;bottom: 2px;" class="animated zoomIn ml-2" @click="nextYear()">keyboard_arrow_right</v-icon>
@@ -84,6 +89,7 @@
 import LineChart from '@/components/dashboard/chart.vue'
 import jsPDF from 'jspdf'
 import Co2okWidget from '../../co2okWidget'
+import { log } from 'util';
     export default {
         name: "Transactions",
 
@@ -96,7 +102,17 @@ import Co2okWidget from '../../co2okWidget'
 
               Graph: null,
             //   graphTabName: [{name: 'Monthly Transactions', fnt: this.yearTransactions()}, {name: 'Weekly Transactions', fnt: this.weekTransactions()}],
-              datacollection: null,
+              datacollection: {
+                    labels: this.$store.state.x_asLabel,
+                    datasets: [
+                        {
+                            //  label: this.graphLegend,
+                            label: '',
+                            borderColor: '#94EDCE',
+                            data: this.$store.state.graphData
+                        }
+                    ]
+                },
               chartOptions: {
 
                 scales: {
@@ -168,7 +184,8 @@ import Co2okWidget from '../../co2okWidget'
               },
               pdfData: [],
               yearArrIndex: this.$store.state.years[0].indexOf(this.$moment().year().toString()),
-              yearLabel: this.$moment().year()
+              yearLabel: this.$moment().year(),
+              transactiosData_isArrayLen: true // length of de compensations data array
 
             }
         },
@@ -179,23 +196,19 @@ import Co2okWidget from '../../co2okWidget'
             this.nextMonth = this.currentMonth    
             this.generatePDFdata()
             // this.exportPDF()
+            if(this.$store.state.userData.userdata.is_superuser){
+                this.mechantsYearTransactions(this.$moment().year())
+            }else{
+                this.yearTransactions(this.$moment().year())
+            }  
 
         },
 
         mounted() {
-
-            //check if the loged user is a superuser
-            if(this.$store.state.userData.userdata.is_superuser){
-                this.mechantsYearTransactions(this.$moment().year())
-            }else{
-                this.yearTransactions()
-            }  
-         
-             if(this.$store.state.userData.userdata.is_superuser){
-                this.mechantsYearTransactions(this.$moment().year())
-            }else{
-                this.yearTransactions()
-            } 
+            
+            let self = this
+            let nextyear = this.$moment(self.currentYear, 'YYYY').add(12, 'months').format('YYYY')
+            //  this.$store.dispatch('commitGetUserData');
 
         },
 
@@ -269,105 +282,107 @@ import Co2okWidget from '../../co2okWidget'
 
             updateGraphData() {
 
-            this.datacollection = {
-                labels: this.$store.state.x_asLabel,
-                datasets: [
-                    {
-                        //  label: this.graphLegend,
-                         label: '',
-                         borderColor: '#94EDCE',
-                         data: this.$store.state.graphData
+                this.datacollection = {
+                    labels: this.$store.state.x_asLabel,
+                    datasets: [
+                        {
+                            //  label: this.graphLegend,
+                            label: '',
+                            borderColor: '#94EDCE',
+                            data: this.$store.state.graphData
                         }
                     ]
                 }
 
             },
 
-            parseTransactionsData(transactions){
+            // parseTransactionsData(transactions){
                 
-                let self = this
-                let currentMonth = this.$moment().format('M')
-                let transDataArr = []
-                let monthWeekArr = [] //contains weeks of month
-                let i //month for loop index
-                let w //weeks for loop index
-                let d //days for loop index
-                let parseMonth
-                let parseWeek
-                let parseDay
-                let dayOfMonth
-                let weekOfMonth
-                for(i = 1; i <= currentMonth; i++){
+            //     let self = this
+            //     let currentMonth = this.$moment().format('M')
+            //     let transDataArr = []
+            //     let monthWeekArr = [] //contains weeks of month
+            //     let i //month for loop index
+            //     let w //weeks for loop index
+            //     let d //days for loop index
+            //     let parseMonth
+            //     let parseWeek
+            //     let parseDay
+            //     let dayOfMonth
+            //     let weekOfMonth
+            //     for(i = 1; i <= currentMonth; i++){
                     
-                    if(i < 10){
-                        parseMonth = `${'0'+i}`
-                    }else if(i > 9){
-                        parseMonth = i
-                    }
+            //         if(i < 10){
+            //             parseMonth = `${'0'+i}`
+            //         }else if(i > 9){
+            //             parseMonth = i
+            //         }
                     
                     
-                    transactions.filter((transaction) => {
-                        if(transaction.month.search(parseMonth) != -1){
-                            self.yearArr[i].push(transaction.orders)
-                        }
-                    })
+            //         transactions.filter((transaction) => {
+            //             if(transaction.month.search(parseMonth) != -1){
+            //                 self.yearArr[i].push(transaction.orders)
+            //             }
+            //         })
 
-                    dayOfMonth = this.$moment(currentMonth, 'M').daysInMonth()
-                    weekOfMonth = Math.ceil(self.dayOfMonth/7)
+            //         dayOfMonth = this.$moment(currentMonth, 'M').daysInMonth()
+            //         weekOfMonth = Math.ceil(self.dayOfMonth/7)
 
-                    // generate number of week base on the month
-                    for (w = 1; w <= weekOfMonth; w++) {
+            //         // generate number of week base on the month
+            //         for (w = 1; w <= weekOfMonth; w++) {
 
-                        let dateWeek = `${this.monthsArr[i-1]} - ${w}`
+            //             let dateWeek = `${this.monthsArr[i-1]} - ${w}`
 
-                         if(w < 10){
-                            parseWeek = `${'0'+w}`
-                        }else if(w > 9){
-                            parseWeek = w
-                        }
+            //              if(w < 10){
+            //                 parseWeek = `${'0'+w}`
+            //             }else if(w > 9){
+            //                 parseWeek = w
+            //             }
                    
-                    }
+            //         }
 
-                    // don't work perfectly but is a beter version of the weekTransactions()
-                    for (let days = 1; days <= dayOfMonth; days++) {
+            //         // don't work perfectly but is a beter version of the weekTransactions()
+            //         for (let days = 1; days <= dayOfMonth; days++) {
 
-                        if(days < 10){
-                            parseDay = `${'0'+days}`
-                        }else if(days > 9){
-                            parseDay = days
-                        }
-                        let daysName = this.$moment(`${self.currentYear}-${parseMonth}-${parseDay}`).day()
-                        this.weekDaysNameArr[i].push(self.daysArr[daysName])
+            //             if(days < 10){
+            //                 parseDay = `${'0'+days}`
+            //             }else if(days > 9){
+            //                 parseDay = days
+            //             }
+            //             let daysName = this.$moment(`${self.currentYear}-${parseMonth}-${parseDay}`).day()
+            //             this.weekDaysNameArr[i].push(self.daysArr[daysName])
                         
-                        // check if the number od the month days <= the total transactions
-                        if(days <= transactions.length){
-                            // console.log(transactions[days-1].month.search('05')+'=>'+transactions[days-1].week.search('05'));
-                            if(transactions[days-1].week.search(parseDay) == 0){
-                                // weekDaysArr[w].push(transaction.orders)
-                                this.monthsWeeksArr[i].push(transactions[days-1].date) 
-                            }
-                            else{
-                                this.monthsWeeksArr[i].push(0)       
-                            }
-                        }else{
+            //             // check if the number od the month days <= the total transactions
+            //             if(days <= transactions.length){
+            //                 // console.log(transactions[days-1].month.search('05')+'=>'+transactions[days-1].week.search('05'));
+            //                 if(transactions[days-1].week.search(parseDay) == 0){
+            //                     // weekDaysArr[w].push(transaction.orders)
+            //                     this.monthsWeeksArr[i].push(transactions[days-1].date) 
+            //                 }
+            //                 else{
+            //                     this.monthsWeeksArr[i].push(0)       
+            //                 }
+            //             }else{
 
-                        }
+            //             }
 
-                    }
+            //         }
                     
-                    let uniqYearArr = this._.uniq(this.yearArr[i])
-                    this.pdfData.push(this._.floor(this._.sum(uniqYearArr), 2))
-                    transDataArr.push(this._.floor(this._.sum(uniqYearArr), 2))
+            //         let uniqYearArr = this._.uniq(this.yearArr[i])
+            //         // this.pdfData.push(this._.floor(this._.sum(uniqYearArr), 2))
+            //         this.pdfData.push(this._.uniq(uniqYearArr))
+            //         transDataArr.push(this._.floor(this._.sum(uniqYearArr), 2))
 
-                }
+            //     }
 
-                // console.log(this.monthsWeeksArr);  
-                // console.log(this._.chunk(this.weekDaysNameArr[5],7))
-                console.log(transDataArr);
+            //     // console.log(this.monthsWeeksArr);  
+            //     // console.log(this._.chunk(this.weekDaysNameArr[5],7))
+            //     console.log(transDataArr);
+            //     console.log(this.pdfData)
                 
-                return this._.uniq(transDataArr)
+            //     return this._.uniq(transDataArr)
 
-            },
+            // },
 
             parseTransactionsWeekData(transactions){
 
@@ -403,9 +418,16 @@ import Co2okWidget from '../../co2okWidget'
                 }
                 //make a group array of the data in weekArr base on the transactionarr length
                 let chunkedWeekArr = this._.chunk(weekArr,transactions.length)
+                console.log(this._.pull(chunkedWeekArr, 0))
                 // sum the chunkedWeekArr group array
                 for (let index = 0; index < chunkedWeekArr.length; index++) {
-                    weekArrSum.push(this._.sum(chunkedWeekArr[index]))
+                    if(this.transactiosData_isArrayLen){
+                        let pulledchunkedWeekArr = this._.pull(chunkedWeekArr[index], 0) //remove all 0 from the array, to get the exact length
+                        weekArrSum.push(pulledchunkedWeekArr.length)
+                    }else{
+                        weekArrSum.push(this._.sum(chunkedWeekArr[index]))
+                    }
+                    
                 }
 
                 let daysInWeek = 7
@@ -425,14 +447,41 @@ import Co2okWidget from '../../co2okWidget'
 
             },
 
-            yearTransactions() {
+            // change the format of the transactions data(sum of compensation in euro / length of the data array)
+            transactionsDataFormat(){
+
+                if(event.target.value == 'transactions'){
+                    this.transactiosData_isArrayLen = true
+                }else if(event.target.value == 'compensations'){
+                    this.transactiosData_isArrayLen = false
+                }else{
+                    this.transactiosData_isArrayLen = true
+                }
+
+                if(this.$store.state.userData.userdata.is_superuser && !this.week){
+                    this.mechantsYearTransactions(this.yearLabel)
+                }else if(!this.$store.state.userData.userdata.is_superuser && !this.week){
+                    this.yearTransactions(this.yearLabel)
+                }
+                
+                //if weekly transaction is actif
+                if(this.week){
+                    this.weekTransactions()
+                    this.weekGraphCtrl()
+                }
+                
+            },
+
+            yearTransactions(year) {
             //   let chart = document.getElementById('line-chart')
                 this.week = false //disable the week ctrl btn(next, prev)
                 this.graphLegend = `${this.currentMonth} Transaction(s)` 
                 let self = this
+                let merchantTransactionsArr = []
                 this.$axios.get(`${this.$store.state.SITE_HOST}/user/compnensationsData/`, {
                     params: {
-                        year: self.$moment().year(),
+                        // year: self.$moment().year(),
+                        year: year,
                         merchantId: self.$store.state.userData.profileData.merchantId
                     },
                     headers: {
@@ -441,8 +490,16 @@ import Co2okWidget from '../../co2okWidget'
                     }
                 }).then(response => {
 
-                    let yearGraphData = self.parseTransactionsData(response.data)
-                    self.$store.commit('yearGraphData', yearGraphData)
+                    // let yearGraphData = self.parseTransactionsData(response.data)
+                    response.data.forEach((transaction) => {
+                        if(self.transactiosData_isArrayLen){
+                            merchantTransactionsArr.push(transaction.length)
+                        }else{
+                            merchantTransactionsArr.push(this._.floor(this._.sum(transaction), 2))
+                        }
+                        
+                    })
+                    self.$store.commit('yearGraphData', merchantTransactionsArr)
                     self.updateGraphData()
 
                 }).catch(error => {
@@ -451,6 +508,7 @@ import Co2okWidget from '../../co2okWidget'
 
             },
 
+            // get al merchants year transactions(for super user)
             mechantsYearTransactions(year){
                 
                 let allTransactionsArr = []
@@ -466,12 +524,15 @@ import Co2okWidget from '../../co2okWidget'
 
                 }).then(response => {
 
-                    // console.log(response.data)
                     response.data.forEach((transaction) => {
-                        // let allTransactionsSum = this._.floor(this._.sum(transaction), 2)
-                        allTransactionsArr.push(transaction.length)
+
+                        if(self.transactiosData_isArrayLen){
+                            allTransactionsArr.push(transaction.length)
+                        }else{
+                            allTransactionsArr.push(this._.floor(this._.sum(transaction), 2))
+                        }
+
                     })
-                    console.log(allTransactionsArr)
                     self.$store.commit('yearGraphData', allTransactionsArr)
                     self.updateGraphData()
 
@@ -516,7 +577,7 @@ import Co2okWidget from '../../co2okWidget'
                 this.daysArrIndex = 0
                 this.startWeek = '01'
                 this.lastWeek = this.$moment(this.realTimeMonth, 'MMMM').endOf('week').add(1, 'day').format('DD')
-                this.weekDate = `${this.currentYear}-${this.$moment().format('MM')}`
+                this.weekDate = `${this.yearLabel}-${this.$moment().format('MM')}`
 
                 this.realtimeWeek = this.startWeek+'-'+this.lastWeek
                 this.graphLegend = `${this.realTimeMonth} ${this.realtimeWeek} Transaction(s)`
@@ -552,7 +613,6 @@ import Co2okWidget from '../../co2okWidget'
                 }
 
                let daysChunkedArr = this._.chunk(daysArr,7)
-            //    console.log(daysChunkedArr);
                
                if(this.daysArrIndex < weekOfMonth){
 
@@ -569,7 +629,11 @@ import Co2okWidget from '../../co2okWidget'
                        startweek = daysChunkedArr[this.daysArrIndex][0]
                    }
 
-                   this.weekDate = `${this.currentYear}-${this.$moment(this.realTimeMonth, 'MMMM').format('MM')}`
+                   if(startweek == '0null'){
+                       startweek = '01'
+                   }
+
+                   this.weekDate = `${this.yearLabel}-${this.$moment(this.realTimeMonth, 'MMMM').format('MM')}`
                    this.weekTransactionRequest(this.lastWeek , this.weekDate, startweek)
                    this.weekPrevStyle.color = '#369555'
                    this.weekPrevStyle.cursor = 'pointer'
@@ -586,13 +650,21 @@ import Co2okWidget from '../../co2okWidget'
 
             nextYear(){
 
+                let self = this
                 if(this.yearArrIndex < this.$store.state.years[0].length-1){
                     this.nextStyle.color = '#369555'
                     this.nextStyle.cursor = 'pointer'
                     this.prevStyle.color = '#369555'
                     this.prevStyle.cursor = 'pointer'
                     this.yearArrIndex++
-                    this.mechantsYearTransactions(this.$store.state.years[0][this.yearArrIndex])
+
+                    if(this.$store.state.userData.userdata.is_superuser){
+                        this.mechantsYearTransactions(this.$store.state.years[0][this.yearArrIndex])
+                    }else{
+                        let nextyear = self.$moment(this.$store.state.years[0][this.yearArrIndex], 'YYYY').add(12, 'months').format('YYYY')
+                        self.yearTransactions(this.$store.state.years[0][this.yearArrIndex])
+                    }
+                    
                     this.yearLabel = this.$store.state.years[0][this.yearArrIndex]
                 }else if(this.yearArrIndex > this.$store.state.years[0].length){
                     this.yearArrIndex = this.$store.state.years[0].length
@@ -605,13 +677,21 @@ import Co2okWidget from '../../co2okWidget'
 
             prevYear(){
 
+                let self = this
                 if(this.yearArrIndex > 0){
                     this.prevStyle.color = '#369555'
                     this.prevStyle.cursor = 'pointer'
                     this.nextStyle.color = '#369555'
                     this.nextStyle.cursor = 'pointer'
                     this.yearArrIndex--
-                    this.mechantsYearTransactions(this.$store.state.years[0][this.yearArrIndex])
+
+                    if(this.$store.state.userData.userdata.is_superuser){
+                        this.mechantsYearTransactions(this.$store.state.years[0][this.yearArrIndex])
+                    }else{
+                        let nextyear = self.$moment(this.$store.state.years[0][this.yearArrIndex], 'YYYY').add(12, 'months').format('YYYY')
+                        self.yearTransactions(this.$store.state.years[0][this.yearArrIndex])
+                    }
+
                     this.yearLabel = this.$store.state.years[0][this.yearArrIndex]
                 }else if(this.yearArrIndex == 0){
                     this.prevStyle.color = '#E0E0E0'
