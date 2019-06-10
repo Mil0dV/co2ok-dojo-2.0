@@ -43,7 +43,12 @@
                 </div>
 
                 <div class="section-2__row-2">
-                    <img class="section-2__image" alt="video player" src="../assets/images/home2/video.png">
+                    <iframe class="section-2__image" width="500" height="500"
+                            src="https://www.youtube.com/embed/g6tr7eCndHw"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>

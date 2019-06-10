@@ -1,5 +1,11 @@
 module.exports = {
-    publicPath: '/frontend/'
+    publicPath: '/frontend/',
+    pwa: {
+        workboxPluginMode: 'InjectManifest',
+        workboxOptions: {
+            swSrc: 'service-worker.js',
+        },
+    }
 
 }
 
