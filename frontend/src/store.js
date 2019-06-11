@@ -23,6 +23,7 @@ export default new Vuex.Store({
         userAuthData: [],
         userData: [],
         ninjaData: [],
+        graphDataOnLoad: [],
         userStatus: false,
         // userAuthLocalData: [],
         userToken: window.localStorage.getItem('userToken'),

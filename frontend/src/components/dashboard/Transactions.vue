@@ -499,6 +499,7 @@ import { log } from 'util';
                         }
                         
                     })
+                    self.$store.state.graphDataOnLoad = merchantTransactionsArr
                     self.$store.commit('yearGraphData', merchantTransactionsArr)
                     self.updateGraphData()
 
