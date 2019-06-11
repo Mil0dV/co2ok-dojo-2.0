@@ -152,7 +152,7 @@
                             Authorization: `token ${window.localStorage.getItem('userToken')}`
                         }
                     }).then(response => {
-                        
+
                         if (response.data.authData) {
 
                             // self.$store.commit('getUserData', response.data);
@@ -206,7 +206,7 @@
                                     this.$store.commit('isLoggedIn', true) //set userStatus variable in the store to true
                                     this.getUserData()
 
-                                    this.$store.dispatch('commitGetUserData');
+                                    // this.$store.dispatch('commitGetUserData');
                                     //userSession return a boolean of de authenticate status of the user
                                     if (window.localStorage.getItem('Authenticated')) {
                                         this.$router.push('/webshops/dashboard')
