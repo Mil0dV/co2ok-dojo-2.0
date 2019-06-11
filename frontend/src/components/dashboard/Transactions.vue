@@ -38,7 +38,7 @@
 
                 <div class="text-capitalize black--text ctrl-container" style="" v-if="week">
                     <p class="graph-ctr-txt animated bounceIn" :style="weekNextStyle"  @click="nextWeek()">Next Week</p>
-                    <v-icon class="graph-ctr-icon animated bounceIn" :style="weekNextStyle" small>keyboard_arrow_right</v-icon>
+                    <!-- <v-icon class="graph  -ctr-icon animated bounceIn" :style="weekNextStyle" small>keyboard_arrow_right</v-icon> -->
 
                     <v-tooltip top color="#369555">
                         <template v-slot:activator="{ on }">
@@ -156,7 +156,7 @@ import { log } from 'util';
               currentYear: this.$moment().year(),
               currentMonth: this.$moment().format('MMMM'),
               endWeek: this.$moment(this.currentMonth, 'MMMM').endOf('week').add(1, 'day').format('DD').toString(),
-
+              test: 'test',
               prevMonth: null,//prev btn tooltip content
               nextMonth: null,//next btn tooltip content
               graphLegend: null,//graph info label

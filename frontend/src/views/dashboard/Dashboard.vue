@@ -17,7 +17,7 @@
                            :ripple="false"
                            v-if="!$store.state.userData.userdata.is_superuser">
                         <p>Transactions</p>
-                        <v-icon class="tab__icon" style="transform: rotate(120deg);">sync</v-icon>
+                        <!-- <v-icon class="tab__icon" style="transform: rotate(120deg);">sync</v-icon> -->
                     </v-tab>
 
                     <v-tab class="dashboard__tab-item text-capitalize"
@@ -25,7 +25,7 @@
                            :ripple="false"
                            v-if="!$store.state.userData.userdata.is_superuser">
                         <p>Plug-in Settings</p>
-                        <v-icon class="tab__icon">edit</v-icon>
+                        <!-- <v-icon class="tab__icon">edit</v-icon> -->
                     </v-tab>
 
                     <v-tab class="dashboard__tab-item text-capitalize"
@@ -33,7 +33,7 @@
                            :ripple="false"
                            v-if="!$store.state.userData.userdata.is_superuser">
                         <p>My Profile</p>
-                        <v-icon class="tab__icon">person</v-icon>
+                        <!-- <v-icon class="tab__icon">person</v-icon> -->
                     </v-tab>
                 </v-tabs>
             </div>
