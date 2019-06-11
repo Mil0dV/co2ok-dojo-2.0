@@ -134,7 +134,6 @@
                             }
                         }).then(response => {
 
-                             console.log(response.data);
                              if(response.data.authData){
 
                                 self.$store.commit('getUserData', response.data);

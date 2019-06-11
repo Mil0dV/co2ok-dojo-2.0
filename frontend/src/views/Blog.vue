@@ -74,10 +74,8 @@ Vue.use(Vuetify);
 export default {
     name: 'blog',
 
-    Vue.use(Vuetify);
-    export default {
-        name: 'blog',
-
+    data() {
+        return{
             blogs: this.$store.state.blogs,
             instaOptions: {
                 get: 'user',
@@ -98,62 +96,13 @@ export default {
             instaPrev: false,
             slide: 0,
             slideAnimation: 'slideInRight'
+        }
+    },
 
-            }
-        },
+    created() {
 
-        created() {
-
-            this.getBlogs()
-            let Instafeed = require("instafeed.js");
-
-            Instafeed = new Instafeed(
-                this.instaOptions
-            );
-            Instafeed.run();
-
-        },
-
-        components: {},
-
-        computed: {},
-
-
-        getBlogs() {
-
-            let self = this
-            this.$axios.get(`${this.$store.state.SITE_HOST}/blog/`, {
-                headers: {
-                    // "X-CSRFToken": `${this.$store.state.userToken}`,
-                    // Authorization: `token ${window.localStorage.getItem('userToken')}`
-                }
-            }).then(response => {
-
-                self.$store.commit('getBlogs', response.data)
-
-            }).catch(error => {
-                console.log(error);
-
-            })
-
-        },
-
-        stripBlogContent(content) {
-            return content.substr(0, 150) + '...'
-        },
-
-        formatBlogDate(content) {
-            let date = content.substr(0, 10)
-            return date
-        },
-
-        newsContent(articleId) {
-
-    created(){
-        
         this.getBlogs()
         let Instafeed = require("instafeed.js");
-
         Instafeed = new Instafeed(
             this.instaOptions
         );
@@ -161,17 +110,9 @@ export default {
 
     },
 
-    components: {
-        
-    },
+    methods: {
 
-    computed: {
-
-    },
-
-        },
-
-      getBlogs() {
+        getBlogs() {
         
         let self = this
         this.$axios.get(`${this.$store.state.SITE_HOST}/blog/`,{
@@ -256,9 +197,10 @@ export default {
 
         }
 
-        }
-    
     }
+
+}
+    
 </script>
 
 <style scoped>

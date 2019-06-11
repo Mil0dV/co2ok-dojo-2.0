@@ -34,7 +34,7 @@ class UserView(viewsets.ModelViewSet):
         userId = request.query_params.get('id')
         merchant_authData_exist = Profile.check_user_auth_data(self, userId, Profile)
         userIs_superuser = User.objects.get(pk=userId).is_superuser
-        print(merchant_authData_exist)
+        # print(merchant_authData_exist)
         if merchant_authData_exist or userIs_superuser:
             user = self.get_queryset().get(pk=userId)
             serializer = self.get_serializer_class()(user)
@@ -70,9 +70,11 @@ class UserView(viewsets.ModelViewSet):
             self.transactions_arr.clear()
 
         if user_status == 'true':
+            print('true')
             for trans in Transaction.scan():
                 self.transactions_arr.append({'timestamp': trans.timestamp, 'compensation_cost': trans.compensation_cost})
         else:
+            print('false')
             merchantid = request.query_params.get('merchantId')
             for trans in Transaction.scan(Transaction.merchant_id == merchantid):
                 self.transactions_arr.append({'timestamp': trans.timestamp, 'compensation_cost': trans.compensation_cost})
@@ -101,10 +103,11 @@ class UserView(viewsets.ModelViewSet):
 
         for months in range(int_month):
             m = months+1  # +1 because de array begin at 0 and the first month begin at 1
-            if months <= 9:
+            if months <= 8:  # 8 not 9 because of the +1
                 m = '0{}'.format(m) 
             elif months >= 10:
                 m = m
+            print(m)
             year_arr.append([]) 
             year_month_arr.append('{}-{}'.format(current_year, m))
         ####################################### use to display transactions data from 06-2018 - 05-2019 ##############################################################
@@ -156,7 +159,7 @@ class UserView(viewsets.ModelViewSet):
 
         for months in range(int_month):
             m = months+1  # +1 because de array begin at 0 and the first month begin at 1
-            if months <= 9:
+            if months <= 8: #8 not 9 because of the +1
                 m = '0{}'.format(m)
             elif months >= 10:
                 m = m

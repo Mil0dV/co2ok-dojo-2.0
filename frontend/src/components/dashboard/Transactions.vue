@@ -53,7 +53,7 @@
                 </div>
             </v-flex>
             <v-flex xs12 sm12 md6 lg6 style="height: 100%;" class="year-info-flex">
-                <select name="" id="" @change="transactionsDataFormat()" style="width: auto; height: 30px; border: 1px solid #E5E5E5; border-radius: 5px; padding-left: 10px;padding-right: 10px;color: black;font-size: 14px;font-weight: bold;">
+                <select name="" id="" @change="transactionsDataFormat()" style="width: auto; height: 30px; border: 1px solid #E5E5E5; border-radius: 5px; padding-left: 10px;padding-right: 10px;color: black;font-size: 14px;font-weight: bold;" v-if="!week">
                     <option value="">Choose a data format</option>
                     <option value="transactions">Transactions</option>
                     <option value="compensations">Compensations Sum</option>
@@ -75,10 +75,10 @@
                         PDF
                     </button>
 
-                    <button class="export__btn">
+                    <!-- <button class="export__btn">
                         <v-icon color="white" light style="font-size: 15px; margin-right: 8px;">collections</v-icon>
                         .csv
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </div>

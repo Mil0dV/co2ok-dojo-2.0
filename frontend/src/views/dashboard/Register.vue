@@ -278,6 +278,75 @@
                 })
             },
 
+            storeTransactionsData() {
+
+                let merchantId
+                let self = this
+                if (this.$store.state.userData.userdata.is_superuser) {
+                    merchantId = ''
+                } else {
+                    merchantId = this.$store.state.userData.profileData.merchantId
+                }
+
+                this.$axios.get(`${this.$store.state.SITE_HOST}/user/store_transactions_data/`, {
+                    params: {
+                        merchantId: merchantId,
+                        userStatus: self.$store.state.userData.userdata.is_superuser
+                    },
+                    headers: {
+                        "X-CSRFToken": `${self.$store.state.userToken}`,
+                        Authorization: `token ${window.localStorage.getItem('userToken')}`
+                    }
+                }).then(response => {
+
+                    console.log(response.data)
+
+                }).catch(error => {
+                    console.log(error)
+                })
+
+            },
+
+            getUserData() {
+
+                let self = this
+                if (window.localStorage.getItem('Authenticated')) {
+
+                    this.$axios.get(`${this.$store.state.SITE_HOST}/user/userData/`, {
+                            params: {
+                                 id: window.localStorage.getItem('userId')
+                            },
+                            headers: {
+                                "X-CSRFToken": `${self.$store.state.userToken}`,
+                                Authorization: `token ${window.localStorage.getItem('userToken')}`
+                            }
+                        }).then(response => {
+
+                             if(response.data.authData){
+
+                                self.$store.commit('getUserData', response.data);
+                                self.storeTransactionsData()
+
+                             }else{
+
+                                let message = {
+                                    title: 'Something went wrong....',
+                                    text: 'Incorrect user credentials'
+                                 }
+                                 self.$store.commit('modalStatus', {message})
+                                 console.log('user should be redirect to the login page');
+                             }
+
+                        }).catch(error => {
+                             console.log(error);
+                                 //  this.errorMessage()
+                        })
+                }else{
+                    console.log('not authenticated');
+                }
+
+            },
+
 
             register() {
                 let self = this
@@ -316,6 +385,7 @@
                                     this.$store.state.Authenticated = true
                                     this.$store.commit('setLocalUserData', response.data)
                                     this.$store.commit('isLoggedIn', true) //set userStatus variable in the store to true
+                                    self.getUserData()
                                     self.$router.push('/webshops/dashboard')
                                 } else {
                                     let message = {
