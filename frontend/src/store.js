@@ -81,16 +81,16 @@ export default new Vuex.Store({
         // merchant profile en user data
         getUserData(state, data) {
                         
-            // if (state.userData.length === 0) {
+            if (state.userData.length === 0) {
                 //user array is empty, push userdata
-                state.userData = data
+                state.userData.push(data)
                 state.userStatus = true;
 
-            // } else {
+            } else {
                 // user array !empty, empty it and push user data
-                // state.userData = '';
-                // state.userData.push(data)
-            // }
+                state.userData = '';
+                state.userData.push(data)
+            }
 
         },
 

@@ -23,8 +23,7 @@
                     <div class="insta-ctrl hidden-md-and-down">
                         <v-icon medium v-if="instaPrev" @click="instaFeedsPrev"
                                 style="border: 1px solid #6E6E6E;background-color: #6E6E6E;color: white;border-radius: 100%;padding: 7px;cursor: pointer;"
-                                class="insta-ctrl-btn mr-1">keyboard_arrow_left
-                        </v-icon>
+                                class="insta-ctrl-btn mr-1">keyboard_arrow_left</v-icon>
                         <v-icon medium v-if="instaNext" @click="instaFeedsNext"
                                 style="border: 1px solid #6E6E6E;background-color: #6E6E6E;color: white;border-radius: 100%;padding: 7px;cursor: pointer;"
                                 class="insta-ctrl-btn ml-1">keyboard_arrow_right
@@ -87,7 +86,7 @@
 <script>
     import Vue from 'vue'
     import Vuetify from 'vuetify'
-    import 'vuetify/dist/vuetify.min.css'
+    // import 'vuetify/dist/vuetify.min.css'
 
     Vue.use(Vuetify);
     export default {
@@ -105,7 +104,7 @@
                     // height: '500px',
                     accessToken: '6780198652.1677ed0.80d6f1f003594055b2112c307d8807c3',
                     // accessToken: process.env.INSTA_ACCESS_TOKEN,
-                    template: '<div class="insta-container animated zoomIn" style="z-index: 0;width: 300px; height: 400px;display:flex;justify:center;align-items:center;"><a href="{{link}}" target="_blank" style="width: 300px;height:400px;border-radius: 5px;"><img src="{{image}}" style="width: 100%;height:100%;border-radius: 5px;"/></a></div>',
+                    template: '<div class="insta-container animated zoomIn" style="z-index: 0;width: 400px; height: 400px;display:flex;justify:center;align-items:center;"><a href="{{link}}" target="_blank" style="width: 400px;height:400px;border-radius: 5px;"><img src="{{image}}" style="width: 100%;height:100%;border-radius: 5px;"/></a></div>',
                     sortBy: 'most-recent'
                     // filter: function(image) {
                     //     return image.tags.indexOf('TAG_NAME') >= 0;
@@ -249,7 +248,7 @@
     }
 
     .news-header h3 {
-        margin-left: 150px;
+        margin-left: 200px;
     }
 
     .feeds-layout {
@@ -294,7 +293,7 @@
 
     #instafeed {
         width: 100%;
-        height: auto;
+        height: 400px;
         display: flex;
         /* flex-direction: row; */
         justify-content: space-between;

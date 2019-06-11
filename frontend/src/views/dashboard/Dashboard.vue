@@ -1,6 +1,6 @@
 <template>
     <v-app class="dashboard">
-        <div class="dashboard__container" v-if="Authenticated">
+        <div class="dashboard__container">
             <div class="dashboard__header">
                 <h2 class="dashboard__title">Dashboard</h2>
                 <h5 class="dashboard__welcome">Weclome, {{this.$store.state.userData.userdata.username}}!</h5>
@@ -218,7 +218,8 @@
                             }
                         }).then(response => {
 
-                            self.$store.commit('getUserData', response.data);
+                            // self.$store.commit('getUserData', response.data);
+                            self.$store.state.userData = response.data
                             console.log(self.$store.state.userData)
                              if(response.data.authData){
                                  

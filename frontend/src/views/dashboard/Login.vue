@@ -152,10 +152,11 @@
                             Authorization: `token ${window.localStorage.getItem('userToken')}`
                         }
                     }).then(response => {
-
+                        
                         if (response.data.authData) {
 
-                            self.$store.commit('getUserData', response.data);
+                            // self.$store.commit('getUserData', response.data);
+                            self.$store.state.userData = response.data
                             self.storeTransactionsData()
 
                         } else {
