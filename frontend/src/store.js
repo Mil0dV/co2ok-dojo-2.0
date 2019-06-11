@@ -7,7 +7,6 @@ import {
 
 Vue.use(Vuex)
 import axios from 'axios'
-import Qs from 'qs'
 
 // axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
 // axios.defaults.transformRequest = [obj => Qs.stringify(obj)]
@@ -24,6 +23,7 @@ export default new Vuex.Store({
         userAuthData: [],
         userData: [],
         ninjaData: [],
+        graphDataOnLoad: [],
         userStatus: false,
         // userAuthLocalData: [],
         userToken: window.localStorage.getItem('userToken'),
