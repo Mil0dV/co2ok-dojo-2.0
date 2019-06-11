@@ -392,10 +392,6 @@
 }
 
 @media (max-width: 960px) {
-  .home__section-1 {
-    min-height: 90vh;
-  }
-
   .home__section-1, .section-1__filler, .section-2__filler {
     //min-height: 600px;
     height: 100%;
@@ -460,8 +456,8 @@
 }
 
 @media (max-width: 670px) {
-  .home__section-1 {
-    min-height: 90vh;
+  .home__section-1, .section-1__filler, .section-2__filler {
+    min-height: 550px;
     height: 100%;
   }
 

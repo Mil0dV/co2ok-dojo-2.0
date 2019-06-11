@@ -32,7 +32,7 @@
                                     </li>
                                     <li>
                                         <router-link :class="[checkActive('webshops') ? 'navbar__active' : '']"
-                                                     to="/webshops">{{locale.webshops}}
+                                                     to="/webshops">{{locale.webshops}}asd
                                         </router-link>
                                     </li>
                                     <li>
@@ -103,7 +103,7 @@
                                 </router-link>
                             </li>
                         </ul>
-                        <a rel="noopener" v-if="!$store.state.Authenticated" :href="this.$store.state.ninjaExtensionLink"
+                        <a v-if="!$store.state.Authenticated" :href="this.$store.state.ninjaExtensionLink"
                            :target="this.$store.state.extensionLinkTarget" class="button">{{locale.extension}}</a>
                         <ul v-else class="uk-navbar-nav">
                             <li @click="logout()">
@@ -205,7 +205,7 @@
                         v-if="$store.state.Authenticated && $store.state.status === 'webshop' || $store.state.Authenticated && $store.state.status === 'ninja'">
                         <a>Logout</a></li>
                 </ul>
-                <a rel="noopener" :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget"
+                <a :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget"
                    class="button">{{locale.extension}}</a>
                 <hr>
                 <transition enter-acitve-class="animated bounceIn"

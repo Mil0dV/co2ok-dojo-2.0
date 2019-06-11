@@ -1,11 +1,7 @@
 module.exports = {
-    publicPath: '/frontend/',
-    pwa: {
-        workboxOptions: {
-            skipWaiting: true,
-            clientsClaim: true,
-        }
-    }
+    publicPath: process.env.NODE_ENV === 'production'
+        ? '/frontend/'
+        : '/'
 }
 
 
