@@ -92,7 +92,7 @@
 
                     <div class="content-row">
                         <div class="row-item">
-                            <h3 class="row-title"><i class="fas fa-utensils subheading"></i> {{locale['s3_title1']}}</h3>
+                            <h3 class="row-title"><i class="fa fa-utensils subheading"></i> {{locale['s3_title1']}}</h3>
                             <p>
                                 {{locale['s3_text1']}}
                             </p>

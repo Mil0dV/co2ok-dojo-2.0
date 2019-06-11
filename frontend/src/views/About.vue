@@ -18,6 +18,7 @@
                     <div class="col-1__content col-1__text-wrapper">
                         <div class="col-1__text">
                             <p class="sub-title">{{locale.subTitle}}</p>
+                            <h2 class="main-title">{{locale.title}}</h2>
                             <div>
                                 <p>
                                     {{locale.shortText}}
