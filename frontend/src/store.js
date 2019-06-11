@@ -7,7 +7,6 @@ import {
 
 Vue.use(Vuex)
 import axios from 'axios'
-import Qs from 'qs'
 
 // axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
 // axios.defaults.transformRequest = [obj => Qs.stringify(obj)]
@@ -15,8 +14,8 @@ import Qs from 'qs'
 
 export default new Vuex.Store({
     state: {
-        // SITE_HOST: 'http://127.0.0.1:8000',
-        SITE_HOST: 'http://test.co2ok.ninja:8000',
+        SITE_HOST: 'http://127.0.0.1:8000',
+        // SITE_HOST: 'http://test.co2ok.ninja:8000',
         domain: window.location.protocol + '//' + window.location.hostname + ':' + window.location.port,
         count: 0,
         modalMessage: '',
