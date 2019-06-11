@@ -19,6 +19,7 @@ import VueLodash from 'vue-lodash'
 
 import './registerServiceWorker'
 
+
 Axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 Axios.defaults.xsrfCookieName = "XCSRF-TOKEN";
 Axios.defaults.withCredentials = true
