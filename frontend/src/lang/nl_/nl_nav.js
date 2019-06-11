@@ -1,15 +1,16 @@
 module.exports = {
     lang_nl_nav: {
         'about' : 'Over',
-        'webshops' : 'Webshops',
+        'webshops' : 'Voor Webshops',
         'webshops_1' : 'Retailers',
         'webshops_2' : 'Cause Marketing',
-        'webshops_3' : 'Projecten',
+        'webshops_3' : 'CO₂-compensatie projecten',
         'webshops_4' : 'Login',
         'webshops_5' : 'Logout',
         'webshops_6' : 'Dashboard',
+        'webshops_7': 'Plug-in installatie',
 
-        'consumers' : 'Klanten',
+        'consumers' : 'Voor Consumenten',
         'consumers_1' : 'Profiel',
         'consumers_2' : 'Logout',
         'news' : 'Nieuws',

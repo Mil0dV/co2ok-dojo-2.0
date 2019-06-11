@@ -11,10 +11,9 @@ h1, h2, h3, p, a, label, input, ::placeholder {
 h1 {
   color: #606468;
   font-weight: 600;
-  margin: 0;
   font-size: 40px;
   line-height: 48px;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
 }
 
 h2 {
@@ -112,7 +111,7 @@ a {
   cursor: pointer;
   color: $secondary-color;
   padding: 0;
-  margin: 0 !important;
+  margin: 0;
   font-weight: 400;
 
   &:hover {
@@ -129,7 +128,7 @@ a {
 .sub-title {
   color: $main-color;
   font-size: 17px;
-  margin-bottom: 10px;
+  margin-bottom: -3px;
 }
 
 .sub-title--small {
@@ -139,6 +138,7 @@ a {
 }
 
 .main-title {
+  margin-bottom: 15px;
   color:#606468;
 }
 
@@ -192,7 +192,7 @@ a {
 .button-secondary {
   border: 2px solid #9F9F9F;
   color: #9F9F9F;
-  background-color: none;
+  background-color: transparent;
 
   &:hover {
     background-color: #9F9F9F;

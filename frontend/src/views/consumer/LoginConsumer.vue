@@ -5,8 +5,7 @@
             <div class="bkgr__filler bkgr__text hide--tablet">
                 <div class="green-border__login">
                     <p class="green-border__text main-text">
-                        With your account you will get acces to information how much you’ve contributed to fighting
-                        climate change.
+                        {{locale['login_text2']}}
                     </p>
                 </div>
             </div>
@@ -16,25 +15,26 @@
             <div class="login__width">
                 <div class="login-c__wrapper">
                     <div class="login-c__form">
-                        <h3 class="sub-title--small">Login consumers</h3>
-                        <h2 class="main-title">Login to get acces to more information!</h2>
+                        <h3 class="sub-title--small">{{locale['login_sort1']}}</h3>
+                        <h2 class="main-title">{{locale['title']}}</h2>
 
                         <br>
                         <div class="c-input__wrapper">
-                            <label class="login-c__label">E-mail</label>
-                            <input type="email" class="login-c__input" placeholder="Fill in your e-mail"
+                            <label class="login-c__label">{{locale['input1']}}</label>
+                            <input type="email" class="login-c__input" :placeholder="locale['input_email']"
                                    v-model="email">
                         </div>
 
                         <div class="c-input__wrapper">
-                            <label class="login-c__label">Password</label>
-                            <input type="password" class="login-c__input" placeholder="Fill in your password"
+                            <label class="login-c__label">{{locale['input2']}}</label>
+                            <input type="password" class="login-c__input" :placeholder="locale['input_password']"
                                    v-model="password">
                         </div>
 
-                        <p @click="passReset = true" class="subheading sub__password">I forgot my password</p>
 
-                        <p class="button login-c__button" @click="login()">Login</p>
+                        <p @click="passReset = true"class="subheading sub__password">{{locale['forgot']}}</p>
+
+                        <p class="button login-c__button" @click="login()">{{locale['login']}}</p>
                     </div>
                 </div>
 
@@ -43,22 +43,22 @@
                 <!--Register-->
                 <div class="login-c__wrapper">
                     <div class="login-c__form register-c__form">
-                        <h3 class="sub-title-c">Don’t have an account yet?</h3>
+                        <h3 class="sub-title-c">{{locale['register']}}</h3>
 
                         <br>
                         <div class="c-input__wrapper">
-                            <label class="login-c__label">E-mail</label>
-                            <input type="email" class="login-c__input" placeholder="Fill in your e-mail"
+                            <label class="login-c__label">{{locale['input1']}}</label>
+                            <input type="email" class="login-c__input" :placeholder="locale['input_email']"
                                    v-model="registerMail">
                         </div>
 
                         <div class="c-input__wrapper">
-                            <label class="login-c__label">Password</label>
-                            <input type="password" class="login-c__input" placeholder="Fill in your password"
+                            <label class="login-c__label">{{locale['input2']}}</label>
+                            <input type="password" class="login-c__input" :placeholder="locale['input_password']"
                                    v-model="registerPass">
                         </div>
 
-                        <p class="button login-c__button login-c__larger" @click="register()">Make an account</p>
+                        <p class="button login-c__button login-c__larger" @click="register()">{{locale['account']}}</p>
                     </div>
                 </div>
             </div>
@@ -69,6 +69,8 @@
 
 <script>
     const PasswordForgotModal = () => import('@/components/modals/PasswordForgotModal')
+    import language from '../../lang/lang_login'
+
 
     export default {
         name: "LoginConsumer",
@@ -78,12 +80,17 @@
 
         data() {
             return {
+                locale: language,
                 email: '',
                 password: '',
                 registerMail: '',
                 registerPass: '',
                 passReset: false,
             }
+        },
+
+        mounted() {
+            this.checkLanguage()
         },
 
         created() {
@@ -93,6 +100,17 @@
         },
 
         methods: {
+            checkLanguage(lang) {
+                if (lang === 'en') {
+                    this.locale = language.lang_en_login
+                } else {
+                    if (this.currentLanguage === 'en') {
+                        this.locale = language.lang_en_login
+                    } else {
+                        this.locale = language.lang_nl_login
+                    }
+                }
+            },
 
             register() {
                 if (this.registerMail !== '' && this.registerPass !== '') {
@@ -223,6 +241,18 @@
             closeEdit(message) {
                 this.passReset = false
                 this.$store.commit('modalStatus', {message})
+            }
+        },
+
+        computed: {
+            currentLanguage() {
+                return this.$store.state.language
+            }
+        },
+
+        watch: {
+            currentLanguage(value) {
+                this.checkLanguage(value)
             }
         }
     }

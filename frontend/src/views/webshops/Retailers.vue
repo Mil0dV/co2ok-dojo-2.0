@@ -200,10 +200,7 @@
         data() {
             return {
                 header: 'retailers',
-                formContent: {
-                    title: 'Think and follow',
-                    text: 'Do you still want to think about it but also want to follow us? (don’t worry about the form, just your email is enough! :))'
-                },
+                formContent: 2,
                 locale: retailersLang,
             }
         },

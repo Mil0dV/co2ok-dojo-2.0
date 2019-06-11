@@ -7,11 +7,14 @@ module.exports = {
         'link4' : 'CO₂-compensation',
         'link5' : 'Retailers',
         'link6' : 'Cause Marketing',
-        'link7' : 'Projects',
+        'link7' : 'CO₂-compensatie projects',
         'link8' : 'Login',
         'link9' : 'Consumers',
         'link10' : 'News',
         'link11' : 'FAQ',
         'link12' : 'Privacy Policy',
+        'link13' : 'Profile',
+        'link14' : 'Login',
+        'link15' : 'Logout',
     }
 }

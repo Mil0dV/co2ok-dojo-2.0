@@ -37,7 +37,7 @@ about__container {
   height: 400px;
   border-radius: 10px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.30);
-  background-image: url('../assets/images/crew/group.jpg');
+  background-image: url('../assets/images/crew/group.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -232,6 +232,9 @@ about__container {
   }
 }
 
+.more {
+  margin: 20px 0;
+}
 
 @media (max-width: 1120px) {
   .about__col-1 {

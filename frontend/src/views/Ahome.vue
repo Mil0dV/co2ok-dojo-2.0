@@ -2,38 +2,29 @@
     <div class="home__container">
         <div class="uk-section home__section-1">
             <div class="section-1__filler">
-                <img src="../assets/images/home/logo.svg" alt="intro co2ok"
-                     class="intro__img animated fadeIn">
-                <span class="intro__text-wrapper animated fadeInUp">
-                     <transition enter-active-class="animated slideInUp"
-                                 mode="out-in">
+                <img src="../assets/images/home2/logo-1.svg" alt="intro co2ok"
+                     class="intro__logo">
 
-                         <span v-if="currentLanguage === 'en'" key="en">
-                              <img
-                                      src="../assets/images/home/intro_text-en.svg"
-                                      alt="intro co2ok text"
-                                      class="intro__img-text desktop__intro img-text-margin-en animated fadeIn">
-                             <img
-                                      src="../assets/images/home/intro_text-en-mobile.svg"
-                                      alt="intro co2ok text"
-                                      class="intro__img-text mobile__intro img-text-margin-en animated  fadeIn">
-                         </span>
+                <div class="intro__text__wrapper">
+                    <h1 class="desktop__intro">{{locale['intro_first_desktop']}}</h1>
+                    <div class="mobile__intro mobile__intro-1">
+                        <h1>{{locale['intro_first_mobile-1']}}</h1>
+                        <h1>{{locale['intro_first_mobile-2']}}</h1>
+                    </div>
+                </div>
+            </div>
 
+            <div class="section-2__filler">
+                <img src="../assets/images/home2/logo-2.svg" alt="intro co2ok"
+                     class="intro__logo intro__logo-lower">
 
-                         <span v-else key="nl">
-                             <img
-                                     src="../assets/images/home/intro_text-nl.svg"
-                                     alt="intro co2ok text"
-                                     class="intro__img-text desktop__intro img-text-margin-nl animated fadeIn">
-
-                             <img
-                                     src="../assets/images/home/intro_text-nl-mobile.svg"
-                                     alt="intro co2ok text"
-                                     class="intro__img-text mobile__intro img-text-margin-nl animated fadeIn">
-                         </span>
-
-                </transition>
-                </span>
+                <div class="intro__text__wrapper">
+                    <h1 class="desktop__intro">{{locale['intro_second_desktop']}}</h1>
+                    <div class="mobile__intro mobile__intro-2">
+                        <h1>{{locale['intro_second_mobile-1']}}</h1>
+                        <h1>{{locale['intro_second_mobile-2']}}</h1>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -52,7 +43,12 @@
                 </div>
 
                 <div class="section-2__row-2">
-                    <img class="section-2__image" src="../assets/images/home/video.png">
+                    <iframe title="co2ok intro" class="section-2__image" width="500" height="500"
+                            src="https://www.youtube.com/embed/g6tr7eCndHw"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -61,7 +57,7 @@
             <div class="section-3__content">
                 <h3 class="sub-title">{{locale['section_3_sub']}}</h3>
                 <h2 class="main-title">{{locale['section_3_title']}}</h2>
-                <img alt="graph" class="section-3__image" src="../assets/images/home/graph.png">
+                <img alt="graph" class="section-3__image" src="../assets/images/home2/graph.jpg">
             </div>
         </div>
 
@@ -74,11 +70,11 @@
                 <div class="section-4__projects">
                     <div class="project__images-container">
                         <img alt="project1" class="project__image project__sides"
-                             src="../assets/images/home/project-1.png">
+                             src="../assets/images/home2/project-1.jpg">
                         <img alt="project1" class="project__image project__main"
-                             src="../assets/images/home/project-2.png">
+                             src="../assets/images/home2/project-2.jpg">
                         <img alt="project1" class="project__image project__sides"
-                             src="../assets/images/home/project-3.png">
+                             src="../assets/images/home2/project-3.jpg">
                     </div>
 
                     <div class="project__text">
@@ -100,13 +96,13 @@
 
                 <div class="section-5__images">
                     <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home/logo1.png">
+                         src="../assets/images/home2/logo1.jpg">
                     <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home/logo2.png">
+                         src="../assets/images/home2/logo2.jpg">
                     <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home/logo3.png">
+                         src="../assets/images/home2/logo3.jpg">
                     <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home/logo4.png">
+                         src="../assets/images/home2/logo4.jpg">
                 </div>
 
                 <router-link to="/webshops/" class="button__home">{{locale['section_5_btn']}}</router-link>
@@ -165,5 +161,4 @@
 
 <style scoped lang="scss">
     @import '../styles/home.scss';
-    @import '../styles/layout/main.scss';
 </style>

@@ -1,4 +1,4 @@
-<template>
+    <template>
     <v-container class="register__container ma-0 pa-0" fluid align-center grid-list-md text-xs-center>
         <v-layout class="register__layout  ma-0 pa-0" wrap row>
             <v-flex class="register__col-1" xs12 sm12 md6>

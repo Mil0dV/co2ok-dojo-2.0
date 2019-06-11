@@ -1,10 +1,10 @@
 <template>
     <v-app id="app">
         <div class="body">
-            <Nav/>
-            <router-view class="view-route animated fadeIn"></router-view>
+            <Nav class="animated fadeInDown"/>
+            <router-view class="animated fadeIn"></router-view>
+            <Footer/>
         </div>
-        <Footer/>
         <Modal v-if="$store.state.modalStatus"/>
     </v-app>
 </template>
@@ -50,29 +50,26 @@
 
 
     #app {
-        font-family: 'Poppins', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
-        // background: #F4F4F4;
-        // background: #F4F4F4;   zou je deze propertie alleen in pagina's waar de achterground #f4f4f4 is, anders wordt het in de hele app gebruikt als defauld background
         padding: 0;
         margin: 0;
-        /*width: 100vw;*/
         display: flex;
         flex-direction: column;
         overflow: hidden;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    @font-face {
+        font-display: auto;
+        font-family: 'Poppins', sans-serif;
     }
 
     .body {
         min-height: 100vh;
-        height: 100%;
-    }
-
-    .view-route {
-        min-height: 97vh;
-        height: 100%;
+        height: auto;
     }
 
     input:focus {

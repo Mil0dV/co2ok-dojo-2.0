@@ -5,7 +5,7 @@
             <div class="bkgr__filler bkgr__text hide--tablet">
                 <div class="green-border__login">
                     <p class="green-border__text main-text">
-                        With your account you will get access to information how much you’ve contributed to fighting climate change
+                        {{locale['login_text']}}
                     </p>
                 </div>
             </div>
@@ -15,24 +15,26 @@
             <div class="login__width">
                 <div class="login-c__wrapper">
                     <form v-model="valid" class="login-c__form">
-                        <h3 class="sub-title--small">Login</h3>
-                        <h2 class="main-title">Login to get access to more information!</h2>
+                        <h3 class="sub-title--small">{{locale['login_sort2']}}</h3>
+                        <h2 class="main-title">{{locale['title']}}</h2>
 
                         <div class="c-input__wrapper">
-                            <label class="login-c__label">E-mail</label>
-                            <input type="email"  v-model="email" class="login-c__input" placeholder="Fill in your e-mail">
+                            <label class="login-c__label">{{locale['input1']}}</label>
+                            <input type="email" v-model="email" class="login-c__input"
+                                   :placeholder="locale['input_email']">
                         </div>
 
                         <div class="c-input__wrapper">
-                            <label class="login-c__label">Password</label>
-                            <input type="password" v-model="password" class="login-c__input" placeholder="Fill in your password">
+                            <label class="login-c__label">{{locale['input2']}}</label>
+                            <input type="password" v-model="password" class="login-c__input"
+                                   :placeholder="locale['input_password']">
                         </div>
 
-                        <p @click="passReset = true" class="subheading sub__password">I forgot my password</p>
+                        <p @click="passReset = true" class="subheading sub__password">{{locale['forgot']}}</p>
 
                         <p @keyup.enter="login()"
                            @click.prevent="login()"
-                           class="button login-c__button">Login</p>
+                           class="button login-c__button">{{locale['login']}}</p>
                     </form>
                 </div>
             </div>
@@ -43,6 +45,7 @@
 
 
 <script>
+    import language from '../../lang/lang_login'
     import axios from 'axios'
     // import mailer from '../../nodemailer'
 
@@ -57,6 +60,7 @@
 
         data() {
             return {
+                locale: language,
                 password: '',
                 send: false,
                 valid: false,
@@ -69,14 +73,29 @@
             }
         },
         created() {
-
             this.keyupEnter()
+        },
+
+        mounted() {
+            this.checkLanguage()
             // mailer.sendmail('kevineasky@gmail.com')
             // this.passwordRecoveryEmail()
 
         },
 
         methods: {
+            checkLanguage(lang) {
+                if (lang === 'en') {
+                    this.locale = language.lang_en_login
+                } else {
+                    if (this.currentLanguage === 'en') {
+                        this.locale = language.lang_en_login
+                    } else {
+                        this.locale = language.lang_nl_login
+                    }
+                }
+            },
+
             errorMessage(message) {
                 this.send = false
                 this.$store.commit('modalStatus', {message})
@@ -90,7 +109,7 @@
                 }
             },
 
-             storeTransactionsData() {
+            storeTransactionsData() {
 
                 let merchantId
                 let self = this
@@ -125,35 +144,35 @@
                 if (window.localStorage.getItem('Authenticated')) {
 
                     this.$axios.get(`${this.$store.state.SITE_HOST}/user/userData/`, {
-                            params: {
-                                 id: window.localStorage.getItem('userId')
-                            },
-                            headers: {
-                                "X-CSRFToken": `${self.$store.state.userToken}`,
-                                Authorization: `token ${window.localStorage.getItem('userToken')}`
+                        params: {
+                            id: window.localStorage.getItem('userId')
+                        },
+                        headers: {
+                            "X-CSRFToken": `${self.$store.state.userToken}`,
+                            Authorization: `token ${window.localStorage.getItem('userToken')}`
+                        }
+                    }).then(response => {
+
+                        if (response.data.authData) {
+
+                            self.$store.commit('getUserData', response.data);
+                            self.storeTransactionsData()
+
+                        } else {
+
+                            let message = {
+                                title: 'Something went wrong....',
+                                text: 'Incorrect user credentials'
                             }
-                        }).then(response => {
+                            self.$store.commit('modalStatus', {message})
+                            console.log('user should be redirect to the login page');
+                        }
 
-                             if(response.data.authData){
-
-                                self.$store.commit('getUserData', response.data);
-                                self.storeTransactionsData()
-
-                             }else{
-
-                                let message = {
-                                    title: 'Something went wrong....',
-                                    text: 'Incorrect user credentials'
-                                 }
-                                 self.$store.commit('modalStatus', {message})
-                                 console.log('user should be redirect to the login page');
-                             }
-
-                        }).catch(error => {
-                             console.log(error);
-                                 //  this.errorMessage()
-                        })
-                }else{
+                    }).catch(error => {
+                        console.log(error);
+                        //  this.errorMessage()
+                    })
+                } else {
                     console.log('not authenticated');
                 }
 
@@ -177,7 +196,7 @@
                             if (response) {
                                 if (response.data.authenticate) {
                                     console.log(response.data);
-                                    
+
                                     this.$store.dispatch('commitSaveUser', response.data)
                                     this.$store.state.status = 'webshop'
                                     this.$store.state.Authenticated = true
@@ -185,13 +204,15 @@
 
                                     this.$store.commit('isLoggedIn', true) //set userStatus variable in the store to true
                                     this.getUserData()
+
+                                    this.$store.dispatch('commitGetUserData');
                                     //userSession return a boolean of de authenticate status of the user
                                     if (window.localStorage.getItem('Authenticated')) {
                                         this.$router.push('/webshops/dashboard')
                                     } else {
                                         this.$router.push('/webshops/login')
                                     }
-                                    
+
                                 } else {
                                     let message = {
                                         title: 'Something went wrong....',
@@ -206,30 +227,29 @@
                             console.log(error);
                         })
                     this.send = false
-                }
-                else {
+                } else {
                     let message = {
                         title: 'Something went wrong....',
                         text: 'Please fill in your e-mail & password'
                     }
                     this.$store.commit('modalStatus', {message})
                 }
-            },  
+            },
 
-            passwordRecoveryEmail(){
+            passwordRecoveryEmail() {
 
                 let self = this
                 let result = 'ninja@pass.'
                 let generatedPass = result += Math.random().toString(36).substring(2, 7)
 
-                axios.post(`${this.$store.state.SITE_HOST}/password_recover_mail/`,{
-                    body:{
+                axios.post(`${this.$store.state.SITE_HOST}/password_recover_mail/`, {
+                    body: {
                         temporaryPassword: generatedPass,
                         email: self.$store.state.passwordRecoveryEmail
                     }
                 }).then(response => {
                     console.log(response.data);
-                    if(response.data.send){
+                    if (response.data.send) {
 
                     }
                 }).catch(error => {
@@ -253,13 +273,13 @@
 
             },
 
-            keyupEnter(){
+            keyupEnter() {
 
                 let self = this
-                window.addEventListener('keyup', function(e){
-                    if(e.keyCode == 13){
+                window.addEventListener('keyup', function (e) {
+                    if (e.keyCode == 13) {
 
-                        if (self.email !== '' && self.password !== ''){
+                        if (self.email !== '' && self.password !== '') {
                             self.login()
                             self.email = ''
                             self.password = ''
@@ -269,6 +289,18 @@
                 })
 
             },
+        },
+
+        computed: {
+            currentLanguage() {
+                return this.$store.state.language
+            }
+        },
+
+        watch: {
+            currentLanguage(value) {
+                this.checkLanguage(value)
+            }
         }
     }
 </script>
@@ -294,7 +326,6 @@
             flex: 8;
         }
     }
-
 
 
 </style>

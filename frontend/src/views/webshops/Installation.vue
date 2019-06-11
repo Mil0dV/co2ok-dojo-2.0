@@ -9,31 +9,31 @@
                         <h3>Wordpress / Woocommerce</h3>
 
                         <ol>
-                            <li>Login to the admin area of your webshop (WordPress admin)</li>
+                            <li>{{locale['first_step1']}}</li>
 
                             <li class="list__image">
-                                Open the ‘Add new plugin’ screen:
+                                {{locale['first_step2']}}
                                 <img alt="plugin-wordpress-1" src="../../assets/images/webshops/plugin/install-step-1.png">
                             </li>
 
                             <li>
-                                Search for ‘co2ok’:
+                                {{locale['first_step3']}}
                                 <img alt="plugin-wordpress-2" src="../../assets/images/webshops/plugin/install-step-2.png">
                             </li>
 
                             <li>
-                                Click on ’Install Now’:
+                                {{locale['first_step4']}}
                                 <img alt="plugin-wordpress-3" src="../../assets/images/webshops/plugin/install-step-3.png">
                             </li>
 
                             <li>
-                                After a few moments the plugin will be installed, all there is left to do is activating it:
+                                {{locale['first_step5']}}
                                 <img class="small-install" alt="plugin-wordpress-3" src="../../assets/images/webshops/plugin/install-step-4.png">
                             </li>
                         </ol>
 
                         <i>
-                            That’s all! If you have any questions/run into an issue, we’d love to help out via the chat on this page/phone or mail. Thanks for helping us fight climate change!
+                            {{locale['first_step6']}}
                         </i>
                     </div>
 
@@ -42,31 +42,31 @@
                         <h3>Magento</h3>
 
                         <ol>
-                            <li>Login to the admin area of your webshop (Magento admin)</li>
+                            <li> {{locale['second_step1']}}</li>
 
                             <li class="list__image">
-                                Open the ‘Add new plugin’ screen:
+                                {{locale['second_step2']}}
                                 <img alt="plugin-wordpress-1" src="../../assets/images/webshops/plugin/install-step-1.png">
                             </li>
 
                             <li>
-                                Search for ‘co2ok’:
+                                {{locale['second_step3']}}
                                 <img alt="plugin-wordpress-2" src="../../assets/images/webshops/plugin/install-step-2.png">
                             </li>
 
                             <li>
-                                Click on ’Install Now’:
+                                {{locale['second_step4']}}
                                 <img alt="plugin-wordpress-3" src="../../assets/images/webshops/plugin/install-step-3.png">
                             </li>
 
                             <li>
-                                After a few moments the plugin will be installed, all there is left to do is activating it:
+                                {{locale['second_step5']}}
                                 <img class="small-install" alt="plugin-wordpress-3" src="../../assets/images/webshops/plugin/install-step-4.png">
                             </li>
                         </ol>
 
                         <i>
-                            That’s all! If you have any questions/run into an issue, we’d love to help out via the chat on this page/phone or mail. Thanks for helping us fight climate change!
+                            {{locale['second_step6']}}
                         </i>
                     </div>
                 </div>
@@ -77,6 +77,8 @@
 </template>
 
 <script>
+    import language from '../../lang/lang_plugin'
+
     const Header = () => import('@/components/layout/Header')
     const WebshopForm = () => import('@/components/layout/WebshopForm')
 
@@ -89,13 +91,41 @@
 
         data() {
             return {
+                locale: language,
                 header: 'installation',
-                formContent: {
-                    title: 'Use a different CMS system?',
-                    text: 'Do you use a different e-commerce system? Fill in the form and we will send you a message when we support it! (Just your email address will be enough!)'
+                formContent: 1,
+            }
+        },
+
+        mounted() {
+            this.checkLanguage()
+        },
+
+        methods: {
+            checkLanguage(lang) {
+                if(lang === 'en'){
+                    this.locale = language.lang_en_plugin
+                } else {
+                    if (this.currentLanguage === 'en') {
+                        this.locale = language.lang_en_plugin
+                    } else {
+                        this.locale = language.lang_nl_plugin
+                    }
                 }
             }
         },
+
+        computed: {
+            currentLanguage() {
+                return this.$store.state.language
+            }
+        },
+
+        watch: {
+            currentLanguage(value) {
+                this.checkLanguage(value)
+            }
+        }
     }
 </script>
 

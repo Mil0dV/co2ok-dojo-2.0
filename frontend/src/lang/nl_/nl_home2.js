@@ -1,5 +1,13 @@
 module.exports = {
     lang_nl_home2: {
+        'intro_first_desktop'  : 'DOE MEE MET DE STRIJD T',
+        'intro_second_desktop' : 'EGEN KLIMAATVERANDERING',
+
+        'intro_first_mobile-1' : 'DOE MEE M',
+        'intro_first_mobile-2' : 'TEGEN KLIMAA',
+        'intro_second_mobile-1' : 'ET DE STRIJD',
+        'intro_second_mobile-2' : 'TVERANDERING',
+
         'section_2_title': 'Samen kunnen we de klimaatverandering stoppen.',
         'section_2_text': 'Bij CO₂ok willen we aankopen klimaatneutraal maken. Dit wordt mogelijk gemaakt door een browserextensie en plug-in die we hebben gemaakt voor consumenten en verkopers. Het enige dat u hoeft te doen, is op de magische knop klikken en wij zorgen voor de rest.',
 

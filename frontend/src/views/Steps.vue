@@ -6,15 +6,11 @@
                  class="uk-flex uk-flex-wrap steps__intro uk-box-shadow-medium uk-child-width-expand@s uk-text-center">
                 <div class="step__text-wrapper intro--smaller step__img-left">
                     <div class="intro__text step__col uk-padding">
-                        <p class="steps__green">How it works</p>
-                        <h2 class="main-title--large">CO₂ Compensation</h2>
+                        <p class="steps__green">{{locale['s1_subtitle']}}</p>
+                        <h2 class="main-title--large">{{locale['s1_title']}}</h2>
 
                         <p class="main-text">
-                            The transport and production of any purchased item
-                            causes the emission of greenhouse gases. Manufacturers
-                            try to reduce this emission, but most fail to show actual
-                            progress. A purchase of *that* item you want can
-                            become climate neutral through CO₂-compensation.
+                            {{locale['s1_text']}}
                         </p>
                     </div>
                 </div>
@@ -41,15 +37,12 @@
                             <div class="steps__title-container">
                                 <i class="fas fa-smog step__icon"></i>
                                 <p class="steps__title">
-                                    1. Computing the greenhouse gases
+                                    {{locale['s2_title']}}
                                 </p>
                             </div>
 
                             <p class="main-text">
-                                We compute the greenhouse gases that are emitted
-                                during production and transport. We convert these to
-                                equal amounts of CO₂, for example, 1 gram of methane
-                                equals 100 grams of CO₂.
+                                {{locale['s2_text']}}
                             </p>
                         </div>
                     </div>
@@ -64,13 +57,12 @@
                             <div class="steps__title-container">
                                 <i class="fas fa-shopping-cart step__icon"></i>
                                 <p class="steps__title">
-                                    2. Purchase with CO₂ok
+                                    {{locale['s3_title']}}
                                 </p>
                             </div>
 
                             <p class="main-text">
-                                If you choose to make your purchase CO₂ok, you will pay
-                                a tiny extra amount upon purchase.
+                                {{locale['s3_text']}}
                             </p>
                         </div>
                     </div>
@@ -100,14 +92,12 @@
                             <div class="steps__title-container">
                                 <i class="fas fa-solar-panel step__icon"></i>
                                 <p class="steps__title">
-                                    3. Financing projects
+                                    {{locale['s4_title']}}
                                 </p>
                             </div>
 
                             <p class="main-text">
-                                This amount is used to finance projects of durable energy
-                                and CO₂-emission reduction (via our certified partner,
-                                Atmosfair)
+                                {{locale['s4_text']}}
                             </p>
                         </div>
                     </div>
@@ -123,14 +113,12 @@
                             <div class="steps__title-container">
                                 <i class="fas fa-check step__icon"></i>
                                 <p class="steps__title">
-                                    4. Making your purchase climate neutral
+                                    {{locale['s5_title']}}
                                 </p>
                             </div>
 
                             <p class="main-text">
-                                These projects actively reduce the amount of emitted
-                                CO₂. This CO₂ reduction matches the emission of your
-                                purchase – your purchase is climate neutral!
+                                {{locale['s5_text']}}
                             </p>
                         </div>
                     </div>
@@ -149,7 +137,7 @@
 
 <script>
     const Header = () => import('@/components/layout/Header')
-
+    import language from '../lang/lang_compensation'
     export default {
         name: "Steps",
         components: {'Header': Header},
@@ -157,8 +145,39 @@
         data() {
             return {
                 header: 'steps',
+                locale: language
             }
         },
+
+        mounted() {
+            this.checkLanguage()
+        },
+
+        methods: {
+            checkLanguage(lang) {
+                if(lang === 'en'){
+                    this.locale = language.lang_en_compensation
+                } else {
+                    if (this.currentLanguage === 'en') {
+                        this.locale = language.lang_en_compensation
+                    } else {
+                        this.locale = language.lang_nl_compensation
+                    }
+                }
+            }
+        },
+
+        computed: {
+            currentLanguage() {
+                return this.$store.state.language
+            }
+        },
+
+        watch: {
+            currentLanguage(value) {
+                this.checkLanguage(value)
+            }
+        }
     }
 
 </script>
