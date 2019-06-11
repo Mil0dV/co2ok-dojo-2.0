@@ -1,4 +1,4 @@
-<template>
+ aria-label="Read more about Seminole tax hike"<template>
     <footer id="footer" style="text-align: left;">
         <div class="uk-container footer-container">
             <div uk-grid>
@@ -41,7 +41,7 @@
                                 </li>
                                 <span v-if="$store.state.userStatus">
                                      <li><router-link to="/webshops/dashboard">Dashboard</router-link></li>
-                                     <li @click="logout()"><a>Logout</a></li>
+                                     <li @click="logout()">Logout</li>
                                 </span>
                                 <span v-else>
                                     <li><router-link to="/webshops/login">{{locale['link14']}}</router-link></li>
@@ -53,7 +53,7 @@
                         </li>
                         <span v-else>
                             <li><router-link to="/consumers/profile">{{locale['link13']}}</router-link></li>
-                            <li @click="logout()"><a>{{locale['link15']}}</a></li>
+                            <li @click="logout()">{{locale['link15']}}</li>
                         </span>
                         <li>
                             <router-link to="/blogs">{{locale['link10']}}</router-link>
@@ -69,13 +69,13 @@
                 <div class="uk-width-1-3@m footer-column">
                     <h2 style="margin-bottom: 10px; ">Social</h2>
                     <ul class="social-media-icons">
-                        <li><a target="_blank" href="https://www.instagram.com/co2ok.eco/"><i
+                        <li><a rel="noopener" aria-label="Follow co2ok on Instagram" target="_blank" href="https://www.instagram.com/co2ok.eco/"><i
                                 class="fab fa-instagram"></i></a></li>
-                        <li><a target="_blank" href="https://www.facebook.com/CO2ok/"><i
+                        <li><a rel="noopener" aria-label="Like co2ok on Facebook" target="_blank" href="https://www.facebook.com/CO2ok/"><i
                                 class="fab fa-facebook-square"></i></a></li>
-                        <li><a target="_blank" href="https://twitter.com/CO2ok_eco"><i
+                        <li><a rel="noopener" aria-label="Follow co2ok on Twitter" target="_blank" href="https://twitter.com/CO2ok_eco"><i
                                 class="fab fa-twitter-square"></i></a></li>
-                        <li><a target="_blank" href="https://www.linkedin.com/company/11418867"><i
+                        <li><a rel="noopener" aria-label="Follow co2ok on LinkedIn" target="_blank" href="https://www.linkedin.com/company/11418867"><i
                                 class="fab fa-linkedin"></i></a></li>
                     </ul>
                 </div>
