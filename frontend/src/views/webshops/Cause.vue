@@ -1,7 +1,7 @@
 <template>
     <div>
         <Header :image="header"></Header>
-        <div class="uk-section section-1" >
+        <div class="uk-section section-1">
             <div class="uk-container uk-container-width">
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
@@ -13,7 +13,8 @@
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/plug-in-installation" class="button">{{locale['s1_btn']}}</router-link>
+                                <router-link to="/webshops/plug-in-installation" class="button">{{locale['s1_btn']}}
+                                </router-link>
                             </div>
                         </div>
                     </div>
@@ -28,7 +29,7 @@
             </div>
         </div>
 
-        <div class="uk-section" >
+        <div class="uk-section">
             <div class="uk-container uk-container-width section-2-row">
                 <div class="row__content">
                     <div class="row__icon">
@@ -112,7 +113,7 @@
 
                 <div class="graph__section">
 
-                    <div  class="graph-wrapper">
+                    <div class="graph-wrapper">
                         <div class="flex-wrapper">
                             <div class="single-chart">
                                 <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
@@ -145,7 +146,7 @@
                         </div>
                     </div>
 
-                    <div  class="graph-wrapper">
+                    <div class="graph-wrapper">
                         <div class="flex-wrapper">
                             <div class="single-chart">
                                 <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
@@ -178,7 +179,7 @@
                         </div>
                     </div>
 
-                    <div  class="graph-wrapper">
+                    <div class="graph-wrapper">
                         <div class="flex-wrapper">
                             <div class="single-chart">
                                 <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
@@ -211,7 +212,7 @@
                         </div>
                     </div>
 
-                    <div  class="graph-wrapper">
+                    <div class="graph-wrapper">
                         <div class="flex-wrapper">
                             <div class="single-chart">
                                 <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
@@ -248,7 +249,11 @@
         </div>
         <div class="uk-section ">
             <div class="uk-container uk-container-width final__section section-2-row">
-                <h2 class="sub-title">CO₂ok’s</h2>
+                <div class="final-col-wrapper">
+                    <div class="final-col final-1">
+                        <h2 class="sub-title">CO₂ok’s</h2>
+                    </div>
+                </div>
                 <div class="final-col-wrapper">
                     <div class="final-col final-1">
                         <h2 class="main-title">{{locale['s4_row1_title']}}</h2>
@@ -272,7 +277,8 @@
                             {{locale['s4_row3_text']}}
                         </p>
                         <br>
-                        <router-link to="/webshops/plug-in-installation" class="button">{{locale['s4_row3_link']}}</router-link>
+                        <router-link to="/webshops/plug-in-installation" class="button">{{locale['s4_row3_link']}}
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -288,7 +294,7 @@
 
     export default {
         name: "About",
-        components: {'Header': Header, 'ModalContact' : ModalContact},
+        components: {'Header': Header, 'ModalContact': ModalContact},
 
         data() {
             return {
@@ -351,7 +357,7 @@
             },
 
             checkLanguage(lang) {
-                if(lang === 'en'){
+                if (lang === 'en') {
                     this.locale = causeLang.lang_en_cause
                 } else {
                     if (this.currentLanguage === 'en') {

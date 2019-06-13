@@ -21,7 +21,6 @@
   }
 
 
-
   .line {
     width: 1px;
     height: 4vh;
@@ -77,6 +76,7 @@
 .uk-navbar-right .button:hover {
   color: white;
 }
+
 .nav__triangle {
   cursor: pointer;
 }
@@ -136,12 +136,46 @@
 
 @media screen and (max-width: 960px) {
   .uk-navbar-container {
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    .navbar__outer {
+      width: 100%;
+
+      > * {
+        padding: 0;
+      }
+    }
+
     .uk-logo {
       margin-left: 10px;
     }
   }
 
-  .uk-navbar-container {
-    height: 10vh;
+
+  .dropdown__menu-wrapper {
+    min-width: unset;
+    width: auto;
+    padding: 5px;
+    text-align: center;
+
+
   }
+
+  #offcanvas-nav {
+    .uk-nav {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .dropdown__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
 }

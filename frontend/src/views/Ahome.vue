@@ -38,7 +38,9 @@
                         {{locale['section_2_text']}}
                     </p>
                     <br>
-                    <router-link to="/webshops/" class="button">{{locale['plugin']}}</router-link>
+                    <a :href="this.$store.state.ninjaExtensionLink"
+                       :target="this.$store.state.extensionLinkTarget"
+                       class="button">{{locale['plugin']}}</a>
 
                 </div>
 
@@ -123,6 +125,10 @@
 
         mounted() {
             this.checkLanguage()
+        },
+
+        created() {
+            this.$store.commit('installNinjaButton')
         },
 
         methods: {

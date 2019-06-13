@@ -159,6 +159,8 @@
 }
 
 @media screen and (max-width: 1105px) {
+
+
   .sect-2-col-1 {
     flex-direction: column;
   }
@@ -167,10 +169,7 @@
     max-width: unset;
     margin-top: 30px;
   }
-}
 
-
-@media screen and (max-width: 1020px) {
   .uk-container-column {
     justify-content: center;
     align-items: center;
@@ -219,7 +218,7 @@
   }
 
   .uk-container-row {
-    width: 90%;
+    width: 93%;
   }
 
 }

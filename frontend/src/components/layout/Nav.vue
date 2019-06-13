@@ -1,6 +1,6 @@
 <template>
     <div uk-sticky class="uk-navbar-container">
-        <div>
+        <div class="navbar__outer">
             <div class="uk-container">
                 <nav class="nav--wrapper" uk-navbar>
                     <div class="uk-navbar-left">
@@ -201,9 +201,10 @@
                     <li>
                         <router-link to="/faq">{{locale.faq}}</router-link>
                     </li>
-                    <li @click="logout('consumer')"
+                    <li style="margin-bottom: 10px !important;" @click="logout('consumer')"
                         v-if="$store.state.Authenticated && $store.state.status === 'webshop' || $store.state.Authenticated && $store.state.status === 'ninja'">
-                        <a>Logout</a></li>
+                        <a>Logout</a>
+                    </li>
                 </ul>
                 <a rel="noopener" :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget"
                    class="button">{{locale.extension}}</a>
@@ -211,7 +212,7 @@
                 <transition enter-acitve-class="animated bounceIn"
                             leave-active-class="animated bounceOut"
                             mode="out-in">
-                    <ul key="en" v-if="$store.state.language === 'en'" class="uk-navbar-nav">
+                    <ul key="en" v-if="$store.state.language === 'en'" class="uk-navbar-nav navbar__mobile">
                         <li @click="switchLang('en')" style="cursor: pointer">
                             <img alt="engelse vlag" class="language-icon english icon"
                                  src="../../assets/images/nav/english-icon.png">
@@ -219,11 +220,10 @@
                         </li>
                         <div class="dropdown__menu-wrapper" uk-dropdown="offset:10">
                             <ul class="uk-nav uk-dropdown-nav dropdown__nav dropdown__lang">
-                                <li @click="switchLang('nl')">
+                                <li style="text-align: center;"  @click="switchLang('nl')">
                                     <img alt="nederlandse vlag" class="language-icon english icon"
                                          src="../../assets/images/nav/dutch-icon.png">
                                 </li>
-                                as
                             </ul>
                         </div>
                     </ul>

@@ -170,7 +170,7 @@
         }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
         .header__image {
             background: no-repeat ;
             background-size: cover;
@@ -180,7 +180,7 @@
         }
 
         .header__inner {
-            width: 82%;
+            width: 87%;
         }
 
         .header__title {

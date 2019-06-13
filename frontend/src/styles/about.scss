@@ -339,9 +339,17 @@ about__container {
 }
 
 @media (max-width: 650px) {
+  .about__col-1 {
+    width: 100%;
+  }
+
+  .col-2__header {
+    text-align: left;
+  }
+
   .crew__card {
     max-width: 550px;
-    width: 100%;
+    width: 90%;
     margin-bottom: 100px;
   }
 
@@ -362,9 +370,7 @@ about__container {
   .login__info {
     display: none;
   }
-}
 
-@media (max-width: 650px) {
   .col-1__text {
     font-size: 14px;
   }

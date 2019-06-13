@@ -20,15 +20,18 @@ $darkblue: #152439;
   -o-transition: all .3s ease;
   transition: all .3s ease;
 }
+
 @mixin heading {
   font-family: $heading;
   font-size: 28px;
   font-weight: 500;
 }
+
 @mixin subheading {
   font-family: $heading;
   font-weight: 700;
 }
+
 @mixin body {
   font-family: $body;
   font-size: 14px;
@@ -82,15 +85,18 @@ div.privacy-policy-menu {
           visibility: hidden;
           @include transition;
         }
+
         &:hover {
           color: $darkgreen;
           text-decoration: none;
         }
+
         &:hover:before {
           visibility: visible;
           width: 5px;
         }
       }
+
       .active {
         color: $darkgreen;
         text-decoration: underline;
@@ -98,6 +104,7 @@ div.privacy-policy-menu {
     }
   }
 }
+
 div.privacy-policy-content {
   margin: 0;
   padding: 0;
@@ -108,16 +115,19 @@ div.privacy-policy-content {
     color: $darkgrey;
     font-weight: 600;
   }
+
   h3 {
     @include heading;
     color: $bluegrey;
   }
+
   h5 {
     margin: 20px 0;
     @include heading;
     font-size: 20px;
     color: $offgrey;
   }
+
   h6 {
     margin: 20px 0 10px 0;
     @include body;
@@ -125,10 +135,12 @@ div.privacy-policy-content {
     color: $grey;
     font-weight: 700;
   }
+
   p {
     @include body;
     color: $darkgrey;
   }
+
   ul {
     list-style-type: disc;
 
@@ -137,6 +149,7 @@ div.privacy-policy-content {
       color: $darkgrey;
     }
   }
+
   a.google-link {
     @include transition;
     @include subheading;
@@ -147,10 +160,12 @@ div.privacy-policy-content {
       color: $darkgreen;
       text-decoration: none;
     }
+
     i {
       margin: 2px 0 0 8px;
     }
   }
+
   a.contact-link {
     padding: 8px 20px;
     @include transition;
@@ -169,7 +184,6 @@ div.privacy-policy-content {
     }
   }
 }
-
 
 
 $heading: "Poppins", sans-serif;
@@ -194,46 +208,42 @@ $darkblue: #152439;
   -o-transition: all .3s ease;
   transition: all .3s ease;
 }
+
 @mixin heading {
   font-family: $heading;
   font-size: 28px;
   font-weight: 500;
 }
+
 @mixin subheading {
   font-family: $heading;
   font-weight: 700;
 }
+
 @mixin body {
   font-family: $body;
   font-size: 14px;
   font-weight: 400;
 }
 
-.nav-mobile {
-  visibility: hidden;
-}
 
 @media screen and (max-width: 50em) {
-  .uk-nav-item .uk-logo {
-    float: left;
-  }
-  .uk-navbar-nav {
-    display: none;
-  }
-  .nav-mobile {
-    visibility: visible;
-    padding: 0;
-    margin: 0;
-  }
   section#A {
 
     h1.page-heading {
       top: 200px;
       left: 35px;
     }
+
     img {
       height: 200px;
     }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .uk-container {
+    width: 88% !important;
   }
 }
 
@@ -259,15 +269,18 @@ $darkblue: #152439;
   -o-transition: all .3s ease;
   transition: all .3s ease;
 }
+
 @mixin heading {
   font-family: $heading;
   font-size: 28px;
   font-weight: 500;
 }
+
 @mixin subheading {
   font-family: $heading;
   font-weight: 700;
 }
+
 @mixin body {
   font-family: $body;
   font-size: 14px;

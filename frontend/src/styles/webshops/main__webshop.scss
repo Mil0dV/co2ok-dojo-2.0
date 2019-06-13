@@ -1,6 +1,5 @@
-
 //-------------Section 1--------------------------------
-.row-link{
+.row-link {
   transition: 0.3s ease-in-out;
 
   span {
@@ -33,8 +32,9 @@
   }
 }
 
-.link{
+.link {
   transition: 0.1s ease-in-out;
+
   span {
     transition: 0.1s ease-in-out;
   }
@@ -70,7 +70,7 @@
 
 
 .uk-link:hover, a:hover {
-  color:white;
+  color: white;
   transition: 0.3s ease-in-out;
 }
 
@@ -117,7 +117,7 @@
   }
 
   .uk-container-width {
-    width: 90%;
+    width: 95%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -150,6 +150,7 @@
   }
 
   .uk-container-width {
+    width: 88%;
     padding: 0;
   }
 

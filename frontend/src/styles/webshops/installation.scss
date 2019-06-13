@@ -65,14 +65,18 @@
       font-weight: 600;
     }
   }
-}
 
-@media (max-width: 1170px) {
   .install-col {
     width: 100%;
 
     h3 {
       font-size: 21px;
     }
+  }
+}
+
+@media (max-width: 970px) {
+  .uk-container-width {
+    width: 90%;
   }
 }

@@ -151,6 +151,7 @@
 .row__text {
   .row-link:hover {
     padding-left: 10px;
+
     span {
       padding-left: 10px;
       transition: 0.1s ease-in-out;
@@ -180,6 +181,19 @@
       }
     }
   }
+
+  .section-4 {
+    .main-title {
+      font-size: 22px;
+    }
+  }
+
+  .graph__text {
+    .main-title {
+      text-align: center;
+    }
+  }
+
 }
 
 @media (max-width: 1050px) {
@@ -208,10 +222,12 @@
 @media (max-width: 970px) {
   .section-2-row {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     .row__content {
       max-width: 800px;
-      width: 100%;
+      width: 90%;
       justify-content: flex-start;
 
       .row__text {
@@ -219,6 +235,15 @@
         width: 100%;
       }
     }
+
+
+    .section-4 {
+
+      .main-title {
+        font-size: 28px;
+      }
+    }
+
 
     .row__content:nth-child(2) {
       margin-top: 50px;
@@ -274,6 +299,11 @@
   .single-chart {
     width: 80%;
   }
+
+  .uk-container-width {
+    width: 97%;
+  }
+
 }
 
 
