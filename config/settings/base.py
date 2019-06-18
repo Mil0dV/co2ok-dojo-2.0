@@ -59,7 +59,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': str(ROOT_DIR.path('co2ok-dojo_test.sqlite')),
-        'NAME': os.path.join(ROOT_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(str(ROOT_DIR), 'db.sqlite3'),
     }
 }
 
