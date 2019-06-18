@@ -24,7 +24,6 @@
             </div>
         </v-radio-group>
 
-
         <div class="plugin__col-2 animated fadeIn" style="animation-delay: 0.5s;">
             <div class="col-2__content">
                 <p class="col-2__text">

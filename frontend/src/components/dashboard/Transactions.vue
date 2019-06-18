@@ -86,6 +86,12 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+
+ Vue.use(Vuetify);
+
 import LineChart from '@/components/dashboard/chart.vue'
 import jsPDF from 'jspdf'
 import Co2okWidget from '../../co2okWidget'

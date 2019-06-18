@@ -11,7 +11,7 @@ from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes
 from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 import json
 #------------------------------------------------------------------------------
 import base64
@@ -23,13 +23,13 @@ import googlemaps
 class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (permissions.IsAuthenticated,)
+    # permission_classes = (permissions.IsAuthenticated,)
     transactions_arr = [] 
 
 
     @csrf_exempt
     @action(methods=['get'], detail=False)
-    # @api_view(['GET'])
+    @permission_classes((IsAuthenticated, ))
     def userData(self, request):
         userId = request.query_params.get('id')
         merchant_authData_exist = Profile.check_user_auth_data(self, userId, Profile)
@@ -70,11 +70,9 @@ class UserView(viewsets.ModelViewSet):
             self.transactions_arr.clear()
 
         if user_status == 'true':
-            print('true')
             for trans in Transaction.scan():
                 self.transactions_arr.append({'timestamp': trans.timestamp, 'compensation_cost': trans.compensation_cost})
         else:
-            print('false')
             merchantid = request.query_params.get('merchantId')
             for trans in Transaction.scan(Transaction.merchant_id == merchantid):
                 self.transactions_arr.append({'timestamp': trans.timestamp, 'compensation_cost': trans.compensation_cost})
@@ -84,6 +82,7 @@ class UserView(viewsets.ModelViewSet):
     # run if user is superuser
     @csrf_exempt
     @action(methods=['get'], detail=False)
+    @permission_classes((IsAuthenticated, ))
     def allTransactions(self, request):
         year_arr = []
         year_month_arr = []
@@ -174,6 +173,25 @@ class UserView(viewsets.ModelViewSet):
                     year_arr[year_month_arr.index(ym)].append(transaction['compensation_cost'])
                     
         return Response(year_arr)
+
+
+    @csrf_exempt
+    @action(methods=['get'], detail=False)
+    def totoCompensationData(self, request):
+        self.store_transactions_data(request)
+        # merchantId = request.query_params.get('merchantId')
+        # print(merchantId)
+        # totoCompensationArr = []
+        # for transaction in Transaction.scan(Transaction.merchant_id == merchantId):
+        #     totoCompensationArr.append(transaction.compensation_cost)
+        total = 0
+        # total = []
+        for transaction in self.transactions_arr:
+            total += transaction['compensation_cost']
+            # total.append(transaction['compensation_cost'])
+
+        # conversion from euro to kg CO2 compensated
+        return Response(round(total * 500))
 
 
     # def compnensationsData(self, request):
