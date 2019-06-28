@@ -23,7 +23,7 @@ module.exports = {
         row_text1: 'As retailer, you naturally try to run your business as sustainably as possible. However, some\n' +
             '                        things are beyond your control – the manufacturing and shipping of your products for example.\n' +
             '                        Manufacturers take too long to become climate neutral. CO₂ok fills this gap and allows your\n' +
-            '                        customers to buy everything they want, without contributing to climate change!',
+            '                        customers to buy everything they want, without contributing to climate change! <a href="https://blabla.nl">Cause Marketing</a>',
         row_text2: ' As retailer, you naturally try to run your business as sustainably as possible. However, some\n' +
             '                        things are beyond your control – the manufacturing and shipping of your products for example.\n' +
             '                        Manufacturers take too long to become climate neutral. CO₂ok fills this gap and allows your\n' +

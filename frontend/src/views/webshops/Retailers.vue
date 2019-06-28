@@ -212,12 +212,12 @@
         methods: {
             checkLanguage(lang) {
                 if(lang === 'en'){
-                    this.locale = retailersLang.lang_en_retailer
+                    this.locale = retailersLang.lang_en_retailers
                 } else {
                     if (this.currentLanguage === 'en') {
-                        this.locale = retailersLang.lang_en_retailer
+                        this.locale = retailersLang.lang_en_retailers
                     } else {
-                        this.locale = retailersLang.lang_nl_retailer
+                        this.locale = retailersLang.lang_nl_retailers
                     }
                 }
             }

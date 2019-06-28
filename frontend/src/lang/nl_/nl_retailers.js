@@ -20,7 +20,7 @@ module.exports = {
             '                        dingen zijn buiten uw controle - de productie en verzending van uw producten bijvoorbeeld.\n' +
             '                        Fabrikanten doen er te lang over om klimaatneutraal te worden. CO₂ok vult deze kloof en staat uw toe\n' +
             '                        klanten om alles te kopen wat ze willen, zonder bij te dragen aan de klimaatverandering!',
-        row_text2: 'Als retailer probeert u natuurlijk uw onderneming zo duurzaam mogelijk te runnen. Sommige echter dingen zijn buiten uw controle - de productie en verzending van uw producten bijvoorbeeld. Fabrikanten doen er te lang over om klimaatneutraal te worden. CO₂ok vult deze kloof en staat uw toe klanten om alles te kopen wat ze willen, zonder bij te dragen aan de klimaatverandering! Dit is ook genaamd "Cause Marketing"',
+        row_text2: 'Als retailer probeert u natuurlijk uw onderneming zo duurzaam mogelijk te runnen. Sommige echter dingen zijn buiten uw controle - de productie en verzending van uw producten bijvoorbeeld. Fabrikanten doen er te lang over om klimaatneutraal te worden. CO₂ok vult deze kloof en staat uw toe klanten om alles te kopen wat ze willen, zonder bij te dragen aan de klimaatverandering! Dit is ook genaamd <a href="https://blabla.nl">Cause Marketing</a> ',
         row_text2_extra: 'Je bereikt nog meer klanten als je meegaat met onze marketingcampagne. Tijdens onze campagne\n' +
             '                        je kunt gemakkelijk mee rijden op ons netwerk. We posten op Facebook, LinkedIn, Twitter en zijn\n' +
             '                        in tijdschriften en op radio! Als je meer wilt weten, kun je contact opnemen met Jos.',
