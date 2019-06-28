@@ -56,13 +56,14 @@
 
 .intro__logo {
   max-width:  540px;
+  max-height: 300px;
+  height: 100%;
   width: 100%;
 }
 
 
 .prefix__section {
-  padding: 100px 0 !important;
-  min-height: 96vh;
+  padding: 20px 0 !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -172,7 +173,7 @@
 .section-3__content {
   max-width: 1146px;
   width: 100%;
-  margin: 160px 0;
+  margin: 50px 0;
 
   .main-title {
     font-size: 30px;
