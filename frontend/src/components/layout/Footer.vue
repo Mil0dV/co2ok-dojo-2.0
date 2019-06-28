@@ -106,7 +106,7 @@
         methods: {
             logout() {
                 axios
-                    .post('http://test-frontend.co2ok.ninja/logout/', {
+                    .post('http://test.co2ok.ninja/logout/', {
                         // header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
                     })
                     .then(response => {

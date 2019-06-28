@@ -76,7 +76,7 @@ class Co2okWidget {
     merchantCompasations(merchantId, year) {
 
        let xhr = this.xhr()
-       let host = 'http://test-frontend.co2ok.ninja'
+       let host = 'http://test.co2ok.ninja'
        let self = this
 
        xhr.open('GET', `${host}/user/compnensationsData/?merchantId=${merchantId}&year=${year}`, true)

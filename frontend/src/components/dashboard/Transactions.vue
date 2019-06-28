@@ -25,26 +25,32 @@
                     <v-tooltip top color="#369555">
                         <template v-slot:activator="{ on }">
                           <div class="month-ctrl" @click="prevMonthCtrl()">
-                              <v-icon medium :style="prevStyle" style="" class="animated zoomIn" v-on="on">keyboard_arrow_left</v-icon>
-                              <v-icon medium :style="prevStyle" style="" class="animated zoomIn" v-on="on">keyboard_arrow_left</v-icon>
+                              <!-- <v-icon medium :style="prevStyle" style="" class="animated zoomIn" v-on="on">keyboard_arrow_left</v-icon>
+                              <v-icon medium :style="prevStyle" style="" class="animated zoomIn" v-on="on">keyboard_arrow_left</v-icon> -->
+                              <img src="../../assets/images/app/left-arrow.svg" alt="" class="animated zoomIn"  v-on="on" :style="prevStyle" style="width: 18px; height: 18px;">
+                              <img src="../../assets/images/app/left-arrow.svg" alt="" class="animated zoomIn"  v-on="on" :style="prevStyle" style="width: 18px; height: 18px;position: relative; right: 10px;">
                           </div>
                         </template>
                         <span>{{prevMonth}}</span>
                     </v-tooltip>
 
-                    <v-icon class="graph-ctr-icon animated bounceIn" :style="weekPrevStyle" style="" small>keyboard_arrow_left</v-icon>
+                    <!-- <v-icon class="graph-ctr-icon animated bounceIn" :style="weekPrevStyle" style="" small>keyboard_arrow_left</v-icon> -->
+                    <img src="../../assets/images/app/left-arrow.svg" alt="" class=" graph-ctr-icon animated bounceIn"  v-on="on" :style="weekPrevStyle" style="width: 18px; height: 18px;position: relative;right:3px;">
                     <p class="graph-ctr-txt animated bounceIn" :style="weekPrevStyle" style="width: 150px;" @click="prevWeek()">Previous Week</p>
                 </div>
 
                 <div class="text-capitalize black--text ctrl-container" style="" v-if="week">
                     <p class="graph-ctr-txt animated bounceIn" :style="weekNextStyle"  @click="nextWeek()">Next Week</p>
                     <!-- <v-icon class="graph  -ctr-icon animated bounceIn" :style="weekNextStyle" small>keyboard_arrow_right</v-icon> -->
+                    <img src="../../assets/images/app/right-arrow.svg" alt="" class="graph-ctr-icon animated bounceIn"  v-on="on" :style="weekNextStyle" style="width: 18px; height: 18px;position: relative;left:3px;">
 
                     <v-tooltip top color="#369555">
                         <template v-slot:activator="{ on }">
                           <div class="month-ctrl" @click="nextMonthCtrl()">
-                              <v-icon medium :style="nextStyle" style="" class="animated zoomIn" v-on="on">keyboard_arrow_right</v-icon>
-                              <v-icon medium :style="nextStyle" style="" class="animated zoomIn" v-on="on">keyboard_arrow_right</v-icon>
+                              <!-- <v-icon medium :style="nextStyle" style="" class="animated zoomIn" v-on="on">keyboard_arrow_right</v-icon>
+                              <v-icon medium :style="nextStyle" style="" class="animated zoomIn" v-on="on">keyboard_arrow_right</v-icon> -->
+                              <img src="../../assets/images/app/right-arrow.svg" alt="" class="animated zoomIn"  v-on="on" :style="nextStyle" style="width: 18px; height: 18px;position: relative; left: 10px;">
+                              <img src="../../assets/images/app/right-arrow.svg" alt="" class="animated zoomIn"  v-on="on" :style="nextStyle" style="width: 18px; height: 18px;">
                           </div>
                         </template>
                         <span>{{nextMonth}}</span>
@@ -53,14 +59,34 @@
                 </div>
             </v-flex>
             <v-flex xs12 sm12 md6 lg6 style="height: 100%;" class="year-info-flex">
-                <select name="" id="" @change="transactionsDataFormat()" style="width: auto; height: 30px; border: 1px solid #E5E5E5; border-radius: 5px; padding-left: 10px;padding-right: 10px;color: black;font-size: 14px;font-weight: bold;" v-if="!week">
+                <!-- <select name="" id="" @change="transactionsDataFormat()" style="width: auto; height: 30px; border: 1px solid #E5E5E5; border-radius: 5px; padding-left: 10px;padding-right: 10px;color: black;font-size: 14px;font-weight: bold;" v-if="!week">
                     <option value="">Choose a data format</option>
                     <option value="transactions">Transactions</option>
                     <option value="compensations">Compensations Sum</option>
-                </select>
-                <v-icon medium :style="prevStyle" style="position: relative;bottom: 2px;" class="animated zoomIn mr-2" @click="prevYear()">keyboard_arrow_left</v-icon>
-                <p class="font-weight-bold">YEAR {{yearLabel}}</p>
-                <v-icon medium :style="nextStyle" style="position: relative;bottom: 2px;" class="animated zoomIn ml-2" @click="nextYear()">keyboard_arrow_right</v-icon>
+                </select> -->
+
+                <div class="" style="display: flex; flex-direction:row;justify-content:flex-start;align-items:flex-start;width:auto;cursor:pointermargin-right:20px;"><input type="radio" name="graphFormat" value="transactions" @click="transactionsDataFormat()" style="width:25px;height:20px;cursor:pointer;margin-right: 5px;" checked> <p style="font-size: 15px;margin:0px;position:relative; margin-right:50px;text-align:center;width: auto;" class="font-weight-bold transation-txt animated" :style="graphFormatTransactions">Transactions</p></div>
+                <div class="" style="display: flex; flex-direction:row;justify-content:flex-start;align-items:flex-start;width:auto;cursor:pointer;margin-right:20px;"><input type="radio" name="graphFormat" value="compensations" @click="transactionsDataFormat()" style="width:30px;height:20px;cursor:pointer;margin-right: 5px;"> <p style="font-size: 15px;;position:relative; right:5px;margin:0px;margin-right:40px;text-align:center;width: 170px;" class="font-weight-bold compensation-txt animated" :style="graphFormatCompensations">Compensations Sum</p></div>
+
+                <!-- <v-radio-group v-model="graphFormat" row @change="transactionsDataFormat()" v-if="!week">
+                    <v-radio
+                      label="#369555"
+                      color="#369555"
+                      value="red"
+                    ></v-radio>
+
+                     <v-radio
+                      label="#369555"
+                      color="#369555"
+                      value="red"
+                    ></v-radio>
+                </v-radio-group> -->
+
+                <!-- <v-icon medium :style="prevStyle" style="position: relative;bottom: 2px;" class="animated zoomIn mr-2" @click="prevYear()">keyboard_arrow_left</v-icon> -->
+                <img src="../../assets/images/app/left-arrow.svg" alt="" class="animated zoomIn mr-2" :style="prevStyle" style="position: relative;width: 18px; height: 18px;" @click="prevYear()">
+                <p class="font-weight-bold" style="position: relative; bottom: 2px;">{{yearLabel}}</p>
+                <!-- <v-icon medium :style="nextStyle" style="position: relative;bottom: 2px;" class="animated zoomIn ml-2" @click="nextYear()">keyboard_arrow_right</v-icon> -->
+                <img src="../../assets/images/app/right-arrow.svg" alt="" class="animated zoomIn ml-2" :style="nextStyle" style="position: relative;width: 18px; height: 18px;" @click="nextYear()">
             </v-flex>
         </v-layout>
 
@@ -107,6 +133,8 @@ import { log } from 'util';
             return{
 
               Graph: null,
+              graphFormatTransactions: {color: '#369555'},
+              graphFormatCompensations: {color: '#E0E0E0'},
             //   graphTabName: [{name: 'Monthly Transactions', fnt: this.yearTransactions()}, {name: 'Weekly Transactions', fnt: this.weekTransactions()}],
               datacollection: {
                     labels: this.$store.state.x_asLabel,
@@ -191,7 +219,7 @@ import { log } from 'util';
               pdfData: [],
               yearArrIndex: this.$store.state.years[0].indexOf(this.$moment().year().toString()),
               yearLabel: this.$moment().year(),
-              transactiosData_isArrayLen: true // length of de compensations data array
+              transactionsData_isArrayLen: true // length of de compensations data array
 
             }
         },
@@ -427,7 +455,7 @@ import { log } from 'util';
                 console.log(this._.pull(chunkedWeekArr, 0))
                 // sum the chunkedWeekArr group array
                 for (let index = 0; index < chunkedWeekArr.length; index++) {
-                    if(this.transactiosData_isArrayLen){
+                    if(this.transactionsData_isArrayLen){
                         let pulledchunkedWeekArr = this._.pull(chunkedWeekArr[index], 0) //remove all 0 from the array, to get the exact length
                         weekArrSum.push(pulledchunkedWeekArr.length)
                     }else{
@@ -455,13 +483,27 @@ import { log } from 'util';
 
             // change the format of the transactions data(sum of compensation in euro / length of the data array)
             transactionsDataFormat(){
-
+                
+                let transation = document.querySelector('.transation-txt')
+                let compensation = document.querySelector('.compensation-txt')
                 if(event.target.value == 'transactions'){
-                    this.transactiosData_isArrayLen = true
+                    this.transactionsData_isArrayLen = true
+
+                    this.graphFormatTransactions.color = '#369555'
+                    this.graphFormatCompensations.color = '#E0E0E0'
+
+                    transation.classList.add('bounceIn')
+                    compensation.classList.remove('bounceIn')
                 }else if(event.target.value == 'compensations'){
-                    this.transactiosData_isArrayLen = false
+                    this.transactionsData_isArrayLen = false
+
+                    this.graphFormatTransactions.color = '#E0E0E0'
+                    this.graphFormatCompensations.color = '#369555'
+
+                    transation.classList.remove('bounceIn')
+                    compensation.classList.add('bounceIn')
                 }else{
-                    this.transactiosData_isArrayLen = true
+                    this.transactionsData_isArrayLen = true
                 }
 
                 if(this.$store.state.userData.userdata.is_superuser && !this.week){
@@ -498,7 +540,7 @@ import { log } from 'util';
 
                     // let yearGraphData = self.parseTransactionsData(response.data)
                     response.data.forEach((transaction) => {
-                        if(self.transactiosData_isArrayLen){
+                        if(self.transactionsData_isArrayLen){
                             merchantTransactionsArr.push(transaction.length)
                         }else{
                             merchantTransactionsArr.push(this._.floor(this._.sum(transaction), 2))
@@ -533,7 +575,7 @@ import { log } from 'util';
 
                     response.data.forEach((transaction) => {
 
-                        if(self.transactiosData_isArrayLen){
+                        if(self.transactionsData_isArrayLen){
                             allTransactionsArr.push(transaction.length)
                         }else{
                             allTransactionsArr.push(this._.floor(this._.sum(transaction), 2))
