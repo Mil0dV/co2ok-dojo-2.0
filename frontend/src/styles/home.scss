@@ -65,6 +65,7 @@
 .prefix__section {
   padding: 80px 0 !important;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -129,12 +130,24 @@
   background: white;
   max-width: 1065px;
   width: 100%;
-  max-height: 650px;
-  height: 100%;
+  // max-height: auto;
+  height: auto;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+
+  .iframe-container{
+    width: 100%;
+    // max-height: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: -150px;
+    margin-top: -150px;
+  }
 
   .section-2__row-1, .section-2__row-2 {
     margin: 100px 60px;

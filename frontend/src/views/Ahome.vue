@@ -30,29 +30,47 @@
 
         <div class="uk-section home__section-2 prefix__section">
             <div class="section-2__content">
-                <div class="section-2__row-1">
-                    <h2 class="main-title">
-                        {{locale['section_2_title']}}
-                    </h2>
-                    <p class="main-text">
-                        {{locale['section_2_text']}}
-                    </p>
-                    <br>
-                    <a :href="this.$store.state.ninjaExtensionLink"
-                       :target="this.$store.state.extensionLinkTarget"
-                       class="button">{{locale['plugin']}}</a>
+                <div class="iframe-container">
+                    <div class="section-2__row-1">
+                        <h2 class="main-title">
+                            {{locale['section_2_title']}}
+                        </h2>
+                        <p class="main-text">
+                            {{locale['section_2_text']}}
+                        </p>
+                        <br>
+                        <a :href="this.$store.state.ninjaExtensionLink"
+                           :target="this.$store.state.extensionLinkTarget"
+                           class="button">{{locale['plugin']}}</a>
 
+                    </div>
+
+                    <div class="section-2__row-2">
+                        <iframe title="co2ok intro" class="section-2__image" width="500" height="500"
+                                src="https://www.youtube.com/embed/g6tr7eCndHw"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                        </iframe>
+
+                    </div>
                 </div>
 
-                <div class="section-2__row-2">
-                    <iframe title="co2ok intro" class="section-2__image" width="500" height="500"
-                            src="https://www.youtube.com/embed/g6tr7eCndHw"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                    </iframe>
-                </div>
+                <div class=" uk-container-width testimonial-container">
+                        <div class="img-text">
+                            <img alt="retailer icon 3" src="../assets/images/home2/profile-foto.jpg">
+                            <p><strong>Cor Sandburg</strong><br>Happy Towels</p>
+                        </div>
+                        <div class="testimonial-wrapper">
+                            <p class="main-title" style="font-weight: bold;font-size: 20px;margin: 0px;">{{locale['testomonial_head']}}</p>
+    
+                            <p class="content-text">
+                                {{locale['testimonial_content']}}
+                            </p>
+                        </div>
+                    </div>
             </div>
+            
         </div>
 
         <div class="uk-section home__section-3 prefix__section">
@@ -167,4 +185,67 @@
 
 <style scoped lang="scss">
     @import '../styles/home.scss';
+
+    .testimonial-container{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start
+    }
+
+    .testimonial-container .img-text{
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        margin-right: 25px;
+    }
+
+    .testimonial-container .img-text p{
+        font-size: 14px;
+        text-align: center;
+        width: auto;
+    }
+
+    .testimonial-container img{
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;
+    }
+
+    .testimonial-container .testimonial-wrapper{
+        width: 70%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-left: 25px;
+    }
+
+    .testimonial-container .testimonial-wrapper p{
+        font-size: 14px;
+        text-align: left
+    }
+
+     .section-2-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  img {
+    padding: 0;
+    margin: 0 30px 0 0;
+    max-width: 100px;
+    min-width: 100px;
+    max-height: 100px;
+    width: 100%;
+    height: 100%;
+  }
+}
 </style>
