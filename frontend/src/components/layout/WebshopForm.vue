@@ -3,16 +3,18 @@
         <div class="uk-container form__section uk-container-width">
             <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                 <div class="uk-width-1-2 to-left">
-                    <div class="uk-card uk-card-body section-1__col-1 final__section">
-                        <h2 class="main-title--large">{{content === 1 ? locale['title1'] : locale['title2']}}</h2>
-                        <p class="main-text--large">
-                            {{content === 1 ? locale['subtitle1'] : locale['subtitle2']}}
-                        </p>
+                    <div class="uk-card uk-card-body section-1__col-1 final__section" style="border-radius: 5px;height: 100%;width: 100%;box-shadow: -5px 3px 40px 2px hsla(300,3%,55%,.74);">
+                        <h3 style="margin-bottom: 20px;">Plugin Installation</h3>
+                        <router-link to="/webshops/plug-in-installation" class="" style="cursor: pointer;width: 90%;margin-bottom: 15px;"><button style="cursor: pointer;border: 0px;border-radius: 5px;color: white;background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);width: 100%; height: auto;padding: 15px 0px 15px 0px; border-radius: 5px;font-size:16px;text-align:center">Magento</button></router-link>
+                        <router-link to="/webshops/plug-in-installation" style="cursor: pointer;width: 90%;"><button style="cursor: pointer;border: 0px;background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);border-radius: 5px;color: white;width: 100%; height: auto;padding: 15px 0px 15px 0px; border-radius: 5px;font-size:16px;text-align:center">Wordpress / Woocommerce</button></router-link>
+
                     </div>
                 </div>
 
+
                 <div class="uk-width-1-2 to-right">
-                    <div class="uk-card login__form-container col-2-card uk-card-default uk-card-body">
+
+                    <div class="uk-card login__form-container col-2-card uk-card-default uk-card-body" style="box-shadow: -5px 3px 40px 2px hsla(300,3%,55%,.74);">
                         <form class="login__form">
                             <div class="login__group">
                                 <label class="login__group">
@@ -45,7 +47,7 @@
                             </div>
 
                             <div style="width: 100%; text-align: left;" class="login__buttons">
-                                <a class="button button-empty btn-large" @click="emptyForm()"> {{locale['empty']}}</a>
+                                <!-- <a class="button button-empty btn-large" @click="emptyForm()"> {{locale['empty']}}</a> -->
                                 <a class="button btn-large" @click="sendForm()"> {{locale['send']}}</a>
                             </div>
                         </form>

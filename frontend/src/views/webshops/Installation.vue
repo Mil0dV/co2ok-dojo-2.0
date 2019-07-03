@@ -1,9 +1,9 @@
 <template>
     <div class="main">
         <Header :image="header"></Header>
-
+        <div style="margin-top: 120px;margin-bottom: -70px;"><WebshopForm :content="formContent"/></div>
         <div class="uk-section">
-            <div class="uk-container uk-container-width">
+            <div class="uk-container uk-container-width" style="">
                 <div class="install__container">
                     <div class="uk-width-1-2 install-col install-col-1">
                         <h3>Wordpress / Woocommerce</h3>
@@ -72,7 +72,7 @@
                 </div>
             </div>
         </div>
-        <WebshopForm :content="formContent"/>
+        <!-- <WebshopForm :content="formContent"/> -->
     </div>
 </template>
 
