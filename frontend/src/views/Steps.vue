@@ -16,11 +16,50 @@
                 </div>
                 <div class="step__text-wrapper smaller-step step__img-wrapper">
                     <div class="uk-light step__img-left ">
-                        <img class="intro__img uk-box-shadow-large" alt="factory"
-                             src="../assets/images/steps/steps-intro.jpg">
+                    <iframe title="co2ok intro" class="section-2__image" width="550" height="306"
+                                src="https://www.youtube.com/embed/P5MLapEpR_0"
+                                 frameborder="0"
+                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                 allowfullscreen>
+                         </iframe>
+                        <!-- <img class="intro__img uk-box-shadow-large" alt="factory"
+                             src="../assets/images/steps/steps-intro.jpg"> -->
                     </div>
                 </div>
+
             </div>
+
+        <!-- <div class="uk-section home__section-2 prefix__section">
+            <div class="section-2__content">
+                <div class="iframe-container">
+                    <div class="section-2__row-1">
+                        <h2 class="main-title">
+                            {{locale['section_2_title']}}
+                            Together, we can stop climate change
+                        </h2>
+                        <p class="main-text">
+                            {{locale['section_2_text']}}
+                            en nog wat bla bla
+                        </p>
+                        <br>
+                        <a :href="this.$store.state.ninjaExtensionLink"
+                           :target="this.$store.state.extensionLinkTarget"
+                           class="button">{{locale['plugin']}}</a>
+
+                    </div>
+
+                    <div class="section-2__row-2">
+                    <iframe title="co2ok intro" class="section-2__image" width="500" height="500"
+                            src="https://www.youtube.com/embed/g6tr7eCndHw"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+            </div> -->
 
             <!--Stap 1-->
             <div uk-grid class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">
