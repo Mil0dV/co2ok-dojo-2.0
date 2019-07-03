@@ -46,13 +46,12 @@
                     </div>
 
                     <div class="section-2__row-2">
-                        <iframe title="co2ok intro" class="section-2__image" width="500" height="500"
-                                src="https://www.youtube.com/embed/g6tr7eCndHw"
+                    <iframe title="co2ok intro" class="section-2__image" width="420" height="300"
+                            src="https://www.youtube.com/embed/hAsY9pNJ3fE"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen>
                         </iframe>
-
                     </div>
                 </div>
 
