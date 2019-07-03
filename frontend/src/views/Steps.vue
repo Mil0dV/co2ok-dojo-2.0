@@ -307,12 +307,12 @@
         }
 
         .steps__green {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 400;
         }
 
         .steps__intro-text, .steps__text {
-            font-size: 14px;
+            font-size: 16px;
         }
 
         .steps__wrapper {

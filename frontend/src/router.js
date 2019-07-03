@@ -39,7 +39,7 @@ const router = new Router({
             component: () => import( './views/Faq'),
         },
         {
-            path: '/compensation',
+            path: '/co2-compensatie',
             name: 'steps',
             component: () => import( './views/Steps'),
         },
