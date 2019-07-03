@@ -5,8 +5,8 @@
                 <div class="uk-width-1-2 to-left">
                     <div class="uk-card uk-card-body section-1__col-1 final__section" style="border-radius: 5px;height: 100%;width: 100%;box-shadow: -5px 3px 40px 2px hsla(300,3%,55%,.74);">
                         <h3 style="margin-bottom: 20px;">Plugin Installation</h3>
-                        <router-link to="/webshops/plug-in-installation" class="" style="cursor: pointer;width: 90%;margin-bottom: 15px;"><button style="cursor: pointer;border: 0px;border-radius: 5px;color: white;background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);width: 100%; height: auto;padding: 15px 0px 15px 0px; border-radius: 5px;font-size:16px;text-align:center">Magento</button></router-link>
-                        <router-link to="/webshops/plug-in-installation" style="cursor: pointer;width: 90%;"><button style="cursor: pointer;border: 0px;background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);border-radius: 5px;color: white;width: 100%; height: auto;padding: 15px 0px 15px 0px; border-radius: 5px;font-size:16px;text-align:center">Wordpress / Woocommerce</button></router-link>
+                        <a href="#magento-guide" class="" style="cursor: pointer;width: 90%;margin-bottom: 15px;"><button style="cursor: pointer;border: 0px;border-radius: 5px;color: white;background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);width: 100%; height: auto;padding: 15px 0px 15px 0px; border-radius: 5px;font-size:16px;text-align:center">Magento</button></a>
+                        <a href="#wc-guide" style="cursor: pointer;width: 90%;"><button style="cursor: pointer;border: 0px;background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);border-radius: 5px;color: white;width: 100%; height: auto;padding: 15px 0px 15px 0px; border-radius: 5px;font-size:16px;text-align:center">Wordpress / Woocommerce</button></a>
 
                     </div>
                 </div>
@@ -16,6 +16,7 @@
 
                     <div class="uk-card login__form-container col-2-card uk-card-default uk-card-body" style="box-shadow: -5px 3px 40px 2px hsla(300,3%,55%,.74);">
                         <form class="login__form">
+                            <p style="text-align: left;">Get a demo to find out how we can help you boost margin and sales</p>
                             <div class="login__group">
                                 <label class="login__group">
                                     {{locale['input1_label']}}

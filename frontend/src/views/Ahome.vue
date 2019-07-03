@@ -72,13 +72,14 @@
             
         </div>
 
-        <div class="uk-section home__section-3 prefix__section">
-            <div class="section-3__content">
+        <!-- <div class="uk-section home__section-3 prefix__section"> -->
+            <!-- <div class="section-3__content">
                 <h3 class="sub-title">{{locale['section_3_sub']}}</h3>
                 <h2 class="main-title">{{locale['section_3_title']}}</h2>
                 <img alt="graph" class="section-3__image" src="../assets/images/home2/graph.jpg">
-            </div>
-        </div>
+            </div> --> 
+        <!-- </div> -->
+        <Widget/>
 
 
         <div class="uk-section home__section-4 prefix__section">
@@ -132,6 +133,7 @@
 
 <script>
     import homeLang from '../lang/lang_home2'
+    const Widget = () => import('@/components/layout/widget')
 
     export default {
         data() {
@@ -146,6 +148,10 @@
 
         created() {
             this.$store.commit('installNinjaButton')
+        },
+
+        components: {
+            'Widget': Widget
         },
 
         methods: {

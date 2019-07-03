@@ -52,8 +52,8 @@
                 <div class="content--wrapper">
                     <h2 class="main-title">{{locale.row1}} </h2>
 
-                    <p class="content-text">
-                        {{locale.row_text1}}
+                    <p class="content-text" v-html="locale.row_text1">
+                        <!-- {{locale.row_text1}} -->
                     </p>
                 </div>
             </div>
