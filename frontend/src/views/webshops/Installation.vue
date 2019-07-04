@@ -36,9 +36,17 @@
                             {{locale['first_step6']}}
                         </i>
                     </div>
+                </div>
+            </div>
+        </div>
 
 
+        <div class="uk-section">
+            <div class="uk-container uk-container-width" style="">
+                <div class="install__container">
+                    <!-- <div class="uk-width-1-2 install-col install-col-2"> -->
                     <div class="uk-width-1-2 install-col install-col-2" id="magento-guide">
+                    <!-- <div class="uk-width-1-2 install-col install-col-1"> -->
                         <h3>Magento</h3>
 
                         <ol>
