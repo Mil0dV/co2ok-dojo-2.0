@@ -1,5 +1,6 @@
 module.exports = {
     publicPath: '/',
+    productionSourceMap: false,
     pwa: {
         appleMobileWebAppCapable: 'yes',
         appleMobileWebAppStatusBarStyle: 'black',
