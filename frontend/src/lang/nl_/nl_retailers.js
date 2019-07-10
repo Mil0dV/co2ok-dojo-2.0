@@ -16,6 +16,9 @@ module.exports = {
         row3: 'Gratis voor webshops',
         row4: 'Eenvoudige integratie en gebruik',
 
+        testimonial_head: "People are saying",
+        testimonial_content: "De eerste keer dat ik werd gebeld over CO₂ok, zag ik het totáál niet zitten (de tweede en derde keer trouwens ook niet). Het concept van CO₂ compensatie kende ik wel en vind ik een goed idee. Maar ja, extra tekst en afbeeldingen kosten bezoekers – zeggen ze. En ook: 'Je moet de customer-journey kort houden.' Maar deze plugin draagt bij aan het duurzame verhaal van mijn webwinkel. Het ondersteunt de geloofwaardigheid en draagt zo bij aan de omzet. Sinds de installatie zijn de verkopen gestegen, en meer klanten dan verwacht compenseren CO₂.",
+
         row_text1: 'Als retailer probeert u natuurlijk uw onderneming zo duurzaam mogelijk te runnen. Sommige echter\n' +
             '                        dingen zijn buiten uw controle - de productie en verzending van uw producten bijvoorbeeld.\n' +
             '                        Fabrikanten doen er te lang over om klimaatneutraal te worden. CO₂ok vult deze kloof en staat uw toe\n' +

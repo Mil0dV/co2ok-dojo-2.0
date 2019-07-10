@@ -42,8 +42,26 @@
                         </div>
                     </div>
                 </div>
+                                <!-- <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid> -->
+                <div class="uk-card shop__card uk-card-default uk-card-body">
+                    <div class=" uk-container-width testimonial-container">
+                        <div class="img-text">
+                            <img alt="retailer icon 3" src="../../assets/images/home2/profile-foto.jpg">
+                            <p><strong>Cor Sandburg</strong><br>Happy Towels</p>
+                        </div>
+                        <div class="testimonial-wrapper">
+                            <p class="main-title" style="font-weight: bold;font-size: 20px;margin: 0px;">{{locale['testimonial_head']}}</p>
+
+                            <p class="content-text">
+                                {{locale['testimonial_content']}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- </div> -->
             </div>
         </div>
+
 
         <div class="uk-section section-2 section--content">
             <div class=" uk-container-width section-2-content">
@@ -240,4 +258,51 @@
 <style scoped lang="scss">
     @import '../../styles/layout/main.scss';
     @import '../../styles/webshops/retailers';
+
+    .testimonial-container{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start
+    }
+
+    .testimonial-container .img-text{
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        margin-right: 25px;
+    }
+
+    .testimonial-container .img-text p{
+        font-size: 14px;
+        text-align: center;
+        width: auto;
+    }
+
+    .testimonial-container img{
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;
+    }
+
+    .testimonial-container .testimonial-wrapper{
+        width: 70%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-left: 25px;
+    }
+
+    .testimonial-container .testimonial-wrapper p{
+        font-size: 14px;
+        text-align: left
+    }
+
 </style>

@@ -20,6 +20,9 @@ module.exports = {
         row3: 'Free for Webshops',
         row4: 'Easy integration and use',
 
+        testimonial_head: "People are saying",
+        testimonial_content: "The first time we got called about the CO₂ok-plugin, we didn’t like the idea at all. (The second, third and fourth times neither, by the way). I knew about the concept of CO₂ compensation already and like the idea. But hey, extra text and images costs visitors – they say. And also: ‘Keep your customer journey short.’ But this plug-in contributes to the sustainable story of my online shop. It enhances our credibility and thus contributes to our revenue. And more customers than expected compensate CO₂. That’s why I’m happy with the CO₂ok-plugin",
+
         row_text1: 'As retailer, you naturally try to run your business as sustainably as possible. However, some\n' +
             '                        things are beyond your control – the manufacturing and shipping of your products for example.\n' +
             '                        Manufacturers take too long to become climate neutral. CO₂ok fills this gap and allows your\n' +
