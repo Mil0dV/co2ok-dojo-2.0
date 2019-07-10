@@ -169,7 +169,7 @@
                     <h3 class="sub-title dark--color">{{locale.title3}}</h3>
                 </div>
 
-                <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+                <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
                             <img alt="retailer shop 1" class="shop__image"
