@@ -128,6 +128,8 @@
                 </div>
             </div>
         </div>
+        
+        <WebshopForm :content="formContent"/>
 
         <div class="uk-section section-3">
             <div class="uk-container uk-container-width">
@@ -159,7 +161,7 @@
         </div>
 
         <div class="uk-section section-4">
-            <div class="uk-container uk-container-width">
+            <!-- <div class="uk-container uk-container-width">
                 <div class="section-2--col-1 section-4--header">
                     <h2 class="main-title">{{locale.subtitle3}}</h2>
                     <h3 class="sub-title dark--color">{{locale.title3}}</h3>
@@ -197,9 +199,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
-        <WebshopForm :content="formContent"/>
     </div>
 </template>
 

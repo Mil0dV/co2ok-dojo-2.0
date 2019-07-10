@@ -45,11 +45,11 @@
                                                      to="/webshops/cause-marketing">{{locale.webshops_2}}
                                         </router-link>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <router-link :class="[checkActive('webshops7') ? 'navbar__active' : '']"
                                                      to="/webshops/plug-in-installation">{{locale.webshops_7}}
                                         </router-link>
-                                    </li>
+                                    </li> -->
                                     <li class="opval" @click="logout('consumer')"
                                         v-if="$store.state.Authenticated && $store.state.status === 'webshop'">
                                         <a>{{locale.consumers_2}}</a></li>
