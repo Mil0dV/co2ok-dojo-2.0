@@ -66,15 +66,23 @@
 
         <!-- <Widget/> -->
 
+        <div class="uk-section home__section-4 prefix__section">
         <div class="widget-container">
-        <div class="widget-core">
-            <div class="widget-txt">
-                <h3>Free for Webshops</h3>
-                <p>
-                    The first time we got called about the CO₂ok-plugin, we didn’t like the idea at all. (The second, third and fourth times neither, by the way). I knew about the concept of CO₂ compensation already and like the idea. But hey, extra text and images costs visitors – they say. And also: ‘Keep your customer journey short.’ But this plug-in contributes to the sustainable story of my online shop. It enhances our credibility and thus contributes to our revenue. And more customers than expected compensate CO₂. That’s why I’m happy with the CO₂ok-plugin
-                </p>
+            <div class="widget-core">
+                <div class="section-4__content">
+                    <div class="section-4__row-1">
+                        <div class="widget-txt">
+                            <h3>Free for Webshops</h3>
+                            <p>
+                                The first time we got called about the CO₂ok-plugin, we didn’t like the idea at all. (The second, third and fourth times neither, by the way). I knew about the concept of CO₂ compensation already and like the idea. But hey, extra text and images costs visitors – they say. And also: ‘Keep your customer journey short.’ But this plug-in contributes to the sustainable story of my online shop. It enhances our credibility and thus contributes to our revenue. And more customers than expected compensate CO₂. That’s why I’m happy with the CO₂ok-plugin
+                            </p>
+                        </div>
+                    </div>
+                    <div class="section-4__row-2">
+                      <div id="widgetContainer" style="width:47%;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>
+                </div>
+                </div>
             </div>
-            <div id="widgetContainer" style="width:47%;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>
         </div>
         </div>
 
