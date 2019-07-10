@@ -59,13 +59,13 @@
             
         </div>
 
-        <div class="uk-section home__section-3 prefix__section">
+        <!-- <div class="uk-section home__section-3 prefix__section">
             <div class="section-3__content">
                 <h3 class="sub-title">{{locale['section_3_sub']}}</h3>
                 <h2 class="main-title">{{locale['section_3_title']}}</h2>
                 <img alt="graph" class="section-3__image" src="../assets/images/home2/graph.jpg">
-            </div>
-        </div>
+            </div>  -->
+        <!-- </div> -->
         <!-- <Widget/> -->
 
         <div id="widgetContainer" style="width:100%;height:400px;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>
