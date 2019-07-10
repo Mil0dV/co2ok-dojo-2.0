@@ -1,14 +1,5 @@
 let Co2okWidget = {
 
-    // constructor() {
-
-    //   this.host = 'http://127.0.0.1:8000'
-    //   this.merchantId = merchantId
-    //   this.year = year
-    //   this.merchantCompasations(widgetContainer)
-
-    // }
-
     xhr: function() {
 
         let xhr;
@@ -73,27 +64,20 @@ let Co2okWidget = {
 
     },
 
-    // merchantCompasations(merchantId, year) {
-
-    //    let xhr = this.xhr()
-    //    let host = 'http://test.co2ok.ninja'
-    //    let self = this
-
-    //    xhr.open('GET', `${host}/user/compnensationsData/?merchantId=${merchantId}&year=${year}`, true)
-    //    xhr.withCredentials = true;
-    //    xhr.onreadystatechange = function(){
-    //        if (this.readyState == 4 && this.status == 200){
-    //            let yearTransData = self.parseTransactionsData(JSON.parse(xhr.responseText))
-    //            self.widgetGenerator(widgetContainer)
-             
-    //        }
-    //    }
-    //    xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
-    //    xhr.send()
-
-    // }
-
-    merchantCompensations: function (widgetContainer) {
+    merchantCompensations: function ( widgetContainer) {
+        // let xhr = Co2okWidget.xhr()
+        // let host = '127.0.0.1:8000/'  
+        //  /*'http://test.co2ok.ninja'*/
+        // xhr.open('GET', `${host}/user/compnensationsData/?merchantId=${merchantId}`, true)
+        //    xhr.withCredentials = true;
+        //    xhr.onreadystatechange = function(){
+        //        if (this.readyState == 4 && this.status == 200){
+        //            let yearTransData = self.parseTransactionsData(JSON.parse(xhr.responseText))
+        //            console.log(yearTransData)
+        //        }
+        //    }
+        // //    xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
+        //    xhr.send()
         Co2okWidget.widgetGenerator(widgetContainer)
     },
 
@@ -108,28 +92,28 @@ let Co2okWidget = {
 
         //   </div>`
 
-          let widgets = `<div class="widgets">
-                <div class="co2-widget">
-                    <h1>491</h1>
+          let widgets = `<div class="widgets" style="width: 100%;height: auto;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+                <div class="co2-widget" style ="width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start;">
+                    <h1 style ="text-align: right;font-size: 50px;color: green;"> 491 </h1>
                     <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 15px;">
                         <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:100%;height:auto;margin-top: -5px;">
-                            <img src="" alt="" class="compensate-icon">
+                            <img src="" alt="" class="compensate-icon" style = "width: 20px;height: 20px;border: 1px solid red;">
                             <p style="font-size: 25px;font-weight:bold;margin-left: 10px;">CO2-Reductie</p>
                         </div>
-                        <p style="font-size: 14px;margin-top: -5px;">x duizend ton CO2 gereduceerd</p>
+                        <p style="font-size: 14px;margin-top: -5px;text-align:left;">x duizend ton CO2 gereduceerd</p>
                     </div>
                     
                 </div>
 
-                <div class="wood-widget">
-                    <h1>256</h1>
+                <div class = "wood-widget" style = "width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start;">
+                    <h1 style = "text-align: right;font-size: 50px;color: green;">256</h1>
                     <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 15px;">
                         
                         <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:100%;height:auto;margin-top: -5px;">
-                            <img src="" alt="" class="compensate-icon">
+                            <img src = "" alt = "" class ="compensate-icon" style = "width: 20px;height: 20px;border: 1px solid red;">
                             <p style="font-size: 25px;font-weight:bold;margin-left: 10px;">HOUT</p>
                         </div>
-                        <p style="font-size: 14px;margin-top: -5px;">x 1 milijoen kg hout ( = 723.000 bomen) bespaard</p>
+                        <p style="font-size: 14px;margin-top: -5px;text-align:left;">x 1 milijoen kg hout ( = 723.000 bomen) bespaard</p>
                     </div>
                     
                 </div>
