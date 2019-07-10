@@ -10,7 +10,7 @@ module.exports = {
         'webshops_6' : 'Dashboard',
         'webshops_7': 'Plug-in installatie',
 
-        'consumers' : 'Voor Consumenten',
+        'consumers' : 'CO₂-compensatie',
         'consumers_1' : 'Profiel',
         'consumers_2' : 'Logout',
         'news' : 'Nieuws',

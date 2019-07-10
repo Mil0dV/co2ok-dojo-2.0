@@ -13,11 +13,6 @@
                     <div class="uk-navbar-right uk-visible@m">
                         <ul class="uk-navbar-nav">
                             <li>
-                                <router-link :class="[checkActive('about') ? 'navbar__active' : '']" to="/about">
-                                    {{locale.about}}
-                                </router-link>
-                            </li>
-                            <li>
                                 <router-link :class="[checkActive('webshops') ? 'navbar__active' : '']" to="/webshops/retailers">
                                     {{locale.webshops}}
                                     <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
@@ -71,7 +66,7 @@
 
                             <li v-else>
                                 <router-link :class="[checkActive('consumers') ? 'navbar__active' : '']"
-                                             to="/consumers/login">
+                                             to="/co2-compensatie">
                                     {{locale.consumers}}
                                 </router-link>
                             </li>
@@ -80,11 +75,11 @@
                                  class="dropdown__menu-wrapper"
                                  uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
-                                    <li>
+                                    <!-- <li>
                                         <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
                                                      to="/projects">{{locale.webshops_3}}
                                         </router-link>
-                                    </li>
+                                    </li> -->
                                     <li>
                                         <router-link to="/consumers/profile">{{locale.consumers_1}}</router-link>
                                     </li>
@@ -92,7 +87,7 @@
                                 </ul>
                             </div>
 
-                            <div v-else
+                            <!-- <div v-else
                                  class="dropdown__menu-wrapper"
                                  uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
@@ -102,8 +97,13 @@
                                         </router-link>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
 
+                            <li>
+                                <router-link :class="[checkActive('about') ? 'navbar__active' : '']" to="/about">
+                                    {{locale.about}}
+                                </router-link>
+                            </li>
                             <li>
                                 <router-link :class="[checkActive('news') ? 'navbar__active' : '']" to="/news">
                                     {{locale.news}}
@@ -176,24 +176,21 @@
 
                 <ul class="uk-nav uk-nav-default">
                     <li>
-                        <router-link to="/about">{{locale.about}}</router-link>
-                    </li>
-                    <li>
-                        <router-link to="/webshops">{{locale.webshops}}</router-link>
+                        <router-link to="/webshops/retailers">{{locale.webshops}}</router-link>
                     </li>
                     <ul class="mobile__dropdown">
                         <li v-if="$store.state.Authenticated && $store.state.status === 'webshop'">
                             <router-link to="/webshops/dashboard">{{locale.webshops_6}}</router-link>
                         </li>
-                        <li>
+                        <!-- <li>
                             <router-link to="/webshops/retailers">{{locale.webshops_1}}</router-link>
-                        </li>
+                        </li> -->
                         <li>
                             <router-link to="/webshops/cause-marketing">{{locale.webshops_2}}</router-link>
                         </li>
-                        <li>
+                        <!-- <li>
                             <router-link to="/webshops/plug-in-installation">{{locale.webshops_7}}</router-link>
-                        </li>
+                        </li> -->
                         <li>
                             <router-link to="/webshops/login">{{locale.webshops_4}} webshop</router-link>
                         </li>
@@ -204,11 +201,14 @@
                     <li v-else>
                         <router-link to="/consumers/login">{{locale.consumers}}</router-link>
                     </li>
-                    <ul class="mobile__dropdown">
+                    <!-- <ul class="mobile__dropdown">
                         <li>
                             <router-link to="/projects">{{locale.webshops_3}}</router-link>
                         </li>
-                    </ul>
+                    </ul> -->
+                    <li>
+                        <router-link to="/about">{{locale.about}}</router-link>
+                    </li>
                     <li>
                         <router-link to="/news">{{locale.news}}</router-link>
                     </li>
