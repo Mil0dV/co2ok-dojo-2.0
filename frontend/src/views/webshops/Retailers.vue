@@ -128,8 +128,10 @@
                 </div>
             </div>
         </div>
-        
+
         <WebshopForm :content="formContent"/>
+
+        <Webshops :content="webshopsContent"/>
 
         <div class="uk-section section-3">
             <div class="uk-container uk-container-width">
@@ -207,19 +209,22 @@
 <script>
     const Header = () => import('@/components/layout/Header')
     const WebshopForm = () => import('@/components/layout/WebshopForm')
+    const Webshops = () => import('@/components/layout/Webshops')
     import retailersLang from '../../lang/lang_retailers'
 
     export default {
         name: "Retailers",
         components: {
             'Header': Header,
-            'WebshopForm': WebshopForm
+            'WebshopForm': WebshopForm,
+            'Webshops': Webshops
         },
 
         data() {
             return {
                 header: 'retailers',
                 formContent: 2,
+                webshopsContent: 2,
                 locale: retailersLang,
             }
         },

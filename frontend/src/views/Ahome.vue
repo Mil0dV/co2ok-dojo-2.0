@@ -68,6 +68,25 @@
         </div>
         <Widget/>
 
+        <div class="uk-section home__section-5 prefix__section">
+            <div class="section-5__content">
+                <h3 class="sub-title">{{locale['section_5_sub']}}</h3>
+                <h2 class="main-title">{{locale['section_5_title']}}</h2>
+
+                <div class="section-5__images">
+                    <img alt="logo1" class="section-5__image"
+                         src="../assets/images/home2/logo1.jpg">
+                    <img alt="logo1" class="section-5__image"
+                         src="../assets/images/home2/logo2.jpg">
+                    <img alt="logo1" class="section-5__image"
+                         src="../assets/images/home2/logo3.jpg">
+                    <img alt="logo1" class="section-5__image"
+                         src="../assets/images/home2/logo4.jpg">
+                </div>
+
+                <router-link to="/webshops/" class="button__home">{{locale['section_5_btn']}}</router-link>
+            </div>
+        </div>
 
         <div class="uk-section home__section-4 prefix__section">
             <div class="section-4__content">
@@ -96,36 +115,22 @@
             </div>
         </div>
 
-        <div class="uk-section home__section-5 prefix__section">
-            <div class="section-5__content">
-                <h3 class="sub-title">{{locale['section_5_sub']}}</h3>
-                <h2 class="main-title">{{locale['section_5_title']}}</h2>
+        <Webshops :content="webshopsContent"/>
 
-                <div class="section-5__images">
-                    <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home2/logo1.jpg">
-                    <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home2/logo2.jpg">
-                    <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home2/logo3.jpg">
-                    <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home2/logo4.jpg">
-                </div>
-
-                <router-link to="/webshops/" class="button__home">{{locale['section_5_btn']}}</router-link>
-            </div>
-        </div>
     </div>
 </template>
 
 <script>
     import homeLang from '../lang/lang_home2'
     const Widget = () => import('@/components/layout/widget')
+    const Webshops = () => import('@/components/layout/Webshops')
+
 
     export default {
         data() {
             return {
                 locale: homeLang,
+                webshopsContent: 2,
             }
         },
 
@@ -138,7 +143,8 @@
         },
 
         components: {
-            'Widget': Widget
+            'Widget': Widget,
+            'Webshops': Webshops
         },
 
         methods: {
