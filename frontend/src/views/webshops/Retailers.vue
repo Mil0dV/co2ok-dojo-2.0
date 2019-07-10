@@ -44,7 +44,7 @@
                 </div>
                                 <!-- <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid> -->
                 <div class="uk-card shop__card uk-card-default uk-card-body" style="top: 70px; margin-bottom: 40px; border-radius: 10px;">
-                    <div class=" uk-container-width testimonial-container">
+                    <div class=" uk-container-width testimonial-container" style="padding: 10px !important;">
                         <div class="img-text">
                             <img alt="retailer icon 3" src="../../assets/images/home2/profile-foto.jpg">
                             <p><strong>Cor Sandburg</strong><br>Happy Towels</p>
@@ -291,7 +291,7 @@
         flex-direction: column;
         justify-content:center;
         align-items: center;
-        margin-right: 25px;
+        margin-right: 8%;
     }
 
     @media (max-width: 1180px) {
