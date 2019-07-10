@@ -100,7 +100,7 @@
             </div>
         </div>
 
-        <div class="uk-section home__section-4 prefix__section">
+        <div class="uk-section home__section-4 prefix__section" style="padding: 20px 0 !important;">
             <div class="section-4__content">
                 <h3 class="sub-title">{{locale['section_4_sub']}}</h3>
                 <h2 class="main-title">{{locale['section_4_title']}}</h2>
