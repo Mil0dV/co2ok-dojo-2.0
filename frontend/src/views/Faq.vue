@@ -5,12 +5,11 @@
             <div class="uk-container">
                 <div class="uk-child-width-1-1" uk-grid>
                     <div>
-                        <h2>Ninja</h2>
                         <ul uk-accordion="multiple: true">
-                            <li v-for="i in 9" :key="i">
-                                <a class="uk-accordion-title" href="#">{{locale[`faq${i}_title`]}}</a>
+                            <li v-for="i in 7" :key="i">
+                                <a class="uk-accordion-title" href="#">{{locale[`faq${i+9}_title`]}}</a>
                                 <div class="uk-accordion-content">
-                                    <p v-html="locale[`faq${i}_text`]">
+                                    <p v-html="locale[`faq${i+9}_text`]">
                                     </p>
                                 </div>
                             </li>
@@ -18,12 +17,12 @@
                     </div>
 
                     <div>
-                        <h2>Webshops</h2>
+                        <h2>Ninja</h2>
                         <ul uk-accordion="multiple: true">
-                            <li v-for="i in 7" :key="i">
-                                <a class="uk-accordion-title" href="#">{{locale[`faq${i+9}_title`]}}</a>
+                            <li v-for="i in 9" :key="i">
+                                <a class="uk-accordion-title" href="#">{{locale[`faq${i}_title`]}}</a>
                                 <div class="uk-accordion-content">
-                                    <p v-html="locale[`faq${i+9}_text`]">
+                                    <p v-html="locale[`faq${i}_text`]">
                                     </p>
                                 </div>
                             </li>

@@ -17,21 +17,21 @@ module.exports = {
 
         'faq6_title' : 'Ik shop alleen bij Amazon en gebruik al het Amazon Smile-programma. Kan ik de Ninja-app installeren?',
         'faq6_text' : 'Ten eerste doneren onze partners meestal 2-12 keer meer via de Ninja-app (1-6%) dan Amazon via Amazon Smile (slechts 0,5% van de uiteindelijke prijs). Dus, als je een zo groot mogelijke positieve invloed op de wereld wilt hebben, is het gebruik van de Ninja-app in plaats van of in aanvulling op Amazon Smile een manier om dat te bereiken. Bovendien zijn er veel producten of services beschikbaar in onze partnerwinkels die niet beschikbaar zijn op Amazon. Bijvoorbeeld reisdiensten (hotels, vluchten, treinkaartjes, autoverhuur), financiële producten of officiële kleding van sportclubs.',
-
-        'faq7_title' : 'Hoe weet ik zeker dat het geld zal worden gebruikt om broeikasgassen te compenseren?',
-        'faq7_text' : 'Atmosfair en Fair Climate Fund verschaffen ons certificaten om te bewijzen dat we hebben gecompenseerd. Daarnaast zullen we elk jaar onze inkomsten en uitgaven rapporteren.',
-
+        
+        'faq7_title': 'Credits voor Altruisto',
+        'faq7_text': 'We willen Altruisto bedanken voor het open source plaatsen van hun code zodat we ons eigen project kunnen aanvatten op basis van hun eerdere werk. Altruisto doet geweldig werk door te doneren aan goede doelen via online winkelen. Hun GitHub-repo is hier te vinden: de Altruisto GitHub-repository',
+        
         'faq8_title': 'Kost het me iets om de Ninja-app te gebruiken?',
         'faq8_text': 'Nee, de Ninja-app is absoluut gratis te gebruiken. De prijzen in de online winkels zijn exact hetzelfde, of u de app nu gebruikt of niet.',
-
+        
         'faq9_title': 'Ik koop geen van deze winkels, is er een reden voor mij om de Ninja-app te installeren?',
         'faq9_text': 'Ja, er zijn drie redenen: <br>1) We werken voortdurend aan nieuwe partnerschappen, dus we kunnen samenwerken met winkels die u in de nabije toekomst wel gebruikt. Het is eenvoudiger om het al te installeren in plaats van regelmatig te controleren of winkels die u gebruikt, zijn toegevoegd. <br> 2) Als u ooit eens besluit om bij onze partners te kopen, kan het hebben van de Ninja App al een verschil maken met de uitvoer van CO₂ in de wereld. Het is beter om het te hebben geïnstalleerd voor het geval dat, in plaats van een gemakkelijke kans te missen om heel veel gratis te doen. <br> 3) Het is gemakkelijker om nieuwe partnerschappen tot stand te brengen met een groter gebruikersbestand: hoe meer gebruikers de Ninja-app heeft, hoe gemakkelijker het is om nieuwe winkels te overtuigen om deel te nemen aan ons initiatief. Daarom, door de Ninja-app te installeren, maakt u het waarschijnlijker dat we zullen samenwerken met winkels die u in de toekomst gebruikt.',
 
         'faq10_title': 'Hoe werkt het?',
         'faq10_text': 'Na het installeren van de Ninja-app ziet u een onze "Shop CO₂ok" -doos terwijl u winkelt in een van onze partnerwinkels. Klik eenvoudigweg op dit vakje en u wordt teruggeleid naar de partnerwinkel (precies waar u eerder was). Vanaf dat moment ontvangt CO₂ok, wanneer u iets koopt, een deel van de prijs die u betaalt (meestal tussen 1% en 6%). We doneren onze winst aan zorgvuldig geselecteerde organisaties zoals Atmosfair. In sommige winkels moet u het proces na enige tijd herhalen. Je bent een mobiele Ninja - zie hier.',
-
-        'faq11_title': 'Credits voor Altruisto',
-        'faq11_text': 'We willen Altruisto bedanken voor het open source plaatsen van hun code zodat we ons eigen project kunnen aanvatten op basis van hun eerdere werk. Altruisto doet geweldig werk door te doneren aan goede doelen via online winkelen. Hun GitHub-repo is hier te vinden: de Altruisto GitHub-repository',
+        
+        'faq11_title' : 'Hoe weet ik zeker dat het geld zal worden gebruikt om broeikasgassen te compenseren?',
+        'faq11_text' : 'Atmosfair en Fair Climate Fund verschaffen ons certificaten om te bewijzen dat we hebben gecompenseerd. Daarnaast zullen we elk jaar onze inkomsten en uitgaven rapporteren.',
 
         'faq12_title': 'Hoe werkt CO2-compensatie?',
         'faq12_text': 'Broeikasgassen worden uitgestoten tijdens de productie en het transport van de producten die u koopt. Door te investeren in producten die voorkomen dat een gelijke hoeveelheid van deze broeikasgassen wordt uitgestoten, kan uw aankoop klimaatneutraal worden gemaakt. <a class="link" href="#"> (details) </a> Dus hoe reduceer je de uitstoot? Door de financiering van projecten voor hernieuwbare energie en emissiebeperking worden toekomstige emissies voorkomen: een netto reductie. <a class="link" href="#"> (details) </a>',

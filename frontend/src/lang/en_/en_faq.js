@@ -18,8 +18,8 @@ module.exports = {
         'faq6_title': 'I only shop at Amazon and already use Amazon Smile program, is there any reason for me to install the Ninja App?',
         'faq6_text': ' First of all, our partners usually donate 2-12 times more through the Ninja App (1-6%) than Amazon does through Amazon Smile (only 0.5% of the final price). So, if you care about having as big a positive impact on the world as you can, using the Ninja App either instead of or in addition to Amazon Smile is a way to achieve that. Moreover, there are a lot of products or services available in our partner stores that are not available on Amazon. For example, travel services (hotels, flights, train tickets, car rentals), financial products, or sport clubs’ official apparel.',
 
-        'faq7_title': 'How can I be sure that the money will be used to compensate greenhouse gasses?',
-        'faq7_text': 'Atmosfair and Fair Climate Fund provide us with certificates to prove we compensated. Additionally, we will report our income and spending each year.',
+        'faq7_title': 'Credits to Altruisto',
+        'faq7_text': ' We would like to thank Altruisto for putting their code open source so we could fork our own project based on their previous work. Altruisto does a great job at donating to charities through online shoppings. Their GitHub repo can be found here: Altruisto GitHub repository',
 
         'faq8_title': 'Does it cost me anything to use the Ninja App?',
         'faq8_text': 'No, the Ninja App is absolutely free to use. The prices in the online stores are exactly the same whether you use the app or not.',
@@ -30,8 +30,8 @@ module.exports = {
         'faq10_title': 'How does it work?',
         'faq10_text': ' After installing the Ninja app you will see a our “Shop CO₂ok” box whilst shopping in one of our partner stores. Simply click this box and you will be redirected back to the partner store (exactly where you were before). From then on, whenever you buy something, CO₂ok receives a portion of the price you pay (usually between 1% and 6%). We donate our profits to carefully selected organisations such as Atmosfair. Some stores will require you to repeat the process after some time. You are a mobile Ninja - see here.',
 
-        'faq11_title': 'Credits to Altruisto',
-        'faq11_text': ' We would like to thank Altruisto for putting their code open source so we could fork our own project based on their previous work. Altruisto does a great job at donating to charities through online shoppings. Their GitHub repo can be found here: Altruisto GitHub repository',
+        'faq11_title': 'How can I be sure that the money will be used to compensate greenhouse gasses?',
+        'faq11_text': 'Atmosfair and Fair Climate Fund provide us with certificates to prove we compensated. Additionally, we will report our income and spending each year.',
 
         'faq12_title': 'How does CO2 compensation work?',
         'faq12_text': ' Greenhouse gases are emitted during the production and transport of the products you purchase. By investing in products that prevent an equal amount of these greenhouse gases to be emitted, your purchase can be made climate neutral. <a class="link" href="#">(details)</a> So how do you reduce emissions? By financing renewable energy and emission reducing projects, future emissions are prevented: a net reduction. <a class="link" href="#">(details)</a>',
