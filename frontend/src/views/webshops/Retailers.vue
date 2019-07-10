@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="uk-width-auto">
-                        <div class="uk-card col-1-card uk-card-default uk-card-body">
+                        <div class="uk-card col-1-card uk-card-default uk-card-body" style="border-radius: 10px; max-width: 432px;">
                             <ul class="col-1-list">
                                 <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>
                                     {{locale.icon1}}
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                                 <!-- <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid> -->
-                <div class="uk-card shop__card uk-card-default uk-card-body">
+                <div class="uk-card shop__card uk-card-default uk-card-body" style="top: 70px; margin-bottom: 40px; border-radius: 10px;">
                     <div class=" uk-container-width testimonial-container">
                         <div class="img-text">
                             <img alt="retailer icon 3" src="../../assets/images/home2/profile-foto.jpg">
