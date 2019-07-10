@@ -30,7 +30,6 @@
 
         <div class="uk-section home__section-2 prefix__section">
             <div class="section-2__content">
-                <div class="iframe-container">
                     <div class="section-2__row-1">
                         <h2 class="main-title">
                             {{locale['section_2_title']}}
@@ -44,28 +43,27 @@
                            class="button">{{locale['plugin']}}</a>
 
                     </div>
-
+                    <!-- voor webshops: hAsY9pNJ3fE -->
                     <div class="section-2__row-2">
-                    <iframe title="co2ok intro" class="section-2__image" width="420" height="300"
-                            src="https://www.youtube.com/embed/hAsY9pNJ3fE"
+                    <iframe title="co2ok intro" class="section-2__image" width="472" height="264"
+                            src="https://www.youtube.com/embed/P5MLapEpR_0"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen>
                         </iframe>
                     </div>
-                </div>
 
             </div>
-            
         </div>
 
-        <!-- <div class="uk-section home__section-3 prefix__section">
+        <div class="uk-section home__section-3 prefix__section">
             <div class="section-3__content">
                 <h3 class="sub-title">{{locale['section_3_sub']}}</h3>
                 <h2 class="main-title">{{locale['section_3_title']}}</h2>
                 <img alt="graph" class="section-3__image" src="../assets/images/home2/graph.jpg">
-            </div>  -->
-        <!-- </div> -->
+            </div> 
+        </div>
+
         <!-- <Widget/> -->
 
         <div class="widget-container">
@@ -198,22 +196,22 @@
 <style scoped lang="scss">
     @import '../styles/home.scss';
 
-     .section-2-content {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+//      .section-2-content {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: flex-start;
+//   align-items: flex-start;
 
-  img {
-    padding: 0;
-    margin: 0 30px 0 0;
-    max-width: 100px;
-    min-width: 100px;
-    max-height: 100px;
-    width: 100%;
-    height: 100%;
-  }
-}
+//   img {
+//     padding: 0;
+//     margin: 0 30px 0 0;
+//     max-width: 100px;
+//     min-width: 100px;
+//     max-height: 100px;
+//     width: 100%;
+//     height: 100%;
+//   }
+// }
 
 .widget-container{
     width: 100%;
