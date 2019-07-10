@@ -1,15 +1,15 @@
-class Co2okWidget {
+let Co2okWidget = {
 
-    constructor() {
+    // constructor() {
 
     //   this.host = 'http://127.0.0.1:8000'
     //   this.merchantId = merchantId
     //   this.year = year
-    //   this.merchantCompasations()
+    //   this.merchantCompasations(widgetContainer)
 
-    }
+    // }
 
-    xhr() {
+    xhr: function() {
 
         let xhr;
 
@@ -23,15 +23,15 @@ class Co2okWidget {
 
         return xhr;
 
-    }
+    },
 
-    sumArray(total, num){
+    sumArray: function(total, num){
 
         return total + num;
-    }
+    },
 
     // customize version of Math floor()
-    customizeFloor(elem, num){
+    customizeFloor: function(elem, num){
        let roundedNumber
        let stringfyElem = elem.toString()
        let commaIndex = stringfyElem.indexOf('.') // get the position of the comma
@@ -42,9 +42,9 @@ class Co2okWidget {
            console.log('not a decimal number', stringfyElem)
        }
        return roundedNumber
-    }
+    },
 
-    parseTransactionsData(transactions) {
+    parseTransactionsData: function(transactions) {
 
         // let currentMonth = this.$moment().format('M')
         let currentMonth = new Date().getMonth()
@@ -71,59 +71,93 @@ class Co2okWidget {
         
         return transDataArr
 
-    }
+    },
 
-    merchantCompasations(merchantId, year) {
+    // merchantCompasations(merchantId, year) {
 
-       let xhr = this.xhr()
-       let host = 'http://test.co2ok.ninja'
-       let self = this
+    //    let xhr = this.xhr()
+    //    let host = 'http://test.co2ok.ninja'
+    //    let self = this
 
-       xhr.open('GET', `${host}/user/compnensationsData/?merchantId=${merchantId}&year=${year}`, true)
-       xhr.withCredentials = true;
-       xhr.onreadystatechange = function(){
-           if (this.readyState == 4 && this.status == 200){
-               let yearTransData = self.parseTransactionsData(JSON.parse(xhr.responseText))
-               self.widgetGenerator(yearTransData)
-               console.log(yearTransData);
+    //    xhr.open('GET', `${host}/user/compnensationsData/?merchantId=${merchantId}&year=${year}`, true)
+    //    xhr.withCredentials = true;
+    //    xhr.onreadystatechange = function(){
+    //        if (this.readyState == 4 && this.status == 200){
+    //            let yearTransData = self.parseTransactionsData(JSON.parse(xhr.responseText))
+    //            self.widgetGenerator(widgetContainer)
              
-           }
-       }
-       xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
-       xhr.send()
+    //        }
+    //    }
+    //    xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
+    //    xhr.send()
 
-    }
+    // }
 
-    widgetGenerator (response) {
+    merchantCompasations: function(widgetContainer) {
+        let self = this
+        Co2okWidget.widgetGenerator(widgetContainer)
+    },
 
-        let currentYear = new Date().getFullYear()
-        let monthsArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Dencember']
-        let widget = `
-          <div class="widget-container" style="width: 500px; height: 600px; display: flex; flex-direction:column;justify-content: center;align-items:center;border:1px solid red;">
+    widgetGenerator: function(widgetContainer) {
 
-            <h3>Total gecompenseerde co2 in Jaar ${currentYear}</h3>
+        // let currentYear = new Date().getFullYear()
+        // let monthsArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Dencember']
+        // let widget = `
+        //   <div class="widget-container" style="width: 500px; height: 600px; display: flex; flex-direction:column;justify-content: center;align-items:center;border:1px solid red;">
 
-          </div>`
+        //     <h3>Total gecompenseerde co2 in Jaar ${currentYear}</h3>
 
-        let widgetContainer = document.querySelector('.widget-container')
+        //   </div>`
 
-        response.forEach((data, i) => {
-            let widgetContent = `
-            <div class="" style="width: 100%; height: auto; display: flex; flex-direction:row;justify-content: flex-start;align-items:center;border:1px solid green;margin-bottom: 30px;">
-
-                <h1 style="text-align: center;border: 1px solid black;border-radius:100%;color:white;padding:10px;">${data}</h1>
-                <div class="" style="width: 100%; height: auto; display: flex; flex-direction:column;justify-content: center;align-items:center;">
-                    <h3>${monthsArr[i]}</h3>
-                    <p>x 50kg co2 gecompenseerd</p>
+          let widgets = `<div class="widgets">
+                <div class="co2-widget">
+                    <h1>491</h1>
+                    <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 15px;">
+                        <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:100%;height:auto;margin-top: -5px;">
+                            <img src="" alt="" class="compensate-icon">
+                            <p style="font-size: 25px;font-weight:bold;margin-left: 10px;">CO2-Reductie</p>
+                        </div>
+                        <p style="font-size: 14px;margin-top: -5px;">x duizend ton CO2 gereduceerd</p>
+                    </div>
+                    
                 </div>
 
+                <div class="wood-widget">
+                    <h1>256</h1>
+                    <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 15px;">
+                        
+                        <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:100%;height:auto;margin-top: -5px;">
+                            <img src="" alt="" class="compensate-icon">
+                            <p style="font-size: 25px;font-weight:bold;margin-left: 10px;">HOUT</p>
+                        </div>
+                        <p style="font-size: 14px;margin-top: -5px;">x 1 milijoen kg hout ( = 723.000 bomen) bespaard</p>
+                    </div>
+                    
+                </div>
             </div>`
-            widgetContainer.appendChild(widgetContent)
-        });
-        document.body.appendChild(widget)
+
+        // document.getElementById('widgetContainer').appendChild(widgets)
+        let widgetcontainer = document.getElementById(widgetContainer)
+        widgetcontainer.innerHTML = widgets
+        // document.body.innerHTML = widgets
+
+        // response.forEach((data, i) => {
+        //     let widgetContent = `
+        //     <div class="" style="width: 100%; height: auto; display: flex; flex-direction:row;justify-content: flex-start;align-items:center;border:1px solid green;margin-bottom: 30px;">
+
+        //         <h1 style="text-align: center;border: 1px solid black;border-radius:100%;color:white;padding:10px;">${data}</h1>
+        //         <div class="" style="width: 100%; height: auto; display: flex; flex-direction:column;justify-content: center;align-items:center;">
+        //             <h3>${monthsArr[i]}</h3>
+        //             <p>x 50kg co2 gecompenseerd</p>
+        //         </div>
+
+        //     </div>`
+        //     widgetContainer.appendChild(widgetContent)
+        // });
+        
 
     }
 
 }
-export default new Co2okWidget()
+// export default new Co2okWidget()
 

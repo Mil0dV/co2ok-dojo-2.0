@@ -64,9 +64,11 @@
                 <h3 class="sub-title">{{locale['section_3_sub']}}</h3>
                 <h2 class="main-title">{{locale['section_3_title']}}</h2>
                 <img alt="graph" class="section-3__image" src="../assets/images/home2/graph.jpg">
-            </div> 
-        </div>
-        <Widget/>
+            </div> --> 
+        <!-- </div> -->
+        <!-- <Widget/> -->
+
+        <div id="widgetContainer" style="width:100%;height:400px;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>
 
         <div class="uk-section home__section-5 prefix__section">
             <div class="section-5__content">
@@ -122,9 +124,8 @@
 
 <script>
     import homeLang from '../lang/lang_home2'
-    const Widget = () => import('@/components/layout/widget')
-    const Webshops = () => import('@/components/layout/Webshops')
-
+    // const Widget = () => import('@/components/layout/widget')
+    // import Widget from '../co2okWidget'
 
     export default {
         data() {
@@ -136,15 +137,16 @@
 
         mounted() {
             this.checkLanguage()
+            Co2okWidget.merchantCompasations('widgetContainer')
         },
 
         created() {
             this.$store.commit('installNinjaButton')
+            // Widget.merchantCompasations('widgetContainer')
         },
 
         components: {
-            'Widget': Widget,
-            'Webshops': Webshops
+            // 'Widget': Widget
         },
 
         methods: {
