@@ -1,6 +1,6 @@
 <template>
-    <div class="uk-section section-1">
-        <div class="uk-container form__section uk-container-width">
+    <div class="uk-section section-1" style="padding-bottom: 0px;">
+        <div class="uk-container form__section uk-container-width" style="margin-top: 0px;">
             <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                 <div class="uk-width-1-2 to-left">
 

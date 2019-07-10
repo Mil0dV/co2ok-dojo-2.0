@@ -110,7 +110,7 @@
             </div>
         </div>
 
-        <div class="uk-section section-2 section--dark section--content">
+        <div class="uk-section section-2 section--dark section--content" style="margin-bottom: 0px;">
             <div class=" uk-container-width section-2-content">
                 <img alt="retailer icon 4" src="../../assets/images/webshops/retailers/retailer-icon-4.png">
 
