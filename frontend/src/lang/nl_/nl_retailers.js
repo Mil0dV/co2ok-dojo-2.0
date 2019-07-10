@@ -35,7 +35,7 @@ module.exports = {
             '                        wijzigingen in bestelprocessen. U verliest geen klanten door omslachtige procedures. Als je een tegenkomt\n' +
             '                        probleem met de plug-in, we zijn altijd beschikbaar via e-mail of per telefoon.',
 
-        row_button: 'Integreer de Plug-in',
+        row_button: 'Boek een demo',
 
         subTitle2: 'Wat te doen?',
         title2: 'Hoe het werkt',

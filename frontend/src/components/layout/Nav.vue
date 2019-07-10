@@ -115,13 +115,14 @@
                                 </router-link>
                             </li>
                         </ul>
-                        <a rel="noopener" v-if="!$store.state.Authenticated" :href="this.$store.state.ninjaExtensionLink"
-                           :target="this.$store.state.extensionLinkTarget" class="button">{{locale.extension}}</a>
-                        <ul v-else class="uk-navbar-nav">
+                        <!-- <a rel="noopener" v-if="!$store.state.Authenticated" :href="this.$store.state.ninjaExtensionLink"
+                           :target="this.$store.state.extensionLinkTarget" class="button">{{locale.extension}}</a> -->
+                        <router-link to="/webshops/get-started" class="button">{{locale.extension}}</router-link>
+                        <!-- <ul v-else class="uk-navbar-nav">
                             <li @click="logout()">
                                 <a>{{locale.consumers_2}}</a>
                             </li>
-                        </ul>
+                        </ul> -->
 
                         <div class="line"></div>
                         <transition enter-acitve-class="animated bounceIn"
@@ -220,8 +221,9 @@
                         <a>Logout</a>
                     </li>
                 </ul>
-                <a rel="noopener" :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget"
-                   class="button">{{locale.extension}}</a>
+                <!-- <a rel="noopener" :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget"
+                   class="button">{{locale.extension}}</a> -->
+                <router-link to="/webshops/get-started" class="button">{{locale.extension}}</router-link>
                 <hr>
                 <transition enter-acitve-class="animated bounceIn"
                             leave-active-class="animated bounceOut"

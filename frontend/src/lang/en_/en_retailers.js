@@ -43,7 +43,7 @@ module.exports = {
             '                        ordering-process changes. You won’t lose customers by any tedious procedures. If you bump into a\n' +
             '                        problem with the plugin, we’re always available through mail or by phone.',
 
-        row_button: 'Integrate Plug-in',
+        row_button: 'Book a demo',
 
         subTitle2: 'What to do?',
         title2: 'How it works',

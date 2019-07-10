@@ -15,7 +15,7 @@
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/plug-in-installation" class="button">Plug-in</router-link>
+                                <router-link to="/webshops/get-started" class="button">{{locale.row_button}}</router-link>
                             </div>
                         </div>
                     </div>
@@ -146,7 +146,7 @@
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/plug-in-installation" class="button">{{locale.row_button2}}
+                                <router-link to="/webshops/plug-in-installation" class="button">{{locale.row_button}}
                                 </router-link>
                             </div>
                         </div>

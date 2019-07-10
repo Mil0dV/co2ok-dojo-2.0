@@ -16,6 +16,6 @@ module.exports = {
         'news' : 'News',
         'faq' : 'FAQ',
 
-        'extension' : 'Extension',
+        'extension' : 'Book a demo',
     }
 }

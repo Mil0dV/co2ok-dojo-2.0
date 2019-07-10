@@ -75,8 +75,8 @@ const router = new Router({
             component: () => import('./views/webshops/Cause')
         },
         {
-            path: '/webshops/plug-in-installation',
-            name: 'plug-in-installation',
+            path: '/webshops/get-started',
+            name: 'get-started',
             component: () => import('./views/webshops/Installation')
         },
         {
