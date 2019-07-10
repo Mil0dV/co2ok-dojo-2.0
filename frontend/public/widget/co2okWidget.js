@@ -93,8 +93,7 @@ let Co2okWidget = {
 
     // }
 
-    merchantCompasations: function(widgetContainer) {
-        let self = this
+    merchantCompensations: function (widgetContainer) {
         Co2okWidget.widgetGenerator(widgetContainer)
     },
 

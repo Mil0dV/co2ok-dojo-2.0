@@ -59,16 +59,25 @@
             
         </div>
 
-        <div class="uk-section home__section-3 prefix__section">
+        <!-- <div class="uk-section home__section-3 prefix__section">
             <div class="section-3__content">
                 <h3 class="sub-title">{{locale['section_3_sub']}}</h3>
                 <h2 class="main-title">{{locale['section_3_title']}}</h2>
                 <img alt="graph" class="section-3__image" src="../assets/images/home2/graph.jpg">
-            </div>
-        </div>
+            </div>  -->
+        <!-- </div> -->
         <!-- <Widget/> -->
 
-        <div id="widgetContainer" style="width:100%;height:400px;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>
+        <!-- <div class="widget-container"> -->
+        <div class="widget-core">
+            <div class="widget-txt">
+                <h3>Free for Webshops</h3>
+                <p>
+                    The first time we got called about the CO₂ok-plugin, we didn’t like the idea at all. (The second, third and fourth times neither, by the way). I knew about the concept of CO₂ compensation already and like the idea. But hey, extra text and images costs visitors – they say. And also: ‘Keep your customer journey short.’ But this plug-in contributes to the sustainable story of my online shop. It enhances our credibility and thus contributes to our revenue. And more customers than expected compensate CO₂. That’s why I’m happy with the CO₂ok-plugin
+                </p>
+            </div>
+            <div id="widgetContainer" style="border: 1px solid red;width:50%;height:400px;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>
+        </div>
 
         <div class="uk-section home__section-5 prefix__section">
             <div class="section-5__content">
@@ -125,6 +134,7 @@
 <script>
     import homeLang from '../lang/lang_home2'
     // const Widget = () => import('@/components/layout/widget')
+    const Webshops = () => import('@/components/layout/Webshops')
     // import Widget from '../co2okWidget'
 
     export default {
@@ -137,7 +147,7 @@
 
         mounted() {
             this.checkLanguage()
-            Co2okWidget.merchantCompasations('widgetContainer')
+            Co2okWidget.merchantCompensations('widgetContainer')
         },
 
         created() {
@@ -147,6 +157,7 @@
 
         components: {
             // 'Widget': Widget
+            'Webshops': Webshops 
         },
 
         methods: {
@@ -201,5 +212,78 @@
     width: 100%;
     height: 100%;
   }
+}
+
+.widget-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0px 50px 0px;
+}
+
+.widget-core{
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.widget-txt{
+    width: 45%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.widget-tx h3{
+    text-align: left;
+}
+
+.widget-txt p{
+    text-align: left;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.widgets{
+    width: 47%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.co2-widget, .wood-widget{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.wood-widget h1, .co2-widget h1{
+    text-align: right;
+    font-size: 50px;
+    color: green;
+}
+
+.wood-widget p, .co2-widget p{
+    text-align: left;
+    /* font-size: 16px; */
+}
+
+.compensate-icon{
+    width: 20px;
+    height: 20px;
+    border: 1px solid red;
 }
 </style>
