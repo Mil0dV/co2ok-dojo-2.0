@@ -134,7 +134,7 @@
         <Webshops :content="webshopsContent"/>
 
         <div class="uk-section section-3">
-            <div class="uk-container uk-container-width">
+            <div class="uk-container uk-container-width" style="padding: 0px 0 !important;">
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
                         <div class="uk-card uk-card-body section-1__col-1">
