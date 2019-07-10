@@ -131,11 +131,11 @@
   border-radius: 10px;
   max-width: 1065px;
   width: 100%;
-  // max-height: auto;
-  height: auto;
+  max-height: 420px;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 
   .iframe-container{
