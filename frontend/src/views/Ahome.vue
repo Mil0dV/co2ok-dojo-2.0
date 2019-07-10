@@ -125,6 +125,7 @@
 <script>
     import homeLang from '../lang/lang_home2'
     // const Widget = () => import('@/components/layout/widget')
+    const Webshops = () => import('@/components/layout/Webshops')
     // import Widget from '../co2okWidget'
 
     export default {
@@ -147,6 +148,7 @@
 
         components: {
             // 'Widget': Widget
+            'Webshops': Webshops 
         },
 
         methods: {
