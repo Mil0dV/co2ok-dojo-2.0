@@ -284,6 +284,15 @@
         margin-right: 25px;
     }
 
+    @media (max-width: 1180px) {
+        .testimonial-container .img-text{
+            margin-right: 0px;
+        }
+        .testimonial-container .testimonial-wrapper{
+            width: 90%;
+        }
+    }
+
     .testimonial-container .img-text p{
         font-size: 14px;
         text-align: center;
