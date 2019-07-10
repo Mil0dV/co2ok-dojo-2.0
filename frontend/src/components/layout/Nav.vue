@@ -18,7 +18,7 @@
                                 </router-link>
                             </li>
                             <li>
-                                <router-link :class="[checkActive('webshops') ? 'navbar__active' : '']" to="/webshops">
+                                <router-link :class="[checkActive('webshops') ? 'navbar__active' : '']" to="/webshops/retailers">
                                     {{locale.webshops}}
                                     <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
                                 </router-link>
@@ -30,14 +30,14 @@
                                                      to="/webshops/dashboard">{{locale.webshops_6}}
                                         </router-link>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <router-link :class="[checkActive('webshops') ? 'navbar__active' : '']"
                                                      to="/webshops">{{locale.webshops}}
                                         </router-link>
-                                    </li>
+                                    </li> -->
                                     <li>
                                         <router-link :class="[checkActive('webshops1') ? 'navbar__active' : '']"
-                                                     to="/webshops/retailers">{{locale.webshops_1}}
+                                                     to="/webshops/retailers">{{locale.webshops}}
                                         </router-link>
                                     </li>
                                     <li>
