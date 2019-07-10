@@ -138,7 +138,7 @@
 
         mounted() {
             this.checkLanguage()
-            Co2okWidget.merchantCompasations('widgetContainer')
+            Co2okWidget.merchantCompensations('widgetContainer')
         },
 
         created() {
