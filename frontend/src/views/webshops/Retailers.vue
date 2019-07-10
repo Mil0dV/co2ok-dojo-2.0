@@ -163,7 +163,7 @@
         </div>
 
         <div class="uk-section section-4">
-            <!-- <div class="uk-container uk-container-width">
+            <div class="uk-container uk-container-width">
                 <div class="section-2--col-1 section-4--header">
                     <h2 class="main-title">{{locale.subtitle3}}</h2>
                     <h3 class="sub-title dark--color">{{locale.title3}}</h3>
@@ -200,8 +200,18 @@
                             </p>
                         </div>
                     </div>
+                    <div>
+                        <div class="uk-card shop__card uk-card-default uk-card-body">
+                            <img alt="retailer shop 3" class="shop__image"
+                                 src="../../assets/images/webshops/retailers/shop-3.png">
+                            <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
+                            <p class="shop--text">
+                                {{locale.quote3}}
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
 </template>
