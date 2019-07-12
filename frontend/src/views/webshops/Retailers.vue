@@ -162,7 +162,7 @@
             </div>
         </div>
 
-        <div class="uk-section section-4">
+        <div class="uk-section section-4" id="pricing">
             <div class="uk-container uk-container-width">
                 <div class="section-2--col-1 section-4--header">
                     <h2 class="main-title">{{locale.subtitle3}}</h2>
@@ -172,41 +172,37 @@
                 <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <img alt="retailer shop 1" class="shop__image"
-                                 src="../../assets/images/webshops/retailers/shop-1.png">
+                            <!-- <img alt="retailer shop 1" class="shop__image"
+                                 src="../../assets/images/webshops/retailers/shop-1.png"> -->
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
-                            <p class="shop--text">
-                                {{locale.quote1}}
+                            <p class="shop--text" v-html="locale.quote1">
                             </p>
                         </div>
                     </div>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <img alt="retailer shop 2" class="shop__image"
-                                 src="../../assets/images/webshops/retailers/shop-2.png">
+                            <!-- <img alt="retailer shop 2" class="shop__image"
+                                 src="../../assets/images/webshops/retailers/shop-2.png"> -->
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
-                            <p class="shop--text">
-                                {{locale.quote2}}
+                            <p class="shop--text" v-html="locale.quote2">
                             </p>
                         </div>
                     </div>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <img alt="retailer shop 3" class="shop__image"
-                                 src="../../assets/images/webshops/retailers/shop-3.png">
+                            <!-- <img alt="retailer shop 3" class="shop__image"
+                                 src="../../assets/images/webshops/retailers/shop-3.png"> -->
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
-                            <p class="shop--text">
-                                {{locale.quote3}}
+                            <p class="shop--text" v-html="locale.quote3">
                             </p>
                         </div>
                     </div>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <img alt="retailer shop 3" class="shop__image"
-                                 src="../../assets/images/webshops/retailers/shop-3.png">
+                            <!-- <img alt="retailer shop 3" class="shop__image"
+                                 src="../../assets/images/webshops/retailers/shop-3.png"> -->
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
-                            <p class="shop--text">
-                                {{locale.quote3}}
+                            <p class="shop--text" v-html="locale.quote4">
                             </p>
                         </div>
                     </div>

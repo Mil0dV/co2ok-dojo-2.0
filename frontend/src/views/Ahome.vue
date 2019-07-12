@@ -66,7 +66,7 @@
 
         <!-- <Widget/> -->
 
-        <div class="widget-container">
+        <!-- <div class="widget-container">
         <div class="widget-core">
             <div class="widget-txt">
                 <h3>Free for Webshops</h3>
@@ -76,7 +76,7 @@
             </div>
             <div id="widgetContainer" style="width:47%;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>
         </div>
-        </div>
+        </div> -->
 
         <div class="uk-section home__section-5 prefix__section">
             <div class="section-5__content">

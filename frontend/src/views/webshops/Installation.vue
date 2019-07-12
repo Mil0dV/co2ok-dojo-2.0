@@ -2,10 +2,10 @@
     <div class="main">
         <Header :image="header"></Header>
         <div style="margin-top: 120px;margin-bottom: -70px;"><WebshopForm :content="formContent"/></div>
-        <div class="uk-section">
+        <div class="uk-section" id="wc-guide">
             <div class="uk-container uk-container-width" style="">
                 <div class="install__container">
-                    <div class="uk-width-1-2 install-col install-col-1" id="wc-guide">
+                    <div class="uk-width-1-2 install-col install-col-1">
                         <h3>Wordpress / Woocommerce</h3>
 
                         <ol>
@@ -41,11 +41,11 @@
         </div>
 
 
-        <div class="uk-section">
+        <div class="uk-section" id="magento-guide">
             <div class="uk-container uk-container-width" style="">
                 <div class="install__container">
                     <!-- <div class="uk-width-1-2 install-col install-col-2"> -->
-                    <div class="uk-width-1-2 install-col install-col-2" id="magento-guide">
+                    <div class="uk-width-1-2 install-col install-col-2">
                     <!-- <div class="uk-width-1-2 install-col install-col-1"> -->
                         <h3>Magento</h3>
 

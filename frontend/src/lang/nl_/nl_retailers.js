@@ -45,16 +45,41 @@ module.exports = {
 
         row_button2: 'Installeer de Plug-in',
 
-        subtitle3: 'CO₂ok Partners',
-        title3: 'Neem een kijkje bij de webshops die al gebruik maken van de  CO₂ok plugin',
+        subtitle3: 'Tarieven',
+        title3: 'Jaarlijkse/Maandelijkse Facturatie',
 
-        quote1: '“Onze webshop is al duurzaam, maar nu ook klimaatneutraal door CO₂ok!\n' +
-            '– Petra Jenema ”',
-        quote2: '“De eerste keer dat ik werd gebeld over de CO₂ok-plugin, zag ik hem totáál niet zitten. (De tweede en derde keer trouwens ook niet). Het concept van CO₂ compensatie kende ik wel en vind ik een goed idee. Maar ja, extra tekst en afbeeldingen kosten bezoekers – zeggen ze. En ook: ‘Je moet de customer-journey kort houden.’\n' +
-            '\n' +
-            'Maar deze plugin draagt bij aan het duurzame verhaal van mijn webwinkel. Het ondersteunt de geloofwaardigheid en draagt zo bij aan de omzet. Sinds de installatie zijn de verkopen gestegen. En meer klanten dan verwacht compenseren CO₂. Daarom ben ik blij met de CO₂ok-plugin” \n' +
-            '– Cor Sandburg',
-        quote3: '“Wij zijn zelf al erg milieu bewust, maar kopen onze producten wel in via boten. CO₂ok geeft ons de kans om alle CO₂ kosten weer recht te trekken.”',
+        quote1: '<h2><small>Free 4-ever</small></h2> <br>' + 
+            '<h3>ROCKET</h3> <br>' + 
+            '• <5K bezoekers/maand<br>' +
+            '• oneindige domeinen<br>' +
+            '• widget met resultaten<br>' +
+            '• deze shop is CO2ok-merk<br>' +
+            '• MVO marketing content<br>' +
+            '• support tot in de wolken',
+        quote2: '<h2>€39<small>/€49</small></h2> <br>' + 
+            '<h3>SPACESHIP</h3> <br>' + 
+            '• <20K bezoekers/maand<br>' +
+            '• oneindige domeinen<br>' +
+            '• widget met resultaten<br>' +
+            '• deze shop is CO2ok-merk<br>' +
+            '• MVO marketing content<br>' +
+            '• support tot in de wolken',
+        quote3: '<h2>€79<small>/€99</small></h2> <br>' + 
+            '<h3>STARSHIP</h3> <br>' + 
+            '• <100K bezoekers/maand<br>' +
+            '• oneindige domeinen<br>' +
+            '• widget met resultaten<br>' +
+            '• deze shop is CO2ok-merk<br>' +
+            '• MVO marketing content<br>' +
+            '• support tot in de wolken',
+        quote4: '<h2>€149<small>/€199</small></h2> <br>' + 
+            '<h3>ENTERPRISE</h3> <br>' + 
+            '• >100K bezoekers/maand<br>' +
+            '• oneindige domeinen<br>' +
+            '• widget met resultaten<br>' +
+            '• deze shop is CO2ok-merk<br>' +
+            '• MVO marketing content<br>' +
+            '• support tot in de wolken',
 
     }
 }
