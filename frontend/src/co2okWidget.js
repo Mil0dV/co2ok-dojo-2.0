@@ -116,7 +116,7 @@ let Co2okWidget = {
                             <img src="" alt="" class="compensate-icon" style = "width: 20px;height: 20px;border: 1px solid red;">
                             <p style="font-size: 25px;font-weight:bold;margin-left: 10px;">CO2-Reductie</p>
                         </div>
-                        <p style="font-size: 14px;margin-top: -5px;text-align:left;">x duizend ton CO2 gereduceerd</p>
+                        <p style="font-size: 14px;margin-top: -5px;text-align:left;">x duizend kilo CO2 gereduceerd</p>
                     </div>
                     
                 </div>
@@ -129,7 +129,7 @@ let Co2okWidget = {
                             <img src = "" alt = "" class ="compensate-icon" style = "width: 20px;height: 20px;border: 1px solid red;">
                             <p style="font-size: 25px;font-weight:bold;margin-left: 10px;">HOUT</p>
                         </div>
-                        <p style="font-size: 14px;margin-top: -5px;text-align:left;">x 1 milijoen kg hout ( = 723.000 bomen) bespaard</p>
+                        <p style="font-size: 14px;margin-top: -5px;text-align:left;">x 1 duizend kg hout ( = 723 bomen) bespaard</p>
                     </div>
                     
                 </div>

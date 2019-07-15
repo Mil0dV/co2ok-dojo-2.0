@@ -58,9 +58,9 @@
 
         <div class="uk-section home__section-3 prefix__section">
             <div class="section-3__content">
-                <h3 class="sub-title">{{locale['section_3_sub']}}</h3>
-                <h2 class="main-title">{{locale['section_3_title']}}</h2>
-                <img alt="graph" class="section-3__image" src="../assets/images/home2/graph.jpg">
+                <!-- <h3 class="sub-title">{{locale['section_3_sub']}}</h3>
+                <h2 class="main-title">{{locale['section_3_title']}}</h2> -->
+                <img alt="graph" class="section-3__image" src="../assets/images/home2/shoppingcart-nl.png">
             </div> 
         </div>
 
@@ -78,26 +78,7 @@
         </div>
         </div> -->
 
-        <div class="uk-section home__section-5 prefix__section">
-            <div class="section-5__content">
-                <h3 class="sub-title">{{locale['section_5_sub']}}</h3>
-                <h2 class="main-title">{{locale['section_5_title']}}</h2>
-
-                <div class="section-5__images">
-                    <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home2/logo1.jpg">
-                    <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home2/logo2.jpg">
-                    <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home2/logo3.jpg">
-                    <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home2/logo4.jpg">
-                </div>
-
-                <router-link to="/webshops/" class="button__home">{{locale['section_5_btn']}}</router-link>
-            </div>
-        </div>
-
+        <!-- Projects -->
         <div class="uk-section home__section-4 prefix__section" style="padding: 20px 0 !important;">
             <div class="section-4__content">
                 <h3 class="sub-title">{{locale['section_4_sub']}}</h3>
@@ -124,6 +105,29 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- Partners -->
+        <div class="uk-section home__section-5 prefix__section">
+            <div class="section-5__content">
+                <h3 class="sub-title">{{locale['section_5_sub']}}</h3>
+                <h2 class="main-title">{{locale['section_5_title']}}</h2>
+
+                <div class="section-5__images">
+                    <img alt="logo1" class="section-5__image"
+                         src="../assets/images/home2/logo1.jpg">
+                    <img alt="logo1" class="section-5__image"
+                         src="../assets/images/home2/logo2.jpg">
+                    <img alt="logo1" class="section-5__image"
+                         src="../assets/images/home2/logo3.jpg">
+                    <img alt="logo1" class="section-5__image"
+                         src="../assets/images/home2/logo4.jpg">
+                </div>
+
+                <router-link to="/webshops/" class="button__home">{{locale['section_5_btn']}}</router-link>
+            </div>
+        </div>
+
 
         <Webshops :content="webshopsContent"/>
 
