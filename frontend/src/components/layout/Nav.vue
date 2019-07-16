@@ -41,9 +41,11 @@
                                         </router-link>
                                     </li>
                                     <li>
-                                        <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
+                                        <!-- <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
                                                      to="/webshops/retailers/#pricing">{{locale.webshops_3}}
-                                        </router-link>
+                                        </router-link> -->
+                                        <a href="/webshops/retailers/#pricing">{{locale.webshops_3}}
+                                        </a>
                                     </li>
                                     <!-- <li>
                                         <router-link :class="[checkActive('webshops7') ? 'navbar__active' : '']"
