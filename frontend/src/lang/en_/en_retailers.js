@@ -53,8 +53,8 @@ module.exports = {
 
         row_button2: 'Install Plug-in',
 
-        subtitle3: 'CO₂ok Partners',
-        title3: 'Take a look at the webshops which already use the CO₂ok plugin',
+        subtitle3: 'Pricing',
+        title3: 'Yearly/Monthly Billing',
 
         quote1: '<h2><small>Free 4-ever</small></h2> <br>' + 
             '<h3>ROCKET</h3> <br>' + 
