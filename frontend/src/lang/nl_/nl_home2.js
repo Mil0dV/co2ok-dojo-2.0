@@ -1,17 +1,18 @@
 module.exports = {
     lang_nl_home2: {
-        'intro_first_desktop'  : 'DOE MEE MET DE STRIJD T',
-        'intro_second_desktop' : 'EGEN KLIMAATVERANDERING',
+        'intro_first_desktop'  : 'MAAK SHOPPEN',
+        'intro_second_desktop' : 'KLIMAATNEUTRAAL',
 
-        'intro_first_mobile-1' : 'DOE MEE M',
-        'intro_first_mobile-2' : 'TEGEN KLIMAA',
-        'intro_second_mobile-1' : 'ET DE STRIJD',
-        'intro_second_mobile-2' : 'TVERANDERING',
+        'intro_first_mobile-1' : 'MAAK SH',
+        'intro_first_mobile-2' : 'KLIMAAT',
+        'intro_second_mobile-1' : 'OPPEN',
+        'intro_second_mobile-2' : 'NEUTRAAL',
 
-        'section_2_title': 'Samen kunnen we de klimaatverandering stoppen.',
-        'section_2_text': 'Bij CO₂ok willen we aankopen klimaatneutraal maken. Dit wordt mogelijk gemaakt door een browserextensie en plug-in die we hebben gemaakt voor consumenten en verkopers. Het enige dat u hoeft te doen, is op de magische knop klikken en wij zorgen voor de rest.',
+        'section_2_title': 'Samen kunnen we klimaatverandering stoppen',
+        'section_2_text': 'Veel mensen denken dat ze weinig kunnen doen tegen klimaatverandering. Onzin natuurlijk. Je kunt zelf juist heel veel doen. CO₂ok geeft je die kans! Ga met ons de strijd aan. Door elke online aankoop die je doet CO₂ok te maken, beperken we de hoeveelheid broeikasgassen die in de lucht komen. Zo gaan we samen klimaatverandering tegen!',
 
-        'plugin': 'Installeer de plugin',
+        'button_1': 'Voor Webshops',
+        'button_2': 'Voor Consumenten',
 
         'section_3_sub': 'De impact',
         'section_3_title': 'Top 10 impact van de gemiddelde Nederlander',
@@ -22,7 +23,7 @@ module.exports = {
         'section_4_btn': 'Lees meer',
 
         'section_5_sub': 'Enkele van onze partners',
-        'section_5_title': 'Samen kunnen we een verandering aanbrengen',
-        'section_5_btn': 'Doe mee met de strijd tegen klimaatverandering!',
+        'section_5_title': 'Samen kunnen we een verandering realiseren',
+        'section_5_btn': 'Sluit je webshop aan bij de strijd',
     }
 }

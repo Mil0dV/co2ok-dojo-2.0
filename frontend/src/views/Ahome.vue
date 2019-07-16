@@ -38,14 +38,15 @@
                             {{locale['section_2_text']}}
                         </p>
                         <br>
-                        <a :href="this.$store.state.ninjaExtensionLink"
-                           :target="this.$store.state.extensionLinkTarget"
-                           class="button">{{locale['plugin']}}</a>
+                        <a href="/webshops/retailers"
+                           class="button">{{locale['button_1']}}</a>
+                        <a href="/ninja"
+                           class="button">{{locale['button_2']}}</a>
 
                     </div>
                     <!-- voor webshops: hAsY9pNJ3fE -->
                     <div class="section-2__row-2">
-                    <iframe title="co2ok intro" class="section-2__image" width="472" height="264"
+                    <iframe title="co2ok intro" class="section-2__image" width="532" height="299"
                             src="https://www.youtube.com/embed/P5MLapEpR_0"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -124,7 +125,7 @@
                          src="../assets/images/home2/logo4.jpg">
                 </div>
 
-                <router-link to="/webshops/" class="button__home">{{locale['section_5_btn']}}</router-link>
+                <router-link to="/webshops/retailers" class="button__home">{{locale['section_5_btn']}}</router-link>
             </div>
         </div>
 

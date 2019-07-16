@@ -2,38 +2,32 @@ module.exports = {
     lang_nl_retailers: {
         header: 'Retailers',
         subTitle: 'Bestrijd de klimaatverandering',
-        title: 'Groener en meer klanten, zonder investering',
+        title: 'Groener én meer klanten',
         mainText: 'Klimaat is hot – steeds meer mensen kiezen voor duurzaam en groen. Door je klanten de kans te geven om de CO₂-uitstoot van hun aankopen te compenseren, kunnen we samen klimaatverandering terugdringen. En dat zonder kosten voor jouw bedrijf – het zorgt juist voor meer klanten!',
 
-        icon1: 'Verbeter uw bedrijfsimago',
-        icon2: 'Help mee om klimaatverandering te bestrijden',
-        icon3: 'Verkoop meer',
-        icon4: 'Opzetten in paar minuten',
-        icon5: 'Gratis (ja, echt!)',
+        icon1: 'Hogere conversie en retentie',
+        icon2: 'De klant kiest voor compensatie',
+        icon3: 'Eenvoudige integratie en gebruik',
+        icon4: 'Invulling aan MVO strategie',
+        icon5: 'Help mee klimaatverandering bestrijden',
 
-        row1: 'Wordt milieubewust',
-        row2: 'Hogere conversie, meer omzet',
-        row3: 'Gratis voor webshops',
+        row1: 'Invulling van MVO strategie',
+        row1_extra: 'Help mee tegen klimaatverandering',
+        row2: 'Hogere conversie en retentie',
+        row3: 'Hoge ROI',
         row4: 'Eenvoudige integratie en gebruik',
 
-        testimonial_head: "People are saying",
+        testimonial_head: "Wat mensen zeggen",
         testimonial_content: "De eerste keer dat ik werd gebeld over CO₂ok, zag ik het totáál niet zitten (de tweede en derde keer trouwens ook niet). Het concept van CO₂ compensatie kende ik wel en vind ik een goed idee. Maar ja, extra tekst en afbeeldingen kosten bezoekers – zeggen ze. En ook: 'Je moet de customer-journey kort houden.' Maar deze plugin draagt bij aan het duurzame verhaal van mijn webwinkel. Het ondersteunt de geloofwaardigheid en draagt zo bij aan de omzet. Sinds de installatie zijn de verkopen gestegen, en meer klanten dan verwacht compenseren CO₂.",
 
-        row_text1: 'Als retailer probeert u natuurlijk uw onderneming zo duurzaam mogelijk te runnen. Sommige echter\n' +
-            '                        dingen zijn buiten uw controle - de productie en verzending van uw producten bijvoorbeeld.\n' +
-            '                        Fabrikanten doen er te lang over om klimaatneutraal te worden. CO₂ok vult deze kloof en staat uw toe\n' +
-            '                        klanten om alles te kopen wat ze willen, zonder bij te dragen aan de klimaatverandering!',
-        row_text2: 'Als retailer probeert u natuurlijk uw onderneming zo duurzaam mogelijk te runnen. Sommige echter dingen zijn buiten uw controle - de productie en verzending van uw producten bijvoorbeeld. Fabrikanten doen er te lang over om klimaatneutraal te worden. CO₂ok vult deze kloof en staat uw toe klanten om alles te kopen wat ze willen, zonder bij te dragen aan de klimaatverandering! Dit is ook genaamd <a href="https://blabla.nl">Cause Marketing</a> ',
+        row_text1: 'Naast de plug-in heeft Co2ok diverse diensten die je kunnen helpen in het realiseren van een solide MVO strategie. Wist je bijvoorbeeld dat invulling van je MVO strategie vaak  effectiever is dan adverteren?<br><br>',
+        row_text1_extra: 'Iedereen draagt dagelijks zijn steentje bij voor een groene en duurzame toekomst. Zo ook als retailer maar vallen sommige zaken gewoonweg buiten je controle. Zo komt het vaak voor dat je niet precies weet wat er gebeurt bij iedere schakel in de supply chain. Co2ok stelt je in staat op een simpele manier bij te dragen tegen klimaatverandering.',
+        row_text2: 'De consument wordt steeds kritischer in zijn of haar aankoop proces en vanuit de overheid en het bedrijfsleven wordt er steeds meer gestreefd naar een circulaire economie. Uit diverse onderzoeken hiernaar is gebleken dat men sneller kiest voor producten/diensten die zich inzetten voor sociaal etisch en/of ecologische kwesties. <br> <br> De resultaten laten zien dat de consument meer uitgeeft, sneller terugkeert en de gehele customer journey positiever ervaren wordt. Dit is bekend als<a href="/webshops/cause-marketing">Cause Marketing</a>.',
         row_text2_extra: 'Je bereikt nog meer klanten als je meegaat met onze marketingcampagne. Tijdens onze campagne\n' +
             '                        je kunt gemakkelijk mee rijden op ons netwerk. We posten op Facebook, LinkedIn, Twitter en zijn\n' +
             '                        in tijdschriften en op radio! Als je meer wilt weten, kun je contact opnemen met Jos.',
-        row_text3: 'De plug-in is geheel gratis voor webwinkel eigenaren. Het duurt slechts 1 minuut om de\n' +
-            '                        CO₂ok-plugin. Wanneer u de plug-in in uw webshop hebt geïntegreerd, kunnen uw klanten die zelf maken\n' +
-            '                        keuze om bij te dragen. Op die manier maken ze hun aankoop klimaatneutraal. De minor extra gratis is\n' +
-            '                        gemiddeld 1%.',
-        row_text4: 'Zowel het installeren van onze plug-in als het gebruiken ervan kan met slechts één klik worden gedaan. Niets over het\n' +
-            '                        wijzigingen in bestelprocessen. U verliest geen klanten door omslachtige procedures. Als je een tegenkomt\n' +
-            '                        probleem met de plug-in, we zijn altijd beschikbaar via e-mail of per telefoon.',
+        row_text3: 'Met onze plug-in geeft u de klant vrijblijvend de optie om voor co2 compensatie te kiezen. Co2ok stelt de plug-in gratis beschikbaar voor startende webshops. Voor grotere webshops vragen wij een kleine vergoeding om onze service in stand te houden. Zo verdelen we de lasten naar draagkracht en maximaliseren we ons bereik.',
+        row_text4: 'Binnen twee minuten is de plug-in geïnstalleerd. Na deze installatie hoef je geen aandacht meer te besteden aan onze service. We hebben kant en klare oplossingen voor Woocommerce en Magento. Voor andere e-commerce systemen is een makkelijk te integreren SDK om te koppelen aan onze API.',
 
         row_button: 'Boek een demo',
 

@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="uk-width-auto">
-                        <div class="uk-card col-1-card uk-card-default uk-card-body" style="border-radius: 10px; max-width: 432px;">
+                        <div class="uk-card col-1-card uk-card-default uk-card-body" style="border-radius: 10px; max-width: 452px;">
                             <ul class="col-1-list">
                                 <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>
                                     {{locale.icon1}}
@@ -35,7 +35,7 @@
                                 <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>
                                     {{locale.icon4}}
                                 </li>
-                                <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>                                    {{locale.icon3}}
+                                <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>                                    
                                     {{locale.icon5}}
                                 </li>
                             </ul>
@@ -71,6 +71,8 @@
                     <h2 class="main-title">{{locale.row1}} </h2>
 
                     <p class="content-text" v-html="locale.row_text1">
+                    <h2 class="sub-title">{{locale.row1_extra}} </h2>
+                    <p class="content-text" v-html="locale.row_text1_extra">
                         <!-- {{locale.row_text1}} -->
                     </p>
                 </div>
@@ -85,13 +87,12 @@
                 <div class="content--wrapper">
                     <h2 class="main-title">{{locale.row2}}</h2>
 
-                    <p class="content-text">
-                        {{locale.row_text2}}
+                    <p class="content-text" v-html="locale.row_text2">
                     </p>
 
-                    <p class="content-text">
+                    <!-- <p class="content-text">
                         {{locale.row_text2_extra}}
-                    </p>
+                    </p> -->
                 </div>
             </div>
         </div>
@@ -166,7 +167,7 @@
             <div class="uk-container uk-container-width">
                 <div class="section-2--col-1 section-4--header">
                     <h2 class="main-title">{{locale.subtitle3}}</h2>
-                    <h3 class="sub-title dark--color">{{locale.title3}}</h3>
+                    <h2 class="sub-title">{{locale.title3}}</h2>
                 </div>
 
                 <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>

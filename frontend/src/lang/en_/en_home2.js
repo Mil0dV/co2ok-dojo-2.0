@@ -1,18 +1,19 @@
 module.exports = {
     lang_en_home2: {
-        'intro_first_desktop' : 'JOIN US IN THE FIGHT A',
-        'intro_second_desktop' : 'GAINST CLIMATE CHANGE',
+        'intro_first_desktop' : 'MAKE SHOPPING',
+        'intro_second_desktop' : 'CLIMATE NEUTRAL',
 
-        'intro_first_mobile-1' : 'JOIN US I',
-        'intro_first_mobile-2' : 'AGAINST CLI',
-        'intro_second_mobile-1' : 'N THE FIGHT',
-        'intro_second_mobile-2' : 'MATE CHANGE',
+        'intro_first_mobile-1' : 'MAKE SH',
+        'intro_first_mobile-2' : 'CLIMATE',
+        'intro_second_mobile-1' : 'OPPING',
+        'intro_second_mobile-2' : 'NEUTRAL',
 
 
         'section_2_title': 'Together, we can stop climate change.',
         'section_2_text': 'At CO₂ok we care about making purchases climate neutral. This is made possible with a browser extension and plugin we created for consumers and merchants. All you have to do is click the magic button and we’ll take care of the rest.',
 
-        'plugin': 'Install the extension',
+        'button_1': 'For Webshops',
+        'button_2': 'For Consumers',
 
         'section_3_sub': 'The impact',
         'section_3_title': 'Top 10 impact from the average Dutchman',
