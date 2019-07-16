@@ -56,11 +56,38 @@ module.exports = {
         subtitle3: 'CO₂ok Partners',
         title3: 'Take a look at the webshops which already use the CO₂ok plugin',
 
-        quote1: '“Our webshop is sustainable, but climate neutral as well because of CO₂ok!”',
-        quote2: '“The first time we got called about the CO₂ok-plugin, we didn’t like the idea at all. (The second, third and fourth times neither, by the way). I knew about the concept of CO₂ compensation already and like the idea. But hey, extra text and images costs visitors – they say. And also: ‘Keep your customer journey short.’\n' +
-            '\n' +
-            'But this plug-in contributes to the sustainable story of my online shop. It enhances our credibility and thus contributes to our revenue. And more customers than expected compensate CO₂. That’s why I’m happy with the CO₂ok-plugin” Cor Sandburg – www.happytowels.nl',
-        quote3: '“We were already environment conscious, but we do buy our products by ship. CO₂ok provides the opportunity to get our CO₂ costs straightened.”',
+        quote1: '<h2><small>Free 4-ever</small></h2> <br>' + 
+            '<h3>ROCKET</h3> <br>' + 
+            '• <5K visitors/month<br>' +
+            '• unlimited domains<br>' +
+            '• widget with results<br>' +
+            '• this shop is CO2ok-label<br>' +
+            '• CSR marketing content<br>' +
+            '• support till in the clouds',
+        quote2: '<h2>€39<small>/€49</small></h2> <br>' + 
+            '<h3>SPACESHIP</h3> <br>' + 
+            '• <20K visitors/month<br>' +
+            '• unlimited domains<br>' +
+            '• widget with results<br>' +
+            '• this shop is CO2ok-label<br>' +
+            '• CSR marketing content<br>' +
+            '• support till in the clouds',
+        quote3: '<h2>€79<small>/€99</small></h2> <br>' + 
+            '<h3>STARSHIP</h3> <br>' + 
+            '• <100K visitors/month<br>' +
+            '• unlimited domains<br>' +
+            '• widget with results<br>' +
+            '• this shop is CO2ok-label<br>' +
+            '• CSR marketing content<br>' +
+            '• support till in the clouds',
+        quote4: '<h2>€149<small>/€199</small></h2> <br>' + 
+            '<h3>ENTERPRISE</h3> <br>' + 
+            '• >100K visitors/month<br>' +
+            '• unlimited domains<br>' +
+            '• widget with results<br>' +
+            '• this shop is CO2ok-label<br>' +
+            '• CSR marketing content<br>' +
+            '• support till in the clouds',
 
     }
 }
