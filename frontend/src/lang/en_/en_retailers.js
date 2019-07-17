@@ -7,17 +7,17 @@ module.exports = {
             '                                consumers, companies are increasingly looking for ways to “go green”. Of course, you\n' +
             '                                need to protect your bottom line as well. By enabling your customers to make their\n' +
             '                                purchase climate neutral with CO₂ok, you can do your bit to drive back climate change.\n' +
-            '                                CO₂ok lets you increase the amount of customers with no upfront or recurring costs.',
+            '                                CO₂ok lets you increase the amount of customers with no upfront costs.',
 
         icon1: 'Improve your corporate image',
         icon2: 'Help fight climate change',
         icon3: 'Sell more',
         icon4: 'Setup in minutes',
-        icon5: 'Free (really!)',
+        icon5: 'Add to your CSR strategy',
 
         row1: 'Go Green',
         row2: 'Higher conversion rate, more turnover',
-        row3: 'Free for Webshops',
+        row3: 'High ROI',
         row4: 'Easy integration and use',
 
         testimonial_head: "People are saying",
@@ -35,10 +35,10 @@ module.exports = {
         row_text2_extra: ' You reach even more customers if you go along with our marketing campaign. During our campaign\n' +
             '                        you can easily ride along on our network. We post on Facebook, LinkedIn, Twitter and are\n' +
             '                        featured in magazines and on radio! If you would like to know more you can contact Jos.',
-        row_text3: 'The plugin is entirely free for webshop owners. It only takes 1 minute to install the\n' +
+        row_text3: 'The plugin is free for starting webshop owners. It only takes 1 minute to install the\n' +
             '                        CO₂ok-plugin. When you integrated the plugin in your webshop, your customers can make their own\n' +
             '                        choice to contribute. That way they make their purchase climate neutral. The minor extra free is\n' +
-            '                        on average 1%.',
+            '                        on average 2%.',
         row_text4: ' Both installing our plugin and using it can be done with just one click. Nothing about the\n' +
             '                        ordering-process changes. You won’t lose customers by any tedious procedures. If you bump into a\n' +
             '                        problem with the plugin, we’re always available through mail or by phone.',
@@ -87,6 +87,7 @@ module.exports = {
             '• widget with results<br>' +
             '• this shop is CO2ok-label<br>' +
             '• CSR marketing content<br>' +
+            '• specialized enterprise services<br>' +
             '• support till in the clouds',
 
     }

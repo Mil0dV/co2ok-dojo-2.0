@@ -3,7 +3,7 @@ module.exports = {
         header: 'Retailers',
         subTitle: 'Bestrijd de klimaatverandering',
         title: 'Groener én meer klanten',
-        mainText: 'Klimaat is hot – steeds meer mensen kiezen voor duurzaam en groen. Door je klanten de kans te geven om de CO₂-uitstoot van hun aankopen te compenseren, kunnen we samen klimaatverandering terugdringen. En dat zonder kosten voor jouw bedrijf – het zorgt juist voor meer klanten!',
+        mainText: 'Steeds meer consumenten kiezen bewuster en kiezen  voor duurzaam. Door je klanten de kans te geven om de CO₂-uitstoot van hun aankopen te compenseren, kunnen we samen klimaatverandering terugdringen. En dat zonder hoge kosten voor jouw bedrijf – het zorgt juist voor meer klanten!',
 
         icon1: 'Hogere conversie en retentie',
         icon2: 'De klant kiest voor compensatie',
@@ -73,6 +73,7 @@ module.exports = {
             '• widget met resultaten<br>' +
             '• deze shop is CO2ok-merk<br>' +
             '• MVO marketing content<br>' +
+            '• gespecialiseerde enterprise diensten<br>' +
             '• support tot in de wolken',
 
     }
