@@ -232,7 +232,7 @@
                    class="button">{{locale.extension}}</a> -->
                 <router-link to="/webshops/get-started" class="button">{{locale.extension}}</router-link>
                 <hr>
-                <transition enter-acitve-class="animated bounceIn"
+                <!-- <transition enter-acitve-class="animated bounceIn"
                             leave-active-class="animated bounceOut"
                             mode="out-in">
                     <ul key="en" v-if="$store.state.language === 'en'" class="uk-navbar-nav navbar__mobile">
@@ -265,7 +265,7 @@
                             </ul>
                         </div>
                     </ul>
-                </transition>
+                </transition> -->
 
             </div>
         </div>
