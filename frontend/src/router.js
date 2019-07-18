@@ -70,6 +70,11 @@ const router = new Router({
             component: () => import('./views/webshops/Retailers')
         },
         {
+            path: '/retailers',
+            name: 'retailers',
+            component: () => import('./views/webshops/Retailers')
+        },
+        {
             path: '/webshops/cause-marketing',
             name: 'cause-marketing',
             component: () => import('./views/webshops/Cause')
