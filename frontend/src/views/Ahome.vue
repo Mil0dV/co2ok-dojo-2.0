@@ -40,14 +40,14 @@
                         <br>
                         <a href="/webshops/retailers"
                            class="button">{{locale['button_1']}}</a>
-                        <a href="/ninja"
-                           class="button">{{locale['button_2']}}</a>
+                        <!-- <a href="/ninja"
+                           class="button">{{locale['button_2']}}</a> -->
 
                     </div>
                     <!-- voor webshops: hAsY9pNJ3fE -->
                     <div class="section-2__row-2">
                     <iframe title="co2ok intro" class="section-2__image" width="532" height="299"
-                            src="https://www.youtube.com/embed/P5MLapEpR_0"
+                            src="https://www.youtube.com/embed/hAsY9pNJ3fE"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen>
@@ -57,13 +57,290 @@
             </div>
         </div>
 
-        <div class="uk-section home__section-3 prefix__section">
-            <div class="section-3__content">
-                <!-- <h3 class="sub-title">{{locale['section_3_sub']}}</h3>
-                <h2 class="main-title">{{locale['section_3_title']}}</h2> -->
-                <img alt="graph" class="section-3__image" src="../assets/images/home2/shoppingcart-nl.png">
-            </div> 
+        <div class="steps__container">
+
+            <!--Stap 1-->
+            <div uk-grid class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">
+                <div class="step__text-wrapper  step__img-left step__img-wrapper">
+                    <div class="uk-light">
+                        <img class="step__img uk-box-shadow-large" alt="2 factory"
+                             src="../assets/images/home2/shoppingcart-snippet-nl.png">
+                    </div>
+                </div>
+
+                <div class="step__text-wrapper">
+                    <div class="intro__text step__col steps__content steps__content-right uk-padding">
+                        <div class="steps__wrapper">
+                            <div class="steps__title-container">
+                                <i class="fas fa-smog step__icon"></i>
+                                <p class="steps__title">
+                                    {{locale['s2_title']}}
+                                </p>
+                            </div>
+
+                            <p class="main-text">
+                                {{locale['s2_text']}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Stap 2-->
+            <div uk-grid class="steps__intro uk-child-width-expand@s uk-text-center">
+                <div class="step__text-wrapper step__img-left">
+                    <div class="intro__text step__col steps__content steps__content-left uk-padding">
+                        <div class="steps__wrapper">
+                            <div class="steps__title-container">
+                                <i class="fas fa-shopping-cart step__icon"></i>
+                                <p class="steps__title">
+                                    {{locale['s3a_title']}}
+                                </p>
+                            </div>
+
+                            <p class="main-text">
+                                {{locale['s3_text']}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step__text-wrapper step__img-wrapper">
+                    <div class="uk-light step__img-right">
+                        <img class="step__img uk-box-shadow-large" alt="payment"
+                             src="../assets/images/steps/step-2.jpg">
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Stap 3-->
+            <div uk-grid class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">
+                <div class="step__text-wrapper step__img-left step__img-wrapper">
+                    <div class="uk-light step__img-left">
+                        <img class="step__img  uk-box-shadow-large" alt="solar-panels"
+                             src="../assets/images/steps/step-3.jpg">
+                    </div>
+                </div>
+
+                <div class="step__text-wrapper">
+                    <div class="intro__text step__col steps__content steps__content-right uk-padding">
+                        <div class="steps__wrapper">
+                            <div class="steps__title-container">
+                                <i class="fas fa-solar-panel step__icon"></i>
+                                <p class="steps__title">
+                                    {{locale['s4_title']}}
+                                </p>
+                            </div>
+
+                            <p class="main-text">
+                                {{locale['s4_text']}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Stap 4-->
+            <div uk-grid class="steps__intro uk-child-width-expand@s uk-text-center">
+                <div class="step__text-wrapper step__img-left">
+                    <div class="intro__text step__col steps__content steps__content-left uk-padding">
+                        <div class="steps__wrapper">
+                            <div class="steps__title-container">
+                                <i class="fas fa-check step__icon"></i>
+                                <p class="steps__title">
+                                    {{locale['s5_title']}}
+                                </p>
+                            </div>
+
+                            <p class="main-text">
+                                {{locale['s5_text']}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step__text-wrapper step__img-wrapper">
+                    <div class="uk-light step__img-right">
+                        <img class="step__img step__img-4 uk-box-shadow-large" alt="payment"
+                             src="../assets/images/steps/step-4.jpg">
+                    </div>
+                </div>
+            </div>
         </div>
+
+
+        <div class="uk-section section-4 section--dark">
+            <div class="uk-container uk-container-width">
+                <div class="section-2--col-1 section-4--header">
+                    <h2 class="sub-title dark--color">{{locale['s3_subTitle']}}</h2>
+                    <h2 class="main-title">{{locale['s3_title']}}</h2>
+                </div>
+                <br><br>
+
+                <div class="graph__section">
+
+                    <div class="graph-wrapper">
+                        <div class="flex-wrapper">
+                            <div class="single-chart">
+                                <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
+                                    <path class="circle-bg"
+                                          d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                          stroke-dasharray="90, 100"
+                                          d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <text x="18" y="20.35" class="percentage">{{locale['s3_row1_percentage1']}}%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="graph__text">
+                            <h2 class="main-title">{{locale['s3_consumers']}}</h2>
+                            <p class="main-text">
+                                {{locale['s3_row1_text']}}
+                            </p>
+
+                            <br>
+                            <a class="link row-link" href="#">
+                                {{locale['s3_row1_link']}} <span uk-icon="icon: arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="graph-wrapper">
+                        <div class="flex-wrapper">
+                            <div class="single-chart">
+                                <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
+                                    <path class="circle-bg"
+                                          d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                          stroke-dasharray="90, 100"
+                                          d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <text x="18" y="20.35" class="percentage">{{locale['s3_row1_percentage2']}}%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="graph__text">
+                            <h2 class="main-title">{{locale['s3_respondents']}}</h2>
+                            <p class="main-text">
+                                {{locale['s3_row2_text']}}
+                            </p>
+
+                            <br>
+                            <a class="link row-link" href="#">
+                                {{locale['s3_row2_link']}} <span uk-icon="icon: arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="graph-wrapper">
+                        <div class="flex-wrapper">
+                            <div class="single-chart">
+                                <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
+                                    <path class="circle-bg"
+                                          d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                          stroke-dasharray="90, 100"
+                                          d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <text x="18" y="20.35" class="percentage">{{locale['s3_row1_percentage3']}}%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="graph__text">
+                            <h2 class="main-title">{{locale['s3_consumers']}}</h2>
+                            <p class="main-text">
+                                {{locale['s3_row3_text']}}
+                            </p>
+
+                            <br>
+                            <a class="link row-link" href="#">
+                                {{locale['s3_row3_link']}} <span uk-icon="icon: arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="graph-wrapper">
+                        <div class="flex-wrapper">
+                            <div class="single-chart">
+                                <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
+                                    <path class="circle-bg"
+                                          d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                          stroke-dasharray="90, 100"
+                                          d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <text x="18" y="20.35" class="percentage">{{locale['s3_row1_percentage4']}}%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="graph__text">
+                            <h2 class="main-title">{{locale['s3_consumers']}}</h2>
+                            <p class="main-text">
+                                {{locale['s3_row4_text']}}
+                            </p>
+
+                            <br>
+                            <a class="link row-link" href="#">
+                                {{locale['s3_row4_link']}} <span uk-icon="icon: arrow-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="uk-section home__section-3 prefix__section">
+            <!-- <div class="section-3__content">
+                <h3 class="sub-title">{{locale['section_3_sub']}}</h3>
+                <h2 class="main-title">{{locale['section_3_title']}}</h2>
+                <img alt="graph" class="section-3__image" src="../assets/images/home2/shoppingcart-nl.png">
+            </div>  -->
+            <div class="uk-card shop__card uk-card-default uk-card-body" style="top: 70px; margin-bottom: 40px; border-radius: 10px;">
+                <div class=" uk-container-width testimonial-container" style="padding: 10px !important;">
+                    <div class="img-text">
+                        <img alt="retailer icon 3" src="../assets/images/home2/profile-foto.jpg">
+                        <p><strong>Cor Sandburg</strong><br>Happy Towels</p>
+                    </div>
+                    <div class="testimonial-wrapper">
+                        <p class="main-title" style="font-weight: bold;font-size: 20px;margin: 0px;">{{locale['testimonial_head']}}</p>
+
+                        <p class="content-text">
+                            {{locale['testimonial_content']}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <!-- <Widget/> -->
 
@@ -80,7 +357,7 @@
         </div> -->
 
         <!-- Projects -->
-        <div class="uk-section home__section-4 prefix__section" style="padding: 20px 0 !important;">
+        <!-- <div class="uk-section home__section-4 prefix__section" style="padding: 20px 0 !important;">
             <div class="section-4__content">
                 <h3 class="sub-title">{{locale['section_4_sub']}}</h3>
                 <h2 class="main-title">{{locale['section_4_title']}}</h2>
@@ -105,7 +382,7 @@
                     <router-link to="/projects/" class="button">{{locale['section_4_btn']}}</router-link>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
         <!-- Partners -->
@@ -132,12 +409,15 @@
 
         <Webshops :content="webshopsContent"/>
 
+        <WebshopForm :content="formContent"/>
+
     </div>
 </template>
 
 <script>
     import homeLang from '../lang/lang_home2'
     // const Widget = () => import('@/components/layout/widget')
+    const WebshopForm = () => import('@/components/layout/WebshopForm')
     const Webshops = () => import('@/components/layout/Webshops')
     // import Widget from '../co2okWidget'
 
@@ -145,6 +425,7 @@
         data() {
             return {
                 locale: homeLang,
+                formContent: 2,
                 webshopsContent: 2,
             }
         },
@@ -161,21 +442,33 @@
 
         components: {
             // 'Widget': Widget
+            'WebshopForm': WebshopForm,
             'Webshops': Webshops 
         },
 
         methods: {
             checkLanguage(lang) {
-                if (lang === 'en') {
-                    this.locale = homeLang.lang_en_home2
-                } else {
-                    if (this.currentLanguage === 'en') {
-                        this.locale = homeLang.lang_en_home2
-                    } else {
+                // if (lang === 'en') {
+                //     this.locale = homeLang.lang_en_home2
+                // } else {
+                //     if (this.currentLanguage === 'en') {
+                //         this.locale = homeLang.lang_en_home2
+                //     } else {
                         this.locale = homeLang.lang_nl_home2
-                    }
-                }
+                    // }
+                // }
             }
+            // checkLanguage(lang) {
+            //     if (lang === 'en') {
+            //         this.locale = homeLang.lang_en_home2
+            //     } else {
+            //         if (this.currentLanguage === 'en') {
+            //             this.locale = homeLang.lang_en_home2
+            //         } else {
+            //             this.locale = homeLang.lang_nl_home2
+            //         }
+            //     }
+            // }
         },
 
         computed: {
@@ -200,6 +493,7 @@
 
 <style scoped lang="scss">
     @import '../styles/home.scss';
+    @import '../styles/webshops/cause';
 
 //      .section-2-content {
 //   display: flex;

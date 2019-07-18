@@ -171,15 +171,15 @@
 
         methods: {
             checkLanguage(lang) {
-                if(lang === 'en'){
-                    this.locale = language.lang_en_about
-                } else {
-                    if (this.currentLanguage === 'en') {
-                        this.locale = language.lang_en_about
-                    } else {
+                // if(lang === 'en'){
+                //     this.locale = language.lang_en_about
+                // } else {
+                //     if (this.currentLanguage === 'en') {
+                //         this.locale = language.lang_en_about
+                //     } else {
                         this.locale = language.lang_nl_about
-                    }
-                }
+                //     }
+                // }
             }
         },
 

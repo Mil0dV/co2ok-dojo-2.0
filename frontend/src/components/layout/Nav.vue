@@ -131,7 +131,7 @@
                             </li>
                         </ul> -->
 
-                        <div class="line"></div>
+                        <!-- <div class="line"></div>
                         <transition enter-acitve-class="animated bounceIn"
                                     leave-active-class="animated bounceOut"
                                     mode="out-in">
@@ -165,7 +165,7 @@
                                     </ul>
                                 </div>
                             </ul>
-                        </transition>
+                        </transition> -->
                     </div>
 
                     <div class="uk-navbar-right uk-hidden@m">
@@ -341,15 +341,15 @@
             },
 
             checkLanguage(lang) {
-                if (lang === 'en') {
-                    this.locale = navLang.lang_en_nav
-                } else {
-                    if (this.currentLanguage === 'en') {
-                        this.locale = navLang.lang_en_nav
-                    } else {
+                // if (lang === 'en') {
+                //     this.locale = navLang.lang_en_nav
+                // } else {
+                //     if (this.currentLanguage === 'en') {
+                //         this.locale = navLang.lang_en_nav
+                    // } else {
                         this.locale = navLang.lang_nl_nav
-                    }
-                }
+                //     }
+                // }
             }
         },
 

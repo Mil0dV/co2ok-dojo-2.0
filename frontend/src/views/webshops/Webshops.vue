@@ -195,15 +195,15 @@
 
         methods: {
             checkLanguage(lang) {
-                if(lang === 'en'){
-                    this.locale = webshopsLang.lang_en_webshops
-                } else {
-                    if (this.currentLanguage === 'en') {
-                        this.locale = webshopsLang.lang_en_webshops
-                    } else {
+                // if(lang === 'en'){
+                //     this.locale = webshopsLang.lang_en_webshops
+                // } else {
+                //     if (this.currentLanguage === 'en') {
+                //         this.locale = webshopsLang.lang_en_webshops
+                //     } else {
                         this.locale = webshopsLang.lang_nl_webshops
-                    }
-                }
+                //     }
+                // }
             }
         },
 

@@ -242,15 +242,15 @@
 
         methods: {
             checkLanguage(lang) {
-                if(lang === 'en'){
-                    this.locale = retailersLang.lang_en_retailers
-                } else {
-                    if (this.currentLanguage === 'en') {
-                        this.locale = retailersLang.lang_en_retailers
-                    } else {
+                // if(lang === 'en'){
+                //     this.locale = retailersLang.lang_en_retailers
+                // } else {
+                //     if (this.currentLanguage === 'en') {
+                //         this.locale = retailersLang.lang_en_retailers
+                    // } else {
                         this.locale = retailersLang.lang_nl_retailers
-                    }
-                }
+                //     }
+                // }
             }
         },
 
@@ -272,59 +272,5 @@
     @import '../../styles/layout/main.scss';
     @import '../../styles/webshops/retailers';
 
-    .testimonial-container{
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-start
-    }
-
-    .testimonial-container .img-text{
-        width: auto;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content:center;
-        align-items: center;
-        margin-right: 8%;
-    }
-
-    @media (max-width: 1180px) {
-        .testimonial-container .img-text{
-            margin-right: 0px;
-        }
-        .testimonial-container .testimonial-wrapper{
-            width: 90%;
-        }
-    }
-
-    .testimonial-container .img-text p{
-        font-size: 14px;
-        text-align: center;
-        width: auto;
-    }
-
-    .testimonial-container img{
-        width: 70px;
-        height: 70px;
-        border-radius: 100%;
-    }
-
-    .testimonial-container .testimonial-wrapper{
-        width: 70%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        margin-left: 25px;
-    }
-
-    .testimonial-container .testimonial-wrapper p{
-        font-size: 14px;
-        text-align: left
-    }
 
 </style>
