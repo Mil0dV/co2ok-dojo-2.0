@@ -1,35 +1,36 @@
 module.exports = {
     lang_nl_home2: {
-        'intro_first_desktop'  : 'MAAK SHOPPEN',
-        'intro_second_desktop' : 'KLIMAATNEUTRAAL',
+        'intro_first_desktop'  : 'CO₂ COMPENSATIE',
+        'intro_second_desktop' : ' VOOR IN JE WEBSHOP',
 
-        'intro_first_mobile-1' : 'MAAK SH',
-        'intro_first_mobile-2' : 'KLIMAAT',
-        'intro_second_mobile-1' : 'OPPEN',
-        'intro_second_mobile-2' : 'NEUTRAAL',
+        'intro_first_mobile-1' : 'CO₂ COM',
+        'intro_first_mobile-2' : 'VOOR IN J',
+        'intro_second_mobile-1' : 'PENSATIE',
+        'intro_second_mobile-2' : 'E WEBSHOP',
 
-        'section_2_title': 'Samen kunnen we klimaatverandering stoppen',
-        'section_2_text': 'Veel mensen denken dat ze weinig kunnen doen tegen klimaatverandering. Onzin natuurlijk. Je kunt zelf juist heel veel doen. CO₂ok geeft je die kans! Ga met ons de strijd aan. Door elke online aankoop die je doet CO₂ok te maken, beperken we de hoeveelheid broeikasgassen die in de lucht komen. Zo gaan we samen klimaatverandering tegen!',
+        'section_2_title': 'Verhoog je conversie. Bestrijd klimaatverandering.',
+        'section_2_text': 'CO₂ok geeft consumenten de mogelijkheid om online aankopen klimaatneutraal te doen. De makkelijke integratie zorgt binnnen een minuut voor verbreding van je MVO strategie. Onze dienst speelt in op de behoefte van de consument, verlaagt cart abandonment, verhoogt retentie en laat zien dat jij om onze planeet geeft!',
 
-        'button_1': 'Voor Webshops',
+        'button_1': 'Aan de slag',
         'button_2': 'Voor Consumenten',
 
+        'steps_title': 'Hoe het werkt',
         's2_title': '1. Klant wilt afrekenen',
-        's2_text': 'Op de winkelwagen pagina ziet de klant de CO₂ok plugin',
+        's2_text': 'Op de winkelwagen/checkout pagina ziet de klant de CO₂ok plugin.',
 
-        's3a_title': '2. Lees tekst: maak mijn aankoop klimaatneutraal',
-        's3_text': 'De CO₂ compensatie is geheel vrijblijvend',
+        's3a_title': '2. Klant leest tekst: maak mijn aankoop klimaatneutraal',
+        's3_text': 'De keuze voor CO₂ compensatie is geheel vrijblijvend.',
 
         's4_title': '3. Bij het aanklikken van de knop',
-        's4_text': 'Komt er gemiddeld 2% bovenop het aankoopbedrag',
+        's4_text': 'Komt er gemiddeld 2% bovenop het aankoopbedrag.',
 
-        's5_title': '4. Hier investeren wij',
-        's5_text': '75% in onze partners, Atmosfair en Fair Climate Fund, 25% is voor CO₂ok bedoeld.',
+        's5_title': '4. Hiermee financieren wij',
+        's5_text': 'Projecten die direct leiden tot minder broeikasgasuitstoot. Hiervoor werken we samen met onze gecertificeerde partners Atmosfair en Fair Climate Fund.',
 
         'section_3_sub': 'De impact',
         'section_3_title': 'Top 10 impact van de gemiddelde Nederlander',
 
-        testimonial_head: "Wat mensen zeggen",
+        testimonial_head: "Testimonial",
         testimonial_content: "De eerste keer dat ik werd gebeld over CO₂ok, zag ik het totáál niet zitten (de tweede en derde keer trouwens ook niet). Het concept van CO₂ compensatie kende ik wel en vind ik een goed idee. Maar ja, extra tekst en afbeeldingen kosten bezoekers – zeggen ze. En ook: 'Je moet de customer-journey kort houden.' Maar deze plugin draagt bij aan het duurzame verhaal van mijn webwinkel. Het ondersteunt de geloofwaardigheid en draagt zo bij aan de omzet. Sinds de installatie zijn de verkopen gestegen, en meer klanten dan verwacht compenseren CO₂.",
 
         's3_subTitle': 'Cause Marketing toont aan',

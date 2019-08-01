@@ -2,7 +2,7 @@ module.exports = {
     lang_nl_compensation: {
         's1_subtitle': 'How het werkt',
         's1_title': 'CO₂ Compensatie',
-        's1_text': 'Het transport en de productie van een gekocht item veroorzaakt de uitstoot van broeikasgassen. Fabrikanten proberen deze emissie te verminderen, maar de meeste slagen er niet in daadwerkelijke vooruitgang te tonen. Een aankoop van * dat * item dat u wilt, kan klimaatneutraal worden door CO₂-compensatie.',
+        's1_text': 'Het transport en de productie van een gekocht item veroorzaakt de uitstoot van broeikasgassen. Fabrikanten proberen deze emissie te verminderen, maar de meeste slagen er niet in daadwerkelijke vooruitgang te tonen. Een aankoop van * dat * item dat je wilt, kan klimaatneutraal worden door CO₂-compensatie.',
 
         's2_title': '1. Berekenen van de broeikasgassen',
         's2_text': 'We berekenen de broeikasgassen die vrijkomen tijdens productie en transport. We zetten deze om in gelijke hoeveelheden CO₂, bijvoorbeeld, 1 gram methaan is gelijk aan 100 gram CO₂.',

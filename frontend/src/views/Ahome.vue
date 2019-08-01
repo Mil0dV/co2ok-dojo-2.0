@@ -31,7 +31,7 @@
         <div class="uk-section home__section-2 prefix__section">
             <div class="section-2__content">
                     <div class="section-2__row-1">
-                        <h2 class="main-title">
+                        <h2 class="main-title" style="font-size: 30px">
                             {{locale['section_2_title']}}
                         </h2>
                         <p class="main-text">
@@ -58,6 +58,9 @@
         </div>
 
         <div class="steps__container">
+            <h2 class="main-title">
+                {{locale['steps_title']}}
+            </h2>
 
             <!--Stap 1-->
             <div uk-grid class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">
@@ -108,7 +111,7 @@
                 <div class="step__text-wrapper step__img-wrapper">
                     <div class="uk-light step__img-right">
                         <img class="step__img uk-box-shadow-large" alt="payment"
-                             src="../assets/images/steps/step-2.jpg">
+                             src="../assets/images/steps/step-3.jpg">
                     </div>
                 </div>
             </div>
@@ -119,7 +122,7 @@
                 <div class="step__text-wrapper step__img-left step__img-wrapper">
                     <div class="uk-light step__img-left">
                         <img class="step__img  uk-box-shadow-large" alt="solar-panels"
-                             src="../assets/images/steps/step-3.jpg">
+                             src="../assets/images/steps/step-2.jpg">
                     </div>
                 </div>
 
@@ -392,8 +395,10 @@
                 <h2 class="main-title">{{locale['section_5_title']}}</h2>
 
                 <div class="section-5__images">
+                    <!-- <a href="https://www.atmosfair.de/en"> -->
                     <img alt="logo1" class="section-5__image"
                          src="../assets/images/home2/logo1.jpg">
+                         <!-- </a> -->
                     <img alt="logo1" class="section-5__image"
                          src="../assets/images/home2/logo2.jpg">
                     <img alt="logo1" class="section-5__image"

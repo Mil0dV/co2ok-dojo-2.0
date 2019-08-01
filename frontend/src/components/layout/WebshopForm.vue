@@ -1,12 +1,15 @@
 <template>
     <div class="uk-section section-1" style="padding-bottom: 0px;">
+        <h1 class="main-title">{{locale.title2}}</h1>
+        <!-- <h1 class="main-title">Get started</h1>
+        <p>Hier zou ook nog wat meer uitleg kunnen, prima hoor </p> -->
         <div class="uk-container form__section uk-container-width" style="margin-top: 0px;">
             <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                 <div class="uk-width-1-2 to-left">
 
                     <div class="uk-card login__form-container col-2-card uk-card-default uk-card-body" style="box-shadow: -5px 3px 40px 2px hsla(300,3%,55%,.74);">
                         <form class="login__form">
-                            <p style="text-align: left;">Get a demo to find out how we can help you boost margin and sales</p>
+                            <p style="text-align: left;">{{locale.subtitle2}}</p>
                             <div class="login__group">
                                 <label class="login__group">
                                     {{locale['input1_label']}}
@@ -48,7 +51,9 @@
 
                 <div class="uk-width-1-2 to-right">
                     <div class="uk-card uk-card-body section-1__col-1 final__section" style="background-color: rgb(255, 255, 255); border-radius: 5px;height: 100%;width: 100%;box-shadow: -5px 3px 40px 2px hsla(300,3%,55%,.74);">
-                        <h3 style="margin-bottom: 20px;">Plugin Installation</h3>
+                        <h3 style="margin-bottom: 20px;">Plugin Installatie</h3>
+                        <p> {{locale.subtitle1}}</p>
+                        <p> <br> </p>
                         <a href="/webshops/get-started/#magento-guide" class="" style="cursor: pointer;width: 90%;margin-bottom: 15px;"><button style="cursor: pointer;border: 0px;border-radius: 5px;color: white;background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);width: 100%; height: auto;padding: 15px 0px 15px 0px; border-radius: 5px;font-size:16px;text-align:center">Magento</button></a>
                         <a href="/webshops/get-started/#wc-guide" style="cursor: pointer;width: 90%;"><button style="cursor: pointer;border: 0px;background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);border-radius: 5px;color: white;width: 100%; height: auto;padding: 15px 0px 15px 0px; border-radius: 5px;font-size:16px;text-align:center">Wordpress / Woocommerce</button></a>
 
@@ -90,15 +95,15 @@
 
         methods: {
             checkLanguage(lang) {
-                if(lang === 'en'){
-                    this.locale = language.lang_en_webshopform
-                } else {
-                    if (this.currentLanguage === 'en') {
-                        this.locale = language.lang_en_webshopform
-                    } else {
+                // if(lang === 'en'){
+                //     this.locale = language.lang_en_webshopform
+                // } else {
+                //     if (this.currentLanguage === 'en') {
+                //         this.locale = language.lang_en_webshopform
+                //     } else {
                         this.locale = language.lang_nl_webshopform
-                    }
-                }
+                //     }
+                // }
             },
 
             emptyForm() {

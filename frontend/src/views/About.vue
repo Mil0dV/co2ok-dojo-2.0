@@ -126,7 +126,7 @@
                 crew: [
                     {
                         name: 'Milo de Vries', title: 'Founder and factotum',
-                        quote: 'Saving the climate, one gram at a time',
+                        quote: 'Making consumerism sustainable 💚🌍',
                         image: 'milo.jpeg',
                         twitter: '', facebook: ''
                     },
