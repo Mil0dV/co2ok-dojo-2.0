@@ -18,7 +18,7 @@ module.exports = {
         's2_title': '1. Klant wilt afrekenen',
         's2_text': 'Op de winkelwagen/checkout pagina ziet de klant de CO₂ok plugin.',
 
-        's3a_title': '2. Klant leest tekst: maak mijn aankoop klimaatneutraal',
+        's3a_title': '2. Klant leest: maak mijn aankoop klimaatneutraal',
         's3_text': 'De keuze voor CO₂ compensatie is geheel vrijblijvend.',
 
         's4_title': '3. Bij het aanklikken van de knop',

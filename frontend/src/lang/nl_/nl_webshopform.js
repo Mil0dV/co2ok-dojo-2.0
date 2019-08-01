@@ -25,6 +25,6 @@ module.exports = {
         'error_message' : 'Zou je je e-mail  in',
 
         'success': 'Succes!',
-        'success_message' : 'Je verzoek is '
+        'success_message' : 'We nemen zsm contact met je op'
     }
 }
