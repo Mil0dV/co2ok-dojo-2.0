@@ -67,7 +67,7 @@
                 // } else {
                     switch (this.image) {
                         case 'steps':
-                            this.title = 'Hoe het werkt'
+                            this.title = 'How it works'
                             break;
                         case 'about':
                             this.title = 'Over ons'
