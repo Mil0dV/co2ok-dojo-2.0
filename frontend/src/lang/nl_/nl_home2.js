@@ -9,7 +9,7 @@ module.exports = {
         'intro_second_mobile-2' : 'E WEBSHOP',
 
         'section_2_title': 'Verhoog je conversie. Bestrijd klimaatverandering.',
-        'section_2_text': 'CO₂ok geeft consumenten de mogelijkheid om online aankopen klimaatneutraal te doen. De makkelijke integratie zorgt binnnen een minuut voor verbreding van je MVO strategie. Onze dienst speelt in op de behoefte van de consument, verlaagt cart abandonment, verhoogt retentie en laat zien dat jij om onze planeet geeft!',
+        'section_2_text': 'CO₂ok geeft consumenten de mogelijkheid om online aankopen klimaatneutraal te doen. De makkelijke integratie zorgt binnen een minuut voor verbreding van je MVO strategie. Onze dienst speelt in op de behoefte van de consument, verlaagt cart abandonment, verhoogt retentie en laat zien dat jij om onze planeet geeft!',
 
         'button_1': 'Aan de slag',
         'button_2': 'Voor Consumenten',
@@ -22,7 +22,7 @@ module.exports = {
         's3_text': 'De keuze voor CO₂ compensatie is geheel vrijblijvend.',
 
         's4_title': '3. Bij het aanklikken van de knop',
-        's4_text': 'Komt er gemiddeld 2% bovenop het aankoopbedrag.',
+        's4_text': 'Komt er gemiddeld 2% bovenop het aankoopbedrag. (Hiervoor berekenen wij alle broeikasgassen die vrijkomen tijdens productie en transport.)',
 
         's5_title': '4. Hiermee financieren wij',
         's5_text': 'Projecten die direct leiden tot minder broeikasgasuitstoot. Hiervoor werken we samen met onze gecertificeerde partners Atmosfair en Fair Climate Fund.',
