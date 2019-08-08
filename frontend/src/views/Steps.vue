@@ -198,9 +198,9 @@
                 //     this.locale = language.lang_en_compensation
                 // } else {
                 //     if (this.currentLanguage === 'en') {
-                //         this.locale = language.lang_en_compensation
+                        this.locale = language.lang_en_compensation
                 //     } else {
-                        this.locale = language.lang_nl_compensation
+                        // this.locale = language.lang_nl_compensation
                 //     }
                 // }
             }
