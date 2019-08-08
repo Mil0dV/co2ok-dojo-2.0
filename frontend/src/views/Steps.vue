@@ -16,14 +16,14 @@
                 </div>
                 <div class="step__text-wrapper smaller-step step__img-wrapper">
                     <div class="uk-light step__img-left ">
-                    <iframe title="co2ok intro" class="section-2__image" width="550" height="306"
+                    <!-- <iframe title="co2ok intro" class="section-2__image" width="550" height="306"
                                 src="https://www.youtube.com/embed/P5MLapEpR_0"
                                  frameborder="0"
                                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                  allowfullscreen>
-                         </iframe>
-                        <!-- <img class="intro__img uk-box-shadow-large" alt="factory"
-                             src="../assets/images/steps/steps-intro.jpg"> -->
+                         </iframe> -->
+                        <img class="intro__img uk-box-shadow-large" alt="factory"
+                             src="../assets/images/steps/steps-intro.jpg">
                     </div>
                 </div>
 
