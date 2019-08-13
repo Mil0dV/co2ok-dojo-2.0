@@ -10,18 +10,18 @@
                     <div class="col-1__content col-1__image">
                         <div class="login__info animated fadeInUp" style="animation-delay: 0.4s;">
                             <p class="login__info-text">
-                                {{locale.imgText}}
+                                {{ locale.imgText }}
                             </p>
                         </div>
                     </div>
 
                     <div class="col-1__content col-1__text-wrapper">
                         <div class="col-1__text">
-                            <p class="sub-title">{{locale.subTitle}}</p>
-                            <h2 class="main-title">{{locale.title}}</h2>
+                            <p class="sub-title">{{ locale.subTitle }}</p>
+                            <h2 class="main-title">{{ locale.title }}</h2>
                             <div>
                                 <p>
-                                    {{locale.shortText}}
+                                    {{ locale.shortText }}
                                 </p>
 
 
@@ -30,10 +30,10 @@
                                                 leave-active-class="animated bounceOut"
                                                 mode="out-in">
                                     <span key="1" @click="moreText = true" v-if="!moreText"
-                                          class="link">{{locale.read}}</span>
+                                          class="link">{{ locale.read }}</span>
 
                                         <span key="2" @click="moreText = false" v-else
-                                              class="link">{{locale.less}}</span>
+                                              class="link">{{ locale.less }}</span>
                                     </transition>
                                 </div>
 
@@ -42,7 +42,7 @@
                                             leave-active-class="animated fadeOut"
                                             mode="out-in">
                                     <p v-if="moreText">
-                                        {{locale.longText}}
+                                        {{ locale.longText }}
                                     </p>
                                 </transition>
                             </div>
@@ -54,8 +54,8 @@
             <div class="about__col-2-wrapper">
                 <div class="about__col-2">
                     <div class="col-2__header">
-                        <p class="col-1--green">{{locale.subTitle2}}</p>
-                        <h2 class="col-1--title">{{locale.title2}}</h2>
+                        <p class="col-1--green">{{ locale.subTitle2 }}</p>
+                        <h2 class="col-1--title">{{ locale.title2 }}</h2>
                     </div>
 
 
