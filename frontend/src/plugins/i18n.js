@@ -1,20 +1,9 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
+import en from '@/lang/en.json'
+import nl from '@/lang/nl.json'
 
 Vue.use(VueI18n);
-
-// Loads all the js files from the lang/nl_ folder into variable.
-var nl = require('glob').sync('../lang/nl_/**/*.js').forEach(
-    function(file) {
-        require(require('path').resolve(file));
-    }
-);
-
-var en = require('glob').sync('../lang/en_/**/*.js').forEach(
-    function(file) {
-        require(require('path').resolve(file));
-    }
-);
 
 // Object holding all the key-value pairs of translations.
 const messages = {
@@ -22,8 +11,8 @@ const messages = {
     'en': en
 };
 
-const i18n = new VueI18n({
-    locale: 'nl',
+export const i18n = new VueI18n({
+    locale: navigator.language.split('-')[0],   // Get language code from browser and set as default.
     fallbackLocale: 'en',
     messages
 });

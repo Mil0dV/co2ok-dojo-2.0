@@ -14,7 +14,7 @@
                         <ul class="uk-navbar-nav">
                             <li>
                                 <router-link :class="[checkActive('webshops') ? 'navbar__active' : '']" to="/webshops/retailers">
-                                    {{locale.webshops}}
+                                    {{ $t('nav.webshops') }}
                                     <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
                                 </router-link>
                             </li>
@@ -22,49 +22,49 @@
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
                                     <li v-if="$store.state.Authenticated && $store.state.status === 'webshop'">
                                         <router-link :class="[checkActive('webshops6') ? 'navbar__active' : '']"
-                                                     to="/webshops/dashboard">{{locale.webshops_6}}
+                                                     to="/webshops/dashboard">{{ $t('nav.webshops_6') }}
                                         </router-link>
                                     </li>
                                     <!-- <li>
                                         <router-link :class="[checkActive('webshops') ? 'navbar__active' : '']"
-                                                     to="/webshops">{{locale.webshops}}
+                                                     to="/webshops">{{ $t('nav.webshops') }}
                                         </router-link>
                                     </li> -->
                                     <li>
                                         <router-link :class="[checkActive('webshops1') ? 'navbar__active' : '']"
-                                                     to="/webshops/retailers">{{locale.webshops}}
+                                                     to="/webshops/retailers">{{ $t('nav.webshops') }}
                                         </router-link>
                                     </li>
                                     <li>
                                         <router-link :class="[checkActive('webshops2') ? 'navbar__active' : '']"
-                                                     to="/webshops/cause-marketing">{{locale.webshops_2}}
+                                                     to="/webshops/cause-marketing">{{ $t('nav.webshops_2') }}
                                         </router-link>
                                     </li>
                                     <li>
                                         <!-- <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
-                                                     to="/webshops/retailers/#pricing">{{locale.webshops_3}}
+                                                     to="/webshops/retailers/#pricing">{{ $t('nav.webshops_3') }}
                                         </router-link> -->
-                                        <a href="/webshops/retailers/#pricing">{{locale.webshops_3}}
+                                        <a href="/webshops/retailers/#pricing">{{ $t('nav.webshops_3') }}
                                         </a>
                                     </li>
                                     <!-- <li>
                                         <router-link :class="[checkActive('webshops7') ? 'navbar__active' : '']"
-                                                     to="/webshops/plug-in-installation">{{locale.webshops_7}}
+                                                     to="/webshops/plug-in-installation">{{ $t('nav.webshops_7') }}
                                         </router-link>
                                     </li> -->
                                     <li class="opval" @click="logout('consumer')"
                                         v-if="$store.state.Authenticated && $store.state.status === 'webshop'">
-                                        <a>{{locale.consumers_2}}</a></li>
+                                        <a>{{ $t('nav.consumers_2') }}</a></li>
                                     <li class="opval" v-else>
                                         <router-link :class="[checkActive('webshops4') ? 'navbar__active' : '']"
-                                                     to="/webshops/login">{{locale.webshops_4}}
+                                                     to="/webshops/login">{{ $t('nav.webshops_4') }}
                                         </router-link>
                                     </li>
                                 </ul>
                             </div>
 
                             <li v-if="$store.state.Authenticated &&  $store.state.status === 'ninja'">
-                                <router-link to="/consumers/profile">{{locale.consumers}}
+                                <router-link to="/consumers/profile">{{ $t('nav.consumers') }}
                                     <span uk-icon="icon: triangle-down"
                                           class="animated bounceIn">
                                     </span>
@@ -74,7 +74,7 @@
                             <li v-else>
                                 <router-link :class="[checkActive('consumers') ? 'navbar__active' : '']"
                                              to="/co2-compensatie">
-                                    {{locale.consumers}}
+                                    {{ $t('nav.consumers') }}
                                 </router-link>
                             </li>
 
@@ -84,13 +84,13 @@
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
                                     <!-- <li>
                                         <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
-                                                     to="/projects">{{locale.webshops_3}}
+                                                     to="/projects">{{ $t('nav.webshops_3') }}
                                         </router-link>
                                     </li> -->
                                     <li>
-                                        <router-link to="/consumers/profile">{{locale.consumers_1}}</router-link>
+                                        <router-link to="/consumers/profile">{{ $t('nav.consumers_1') }}</router-link>
                                     </li>
-                                    <li @click="logout('consumer')"><a>{{locale.consumers_2}}</a></li>
+                                    <li @click="logout('consumer')"><a>{{ $t('nav.consumers_2') }}</a></li>
                                 </ul>
                             </div>
 
@@ -100,7 +100,7 @@
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
                                     <li>
                                         <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
-                                                     to="/projects">{{locale.webshops_3}}
+                                                     to="/projects">{{ $t('nav.webshops_3') }}
                                         </router-link>
                                     </li>
                                 </ul>
@@ -108,26 +108,26 @@
 
                             <li>
                                 <router-link :class="[checkActive('about') ? 'navbar__active' : '']" to="/about">
-                                    {{locale.about}}
+                                    {{ $t('nav.about') }}
                                 </router-link>
                             </li>
                             <li>
                                 <router-link :class="[checkActive('news') ? 'navbar__active' : '']" to="/news">
-                                    {{locale.news}}
+                                    {{ $t('nav.news') }}
                                 </router-link>
                             </li>
                             <li>
                                 <router-link :class="[checkActive('faq') ? 'navbar__active' : '']" to="/faq">
-                                    {{locale.faq}}
+                                    {{ $t('nav.faq') }}
                                 </router-link>
                             </li>
                         </ul>
                         <!-- <a rel="noopener" v-if="!$store.state.Authenticated" :href="this.$store.state.ninjaExtensionLink"
-                           :target="this.$store.state.extensionLinkTarget" class="button">{{locale.extension}}</a> -->
-                        <router-link to="/webshops/get-started" class="button">{{locale.extension}}</router-link>
+                           :target="this.$store.state.extensionLinkTarget" class="button">{{ $t('nav.extension') }}</a> -->
+                        <router-link to="/webshops/get-started" class="button">{{ $t('nav.extension') }}</router-link>
                         <!-- <ul v-else class="uk-navbar-nav">
                             <li @click="logout()">
-                                <a>{{locale.consumers_2}}</a>
+                                <a>{{ $t('nav.consumers_2') }}</a>
                             </li>
                         </ul> -->
 
@@ -135,7 +135,7 @@
                         <transition enter-acitve-class="animated bounceIn"
                                     leave-active-class="animated bounceOut"
                                     mode="out-in">
-                            <ul key="en" v-if="$store.state.language === 'en'" class="uk-navbar-nav">
+                            <ul key="en" v-if="$i18n.locale === 'en'" class="uk-navbar-nav">
                                 <li @click="switchLang('en')" style="cursor: pointer">
                                     <img alt="engelse vlag" class="language-icon english icon"
                                          src="../../assets/images/nav/english-icon.png">
@@ -184,44 +184,44 @@
 
                 <ul class="uk-nav uk-nav-default">
                     <li>
-                        <router-link to="/webshops/retailers">{{locale.webshops}}</router-link>
+                        <router-link to="/webshops/retailers">{{ $t('nav.webshops') }}</router-link>
                     </li>
                     <ul class="mobile__dropdown">
                         <li v-if="$store.state.Authenticated && $store.state.status === 'webshop'">
-                            <router-link to="/webshops/dashboard">{{locale.webshops_6}}</router-link>
+                            <router-link to="/webshops/dashboard">{{ $t('nav.webshops_6') }}</router-link>
                         </li>
                         <!-- <li>
-                            <router-link to="/webshops/retailers">{{locale.webshops_1}}</router-link>
+                            <router-link to="/webshops/retailers">{{ $t('nav.webshops_1') }}</router-link>
                         </li> -->
                         <li>
-                            <router-link to="/webshops/cause-marketing">{{locale.webshops_2}}</router-link>
+                            <router-link to="/webshops/cause-marketing">{{ $t('nav.webshops_2') }}</router-link>
                         </li>
                         <!-- <li>
-                            <router-link to="/webshops/plug-in-installation">{{locale.webshops_7}}</router-link>
+                            <router-link to="/webshops/plug-in-installation">{{ $t('nav.webshops_7') }}</router-link>
                         </li> -->
                         <li>
-                            <router-link to="/webshops/login">{{locale.webshops_4}} webshop</router-link>
+                            <router-link to="/webshops/login">{{ $t('nav.webshops_4') }} webshop</router-link>
                         </li>
                     </ul>
                     <li v-if="$store.state.Authenticated && $store.state.status === 'ninja'">
-                        <router-link to="/consumers/profile">{{locale.consumers_1}}</router-link>
+                        <router-link to="/consumers/profile">{{ $t('nav.consumers_1') }}</router-link>
                     </li>
                     <li v-else>
-                        <router-link to="/consumers/login">{{locale.consumers}}</router-link>
+                        <router-link to="/consumers/login">{{ $t('nav.consumers') }}</router-link>
                     </li>
                     <!-- <ul class="mobile__dropdown">
                         <li>
-                            <router-link to="/projects">{{locale.webshops_3}}</router-link>
+                            <router-link to="/projects">{{ $t('nav.webshops_3') }}</router-link>
                         </li>
                     </ul> -->
                     <li>
-                        <router-link to="/about">{{locale.about}}</router-link>
+                        <router-link to="/about">{{ $t('nav.about') }}</router-link>
                     </li>
                     <li>
-                        <router-link to="/news">{{locale.news}}</router-link>
+                        <router-link to="/news">{{ $t('nav.news') }}</router-link>
                     </li>
                     <li>
-                        <router-link to="/faq">{{locale.faq}}</router-link>
+                        <router-link to="/faq">{{ $t('nav.faq') }}</router-link>
                     </li>
                     <li style="margin-bottom: 10px !important;" @click="logout('consumer')"
                         v-if="$store.state.Authenticated && $store.state.status === 'webshop' || $store.state.Authenticated && $store.state.status === 'ninja'">
@@ -229,13 +229,13 @@
                     </li>
                 </ul>
                 <!-- <a rel="noopener" :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget"
-                   class="button">{{locale.extension}}</a> -->
-                <router-link to="/webshops/get-started" class="button">{{locale.extension}}</router-link>
+                   class="button">{{ $t('nav.extension') }}</a> -->
+                <router-link to="/webshops/get-started" class="button">{{ $t('nav.extension') }}</router-link>
                 <hr>
                 <!-- <transition enter-acitve-class="animated bounceIn"
                             leave-active-class="animated bounceOut"
                             mode="out-in">
-                    <ul key="en" v-if="$store.state.language === 'en'" class="uk-navbar-nav navbar__mobile">
+                    <ul key="en" v-if="$i18n.locale === 'en'" class="uk-navbar-nav navbar__mobile">
                         <li @click="switchLang('en')" style="cursor: pointer">
                             <img alt="engelse vlag" class="language-icon english icon"
                                  src="../../assets/images/nav/english-icon.png">
@@ -301,13 +301,11 @@
             if (this.$store.state.userData.length > 0) {
                 this.userLoggedIn = true;
             }
-            this.checkLanguage()
-
         },
 
         methods: {
             switchLang(lang) {
-                this.$store.commit('languageStatus', lang)
+                this.$i18n.locale = lang
             },
 
             logout() {
@@ -339,37 +337,17 @@
                     return true
                 }
             },
-
-            checkLanguage(lang) {
-                // if (lang === 'en') {
-                //     this.locale = navLang.lang_en_nav
-                // } else {
-                //     if (this.currentLanguage === 'en') {
-                //         this.locale = navLang.lang_en_nav
-                    // } else {
-                        this.locale = navLang.lang_nl_nav
-                //     }
-                // }
-            }
         },
 
         computed: {
             currentRouteName() {
                 return this.$route.name;
-            },
-
-            currentLanguage() {
-                return this.$store.state.language
             }
         },
 
         watch: {
             '$route'() {
                 this.userLoggedIn = this.$router.currentRoute['name'] === 'dashboard';
-            },
-
-            currentLanguage(value) {
-                this.checkLanguage(value)
             }
         }
     }

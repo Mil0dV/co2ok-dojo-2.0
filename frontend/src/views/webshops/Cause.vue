@@ -6,14 +6,14 @@
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
                         <div class="uk-card uk-card-body section-1__col-1">
-                            <h2 class="main-title">{{locale['s1_title']}}</h2>
+                            <h2 class="main-title">{{ $t('cause.s1_title') }}</h2>
                             <p class="main-text">
-                                {{locale['s1_text']}}
+                                {{ $t('cause.s1_text') }}
                             </p>
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/plug-in-installation" class="button">{{locale['s1_btn']}}
+                                <router-link to="/webshops/plug-in-installation" class="button">{{ $t('cause.s1_btn') }}
                                 </router-link>
                             </div>
                         </div>
@@ -37,13 +37,13 @@
                     </div>
 
                     <div class="row__text">
-                        <h2 class="main-title">{{locale['s2_title1']}}</h2>
+                        <h2 class="main-title">{{ $t('cause.s2_title1') }}</h2>
                         <p class="main-text">
-                            {{locale['s2_text-1']}}
+                            {{ $t('cause.s2_text-1') }}
                         </p>
                         <br>
                         <a class="link row-link" href="#">
-                            {{locale['s2_link-1']}} <span uk-icon="icon: arrow-right"></span>
+                            {{ $t('cause.s2_link-1') }} <span uk-icon="icon: arrow-right"></span>
                         </a>
                     </div>
                 </div>
@@ -54,13 +54,13 @@
                     </div>
 
                     <div class="row__text">
-                        <h2 class="main-title">{{locale['s2_title2']}}</h2>
+                        <h2 class="main-title">{{ $t('cause.s2_title2') }}</h2>
                         <p class="main-text">
-                            {{locale['s2_text-2']}}
+                            {{ $t('cause.s2_text-2') }}
                         </p>
                         <br>
                         <a class="link row-link" href="#">
-                            {{locale['s2_link-2']}} <span uk-icon="icon: arrow-right"></span>
+                            {{ $t('cause.s2_link-2') }} <span uk-icon="icon: arrow-right"></span>
                         </a>
                     </div>
                 </div>
@@ -73,13 +73,13 @@
                     </div>
 
                     <div class="row__text">
-                        <h2 class="main-title">{{locale['s2_title3']}}</h2>
+                        <h2 class="main-title">{{ $t('cause.s2_title3') }}</h2>
                         <p class="main-text">
-                            {{locale['s2_text-3']}}
+                            {{ $t('cause.s2_text-3') }}
                         </p>
                         <br>
                         <a class="link row-link" href="#">
-                            {{locale['s2_link-3']}} <span uk-icon="icon: arrow-right"></span>
+                            {{ $t('cause.s2_link-3') }} <span uk-icon="icon: arrow-right"></span>
                         </a>
                     </div>
                 </div>
@@ -90,13 +90,13 @@
                     </div>
 
                     <div class="row__text">
-                        <h2 class="main-title">{{locale['s2_title4']}}</h2>
+                        <h2 class="main-title">{{ $t('cause.s2_title4') }}</h2>
                         <p class="main-text">
-                            {{locale['s2_text-4']}}
+                            {{ $t('cause.s2_text-4') }}
                         </p>
                         <br>
                         <a class="link row-link" href="#">
-                            {{locale['s2_link-4']}} <span uk-icon="icon: arrow-right"></span>
+                            {{ $t('cause.s2_link-4') }} <span uk-icon="icon: arrow-right"></span>
                         </a>
                     </div>
                 </div>
@@ -106,8 +106,8 @@
         <div class="uk-section section-4 section--dark">
             <div class="uk-container uk-container-width">
                 <div class="section-2--col-1 section-4--header">
-                    <h2 class="sub-title dark--color">{{locale['s3_subTitle']}}</h2>
-                    <h2 class="main-title">{{locale['s3_title']}}</h2>
+                    <h2 class="sub-title dark--color">{{ $t('cause.s3_subTitle') }}</h2>
+                    <h2 class="main-title">{{ $t('cause.s3_title') }}</h2>
                 </div>
                 <br><br>
 
@@ -128,20 +128,20 @@
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text x="18" y="20.35" class="percentage">{{locale['s3_row1_percentage1']}}%</text>
+                                    <text x="18" y="20.35" class="percentage">{{ $t('cause.s3_row1_percentage1') }}%</text>
                                 </svg>
                             </div>
                         </div>
 
                         <div class="graph__text">
-                            <h2 class="main-title">{{locale['s3_consumers']}}</h2>
+                            <h2 class="main-title">{{ $t('cause.s3_consumers') }}</h2>
                             <p class="main-text">
-                                {{locale['s3_row1_text']}}
+                                {{ $t('cause.s3_row1_text') }}
                             </p>
 
                             <br>
                             <a class="link row-link" href="#">
-                                {{locale['s3_row1_link']}} <span uk-icon="icon: arrow-right"></span>
+                                {{ $t('cause.s3_row1_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
                     </div>
@@ -161,20 +161,20 @@
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text x="18" y="20.35" class="percentage">{{locale['s3_row1_percentage2']}}%</text>
+                                    <text x="18" y="20.35" class="percentage">{{ $t('cause.s3_row1_percentage2') }}%</text>
                                 </svg>
                             </div>
                         </div>
 
                         <div class="graph__text">
-                            <h2 class="main-title">{{locale['s3_respondents']}}</h2>
+                            <h2 class="main-title">{{ $t('cause.s3_respondents') }}</h2>
                             <p class="main-text">
-                                {{locale['s3_row2_text']}}
+                                {{ $t('cause.s3_row2_text') }}
                             </p>
 
                             <br>
                             <a class="link row-link" href="#">
-                                {{locale['s3_row2_link']}} <span uk-icon="icon: arrow-right"></span>
+                                {{ $t('cause.s3_row2_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
                     </div>
@@ -194,20 +194,20 @@
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text x="18" y="20.35" class="percentage">{{locale['s3_row1_percentage3']}}%</text>
+                                    <text x="18" y="20.35" class="percentage">{{ $t('cause.s3_row1_percentage3') }}%</text>
                                 </svg>
                             </div>
                         </div>
 
                         <div class="graph__text">
-                            <h2 class="main-title">{{locale['s3_consumers']}}</h2>
+                            <h2 class="main-title">{{ $t('cause.s3_consumers') }}</h2>
                             <p class="main-text">
-                                {{locale['s3_row3_text']}}
+                                {{ $t('cause.s3_row3_text') }}
                             </p>
 
                             <br>
                             <a class="link row-link" href="#">
-                                {{locale['s3_row3_link']}} <span uk-icon="icon: arrow-right"></span>
+                                {{ $t('cause.s3_row3_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
                     </div>
@@ -227,20 +227,20 @@
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text x="18" y="20.35" class="percentage">{{locale['s3_row1_percentage4']}}%</text>
+                                    <text x="18" y="20.35" class="percentage">{{ $t('cause.s3_row1_percentage4') }}%</text>
                                 </svg>
                             </div>
                         </div>
 
                         <div class="graph__text">
-                            <h2 class="main-title">{{locale['s3_consumers']}}</h2>
+                            <h2 class="main-title">{{ $t('cause.s3_consumers') }}</h2>
                             <p class="main-text">
-                                {{locale['s3_row4_text']}}
+                                {{ $t('cause.s3_row4_text') }}
                             </p>
 
                             <br>
                             <a class="link row-link" href="#">
-                                {{locale['s3_row4_link']}} <span uk-icon="icon: arrow-right"></span>
+                                {{ $t('cause.s3_row4_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
                     </div>
@@ -256,28 +256,28 @@
                 </div>
                 <div class="final-col-wrapper">
                     <div class="final-col final-1">
-                        <h2 class="main-title">{{locale['s4_row1_title']}}</h2>
+                        <h2 class="main-title">{{ $t('cause.s4_row1_title') }}</h2>
                         <p class="main-text">
-                            {{locale['s4_row1_text']}}
+                            {{ $t('cause.s4_row1_text') }}
                         </p>
                         <br>
-                        <p class="button" @click="contactForm()">{{locale['s4_row1_link']}}</p>
+                        <p class="button" @click="contactForm()">{{ $t('cause.s4_row1_link') }}</p>
                     </div>
 
                     <div class="final-col final-2">
-                        <h2 class="main-title">{{locale['s4_row2_title']}}</h2>
+                        <h2 class="main-title">{{ $t('cause.s4_row2_title') }}</h2>
                         <a class="link row-link" href="#">
-                            {{locale['s4_row2_link']}} <span uk-icon="icon: arrow-right"></span>
+                            {{ $t('cause.s4_row2_link') }} <span uk-icon="icon: arrow-right"></span>
                         </a>
                     </div>
 
                     <div class="final-col final-1">
-                        <h2 class="main-title">{{locale['s4_row3_title']}}</h2>
+                        <h2 class="main-title">{{ $t('cause.s4_row3_title') }}</h2>
                         <p class="main-text">
-                            {{locale['s4_row3_text']}}
+                            {{ $t('cause.s4_row3_text') }}
                         </p>
                         <br>
-                        <router-link to="/webshops/plug-in-installation" class="button">{{locale['s4_row3_link']}}
+                        <router-link to="/webshops/plug-in-installation" class="button">{{ $t('cause.s4_row3_link') }}
                         </router-link>
                     </div>
                 </div>

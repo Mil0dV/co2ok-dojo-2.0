@@ -14,7 +14,7 @@ import 'aos/dist/aos.css'
 import VueMoment from 'vue-moment'
 import moment from 'moment-timezone'
 // Internationalization
-import i18n from '@/plugins/i18n'
+import { i18n } from '@/plugins/i18n'
 // Vue lodash
 import VueLodash from 'vue-lodash'
 
@@ -42,8 +42,8 @@ new Vue({
   created () {
     AOS.init()
   },
-  i18n,
   router,
+  i18n,
   store,
   moment,
   render: h => h(App)

@@ -6,10 +6,10 @@
                      class="intro__logo">
 
                 <div class="intro__text__wrapper">
-                    <h1 class="desktop__intro">{{locale['intro_first_desktop']}}</h1>
+                    <h1 class="desktop__intro">{{ $t('home2.intro_first_desktop') }}</h1>
                     <div class="mobile__intro mobile__intro-1">
-                        <h1>{{locale['intro_first_mobile-1']}}</h1>
-                        <h1>{{locale['intro_first_mobile-2']}}</h1>
+                        <h1>{{ $t('home2.intro_first_mobile-1') }}</h1>
+                        <h1>{{ $t('home2.intro_first_mobile-2') }}</h1>
                     </div>
                 </div>
             </div>
@@ -19,10 +19,10 @@
                      class="intro__logo intro__logo-lower">
 
                 <div class="intro__text__wrapper">
-                    <h1 class="desktop__intro">{{locale['intro_second_desktop']}}</h1>
+                    <h1 class="desktop__intro">{{ $t('home2.intro_second_desktop') }}</h1>
                     <div class="mobile__intro mobile__intro-2">
-                        <h1>{{locale['intro_second_mobile-1']}}</h1>
-                        <h1>{{locale['intro_second_mobile-2']}}</h1>
+                        <h1>{{ $t('home2.intro_second_mobile-1') }}</h1>
+                        <h1>{{ $t('home2.intro_second_mobile-2') }}</h1>
                     </div>
                 </div>
             </div>
@@ -31,17 +31,17 @@
         <div class="uk-section home__section-2 prefix__section">
             <div class="section-2__content">
                     <div class="section-2__row-1">
-                        <h2 class="main-title" style="font-size: 30px">
-                            {{locale['section_2_title']}}
+                        <h2 class="main-title">
+                            {{ $t('home2.section_2_title') }}
                         </h2>
                         <p class="main-text">
-                            {{locale['section_2_text']}}
+                            {{ $t('home2.section_2_text') }}
                         </p>
                         <br>
                         <a href="/webshops/retailers"
-                           class="button">{{locale['button_1']}}</a>
-                        <!-- <a href="/ninja"
-                           class="button">{{locale['button_2']}}</a> -->
+                           class="button">{{ $t('home2.button_1') }}</a>
+                        <a href="/ninja"
+                           class="button">{{ $t('home2.button_2') }}</a>
 
                     </div>
                     <!-- voor webshops: hAsY9pNJ3fE -->
@@ -322,9 +322,9 @@
 
 
         <div class="uk-section home__section-3 prefix__section">
-            <!-- <div class="section-3__content">
-                <h3 class="sub-title">{{locale['section_3_sub']}}</h3>
-                <h2 class="main-title">{{locale['section_3_title']}}</h2>
+           <!--  <div class="section-3__content">
+                <h3 class="sub-title">{{ $t('home2.section_3_sub') }}</h3>
+                <h2 class="main-title">{{ $t('home2.section_3_title') }}</h2>
                 <img alt="graph" class="section-3__image" src="../assets/images/home2/shoppingcart-nl.png">
             </div>  -->
             <div class="uk-card shop__card uk-card-default uk-card-body" style="top: 70px; margin-bottom: 40px; border-radius: 10px;">
@@ -362,8 +362,8 @@
         <!-- Projects -->
         <!-- <div class="uk-section home__section-4 prefix__section" style="padding: 20px 0 !important;">
             <div class="section-4__content">
-                <h3 class="sub-title">{{locale['section_4_sub']}}</h3>
-                <h2 class="main-title">{{locale['section_4_title']}}</h2>
+                <h3 class="sub-title">{{ $t('home2.section_4_sub') }}</h3>
+                <h2 class="main-title">{{ $t('home2.section_4_title') }}</h2>
 
                 <div class="section-4__projects">
                     <div class="project__images-container">
@@ -377,12 +377,12 @@
 
                     <div class="project__text">
                         <p class="main-text">
-                            {{locale['section_4_text']}}
+                            {{ $t('home2.section_4_text') }}
                         </p>
                     </div>
                     <br>
 
-                    <router-link to="/projects/" class="button">{{locale['section_4_btn']}}</router-link>
+                    <router-link to="/projects/" class="button">{{ $t('home2.section_4_btn') }}</router-link>
                 </div>
             </div>
         </div> -->
@@ -391,8 +391,8 @@
         <!-- Partners -->
         <div class="uk-section home__section-5 prefix__section">
             <div class="section-5__content">
-                <h3 class="sub-title">{{locale['section_5_sub']}}</h3>
-                <h2 class="main-title">{{locale['section_5_title']}}</h2>
+                <h3 class="sub-title">{{ $t('home2.section_5_sub') }}</h3>
+                <h2 class="main-title">{{ $t('home2.section_5_title') }}</h2>
 
                 <div class="section-5__images">
                     <!-- <a href="https://www.atmosfair.de/en"> -->
@@ -407,7 +407,7 @@
                          src="../assets/images/home2/logo4.jpg">
                 </div>
 
-                <router-link to="/webshops/retailers" class="button__home">{{locale['section_5_btn']}}</router-link>
+                <router-link to="/webshops/retailers" class="button__home">{{ $t('home2.section_5_btn') }}</router-link>
             </div>
         </div>
 
