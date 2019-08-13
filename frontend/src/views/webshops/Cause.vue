@@ -290,7 +290,6 @@
 <script>
     const Header = () => import('@/components/layout/Header')
     const ModalContact = () => import('@/components/modals/ModalContact')
-    import causeLang from '../../lang/lang_cause'
 
     export default {
         name: "About",
@@ -299,7 +298,6 @@
         data() {
             return {
                 header: 'cause-marketing',
-                locale: causeLang,
                 chartData: [
                     {
                         percentage: 90,
@@ -343,10 +341,6 @@
             }
         },
 
-        mounted() {
-            this.checkLanguage()
-        },
-
         methods: {
             contactForm() {
                 let message = {
@@ -354,32 +348,10 @@
                     text: 'Please fill in your e-mail'
                 }
                 this.$store.commit('modalStatus', {message})
-            },
-
-            checkLanguage(lang) {
-                // if (lang === 'en') {
-                //     this.locale = causeLang.lang_en_cause
-                // } else {
-                //     if (this.currentLanguage === 'en') {
-                //         this.locale = causeLang.lang_en_cause
-                //     } else {
-                        this.locale = causeLang.lang_nl_cause
-                //     }
-                // }
             }
-        },
 
-        computed: {
-            currentLanguage() {
-                return this.$store.state.language
-            }
-        },
-
-        watch: {
-            currentLanguage(value) {
-                this.checkLanguage(value)
-            }
         }
+        
     }
 </script>
 

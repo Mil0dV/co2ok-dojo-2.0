@@ -44,8 +44,11 @@
                                         <!-- <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
                                                      to="/webshops/retailers/#pricing">{{ $t('nav.webshops_3') }}
                                         </router-link> -->
-                                        <a href="/webshops/retailers/#pricing">{{ $t('nav.webshops_3') }}
-                                        </a>
+                                        <router-link :to="{ name: 'retailers', hash: '#pricing'}">
+                                            {{ $t('nav.webshops_3') }}
+                                        </router-link>
+                                        <!-- <a href="/webshops/retailers/#pricing">{{ $t('nav.webshops_3') }}
+                                        </a> -->
                                     </li>
                                     <!-- <li>
                                         <router-link :class="[checkActive('webshops7') ? 'navbar__active' : '']"
@@ -131,7 +134,7 @@
                             </li>
                         </ul> -->
 
-                        <!-- <div class="line"></div>
+                        <div class="line"></div>
                         <transition enter-acitve-class="animated bounceIn"
                                     leave-active-class="animated bounceOut"
                                     mode="out-in">
@@ -165,7 +168,7 @@
                                     </ul>
                                 </div>
                             </ul>
-                        </transition> -->
+                        </transition>
                     </div>
 
                     <div class="uk-navbar-right uk-hidden@m">
@@ -232,7 +235,7 @@
                    class="button">{{ $t('nav.extension') }}</a> -->
                 <router-link to="/webshops/get-started" class="button">{{ $t('nav.extension') }}</router-link>
                 <hr>
-                <!-- <transition enter-acitve-class="animated bounceIn"
+                <transition enter-acitve-class="animated bounceIn"
                             leave-active-class="animated bounceOut"
                             mode="out-in">
                     <ul key="en" v-if="$i18n.locale === 'en'" class="uk-navbar-nav navbar__mobile">
@@ -265,7 +268,7 @@
                             </ul>
                         </div>
                     </ul>
-                </transition> -->
+                </transition>
 
             </div>
         </div>
@@ -274,7 +277,6 @@
 
 <script>
     import axios from 'axios'
-    import navLang from '../../lang/lang_nav'
 
     export default {
         name: "Nav",
@@ -288,8 +290,7 @@
                     {title: 'Consumers', link: '/consumers'},
                     {title: 'News', link: '/news'},
                     {title: 'FAQ', link: '/faq'},
-                ],
-                locale: navLang,
+                ]
             }
         },
 
@@ -337,6 +338,10 @@
                     return true
                 }
             },
+
+            scrollTo(refName) {
+                
+            }
         },
 
         computed: {

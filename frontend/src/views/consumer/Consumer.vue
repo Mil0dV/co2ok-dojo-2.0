@@ -1,7 +1,7 @@
 <template>
     <div class="ninja__container">
         <div class="uk-container ninja__dashboard  uk-container-width">
-            <h2>{{locale['title']}}</h2>
+            <h2>{{ $t('profile.title') }}</h2>
             <div class="dashboard__items">
                 <div class="dashboard__row-1">
                     <div class="uk-card uk-card-consumer uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
@@ -14,13 +14,13 @@
                             <div class="uk-card-body">
                                 <div>
                                     <!--<h3 class="main-title" style="display: flex; flex-direction: row;justify-content:flex-start;align-items:center;"><h3 class="co2-counter main-title animated" style="margin-right: 5px;">{{co2Counter}}</h3> kgs</h3>-->
-                                    <p class="main-text">{{locale['card1_title']}}:</p>
+                                    <p class="main-text">{{ $t('profile.card1_title') }}:</p>
                                     <h3 class="main-title">{{co2Counter}} kgs</h3>
 
                                     <hr>
                                     <div>
                                         <p class="main-text op-text">
-                                            {{locale['card1_text']}}
+                                            {{ $t('profile.card1_text') }}
                                         </p>
                                     </div>
 
@@ -34,14 +34,14 @@
                          uk-grid>
                         <div class="cause-container">
                             <div class="uk-card-body">
-                                <p class="main-sub">{{locale['card2_title']}}</p>
-                                <p class="main-text lighter">{{locale['card2_subtitle']}}</p>
+                                <p class="main-sub">{{ $t('profile.card2_title') }}</p>
+                                <p class="main-text lighter">{{ $t('profile.card2_subtitle') }}</p>
 
                                 <div class="cause-wrapper">
                                     <div class="cause" id="biogas" @click="supportedProject_status()">
                                         <img alt="ninja profile 2" class="uk-box-shadow-medium"
                                              src="../../assets/images/ninja/profile-2.png">
-                                        <p class="main-text cause-text lighter">{{locale['card2_text1']}} <a
+                                        <p class="main-text cause-text lighter">{{ $t('profile.card2_text1') }} <a
                                                 href="https://www.atmosfair.de/en/climate-protection-projects/biogas-biomass/"
                                                 target="_blank">
                                             <i class="subheading fas fa-info-circle"></i></a></p>
@@ -50,13 +50,13 @@
                                     <div class="cause" id="solar-panel" @click="supportedProject_status()">
                                         <img alt="ninja profile 3" class="uk-box-shadow-medium"
                                              src="../../assets/images/ninja/profile-3.png">
-                                        <p class="main-text cause-text lighter">{{locale['card2_text2']}}
+                                        <p class="main-text cause-text lighter">{{ $t('profile.card2_text2') }}
                                             <i class="subheading fas fa-info-circle"></i></p>
                                     </div>
 
                                     <div class="cause" id="cookers" @click="supportedProject_status()">
                                         <img class="uk-box-shadow-medium" src="../../assets/images/ninja/profile-4.png">
-                                        <p class="main-text cause-text lighter">{{locale['card2_text3']}} <a
+                                        <p class="main-text cause-text lighter">{{ $t('profile.card2_text3') }} <a
                                                 href="https://www.atmosfair.de/en/climate-protection-projects/energy_efficiency/"
                                                 target="_blank">
                                             <i class="subheading fas fa-info-circle"></i></a></p>
@@ -70,25 +70,25 @@
 
                 <div class="dashboard__row-2">
                     <span class="ninja__stars">
-                        <p class="star-title"><i class="far fa-star"></i> {{locale['card3_title']}}</p>
+                        <p class="star-title"><i class="far fa-star"></i> {{ $t('profile.card3_title') }}</p>
                         <p class="star-title">{{$store.state.ninjaData.profileData.ninjaPoints}}</p>
                     </span>
                     <hr>
                     <div class="ninja-text">
                         <p class="main-text">
-                            {{locale['card3_text']}}
+                            {{ $t('profile.card3_text') }}
                         </p>
 
                         <p class="green-border">
                             {{this.$store.state.domain}}/{{this.$store.state.ninjaData.userData.id}}</p>
 
                         <div class="main-text">
-                            <p>{{locale['card3_social']}}</p>
+                            <p>{{ $t('profile.card3_social') }}</p>
                             <p class="social-buttons">
                                 <a target="_blank"
                                    :href="`https://www.facebook.com/sharer?u=https%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.userData.id}`"><i
                                         class="fab  fa-facebook-f"></i></a>
-                                {{locale['card3_or']}}
+                                {{ $t('profile.card3_or') }}
                                 <a target="_blank"
                                    :href="`https://twitter.com/intent/tweet?text=Help%20me%20fight%20climate%20change%20while%20shopping%20-%20easy%20and%20for%20free!%20http%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.userData.id}`"><i
                                         class="fab fa-twitter"></i></a>
@@ -113,7 +113,6 @@
     const ProfileModal = () => import('@/components/modals/ProfileModal')
     const PasswordModal = () => import('@/components/modals/PasswordModal')
     const DeleteModal = () => import('@/components/modals/DeleteModal')
-    import language from '../../lang/lang_profile'
 
     export default {
         name: "NinjaProfile",
@@ -127,7 +126,6 @@
                 editProfile: false,
                 editPassword: false,
                 Authenticated: window.localStorage.getItem('Authenticated'),
-                locale: language,
                 // Authenticated: window.localStorage.getItem('Authenticated'),
                 projectsAlert: false,
                 // ninjaSupportedProject: $store.state.ninjaData.profileData.supportedProject, //return supported project
@@ -146,25 +144,12 @@
         },
 
         mounted() {
-            this.checkLanguage()
             this.supportedProject('get') //get the current user sopported project
             setInterval(this.co2counterIn, 2000)
             setInterval(this.co2counterOut, 3000)
-
         },
 
         methods: {
-            checkLanguage(lang) {
-                if (lang === 'en') {
-                    this.locale = language.lang_en_login
-                } else {
-                    if (this.currentLanguage === 'en') {
-                        this.locale = language.lang_en_login
-                    } else {
-                        this.locale = language.lang_nl_login
-                    }
-                }
-            },
 
             closeEdit(message) {
                 this.editProfile = false
@@ -271,19 +256,8 @@
                 }
 
             }
-        },
-
-        computed: {
-            currentLanguage() {
-                return this.$store.state.language
-            }
-        },
-
-        watch: {
-            currentLanguage(value) {
-                this.checkLanguage(value)
-            }
         }
+
     }
 </script>
 

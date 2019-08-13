@@ -6,11 +6,11 @@
                  class="uk-flex uk-flex-wrap steps__intro uk-box-shadow-medium uk-child-width-expand@s uk-text-center">
                 <div class="step__text-wrapper intro--smaller step__img-left">
                     <div class="intro__text step__col uk-padding">
-                        <p class="steps__green">{{locale['s1_subtitle']}}</p>
-                        <h2 class="main-title--large">{{locale['s1_title']}}</h2>
+                        <p class="steps__green">{{ $t('compensation.s1_subtitle') }}</p>
+                        <h2 class="main-title--large">{{ $t('compensation.s1_title') }}</h2>
 
                         <p class="main-text">
-                            {{locale['s1_text']}}
+                            {{ $t('compensation.s1_text') }}
                         </p>
                     </div>
                 </div>
@@ -34,17 +34,17 @@
                 <div class="iframe-container">
                     <div class="section-2__row-1">
                         <h2 class="main-title">
-                            {{locale['section_2_title']}}
+                            {{ $t('compensation.section_2_title') }}
                             Together, we can stop climate change
                         </h2>
                         <p class="main-text">
-                            {{locale['section_2_text']}}
+                            {{ $t('compensation.section_2_text') }}
                             en nog wat bla bla
                         </p>
                         <br>
                         <a :href="this.$store.state.ninjaExtensionLink"
                            :target="this.$store.state.extensionLinkTarget"
-                           class="button">{{locale['plugin']}}</a>
+                           class="button">{{ $t('compensation.plugin') }}</a>
 
                     </div>
 
@@ -76,12 +76,12 @@
                             <div class="steps__title-container">
                                 <i class="fas fa-smog step__icon"></i>
                                 <p class="steps__title">
-                                    {{locale['s2_title']}}
+                                    {{ $t('compensation.s2_title') }}
                                 </p>
                             </div>
 
                             <p class="main-text">
-                                {{locale['s2_text']}}
+                                {{ $t('compensation.s2_text') }}
                             </p>
                         </div>
                     </div>
@@ -96,12 +96,12 @@
                             <div class="steps__title-container">
                                 <i class="fas fa-shopping-cart step__icon"></i>
                                 <p class="steps__title">
-                                    {{locale['s3_title']}}
+                                    {{ $t('compensation.s3_title') }}
                                 </p>
                             </div>
 
                             <p class="main-text">
-                                {{locale['s3_text']}}
+                                {{ $t('compensation.s3_text') }}
                             </p>
                         </div>
                     </div>
@@ -131,12 +131,12 @@
                             <div class="steps__title-container">
                                 <i class="fas fa-solar-panel step__icon"></i>
                                 <p class="steps__title">
-                                    {{locale['s4_title']}}
+                                    {{ $t('compensation.s4_title') }}
                                 </p>
                             </div>
 
                             <p class="main-text">
-                                {{locale['s4_text']}}
+                                {{ $t('compensation.s4_text') }}
                             </p>
                         </div>
                     </div>
@@ -152,12 +152,12 @@
                             <div class="steps__title-container">
                                 <i class="fas fa-check step__icon"></i>
                                 <p class="steps__title">
-                                    {{locale['s5_title']}}
+                                    {{ $t('compensation.s5_title') }}
                                 </p>
                             </div>
 
                             <p class="main-text">
-                                {{locale['s5_text']}}
+                                {{ $t('compensation.s5_text') }}
                             </p>
                         </div>
                     </div>
@@ -176,47 +176,16 @@
 
 <script>
     const Header = () => import('@/components/layout/Header')
-    import language from '../lang/lang_compensation'
     export default {
         name: "Steps",
         components: {'Header': Header},
 
         data() {
             return {
-                header: 'steps',
-                locale: language
-            }
-        },
-
-        mounted() {
-            this.checkLanguage()
-        },
-
-        methods: {
-            checkLanguage(lang) {
-                // if(lang === 'en'){
-                //     this.locale = language.lang_en_compensation
-                // } else {
-                //     if (this.currentLanguage === 'en') {
-                        this.locale = language.lang_en_compensation
-                //     } else {
-                        // this.locale = language.lang_nl_compensation
-                //     }
-                // }
-            }
-        },
-
-        computed: {
-            currentLanguage() {
-                return this.$store.state.language
-            }
-        },
-
-        watch: {
-            currentLanguage(value) {
-                this.checkLanguage(value)
+                header: 'steps'
             }
         }
+
     }
 
 </script>

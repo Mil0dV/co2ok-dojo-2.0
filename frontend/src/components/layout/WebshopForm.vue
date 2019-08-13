@@ -1,6 +1,6 @@
 <template>
     <div class="uk-section section-1" style="padding-bottom: 0px;">
-        <h1 class="main-title">{{locale.title2}}</h1>
+        <h1 class="main-title">{{ $t('webshopform.title2') }}</h1>
         <!-- <h1 class="main-title">Get started</h1>
         <p>Hier zou ook nog wat meer uitleg kunnen, prima hoor </p> -->
         <div class="uk-container form__section uk-container-width" style="margin-top: 0px;">
@@ -9,40 +9,40 @@
 
                     <div class="uk-card login__form-container col-2-card uk-card-default uk-card-body" style="box-shadow: -5px 3px 40px 2px hsla(300,3%,55%,.74);">
                         <form class="login__form">
-                            <p style="text-align: left;">{{locale.subtitle2}}</p>
+                            <p style="text-align: left;">{{ $t('webshopform.subtitle2') }}</p>
                             <div class="login__group">
                                 <label class="login__group">
-                                    {{locale['input1_label']}}
+                                    {{ $t('webshopform.input1_label') }}
                                     <input v-model="name"
                                            class="login__group-input" type="email"
-                                           :placeholder="locale['input1_field']">
+                                           :placeholder=" $t('webshopform.input1_field') ">
                                 </label>
 
                                 <label class="login__group">
-                                    <span>{{locale['input2_label']}}<span class="asterik">*</span></span>
+                                    <span>{{ $t('webshopform.input2_label') }}<span class="asterik">*</span></span>
                                     <input v-model="email"
                                            class="login__group-input" type="email"
-                                           :placeholder="locale['input2_field']">
+                                           :placeholder=" $t('webshopform.input2_field') ">
                                 </label>
 
                                 <label class="login__group">
-                                    {{locale['input3_label']}}
+                                    {{ $t('webshopform.input3_label') }}
                                     <input v-model="phone"
                                            class="login__group-input" type="email"
-                                           :placeholder="locale['input3_field']">
+                                           :placeholder=" $t('webshopform.input3_field') ">
                                 </label>
 
                                 <!-- <label class="login__group">
-                                    {{locale['input4_label']}}
+                                    {{ $t('webshopform.input4_label') }}
                                     <input v-model="platform"
                                            class="login__group-input" type="email"
-                                           :placeholder="locale['input4_field']">
+                                           :placeholder=" $t('webshopform.input4_field') ">
                                 </label> -->
                             </div>
 
                             <div style="width: 100%; text-align: left;" class="login__buttons">
-                                <!-- <a class="button button-empty btn-large" @click="emptyForm()"> {{locale['empty']}}</a> -->
-                                <a class="button btn-large" @click="sendForm()"> {{locale['send']}}</a>
+                                <!-- <a class="button button-empty btn-large" @click="emptyForm()"> {{ $t('webshopform.empty') }}</a> -->
+                                <a class="button btn-large" @click="sendForm()"> {{ $t('webshopform.send') }}</a>
                             </div>
                         </form>
                     </div>
@@ -52,7 +52,7 @@
                 <div class="uk-width-1-2 to-right">
                     <div class="uk-card uk-card-body section-1__col-1 final__section" style="background-color: rgb(255, 255, 255); border-radius: 5px;height: 100%;width: 100%;box-shadow: -5px 3px 40px 2px hsla(300,3%,55%,.74);">
                         <h3 style="margin-bottom: 20px;">Plugin Installatie</h3>
-                        <p> {{locale.subtitle1}}</p>
+                        <p> {{ $t('webshopform.subtitle1') }}</p>
                         <p> <br> </p>
                         <a href="/webshops/get-started/#magento-guide" class="" style="cursor: pointer;width: 90%;margin-bottom: 15px;"><button style="cursor: pointer;border: 0px;border-radius: 5px;color: white;background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);width: 100%; height: auto;padding: 15px 0px 15px 0px; border-radius: 5px;font-size:16px;text-align:center">Magento</button></a>
                         <a href="/webshops/get-started/#wc-guide" style="cursor: pointer;width: 90%;"><button style="cursor: pointer;border: 0px;background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);border-radius: 5px;color: white;width: 100%; height: auto;padding: 15px 0px 15px 0px; border-radius: 5px;font-size:16px;text-align:center">Wordpress / Woocommerce</button></a>
@@ -66,7 +66,6 @@
 
 <script>
     const Modal = () => import('@/components/modals/Modal')
-    import language from '../../lang/lang_webshopform'
 
     export default {
         name: "WebshopForm",
@@ -80,7 +79,6 @@
 
         data() {
             return {
-                locale: language,
                 name: '',
                 email: '',
                 phone: '',
@@ -88,23 +86,7 @@
             }
         },
 
-        mounted() {
-            this.checkLanguage()
-
-        },
-
         methods: {
-            checkLanguage(lang) {
-                // if(lang === 'en'){
-                //     this.locale = language.lang_en_webshopform
-                // } else {
-                //     if (this.currentLanguage === 'en') {
-                //         this.locale = language.lang_en_webshopform
-                //     } else {
-                        this.locale = language.lang_nl_webshopform
-                //     }
-                // }
-            },
 
             emptyForm() {
                 this.name = ''
@@ -118,34 +100,23 @@
             //Voor de form is alleen de email verplicht
             //De else statemant is bedoeld als de email form leeg is
             sendForm() {
-                if(this.email !== ''){
+                if (this.email !== ''){
                     let message = {
-                        title: this.locale['success'],
-                        text: this.locale['success_message']
+                        title: this. $t('webshopform.success') ,
+                        text: this. $t('webshopform.success_message') 
                     }
                     this.$store.commit('modalStatus', {message})
                 }
                 else {
                     let message = {
-                        title: this.locale['error'],
-                        text: this.locale['error_message']
+                        title: this. $t('webshopform.error') ,
+                        text: this. $t('webshopform.error_message') 
                     }
                     this.$store.commit('modalStatus', {message})
                 }
             }
-        },
-
-        computed: {
-            currentLanguage() {
-                return this.$store.state.language
-            }
-        },
-
-        watch: {
-            currentLanguage(value) {
-                this.checkLanguage(value)
-            }
         }
+        
     }
 </script>
 

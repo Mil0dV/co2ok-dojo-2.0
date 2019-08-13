@@ -5,7 +5,7 @@
             <div class="bkgr__filler bkgr__text hide--tablet">
                 <div class="green-border__login">
                     <p class="green-border__text main-text">
-                        {{locale['login_text2']}}
+                        {{ $t('login.login_text2') }}
                     </p>
                 </div>
             </div>
@@ -15,26 +15,26 @@
             <div class="login__width">
                 <div class="login-c__wrapper">
                     <div class="login-c__form">
-                        <h3 class="sub-title--small">{{locale['login_sort1']}}</h3>
-                        <h2 class="main-title">{{locale['title']}}</h2>
+                        <h3 class="sub-title--small">{{ $t('login.login_sort1') }}</h3>
+                        <h2 class="main-title">{{ $t('login.title') }}</h2>
 
                         <br>
                         <div class="c-input__wrapper">
-                            <label class="login-c__label">{{locale['input1']}}</label>
-                            <input type="email" class="login-c__input" :placeholder="locale['input_email']"
+                            <label class="login-c__label">{{ $t('login.input1') }}</label>
+                            <input type="email" class="login-c__input" :placeholder=" $t('login.input_email') "
                                    v-model="email">
                         </div>
 
                         <div class="c-input__wrapper">
-                            <label class="login-c__label">{{locale['input2']}}</label>
-                            <input type="password" class="login-c__input" :placeholder="locale['input_password']"
+                            <label class="login-c__label">{{ $t('login.input2') }}</label>
+                            <input type="password" class="login-c__input" :placeholder=" $t('login.input_password') "
                                    v-model="password">
                         </div>
 
 
-                        <p @click="passReset = true"class="subheading sub__password">{{locale['forgot']}}</p>
+                        <p @click="passReset = true"class="subheading sub__password">{{ $t('login.forgot') }}</p>
 
-                        <p class="button login-c__button" @click="login()">{{locale['login']}}</p>
+                        <p class="button login-c__button" @click="login()">{{ $t('login.login') }}</p>
                     </div>
                 </div>
 
@@ -43,22 +43,22 @@
                 <!--Register-->
                 <div class="login-c__wrapper">
                     <div class="login-c__form register-c__form">
-                        <h3 class="sub-title-c">{{locale['register']}}</h3>
+                        <h3 class="sub-title-c">{{ $t('login.register') }}</h3>
 
                         <br>
                         <div class="c-input__wrapper">
-                            <label class="login-c__label">{{locale['input1']}}</label>
-                            <input type="email" class="login-c__input" :placeholder="locale['input_email']"
+                            <label class="login-c__label">{{ $t('login.input1') }}</label>
+                            <input type="email" class="login-c__input" :placeholder=" $t('login.input_email') "
                                    v-model="registerMail">
                         </div>
 
                         <div class="c-input__wrapper">
-                            <label class="login-c__label">{{locale['input2']}}</label>
-                            <input type="password" class="login-c__input" :placeholder="locale['input_password']"
+                            <label class="login-c__label">{{ $t('login.input2') }}</label>
+                            <input type="password" class="login-c__input" :placeholder=" $t('login.input_password') "
                                    v-model="registerPass">
                         </div>
 
-                        <p class="button login-c__button login-c__larger" @click="register()">{{locale['account']}}</p>
+                        <p class="button login-c__button login-c__larger" @click="register()">{{ $t('login.account') }}</p>
                     </div>
                 </div>
             </div>
@@ -69,8 +69,6 @@
 
 <script>
     const PasswordForgotModal = () => import('@/components/modals/PasswordForgotModal')
-    import language from '../../lang/lang_login'
-
 
     export default {
         name: "LoginConsumer",
@@ -80,17 +78,12 @@
 
         data() {
             return {
-                locale: language,
                 email: '',
                 password: '',
                 registerMail: '',
                 registerPass: '',
                 passReset: false,
             }
-        },
-
-        mounted() {
-            this.checkLanguage()
         },
 
         created() {
@@ -100,17 +93,6 @@
         },
 
         methods: {
-            checkLanguage(lang) {
-                if (lang === 'en') {
-                    this.locale = language.lang_en_login
-                } else {
-                    if (this.currentLanguage === 'en') {
-                        this.locale = language.lang_en_login
-                    } else {
-                        this.locale = language.lang_nl_login
-                    }
-                }
-            },
 
             register() {
                 if (this.registerMail !== '' && this.registerPass !== '') {
@@ -244,17 +226,6 @@
             }
         },
 
-        computed: {
-            currentLanguage() {
-                return this.$store.state.language
-            }
-        },
-
-        watch: {
-            currentLanguage(value) {
-                this.checkLanguage(value)
-            }
-        }
     }
 </script>
 

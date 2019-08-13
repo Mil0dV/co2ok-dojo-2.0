@@ -10,7 +10,7 @@
                     </div>
 
                     <p class="main-text">
-                        {{locale['section1_text']}}
+                        {{ $t('projects.section1_text') }}
                     </p>
 
                     <div class="img-wrapper-2 uk-box-shadow-medium">
@@ -43,30 +43,30 @@
             <div class="uk-container uk-container-row uk-container-width">
                 <div class="sect-2-col-1">
                     <div class="content-intro">
-                        <h3 class="sub-title">{{locale['section2_subTitle']}}</h3>
-                        <h2 class="main-title">{{locale['section2_title']}}</h2>
+                        <h3 class="sub-title">{{ $t('projects.section2_subTitle') }}</h3>
+                        <h2 class="main-title">{{ $t('projects.section2_title') }}</h2>
                         <p class="main-text">
-                            {{locale['section2_text']}}
+                            {{ $t('projects.section2_text') }}
                         </p>
 
                     </div>
 
                     <div class="content-row">
                         <div class="row-item">
-                            <h3 class="row-title"><i class="fas fa-wind subheading"></i> {{locale['s2_title1']}}</h3>
+                            <h3 class="row-title"><i class="fas fa-wind subheading"></i> {{ $t('projects.s2_title1') }}</h3>
                             <p>
-                                {{locale['s2_text1']}}
+                                {{ $t('projects.s2_text1') }}
                             </p>
                         </div>
 
                         <div class="row-item">
-                            <h3 class="row-title"><i class="fas fa-solar-panel subheading"></i> {{locale['s2_title2']}}</h3>
-                            <p>{{locale['s2_text2']}}</p>
+                            <h3 class="row-title"><i class="fas fa-solar-panel subheading"></i> {{ $t('projects.s2_title2') }}</h3>
+                            <p>{{ $t('projects.s2_text2') }}</p>
                         </div>
 
                         <div class="row-item">
-                            <h3 class="row-title"><i class="fas fa-tint subheading"></i> {{locale['s2_title3']}}</h3>
-                            <p>{{locale['s2_text3']}}</p>
+                            <h3 class="row-title"><i class="fas fa-tint subheading"></i> {{ $t('projects.s2_title3') }}</h3>
+                            <p>{{ $t('projects.s2_text3') }}</p>
                         </div>
                     </div>
                 </div>
@@ -82,30 +82,30 @@
             <div class="uk-container uk-container-row row-reverse uk-container-width">
                 <div class="sect-2-col-1">
                     <div class="content-intro">
-                        <h3 class="sub-title">{{locale['section3_subTitle']}}</h3>
-                        <h2 class="main-title">{{locale['section3_title']}}</h2>
+                        <h3 class="sub-title">{{ $t('projects.section3_subTitle') }}</h3>
+                        <h2 class="main-title">{{ $t('projects.section3_title') }}</h2>
                         <p class="main-text">
-                            {{locale['section3_text']}}
+                            {{ $t('projects.section3_text') }}
                         </p>
 
                     </div>
 
                     <div class="content-row">
                         <div class="row-item">
-                            <h3 class="row-title"><i class="fa fa-utensils subheading"></i> {{locale['s3_title1']}}</h3>
+                            <h3 class="row-title"><i class="fa fa-utensils subheading"></i> {{ $t('projects.s3_title1') }}</h3>
                             <p>
-                                {{locale['s3_text1']}}
+                                {{ $t('projects.s3_text1') }}
                             </p>
                         </div>
 
                         <div class="row-item">
-                            <h3 class="row-title"><i class="far fa-sun subheading"></i> {{locale['s3_title2']}}</h3>
-                            <p>{{locale['s3_text2']}}</p>
+                            <h3 class="row-title"><i class="far fa-sun subheading"></i> {{ $t('projects.s3_title2') }}</h3>
+                            <p>{{ $t('projects.s3_text2') }}</p>
                         </div>
 
                         <div class="row-item row-item__width">
-                            <h3 class="row-title">{{locale['s3_title3']}}</h3>
-                            <p>{{locale['s3_text3']}}</p>
+                            <h3 class="row-title">{{ $t('projects.s3_title3') }}</h3>
+                            <p>{{ $t('projects.s3_text3') }}</p>
                         </div>
                     </div>
                 </div>
@@ -120,9 +120,6 @@
 
 <script>
     const Header = () => import('@/components/layout/Header')
-    import projectsLang from '../lang/lang_projects'
-
-
     export default {
         name: "Projects",
         components: {'Header': Header},
@@ -130,39 +127,9 @@
         data() {
             return {
                 header: 'projects',
-                locale: projectsLang,
             }
         },
 
-        mounted() {
-            this.checkLanguage()
-        },
-
-        methods: {
-            checkLanguage(lang) {
-                if(lang === 'en'){
-                    this.locale = projectsLang.lang_en_projects
-                } else {
-                    if (this.currentLanguage === 'en') {
-                        this.locale = projectsLang.lang_en_projects
-                    } else {
-                        this.locale = projectsLang.lang_nl_projects
-                    }
-                }
-            }
-        },
-
-        computed: {
-            currentLanguage() {
-                return this.$store.state.language
-            }
-        },
-
-        watch: {
-            currentLanguage(value) {
-                this.checkLanguage(value)
-            }
-        }
     }
 </script>
 

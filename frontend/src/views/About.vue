@@ -111,7 +111,6 @@
 
 <script>
     const Header = () => import('@/components/layout/Header')
-    import language from '../lang/lang_about'
 
     export default {
         name: "About",
@@ -121,7 +120,6 @@
             return {
                 moreText: false,
                 header: 'about',
-                locale: language,
 
                 crew: [
                     {

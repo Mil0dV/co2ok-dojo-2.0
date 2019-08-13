@@ -41,7 +41,6 @@ export default new Vuex.Store({
         ninjaExtensionLink: '',
         extensionLinkTarget: '',
         browserLogo: '',
-        language: 'en',
         passResetEmail: '',
         years: [] //array of alle transactions years in pynamodb
         // store transaction from pynamo and store it in een local arr in dashboard/view.py array
@@ -49,13 +48,6 @@ export default new Vuex.Store({
     },
 
     mutations: {
-        languageStatus(state, payload) {
-            if(payload === 'en') {
-                state.language = 'en'
-            } else {
-                state.language = 'nl'
-            }
-        },
 
         modalStatus(state, payload) {
             if (!state.modalStatus) {

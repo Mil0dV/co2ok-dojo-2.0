@@ -7,15 +7,15 @@
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
                         <div class="uk-card uk-card-body section-1__col-1">
-                            <h3 class="sub-title">{{locale.subTitle}}</h3>
-                            <h2 class="main-title">{{locale.title}}</h2>
+                            <h3 class="sub-title">{{ $t('retailers.subTitle') }}</h3>
+                            <h2 class="main-title">{{ $t('retailers.title') }}</h2>
                             <p class="main-text">
-                                {{locale.mainText}}
+                                {{ $t('retailers.mainText') }}
                             </p>
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/get-started" class="button">{{locale.row_button}}</router-link>
+                                <router-link to="/webshops/get-started" class="button">{{ $t('retailers.row_button') }}</router-link>
                             </div>
                         </div>
                     </div>
@@ -24,19 +24,19 @@
                         <div class="uk-card col-1-card uk-card-default uk-card-body" style="border-radius: 10px; max-width: 452px;">
                             <ul class="col-1-list">
                                 <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>
-                                    {{locale.icon1}}
+                                    {{ $t('retailers.icon1') }}
                                 </li>
                                 <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>
-                                    {{locale.icon2}}
+                                    {{ $t('retailers.icon2') }}
                                 </li>
                                 <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>
-                                    {{locale.icon3}}
+                                    {{ $t('retailers.icon3') }}
                                 </li>
                                 <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>
-                                    {{locale.icon4}}
+                                    {{ $t('retailers.icon4') }}
                                 </li>
                                 <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>                                    
-                                    {{locale.icon5}}
+                                    {{ $t('retailers.icon5') }}
                                 </li>
                             </ul>
                         </div>
@@ -50,10 +50,10 @@
                             <p><strong>Cor Sandburg</strong><br>Happy Towels</p>
                         </div>
                         <div class="testimonial-wrapper">
-                            <p class="main-title" style="font-weight: bold;font-size: 20px;margin: 0px;">{{locale['testimonial_head']}}</p>
+                            <p class="main-title" style="font-weight: bold;font-size: 20px;margin: 0px;">{{ $t('retailers.testimonial_head') }}</p>
 
                             <p class="content-text">
-                                {{locale['testimonial_content']}}
+                                {{ $t('retailers.testimonial_content') }}
                             </p>
                         </div>
                     </div>
@@ -68,12 +68,12 @@
                 <img alt="retailer icon 1" src="../../assets/images/webshops/retailers/retailer-icon-1.png">
 
                 <div class="content--wrapper">
-                    <h2 class="main-title">{{locale.row1}} </h2>
+                    <h2 class="main-title">{{ $t('retailers.row1') }} </h2>
 
-                    <p class="content-text" v-html="locale.row_text1">
-                    <h2 class="sub-title">{{locale.row1_extra}} </h2>
-                    <p class="content-text" v-html="locale.row_text1_extra">
-                        <!-- {{locale.row_text1}} -->
+                    <p class="content-text" v-html=" $t('retailers.row_text1') ">
+                    <h2 class="sub-title">{{ $t('retailers.row1_extra') }} </h2>
+                    <p class="content-text" v-html=" $t('retailers.row_text1_extra') ">
+                        <!-- {{ $t('retailers.row_text1') }} -->
                     </p>
                 </div>
             </div>
@@ -85,13 +85,13 @@
                 <img alt="retailer icon 2" src="../../assets/images/webshops/retailers/retailer-icon-2.png">
 
                 <div class="content--wrapper">
-                    <h2 class="main-title">{{locale.row2}}</h2>
+                    <h2 class="main-title">{{ $t('retailers.row2') }}</h2>
 
-                    <p class="content-text" v-html="locale.row_text2">
+                    <p class="content-text" v-html=" $t('retailers.row_text2') ">
                     </p>
 
                     <!-- <p class="content-text">
-                        {{locale.row_text2_extra}}
+                        {{ $t('retailers.row_text2_extra') }}
                     </p> -->
                 </div>
             </div>
@@ -102,10 +102,10 @@
                 <img alt="retailer icon 3" src="../../assets/images/webshops/retailers/retailer-icon-3.png">
 
                 <div class="content--wrapper">
-                    <h2 class="main-title">{{locale.row3}}</h2>
+                    <h2 class="main-title">{{ $t('retailers.row3') }}</h2>
 
                     <p class="content-text">
-                        {{locale.row_text3}}
+                        {{ $t('retailers.row_text3') }}
                     </p>
                 </div>
             </div>
@@ -116,15 +116,15 @@
                 <img alt="retailer icon 4" src="../../assets/images/webshops/retailers/retailer-icon-4.png">
 
                 <div class="content--wrapper">
-                    <h2 class="main-title">{{locale.row4}}</h2>
+                    <h2 class="main-title">{{ $t('retailers.row4') }}</h2>
 
                     <p class="content-text">
-                        {{locale.row_text4}}
+                        {{ $t('retailers.row_text4') }}
                     </p>
 
                     <br>
                     <div class="col-1--links">
-                        <router-link to="/webshops/plug-in-installation" class="button">{{locale.row_button}}</router-link>
+                        <router-link to="/webshops/plug-in-installation" class="button">{{ $t('retailers.row_button') }}</router-link>
                     </div>
                 </div>
             </div>
@@ -139,15 +139,15 @@
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
                         <div class="uk-card uk-card-body section-1__col-1">
-                            <h3 class="sub-title">{{locale.subTitle2}}</h3>
-                            <h2 class="main-title">{{locale.title2}}</h2>
+                            <h3 class="sub-title">{{ $t('retailers.subTitle2') }}</h3>
+                            <h2 class="main-title">{{ $t('retailers.title2') }}</h2>
                             <p class="main-text">
-                                {{locale.mainText2}}
+                                {{ $t('retailers.mainText2') }}
                             </p>
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/plug-in-installation" class="button">{{locale.row_button}}
+                                <router-link to="/webshops/plug-in-installation" class="button">{{ $t('retailers.row_button') }}
                                 </router-link>
                             </div>
                         </div>
@@ -166,8 +166,8 @@
         <div class="uk-section section-4" id="pricing">
             <div class="uk-container uk-container-width">
                 <div class="section-2--col-1 section-4--header">
-                    <h2 class="main-title">{{locale.subtitle3}}</h2>
-                    <h2 class="sub-title">{{locale.title3}}</h2>
+                    <h2 class="main-title">{{ $t('retailers.subtitle3') }}</h2>
+                    <h2 class="sub-title">{{ $t('retailers.title3') }}</h2>
                 </div>
 
                 <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
@@ -176,7 +176,7 @@
                             <!-- <img alt="retailer shop 1" class="shop__image"
                                  src="../../assets/images/webshops/retailers/shop-1.png"> -->
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
-                            <p class="shop--text" v-html="locale.quote1">
+                            <p class="shop--text" v-html=" $t('retailers.quote1') ">
                             </p>
                         </div>
                     </div>
@@ -185,7 +185,7 @@
                             <!-- <img alt="retailer shop 2" class="shop__image"
                                  src="../../assets/images/webshops/retailers/shop-2.png"> -->
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
-                            <p class="shop--text" v-html="locale.quote2">
+                            <p class="shop--text" v-html=" $t('retailers.quote2') ">
                             </p>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                             <!-- <img alt="retailer shop 3" class="shop__image"
                                  src="../../assets/images/webshops/retailers/shop-3.png"> -->
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
-                            <p class="shop--text" v-html="locale.quote3">
+                            <p class="shop--text" v-html=" $t('retailers.quote3') ">
                             </p>
                         </div>
                     </div>
@@ -203,7 +203,7 @@
                             <!-- <img alt="retailer shop 3" class="shop__image"
                                  src="../../assets/images/webshops/retailers/shop-3.png"> -->
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
-                            <p class="shop--text" v-html="locale.quote4">
+                            <p class="shop--text" v-html=" $t('retailers.quote4') ">
                             </p>
                         </div>
                     </div>
@@ -217,7 +217,6 @@
     const Header = () => import('@/components/layout/Header')
     const WebshopForm = () => import('@/components/layout/WebshopForm')
     const Webshops = () => import('@/components/layout/Webshops')
-    import retailersLang from '../../lang/lang_retailers'
 
     export default {
         name: "Retailers",
@@ -231,38 +230,7 @@
             return {
                 header: 'retailers',
                 formContent: 2,
-                webshopsContent: 2,
-                locale: retailersLang,
-            }
-        },
-
-        mounted() {
-            this.checkLanguage()
-        },
-
-        methods: {
-            checkLanguage(lang) {
-                // if(lang === 'en'){
-                //     this.locale = retailersLang.lang_en_retailers
-                // } else {
-                //     if (this.currentLanguage === 'en') {
-                //         this.locale = retailersLang.lang_en_retailers
-                    // } else {
-                        this.locale = retailersLang.lang_nl_retailers
-                //     }
-                // }
-            }
-        },
-
-        computed: {
-            currentLanguage() {
-                return this.$store.state.language
-            }
-        },
-
-        watch: {
-            currentLanguage(value) {
-                this.checkLanguage(value)
+                webshopsContent: 2
             }
         }
     }

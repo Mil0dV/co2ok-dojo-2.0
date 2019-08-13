@@ -36,7 +36,6 @@
 
 <script>
     const Header = () => import('@/components/layout/Header')
-    import language from '../lang/lang_faq'
 
     export default {
         name: "Faq",
@@ -44,8 +43,7 @@
 
         data() {
             return {
-                header: 'faq',
-                locale: language,
+                header: 'faq'
             }
         }
     }
