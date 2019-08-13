@@ -56,15 +56,15 @@
 
         methods: {
             checkLanguage(lang) {
-                if(lang === 'en'){
-                    this.locale = language.lang_en_faq
-                } else {
-                    if (this.currentLanguage === 'en') {
-                        this.locale = language.lang_en_faq
-                    } else {
+                // if(lang === 'en'){
+                //     this.locale = language.lang_en_faq
+                // } else {
+                //     if (this.currentLanguage === 'en') {
+                //         this.locale = language.lang_en_faq
+                //     } else {
                         this.locale = language.lang_nl_faq
-                    }
-                }
+                //     }
+                // }
             }
         },
 

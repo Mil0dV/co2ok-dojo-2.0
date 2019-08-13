@@ -19,6 +19,11 @@ import VueLodash from 'vue-lodash'
 
 import './registerServiceWorker'
 
+import VueAnalytics from 'vue-analytics'
+
+Vue.use(VueAnalytics, {
+  id: 'UA-108940950-4'
+})
 
 Axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 Axios.defaults.xsrfCookieName = "XCSRF-TOKEN";

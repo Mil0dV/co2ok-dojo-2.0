@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import VueAnalytics from 'vue-analytics'
 
 Vue.use(Router)
 
@@ -70,6 +71,11 @@ const router = new Router({
             component: () => import('./views/webshops/Retailers')
         },
         {
+            path: '/retailers',
+            name: 'retailers',
+            component: () => import('./views/webshops/Retailers')
+        },
+        {
             path: '/webshops/cause-marketing',
             name: 'cause-marketing',
             component: () => import('./views/webshops/Cause')
@@ -131,6 +137,11 @@ const router = new Router({
     }
 });
 
+
+Vue.use(VueAnalytics, {
+    id: 'UA-108940950-4',
+    router
+  })
 
 // router.beforeEach((to, from, next) => {
 //   const publicPages = ['/login', '/register']

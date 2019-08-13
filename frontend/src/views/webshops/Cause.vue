@@ -357,15 +357,15 @@
             },
 
             checkLanguage(lang) {
-                if (lang === 'en') {
-                    this.locale = causeLang.lang_en_cause
-                } else {
-                    if (this.currentLanguage === 'en') {
-                        this.locale = causeLang.lang_en_cause
-                    } else {
+                // if (lang === 'en') {
+                //     this.locale = causeLang.lang_en_cause
+                // } else {
+                //     if (this.currentLanguage === 'en') {
+                //         this.locale = causeLang.lang_en_cause
+                //     } else {
                         this.locale = causeLang.lang_nl_cause
-                    }
-                }
+                //     }
+                // }
             }
         },
 

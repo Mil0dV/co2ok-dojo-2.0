@@ -1,30 +1,30 @@
 module.exports = {
     lang_nl_webshopform: {
         'title1' : 'Maakt u gebruik van een ander CMS system?',
-        'subtitle1' : 'Gebruik je een ander e-commerce systeem? Vul het formulier in en we sturen je een bericht wanneer we het ondersteunen! (Alleen je e-mailadres is genoeg!)',
+        'subtitle1' : 'Wil je direct aan de slag? Bekijk hieronder hoe snel je onze plugin kan installeren.',
 
-        'title2' : 'Denk en volg',
-        'subtitle2' : 'Wil je er nog steeds over nadenken maar wil je ons ook volgen? (maak je geen zorgen over het formulier, alleen je e-mail is genoeg! :))',
+        'title2' : 'Aan de slag',
+        'subtitle2' : 'Boek een gepersonaliseerde demo en zie hoe wij je MVO strategie naar een hoger plan kunnen tillen.',
 
         'input1_label' : 'Naam',
-        'input1_field' : 'Vul uw naam in..',
+        'input1_field' : 'Vul je naam in..',
 
         'input2_label' : 'E-mail',
-        'input2_field' : 'Vul uw e-mail in..',
+        'input2_field' : 'Vul je e-mail in..',
 
-        'input3_label' : 'Telefoon number',
-        'input3_field' : 'VUl uw telefoon nummer in..',
+        'input3_label' : 'Telefoon nummer',
+        'input3_field' : 'Vul je telefoon nummer in..',
 
         'input4_label' : 'E-commerce platform',
-        'input4_field' : 'Vul de naam van uw platform in...',
+        'input4_field' : 'Vul de naam van je platform in...',
 
         'empty': 'Formulier legen',
         'send' : 'Verzenden',
 
         'error': 'Er is iets mis gegaan...',
-        'error_message' : 'Vul alstublieft uw e-mail in',
+        'error_message' : 'Zou je je e-mail  in',
 
         'success': 'Succes!',
-        'success_message' : 'U heeft zich succesvol geregistreerd tot onze e-mail service'
+        'success_message' : 'We nemen zsm contact met je op'
     }
 }

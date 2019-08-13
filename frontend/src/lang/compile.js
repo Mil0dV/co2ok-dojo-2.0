@@ -1,21 +1,23 @@
 var fs = require('fs');
 
 
+//NB: voor de steps/compensation/how pagina is het nl_compensation en en_how :X
+
 // import all language files
-var nl_home = require('./nl_/nl_retailers.js');
-var en_home = require('./en_/en_retailers.js');
+var nl_home = require('./nl_/nl_compensation.js');
+var en_home = require('./en_/en_how.js');
 
 console.log('execute compile.js');
 
 // name of home language kit
 // add more language kit files later
-var home_language_kit = "src/lang/lang_retailers.json";
+var home_language_kit = "src/lang/lang_compensation.json";
 
 // exmaple homepage language object
 // add more language objects later
 var home_language_kit_object = {
-    lang_nl_retailers: nl_home.lang_nl_retailers,
-    lang_en_retailers: en_home.lang_en_retailers
+    lang_nl_compensation: nl_home.lang_nl_compensation,
+    lang_en_compensation: en_home.lang_en_how
 };
 
 // create New Home Language Kit
