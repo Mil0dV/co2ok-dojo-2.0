@@ -10,59 +10,59 @@
                         <li>+31 (0) 6 397 65 259</li>
                         <li>info@co2ok.eco</li>
                         <li>© 2019 CO₂ok.</li>
-                        <li>{{locale['kvk']}} 69752753</li>
+                        <li>{{ $t('footer.kvk') }} 69752753</li>
                     </ul>
                 </div>
                 <div class="uk-width-1-3@m footer-column">
                     <h2>Sitemap</h2>
                     <ul>
                         <li>
-                            <router-link to="/">{{locale['link1']}}</router-link>
+                            <router-link to="/">{{ $t('footer.link1') }}</router-link>
                         </li>
                         <li>
-                            <router-link to="/about">{{locale['link2']}}</router-link>
+                            <router-link to="/about">{{ $t('footer.link2') }}</router-link>
                         </li>
                         <li>
-                            <router-link to="/webshops">{{locale['link3']}}</router-link>
+                            <router-link to="/webshops">{{ $t('footer.link3') }}</router-link>
                         </li>
                         <li>
-                            <router-link to="/compensation">{{locale['link4']}}</router-link>
+                            <router-link to="/compensation">{{ $t('footer.link4') }}</router-link>
                         </li>
                         <li>
                             <ul>
                                 <li>
-                                    <router-link to="/webshops/retailers">{{locale['link5']}}</router-link>
+                                    <router-link to="/webshops/retailers">{{ $t('footer.link5') }}</router-link>
                                 </li>
                                 <li>
-                                    <router-link to="webshops/cause-marketing">{{locale['link6']}}</router-link>
+                                    <router-link to="webshops/cause-marketing">{{ $t('footer.link6') }}</router-link>
                                 </li>
                                 <li>
-                                    <router-link to="/projects">{{locale['link7']}}</router-link>
+                                    <router-link to="/projects">{{ $t('footer.link7') }}</router-link>
                                 </li>
                                 <span v-if="$store.state.userStatus">
                                      <li><router-link to="/webshops/dashboard">Dashboard</router-link></li>
                                      <li @click="logout()">Logout</li>
                                 </span>
                                 <span v-else>
-                                    <li><router-link to="/webshops/login">{{locale['link14']}}</router-link></li>
+                                    <li><router-link to="/webshops/login">{{ $t('footer.link14') }}</router-link></li>
                                 </span>
                             </ul>
                         </li>
                         <li v-if="!$store.state.userStatus">
-                            <router-link to="/consumers/login">{{locale['link9']}}</router-link>
+                            <router-link to="/consumers/login">{{ $t('footer.link9') }}</router-link>
                         </li>
                         <span v-else>
-                            <li><router-link to="/consumers/profile">{{locale['link13']}}</router-link></li>
-                            <li @click="logout()">{{locale['link15']}}</li>
+                            <li><router-link to="/consumers/profile">{{ $t('footer.link13') }}</router-link></li>
+                            <li @click="logout()">{{ $t('footer.link15') }}</li>
                         </span>
                         <li>
-                            <router-link to="/blogs">{{locale['link10']}}</router-link>
+                            <router-link to="/blogs">{{ $t('footer.link10') }}</router-link>
                         </li>
                         <li>
                             <router-link to="/faq">FAQ</router-link>
                         </li>
                         <li>
-                            <router-link to="/privacy">{{locale['link12']}}</router-link>
+                            <router-link to="/privacy">{{ $t('footer.link12') }}</router-link>
                         </li>
                     </ul>
                 </div>
@@ -87,21 +87,9 @@
 
 <script>
     import axios from 'axios'
-    import footerLang from '../../lang/lang_footer'
 
     export default {
         name: "Footer",
-
-        data() {
-            return {
-                locale: footerLang
-            }
-        },
-
-        mounted() {
-            this.checkLanguage()
-        },
-
 
         methods: {
             logout() {
@@ -119,34 +107,10 @@
                     .catch(error => {
                         this.errorMessage()
                     })
-            },
-
-            checkLanguage(lang) {
-                if(lang === 'en'){
-                    this.locale = footerLang.lang_en_footer
-                } else {
-                    if (this.currentLanguage === 'en') {
-                        this.locale = footerLang.lang_en_footer
-                    } else {
-                        this.locale = footerLang.lang_nl_footer
-                    }
-                }
             }
 
-        },
-
-
-        computed: {
-            currentLanguage() {
-                return this.$store.state.language
-            }
-        },
-
-        watch: {
-            currentLanguage(value) {
-                this.checkLanguage(value)
-            }
         }
+        
     }
 </script>
 

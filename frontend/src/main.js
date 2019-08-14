@@ -13,8 +13,9 @@ import 'aos/dist/aos.css'
 // vue-moment imports
 import VueMoment from 'vue-moment'
 import moment from 'moment-timezone'
-
-//vue lodash
+// Internationalization
+import { i18n } from '@/plugins/i18n'
+// Vue lodash
 import VueLodash from 'vue-lodash'
 
 import './registerServiceWorker'
@@ -32,7 +33,7 @@ Axios.defaults.withCredentials = true
 Vue.use(VAnimateCss);
 Vue.use(Vuex);
 Vue.use(VueMoment);
-Vue.use(VueLodash)
+Vue.use(VueLodash);
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = Axios
@@ -42,6 +43,7 @@ new Vue({
     AOS.init()
   },
   router,
+  i18n,
   store,
   moment,
   render: h => h(App)

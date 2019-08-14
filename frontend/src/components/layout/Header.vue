@@ -66,7 +66,7 @@
                 //     }
                 // } else {
                     switch (this.image) {
-                        case 'steps':
+                        case 'compensation':
                             this.title = 'How it works'
                             break;
                         case 'about':
@@ -112,18 +112,9 @@
         computed: {
             currentRouteName() {
                 return this.$route.name;
-            },
-
-            currentLanguage() {
-                return this.$store.state.language
-            }
-        },
-
-        watch: {
-            currentLanguage(value) {
-                this.checkHeaderTitle(value)
             }
         }
+
     }
 </script>
 

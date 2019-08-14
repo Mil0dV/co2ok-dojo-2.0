@@ -41,8 +41,8 @@ const router = new Router({
         },
         {
             path: '/co2-compensatie',
-            name: 'steps',
-            component: () => import( './views/Steps'),
+            name: 'compensation',
+            component: () => import( './views/Compensation'),
         },
         {
             path: '/privacy',
@@ -132,8 +132,12 @@ const router = new Router({
         }
     ],
 
-    scrollBehavior () {
-        return { x: 0, y: 0 };
+    scrollBehavior (to) {
+        if (to.hash) {
+            return { selector: to.hash }
+        } else {
+            return { x: 0, y: 0 };
+        }
     }
 });
 

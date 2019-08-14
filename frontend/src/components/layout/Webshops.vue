@@ -7,10 +7,10 @@
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
                         <div class="uk-card uk-card-body section-1__col-1">
-                            <h3 class="sub-title">{{locale.subTitle}}</h3>
-                            <h2 class="main-title">{{locale.title}}</h2>
+                            <h3 class="sub-title">{{ $t('webshops.subTitle') }}</h3>
+                            <h2 class="main-title">{{ $t('webshops.title') }}</h2>
                             <p class="main-text">
-                                {{locale.mainText}}
+                                {{ $t('webshops.mainText') }}
                             </p>
 
                             <br>
@@ -19,7 +19,7 @@
 
                                 <div class="col-1--links-wrapper">
                                     <router-link class="link" to="/webshops/cause-marketing">
-                                        {{locale.link2}} <span uk-icon="icon: arrow-right"></span>
+                                        {{ $t('webshops.link2') }} <span uk-icon="icon: arrow-right"></span>
                                     </router-link>
                                 </div>
                             </div>
@@ -39,8 +39,8 @@
         <div class="uk-section section-2">
             <div class="uk-container uk-container-width">
                 <div class="section-2--col-1">
-                    <h1 class="main-title">{{locale.title2}}</h1>
-                    <h2 class="sub-title sub-title--s2">{{locale.subTitle2}}</h2>
+                    <h1 class="main-title">{{ $t('webshops.title2') }}</h1>
+                    <h2 class="sub-title sub-title--s2">{{ $t('webshops.subTitle2') }}</h2>
                 </div>
                 <br>
 
@@ -59,7 +59,6 @@
 <script>
     // const Header = () => import('@/components/layout/Header')
     const Modal = () => import('@/components/modals/Modal')
-    import webshopsLang from '../../lang/lang_webshops'
 
     export default {
         name: "Webshops",
@@ -73,7 +72,6 @@
         data() {
             return {
                 header: 'webshops',
-                locale: webshopsLang,
                 webshop: [
                     {
                         image: 'shop-1',
@@ -193,37 +191,8 @@
                     },
                 ]
             }
-        },
-
-        mounted() {
-            this.checkLanguage()
-        },
-
-        methods: {
-            checkLanguage(lang) {
-                // if(lang === 'en'){
-                //     this.locale = webshopsLang.lang_en_webshops
-                // } else {
-                //     if (this.currentLanguage === 'en') {
-                //         this.locale = webshopsLang.lang_en_webshops
-                //     } else {
-                        this.locale = webshopsLang.lang_nl_webshops
-                //     }
-                // }
-            }
-        },
-
-        computed: {
-            currentLanguage() {
-                return this.$store.state.language
-            }
-        },
-
-        watch: {
-            currentLanguage(value) {
-                this.checkLanguage(value)
-            }
         }
+
     }
 </script>
 

@@ -3,7 +3,7 @@
         <div class="dashboard__container">
             <div class="dashboard__header">
                 <h2 class="dashboard__title">Dashboard</h2>
-                <h5 class="dashboard__welcome">Weclome, {{this.$store.state.userData.userdata.username}}!</h5>
+                <h5 class="dashboard__welcome">Welcome, {{this.$store.state.userData.userdata.username}}!</h5>
                 <!--<h3 class="dashboard__welcome">Weclome, a31!</h3>-->
             </div>
 

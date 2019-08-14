@@ -6,10 +6,10 @@
                      class="intro__logo">
 
                 <div class="intro__text__wrapper">
-                    <h1 class="desktop__intro">{{locale['intro_first_desktop']}}</h1>
+                    <h1 class="desktop__intro">{{ $t('home2.intro_first_desktop') }}</h1>
                     <div class="mobile__intro mobile__intro-1">
-                        <h1>{{locale['intro_first_mobile-1']}}</h1>
-                        <h1>{{locale['intro_first_mobile-2']}}</h1>
+                        <h1>{{ $t('home2.intro_first_mobile-1') }}</h1>
+                        <h1>{{ $t('home2.intro_first_mobile-2') }}</h1>
                     </div>
                 </div>
             </div>
@@ -19,10 +19,10 @@
                      class="intro__logo intro__logo-lower">
 
                 <div class="intro__text__wrapper">
-                    <h1 class="desktop__intro">{{locale['intro_second_desktop']}}</h1>
+                    <h1 class="desktop__intro">{{ $t('home2.intro_second_desktop') }}</h1>
                     <div class="mobile__intro mobile__intro-2">
-                        <h1>{{locale['intro_second_mobile-1']}}</h1>
-                        <h1>{{locale['intro_second_mobile-2']}}</h1>
+                        <h1>{{ $t('home2.intro_second_mobile-1') }}</h1>
+                        <h1>{{ $t('home2.intro_second_mobile-2') }}</h1>
                     </div>
                 </div>
             </div>
@@ -31,17 +31,17 @@
         <div class="uk-section home__section-2 prefix__section">
             <div class="section-2__content">
                     <div class="section-2__row-1">
-                        <h2 class="main-title" style="font-size: 30px">
-                            {{locale['section_2_title']}}
+                        <h2 class="main-title">
+                            {{ $t('home2.section_2_title') }}
                         </h2>
                         <p class="main-text">
-                            {{locale['section_2_text']}}
+                            {{ $t('home2.section_2_text') }}
                         </p>
                         <br>
                         <a href="/webshops/retailers"
-                           class="button">{{locale['button_1']}}</a>
+                           class="button">{{ $t('home2.button_1') }}</a>
                         <!-- <a href="/ninja"
-                           class="button">{{locale['button_2']}}</a> -->
+                           class="button">{{ $t('home2.button_2') }}</a> -->
 
                     </div>
                     <!-- voor webshops: hAsY9pNJ3fE -->
@@ -59,7 +59,7 @@
 
         <div class="steps__container">
             <h2 class="main-title">
-                {{locale['steps_title']}}
+                {{ $t('home2.steps_title') }}
             </h2>
 
             <!--Stap 1-->
@@ -77,12 +77,12 @@
                             <div class="steps__title-container">
                                 <i class="fas fa-smog step__icon"></i>
                                 <p class="steps__title">
-                                    {{locale['s2_title']}}
+                                    {{ $t('home2.s2_title') }}
                                 </p>
                             </div>
 
                             <p class="main-text">
-                                {{locale['s2_text']}}
+                                {{ $t('home2.s2_text') }}
                             </p>
                         </div>
                     </div>
@@ -97,12 +97,12 @@
                             <div class="steps__title-container">
                                 <i class="fas fa-shopping-cart step__icon"></i>
                                 <p class="steps__title">
-                                    {{locale['s3a_title']}}
+                                    {{ $t('home2.s3a_title') }}
                                 </p>
                             </div>
 
                             <p class="main-text">
-                                {{locale['s3_text']}}
+                                {{ $t('home2.s3_text') }}
                             </p>
                         </div>
                     </div>
@@ -132,12 +132,12 @@
                             <div class="steps__title-container">
                                 <i class="fas fa-solar-panel step__icon"></i>
                                 <p class="steps__title">
-                                    {{locale['s4_title']}}
+                                    {{ $t('home2.s4_title') }}
                                 </p>
                             </div>
 
                             <p class="main-text">
-                                {{locale['s4_text']}}
+                                {{ $t('home2.s4_text') }}
                             </p>
                         </div>
                     </div>
@@ -153,12 +153,12 @@
                             <div class="steps__title-container">
                                 <i class="fas fa-check step__icon"></i>
                                 <p class="steps__title">
-                                    {{locale['s5_title']}}
+                                    {{ $t('home2.s5_title') }}
                                 </p>
                             </div>
 
                             <p class="main-text">
-                                {{locale['s5_text']}}
+                                {{ $t('home2.s5_text') }}
                             </p>
                         </div>
                     </div>
@@ -177,8 +177,8 @@
         <div class="uk-section section-4 section--dark">
             <div class="uk-container uk-container-width">
                 <div class="section-2--col-1 section-4--header">
-                    <h2 class="sub-title dark--color">{{locale['s3_subTitle']}}</h2>
-                    <h2 class="main-title">{{locale['s3_title']}}</h2>
+                    <h2 class="sub-title dark--color">{{ $t('home2.s3_subTitle') }}</h2>
+                    <h2 class="main-title">{{ $t('home2.s3_title') }}</h2>
                 </div>
                 <br><br>
 
@@ -199,20 +199,20 @@
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text x="18" y="20.35" class="percentage">{{locale['s3_row1_percentage1']}}%</text>
+                                    <text x="18" y="20.35" class="percentage">90%</text>
                                 </svg>
                             </div>
                         </div>
 
                         <div class="graph__text">
-                            <h2 class="main-title">{{locale['s3_consumers']}}</h2>
+                            <h2 class="main-title">{{ $t('home2.s3_consumers') }}</h2>
                             <p class="main-text">
-                                {{locale['s3_row1_text']}}
+                                {{ $t('home2.s3_row1_text') }}
                             </p>
 
                             <br>
                             <a class="link row-link" href="http://www.conecomm.com/research-blog/2015-cone-communications-ebiquity-global-csr-study">
-                                {{locale['s3_row1_link']}} <span uk-icon="icon: arrow-right"></span>
+                                {{ $t('home2.s3_row1_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
                     </div>
@@ -232,20 +232,20 @@
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text x="18" y="20.35" class="percentage">{{locale['s3_row1_percentage2']}}%</text>
+                                    <text x="18" y="20.35" class="percentage">75%</text>
                                 </svg>
                             </div>
                         </div>
 
                         <div class="graph__text">
-                            <h2 class="main-title">{{locale['s3_respondents']}}</h2>
+                            <h2 class="main-title">{{ $t('home2.s3_respondents') }}</h2>
                             <p class="main-text">
-                                {{locale['s3_row2_text']}}
+                                {{ $t('home2.s3_row2_text') }}
                             </p>
 
                             <br>
                             <a class="link row-link" href="https://www.edelman.com/news/2017-edelman-trust-barometer-reveals-global-implosion">
-                                {{locale['s3_row2_link']}} <span uk-icon="icon: arrow-right"></span>
+                                {{ $t('home2.s3_row2_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
                     </div>
@@ -265,20 +265,20 @@
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text x="18" y="20.35" class="percentage">{{locale['s3_row1_percentage3']}}%</text>
+                                    <text x="18" y="20.35" class="percentage">92%</text>
                                 </svg>
                             </div>
                         </div>
 
                         <div class="graph__text">
-                            <h2 class="main-title">{{locale['s3_consumers']}}</h2>
+                            <h2 class="main-title">{{ $t('home2.s3_consumers') }}</h2>
                             <p class="main-text">
-                                {{locale['s3_row3_text']}}
+                                {{ $t('home2.s3_row3_text') }}
                             </p>
 
                             <br>
                             <a class="link row-link" href="http://www.conecomm.com/news-blog/2017/5/15/americans-willing-to-buy-or-boycott-companies-based-on-corporate-values-according-to-new-research-by-cone-communications">
-                                {{locale['s3_row3_link']}} <span uk-icon="icon: arrow-right"></span>
+                                {{ $t('home2.s3_row3_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
                     </div>
@@ -298,20 +298,20 @@
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text x="18" y="20.35" class="percentage">{{locale['s3_row1_percentage4']}}%</text>
+                                    <text x="18" y="20.35" class="percentage">66%</text>
                                 </svg>
                             </div>
                         </div>
 
                         <div class="graph__text">
-                            <h2 class="main-title">{{locale['s3_consumers']}}</h2>
+                            <h2 class="main-title">{{ $t('home2.s3_consumers') }}</h2>
                             <p class="main-text">
-                                {{locale['s3_row4_text']}}
+                                {{ $t('home2.s3_row4_text') }}
                             </p>
 
                             <br>
                             <a class="link row-link" href="https://sproutsocial.com/insights/data/championing-change-in-the-age-of-social-media">
-                                {{locale['s3_row4_link']}} <span uk-icon="icon: arrow-right"></span>
+                                {{ $t('home2.s3_row4_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
                     </div>
@@ -322,9 +322,9 @@
 
 
         <div class="uk-section home__section-3 prefix__section">
-            <!-- <div class="section-3__content">
-                <h3 class="sub-title">{{locale['section_3_sub']}}</h3>
-                <h2 class="main-title">{{locale['section_3_title']}}</h2>
+           <!--  <div class="section-3__content">
+                <h3 class="sub-title">{{ $t('home2.section_3_sub') }}</h3>
+                <h2 class="main-title">{{ $t('home2.section_3_title') }}</h2>
                 <img alt="graph" class="section-3__image" src="../assets/images/home2/shoppingcart-nl.png">
             </div>  -->
             <div class="uk-card shop__card uk-card-default uk-card-body" style="top: 70px; margin-bottom: 40px; border-radius: 10px;">
@@ -334,10 +334,10 @@
                         <p><strong>Cor Sandburg</strong><br>Happy Towels</p>
                     </div>
                     <div class="testimonial-wrapper">
-                        <p class="main-title" style="font-weight: bold;font-size: 20px;margin: 0px;">{{locale['testimonial_head']}}</p>
+                        <p class="main-title" style="font-weight: bold;font-size: 20px;margin: 0px;">{{ $t('home2.testimonial_head') }}</p>
 
                         <p class="content-text">
-                            {{locale['testimonial_content']}}
+                            {{ $t('home2.testimonial_content') }}
                         </p>
                     </div>
                 </div>
@@ -362,8 +362,8 @@
         <!-- Projects -->
         <!-- <div class="uk-section home__section-4 prefix__section" style="padding: 20px 0 !important;">
             <div class="section-4__content">
-                <h3 class="sub-title">{{locale['section_4_sub']}}</h3>
-                <h2 class="main-title">{{locale['section_4_title']}}</h2>
+                <h3 class="sub-title">{{ $t('home2.section_4_sub') }}</h3>
+                <h2 class="main-title">{{ $t('home2.section_4_title') }}</h2>
 
                 <div class="section-4__projects">
                     <div class="project__images-container">
@@ -377,12 +377,12 @@
 
                     <div class="project__text">
                         <p class="main-text">
-                            {{locale['section_4_text']}}
+                            {{ $t('home2.section_4_text') }}
                         </p>
                     </div>
                     <br>
 
-                    <router-link to="/projects/" class="button">{{locale['section_4_btn']}}</router-link>
+                    <router-link to="/projects/" class="button">{{ $t('home2.section_4_btn') }}</router-link>
                 </div>
             </div>
         </div> -->
@@ -391,8 +391,8 @@
         <!-- Partners -->
         <div class="uk-section home__section-5 prefix__section">
             <div class="section-5__content">
-                <h3 class="sub-title">{{locale['section_5_sub']}}</h3>
-                <h2 class="main-title">{{locale['section_5_title']}}</h2>
+                <h3 class="sub-title">{{ $t('home2.section_5_sub') }}</h3>
+                <h2 class="main-title">{{ $t('home2.section_5_title') }}</h2>
 
                 <div class="section-5__images">
                     <!-- <a href="https://www.atmosfair.de/en"> -->
@@ -407,7 +407,7 @@
                          src="../assets/images/home2/logo4.jpg">
                 </div>
 
-                <router-link to="/webshops/retailers" class="button__home">{{locale['section_5_btn']}}</router-link>
+                <router-link to="/webshops/retailers" class="button__home">{{ $t('home2.section_5_btn') }}</router-link>
             </div>
         </div>
 
@@ -420,7 +420,6 @@
 </template>
 
 <script>
-    import homeLang from '../lang/lang_home2'
     // const Widget = () => import('@/components/layout/widget')
     const WebshopForm = () => import('@/components/layout/WebshopForm')
     const Webshops = () => import('@/components/layout/Webshops')
@@ -429,14 +428,12 @@
     export default {
         data() {
             return {
-                locale: homeLang,
                 formContent: 2,
                 webshopsContent: 2,
             }
         },
 
         mounted() {
-            this.checkLanguage()
             Co2okWidget.merchantCompensations('widgetContainer')
         },
 
@@ -451,47 +448,11 @@
             'Webshops': Webshops 
         },
 
-        methods: {
-            checkLanguage(lang) {
-                // if (lang === 'en') {
-                //     this.locale = homeLang.lang_en_home2
-                // } else {
-                //     if (this.currentLanguage === 'en') {
-                //         this.locale = homeLang.lang_en_home2
-                //     } else {
-                        this.locale = homeLang.lang_nl_home2
-                    // }
-                // }
-            }
-            // checkLanguage(lang) {
-            //     if (lang === 'en') {
-            //         this.locale = homeLang.lang_en_home2
-            //     } else {
-            //         if (this.currentLanguage === 'en') {
-            //             this.locale = homeLang.lang_en_home2
-            //         } else {
-            //             this.locale = homeLang.lang_nl_home2
-            //         }
-            //     }
-            // }
-        },
-
         computed: {
             currentRouteName() {
                 return this.$route.name;
             },
-
-            currentLanguage() {
-                return this.$store.state.language
-            }
-        },
-
-        watch: {
-            currentLanguage(value) {
-                this.checkLanguage(value)
-            }
         }
-
 
     }
 </script>

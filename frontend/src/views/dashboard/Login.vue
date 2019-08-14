@@ -5,7 +5,7 @@
             <div class="bkgr__filler bkgr__text hide--tablet">
                 <div class="green-border__login">
                     <p class="green-border__text main-text">
-                        {{locale['login_text']}}
+                        {{ $t('login.login_text') }}
                     </p>
                 </div>
             </div>
@@ -15,26 +15,26 @@
             <div class="login__width">
                 <div class="login-c__wrapper">
                     <form v-model="valid" class="login-c__form">
-                        <h3 class="sub-title--small">{{locale['login_sort2']}}</h3>
-                        <h2 class="main-title">{{locale['title']}}</h2>
+                        <h3 class="sub-title--small">{{ $t('login.login_sort2') }}</h3>
+                        <h2 class="main-title">{{ $t('login.title') }}</h2>
 
                         <div class="c-input__wrapper">
-                            <label class="login-c__label">{{locale['input1']}}</label>
+                            <label class="login-c__label">{{ $t('login.input1') }}</label>
                             <input type="email" v-model="email" class="login-c__input"
-                                   :placeholder="locale['input_email']">
+                                   :placeholder=" $t('login.input_email') ">
                         </div>
 
                         <div class="c-input__wrapper">
-                            <label class="login-c__label">{{locale['input2']}}</label>
+                            <label class="login-c__label">{{ $t('login.input2') }}</label>
                             <input type="password" v-model="password" class="login-c__input"
-                                   :placeholder="locale['input_password']">
+                                   :placeholder=" $t('login.input_password') ">
                         </div>
 
-                        <p @click="passReset = true" class="subheading sub__password">{{locale['forgot']}}</p>
+                        <p @click="passReset = true" class="subheading sub__password">{{ $t('login.forgot') }}</p>
 
                         <p @keyup.enter="login()"
                            @click.prevent="login()"
-                           class="button login-c__button">{{locale['login']}}</p>
+                           class="button login-c__button">{{ $t('login.login') }}</p>
                     </form>
                 </div>
             </div>
@@ -45,7 +45,6 @@
 
 
 <script>
-    import language from '../../lang/lang_login'
     import axios from 'axios'
     // import mailer from '../../nodemailer'
 
@@ -60,7 +59,6 @@
 
         data() {
             return {
-                locale: language,
                 password: '',
                 send: false,
                 valid: false,
@@ -77,24 +75,11 @@
         },
 
         mounted() {
-            this.checkLanguage()
             // mailer.sendmail('kevineasky@gmail.com')
             // this.passwordRecoveryEmail()
-
         },
 
         methods: {
-            checkLanguage(lang) {
-                if (lang === 'en') {
-                    this.locale = language.lang_en_login
-                } else {
-                    if (this.currentLanguage === 'en') {
-                        this.locale = language.lang_en_login
-                    } else {
-                        this.locale = language.lang_nl_login
-                    }
-                }
-            },
 
             errorMessage(message) {
                 this.send = false
@@ -290,19 +275,8 @@
                 })
 
             },
-        },
-
-        computed: {
-            currentLanguage() {
-                return this.$store.state.language
-            }
-        },
-
-        watch: {
-            currentLanguage(value) {
-                this.checkLanguage(value)
-            }
         }
+
     }
 </script>
 
