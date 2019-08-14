@@ -128,7 +128,7 @@
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text x="18" y="20.35" class="percentage">{{ $t('cause.s3_row1_percentage1') }}%</text>
+                                    <text x="18" y="20.35" class="percentage">90%</text>
                                 </svg>
                             </div>
                         </div>
@@ -161,7 +161,7 @@
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text x="18" y="20.35" class="percentage">{{ $t('cause.s3_row1_percentage2') }}%</text>
+                                    <text x="18" y="20.35" class="percentage">75%</text>
                                 </svg>
                             </div>
                         </div>
@@ -194,7 +194,7 @@
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text x="18" y="20.35" class="percentage">{{ $t('cause.s3_row1_percentage3') }}%</text>
+                                    <text x="18" y="20.35" class="percentage">92%</text>
                                 </svg>
                             </div>
                         </div>
@@ -227,7 +227,7 @@
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
                                     />
-                                    <text x="18" y="20.35" class="percentage">{{ $t('cause.s3_row1_percentage4') }}%</text>
+                                    <text x="18" y="20.35" class="percentage">66%</text>
                                 </svg>
                             </div>
                         </div>
