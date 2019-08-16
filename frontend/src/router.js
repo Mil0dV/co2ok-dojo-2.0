@@ -25,6 +25,11 @@ const router = new Router({
             component: () => import('./views/Home'),
         },
         {
+            path: '/en/ninja',
+            name: 'ninja',
+            component: () => import('./views/Home'),
+        },
+        {
             path: '/',
             name: 'home2',
             component: () => import('./views/Ahome'),

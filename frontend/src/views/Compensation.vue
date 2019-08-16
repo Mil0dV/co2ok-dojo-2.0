@@ -16,14 +16,14 @@
                 </div>
                 <div class="step__text-wrapper smaller-step step__img-wrapper">
                     <div class="uk-light step__img-left ">
-                    <!-- <iframe title="co2ok intro" class="section-2__image" width="550" height="306"
+                    <iframe title="co2ok intro" class="section-2__image" width="550" height="306"
                                 src="https://www.youtube.com/embed/P5MLapEpR_0"
                                  frameborder="0"
                                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                  allowfullscreen>
-                         </iframe> -->
-                        <img class="intro__img uk-box-shadow-large" alt="factory"
-                             src="../assets/images/steps/steps-intro.jpg">
+                         </iframe>
+                        <!-- <img class="intro__img uk-box-shadow-large" alt="factory"
+                             src="../assets/images/steps/steps-intro.jpg"> -->
                     </div>
                 </div>
 
@@ -170,6 +170,57 @@
                     </div>
                 </div>
             </div>
+
+            <div class="about__col-1-wrapper">
+                <!--Eerste blok-->
+                <div class="about__col-1">
+                    <div class="col-1__content col-1__image">
+                        <div class="login__info animated fadeInUp" style="animation-delay: 0.4s;">
+                            <p class="login__info-text">
+                                {{ $t('compensation.imgText') }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-1__content col-1__text-wrapper">
+                        <div class="col-1__text">
+                            <h2 class="main-title">{{ $t('compensation.calcTitle') }}</h2>
+                            <!-- <p class="sub-title">{{ $t('compensation.calcSubTitle') }}</p> -->
+                            <div>
+                                <p>
+                                    {{ $t('compensation.shortText') }}
+                                </p>
+                                <br>
+                                <p>
+                                    {{ $t('compensation.shortText2') }}
+                                </p>
+
+
+                                <!-- <div class="more">
+                                    <transition enter-active-class="animated bounceIn"
+                                                leave-active-class="animated bounceOut"
+                                                mode="out-in">
+                                    <span key="1" @click="moreText = true" v-if="!moreText"
+                                          class="link">{{ $t('about.read') }}</span>
+
+                                        <span key="2" @click="moreText = false" v-else
+                                              class="link">{{ $t('about.less') }}</span>
+                                    </transition>
+                                </div>
+
+
+                                <transition enter-active-class="animated fadeIn"
+                                            leave-active-class="animated fadeOut"
+                                            mode="out-in">
+                                    <p v-if="moreText">
+                                        {{ $t('compensation.longText') }}
+                                    </p>
+                                </transition> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -192,6 +243,23 @@
 
 <style lang="scss" scoped>
     @import '../styles/layout/main.scss';
+    @import '../styles/about.scss';
+
+.col-1__image {
+  background-image: url('../assets/images/steps/calculating.jpg');
+  margin: 0 25px;
+  height: 585px;
+}
+
+.col-1__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  overflow: hidden;
+}
 
 
 </style>
