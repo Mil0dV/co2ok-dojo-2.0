@@ -179,11 +179,11 @@ class UserView(viewsets.ModelViewSet):
     @action(methods=['get'], detail=False)
     def totoCompensationData(self, request):
         self.store_transactions_data(request)
-        # merchantId = request.query_params.get('merchantId')
-        # print(merchantId)
-        # totoCompensationArr = []
-        # for transaction in Transaction.scan(Transaction.merchant_id == merchantId):
-        #     totoCompensationArr.append(transaction.compensation_cost)
+        merchantId = request.query_params.get('merchantId')
+        print(merchantId)
+        totoCompensationArr = []
+        for transaction in Transaction.scan(Transaction.merchant_id == merchantId):
+            totoCompensationArr.append(transaction.compensation_cost)
         total = 0
         # total = []
         for transaction in self.transactions_arr:

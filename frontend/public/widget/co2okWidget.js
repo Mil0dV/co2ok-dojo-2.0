@@ -65,19 +65,23 @@ let Co2okWidget = {
     },
 
     merchantCompensations: function ( widgetContainer) {
-        // let xhr = Co2okWidget.xhr()
-        // let host = '127.0.0.1:8000/'  
+        let xhr = Co2okWidget.xhr()
+        let host = 'http://localhost:8000'  
+        let merchantId = 'TWVyY2hhbnQ6MmRhN2E5MDItYWE2Zi00YmFiLWI5ODgtZWZmNTc4NTVjYTZh'
         //  /*'http://test.co2ok.ninja'*/
-        // xhr.open('GET', `${host}/user/compnensationsData/?merchantId=${merchantId}`, true)
+        xhr.open('GET', `${host}/user/totoCompensationData/?merchantId=${merchantId}`, true)
         //    xhr.withCredentials = true;
-        //    xhr.onreadystatechange = function(){
-        //        if (this.readyState == 4 && this.status == 200){
-        //            let yearTransData = self.parseTransactionsData(JSON.parse(xhr.responseText))
-        //            console.log(yearTransData)
-        //        }
-        //    }
+           xhr.onreadystatechange = function(){
+               if (this.readyState == 4 && this.status == 200){
+                //    let yearTransData = self.parseTransactionsData(JSON.parse(xhr.responseText))
+                //    console.log(yearTransData)
+                // console.log(xhr.responseText)
+                let totoTransData = xhr.responseText
+                   console.log(totoTransData)
+               }
+           }
         // //    xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
-        //    xhr.send()
+           xhr.send()
         Co2okWidget.widgetGenerator(widgetContainer)
     },
 
@@ -92,20 +96,30 @@ let Co2okWidget = {
 
         //   </div>`
 
+        // HT: FDD800
+        // CO2ok nu: 11D073
+
           let widgets = `<div class="widgets" style="width: 100%;height: auto;display: flex;flex-direction: column;justify-content: center;align-items: center;">
-                <div class="co2-widget" style ="width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start;">
-                    <h1 style ="text-align: right;font-size: 50px;color: green;"> 491 </h1>
-                    <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 15px;">
+                <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 15px;">
+                    <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:180px;height:auto;margin-top: -5px;">
+                        <p style="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 12px;margin-left: 20px;">Shop klimaatneutraal   </p>
+                        <img src="/static/info-HT.svg" alt="" class="compensate-icon" style = "width: 17px;height: 17px; padding: 2px;">
+                        <!--<img src="/static/logo.png" alt="" class="compensate-icon" style = "width: 25px">-->
+                    </div>
+                </div>
+                <div class="co2-widget" style ="width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start; margin-left: 15px">
+                    <p style ="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; text-align: right;font-size: 24px; font-weight: bold;color: #FDD800; line-height: 23px"> 5811 </p>
+                    <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 5px;">
                         <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:100%;height:auto;margin-top: -5px;">
-                            <img src="" alt="" class="compensate-icon" style = "width: 20px;height: 20px;border: 1px solid red;">
-                            <p style="font-size: 25px;font-weight:bold;margin-left: 10px;">CO2-Reductie</p>
+                            <img src="/static/cloud.png" alt="" class="compensate-icon" style = "width: 16px;height: 16px;">
+                            <p style="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 14.5px;font-weight:400;margin-left: 0px;">CO₂-Reductie</p>
                         </div>
-                        <p style="font-size: 14px;margin-top: -5px;text-align:left;">x duizend kilo CO2 gereduceerd</p>
+                        <p style="color: #464646; font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 11px;margin-top: -5px;text-align:left;">kilo CO₂ voorkomen</p>
                     </div>
                     
                 </div>
 
-                <div class = "wood-widget" style = "width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start;">
+                <!-- <div class = "wood-widget" style = "width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start;">
                     <h1 style = "text-align: right;font-size: 50px;color: green;">256</h1>
                     <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 15px;">
                         
@@ -115,8 +129,7 @@ let Co2okWidget = {
                         </div>
                         <p style="font-size: 14px;margin-top: -5px;text-align:left;">x duizend kg hout ( = 723 bomen) bespaard</p>
                     </div>
-                    
-                </div>
+                </div> -->
             </div>`
 
         // document.getElementById('widgetContainer').appendChild(widgets)

@@ -104,7 +104,7 @@
                             <p class="main-text">
                                 {{ $t('home2.s3_text') }}
                             </p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -347,17 +347,17 @@
 
         <!-- <Widget/> -->
 
-        <!-- <div class="widget-container">
-        <div class="widget-core">
-            <div class="widget-txt">
-                <h3>Free for Webshops</h3>
-                <p>
-                    The first time we got called about the CO₂ok-plugin, we didn’t like the idea at all. (The second, third and fourth times neither, by the way). I knew about the concept of CO₂ compensation already and like the idea. But hey, extra text and images costs visitors – they say. And also: ‘Keep your customer journey short.’ But this plug-in contributes to the sustainable story of my online shop. It enhances our credibility and thus contributes to our revenue. And more customers than expected compensate CO₂. That’s why I’m happy with the CO₂ok-plugin
-                </p>
+        <div class="widget-container">
+            <div class="widget-core">
+                <!-- <div class="widget-txt">
+                    <h3>Free for Webshops</h3>
+                    <p>
+                        The first time we got called about the CO₂ok-plugin, we didn’t like the idea at all. (The second, third and fourth times neither, by the way). I knew about the concept of CO₂ compensation already and like the idea. But hey, extra text and images costs visitors – they say. And also: ‘Keep your customer journey short.’ But this plug-in contributes to the sustainable story of my online shop. It enhances our credibility and thus contributes to our revenue. And more customers than expected compensate CO₂. That’s why I’m happy with the CO₂ok-plugin
+                    </p>
+                </div> -->
+                <div id="widgetContainer" style="width:180px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>
             </div>
-            <div id="widgetContainer" style="width:47%;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>
         </div>
-        </div> -->
 
         <!-- Projects -->
         <!-- <div class="uk-section home__section-4 prefix__section" style="padding: 20px 0 !important;">
@@ -478,77 +478,77 @@
 //   }
 // }
 
-.widget-container{
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 0px 50px 0px;
-}
+// .widget-container{
+//     width: 100%;
+//     height: auto;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     padding: 50px 0px 50px 0px;
+// }
 
-.widget-core{
-    width: 80%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-}
+// .widget-core{
+//     width: 80%;
+//     height: auto;
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     justify-content: space-between;
+//     align-items: center;
+// }
 
-.widget-txt{
-    width: 45%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
+// .widget-txt{
+//     width: 45%;
+//     height: auto;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: flex-start;
+// }
 
-.widget-tx h3{
-    text-align: left;
-}
+// .widget-tx h3{
+//     text-align: left;
+// }
 
-.widget-txt p{
-    text-align: left;
-    font-size: 16px;
-    margin-top: 10px;
-}
+// .widget-txt p{
+//     text-align: left;
+//     font-size: 16px;
+//     margin-top: 10px;
+// }
 
- .widgets{
-    width: 47%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid red;
-}
+//  .widgets{
+//     width: 47%;
+//     height: auto;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     border: 1px solid red;
+// }
 
-.co2-widget, .wood-widget{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
+// .co2-widget, .wood-widget{
+//     width: 100%;
+//     height: auto;
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: flex-start;
+//     align-items: flex-start;
+// }
 
-.wood-widget h1, .co2-widget h1{
-    text-align: right;
-    font-size: 50px;
-    color: green;
-}
+// .wood-widget h1, .co2-widget h1{
+//     text-align: right;
+//     font-size: 50px;
+//     color: green;
+// }
 
-.wood-widget p, .co2-widget p{
-    text-align: left;
-    /* font-size: 16px; */
-}
+// .wood-widget p, .co2-widget p{
+//     text-align: left;
+//     /* font-size: 16px; */
+// }
 
-.compensate-icon{
-    width: 20px;
-    height: 20px;
-    border: 1px solid red;
-}
+// .compensate-icon{
+//     width: 20px;
+//     height: 20px;
+//     border: 1px solid red;
+// }
 </style>
