@@ -434,7 +434,8 @@
         },
 
         mounted() {
-            Co2okWidget.merchantCompensations('widgetContainer')
+            this.checkLanguage()
+            Co2okWidget.merchantCompensations('widgetContainer') 
         },
 
         created() {

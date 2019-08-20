@@ -1,14 +1,5 @@
 let Co2okWidget = {
 
-    // constructor() {
-
-    //   this.host = 'http://127.0.0.1:8000'
-    //   this.merchantId = merchantId
-    //   this.year = year
-    //   this.merchantCompasations(widgetContainer)
-
-    // }
-
     xhr: function() {
 
         let xhr;
@@ -135,28 +126,10 @@ let Co2okWidget = {
                 </div>
             </div>`
 
-        // document.getElementById('widgetContainer').appendChild(widgets)
         let widgetcontainer = document.getElementById(widgetContainer)
         widgetcontainer.innerHTML = widgets
-        // document.body.innerHTML = widgets
-
-        // response.forEach((data, i) => {
-        //     let widgetContent = `
-        //     <div class="" style="width: 100%; height: auto; display: flex; flex-direction:row;justify-content: flex-start;align-items:center;border:1px solid green;margin-bottom: 30px;">
-
-        //         <h1 style="text-align: center;border: 1px solid black;border-radius:100%;color:white;padding:10px;">${data}</h1>
-        //         <div class="" style="width: 100%; height: auto; display: flex; flex-direction:column;justify-content: center;align-items:center;">
-        //             <h3>${monthsArr[i]}</h3>
-        //             <p>x 50kg co2 gecompenseerd</p>
-        //         </div>
-
-        //     </div>`
-        //     widgetContainer.appendChild(widgetContent)
-        // });
-        
 
     }
 
 }
-// export default new Co2okWidget()
 
