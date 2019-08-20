@@ -177,7 +177,7 @@ class UserView(viewsets.ModelViewSet):
 
     @csrf_exempt
     @action(methods=['get'], detail=False)
-    def totoCompensationData(self, request):
+    def totalCompensationData(self, request):
         self.store_transactions_data(request)
         merchantId = request.query_params.get('merchantId')
         print(merchantId)
