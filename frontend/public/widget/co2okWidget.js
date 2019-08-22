@@ -24,6 +24,8 @@ let Co2okWidget = {
         //    xhr.withCredentials = true;
            xhr.onreadystatechange = function(){
                if (this.readyState == 4 && this.status == 200){
+                // For the near future: detect large numbers, then divide and adjust kilo to ton
+                // let totalTransactionData = Math.round(xhr.responseText / 1000)
                 let totalTransactionData = xhr.responseText
                 Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
                 //    console.log(totalTransactionData)
@@ -35,27 +37,33 @@ let Co2okWidget = {
 
     widgetGenerator: function (widgetContainer, totalCompensatedData) {
 
+
+        // HT: FDD800
+        // CO2ok nu: 11D073
+        // Mijnkraamshop: D0C918
+
           let widgets = `<div class="widgets" style="width: 100%;height: auto;display: flex;flex-direction: column;justify-content: center;align-items: center;">
                 <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 15px;">
                     <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:180px;height:auto;margin-top: -5px;">
                         <p style="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 12px;margin-left: 20px;">Shop klimaatneutraal   </p>
-                        <img src="/static/info-HT.svg" alt="" class="compensate-icon" style = "width: 17px;height: 17px; padding: 2px;">
+                        <img src="/static/info-MKS.svg" alt="" class="compensate-icon" style = "width: 17px;height: 17px; padding: 2px;">
                         <!--<img src="/static/logo.png" alt="" class="compensate-icon" style = "width: 25px">-->
                     </div>
                 </div>
                 <div class="co2-widget" style ="width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start; margin-left: 15px">
-                    <p style ="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; text-align: right;font-size: 24px; font-weight: bold;color: #FDD800; line-height: 23px"> ${totalCompensatedData} </p>
-                    <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 5px;">
+                    <p style ="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; text-align: right;font-size: 24px; font-weight: bold;color: #D0C918; line-height: 23px"> ${totalCompensatedData} </p>
+                    <!-- <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 5px;">
                         <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:100%;height:auto;margin-top: -5px;">
                             <img src="/static/cloud.png" alt="" class="compensate-icon" style = "width: 16px;height: 16px;">
-                            <p style="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 14.5px;font-weight:400;margin-left: 0px;">CO₂-Reductie</p>
+                            <p style="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 15px;font-weight:400;margin-left: 0px;">CO₂-Reductie</p> -->
                         </div>
-                        <p style="color: #464646; font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 11px;margin-top: -5px;text-align:left;">kilo CO₂ voorkomen</p>
+                        <p style="color: #464646; font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 14px;margin-top: -5px;text-align:left;">kilo CO₂ voorkomen</p>
                     </div>
                     
                 </div>
 
-                <!-- <div class = "wood-widget" style = "width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start;">
+                </div>
+                <div class = "wood-widget" style = "width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start;">
                     <h1 style = "text-align: right;font-size: 50px;color: green;">256</h1>
                     <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 15px;">
                         
@@ -65,8 +73,7 @@ let Co2okWidget = {
                         </div>
                         <p style="font-size: 14px;margin-top: -5px;text-align:left;">x duizend kg hout ( = 723 bomen) bespaard</p>
                     </div>
-                </div> -->
-            </div>`
+                </div>`
 
         let widgetcontainer = document.getElementById(widgetContainer)
         widgetcontainer.innerHTML = widgets

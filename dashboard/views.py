@@ -178,20 +178,18 @@ class UserView(viewsets.ModelViewSet):
     @csrf_exempt
     @action(methods=['get'], detail=False)
     def totalCompensationData(self, request):
-        self.store_transactions_data(request)
         merchantId = request.query_params.get('merchantId')
-        print(merchantId)
-        totoCompensationArr = []
-        for transaction in Transaction.scan(Transaction.merchant_id == merchantId):
-            totoCompensationArr.append(transaction.compensation_cost)
-        total = 0
-        # total = []
-        for transaction in self.transactions_arr:
-            total += transaction['compensation_cost']
-            # total.append(transaction['compensation_cost'])
 
+        total = 0
+        if merchantId == '0':
+            for transaction in Transaction.scan():
+                total += transaction.compensation_cost
+        else:
+            for transaction in Transaction.scan(Transaction.merchant_id == merchantId):
+                total += transaction.compensation_cost
+        
         # conversion from euro to kg CO2 compensated
-        return Response(round(total * 500))
+        return Response(round(total * 50))
 
 
     # def compnensationsData(self, request):

@@ -355,7 +355,7 @@
                         The first time we got called about the CO₂ok-plugin, we didn’t like the idea at all. (The second, third and fourth times neither, by the way). I knew about the concept of CO₂ compensation already and like the idea. But hey, extra text and images costs visitors – they say. And also: ‘Keep your customer journey short.’ But this plug-in contributes to the sustainable story of my online shop. It enhances our credibility and thus contributes to our revenue. And more customers than expected compensate CO₂. That’s why I’m happy with the CO₂ok-plugin
                     </p>
                 </div> -->
-                <div id="widgetContainer" style="width:180px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>
+                <!-- <div id="widgetContainer" style="width:180px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div> -->
             </div>
         </div>
 
@@ -436,6 +436,7 @@
         mounted() {
             // this.checkLanguage()
             Co2okWidget.merchantCompensations('widgetContainer', 'TWVyY2hhbnQ6MzExNGMyMjYtMzk0Ni00N2QzLTgxNGMtODE5YTI0ZjgyMjU5') 
+            // Co2okWidget.merchantCompensations('widgetContainer', '0') 
         },
 
         created() {
