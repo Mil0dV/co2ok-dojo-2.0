@@ -18,8 +18,8 @@ let Co2okWidget = {
 
     merchantCompensations: function (widgetContainer, merchantId) {
         let xhr = Co2okWidget.xhr()
-        let host = 'http://127.0.0.1:8000'
-        //  /*'http://test.co2ok.ninja'*/
+        // let host = 'http://127.0.0.1:8000'
+        let host = 'https://test.co2ok.ninja'
         xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=${merchantId}`, true)
         //    xhr.withCredentials = true;
            xhr.onreadystatechange = function(){
