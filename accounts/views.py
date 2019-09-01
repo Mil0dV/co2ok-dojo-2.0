@@ -27,7 +27,7 @@ from rest_framework.status import (
 from django.conf import settings
 # import googlemaps
 #--------------- email imports ---------------------
-from django.core.mail import send_mail
+# from django.core.mail import send_mail
 from django.template.loader import get_template
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
@@ -286,14 +286,20 @@ def updatePassword(request):
 @csrf_exempt
 @api_view(['POST'])
 @permission_classes((AllowAny,))
+# hieronder moet nog een check dat een user alleen zichzelf kan deleten
+# ref: https://www.django-rest-framework.org/api-guide/permissions/
 def deleteAccount(request):
     try:
         # get login data from frontend
         # password = request.data['body']['password']
-        userId = request.data['body']['id']
+        # uitgezet: 
+        # userId = request.data['body']['id']
+        pass
     except:
         # password = request.POST.get('password')
-        userId = request.POST.get('id')
+        # uitgezet:
+        # userId = request.POST.get('id')
+        pass
 
     # if checkPassword(request, password, userId):
     # try:
@@ -345,7 +351,7 @@ def password_recover_mail(request):
             html_content='<div style = "width: 700px; height: auto; display: flex;flex-direction:column; justify-content:center;align-items:center;">Password recovery<h3 style="text-align-left;"> </h3><p style="margi-bottom: 5px;text-align-left;">Hallo,<br>hallo,<br><br>You recently requested a password reset. You will find below your temporary password. Do not forget to change it once login.<br>Temporary password: {}<br><br>Tank you for helping us fight climate change<br><br>Milo de Vries, Co2ok</p> </div>'.format(password))
 
         try:
-            sg = SendGridAPIClient(settings.SG_API_KEY)
+            sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
             response = sg.send(rcovery_mail)
             print(response.status_code)
             print(response.body)
@@ -375,6 +381,43 @@ def password_recover_mail(request):
             'msg': 'Email does not exist'
         }
         return Response(error)
+
+
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((AllowAny,))
+def sendMail(request):
+    userEmail = request.data['body']['email']
+    name = request.data['body']['name']
+    phoneNumber = request.data['body']['phone']
+
+    rcovery_mail = Mail(
+        from_email='dojo@co2ok.eco',
+        to_emails='make@co2ok.eco',
+        subject='New prospect found',
+        html_content='<div style = "width: 700px; height: auto; display: flex;flex-direction:column; justify-content:center;align-items:center;"><h3>Iemand wil los gaan met CO2ok!<h3 style="text-align-left;"> </h3><p style="margi-bottom: 5px;text-align-left;">Hi,<br>Deze dude/chick staat te popelen :) <br>Prospect mail: {}<br>Naam: {}<br>Tel: {}</p> </div>'.format(userEmail, name, phoneNumber))
+
+    try:
+        sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
+        response = sg.send(rcovery_mail)
+        # print(response.status_code)
+        # print(response.body)
+        # print(response.headers)
+    except Exception as e:
+        print(e)
+
+    # non-SG methode hieronder
+    # subject = "Password reset"
+    # message = 'Click the link to reset your password, temporary password: k,jasflkuhsrlkjjbl'
+    # from_email = settings.EMAIL_HOST_USER
+    # to_list = [userEmail]
+    # send_mail(subject, message, from_email, to_list, fail_silently=True)
+    # email_template = get_template('mail template').render(contenu du message)
+    success = {
+        'send': True,
+        'msg': 'An email has been sended'
+    }
+    return Response(success)
 
 
 @csrf_exempt

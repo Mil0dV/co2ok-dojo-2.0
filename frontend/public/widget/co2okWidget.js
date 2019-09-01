@@ -18,8 +18,8 @@ let Co2okWidget = {
 
     merchantCompensations: function (widgetContainer, merchantId) {
         let xhr = Co2okWidget.xhr()
-        // let host = 'http://127.0.0.1:8000'
-        let host = 'https://test.co2ok.ninja'
+        let host = 'http://127.0.0.1:8000'
+        // let host = 'https://test.co2ok.ninja'
         xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=${merchantId}`, true)
         //    xhr.withCredentials = true;
            xhr.onreadystatechange = function(){
@@ -27,12 +27,17 @@ let Co2okWidget = {
                 // For the near future: detect large numbers, then divide and adjust kilo to ton
                 // let totalTransactionData = Math.round(xhr.responseText / 1000)
                 let totalTransactionData = xhr.responseText
-                Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
                 //    console.log(totalTransactionData)
-               }
-           }
+
+                // ok deze else werkt dus nog niet zoals bedoeld
+            } else {
+                let totalTransactionData = 491
+            }
+        }
+        xhr.send()
+        let totalTransactionData = 491
+        Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
         //   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
-           xhr.send()
     },
 
     widgetGenerator: function (widgetContainer, totalCompensatedData) {
@@ -41,17 +46,31 @@ let Co2okWidget = {
         // HT: FDD800
         // CO2ok nu: 11D073
         // Mijnkraamshop: D0C918
+          let color = "#D0C918"
 
-          let widgets = `<div class="widgets" style="width: 100%;height: auto;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+
+        var fileref=document.createElement("link")
+        fileref.setAttribute("rel", "stylesheet")
+        fileref.setAttribute("type", "text/css")
+        fileref.setAttribute("href", "http://localhost:8080/widget/co2okWidget.css")
+        document.getElementsByTagName("head")[0].appendChild(fileref)
+
+          let widgets = `
+
+          <div class="widgets" style="width: 100%;height: auto;display: flex;flex-direction: column;justify-content: center;align-items: center;">
                 <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 15px;">
                     <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:180px;height:auto;margin-top: -5px;">
                         <p style="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 12px;margin-left: 20px;">Shop klimaatneutraal   </p>
-                        <img src="/static/info-MKS.svg" alt="" class="compensate-icon" style = "width: 17px;height: 17px; padding: 2px;">
+
+                        <span class="co2ok_info_hitarea">
+                            <img src="/static/info-MKS.svg" alt="" class="co2ok_widget_info" style = "width: 17px;height: 17px; padding: 2px;">
+                        </span>
+
                         <!--<img src="/static/logo.png" alt="" class="compensate-icon" style = "width: 25px">-->
                     </div>
                 </div>
                 <div class="co2-widget" style ="width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start; margin-left: 15px">
-                    <p style ="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; text-align: right;font-size: 24px; font-weight: bold;color: #D0C918; line-height: 23px"> ${totalCompensatedData} </p>
+                    <p style ="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; text-align: right;font-size: 24px; font-weight: bold;color: ${color}; line-height: 23px"> ${totalCompensatedData} </p>
                     <!-- <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 5px;">
                         <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:100%;height:auto;margin-top: -5px;">
                             <img src="/static/cloud.png" alt="" class="compensate-icon" style = "width: 16px;height: 16px;">
@@ -63,6 +82,37 @@ let Co2okWidget = {
                 </div>
 
                 </div>
+                <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
+
+                    <div class="widget-inner-wrapper">
+                    <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
+                    <p class="text-block greyBorder">During manufacturing and shipping of products, greenhouse gases are emitted</p>
+                    </a>
+                    <!-- <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="/wp-content/plugins/co2ok-plugin-woocommerce/images/even.svg" class="widget-svg-img-large  co2ok_info_hover_image"> -->
+                    </div>
+                    
+                    <div class="inner-wrapper">
+                    <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="/wp-content/plugins/co2ok-plugin-woocommerce/images/fout.svg" class="widget-svg-img-large co2ok_info_hover_image">
+                    <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
+                    <p class="text-block greyBorder">You pay a small fee - CO2ok prevents the same amount of emissions</p>
+                    </a>
+                    </div>
+            
+                    <div class="inner-wrapper">
+                    <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
+                    <p class="text-block">This way, your purchase is climate neutral!</p>
+                    </a>
+                    </div>
+            
+                    <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="/wp-content/plugins/co2ok-plugin-woocommerce/images/logo.svg" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
+                    <span class="widget-hover-link">
+                    <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe CO&#8322; compensatie werkt</a> </span>
+                    </div>
+                </div>
+        
+
+
+                <!--
                 <div class = "wood-widget" style = "width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start;">
                     <h1 style = "text-align: right;font-size: 50px;color: green;">256</h1>
                     <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 15px;">
@@ -73,12 +123,144 @@ let Co2okWidget = {
                         </div>
                         <p style="font-size: 14px;margin-top: -5px;text-align:left;">x duizend kg hout ( = 723 bomen) bespaard</p>
                     </div>
-                </div>`
+                </div>
+                -->
+                `
 
-        let widgetcontainer = document.getElementById(widgetContainer)
+        // let widgetcontainer = document.getElementById(widgetContainer)
+        let widgetcontainer = document.getElementsByClassName('whb-empty-column')[0]
         widgetcontainer.innerHTML = widgets
-    }
+        this.RegisterWidgetInfoBox();
+        // this.ShowWidgetInfoBox();
+    },
+
+
+    // Returns true if we are running on a mobile device.
+    isMobile: function() {
+        // Check the user agent. If one of the Mobile models, return true.
+        // TODO: in theorie zou dit voldoende moeten zijn, anders moet t toch met bovenstaande (of de package waar ie ook in zit).
+        // alternatief: https://stackoverflow.com/a/20293441
+        return !!navigator.userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i);
+        },
+        // Returns true if jQuery can find an element that matches the given selector string.
+        isExistingjQueryElement: function(selector) {
+            return !!jQuery(selector).length;
+    },
+    
+
+    
+    placeWidgetInfoBox : function() {
+        console.log('Platz? Lebensraum!')
+        var widgetInfoButton = jQuery(".co2ok_widget_info");
+        var widgetInfoBox = jQuery(".co2ok_widget_infobox_container");
+        var offset = widgetInfoButton.offset();
+
+        widgetInfoBox.remove();
+        jQuery("body").append(widgetInfoBox);
+ 
+        if (jQuery(window).width() < 480) {
+        offset.top = offset.top + widgetInfoButton.height();
+        widgetInfoBox.css({
+            top: offset.top,
+            margin: "0 auto",
+            left: "50%",
+            transform: "translateX(-50%)"
+        });
+        } else {
+        offset.left = offset.left - widgetInfoBox.width() / 2;
+        offset.top = offset.top + widgetInfoButton.height();
+        widgetInfoBox.css({
+            top: offset.top,
+            left: offset.left,
+            margin: "0",
+            transform: "none"
+        });
+        }
+    },
+    ShowWidgetInfoBox  : function()
+    {
+        console.log("Show must go on")
+      jQuery(".co2ok_widget_infobox_container").removeClass('infobox-hidden')
+      jQuery(".co2ok_widget_infobox_container").addClass('ShowWidgetInfoBox')
+      jQuery(".co2ok_widget_container").css({
+        marginBottom: 200
+      });
+      if (!this.isMobile() == true ) {
+          var elmnt = document.getElementById("widget-infobox-view");
+          elmnt.scrollIntoView(false); // false leads to bottom of the infobox
+        }
+    },
+
+    hideWidgetInfoBox : function()
+    {
+      jQuery(".co2ok_widget_infobox_container").removeClass('ShowWidgetInfoBox')
+      jQuery(".co2ok_widget_infobox_container").addClass('infobox-hidden')
+      jQuery(".co2ok_widget_container").css({
+        marginBottom: 0
+      });
+    },
+
+    modalRegex: function(e)
+    {
+       return jQuery(e.target).hasClass("widget-svg-img") ||
+       jQuery(e.target).hasClass("widget-svg-img-large") ||
+       jQuery(e.target).hasClass("widget-text-block") ||
+       jQuery(e.target).hasClass("widget-inner-wrapper") ||
+       jQuery(e.target).hasClass("co2ok_widget_info") ||
+       jQuery(e.target).hasClass("co2ok_widget_info_hitarea") ||
+       jQuery(e.target).hasClass("co2ok_widget_infobox_container") ||
+       jQuery(e.target).hasClass("widget-hover-link");
+    },
+
+    RegisterWidgetInfoBox : function()
+    {
+      console.log('it begins')
+      var _this = this;
+
+      jQuery(".co2ok_widget_info_keyboardarea").focus(function(){
+          _this.ShowWidgetInfoBox();
+          jQuery(".first-text-to-select").focus();
+      });
+
+      jQuery('body').click(function(e)
+      {
+        if(!_this.modalRegex(e))
+        {
+          _this.hideWidgetInfoBox();
+        }
+        else {
+          _this.ShowWidgetInfoBox();
+        }
+
+      });
+
+      jQuery('body').on("touchstart",function(e){
+
+        if(!_this.modalRegex(e)){
+          _this.hideWidgetInfoBox();
+        }
+        else {
+          _this.ShowWidgetInfoBox();
+        }
+      });
+
+      if(!this.isMobile())
+      {
+        jQuery(".co2ok_widget_info , .co2ok_widget_info_hitarea").mouseenter(function() {
+          _this.placeWidgetInfoBox();
+        });
+
+        jQuery(document).mouseover(function(e) {
+            if (!(_this.modalRegex(e)))
+            {
+              _this.hideWidgetInfoBox();
+            }
+            else {
+              _this.ShowWidgetInfoBox();
+            }
+          });
+      }
+  }
 
 }
 // export default new Co2okWidget()
-

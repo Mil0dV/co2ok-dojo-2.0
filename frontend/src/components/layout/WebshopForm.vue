@@ -65,6 +65,8 @@
 </template>
 
 <script>
+    import axios from 'axios'
+
     const Modal = () => import('@/components/modals/Modal')
 
     export default {
@@ -105,6 +107,20 @@
                         title: this. $t('webshopform.success') ,
                         text: this. $t('webshopform.success_message') 
                     }
+                    axios
+                        .post(`${this.$store.state.SITE_HOST}/accounts/sendMail/`, {
+                            body: {
+                                email: this.email,
+                                phone: this.phone,
+                                name: this.name
+                            }
+                        })
+                        // .then(response => {
+                        //     if (response) {
+                        .catch(error => {
+                            // this.errorMessage(message)
+                            console.log(error);
+                        })
                     this.$store.commit('modalStatus', {message})
                 }
                 else {

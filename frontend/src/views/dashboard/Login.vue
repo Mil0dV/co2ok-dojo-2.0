@@ -49,7 +49,7 @@
     // import mailer from '../../nodemailer'
 
     const PasswordForgotModal = () => import('@/components/modals/PasswordForgotModal')
-    const sgMail = require('@sendgrid/mail')
+    // const sgMail = require('@sendgrid/mail')
 
     export default {
         name: 'Login',

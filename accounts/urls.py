@@ -6,8 +6,9 @@ app_name = "accounts"
 urlpatterns = [
     # path('profile/', view=views.profile, name="profile"),
     url(r"^profile/$", views.profile, name="profile"),
-    path('updateAccount/', views.updateAccount, name='updateAccount'),
+    # M: updateAccount en deleteAccount zijn totaal niet beveiligd, dus voor nu even uit
+    # path('updateAccount/', views.updateAccount, name='updateAccount'),
+    # path('deleteAccount/', views.deleteAccount, name='deleteAccount'),
     path('updatePassword/', views.updatePassword, name='updatePassword'), 
-    path('deleteAccount/', views.deleteAccount, name='deleteAccount'),
-    # path('sendMail/', views.sendMail, name='sendMail'),
+    path('sendMail/', views.sendMail, name='sendMail'),
 ]

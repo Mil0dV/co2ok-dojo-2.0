@@ -14,8 +14,8 @@ import axios from 'axios'
 
 export default new Vuex.Store({
     state: {
-        // SITE_HOST: 'http://test.co2ok.ninja:8000',
         SITE_HOST: 'https://test.co2ok.ninja',
+        // SITE_HOST: 'http://localhost:8000',
         domain: window.location.protocol + '//' + window.location.hostname + ':' + window.location.port,
         count: 0,
         modalMessage: '',
