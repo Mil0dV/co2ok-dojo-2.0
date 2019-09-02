@@ -46,9 +46,10 @@ let Co2okWidget = {
         // HT: FDD800
         // CO2ok nu: 11D073
         // Mijnkraamshop: D0C918
-          let color = "#D0C918"
-        // let  SITE_HOST =  'https://test.co2ok.ninja'
-          let SITE_HOST = 'http://localhost:8080'
+        let color = "#D0C918"
+        // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
+        let  SITE_HOST =  'https://co2ok.eco'
+        //   let SITE_HOST = 'http://localhost:8080'
 
         var fileref=document.createElement("link")
         fileref.setAttribute("rel", "stylesheet")
@@ -144,7 +145,7 @@ let Co2okWidget = {
 
     
     placeWidgetInfoBox : function() {
-        console.log('Platz? Lebensraum!')
+        // console.log('Platz? Lebensraum!')
         var widgetInfoButton = jQuery(".co2ok_widget_info");
         var widgetInfoBox = jQuery(".co2ok_widget_infobox_container");
         var offset = widgetInfoButton.offset();
@@ -173,7 +174,7 @@ let Co2okWidget = {
     },
     ShowWidgetInfoBox  : function()
     {
-        console.log("Show must go on")
+        // console.log("Show must go on")
       jQuery(".co2ok_widget_infobox_container").removeClass('infobox-hidden')
       jQuery(".co2ok_widget_infobox_container").addClass('ShowWidgetInfoBox')
       jQuery(".co2ok_widget_container").css({
