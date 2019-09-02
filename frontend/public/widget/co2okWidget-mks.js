@@ -18,8 +18,8 @@ let Co2okWidget = {
 
     merchantCompensations: function (widgetContainer, merchantId) {
         let xhr = Co2okWidget.xhr()
-        let host = 'http://127.0.0.1:8000'
-        // let host = 'https://test.co2ok.ninja'
+        // let host = 'http://127.0.0.1:8000'
+        let host = 'https://test.co2ok.ninja'
         xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=${merchantId}`, true)
         //    xhr.withCredentials = true;
            xhr.onreadystatechange = function(){
@@ -27,7 +27,8 @@ let Co2okWidget = {
                 // For the near future: detect large numbers, then divide and adjust kilo to ton
                 // let totalTransactionData = Math.round(xhr.responseText / 1000)
                 let totalTransactionData = xhr.responseText
-                //    console.log(totalTransactionData)
+                   console.log(totalTransactionData)
+                   Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
 
                 // ok deze else werkt dus nog niet zoals bedoeld
             } else {
@@ -35,8 +36,7 @@ let Co2okWidget = {
             }
         }
         xhr.send()
-        let totalTransactionData = 491
-        Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
+        // let totalTransactionData = 491
         //   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
     },
 
@@ -47,40 +47,47 @@ let Co2okWidget = {
         // CO2ok nu: 11D073
         // Mijnkraamshop: D0C918
           let color = "#D0C918"
-
+        // let  SITE_HOST =  'https://test.co2ok.ninja'
+          let SITE_HOST = 'http://localhost:8080'
 
         var fileref=document.createElement("link")
         fileref.setAttribute("rel", "stylesheet")
         fileref.setAttribute("type", "text/css")
-        fileref.setAttribute("href", "http://localhost:8080/widget/co2okWidget.css")
+        fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidget.css`)
         document.getElementsByTagName("head")[0].appendChild(fileref)
 
           let widgets = `
 
           <div class="widgets" style="width: 100%;height: auto;display: flex;flex-direction: column;justify-content: center;align-items: center;">
-                <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 15px;">
-                    <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:180px;height:auto;margin-top: -5px;">
-                        <p style="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 12px;margin-left: 20px;">Shop klimaatneutraal   </p>
+                <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-end;width:100%;height:auto;margin-left: 15px;">
+                    <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:380px;height:auto">
+                        <span style="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 12px;margin-left: 20px;">SHOP </span>
+                        <img src="/wp-content/plugins/co2ok-plugin-woocommerce/images/logo.svg" alt="" class="compensate-icon" style = "width: 46px; margin-left: 3px; margin-top: 4px;">
 
-                        <span class="co2ok_info_hitarea">
-                            <img src="/static/info-MKS.svg" alt="" class="co2ok_widget_info" style = "width: 17px;height: 17px; padding: 2px;">
-                        </span>
-
-                        <!--<img src="/static/logo.png" alt="" class="compensate-icon" style = "width: 25px">-->
-                    </div>
-                </div>
-                <div class="co2-widget" style ="width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start; margin-left: 15px">
-                    <p style ="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; text-align: right;font-size: 24px; font-weight: bold;color: ${color}; line-height: 23px"> ${totalCompensatedData} </p>
-                    <!-- <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 5px;">
+                        
+                        
+                        <div class="co2-widget" style ="width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start; margin-left: 15px">
+                        <span style ="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; text-align: right;font-size: 16px; font-weight: bold; margin-top: 15px;"> ${totalCompensatedData} </span>
+                        
+                        <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 5px;">
                         <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:100%;height:auto;margin-top: -5px;">
-                            <img src="/static/cloud.png" alt="" class="compensate-icon" style = "width: 16px;height: 16px;">
-                            <p style="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 15px;font-weight:400;margin-left: 0px;">CO₂-Reductie</p> -->
-                        </div>
-                        <p style="color: #464646; font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 14px;margin-top: -5px;text-align:left;">kilo CO₂ voorkomen</p>
+                        <!-- <img src="/static/cloud.png" alt="" class="compensate-icon" style = "width: 16px;height: 16px;"> -->
+                        <p style="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 12px;font-weight:400;margin-top: 25px;">kg CO₂-reductie</p>
+                        <span class="co2ok_info_hitarea">
+                            <img src="${SITE_HOST}/static/info-MKS.svg" alt="" class="co2ok_widget_info" style = "width: 17px;height: 17px; padding: 2px;">
+                            </span>
+                            </div>
+                            </div>
+                     
+                    <!--
+                    <p style="color: #464646; font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 10px;margin-top: -5px;text-align:left;">kilo CO₂ voorkomen</p>
+                    -->
+                    </div>
                     </div>
                     
-                </div>
-
+                    </div>
+                    </div>
+                    
                 </div>
                 <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
 
@@ -107,25 +114,11 @@ let Co2okWidget = {
                     <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="/wp-content/plugins/co2ok-plugin-woocommerce/images/logo.svg" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
                     <span class="widget-hover-link">
                     <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe CO&#8322; compensatie werkt</a> </span>
-                    </div>
                 </div>
         
                 <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
 
 
-                <!--
-                <div class = "wood-widget" style = "width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start;">
-                    <h1 style = "text-align: right;font-size: 50px;color: green;">256</h1>
-                    <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 15px;">
-                        
-                        <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:100%;height:auto;margin-top: -5px;">
-                            <img src = "" alt = "" class ="compensate-icon" style = "width: 20px;height: 20px;border: 1px solid red;">
-                            <p style="font-size: 25px;font-weight:bold;margin-left: 10px;">HOUT</p>
-                        </div>
-                        <p style="font-size: 14px;margin-top: -5px;text-align:left;">x duizend kg hout ( = 723 bomen) bespaard</p>
-                    </div>
-                </div>
-                -->
                 `
 
         // let widgetcontainer = document.getElementById(widgetContainer)
