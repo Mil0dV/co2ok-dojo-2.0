@@ -17,6 +17,7 @@ env = environ.Env()
 env.read_env(str(ROOT_DIR.path('.env')))
 
 SENDGRID_API_KEY = env('SENDGRID_API_KEY')
+SLACK_API_TOKEN = env('SLACK_API_TOKEN')
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug

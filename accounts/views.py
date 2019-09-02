@@ -31,6 +31,7 @@ from django.conf import settings
 from django.template.loader import get_template
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
+import slack
 
 
 def userToken(request, user):
@@ -406,6 +407,13 @@ def sendMail(request):
     except Exception as e:
         print(e)
 
+    domain = userEmail.split('@')[1]
+
+    try:
+        slack_notify(domain)
+    except:
+        pass 
+
     # non-SG methode hieronder
     # subject = "Password reset"
     # message = 'Click the link to reset your password, temporary password: k,jasflkuhsrlkjjbl'
@@ -419,6 +427,13 @@ def sendMail(request):
     }
     return Response(success)
 
+
+def slack_notify(domain):
+    print(domain)
+    client = slack.WebClient(token=settings.SLACK_API_TOKEN)
+    response = client.chat_postMessage(
+        channel='#sales-notifications',
+        text="Nieuwe prospect! :D Vanwege privacy hier alleen 't domein: " + domain)
 
 @csrf_exempt
 @api_view(['POST'])
