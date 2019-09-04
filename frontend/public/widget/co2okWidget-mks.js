@@ -92,11 +92,11 @@ let Co2okWidget = {
                 </div>
                 <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
 
-                    <div class="widget-inner-wrapper">
+                    <div class="inner-wrapper">
                     <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
                     <p class="text-block greyBorder">Tijdens productie en vervoer van producten komen broeikasgassen vrij</p>
                     </a>
-                    <!-- <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="/wp-content/plugins/co2ok-plugin-woocommerce/images/even.svg" class="widget-svg-img-large  co2ok_info_hover_image"> -->
+                    <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="/wp-content/plugins/co2ok-plugin-woocommerce/images/even.svg" class="widget-svg-img-large  co2ok_info_hover_image">
                     </div>
                     
                     <div class="inner-wrapper">
