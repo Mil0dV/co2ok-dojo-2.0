@@ -23,7 +23,7 @@ import './registerServiceWorker'
 import VueAnalytics from 'vue-analytics'
 
 Vue.use(VueAnalytics, {
-  id: 'UA-108940950-4'
+  id: 'UA-108940950-1'
 })
 
 Axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
