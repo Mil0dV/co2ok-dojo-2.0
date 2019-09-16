@@ -48,13 +48,14 @@ let Co2okWidget = {
         // Mijnkraamshop: D0C918
         let color = "#D0C918"
         // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-        let  SITE_HOST =  'https://co2ok.eco'
-        //   let SITE_HOST = 'http://localhost:8080'
+        // nog een idee: dit dynamisch afhankelijk maken van de sitename
+        // let  SITE_HOST =  'https://co2ok.eco'
+          let SITE_HOST = 'http://localhost:8080'
 
         var fileref=document.createElement("link")
         fileref.setAttribute("rel", "stylesheet")
         fileref.setAttribute("type", "text/css")
-        fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidget-s7.css`)
+        fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
         document.getElementsByTagName("head")[0].appendChild(fileref)
 
           let widgets = `
