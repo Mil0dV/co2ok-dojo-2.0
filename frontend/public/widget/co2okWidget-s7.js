@@ -25,8 +25,8 @@ let Co2okWidget = {
            xhr.onreadystatechange = function(){
                if (this.readyState == 4 && this.status == 200){
                 // For the near future: detect large numbers, then divide and adjust kilo to ton
-                // let totalTransactionData = Math.round(xhr.responseText / 1000)
-                let totalTransactionData = xhr.responseText
+                let totalTransactionData = Math.round(xhr.responseText / 1000)
+                // let totalTransactionData = xhr.responseText
                    console.log(totalTransactionData)
                    Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
 
@@ -49,7 +49,7 @@ let Co2okWidget = {
         let color = "#D0C918"
         // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
         let  SITE_HOST =  'https://co2ok.eco'
-        //   let SITE_HOST = 'http://localhost:8080'
+        // let SITE_HOST = 'http://localhost:8080'
 
         var fileref=document.createElement("link")
         fileref.setAttribute("rel", "stylesheet")
@@ -123,11 +123,49 @@ let Co2okWidget = {
                 `
 
                 let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
-                console.log(widgetimg)
+                let widgetmark = `
+                <div class="btn co2ok_widget_info" href="#">
+                    <span class="co2ok_widget_info">SHOP<img class="co2ok_widget_info" src="https://co2ok.eco/static/logo.png"></span>
+                
+                    <div class="caption">
+                        <span> <strong>${totalCompensatedData}</strong>t CO₂ reductie </span>
+                    </div>
+                </div>
+
+                <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
+
+                <div class="inner-wrapper">
+                <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
+                <p class="text-block greyBorder">Tijdens productie en vervoer van producten komen broeikasgassen vrij</p>
+                </a>
+                <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="/wp-content/plugins/co2ok-plugin-woocommerce/images/even.svg" class="widget-svg-img-large  co2ok_info_hover_image">
+                </div>
+                
+                <div class="inner-wrapper">
+                <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="/wp-content/plugins/co2ok-plugin-woocommerce/images/fout.svg" class="widget-svg-img-large co2ok_info_hover_image">
+                <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
+                <p class="text-block greyBorder">Met een kleine bijdrage voorkomt CO2ok evenveel uitstoot</p>
+                </a>
+                </div>
+        
+                <div class="inner-wrapper">
+                <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
+                <p class="text-block">Zo is je aankoop klimaatneutraal!!</p>
+                </a>
+                </div>
+        
+                <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="/wp-content/plugins/co2ok-plugin-woocommerce/images/logo.svg" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
+                <span class="widget-hover-link">
+                <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe CO&#8322; compensatie werkt</a> </span>
+                </div>
+        
+                <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
+                `
+                // console.log(widgetimg)
 
         let widgetcontainer = document.getElementById(widgetContainer)
         // let widgetcontainer = document.getElementsByClassName('whb-empty-column')[0]
-        widgetcontainer.innerHTML = widgetimg
+        widgetcontainer.innerHTML = widgetmark
         this.RegisterWidgetInfoBox();
         // this.ShowWidgetInfoBox();
     },

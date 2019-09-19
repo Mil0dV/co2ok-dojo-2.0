@@ -85,3 +85,58 @@ color: #979797;
 padding: 0px; }
 .co2ok_widget_infobox_container .minimal {
 background-color: black; }
+.btn {
+    /* 	background-image: linear-gradient(to right, #006175 0%, #00a950 100%); */
+        background: -webkit-linear-gradient(#1DEFAC -50.09%, #11D071 51.05%, #10CC6B 56.81%, #05B139 100%);
+        border-radius: 7px;
+      border: 2px solid rgb(11, 179, 89);
+      box-sizing: border-box;
+        background: white;
+        display: block;
+        font: 17px 'Tahoma', Arial, sans-serif; /*18*/
+        color: rgb(93,97,93);
+      height: 35px;
+        letter-spacing: 0px;
+        margin: 0 auto;
+        padding: 2px;
+        position: relative;
+      text-decoration: none;
+    
+        width: 112px;
+        z-index: 2;
+    }
+    
+    .btn:hover {
+        color: #fff;
+      background: rgb(11, 179, 89)
+    }
+    
+    .btn span {
+        align-items: center;
+        background: transparent;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        transition: background .5s ease;
+        width: 100%;
+    }
+    
+    .btn:hover span {
+        background: transparent;
+    }
+    
+    img {
+      width:45%;
+      float:right;
+      margin-left:4px;
+      margin-top:3px;
+      }
+    
+    .caption {
+      font:13px 'Tahoma', Arial, sans-serif; /*18*/;
+      color: rgb(93,97,93);
+      letter-spacing: 0px;
+      margin-top:4px;
+    }
+    
