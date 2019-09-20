@@ -57,13 +57,15 @@ let Co2okWidget = {
         fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidget-s7.css`)
         document.getElementsByTagName("head")[0].appendChild(fileref)
 
+        var image_url = plugin.url;
+
           let widgets = `
 
           <div class="widgets" style="width: 100%;height: auto;display: flex;flex-direction: column;justify-content: center;align-items: center;">
                 <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-end;width:100%;height:auto;margin-left: 15px;">
                     <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:380px;height:auto">
                         <span style="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 12px;margin-left: 20px;">SHOP </span>
-                        <img src="/wp-content/plugins/co2ok-plugin-woocommerce/images/logo.svg" alt="" class="compensate-icon" style = "width: 46px; margin-left: 3px; margin-top: 4px;">
+                        <img src="${image_url}/logo.svg" alt="" class="compensate-icon" style = "width: 46px; margin-left: 3px; margin-top: 4px;">
 
                         
                         
@@ -96,11 +98,11 @@ let Co2okWidget = {
                     <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
                     <p class="text-block greyBorder">Tijdens productie en vervoer van producten komen broeikasgassen vrij</p>
                     </a>
-                    <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="/wp-content/plugins/co2ok-plugin-woocommerce/images/even.svg" class="widget-svg-img-large  co2ok_info_hover_image">
+                    <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${image_url}/even.svg" class="widget-svg-img-large  co2ok_info_hover_image">
                     </div>
                     
                     <div class="inner-wrapper">
-                    <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="/wp-content/plugins/co2ok-plugin-woocommerce/images/fout.svg" class="widget-svg-img-large co2ok_info_hover_image">
+                    <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${image_url}/fout.svg" class="widget-svg-img-large co2ok_info_hover_image">
                     <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
                     <p class="text-block greyBorder">Met een kleine bijdrage voorkomt CO2ok evenveel uitstoot</p>
                     </a>
@@ -112,7 +114,7 @@ let Co2okWidget = {
                     </a>
                     </div>
             
-                    <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="/wp-content/plugins/co2ok-plugin-woocommerce/images/logo.svg" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
+                    <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${image_url}/logo.svg" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
                     <span class="widget-hover-link">
                     <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe CO&#8322; compensatie werkt</a> </span>
                 </div>
@@ -138,11 +140,11 @@ let Co2okWidget = {
                 <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
                 <p class="text-block greyBorder">Tijdens productie en vervoer van producten komen broeikasgassen vrij</p>
                 </a>
-                <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="/wp-content/plugins/co2ok-plugin-woocommerce/images/even.svg" class="widget-svg-img-large  co2ok_info_hover_image">
+                <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${image_url}/even.svg" class="widget-svg-img-large  co2ok_info_hover_image">
                 </div>
                 
                 <div class="inner-wrapper">
-                <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="/wp-content/plugins/co2ok-plugin-woocommerce/images/fout.svg" class="widget-svg-img-large co2ok_info_hover_image">
+                <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${image_url}/fout.svg" class="widget-svg-img-large co2ok_info_hover_image">
                 <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
                 <p class="text-block greyBorder">Met een kleine bijdrage voorkomt CO2ok evenveel uitstoot</p>
                 </a>
@@ -154,7 +156,7 @@ let Co2okWidget = {
                 </a>
                 </div>
         
-                <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="/wp-content/plugins/co2ok-plugin-woocommerce/images/logo.svg" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
+                <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${image_url}/logo.svg" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
                 <span class="widget-hover-link">
                 <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe CO&#8322; compensatie werkt</a> </span>
                 </div>
