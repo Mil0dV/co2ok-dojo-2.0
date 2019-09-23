@@ -48,8 +48,8 @@ let Co2okWidget = {
         // Mijnkraamshop: D0C918
         let color = "#D0C918"
         // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-        let  SITE_HOST =  'https://co2ok.eco'
-        // let SITE_HOST = 'http://localhost:8080'
+        // let  SITE_HOST =  'https://co2ok.eco'
+        let SITE_HOST = 'http://localhost:8080'
 
         var fileref=document.createElement("link")
         fileref.setAttribute("rel", "stylesheet")
@@ -69,7 +69,7 @@ let Co2okWidget = {
 
                         
                         
-                        <div class="co2-widget" style ="width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start; margin-left: 15px">
+                        <div class="co2-widget_info" style ="width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start; margin-left: 15px">
                         <span style ="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; text-align: right;font-size: 16px; font-weight: bold; margin-top: 15px;"> ${totalCompensatedData} </span>
                         
                         <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 5px;">
@@ -126,14 +126,15 @@ let Co2okWidget = {
 
                 let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
                 let widgetmark = `
-                <div class="btn co2ok_widget_info" href="#">
-                    <span class="co2ok_widget_info">SHOP<img class="co2ok_widget_info" src="https://co2ok.eco/static/logo.png"></span>
-                
-                    <div class="caption co2ok_widget_info">
-                        <span> <strong>${totalCompensatedData}</strong>t CO₂ reductie </span>
-                    </div>
+                <div>
+                <div class="btn_co2ok_widget co2ok_widget_info" href="#">
+                    <span class="btn_co2ok_widget co2ok_widget_info">SHOP<img class="logo_co2ok_widget" src="https://co2ok.eco/static/logo.png"></span>
                 </div>
-
+                    <div class="caption_co2ok_widget co2ok_widget_info">
+                        <span> <strong>${totalCompensatedData}</strong>t CO₂ reductie </span>
+                        </div>
+                    </div>
+                        
                 <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
 
                 <div class="inner-wrapper">
