@@ -10,7 +10,7 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['co2ok.ninja', 'test.co2ok.ninja', 'localhost'])
+ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['co2ok.ninja', 'test.co2ok.ninja', 'localhost', 'app.co2ok.eco'])
 
 # DATABASES
 # ------------------------------------------------------------------------------
