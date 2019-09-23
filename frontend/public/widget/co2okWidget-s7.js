@@ -25,7 +25,7 @@ let Co2okWidget = {
            xhr.onreadystatechange = function(){
                if (this.readyState == 4 && this.status == 200){
                 // For the near future: detect large numbers, then divide and adjust kilo to ton
-                let totalTransactionData = Math.round(xhr.responseText / 1000)
+                let totalTransactionData = (xhr.responseText / 1000).toFixed(1)
                 // let totalTransactionData = xhr.responseText
                    console.log(totalTransactionData)
                    Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
