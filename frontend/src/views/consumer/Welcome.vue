@@ -4,8 +4,8 @@
         <div class="welcome-header mb-4">
             <h3 class="animated fadeInUp mb-3 white--text" style="animation-delay: 0.5s;animation-duration:1s;"><span class="font-weight-bold">You can help fight climate change! </span> <span>Help us reach anyone who shops online!</span></h3>
             <div cklass="social-btn">
-                <a href="https://www.facebook.com/sharer?u=https%3A%2F%2Fco2ok.ninja%2F" target="_blank"><v-btn depressed class="white--text facebook-btn text-uppercase animated bounceIn" style=" background-color: #3B5998;animation-delay: 0.7s;animation-duration:1s;">share on facebook</v-btn></a>
-                <a href="https://twitter.com/intent/tweet?text=Install%20a%20browser%20extension%20and%20when%20you%20purchase%20stuff%20online%2C%20you%20help%20fight%20against%20climate%20change!%20Check%20out%3A%20https%3A%2F%2Fco2ok.ninja%2F" target="_blank"><v-btn depressed class="white--text twitter-btn text-uppercase animated bounceIn" style=" background: #1DA1F2;animation-delay: 0.8s;animation-duration:1s;">share on twitter</v-btn></a>
+                <a href="https://www.facebook.com/sharer?u=https%3A%2F%2Fco2ok.eco/ninja%2F" target="_blank"><v-btn depressed class="white--text facebook-btn text-uppercase animated bounceIn" style=" background-color: #3B5998;animation-delay: 0.7s;animation-duration:1s;">share on facebook</v-btn></a>
+                <a href="https://twitter.com/intent/tweet?text=Install%20a%20browser%20extension%20and%20when%20you%20purchase%20stuff%20online%2C%20you%20help%20fight%20against%20climate%20change!%20Check%20out%3A%20https%3A%2F%2Fco2ok.eco/ninja%2F" target="_blank"><v-btn depressed class="white--text twitter-btn text-uppercase animated bounceIn" style=" background: #1DA1F2;animation-delay: 0.8s;animation-duration:1s;">share on twitter</v-btn></a>
             </div>
         </div>
 

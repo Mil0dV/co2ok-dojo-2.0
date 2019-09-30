@@ -86,11 +86,11 @@
                             <p>{{ $t('profile.card3_social') }}</p>
                             <p class="social-buttons">
                                 <a target="_blank"
-                                   :href="`https://www.facebook.com/sharer?u=https%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.userData.id}`"><i
+                                   :href="`https://www.facebook.com/sharer?u=https%3A%2F%2Fco2ok.eco/ninja%2F${this.$store.state.ninjaData.userData.id}`"><i
                                         class="fab  fa-facebook-f"></i></a>
                                 {{ $t('profile.card3_or') }}
                                 <a target="_blank"
-                                   :href="`https://twitter.com/intent/tweet?text=Help%20me%20fight%20climate%20change%20while%20shopping%20-%20easy%20and%20for%20free!%20http%3A%2F%2Fco2ok.ninja%2F${this.$store.state.ninjaData.userData.id}`"><i
+                                   :href="`https://twitter.com/intent/tweet?text=Help%20me%20fight%20climate%20change%20while%20shopping%20-%20easy%20and%20for%20free!%20http%3A%2F%2Fco2ok.eco/ninja%2F${this.$store.state.ninjaData.userData.id}`"><i
                                         class="fab fa-twitter"></i></a>
                             </p>
                             <!-- <p @click="editProfile = true">Edit Profile</p> -->

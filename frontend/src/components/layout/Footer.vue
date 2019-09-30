@@ -94,7 +94,7 @@
         methods: {
             logout() {
                 axios
-                    .post('http://test.co2ok.ninja/logout/', {
+                    .post('http://app.co2ok.eco/logout/', {
                         // header: {"X-CSRFToken": 'gZvnzSFeGp7h68WjCzmFky6wMkiJZXDU',}
                     })
                     .then(response => {
