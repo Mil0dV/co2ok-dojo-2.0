@@ -57,7 +57,14 @@ let Co2okWidget = {
         fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidget-s7.css`)
         document.getElementsByTagName("head")[0].appendChild(fileref)
 
-        var image_url = plugin.url;
+
+        try{
+          var image_url = plugin.url;
+        }
+        catch{
+          var image_url = "https://www.soap7.com/wp-content/plugins/co2ok-plugin-woocommerce-5/images";
+        }
+
 
           let widgets = `
 
