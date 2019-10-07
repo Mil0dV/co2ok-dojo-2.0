@@ -139,12 +139,13 @@ let Co2okWidget = {
         jQuery("body").append(widgetInfoBox);
  
         if (jQuery(window).width() < 480) {
+        offset.left = offset.left - widgetInfoBox.width() / 2;
         offset.top = offset.top + widgetInfoButton.height();
         widgetInfoBox.css({
             top: offset.top - 300,
             margin: "0 auto",
-            left: "50%",
-            transform: "translateX(-50%)"
+            left: offset.left,
+            transform: "none"
         });
         } else {
         offset.left = offset.left - widgetInfoBox.width() / 2;
