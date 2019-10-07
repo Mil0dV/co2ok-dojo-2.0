@@ -65,72 +65,6 @@ let Co2okWidget = {
           var image_url = "https://www.soap7.com/wp-content/plugins/co2ok-plugin-woocommerce-5/images";
         }
 
-
-          let widgets = `
-
-          <div class="widgets" style="width: 100%;height: auto;display: flex;flex-direction: column;justify-content: center;align-items: center;">
-                <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-end;width:100%;height:auto;margin-left: 15px;">
-                    <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:380px;height:auto">
-                        <span style="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 12px;margin-left: 20px;">SHOP </span>
-                        <img src="${image_url}/logo.svg" alt="" class="compensate-icon" style = "width: 46px; margin-left: 3px; margin-top: 4px;">
-
-                        
-                        
-                        <div class="co2-widget_info" style ="width: 100%;height: auto;display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start; margin-left: 15px">
-                        <span style ="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; text-align: right;font-size: 16px; font-weight: bold; margin-top: 15px;"> ${totalCompensatedData} </span>
-                        
-                        <div style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;width:100%;height:auto;margin-left: 5px;">
-                        <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:100%;height:auto;margin-top: -5px;">
-                        <!-- <img src="/static/cloud.png" alt="" class="compensate-icon" style = "width: 16px;height: 16px;"> -->
-                        <p style="font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 12px;font-weight:400;margin-top: 25px;">kg CO₂-reductie</p>
-                        <span class="co2ok_info_hitarea">
-                            <img src="${SITE_HOST}/static/info-MKS.svg" alt="" class="co2ok_widget_info" style = "width: 17px;height: 17px; padding: 2px;">
-                            </span>
-                            </div>
-                            </div>
-                     
-                    <!--
-                    <p style="color: #464646; font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; font-size: 10px;margin-top: -5px;text-align:left;">kilo CO₂ voorkomen</p>
-                    -->
-                    </div>
-                    </div>
-                    
-                    </div>
-                    </div>
-                    
-                </div>
-                <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
-
-                    <div class="inner-wrapper">
-                    <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-                    <p class="text-block greyBorder">Tijdens productie en vervoer van producten komen broeikasgassen vrij</p>
-                    </a>
-                    <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${image_url}/even.svg" class="widget-svg-img-large  co2ok_info_hover_image">
-                    </div>
-                    
-                    <div class="inner-wrapper">
-                    <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${image_url}/fout.svg" class="widget-svg-img-large co2ok_info_hover_image">
-                    <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-                    <p class="text-block greyBorder">Met een kleine bijdrage voorkomt CO2ok evenveel uitstoot</p>
-                    </a>
-                    </div>
-            
-                    <div class="inner-wrapper">
-                    <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-                    <p class="text-block">Zo is je aankoop klimaatneutraal!!</p>
-                    </a>
-                    </div>
-            
-                    <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${image_url}/logo.svg" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
-                    <span class="widget-hover-link">
-                    <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe CO&#8322; compensatie werkt</a> </span>
-                </div>
-        
-                <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
-
-
-                `
-
                 let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
                 let widgetmark = `
                 <div>
@@ -207,7 +141,7 @@ let Co2okWidget = {
         if (jQuery(window).width() < 480) {
         offset.top = offset.top + widgetInfoButton.height();
         widgetInfoBox.css({
-            top: offset.top,
+            top: offset.top - 300,
             margin: "0 auto",
             left: "50%",
             transform: "translateX(-50%)"
@@ -216,7 +150,7 @@ let Co2okWidget = {
         offset.left = offset.left - widgetInfoBox.width() / 2;
         offset.top = offset.top + widgetInfoButton.height();
         widgetInfoBox.css({
-            top: offset.top,
+            top: offset.top - 300,
             left: offset.left,
             margin: "0",
             transform: "none"
