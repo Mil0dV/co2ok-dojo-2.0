@@ -165,10 +165,10 @@ let Co2okWidget = {
       jQuery(".co2ok_widget_container").css({
         marginBottom: 200
       });
-      if (!this.isMobile() == true ) {
-          var elmnt = document.getElementById("widget-infobox-view");
-          elmnt.scrollIntoView(false); // false leads to bottom of the infobox
-        }
+      // if (!this.isMobile() == true ) {
+      //     var elmnt = document.getElementById("widget-infobox-view");
+      //     elmnt.scrollIntoView(false); // false leads to bottom of the infobox
+      //   }
     },
 
     hideWidgetInfoBox : function()
