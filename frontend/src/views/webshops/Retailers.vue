@@ -89,6 +89,7 @@
 
                     <p class="content-text" v-html=" $t('retailers.row_text2') ">
                     </p>
+                           <router-link to="/webshops/cause-marketing"> Cause Marketing </router-link>
 
                     <!-- <p class="content-text">
                         {{ $t('retailers.row_text2_extra') }}

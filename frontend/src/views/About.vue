@@ -125,19 +125,19 @@
                     {
                         name: 'Milo de Vries', title: 'Founder and factotum',
                         quote: 'Making consumerism sustainable 💚🌍',
-                        image: 'milo.jpeg',
+                        image: 'michiel-1.jpeg',
                         twitter: '', facebook: ''
                     },
                     {
-                        name: 'Jos van Nieuwburg', title: 'Co-Founder',
+                        name: 'Nick Maier', title: 'Co-Founder',
                         quote: 'The climate is important and us companies can de a lot with that',
-                        image: 'jos.jpeg',
+                        image: 'michiel-1.jpeg',
                         twitter: '', facebook: ''
                     },
                     {
-                        name: 'Maaike Braat', title: 'Scientist',
-                        quote: 'It always can be quicker and better and this is a step in the right direction',
-                        image: 'maaike.jpeg',
+                        name: 'Lodi de Brouw', title: 'Strategic Advisor',
+                        quote: 'You must be the change you want to see in the world (Gandhi)',
+                        image: 'michiel-1.jpeg',
                         twitter: '', facebook: ''
                     },
                     {
@@ -147,13 +147,13 @@
                         twitter: '', facebook: ''
                     },
                     {
-                        name: 'Alham Saber', title: 'Partner manager',
-                        quote: 'Silence is evil itself. Not to speak to speak. Not to act is to act',
-                        image: 'ahlam.jpeg',
+                        name: 'Krista Peters', title: "Programming trainee",
+                        quote: '',
+                        image: 'michiel-1.jpeg',
                         twitter: '', facebook: ''
                     },
                     {
-                        name: 'Sanne Tielemans', title: 'Executive Secretary',
+                        name: 'Sanne Tielemans', title: 'Finance/Admin Assistant',
                         quote: 'The greener, the better',
                         image: 'sanne.jpeg',
                         twitter: '', facebook: ''

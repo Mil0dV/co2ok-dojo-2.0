@@ -135,8 +135,7 @@
                                 </p>
                             </div>
 
-                            <p class="main-text">
-                                {{ $t('compensation.s4_text') }}
+                            <p class="main-text" v-html=" $t('compensation.s4_text') ">
                             </p>
                         </div>
                     </div>
