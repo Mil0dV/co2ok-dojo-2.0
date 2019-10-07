@@ -48,8 +48,8 @@ let Co2okWidget = {
         // Mijnkraamshop: D0C918
         let color = "#D0C918"
         // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-        let  SITE_HOST =  'https://co2ok.eco'
-        // let SITE_HOST = 'http://localhost:8080'
+        // let  SITE_HOST =  'https://co2ok.eco'
+        let SITE_HOST = 'http://localhost:8080'
 
         var fileref=document.createElement("link")
         fileref.setAttribute("rel", "stylesheet")
@@ -144,23 +144,23 @@ let Co2okWidget = {
                         
                 <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
 
-                <div class="inner-wrapper">
+                <div class="widget-inner-wrapper">
                 <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-                <p class="text-block greyBorder">Tijdens productie en vervoer van producten komen broeikasgassen vrij</p>
+                <p class="widget-text-block greyBorder">Tijdens productie en vervoer van producten komen broeikasgassen vrij</p>
                 </a>
                 <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${image_url}/fout.svg" class="widget-svg-img-large  co2ok_info_hover_image">
                 </div>
                 
-                <div class="inner-wrapper">
+                <div class="widget-inner-wrapper">
                 <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${image_url}/even.svg" class="widget-svg-img-large co2ok_info_hover_image">
                 <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-                <p class="text-block greyBorder">Met een kleine bijdrage voorkomt CO2ok evenveel uitstoot</p>
+                <p class="widget-text-block greyBorder">Met een kleine bijdrage voorkomt CO2ok evenveel uitstoot</p>
                 </a>
                 </div>
         
-                <div class="inner-wrapper">
+                <div class="widget-inner-wrapper">
                 <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-                <p class="text-block">Zo is je aankoop klimaatneutraal!!</p>
+                <p class="widget-text-block">Zo is je aankoop klimaatneutraal!!</p>
                 </a>
                 </div>
         
@@ -250,6 +250,7 @@ let Co2okWidget = {
     {
        return jQuery(e.target).hasClass("widget-svg-img") ||
        jQuery(e.target).hasClass("widget-svg-img-large") ||
+       jQuery(e.target).hasClass("logo_co2ok_widget") ||
        jQuery(e.target).hasClass("widget-text-block") ||
        jQuery(e.target).hasClass("widget-inner-wrapper") ||
        jQuery(e.target).hasClass("co2ok_widget_info") ||
