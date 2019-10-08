@@ -104,17 +104,7 @@ let Co2okWidget = {
                 </div>
         
                 <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
+                
                 `
                 // console.log(widgetimg)
 
@@ -141,7 +131,7 @@ let Co2okWidget = {
 
     
     placeWidgetInfoBox : function() {
-        console.log('Platz? Lebensraum!')
+        // console.log('Platz? Lebensraum!')
         var widgetInfoButton = jQuery(".co2ok_widget_info");
         var widgetInfoBox = jQuery(".co2ok_widget_infobox_container");
         var offset = widgetInfoButton.offset();
