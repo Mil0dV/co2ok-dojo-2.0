@@ -104,6 +104,17 @@ let Co2okWidget = {
                 </div>
         
                 <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
                 `
                 // console.log(widgetimg)
 
@@ -130,7 +141,7 @@ let Co2okWidget = {
 
     
     placeWidgetInfoBox : function() {
-        // console.log('Platz? Lebensraum!')
+        console.log('Platz? Lebensraum!')
         var widgetInfoButton = jQuery(".co2ok_widget_info");
         var widgetInfoBox = jQuery(".co2ok_widget_infobox_container");
         var offset = widgetInfoButton.offset();
@@ -139,10 +150,10 @@ let Co2okWidget = {
         jQuery("body").append(widgetInfoBox);
  
         if (jQuery(window).width() < 480) {
-        offset.left = offset.left - widgetInfoBox.width() / 2;
+        // offset.left = offset.left + widgetInfoBox.width() / 2;
         offset.top = offset.top + widgetInfoButton.height();
         widgetInfoBox.css({
-            top: offset.top - 300,
+            top: offset.top - 425,
             margin: "0 auto",
             left: offset.left,
             transform: "none"
@@ -151,7 +162,7 @@ let Co2okWidget = {
         offset.left = offset.left - widgetInfoBox.width() / 2;
         offset.top = offset.top + widgetInfoButton.height();
         widgetInfoBox.css({
-            top: offset.top - 300,
+            top: offset.top -300,
             left: offset.left,
             margin: "0",
             transform: "none"
@@ -222,6 +233,7 @@ let Co2okWidget = {
           _this.hideWidgetInfoBox();
         }
         else {
+          _this.placeWidgetInfoBox()
           _this.ShowWidgetInfoBox();
         }
       });
