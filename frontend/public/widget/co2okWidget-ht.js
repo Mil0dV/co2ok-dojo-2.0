@@ -54,13 +54,13 @@ let Co2okWidget = {
         // Mijnkraamshop: D0C918
         let color = "#D0C918"
         // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-        let  SITE_HOST =  'https://co2ok.eco'
-        // let SITE_HOST = 'http://localhost:8080'
+        // let  SITE_HOST =  'https://co2ok.eco'
+        let SITE_HOST = 'http://localhost:8080'
 
         var fileref=document.createElement("link")
         fileref.setAttribute("rel", "stylesheet")
         fileref.setAttribute("type", "text/css")
-        fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidget-s7.css`)
+        fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidget-ht.css`)
         document.getElementsByTagName("head")[0].appendChild(fileref)
 
 
@@ -68,7 +68,7 @@ let Co2okWidget = {
           var image_url = plugin.url;
         }
         catch{
-          var image_url = "https://www.soap7.com/wp-content/plugins/co2ok-plugin-woocommerce-5/images";
+          var image_url = "https://happytowels.nl/wp-content/plugins/co2ok-plugin-woocommerce/images";
         }
 
                 let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
@@ -110,7 +110,6 @@ let Co2okWidget = {
                 </div>
         
                 <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
-                
                 `
                 // console.log(widgetimg)
 
@@ -146,19 +145,19 @@ let Co2okWidget = {
         jQuery("body").append(widgetInfoBox);
  
         if (jQuery(window).width() < 480) {
-        // offset.left = offset.left + widgetInfoBox.width() / 2;
+        offset.left = offset.left - widgetInfoBox.width() / 2;
         offset.top = offset.top + widgetInfoButton.height();
         widgetInfoBox.css({
-            top: offset.top - 425,
+            top: offset.top,
             margin: "0 auto",
             left: offset.left,
             transform: "none"
         });
         } else {
-        offset.left = offset.left - widgetInfoBox.width() / 2;
+        offset.left = offset.left - widgetInfoBox.width() + widgetInfoButton.width();
         offset.top = offset.top + widgetInfoButton.height();
         widgetInfoBox.css({
-            top: offset.top -300,
+            top: offset.top,
             left: offset.left,
             margin: "0",
             transform: "none"
@@ -229,7 +228,6 @@ let Co2okWidget = {
           _this.hideWidgetInfoBox();
         }
         else {
-          _this.placeWidgetInfoBox()
           _this.ShowWidgetInfoBox();
         }
       });
