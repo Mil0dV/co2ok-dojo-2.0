@@ -18,7 +18,7 @@ let Co2okWidget = {
 
     merchantCompensations: function (widgetContainer, merchantId) {
 
-        if (! document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
+        if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
           console.log('hammer time!')
           return
         }
