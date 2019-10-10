@@ -78,7 +78,7 @@ let Co2okWidget = {
                     <span class="btn_co2ok_widget co2ok_widget_info">SHOP<img class="logo_co2ok_widget" src="https://co2ok.eco/static/logo.png"></span>
                 </div>
                     <div class="caption_co2ok_widget co2ok_widget_info">
-                        <span> <strong>${totalCompensatedData}</strong>t CO₂ reductie </span>
+                        <span class="caption_co2ok_widget co2ok_widget_info"> <strong>${totalCompensatedData}</strong>t CO₂ reductie </span>
                         </div>
                     </div>
                         
