@@ -76,7 +76,7 @@ color: black; }
 
 .co2ok_widget_infobox_container .widget-inner-wrapper .widget-text-block {
 margin: 0px;
-font-size: 1em;
+font-size: 13px;
 line-height: normal;
 box-sizing: border-box;
 text-align: left;
@@ -93,7 +93,7 @@ text-decoration: underline; }
 
 @media (min-width: 768px){
     #widgetContainer {
-        margin-right: -107%;
+        margin-right: -105%;
     }
 }
 #widgetContainer {
