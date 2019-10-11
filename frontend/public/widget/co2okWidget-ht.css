@@ -76,7 +76,7 @@ color: black; }
 
 .co2ok_widget_infobox_container .widget-inner-wrapper .widget-text-block {
 margin: 0px;
-font-size: 13px;
+font:13px 'Segoe UI',Tahoma, Arial, sans-serif; 
 line-height: normal;
 box-sizing: border-box;
 text-align: left;
@@ -89,7 +89,9 @@ text-decoration: none; }
 .co2ok_widget_infobox_container .widget-inner-wrapper .widget-text-block.greyBorder {
     border-color: #b8b8b8; }
 .co2ok_widget_infobox_container a {
-text-decoration: underline; }
+    text-decoration: underline; 
+    font:14px 'Segoe UI',Tahoma, Arial, sans-serif; 
+}
 
 @media (min-width: 768px){
     #widgetContainer {

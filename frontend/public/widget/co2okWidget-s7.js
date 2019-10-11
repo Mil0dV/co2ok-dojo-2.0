@@ -94,7 +94,7 @@ let Co2okWidget = {
                 <div class="widget-inner-wrapper">
                 <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${image_url}/even.svg" class="widget-svg-img-large co2ok_info_hover_image">
                 <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-                <p class="widget-text-block greyBorder">Met een kleine bijdrage voorkomt CO2ok evenveel uitstoot</p>
+                <p class="widget-text-block greyBorder">Met een kleine bijdrage voorkomt CO₂ok evenveel uitstoot</p>
                 </a>
                 </div>
         
