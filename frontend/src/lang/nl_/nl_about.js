@@ -11,7 +11,7 @@ module.exports = {
             "\n" +
             "Hun droom? Over vijf jaar worden alle producten klimaatneutraal geproduceerd en is het compenseren van je aankopen niet meer nodig. Daardoor is CO2ok overbodig geworden.",
         imgText: "We helpen consumenten en retailers met een milieubewust karakter om producten te compenseren die het klimaat belasten.",
-        subTitle2: "Onze team",
+        subTitle2: "Ons team",
         title2: "Ontmoet de mensen die hier aan werken",
     }
 }
