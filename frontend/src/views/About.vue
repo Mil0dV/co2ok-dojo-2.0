@@ -125,31 +125,43 @@
                     {
                         name: 'Milo de Vries', title: 'Founder and factotum',
                         quote: 'Making consumerism sustainable 💚🌍',
-                        image: 'michiel-1.jpeg',
+                        image: 'milo.jpg',
                         twitter: '', facebook: ''
                     },
                     {
                         name: 'Nick Maier', title: 'Co-Founder',
-                        quote: 'The climate is important and us companies can de a lot with that',
-                        image: 'michiel-1.jpeg',
+                        quote: 'The climate is important and companies can have a big impact, either good or bad',
+                        image: 'nick.jpg',
                         twitter: '', facebook: ''
                     },
                     {
                         name: 'Lodi de Brouw', title: 'Strategic Advisor',
-                        quote: 'You must be the change you want to see in the world (Gandhi)',
-                        image: 'michiel-1.jpeg',
+                        quote: 'You must be the change you want to see in the world',
+                        image: 'lodi.jpg',
                         twitter: '', facebook: ''
                     },
                     {
-                        name: 'Michiel van Tienhoven', title: 'Programmer and Graphic Designer',
+                        name: 'Maaike Braat', title: 'Scientist',
+                        quote: 'It can always be quicker and better, but this is a step in the right direction',
+                        image: 'maaike.jpeg',
+                        twitter: '', facebook: ''
+                    },
+                    {
+                        name: 'Michiek van Tienhoven', title: "Programmer and Graphic Designer",
                         quote: 'More green is always better, after all we only have one planet earth',
                         image: 'michiel-1.jpeg',
                         twitter: '', facebook: ''
                     },
                     {
-                        name: 'Krista Peters', title: "Programming trainee",
-                        quote: '',
-                        image: 'michiel-1.jpeg',
+                        name: 'Krista Peters', title: 'Trainee programming & Web Development ',
+                        quote: 'Let\'s try and speed up the transition to a greener world.',
+                        image: 'krista.jpg',
+                        twitter: '', facebook: ''
+                    },
+{
+                        name: 'Ahlam Saber', title: 'Partner Manager',
+                        quote: 'Silence is evil itself. Not to speak is to speak. Not to act is to act',
+                        image: 'ahlam.jpeg',
                         twitter: '', facebook: ''
                     },
                     {
