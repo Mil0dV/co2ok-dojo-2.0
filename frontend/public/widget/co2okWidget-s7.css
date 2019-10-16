@@ -93,6 +93,10 @@ text-decoration: none; }
     font:14px 'Segoe UI',Tahoma, Arial, sans-serif; 
 }
 
+#widgetContainer {
+    justify-content: left !important;
+}
+
 .co2ok_widget_infobox_container img, .co2ok_widget_infobox_container span{
 display: inline-block;
 vertical-align: middle;
