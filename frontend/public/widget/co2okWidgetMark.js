@@ -152,8 +152,8 @@ let Co2okWidget = {
       widgetInfoBox.css({
           top: offset.top,
           margin: "0 auto",
-          left: offset.left,
-          transform: "none"
+          left: "50%",
+          transform: "translateX(-50%)"
       });
       } else {
       offset.left = offset.left - widgetInfoBox.width() / 2;
