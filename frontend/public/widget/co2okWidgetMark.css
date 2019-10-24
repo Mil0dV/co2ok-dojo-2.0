@@ -6,10 +6,12 @@
     display: inline-block;
     margin-left: -17px;
     position: relative; }
+    
     .co2ok_widget_container .co2ok_widget_payoff #p .co2ok_widget_info_hitarea img {
     width: 18px;
     margin-top: 25px;
     display: inline-block; }
+    
     .co2ok_widget_infobox_container {
     position: absolute;
     width: 350px;
@@ -24,20 +26,24 @@
     border: 3px solid #eee;
     border-image-slice: 1; }
     @media (max-width: 768px) {
+    
     .co2ok_widget_infobox_container {
     margin-left: -150px;
     width: 300px; } }
+    
     .co2ok_widget_infobox_container.ShowWidgetInfoBox {
     display: block;
     opacity: 1; }
-    .co2ok_widget_infobox_container .inner-wrapper {
+    
+    .co2ok_widget_infobox_container .widget-inner-wrapper{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     margin-top: 10px; }
-    .co2ok_widget_infobox_container .inner-wrapper .widget-svg-img {
+    
+    .co2ok_widget_infobox_container .widget-inner-wrapper .widget-svg-img {
     display: flex;
     justify-content: center;
     /* align horizontal */
@@ -47,7 +53,8 @@
     width: 58%;
     align-items: center;
     justify-content: center; }
-    .co2ok_widget_infobox_container .inner-wrapper .widget-svg-img-large {
+    
+    .co2ok_widget_infobox_container .widget-inner-wrapper .widget-svg-img-large {
     display: flex;
     justify-content: center;
     /* align horizontal */
@@ -57,43 +64,52 @@
     width: 65%;
     align-items: center;
     justify-content: center; }
-    .co2ok_widget_infobox_container .inner-wrapper .selectable-text {
+    
+    .co2ok_widget_infobox_container .widget-inner-wrapper .selectable-text {
     text-decoration: none;
-    font-weight: 100;
+    font-weight: 300;
     color: black;
     /* unvisited, visited, mouse over and selected link */ }
-    .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:link, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:visited, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:hover, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:active {
-        color: black; }
-    .co2ok_widget_infobox_container .inner-wrapper .text-block {
+    
+    .co2ok_widget_infobox_container .widget-inner-wrapper .selectable-text a:link, .co2ok_widget_infobox_container .widget-inner-wrapper .selectable-text a:visited, .co2ok_widget_infobox_container .widget-inner-wrapper .selectable-text a:hover, .co2ok_widget_infobox_container .widget-inner-wrapper .selectable-text a:active {
+    color: black; }
+    
+    .co2ok_widget_infobox_container .widget-inner-wrapper .widget-text-block {
     margin: 0px;
-    font-size: 1em;
+    font:13px 'Segoe UI',Tahoma, Arial, sans-serif; 
     line-height: normal;
     box-sizing: border-box;
     text-align: left;
     padding: 5px;
     border-radius: 5px;
     border: 2px solid #28db83;
+    color: black;
     text-decoration: none; }
-    .co2ok_widget_infobox_container .inner-wrapper .text-block.greyBorder {
+    
+    .co2ok_widget_infobox_container .widget-inner-wrapper .widget-text-block.greyBorder {
         border-color: #b8b8b8; }
     .co2ok_widget_infobox_container a {
-    text-decoration: underline; }
-    .co2ok_widget_infobox_container img, .co2ok_widget_infobox_container span {
+        text-decoration: underline; 
+        font:14px 'Segoe UI',Tahoma, Arial, sans-serif; 
+    }
+    
+    .co2ok_widget_infobox_container img, .co2ok_widget_infobox_container span{
     display: inline-block;
     vertical-align: middle;
     color: #979797;
     padding: 0px; }
+    
     .co2ok_widget_infobox_container .minimal {
     background-color: black; }
     
-         .btn_co2ok_widget .co2ok_widget_info{
+         .btn_co2ok_widget .co2ok_widget_info {
             /* 	background-image: linear-gradient(to right, #006175 0%, #00a950 100%); */
                 border-radius: 7px;
                 border: 2px solid rgb(11, 179, 89);
                 box-sizing: border-box;
                 background: white;
                 display: block;
-                font: 19px 'Tahoma', Arial, sans-serif; 
+                font: 19px 'Verdana', Arial, sans-serif;
                 color: rgb(93,97,93);
                 height: 35px;
                 letter-spacing: 0px;
@@ -101,11 +117,11 @@
                 padding: 2px;
                 position: relative;
                 text-decoration: none;
-                width: 112px;
+                width: 120px;
                 z-index: 2;
             }
             
-            .btn_co2ok_widget:hover .co2ok_widget_info{
+            .btn_co2ok_widget:hover .co2ok_widget_info {
                 color: #fff;
                 background: rgb(11, 179, 89)
             -webkit-linear-gradient(#1DEFAC -50.09%, #11D071 51.05%, #10CC6B 56.81%, #05B139 100%);
@@ -122,21 +138,22 @@
                 width: 100%;
             }
             
-            .btn_co2ok_widget:hover span .co2ok_widget_info{
+            .btn_co2ok_widget:hover span .co2ok_widget_info { 
                 background: transparent;
             }
             
-            .logo_co2ok_widget{
+            .logo_co2ok_widget { 
               width:50%;
               float:right;
               margin-left:2px;
               margin-top:3px;
               }
             
-            .caption_co2ok_widget .co2ok_widget_info{
-                font:13px 'Tahoma', Arial, sans-serif; 
+            .caption_co2ok_widget {
+                font:13px 'Segoe UI',Tahoma, Arial, sans-serif; 
                 color: rgb(93,97,93);
                 letter-spacing: 0px;
-                margin-top:4px;
+                /* margin-top:4px; */
+                text-align: center;
             }
             
