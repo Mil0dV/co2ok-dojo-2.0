@@ -147,7 +147,7 @@
                         twitter: '', facebook: ''
                     },
                     {
-                        name: 'Michiek van Tienhoven', title: "Programmer and Graphic Designer",
+                        name: 'Michiel van Tienhoven', title: "Programmer and Graphic Designer",
                         quote: 'More green is always better, after all we only have one planet earth',
                         image: 'michiel-1.jpeg',
                         twitter: '', facebook: ''
