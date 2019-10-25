@@ -90,7 +90,7 @@ text-decoration: none; }
     border-color: #b8b8b8; }
 .co2ok_widget_infobox_container a {
     text-decoration: underline; 
-    font:10px 'Segoe UI',Tahoma, Arial, sans-serif; 
+    font:13px 'Segoe UI',Tahoma, Arial, sans-serif; 
 }
 
 #widgetContainer {
@@ -155,7 +155,7 @@ background-color: black; }
         
     .caption_co2ok_widget {
       font:13px 'Segoe UI',Tahoma, Arial, sans-serif; 
-      color: #fff;
+      color: rgb(59, 56, 56);
       letter-spacing: 0px;
       margin-top:4px;
       text-align: center;

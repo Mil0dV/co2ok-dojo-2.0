@@ -54,8 +54,8 @@ let Co2okWidget = {
       // Mijnkraamshop: D0C918
       let color = "#D0C918"
       // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-      // let  SITE_HOST =  'https://co2ok.eco'
-      let SITE_HOST = 'http://localhost:8080'
+      let  SITE_HOST =  'https://co2ok.eco'
+      // let SITE_HOST = 'http://localhost:8080'
 
       var fileref=document.createElement("link")
       fileref.setAttribute("rel", "stylesheet")
@@ -86,7 +86,7 @@ let Co2okWidget = {
 
               <div class="widget-inner-wrapper">
               <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-              <p class="widget-text-block greyBorder">Deze webshop heeft <strong>${totalCompensatedData} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${totalCompensatedData * 5000} </strong>km vliegen</p>
+              <p class="widget-text-block greyBorder">Deze webshop heeft <strong>${totalCompensatedData} </strong>ton CO&#8322;-uitstoot voorkomen <br><br>= <strong>${totalCompensatedData * 5000} </strong>km vliegen</p>
               </a>
               <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${SITE_HOST}/widget/vliegtuig_hover.png" class="widget-svg-img-large  co2ok_info_hover_image">
               </div>
