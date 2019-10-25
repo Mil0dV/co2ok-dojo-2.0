@@ -123,7 +123,7 @@
 
                 crew: [
                     {
-                        name: 'Milo de Vries', title: 'Founder and factotum',
+                        name: 'Milo de Vries', title: 'Founder',
                         quote: 'Making consumerism sustainable 💚🌍',
                         image: 'milo.jpg',
                         twitter: '', facebook: ''
@@ -135,7 +135,7 @@
                         twitter: '', facebook: ''
                     },
                     {
-                        name: 'Lodi de Brouw', title: 'Strategic Advisor',
+                        name: 'Lodi de Brauw', title: 'Strategic Advisor',
                         quote: 'You must be the change you want to see in the world',
                         image: 'lodi.jpg',
                         twitter: '', facebook: ''

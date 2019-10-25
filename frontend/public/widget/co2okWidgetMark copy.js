@@ -18,11 +18,6 @@ let Co2okWidget = {
 
   merchantCompensations: function (widgetContainer, merchantId) {
 
-      if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
-        console.log('hammer time!')
-        return
-      }
-
       let xhr = Co2okWidget.xhr()
       // let host = 'http://127.0.0.1:8000'
       let host = 'https://app.co2ok.eco'
@@ -68,14 +63,14 @@ let Co2okWidget = {
         var image_url = plugin.url;
       }
       catch{
-        var image_url = "/wp-content/plugins/co2ok-for-woocommerce/images";
+        var image_url = "https://www.soap7.com/wp-content/plugins/co2ok-plugin-woocommerce-5/images";
       }
 
               let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
               let widgetmark = `
               <div>
               <div class="btn_co2ok_widget co2ok_widget_info" href="#">
-                  <span class="btn_co2ok_widget co2ok_widget_info">SHOP<img class="logo_co2ok_widget" src="${SITE_HOST}/static/logo.png"></span>
+                  <span class="btn_co2ok_widget co2ok_widget_info">SHOP<img class="logo_co2ok_widget" src="https://co2ok.eco/static/logo.png"></span>
               </div>
                   <div class="caption_co2ok_widget co2ok_widget_info">
                       <span> <strong>${totalCompensatedData}</strong>t CO₂ reductie </span>
@@ -84,20 +79,11 @@ let Co2okWidget = {
                       
               <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
 
-              <div class="widget-inner-wrapper">
-              <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-              <p class="widget-text-block greyBorder">Deze webshop heeft <strong>${totalCompensatedData} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${totalCompensatedData * 5000} </strong>km vliegen</p>
-              </a>
-              <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${SITE_HOST}/widget/vliegtuig_hover.png" class="widget-svg-img-large  co2ok_info_hover_image">
+              <div class="nieuwe_infohover">
+              <img id="vliegtuig_hover" src="${SITE_HOST}/widget/vliegtuig_hover.png">
+              <p id="hover-text">Deze webshop heeft <strong>${totalCompensatedData}</strong> ton co2-uitstoot voorkomen <br> <br>= <strong>${totalCompensatedData *5000}</strong>km vliegen</p>
+              <p id="link-co2ok"> <img id="co2ok-logo-hover" src= "https://co2ok.eco/static/logo.png"> <a href="<img id="co2ok-logo-hover" src= "https://www.co2ok.eco/co2-compensatie"> Hoe werkt co2-reductie?</p>
               </div>
-      
-              <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${image_url}/logo.svg" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
-              <span class="widget-hover-link">
-              <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe werkt CO&#8322; compensatie?</a> </span>
-              </div>
-      
-              <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
-              
               `
               // console.log(widgetimg)
 
@@ -124,7 +110,7 @@ let Co2okWidget = {
 
   
   placeWidgetInfoBox : function() {
-      // console.log('Platz? Lebensraum!')
+      console.log('Platz? Lebensraum!')
       var widgetInfoButton = jQuery(".co2ok_widget_info");
       var widgetInfoBox = jQuery(".co2ok_widget_infobox_container");
       var offset = widgetInfoButton.offset();
@@ -133,22 +119,19 @@ let Co2okWidget = {
       jQuery("body").append(widgetInfoBox);
 
       if (jQuery(window).width() < 480) {
-      // offset.left = offset.left - widgetInfoBox.width() / 4;
-      offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.height() - 9);
-      if ( offset.left < 0) offset.left = 10;
-      if ( offset.top < 0) offset.top = 10;
+      // offset.left = offset.left + widgetInfoBox.width() / 2;
+      offset.top = offset.top + widgetInfoButton.height();
       widgetInfoBox.css({
-          top: offset.top,
+          top: offset.top - 425,
           margin: "0 auto",
           left: offset.left,
           transform: "none"
       });
       } else {
       offset.left = offset.left - widgetInfoBox.width() / 2;
-      if ( offset.left < 0) offset.left = 10;
-      offset.top = offset.top - (widgetInfoButton.height()) - widgetInfoBox.height();
+      offset.top = offset.top + widgetInfoButton.height();
       widgetInfoBox.css({
-          top: offset.top,
+          top: offset.top -300,
           left: offset.left,
           margin: "0",
           transform: "none"
@@ -157,7 +140,7 @@ let Co2okWidget = {
   },
   ShowWidgetInfoBox  : function()
   {
-      // console.log("Show must go on")
+      console.log("Show must go on")
     jQuery(".co2ok_widget_infobox_container").removeClass('infobox-hidden')
     jQuery(".co2ok_widget_infobox_container").addClass('ShowWidgetInfoBox')
     jQuery(".co2ok_widget_container").css({
@@ -180,15 +163,24 @@ let Co2okWidget = {
 
   modalRegex: function(e)
   {
-     return jQuery(e.target).hasClass("widget-svg-img") ||
-     jQuery(e.target).hasClass("widget-svg-img-large") ||
-     jQuery(e.target).hasClass("logo_co2ok_widget") ||
-     jQuery(e.target).hasClass("widget-text-block") ||
-     jQuery(e.target).hasClass("widget-inner-wrapper") ||
-     jQuery(e.target).hasClass("co2ok_widget_info") ||
+    console.log('reggie')
+     return jQuery(e.target).hasClass("nieuwe_infohover") ||
+     jQuery(e.target).hasClass("vliegtuig_hover") ||
      jQuery(e.target).hasClass("co2ok_widget_info_hitarea") ||
      jQuery(e.target).hasClass("co2ok_widget_infobox_container") ||
-     jQuery(e.target).hasClass("widget-hover-link");
+     jQuery(e.target).hasClass("widget-hover-link") ||
+     jQuery(e.target).hasClass("hover-text") ||
+     jQuery(e.target).hasClass("co2ok-logo-hover") ||
+     jQuery(e.target).hasClass("link-co2ok") ||
+     jQuery(e.target).hasClass("widget-svg-img") ||
+     jQuery(e.target).hasClass("widget-svg-img") ||
+       jQuery(e.target).hasClass("widget-svg-img-large") ||
+       jQuery(e.target).hasClass("logo_co2ok_widget") ||
+       jQuery(e.target).hasClass("widget-text-block") ||
+       jQuery(e.target).hasClass("widget-inner-wrapper") ||
+       jQuery(e.target).hasClass("co2ok_widget_info") ||
+       jQuery(e.target).hasClass("co2ok_widget_info_hitarea") ||
+       jQuery(e.target).hasClass("co2ok_widget_infobox_container");
   },
 
   RegisterWidgetInfoBox : function()
@@ -208,6 +200,7 @@ let Co2okWidget = {
         _this.hideWidgetInfoBox();
       }
       else {
+        _this.placeWidgetInfoBox()
         _this.ShowWidgetInfoBox();
       }
 
@@ -231,12 +224,13 @@ let Co2okWidget = {
       });
 
       jQuery(document).mouseover(function(e) {
+        // console.log(_this.modalRegex(e))
           if (!(_this.modalRegex(e)))
           {
             _this.hideWidgetInfoBox();
           }
           else {
-            _this.placeWidgetInfoBox();
+            _this.placeWidgetInfoBox()
             _this.ShowWidgetInfoBox();
           }
         });
