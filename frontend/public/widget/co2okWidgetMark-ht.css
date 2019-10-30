@@ -1,0 +1,17 @@
+@media (min-width: 768px){
+    #widgetContainer {
+        margin-right: -105%;
+    }
+}
+#widgetContainer {
+    display:block;
+    margin-top: 5px;
+    float: right;
+}
+
+.caption_co2ok_widget {
+    font:13px 'Segoe UI',Tahoma, Arial, sans-serif; 
+    color: rgb(93,97,93);
+    letter-spacing: 0px;
+    margin-top: -4px;
+}
