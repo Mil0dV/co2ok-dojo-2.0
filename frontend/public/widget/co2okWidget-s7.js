@@ -31,8 +31,8 @@ let Co2okWidget = {
          xhr.onreadystatechange = function(){
              if (this.readyState == 4 && this.status == 200){
               // For the near future: detect large numbers, then divide and adjust kilo to ton
-              let totalTransactionData = (xhr.responseText / 1000).toFixed(1)
-              // let totalTransactionData = xhr.responseText
+              // let totalTransactionData = (xhr.responseText / 1000).toFixed(1)
+              let totalTransactionData = xhr.responseText
                  console.log(totalTransactionData)
                  Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
 
@@ -84,7 +84,7 @@ let Co2okWidget = {
                   <span class="btn_co2ok_widget co2ok_widget_info">SHOP<img class="logo_co2ok_widget" src="${SITE_HOST}/static/logo.png"></span>
               </div>
                   <div class="caption_co2ok_widget co2ok_widget_info">
-                      <span> <strong>${totalCompensatedData}</strong>t CO₂ reductie </span>
+                      <span> <strong>${(totalCompensatedData/ 1000).toFixed(1)}</strong>t CO₂ reductie </span>
                       </div>
                   </div>
                       
@@ -92,7 +92,7 @@ let Co2okWidget = {
 
               <div class="widget-inner-wrapper">
               <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-              <p class="widget-text-block greyBorder">Deze webshop heeft <strong>${totalCompensatedData} </strong>ton CO&#8322;-uitstoot voorkomen <br><br>= <strong>${totalCompensatedData * 5000} </strong>km vliegen</p>
+              <p class="widget-text-block greyBorder">Deze webshop heeft <strong>${(totalCompensatedData/ 1000).toFixed(1)} </strong>ton CO&#8322;-uitstoot voorkomen <br><br>= <strong>${(totalCompensatedData * 5).toFixed(0)} </strong>km vliegen</p>
               </a>
               <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${SITE_HOST}/widget/vliegtuig_hover.png" class="widget-svg-img-large  co2ok_info_hover_image">
               </div>
