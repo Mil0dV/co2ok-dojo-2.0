@@ -15,3 +15,12 @@
     letter-spacing: 0px;
     margin-top: -4px;
 }
+
+.co2ok_widget_infobox_container .widget-inner-wrapper .widget-text-block {
+    letter-spacing: 0px;
+}
+
+.co2ok_widget_infobox_container .widget-inner-wrapper .widget-text-block strong {
+    letter-spacing: 0px;
+    line-height: normal;
+}
