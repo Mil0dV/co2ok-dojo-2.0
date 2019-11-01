@@ -66,13 +66,6 @@ let Co2okWidget = {
       document.getElementsByTagName("head")[0].appendChild(fileref)
 
 
-      try{
-        var image_url = plugin.url;
-      }
-      catch{
-        var image_url = "/wp-content/plugins/co2ok-for-woocommerce/images";
-      }
-
               let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
               let widgetmark = `
               <div>
@@ -93,7 +86,7 @@ let Co2okWidget = {
               <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${SITE_HOST}/widget/vliegtuig_hover.png" class="widget-svg-img-large  co2ok_info_hover_image">
               </div>
       
-              <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${image_url}/logo.svg" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
+              <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img src="${SITE_HOST}/static/logo.png" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
               <span class="widget-hover-link">
               <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe werkt CO&#8322; compensatie?</a> </span>
               </div>
@@ -148,7 +141,7 @@ let Co2okWidget = {
       } else {
       offset.left = offset.left - widgetInfoBox.width() / 2;
       if ( offset.left < 0) offset.left = 10;
-      offset.top = offset.top - (widgetInfoButton.height()) - widgetInfoBox.height();
+      offset.top = offset.top - (widgetInfoButton.height()) - widgetInfoBox.height() + 6;
       widgetInfoBox.css({
           top: offset.top,
           left: offset.left,

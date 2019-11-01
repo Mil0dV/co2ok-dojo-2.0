@@ -153,6 +153,14 @@ background-color: black; }
       margin-top:3px;
           }
         
+    .co2ok_logo_default_info {
+
+      display: inline-block;
+      width: 25%;
+      vertical-align: middle;
+      margin: 9px 0px 0px 0px;
+    }
+
     .caption_co2ok_widget {
       font:13px 'Segoe UI',Tahoma, Arial, sans-serif; 
       color: rgb(59, 56, 56);
