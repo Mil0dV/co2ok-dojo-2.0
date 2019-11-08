@@ -50,7 +50,6 @@ let Co2okWidget = {
 
   widgetGenerator: function (widgetContainer, totalCompensatedData) {
 
-
       // HT: FDD800
       // CO2ok nu: 11D073
       // Mijnkraamshop: D0C918
@@ -65,6 +64,15 @@ let Co2okWidget = {
       fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
 
+      
+              if (totalCompensatedData <500) {
+                var compensatiewidget  = 101.8;
+                var compensatietekst = `De bij co2ok aangesloten webshops hebben samen <strong> ${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${compensatiewidget * 5000 .toFixed(0)} </strong>km vliegen`;
+              }
+              else {
+                var compensatiewidget  = totalCompensatedData / 1000;
+                var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${compensatiewidget * 5000 .toFixed(0)} </strong>km vliegen`
+              }
 
               let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
               let widgetmark = `
@@ -73,7 +81,7 @@ let Co2okWidget = {
                   <span class="btn_co2ok_widget co2ok_widget_info">SHOP<img class="logo_co2ok_widget" src="${SITE_HOST}/static/logo.png"></span>
               </div>
                   <div class="caption_co2ok_widget co2ok_widget_info">
-                      <span> <strong>${(totalCompensatedData/ 1000).toFixed(1)}</strong>t CO₂ reductie </span>
+                      <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t CO₂ reductie </span>
                       </div>
                   </div>
                       
@@ -81,7 +89,7 @@ let Co2okWidget = {
 
               <div class="widget-inner-wrapper">
               <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-              <p class="widget-text-block greyBorder">Deze webshop heeft <strong>${(totalCompensatedData/ 1000).toFixed(1)} </strong>ton CO&#8322;-uitstoot voorkomen <br><br>= <strong>${(totalCompensatedData * 5).toFixed(0)} </strong>km vliegen</p>
+              <p class="widget-text-block greyBorder">${compensatietekst} </p>
               </a>
               <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${SITE_HOST}/widget/vliegtuig_hover.png" class="widget-svg-img-large  co2ok_info_hover_image">
               </div>
