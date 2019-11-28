@@ -36,7 +36,7 @@
             </div>
         </div> -->
 
-        <div class="uk-section section-2">
+        <div class="uk-section section-2" id="webshops">
             <div class="uk-container uk-container-width">
                 <div class="section-2--col-1">
                     <h1 class="main-title">{{ $t('webshops.title2') }}</h1>
