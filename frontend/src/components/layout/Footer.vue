@@ -5,8 +5,8 @@
                 <div class="uk-width-1-3@m footer-column">
                     <h2>Contact</h2>
                     <ul>
-                        <li>Lange Viestraat 2</li>
-                        <li>3511 BK, Utrecht (De Planeet)</li>
+                        <li>Oudenoord 330</li>
+                        <li>3513 EX, Utrecht (LOU)</li>
                         <li>+31 (0) 6 397 65 259</li>
                         <li>info@co2ok.eco</li>
                         <li>© 2019 CO₂ok.</li>
