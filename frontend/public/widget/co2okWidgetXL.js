@@ -16,7 +16,7 @@ let Co2okWidget = {
   
     },
   
-    merchantCompensations: function (widgetContainer, merchantId) {
+    merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor) {
   
         if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
           console.log('hammer time!')
@@ -36,7 +36,7 @@ let Co2okWidget = {
                 // let totalTransactionData = 491
   
                    console.log(totalTransactionData)
-                   Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
+                   Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor)
   
                 // ok deze else werkt dus nog niet zoals bedoeld
             } else {
@@ -48,7 +48,7 @@ let Co2okWidget = {
         //   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
     },
   
-    widgetGenerator: function (widgetContainer, totalCompensatedData) {
+    widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor) {
   
         // HT: FDD800
         // CO2ok nu: 11D073
@@ -63,14 +63,8 @@ let Co2okWidget = {
         fileref.setAttribute("type", "text/css")
         fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
         document.getElementsByTagName("head")[0].appendChild(fileref)
-  
-        var fileref=document.createElement("link")
-        fileref.setAttribute("rel", "stylesheet")
-        fileref.setAttribute("type", "text/css")
-        fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetXL.css`)
-        document.getElementsByTagName("head")[0].appendChild(fileref)
-  
         
+
                 if (totalCompensatedData <500) {
                   var compensatiewidget  = 101.8;
                   var compensatietekst = `De bij co2ok aangesloten webshops hebben samen <strong> ${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${compensatiewidget * 5000 .toFixed(0)} </strong>km vliegen`;
@@ -79,7 +73,39 @@ let Co2okWidget = {
                   var compensatiewidget  = totalCompensatedData / 1000;
                   var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${compensatiewidget * 5000 .toFixed(0)} </strong>km vliegen`
                 }
-  
+                // Heeft de webshop al voldoende gecompenseerd om een substantieel getal te geven? Zo niet, pak volledige compensatie van webshops aangesloten bij co2ok
+
+                if (widgetSize == "L") {
+                    var fileref=document.createElement("link")
+                    fileref.setAttribute("rel", "stylesheet")
+                    fileref.setAttribute("type", "text/css")
+                    fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetL.css`)
+                    document.getElementsByTagName("head")[0].appendChild(fileref)
+                 }
+                 else {
+                    var fileref=document.createElement("link")
+                    fileref.setAttribute("rel", "stylesheet")
+                    fileref.setAttribute("type", "text/css")
+                    fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetXL.css`)
+                    document.getElementsByTagName("head")[0].appendChild(fileref)
+
+                // Kleine of grote widget
+
+                if (widgetColor == "gray") {
+                   var colorSuffix = "-gray";
+                   var fileref=document.createElement("link")
+                   fileref.setAttribute("rel", "stylesheet")
+                   fileref.setAttribute("type", "text/css")
+                   fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetXL-gray.css`)
+                   document.getElementsByTagName("head")[0].appendChild(fileref)
+                }
+                else {
+                    var colorSuffix = "";
+                }
+                // Wordt de widget in grijs of groen weergegeven
+
+
+                }
                 let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
                 let widgetmark = `
             
@@ -90,8 +116,8 @@ let Co2okWidget = {
                     </svg>
                     <p id="large-widget-text">Deze webshop heeft <span style="color:#606468;;font-size:18px; font-weight: bold;." <span>${(compensatiewidget.toFixed(1))} </span> uitstoot voorkomen</p>
                     <p id="large-widget-xvliegen">= ${compensatiewidget * 5000 .toFixed(0)}  <br>vliegen</p>
-                    <img id="co2ok-logo" src= "${SITE_HOST}/static/logo.png">
-                    <img id="info-button-widget" src= "${SITE_HOST}/static/info.svg">
+                    <img id="co2ok-logo" src= "${SITE_HOST}/static/logo${colorSuffix}.png">
+                    <img id="info-button-widget" src= "${SITE_HOST}/static/info${colorSuffix}.svg">
                     <img id="large-widget-airplane" src= "${SITE_HOST}/widget/large-wiget-airplane.png">
               </div>
               
