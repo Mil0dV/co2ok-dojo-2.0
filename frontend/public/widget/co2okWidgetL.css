@@ -13,8 +13,8 @@ body {
       margin: 0 auto;
       padding: 2px;
       position: relative;
-      width: 250px;
-    height:125px; 
+      width: 150px;
+    height:75px; 
   }
   
   .large-widget-right-green {
@@ -36,49 +36,46 @@ body {
   
   #large-widget-text {
     position:absolute;
-    font:10px Poppins, Verdana, sans-serif;
-    max-width:120px;
+    font:9px Poppins, Verdana, sans-serif;
+    font-weight:400;
+    max-width:75px;
     color:#606468;
-    margin-top: 14px;
-    margin-left:12px;
+    margin-top: 4px;
+    margin-left:3px;
     z-index:3;
   }
   
-  #large-widget-text-large {
-    font:18.5px Poppins, Verdana, sans-serif;
-    color:#606468;
-    font-weight: bold;
-  }
-
   #large-widget-xvliegen {
     position:relative;
     float:right;
-    font:13px Poppins, Verdana, sans-serif;
-    color:#606468;
-    margin-top:14px;
-    margin-right:12px;
+    font:9px Poppins, Verdana, sans-serif;
+    color:white;
+    margin-top:6px;
+    margin-right:4px;
     text-align:right;
+    font-weight:500;
   }
   
   #co2ok-logo {
     position: absolute;
     z-index:4;
     width:25%;
-    margin-top:80px;
-    margin-left: 12px;
+    margin-top:55px;
+    margin-left: 4px;
   }
   
   #info-button-widget {
     position:absolute;
-    margin-top:82px;
-    margin-left:90px;
+    margin-top:54px;
+    margin-left:48px;
     z-index:5;
+    width:9%;
   }
   
   #large-widget-airplane {
     position:absolute;
-    margin-top:65px;
-    margin-left:178px;
+    margin-top:40px;
+    margin-left:103px;
     z-index:6;
     width:18%;
   }

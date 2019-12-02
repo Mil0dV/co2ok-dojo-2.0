@@ -114,7 +114,7 @@ let Co2okWidget = {
                     <svg id= "half-circle" width="3500" height="4000">
                     <circle cx="95" cy="65" r="62" fill="white" />
                     </svg>
-                    <p id="large-widget-text">Deze webshop heeft <span style="color:#606468;;font-size:18px; font-weight: bold;." <span>${(compensatiewidget.toFixed(1))} </span> uitstoot voorkomen</p>
+                    <p id="large-widget-text">Deze webshop heeft <span style="large-widget-text-large"${(compensatiewidget.toFixed(1))} </span> uitstoot voorkomen</p>
                     <p id="large-widget-xvliegen">= ${compensatiewidget * 5000 .toFixed(0)}  <br>vliegen</p>
                     <img id="co2ok-logo" src= "${SITE_HOST}/static/logo${colorSuffix}.png">
                     <img id="info-button-widget" src= "${SITE_HOST}/static/info${colorSuffix}.svg">
