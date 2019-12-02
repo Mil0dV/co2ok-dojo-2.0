@@ -123,10 +123,10 @@
                         {{ $t('retailers.row_text4') }}
                     </p>
 
-                    <br>
-                    <div class="col-1--links">
+                    <!-- <br> -->
+                    <!-- <div class="col-1--links">
                         <router-link to="/webshops/plug-in-installation" class="button">{{ $t('retailers.row_button') }}</router-link>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -204,6 +204,9 @@
                             <!-- <img alt="retailer shop 3" class="shop__image"
                                  src="../../assets/images/webshops/retailers/shop-3.png"> -->
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
+                            <div class="col-1--links">
+                                <router-link to="/webshops/get-started" class="button">{{ $t('retailers.row_button3') }}</router-link>
+                            </div>
                             <p class="shop--text" v-html=" $t('retailers.quote4') ">
                             </p>
                         </div>

@@ -36,7 +36,7 @@
             </div>
         </div> -->
 
-        <div class="uk-section section-2">
+        <div class="uk-section section-2" id="webshops">
             <div class="uk-container uk-container-width">
                 <div class="section-2--col-1">
                     <h1 class="main-title">{{ $t('webshops.title2') }}</h1>
@@ -79,7 +79,7 @@
                     },
                     {
                         image: 'shop-2',
-                        link: 'https://michielvandijk.nl/'
+                        link: 'https://hutspot.com/'
                     },
                     {
                         image: 'shop-3',
@@ -91,7 +91,7 @@
                     },
                     {
                         image: 'shop-5',
-                        link: 'https://landsbyfadder.org/'
+                        link: 'https://www.myomydogoods.com/'
                     },
                     {
                         image: 'shop-6',
@@ -167,7 +167,7 @@
                     },
                     {
                         image: 'shop-24',
-                        link: 'https://www.soozen-shop.com/'
+                        link: 'https://zenology.com/'
                     },
                     {
                         image: 'shop-25',
@@ -188,6 +188,22 @@
                     {
                         image: 'shop-29',
                         link: 'https://www.lijfgoed.nl/'
+                    },
+                    {
+                        image: 'shop-30',
+                        link: 'https://food2smile.nl/'
+                    },
+                    {
+                        image: 'shop-31',
+                        link: 'https://www.verifresh.com/'
+                    },
+                    {
+                        image: 'shop-32',
+                        link: 'https://www.biolovers.nl/'
+                    },
+                    {
+                        image: 'shop-33',
+                        link: 'https://mijnkleinedraak.nl/'
                     },
                 ]
             }

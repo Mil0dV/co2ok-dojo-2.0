@@ -170,6 +170,8 @@
                 </div>
             </div>
 
+            <Webshops :content="webshopsContent"/>
+
             <div class="about__col-1-wrapper">
                 <!--Eerste blok-->
                 <div class="about__col-1">
@@ -225,6 +227,7 @@
 </template>
 
 <script>
+    const Webshops = () => import('@/components/layout/Webshops')
     const Header = () => import('@/components/layout/Header')
     export default {
         name: "Steps",
@@ -232,9 +235,14 @@
 
         data() {
             return {
-                header: 'steps'
+                header: 'steps',
+                webshopsContent: 2,
             }
-        }
+        },
+
+        components: {
+            'Webshops': Webshops 
+        },
 
     }
 
