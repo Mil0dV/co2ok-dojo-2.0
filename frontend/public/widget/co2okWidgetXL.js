@@ -22,8 +22,7 @@ let Co2okWidget = {
           console.log('hammer time!')
           return
         }
-        var widgetColor = "gray"
-        var widgetSize = "L"
+ 
         let xhr = Co2okWidget.xhr()
         // let host = 'http://127.0.0.1:8000'
         let host = 'https://app.co2ok.eco'
@@ -77,6 +76,7 @@ let Co2okWidget = {
                 // Heeft de webshop al voldoende gecompenseerd om een substantieel getal te geven? Zo niet, pak volledige compensatie van webshops aangesloten bij co2ok
 
                 if (widgetSize == "L") {
+                    var circleSize = 'width="1500" height="1000"> <circle cx="51" cy="39.5" r="38" fill="white">';
                     var fileref=document.createElement("link")
                     fileref.setAttribute("rel", "stylesheet")
                     fileref.setAttribute("type", "text/css")
@@ -84,11 +84,13 @@ let Co2okWidget = {
                     document.getElementsByTagName("head")[0].appendChild(fileref)
                  }
                  else {
+                    var circleSize = 'width="3500" height="4000"> <circle cx="95" cy="65" r="62" fill="white">';
                     var fileref=document.createElement("link")
                     fileref.setAttribute("rel", "stylesheet")
                     fileref.setAttribute("type", "text/css")
                     fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetXL.css`)
                     document.getElementsByTagName("head")[0].appendChild(fileref)
+                 }
 
                 // Kleine of grote widget
 
@@ -106,15 +108,13 @@ let Co2okWidget = {
                 // Wordt de widget in grijs of groen weergegeven
 
 
-                }
+                
                 let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
                 let widgetmark = `
             
                 <div class="large-widget">
                     <span class ="large-widget-right-green"></span>
-                    <svg id= "half-circle" width="3500" height="4000">
-                    <circle cx="95" cy="65" r="62" fill="white" />
-                    </svg>
+                    <svg id= "half-circle" ${circleSize} /></svg>
                     <p id="large-widget-text">Deze webshop heeft <span id="large-widget-text-large"><strong>${(compensatiewidget.toFixed(1))} ton </strong> </span> uitstoot voorkomen</p>
                     <p id="large-widget-xvliegen">= ${compensatiewidget * 5000 .toFixed(0)}  <br>km vliegen</p>
                     <img id="co2ok-logo" src= "${SITE_HOST}/static/logo${colorSuffix}.png">
