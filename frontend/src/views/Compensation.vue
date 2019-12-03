@@ -231,7 +231,10 @@
     const Header = () => import('@/components/layout/Header')
     export default {
         name: "Steps",
-        components: {'Header': Header},
+        components: {
+            'Header': Header,
+            'Webshops': Webshops 
+        },
 
         data() {
             return {
@@ -240,9 +243,6 @@
             }
         },
 
-        components: {
-            'Webshops': Webshops 
-        },
 
     }
 
