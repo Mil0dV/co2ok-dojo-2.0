@@ -199,6 +199,11 @@
                         <li>
                             <router-link to="/webshops/cause-marketing">{{ $t('nav.webshops_2') }}</router-link>
                         </li>
+                        <li>
+                            <router-link :to="{ name: 'retailers', hash: '#pricing'}">
+                                {{ $t('nav.webshops_3') }}
+                            </router-link>
+                        </li>
                         <!-- <li>
                             <router-link to="/webshops/plug-in-installation">{{ $t('nav.webshops_7') }}</router-link>
                         </li> -->
@@ -210,7 +215,7 @@
                         <router-link to="/consumers/profile">{{ $t('nav.consumers_1') }}</router-link>
                     </li>
                     <li v-else>
-                        <router-link to="/consumers/login">{{ $t('nav.consumers') }}</router-link>
+                        <router-link to="/co2-compensatie">{{ $t('nav.consumers') }}</router-link>
                     </li>
                     <!-- <ul class="mobile__dropdown">
                         <li>

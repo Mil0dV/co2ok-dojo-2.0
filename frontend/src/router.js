@@ -19,16 +19,16 @@ const router = new Router({
     mode: 'history',
     base: process.env.BASE_URL,
     routes: [
-        {
-            path: '/ninja',
-            name: 'ninja',
-            component: () => import('./views/Home'),
-        },
-        {
-            path: '/en/ninja',
-            name: 'ninja',
-            component: () => import('./views/Home'),
-        },
+        // {
+        //     path: '/ninja',
+        //     name: 'ninja',
+        //     component: () => import('./views/Home'),
+        // },
+        // {
+        //     path: '/en/ninja',
+        //     name: 'ninja',
+        //     component: () => import('./views/Home'),
+        // },
         {
             path: '/',
             name: 'home2',

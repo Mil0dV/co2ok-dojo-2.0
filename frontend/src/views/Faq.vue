@@ -16,7 +16,7 @@
                         </ul>
                     </div>
 
-                    <div>
+                    <!-- <div>
                         <h2>Ninja</h2>
                         <ul uk-accordion="multiple: true">
                             <li v-for="i in 9" :key="i">
@@ -27,7 +27,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
