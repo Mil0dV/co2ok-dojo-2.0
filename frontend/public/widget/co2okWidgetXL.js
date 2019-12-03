@@ -22,7 +22,8 @@ let Co2okWidget = {
           console.log('hammer time!')
           return
         }
-  
+        var widgetColor = "gray"
+        var widgetSize = "L"
         let xhr = Co2okWidget.xhr()
         // let host = 'http://127.0.0.1:8000'
         let host = 'https://app.co2ok.eco'
@@ -114,8 +115,8 @@ let Co2okWidget = {
                     <svg id= "half-circle" width="3500" height="4000">
                     <circle cx="95" cy="65" r="62" fill="white" />
                     </svg>
-                    <p id="large-widget-text">Deze webshop heeft <span style="large-widget-text-large"${(compensatiewidget.toFixed(1))} </span> uitstoot voorkomen</p>
-                    <p id="large-widget-xvliegen">= ${compensatiewidget * 5000 .toFixed(0)}  <br>vliegen</p>
+                    <p id="large-widget-text">Deze webshop heeft <span id="large-widget-text-large"><strong>${(compensatiewidget.toFixed(1))} ton </strong> </span> uitstoot voorkomen</p>
+                    <p id="large-widget-xvliegen">= ${compensatiewidget * 5000 .toFixed(0)}  <br>km vliegen</p>
                     <img id="co2ok-logo" src= "${SITE_HOST}/static/logo${colorSuffix}.png">
                     <img id="info-button-widget" src= "${SITE_HOST}/static/info${colorSuffix}.svg">
                     <img id="large-widget-airplane" src= "${SITE_HOST}/widget/large-wiget-airplane.png">
