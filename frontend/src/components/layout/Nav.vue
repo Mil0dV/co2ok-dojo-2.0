@@ -327,7 +327,7 @@
                         }
                     })
                     .catch(error => {
-                        this.errorMessage()
+                        this.errorMessage(error)
                     })
             },
 
