@@ -1,4 +1,4 @@
-let Co2okWidget = {
+let Co2okWidgetXL = {
 
     xhr: function() {
   
@@ -22,8 +22,9 @@ let Co2okWidget = {
           console.log('hammer time!')
           return
         }
- 
-        let xhr = Co2okWidget.xhr()
+        // var widgetColor = "gray"
+        // var widgetSize = "L"
+        let xhr = Co2okWidgetXL.xhr()
         // let host = 'http://127.0.0.1:8000'
         let host = 'https://app.co2ok.eco'
         xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=${merchantId}`, true)
@@ -36,7 +37,7 @@ let Co2okWidget = {
                 // let totalTransactionData = 491
   
                    console.log(totalTransactionData)
-                   Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor)
+                   Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor)
   
                 // ok deze else werkt dus nog niet zoals bedoeld
             } else {
