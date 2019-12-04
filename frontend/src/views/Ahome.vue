@@ -435,7 +435,6 @@
 
         mounted() {
             // this.checkLanguage()
-            Co2okWidget.merchantCompensations('widgetContainer', 'TWVyY2hhbnQ6MzExNGMyMjYtMzk0Ni00N2QzLTgxNGMtODE5YTI0ZjgyMjU5', 'XL', 'gray') 
             // Co2okWidget.merchantCompensations('widgetContainer', '0') 
         },
 

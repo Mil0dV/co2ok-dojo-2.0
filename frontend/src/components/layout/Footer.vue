@@ -89,7 +89,7 @@
                             </p>
                         </div> -->
                         <br>
-                        <div id="widgetContainer" style="width:180px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>
+                        <div id="widgetContainer" style="width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>
                     </div>
                 </div>
                 </div>
@@ -104,6 +104,10 @@
 
     export default {
         name: "Footer",
+
+        mounted() {
+            Co2okWidgetXL.merchantCompensations('widgetContainer', 'TWVyY2hhbnQ6MzExNGMyMjYtMzk0Ni00N2QzLTgxNGMtODE5YTI0ZjgyMjU5', 'XL', 'default') 
+        },
 
         methods: {
             logout() {
