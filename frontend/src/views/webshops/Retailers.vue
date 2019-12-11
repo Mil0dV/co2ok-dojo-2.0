@@ -181,15 +181,15 @@
                             </p>
                         </div>
                     </div>
-                    <div>
+                    <!--<div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <!-- <img alt="retailer shop 2" class="shop__image"
-                                 src="../../assets/images/webshops/retailers/shop-2.png"> -->
+                            <img alt="retailer shop 2" class="shop__image"
+                                 src="../../assets/images/webshops/retailers/shop-2.png">
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
                             <p class="shop--text" v-html=" $t('retailers.quote2') ">
                             </p>
                         </div>
-                    </div>
+                    </div>-->
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
                             <!-- <img alt="retailer shop 3" class="shop__image"
