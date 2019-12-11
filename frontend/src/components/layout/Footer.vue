@@ -106,7 +106,7 @@
         name: "Footer",
 
         mounted() {
-            Co2okWidgetXL.merchantCompensations('widgetContainer', 'TWVyY2hhbnQ6MzExNGMyMjYtMzk0Ni00N2QzLTgxNGMtODE5YTI0ZjgyMjU5', 'XL', 'default') 
+            Co2okWidgetXL.merchantCompensations('widgetContainer', '', 'XL', 'default') 
         },
 
         methods: {

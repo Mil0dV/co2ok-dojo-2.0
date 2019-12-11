@@ -66,7 +66,7 @@ let Co2okWidget = {
 
       
               if (totalCompensatedData <500) {
-                var compensatiewidget  = 101.8;
+                var compensatiewidget  = 110.5;
                 var compensatietekst = `De bij co2ok aangesloten webshops hebben samen <strong> ${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${compensatiewidget * 5000 .toFixed(0)} </strong>km vliegen`;
               }
               else {
