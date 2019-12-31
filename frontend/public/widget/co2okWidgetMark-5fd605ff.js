@@ -111,6 +111,12 @@ let Co2okWidget = {
               `
               // console.log(widgetimg)
 
+      // 1. Remove widgetContainer
+      document.getElementById("widgetContainer").remove()
+      // 2. Append widgetcontainer to targeted div
+      document.getElementsByClassName("col-md-pull-4")[0].append('<div id="widgetContainer" style="width:180px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>')
+
+
       let widgetcontainer = document.getElementById(widgetContainer)
       // let widgetcontainer = document.getElementsByClassName('whb-empty-column')[0]
       widgetcontainer.innerHTML = widgetmark
