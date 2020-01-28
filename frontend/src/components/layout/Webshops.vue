@@ -205,6 +205,10 @@
                         image: 'shop-33',
                         link: 'https://mijnkleinedraak.nl/'
                     },
+                    {
+                        image: 'shop-34',
+                        link: 'https://www.ecowings.nl/'
+                    },
                 ]
             }
         }
