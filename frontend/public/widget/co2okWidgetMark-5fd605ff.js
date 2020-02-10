@@ -20,10 +20,9 @@ let Co2okWidget = {
 
   merchantCompensations: function (widgetContainer, merchantId) {
 
-      if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
-        console.log('hammer time!')
-        return
-      }
+    // temp hack
+    Co2okWidget.widgetGenerator(widgetContainer, 4142)
+    return;
 
       let xhr = Co2okWidget.xhr()
       // let host = 'http://127.0.0.1:8000'
@@ -72,6 +71,11 @@ let Co2okWidget = {
       document.getElementsByTagName("head")[0].appendChild(fileref)
 
       
+      if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
+        console.log('hammer time!')
+        return
+      }
+
               if (totalCompensatedData <500) {
                 var compensatiewidget  = 110.5;
                 var compensatietekst = `De bij co2ok aangesloten webshops hebben samen <strong> ${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${compensatiewidget * 5000 .toFixed(0)} </strong>km vliegen`;
