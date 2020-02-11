@@ -16,38 +16,49 @@ let Co2okWidget = {
 
   },
 
-  merchantCompensations: function (widgetContainer, merchantId) {
-
-      if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
-        console.log('hammer time!')
-        return
-      }
-
-      let xhr = Co2okWidget.xhr()
-      // let host = 'http://127.0.0.1:8000'
-      let host = 'https://app.co2ok.eco'
-      xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=${merchantId}`, true)
-      //    xhr.withCredentials = true;
-         xhr.onreadystatechange = function(){
-             if (this.readyState == 4 && this.status == 200){
-              // For the near future: detect large numbers, then divide and adjust kilo to ton
-              // let totalTransactionData = (xhr.responseText / 1000).toFixed(1)
-              let totalTransactionData = xhr.responseText
-              // let totalTransactionData = 491
-
-                 console.log(totalTransactionData)
-                 Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
-
-              // ok deze else werkt dus nog niet zoals bedoeld
-          } else {
-              let totalTransactionData = 491
-          }
-      }
-      xhr.send()
-      // let totalTransactionData = 491
-      //   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
+  getCookieValue: function (a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b ? b.pop() : '';
   },
 
+  merchantCompensations: function (widgetContainer, merchantId) {
+
+    // get impact from cookie if available
+    let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
+    console.log(co2ok_impact)
+    
+    if (co2ok_impact > 1){
+      console.log('Collaborate and listen')
+      Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact)
+      return
+    }
+
+    // get impact from API
+    let xhr = Co2okWidget.xhr()
+    // let host = 'http://127.0.0.1:8000'
+    let host = 'https://app.co2ok.eco'
+    xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=${merchantId}`, true)
+    xhr.onreadystatechange = function(){
+      if (this.readyState == 4 && this.status == 200){
+        // For the near future: detect large numbers, then divide and adjust kilo to ton
+        // let totalTransactionData = (xhr.responseText / 1000).toFixed(1)
+        let totalTransactionData = xhr.responseText
+        // let totalTransactionData = 491
+        
+        console.log(totalTransactionData)
+        document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
+        Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
+        
+        // Something is fishy, let's serve up the total
+      } else {
+        let totalTransactionData = 491
+        Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
+      }
+    }
+    xhr.send()
+      //   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
+  },
+    
   widgetGenerator: function (widgetContainer, totalCompensatedData) {
 
       // HT: FDD800
@@ -63,45 +74,49 @@ let Co2okWidget = {
       fileref.setAttribute("type", "text/css")
       fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
-
       
-              if (totalCompensatedData <500) {
-                var compensatiewidget  = 110.5;
-                var compensatietekst = `De bij co2ok aangesloten webshops hebben samen <strong> ${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${compensatiewidget * 5000 .toFixed(0)} </strong>km vliegen`;
-              }
-              else {
-                var compensatiewidget  = totalCompensatedData / 1000;
-                var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${compensatiewidget * 5000 .toFixed(0)} </strong>km vliegen`
-              }
-
-              let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
-              let widgetmark = `
-              <div>
-              <div class="btn_co2ok_widget co2ok_widget_info" href="#">
-                  <span class="btn_co2ok_widget co2ok_widget_info">SHOP<img class="logo_co2ok_widget" src="${SITE_HOST}/static/logo.png"></span>
-              </div>
-                  <div class="caption_co2ok_widget co2ok_widget_info">
-                      <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t CO₂ reductie </span>
-                      </div>
-                  </div>
-                      
-              <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
-
-              <div class="widget-inner-wrapper">
-              <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-              <p class="widget-text-block greyBorder">${compensatietekst} </p>
-              </a>
-              <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${SITE_HOST}/widget/vliegtuig_hover.png" class="widget-svg-img-large  co2ok_info_hover_image">
-              </div>
+      if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
+        console.log('hammer time!')
+        return
+      }
       
-              <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img src="${SITE_HOST}/static/logo.png" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
-              <span class="widget-hover-link">
-              <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe werkt CO&#8322; compensatie?</a> </span>
+      if (totalCompensatedData <500) {
+        var compensatiewidget  = 137.42;
+        var compensatietekst = `De bij co2ok aangesloten webshops hebben samen <strong> ${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`;
+      }
+      else {
+        var compensatiewidget  = totalCompensatedData / 1000;
+        var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`
+      }
+
+      let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
+      let widgetmark = `
+      <div>
+      <div class="btn_co2ok_widget co2ok_widget_info" href="#">
+          <span class="btn_co2ok_widget co2ok_widget_info">SHOP<img class="logo_co2ok_widget" src="${SITE_HOST}/static/logo.png"></span>
+      </div>
+          <div class="caption_co2ok_widget co2ok_widget_info">
+              <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t CO₂ reductie </span>
               </div>
-      
-              <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
+          </div>
               
-              `
+      <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
+
+      <div class="widget-inner-wrapper">
+      <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
+      <p class="widget-text-block greyBorder">${compensatietekst} </p>
+      </a>
+      <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${SITE_HOST}/widget/vliegtuig_hover.png" class="widget-svg-img-large  co2ok_info_hover_image">
+      </div>
+
+      <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img src="${SITE_HOST}/static/logo.png" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
+      <span class="widget-hover-link">
+      <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe werkt CO&#8322; compensatie?</a> </span>
+      </div>
+
+      <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
+      
+      `
               // console.log(widgetimg)
 
       let widgetcontainer = document.getElementById(widgetContainer)
