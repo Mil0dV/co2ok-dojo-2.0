@@ -82,7 +82,7 @@ let Co2okWidget = {
               }
               else {
                 var compensatiewidget  = totalCompensatedData / 1000;
-                var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${compensatiewidget * 5000 .toFixed(0)} </strong>km vliegen`
+                var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen <br><br>= <strong>${compensatiewidget * 5000 .toFixed(0)} </strong>km vliegen`
               }
 
               let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`

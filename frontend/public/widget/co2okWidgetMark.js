@@ -82,11 +82,11 @@ let Co2okWidget = {
       
       if (totalCompensatedData <500) {
         var compensatiewidget  = 137.42;
-        var compensatietekst = `De bij co2ok aangesloten webshops hebben samen <strong> ${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`;
+        var compensatietekst = `De bij CO₂ok aangesloten webshops hebben samen <strong> ${compensatiewidget .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`;
       }
       else {
         var compensatiewidget  = totalCompensatedData / 1000;
-        var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`
+        var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`
       }
 
       let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
