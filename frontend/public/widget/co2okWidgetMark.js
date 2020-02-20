@@ -121,6 +121,12 @@ let Co2okWidget = {
 
       let widgetcontainer = document.getElementById(widgetContainer)
       // let widgetcontainer = document.getElementsByClassName('whb-empty-column')[0]
+
+      // Don't try to place widget if there is no container
+      if(widgetcontainer == null){
+        return
+      }
+
       widgetcontainer.innerHTML = widgetmark
       this.RegisterWidgetInfoBox();
       // this.ShowWidgetInfoBox();
