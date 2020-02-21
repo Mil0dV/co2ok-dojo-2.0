@@ -22,6 +22,7 @@ class Merchant(Model):
     secret = UnicodeAttribute()
     name = UnicodeAttribute()
     email = UnicodeAttribute()
+    shortcode = UnicodeAttribute()
 
     # currently no relation between tables
     # transactions = OneToMany('Transaction', null=True)
@@ -29,13 +30,13 @@ class Merchant(Model):
 
 class Transaction(Model):
     class Meta:
-        table_name = STAGE + '_transactions'
+        table_name = STAGE + '_transaction'
         host = DB_HOST
         region = "eu-central-1"
 
-    id = UnicodeAttribute(hash_key=True)
+    merchant_id = UnicodeAttribute(hash_key=True)
+    order_id = NumberAttribute(range_key=True)
 
-    merchant_id = UnicodeAttribute()
     timestamp = UTCDateTimeAttribute(default=datetime.now)
     order_id = NumberAttribute()
     compensation_cost = NumberAttribute()

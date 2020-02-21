@@ -184,6 +184,19 @@ class UserView(viewsets.ModelViewSet):
         if merchantId == '0':
             for transaction in Transaction.scan():
                 total += transaction.compensation_cost
+        elif len(merchantId) < 10:
+            # resolve shortcode to merchant id
+            merchant_query = Merchant.scan(Merchant.shortcode == merchantId)
+            try: 
+                merchantId = next(merchant_query).id
+                # create encoded merchant id as used by plugins
+                m_id = "Merchant:" + merchantId # =>'b' string (byte literal)
+                merchantId = base64.b64encode(m_id.encode('UTF-8')).decode("UTF-8")
+            except StopIteration:
+                print('Merchant shortcode not found')
+
+            for transaction in Transaction.scan(Transaction.merchant_id == merchantId):
+                total += transaction.compensation_cost
         else:
             for transaction in Transaction.scan(Transaction.merchant_id == merchantId):
                 total += transaction.compensation_cost
