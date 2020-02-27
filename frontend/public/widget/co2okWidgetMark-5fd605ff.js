@@ -21,7 +21,7 @@ let Co2okWidget = {
   merchantCompensations: function (widgetContainer, merchantId) {
 
     // temp hack
-    Co2okWidget.widgetGenerator(widgetContainer, 4142)
+    Co2okWidget.widgetGenerator(widgetContainer, 4442)
     return;
 
       let xhr = Co2okWidget.xhr()

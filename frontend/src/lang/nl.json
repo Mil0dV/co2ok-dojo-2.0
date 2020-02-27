@@ -64,7 +64,7 @@
   "s4_title": " ",
   "s4_text": "Dit bedrag wordt gebruikt om projecten te financieren die klimaatverandering tegengaan, investeren in duurzame energie en co2-uitstoot verminderen. CO₂ok werkt met gecertificeerde partners <a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a> en <a href= \"https://www.fairclimatefund.nl/projecten\" target=_\"blank\">Fair Climate Fund</a> om dit te bewerkstelligen.",
   "s5_title": " ",
-  "s5_text": "De co₂-uitstoot die jouw aankoop veroorzaakt, wordt als het ware weggestreept tegen uitstootvermindering die de investering in Atmosfair realiseert. Op deze manier wordt je aankoop klimaatneutraal gemaakt. ",
+  "s5_text": "De co₂-uitstoot die jouw aankoop veroorzaakt, wordt als het ware weggestreept tegen uitstootvermindering die de investering in Atmosfair en Fair Climate Fund realiseert. Op deze manier wordt je aankoop klimaatneutraal gemaakt. ",
   "calcTitle": "Footprint berekening",
   "shortText": "Maar hoe weten we nou hoeveel CO₂ en andere broeikasgassen er worden uitgestoten bij de productie van uw aankoop? En hoe berekenen we dan hoeveel geld het jou kost om dit te compenseren?",
   "shortText2": "Om in te schatten hoeveel jij zou moeten bijdragen om klimaatneutraal te shoppen, hebben wij de gemiddelde kosten voor CO₂-compensatie per product uitgerekend in relatie tot de prijs van het product.",
@@ -259,7 +259,7 @@
   "card3_or": "of"
  },
  "projects": {
-  "section1_text": "We ondersteunen verschillende CO₂-compensatieprojecten, gecoördineerd door Atmosfair. 90% van hun projecten zijn gecertificeerd met de CDM Gold Standard, de strengste norm voor projecten voor klimaatbescherming. Daarnaast creëert Atmosfair microprojecten voor landen die niet aan deze normen voldoen",
+  "section1_text": "We ondersteunen verschillende CO₂-compensatieprojecten, gecoördineerd door Atmosfair en Fair Climate Fund. 90% van hun projecten zijn gecertificeerd met de CDM Gold Standard, de strengste norm voor projecten voor klimaatbescherming.",
   "section2_subTitle": "Projecten voor hernieuwbare energie",
   "section2_title": "Projecten die fossiele brandstoffen verwijderen",
   "section2_text": "Hernieuwbare energie uit bronnen zoals de zon, wind en water heeft geen negatief effect op het klimaat en produceert een minimale uitstoot van broeikasgassen en geen luchtvervuiling. Dit in tegenstelling tot fossiele brandstoffen zoals kolen, olie en gas. CO₂ok-dragers zijn in hernieuwbare energie: het verstrekken van startfondsen voor zonne-energie en waterkrachtprojecten.",
@@ -271,7 +271,7 @@
   "s2_text3": "Waterkrachtenergie is vermogen dat is afgeleid van energie van vallend water of snel stromend water. Het nadeel van een waterkrachtcentrale is de hoge opstartkosten. Omdat we deze hernieuwbare energiebron waarderen, ondersteunen we waterkrachtprojecten.",
   "section3_subTitle": "Emissiereductie",
   "section3_title": "Emissiereductieprojecten buiten Nederland",
-  "section3_text": "De energie-efficiëntieprojecten van Atmosfair ondersteunen de ontwikkeling van duurzaamheid in ontwikkelingslanden door technologie over te dragen, armoede te bestrijden en de uitstoot van CO₂ te verminderen.",
+  "section3_text": "De energie-efficiëntieprojecten ondersteunen de ontwikkeling van duurzaamheid in ontwikkelingslanden door technologie over te dragen, armoede te bestrijden en de uitstoot van CO₂ te verminderen.",
   "s3_title1": "Kooktoestellen",
   "s3_title2": "Zonnecabines",
   "s3_title3": "Waarom onze focus op ontwikkelingslanden?",
@@ -310,11 +310,11 @@
   "mainText2": "De vergoeding wordt door de klant aan u uitbetaald. CO₂ok stuurt een digitale factuur naar de\n                                einde van elke termijn van 3 maanden. Met de opbrengsten ondersteunen we Atmosfair, een gecertificeerd\n                                organisatie die elk jaar verschillende CO₂-compenserende projecten produceert.",
   "row_button2": "Installeer de Plug-in",
   "subtitle3": "Tarieven",
-  "title3": "Jaarlijkse/Maandelijkse Facturatie",
-  "quote1": "<h2>€15<small></small></h2> <br><h3>Grasshopper</h3> <br>● <5K bezoekers/maand<br>● CO₂ok plugin<br>● Widget totale CO₂ compensatie<br>● Eén domein<br>● Tijdslot support",
+  "title3": "Maandelijkse prijzen, Jaarlijkse facturatie",
+  "quote1": "<h2>€15<small></small></h2> <br><h3>Plug & Play</h3> <br>● <5K bezoekers/maand<br>● CO₂ok plugin<br>● Impact calculator<br>● Eén domein<br>",
   "quote2": "<h2>€39<small>/€49</small></h2> <br><h3>SPACESHIP</h3> <br>● <20K bezoekers/maand<br>● drie domeinen<br>● widget met resultaten<br>● deze shop is CO₂ok-merk<br>● MVO marketing content<br>● support tot in de wolken",
-  "quote3": "<h2>€75<small>/€95</small></h2> <br><h3>Ladybug</h3> <br>● <200K bezoekers/maand<br>● CO₂ok plugin<br>● Widget totale CO₂ compensatie<br>● Project updates/certifications<br>● Climate Friendly Shopping<br>● Drie domeinen<br>● Ongelimiteerd support",
-  "quote4": "<h3>Butterfly</h3> <br>● >200K bezoekers/maand<br>●CO₂ok plugin<br>● Widget totale CO₂ compensatie<br>● Project updates<br>● Climate Friendly Shopping<br>● Ongelimiteerd aantal domeinen<br>● Ongelimiteerd support<br>● Maatwerk oplossingen<br>● Consultancy diensten<br>● Doelgerichte Marketing<br>● A/B test en onderzoek<br>● Storytelling<br>● MVO content<br>● Social media campagne"
+  "quote3": "<h2>€95<small></small></h2> <br><h3>Partnership</h3> <br>● <200K bezoekers/maand<br>● Diensten Plug & Play<br>● A/B test en sustainable marketing<br>● Project communication<br>● Drie domeinen<br>● Tijdslot support",
+  "quote4": "<h3>Premium Partnership</h3> <br>● >200K bezoekers/maand<br>●Diensten Partnership<br>● Maatwerk oplossingen<br>● Consultancy diensten<br>● Ongelimiteerd aantal domeinen<br>● Ongelimiteerd support<br>"
  },
  "webshopform": {
   "title1": "Plugin installatie",

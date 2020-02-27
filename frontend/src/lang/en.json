@@ -217,7 +217,7 @@
   "s3_title": "2. Purchase with CO₂ok",
   "s3_text": "If you choose to make your purchase CO₂ok, you will pay a tiny extra amount upon purchase.",
   "s4_title": "3. Financing projects",
-  "s4_text": "This amount is used to finance projects of durable energy and CO₂-emission reduction (via our certified partner, Atmosfair)",
+  "s4_text": "This amount is used to finance projects of sustainable energy and CO₂-emission reduction (via our certified partners, Atmosfair and Fair Climate Fund)",
   "s5_title": "4. Making your purchase climate neutral",
   "s5_text": "These projects actively reduce the amount of emitted CO₂. This CO₂ reduction matches the emission of your purchase – your purchase is climate neutral!",
   "calcSubTitle": "How we do it",
@@ -290,7 +290,7 @@
   "card3_or": "or"
  },
  "projects": {
-  "section1_text": "We support a variety of CO₂ compensation projects, coordinated by Atmosfair. 90% of their projects are certified with the CDM Gold Standard, which is the most stringent standard for climate protection projects. In addition, Atmosfair creates micro projects for countries that don’t meet those standards",
+  "section1_text": "We support a variety of CO₂ compensation projects, coordinated by Atmosfair and Fair Climate Fund. 90% of their projects are certified with the CDM Gold Standard, which is the most stringent standard for climate protection projects.",
   "section2_subTitle": "Renewable energy projects",
   "section2_title": "Projects that get rid of fossil fuels",
   "section2_text": "Renewable energy from sources like the sun, wind and water has no negative effect on climate and produces a minimum of greenhouse gas emission and no air pollution. This in contradiction to fossil fuels such as coal, oil and gas. CO₂ok supports are in renewable energy: providing starting funds for solar energy and hydropower projects.",
@@ -302,13 +302,13 @@
   "s2_text3": "Hydropower energy is power derived from energy of falling water or fast running water. The disadvantage of a hydroelectric powerstation is the high cost of startup. Because we value this renewable power source, we support hydropower projects.",
   "section3_subTitle": "Emission reduction",
   "section3_title": "Emission reduction projects outside the Netherlands",
-  "section3_text": "Atmosfair’s energy efficiency projects support sustainability development in developing countries by handing over technology, fighting poverty and reducing the emission of CO₂.",
+  "section3_text": "These energy efficiency projects support sustainability development in developing countries by handing over technology, fighting poverty and reducing the emission of CO₂.",
   "s3_title1": "Cooking appliances",
   "s3_title2": "Solar cabins",
   "s3_title3": "Why our focus on developing countries?",
   "s3_text1": "More efficient cooking appliances can save up to 80% of energy (and therefore CO₂ emission) in Africa and India. Thanks to their energy efficiency, these cooking appliances save time used for gathering fuel and reduce deforestation. Their decreased smoke and CO₂ production also contribute to better health.",
   "s3_text2": "About 70% of the inhabitants of Lesotho, South Africa, live in the countryside, without connection to an electricity power grid. People use fossil-fuel-based candles and petroleum lamps for lighting, harming the climate and human health. Atmosfair and Solar Lights provide solar panels and Solar Home Systems.",
-  "s3_text3": "CO₂ is a worldwide problem, and it doesn’t really matter where on earth you fight. Atmosfair and CO₂ok are most effective in third world countries. The projects we fund can not only help reduce CO₂ emission but also improve the local quality of life, fuel the local economy and improve people’s health."
+  "s3_text3": "CO₂ is a worldwide problem, and it doesn’t really matter where on earth you fight. Atmosfair, Fair Climate Fund and CO₂ok are most effective in third world countries. The projects we fund can not only help reduce CO₂ emission but also improve the local quality of life, fuel the local economy and improve people’s health."
  },
  "register": {},
  "retailers": {
@@ -341,11 +341,11 @@
   "mainText2": "The compensation gets paid to you by the customer. CO₂ok sends a digital invoice at the\n                                end of each 3 month term. With the proceeds we support Atmosfair, a certified\n                                organisation which produces several CO₂-compensating projects each year.",
   "row_button2": "Install Plug-in",
   "subtitle3": "Pricing",
-  "title3": "Yearly/Monthly Billing",
-  "quote1": "<h2>€12,50<small>/€15</small></h2> <br><h3>Grasshopper</h3> <br>● <5K visitors/month<br>● CO₂ok plugin<br>● One domain<br>● Widget total CO₂ compensation<br>● specific time slot support",
+  "title3": "Monthly Pricing, Yearly Billing",
+  "quote1": "<h2>€15<small></small></h2> <br><h3>Plug & Play</h3> <br>● <5K visitors/month<br>● CO₂ok plugin<br>● One domain<br>● Impact calculator<br>",
   "quote2": "<h2>€39<small>/€49</small></h2> <br><h3>BUITEN GEBRUIK</h3> <br>● <20K visitors/month<br>● unlimited domains<br>● Widget with results<br>● CO₂ok plugin<br>● CSR marketing content<br>● unlimited support",
-  "quote3": "<h2>€75<small>/€95</small></h2> <br><h3>Ladybug</h3> <br>● <200K visitors/month<br>● CO₂ok plugin<br>● Widget total CO₂ compensation<br>● Project updates/certifications<br>● Climate Friendly Shopping<br>● Three domains<br>● Unlimited support",
-  "quote4": "<h3>Butterfly</h3> <br>● >200K visitors/month<br>● CO₂ok plugin<br>● Widget total CO₂ compensation<br>● Project updates/certifications<br>● Climate Friendly Shopping<br>● Unlimited domains<br>● Unlimited support<br>● Tailormade solutions<br>● Consultancy services<br>● Designated Marketing<br>● A/B test and research<br>● Storytelling<br>● CSR marketing content<br>● Social media campaign"
+  "quote3": "<h2>€95<small></small></h2> <br><h3>Partnership</h3> <br>● <200K visitors/month<br>● Services Plug & Play<br>● A/B test & sustainable marketing<br>● Project communication<br>● Three domains<br>● Timeslot support",
+  "quote4": "<h3>Premium Partnership</h3> <br>● >200K visitors/month<br>● Services Partnership<br>● Consultancy services<br>● Tailormade solutions<br>● Unlimited domains<br>● Unlimited support<br>"
  },
  "webshopform": {
   "title1": "Plugin installation",

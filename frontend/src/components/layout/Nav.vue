@@ -85,11 +85,11 @@
                                  class="dropdown__menu-wrapper"
                                  uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
-                                    <!-- <li>
+                                    <li>
                                         <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
                                                      to="/projects">{{ $t('nav.webshops_3') }}
                                         </router-link>
-                                    </li> -->
+                                    </li>
                                     <li>
                                         <router-link to="/consumers/profile">{{ $t('nav.consumers_1') }}</router-link>
                                     </li>
@@ -97,17 +97,17 @@
                                 </ul>
                             </div>
 
-                            <!-- <div v-else
+                            <div v-else
                                  class="dropdown__menu-wrapper"
                                  uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
                                     <li>
                                         <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
-                                                     to="/projects">{{ $t('nav.webshops_3') }}
+                                                     to="/projects">{{ $t('footer.link7') }}
                                         </router-link>
                                     </li>
                                 </ul>
-                            </div> -->
+                            </div>
 
                             <li>
                                 <router-link :class="[checkActive('about') ? 'navbar__active' : '']" to="/about">
