@@ -50,6 +50,11 @@ const router = new Router({
             component: () => import( './views/Compensation'),
         },
         {
+            path: '/corona',
+            name: 'corona',
+            component: () => import( './views/Corona'),
+        },
+        {
             path: '/privacy',
             name: 'privacy',
             component: () => import('./views/Privacy'),
@@ -89,6 +94,11 @@ const router = new Router({
             path: '/webshops/get-started',
             name: 'get-started',
             component: () => import('./views/webshops/Installation')
+        },
+        {
+            path: '/fight-corona',
+            name: 'fight-corona',
+            component: () => import('./views/webshops/Corona-Installation')
         },
         {
             path: '/webshops/register/:merchantId',
