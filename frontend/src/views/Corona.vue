@@ -12,6 +12,13 @@
                         <p class="main-text">
                             {{ $t('corona.s1_text') }}
                         </p>
+                        <br>
+                        <p class="main-text">
+                            {{ $t('corona.s1_text2') }}
+                        <a href="/fight-corona"
+                           class="button">{{ $t('corona.button') }}</a>
+                        </p>
+
                     </div>
                 </div>
                 <div class="step__text-wrapper smaller-step step__img-wrapper">
