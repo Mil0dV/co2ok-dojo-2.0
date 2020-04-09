@@ -284,7 +284,7 @@
  },
  "plugin": {
   "first_step1": "Login to the admin area of your webshop (WordPress admin)",
-  "first_step1C": "Download the CO2ok Corona plugin. If you want to double donations: <a href=\"https://co2ok.eco/co2ok-plugin-woocommerce.zip\">plugin.zip</a>, if you just want to provide the donation option: <a href=\"https://co2ok.eco/co2ok-plugin-woocommerce-non-doubling.zip\">non-doubling plugin.zip</a>",
+  "first_step1C": "Download the CO2ok Corona plugin. If you want to double donations: <a href=\"https://co2ok.eco/co2ok-plugin-woocommerce-corona.zip\">plugin.zip</a>, if you just want to provide the donation option: <a href=\"https://co2ok.eco/co2ok-plugin-woocommerce-non-doubling.zip\">non-doubling plugin.zip</a>",
   "first_step2": "Open the ‘Add new plugin’ screen:",
   "first_step3": "Search for ‘co2ok’:",
   "first_step3C": "Click 'Upload plugin' and select the downloaded zip file.",
