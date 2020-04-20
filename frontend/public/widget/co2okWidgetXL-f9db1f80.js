@@ -68,11 +68,11 @@ let Co2okWidgetXL = {
 
                 if (totalCompensatedData <500) {
                   var compensatiewidget  = 137.42;
-                  var compensatietekst = `The CO₂ok shops prevented &nbsp;<span id="large-widget-text-large"><strong> ${compensatiewidget .toFixed(1)}</strong>t of CO₂</span> emissions`;
+                  var compensatietekst = `The CO₂ok shops prevented &nbsp;<span id="large-widget-text-large"> ${compensatiewidget .toFixed(1)}t of CO₂</span> emissions`;
                 }
                 else {
                   var compensatiewidget  = totalCompensatedData / 1000;
-                  var compensatietekst = `This webshop has prevented <strong>${compensatiewidget .toFixed(1)} </strong>tonnes CO₂-emissions`
+                  var compensatietekst = `This webshop has prevented <span id="large-widget-text-large">${compensatiewidget .toFixed(1)} </span>tonnes CO₂-emissions`
                 }
                 // Heeft de webshop al voldoende gecompenseerd om een substantieel getal te geven? Zo niet, pak volledige compensatie van webshops aangesloten bij co2ok
 

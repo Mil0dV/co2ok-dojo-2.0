@@ -68,11 +68,11 @@ let Co2okWidgetXL = {
 
                 if (totalCompensatedData <500) {
                   var compensatiewidget  = 137.42;
-                  var compensatietekst = `De bij co2ok aangesloten webshops hebben samen <strong> ${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${compensatiewidget * 5000 .toFixed(0)} </strong>km vliegen`;
+                  var compensatietekst = `De CO₂ok shops hebben samen <span id="large-widget-text-large"> ${compensatiewidget .toFixed(1)}ton CO₂</span> uitstoot voorkomen`;
                 }
                 else {
                   var compensatiewidget  = totalCompensatedData / 1000;
-                  var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen <br><br>= <strong>${compensatiewidget * 5000 .toFixed(0)} </strong>km vliegen`
+                  var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen`
                 }
                 // Heeft de webshop al voldoende gecompenseerd om een substantieel getal te geven? Zo niet, pak volledige compensatie van webshops aangesloten bij co2ok
 
@@ -116,8 +116,8 @@ let Co2okWidgetXL = {
                 <div class="large-widget">
                     <span class ="large-widget-right-green"></span>
                     <svg id= "half-circle" ${circleSize} /></svg>
-                    <p id="large-widget-text">Deze webshop heeft <span id="large-widget-text-large"><strong>${(compensatiewidget.toFixed(1))} ton CO&#8322</strong> </span> uitstoot voorkomen</p>
-                    <p id="large-widget-xvliegen">= ${compensatiewidget * 5000 .toFixed(0)}  <br>km vliegen</p>
+                    <p id="large-widget-text">${compensatietekst}</p>
+                    <p id="large-widget-xvliegen">= ${(compensatiewidget * 5000) .toFixed(0)}  <br>km vliegen</p>
                     <img id="co2ok-logo" src= "${SITE_HOST}/static/logo${colorSuffix}.png">
                     <a target="_blank" href="https://www.co2ok.eco/co2-compensatie"><img id="info-button-widget" src= "${SITE_HOST}/static/info${colorSuffix}.svg"></a>
                     <img id="large-widget-airplane" src= "${SITE_HOST}/widget/large-wiget-airplane.png">
