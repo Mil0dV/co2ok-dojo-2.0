@@ -1,5 +1,10 @@
 # frontend
 
+## Info
+```
+The next commands are used for installing NPM packages and running a local server. All commands should be used in the 'frontend' folder, (or in another folder with the right json files). A link should be displayed after a succesful installation and running the 'npm run serve' command. Changes made in the files are shown after saving the file and reloading the webpage.
+```
+
 ## Project setup
 ```
 npm install
