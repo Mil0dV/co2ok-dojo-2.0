@@ -1,3 +1,8 @@
+## Info
+```
+For information on how to run and test frontend related changes, go to https://github.com/Mil0dV/co2ok-dojo-2.0/tree/master/frontend
+```
+
 # co2ok-dojo-2.0
 
 1. pipenv install
