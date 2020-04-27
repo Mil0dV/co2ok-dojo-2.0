@@ -130,9 +130,9 @@
                         <div class="steps__wrapper">
                             <div class="steps__title-container">
                                 <i class="fas fa-solar-panel step__icon"></i>
-                                <p class="steps__title">
+                                <!-- <p class="steps__title">
                                     {{ $t('compensation.s4_title') }}
-                                </p>
+                                </p> -->
                             </div>
 
                             <p class="main-text" v-html=" $t('compensation.s4_text') ">
