@@ -157,8 +157,7 @@
                                 </p>
                             </div>
 
-                            <p class="main-text">
-                                {{ $t('home2.s5_text') }}
+                            <p class="main-text" v-html="$t('home2.s5_text')" >
                             </p>
                         </div>
                     </div>

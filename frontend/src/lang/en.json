@@ -103,9 +103,9 @@
   "faq9_title": "I am not buying in any of these stores, is there any reason for me to install the Ninja App?",
   "faq9_text": "Yes, there are three reasons: <br>1) We are constantly working on new partnerships, so we may partner with stores that you do use in the near future. It’s easier to have it already installed rather than regularly check if stores that you use have been added. <br>2) If you even once decide to buy from our partners stores, having the Ninja App already installed can be a difference with the output of CO₂ in the world. It’s better to have it installed just in case, rather than miss an easy opportunity to do a lot of good for free. <br>3) It is easier to establish new partnerships with a bigger user base: the more users the Ninja App has, the easier it is to convince new stores to join our initiative. Therefore, by installing the Ninja App, you make it more probable that we will partner with shops you use in the future.",
   "faq10_title": "How does it work?",
-  "faq10_text": " After installing the Ninja app you will see a our “Shop CO₂ok” box whilst shopping in one of our partner stores. Simply click this box and you will be redirected back to the partner store (exactly where you were before). From then on, whenever you buy something, CO₂ok receives a portion of the price you pay (usually between 1% and 6%). We donate our profits to carefully selected organisations such as Atmosfair. Some stores will require you to repeat the process after some time. You are a mobile Ninja - see here.",
+  "faq10_text": " After installing the Ninja app you will see a our “Shop CO₂ok” box whilst shopping in one of our partner stores. Simply click this box and you will be redirected back to the partner store (exactly where you were before). From then on, whenever you buy something, CO₂ok receives a portion of the price you pay (usually between 1% and 6%). We donate our profits to carefully selected organisations such as <a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a>. Some stores will require you to repeat the process after some time. You are a mobile Ninja - see here.",
   "faq11_title": "How can I be sure that the money will be used to compensate greenhouse gasses?",
-  "faq11_text": "Atmosfair and Fair Climate Fund provide us with certificates to prove we compensated. Additionally, we will report our income and spending each year.",
+  "faq11_text": "<a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a> and <a href= \"https://www.fairclimatefund.nl/projecten\" target=_\"blank\">Fair Climate Fund</a> provide us with certificates to prove we compensated. Additionally, we will report our income and spending each year.",
   "faq12_title": "How does CO2 compensation work?",
   "faq12_text": " Greenhouse gases are emitted during the production and transport of the products you purchase. By investing in products that prevent an equal amount of these greenhouse gases to be emitted, your purchase can be made climate neutral. <a class=\"link\" href=\"#\">(details)</a> So how do you reduce emissions? By financing renewable energy and emission reducing projects, future emissions are prevented: a net reduction. <a class=\"link\" href=\"#\">(details)</a>",
   "faq13_title": "So how do you reduce emissions?",
@@ -113,7 +113,7 @@
   "faq14_title": "How do you determine the carbon footprint of products?",
   "faq14_text": " We use manufacturer data whenever we can, since this is the most accurate. If the manufacturers don’t know or report this data, we will estimate it, gradually improving our accuracy. <a class=\"link\" href=\"#\">(details)</a>",
   "faq15_title": "Will my entire contribution go to CO2 compensation?",
-  "faq15_text": "Initially, 75% of your contribution will go to CO2 compensation through Atmosfair. Our 25% margin will be used to to make CO₂ok sustainable and get all online stores to use our plugin to offer CO2 compensation. Eventually, we will reduce our margin – we are not in this to become rich. We will report our income and spending each year.",
+  "faq15_text": "Initially, 75% of your contribution will go to CO2 compensation through <a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a>. Our 25% margin will be used to to make CO₂ok sustainable and get all online stores to use our plugin to offer CO2 compensation. Eventually, we will reduce our margin – we are not in this to become rich. We will report our income and spending each year.",
   "faq16_title": "What kind of projects will we finance?",
   "faq16_text": " In addition to renewable energy projects such as solar, wind and hydropower, we will also fund projects that increase energy efficiency. For instance, the Save80 cooking stoves, which are 80% more energy efficient, reduce CO2 emissions and offer a tremendous health boost.<a class=\"link\" href=\"#\">(View the other projects here)</a>"
  },
@@ -183,7 +183,7 @@
   "s4_title": "3. Choosing the option by clicking on the button",
   "s4_text": "Adds an average of 2% on top of the purchase amount. (For this we calculate all greenhouse gases that are released during production and transport.)",
   "s5_title": "4. We finance projects",
-  "s5_text": "Projects that directly lead to less greenhouse gas emissions. For this we work together with our certified partners Atmosfair and Fair Climate Fund.",
+  "s5_text": "Projects that directly lead to less greenhouse gas emissions. For this we work together with our certified partners <a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a> and <a href= \"https://www.fairclimatefund.nl/projecten\" target=_\"blank\">Fair Climate Fund</a>.",
   "section_3_sub": "De impact",
   "section_3_title": "Top 10 impact van de gemiddelde Nederlander",
   "testimonial_head": "What people say",
@@ -238,7 +238,7 @@
   "s3_title": "2. Purchase with CO₂ok",
   "s3_text": "If you choose to make your purchase CO₂ok, you will pay a tiny extra amount upon purchase.",
   "s4_title": "3. Financing projects",
-  "s4_text": "This amount is used to finance projects of sustainable energy and CO₂-emission reduction (via our certified partners, Atmosfair and Fair Climate Fund)",
+  "s4_text": "This amount is used to finance projects of sustainable energy and CO₂-emission reduction (via our certified partners, <a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a> and <a href= \"https://www.fairclimatefund.nl/projecten\" target=_\"blank\">Fair Climate Fund</a>.)",
   "s5_title": "4. Making your purchase climate neutral",
   "s5_text": "These projects actively reduce the amount of emitted CO₂. This CO₂ reduction matches the emission of your purchase – your purchase is climate neutral!",
   "calcSubTitle": "How we do it",
@@ -322,7 +322,7 @@
   "card3_or": "or"
  },
  "projects": {
-  "section1_text": "We support a variety of CO₂ compensation projects, coordinated by Atmosfair and Fair Climate Fund. 90% of their projects are certified with the CDM Gold Standard, which is the most stringent standard for climate protection projects.",
+  "section1_text": "We support a variety of CO₂ compensation projects, coordinated by <a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a> and <a href= \"https://www.fairclimatefund.nl/projecten\" target=_\"blank\">Fair Climate Fund</a>. 90% of their projects are certified with the CDM Gold Standard, which is the most stringent standard for climate protection projects.",
   "section2_subTitle": "Renewable energy projects",
   "section2_title": "Projects that get rid of fossil fuels",
   "section2_text": "Renewable energy from sources like the sun, wind and water has no negative effect on climate and produces a minimum of greenhouse gas emission and no air pollution. This in contradiction to fossil fuels such as coal, oil and gas. CO₂ok supports are in renewable energy: providing starting funds for solar energy and hydropower projects.",
@@ -339,8 +339,8 @@
   "s3_title2": "Solar cabins",
   "s3_title3": "Why our focus on developing countries?",
   "s3_text1": "More efficient cooking appliances can save up to 80% of energy (and therefore CO₂ emission) in Africa and India. Thanks to their energy efficiency, these cooking appliances save time used for gathering fuel and reduce deforestation. Their decreased smoke and CO₂ production also contribute to better health.",
-  "s3_text2": "About 70% of the inhabitants of Lesotho, South Africa, live in the countryside, without connection to an electricity power grid. People use fossil-fuel-based candles and petroleum lamps for lighting, harming the climate and human health. Atmosfair and Solar Lights provide solar panels and Solar Home Systems.",
-  "s3_text3": "CO₂ is a worldwide problem, and it doesn’t really matter where on earth you fight. Atmosfair, Fair Climate Fund and CO₂ok are most effective in third world countries. The projects we fund can not only help reduce CO₂ emission but also improve the local quality of life, fuel the local economy and improve people’s health."
+  "s3_text2": "About 70% of the inhabitants of Lesotho, South Africa, live in the countryside, without connection to an electricity power grid. People use fossil-fuel-based candles and petroleum lamps for lighting, harming the climate and human health. <a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a> and Solar Lights provide solar panels and Solar Home Systems.",
+  "s3_text3": "CO₂ is a worldwide problem, and it doesn’t really matter where on earth you fight. <a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a>, <a href= \"https://www.fairclimatefund.nl/projecten\" target=_\"blank\">Fair Climate Fund</a> and CO₂ok are most effective in third world countries. The projects we fund can not only help reduce CO₂ emission but also improve the local quality of life, fuel the local economy and improve people’s health."
  },
  "register": {},
  "retailers": {
@@ -370,7 +370,7 @@
   "row_button3": "Contact us",
   "subTitle2": "What to do?",
   "title2": "How it works",
-  "mainText2": "The compensation gets paid to you by the customer. CO₂ok sends a digital invoice at the\n                                end of each 3 month term. With the proceeds we support Atmosfair, a certified\n                                organisation which produces several CO₂-compensating projects each year.",
+  "mainText2": "The compensation gets paid to you by the customer. CO₂ok sends a digital invoice at the\n                                end of each 3 month term. With the proceeds we support <a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a> and <a href= \"https://www.fairclimatefund.nl/projecten\" target=_\"blank\">Fair Climate Fund</a>, two certified\n                                organisations which finance several CO₂-compensating projects each year.",
   "row_button2": "Install Plug-in",
   "subtitle3": "Pricing",
   "title3": "Monthly Pricing, Yearly Billing",

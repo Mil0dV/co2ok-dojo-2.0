@@ -6,6 +6,10 @@
   -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
   height: 80px;
+  
+  // Make dropdown visible over image header
+	position: relative;
+    z-index: 1;
 
   .uk-logo {
     width: 84px;
@@ -176,6 +180,5 @@
     justify-content: center;
     align-items: center;
   }
-
 
 }

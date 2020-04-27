@@ -155,8 +155,7 @@
                                 </p>
                             </div>
 
-                            <p class="main-text">
-                                {{ $t('compensation.s5_text') }}
+                            <p class="main-text" v-html="$t('compensation.s5_text')">
                             </p>
                         </div>
                     </div>

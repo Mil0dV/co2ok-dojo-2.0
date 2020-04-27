@@ -9,9 +9,7 @@
                         <img class="sect-1__img-1" src="../assets/images/projects/project-1.png" alt="project 1">
                     </div>
 
-                    <p class="main-text">
-                        {{ $t('projects.section1_text') }}
-                    </p>
+                    <p class="main-text" v-html=" $t('projects.section1_text') ">
 
                     <div class="img-wrapper-2 uk-box-shadow-medium">
                         <img class="sect-1__img-2" src="../assets/images/projects/project-2.png" alt="project 2">
@@ -100,12 +98,14 @@
 
                         <div class="row-item">
                             <h3 class="row-title"><i class="far fa-sun subheading"></i> {{ $t('projects.s3_title2') }}</h3>
-                            <p>{{ $t('projects.s3_text2') }}</p>
+                            <p v-html="$t('projects.s3_text2')">
+							</p>
                         </div>
 
                         <div class="row-item row-item__width">
                             <h3 class="row-title">{{ $t('projects.s3_title3') }}</h3>
-                            <p>{{ $t('projects.s3_text3') }}</p>
+                            <p v-html="$t('projects.s3_text3')">
+							</p>
                         </div>
                     </div>
                 </div>
