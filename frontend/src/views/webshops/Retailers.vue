@@ -142,8 +142,7 @@
                         <div class="uk-card uk-card-body section-1__col-1">
                             <h3 class="sub-title">{{ $t('retailers.subTitle2') }}</h3>
                             <h2 class="main-title">{{ $t('retailers.title2') }}</h2>
-                            <p class="main-text">
-                                {{ $t('retailers.mainText2') }}
+                            <p class="main-text" v-html="$t('retailers.mainText2')">
                             </p>
 
                             <br>
