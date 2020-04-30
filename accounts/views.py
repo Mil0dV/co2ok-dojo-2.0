@@ -391,6 +391,7 @@ def sendMail(request):
     userEmail = request.data['body']['email']
     name = request.data['body']['name']
     phoneNumber = request.data['body']['phone']
+    platform = request.data['body']['platform']
 
     rcovery_mail = Mail(
         from_email='dojo@co2ok.eco',

@@ -1,6 +1,6 @@
 <template>
     <div class="uk-section section-1" style="padding-bottom: 120px;">
-        <h1 class="main-title">{{ $t('webshopform.title2') }}</h1>
+        <h1 v-if="showFormWithPlatform" class="main-title">{{ $t('webshopform.title2') }}</h1>
         <!-- <h1 class="main-title">Get started</h1>
         <p>Hier zou ook nog wat meer uitleg kunnen, prima hoor </p> -->
         <div class="uk-container form__section uk-container-width" style="margin-top: 0px;">
@@ -32,7 +32,7 @@
                                            :placeholder=" $t('webshopform.input3_field') ">
                                 </label>
 
-                                <label class="login__group">
+                                <label v-if="showFormWithPlatform" class="login__group">
                                     {{ $t('webshopform.input4_label') }}
                                     <input v-model="platform"
                                            class="login__group-input" type="email"
@@ -43,13 +43,13 @@
                             <div style="width: 100%; text-align: left;" class="login__buttons">
                                 <!-- <a class="button button-empty btn-large" @click="emptyForm()"> {{ $t('webshopform.empty') }}</a> -->
                                 <a class="button btn-large" @click="sendForm()"> {{ $t('webshopform.send') }}</a>
-                            </div>
+                            </div>zz
                         </form>
                     </div>
                 </div>
 
 
-                <div class="uk-width-1-2 to-right">
+                <div v-if="showFormWithPlatform" class="uk-width-1-2 to-right">
                     <div class="uk-card uk-card-body section-1__col-1 final__section" style="background-color: rgb(255, 255, 255); border-radius: 5px; margin-top: 20px; height: 100%;width: 100%;box-shadow: -5px 3px 40px 2px hsla(300,3%,55%,.74);">
                         <h3 style="margin-top: 0px; margin-bottom: 20px;">{{ $t('webshopform.title1') }}</h3>
                         <p> {{ $t('webshopform.subtitle1') }}</p>
@@ -73,7 +73,15 @@
     export default {
         name: "WebshopForm",
         props: {
-            content: Number
+            content: Number,
+            showFormWithPlatform: {
+                type: Boolean,
+                default: true
+            },
+            LSFillField: {
+                type: Boolean,
+                default: false
+            }
         },
         components: {
             Modal
@@ -85,7 +93,7 @@
                 name: '',
                 email: '',
                 phone: '',
-                platform: '',
+                platform: ''
             }
         },
 
@@ -102,35 +110,38 @@
             //Voor de vormgeving heb ik de modal al aangemaakt
             //Voor de form is alleen de email verplicht
             //De else statemant is bedoeld als de email form leeg is
-            sendForm() {
-                if (this.email !== ''){
-                    let message = {
-                        title: this. $t('webshopform.success') ,
-                        text: this. $t('webshopform.success_message') 
-                    }
-                    axios
-                        .post(`${this.$store.state.SITE_HOST}/accounts/sendMail/`, {
-                            body: {
-                                email: this.email,
-                                phone: this.phone,
-                                name: this.name
-                            }
-                        })
-                        // .then(response => {
-                        //     if (response) {
-                        .catch(error => {
-                            // this.errorMessage(message)
-                            console.log(error);
-                        })
-                    this.$store.commit('modalStatus', {message})
-                }
-                else {
-                    let message = {
-                        title: this. $t('webshopform.error') ,
-                        text: this. $t('webshopform.error_message') 
-                    }
-                    this.$store.commit('modalStatus', {message})
-                }
+            sendForm(value) {
+                this.platform = value;
+                console.log(platform);
+                // if (this.email !== ''){
+                //     let message = {
+                //         title: this. $t('webshopform.success') ,
+                //         text: this. $t('webshopform.success_message') 
+                //     }
+                //     axios
+                //         .post(`${this.$store.state.SITE_HOST}/accounts/sendMail/`, {
+                //             body: {
+                //                 email: this.email,
+                //                 phone: this.phone,
+                //                 name: this.name,
+                //                 platform: this.platform
+                //             }
+                //         })
+                //         // .then(response => {
+                //         //     if (response) {
+                //         .catch(error => {
+                //             // this.errorMessage(message)
+                //             console.log(error);
+                //         })
+                //     this.$store.commit('modalStatus', {message})
+                // }
+                // else {
+                //     let message = {
+                //         title: this. $t('webshopform.error') ,
+                //         text: this. $t('webshopform.error_message') 
+                //     }
+                //     this.$store.commit('modalStatus', {message})
+                // }
             }
         }
         

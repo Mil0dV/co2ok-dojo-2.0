@@ -119,100 +119,16 @@
         </div>
 
         <h1><a class="lightspeed_anchor" name="lightspeed_anchor"></a></h1>
-
-        <div class="uk-container form__section uk-container-width" id="Ls_form" style="margin-top: 200px;">
-            <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
-                <div class="uk-width-1-2 to-left">
-
-                    <div class="uk-card login__form-container col-2-card uk-card-default uk-card-body" style="height: 100%; box-shadow: -5px 3px 40px 2px hsla(300,3%,55%,.74);">
-                        <form class="login__form">
-                            <p style="text-align: left;">{{ $t('webshopform.subtitle2') }}</p>
-                            <div class="login__group">
-                                <label class="login__group">
-                                    {{ $t('webshopform.input1_label') }}
-                                    <input v-model="name"
-                                           class="login__group-input" type="email"
-                                           :placeholder=" $t('webshopform.input1_field') ">
-                                </label>
-
-                                <label class="login__group">
-                                    <span>{{ $t('webshopform.input2_label') }}<span class="asterik">*</span></span>
-                                    <input v-model="email"
-                                           class="login__group-input" type="email"
-                                           :placeholder=" $t('webshopform.input2_field') ">
-                                </label>
-
-                                <label class="login__group">
-                                    {{ $t('webshopform.input3_label') }}
-                                    <input v-model="phone"
-                                           class="login__group-input" type="email"
-                                           :placeholder=" $t('webshopform.input3_field') ">
-                                </label>
-
-                                <label class="login__group">
-                                    {{ $t('webshopform.input4_label') }}
-                                    <input v-model="platform"
-                                           class="login__group-input" type="email"
-                                           :placeholder=" $t('webshopform.input4_field') ">
-                                </label>
-                            </div>
-
-                            <div style="width: 100%; text-align: left;" class="login__buttons">
-                                <a class="button btn-large" @click="sendForm()"> {{ $t('webshopform.send') }}</a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+        
+        <div>
+            <WebshopForm :content="formContent" :showFormWithPlatform="false" />
         </div>
+        
 
         <h1><a class="shopworks_anchor" name="shopworks_anchor"></a></h1>
 
-        <div class="uk-container form__section uk-container-width" style="margin-top: 200px">
-            <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
-                <div class="uk-width-1-2 to-left">
-
-                    <div class="uk-card login__form-container col-2-card uk-card-default uk-card-body" id="shopworks_form" style="height: 100%; box-shadow: -5px 3px 40px 2px hsla(300,3%,55%,.74);">
-                        <form class="login__form">
-                            <p style="text-align: left;">{{ $t('webshopform.subtitle2') }}</p>
-                            <div class="login__group">
-                                <label class="login__group">
-                                    {{ $t('webshopform.input1_label') }}
-                                    <input v-model="name"
-                                           class="login__group-input" type="email"
-                                           :placeholder=" $t('webshopform.input1_field') ">
-                                </label>
-
-                                <label class="login__group">
-                                    <span>{{ $t('webshopform.input2_label') }}<span class="asterik">*</span></span>
-                                    <input v-model="email"
-                                           class="login__group-input" type="email"
-                                           :placeholder=" $t('webshopform.input2_field') ">
-                                </label>
-
-                                <label class="login__group">
-                                    {{ $t('webshopform.input3_label') }}
-                                    <input v-model="phone"
-                                           class="login__group-input" type="email"
-                                           :placeholder=" $t('webshopform.input3_field') ">
-                                </label>
-
-                                <label class="login__group">
-                                    {{ $t('webshopform.input4_label') }}
-                                    <input v-model="platform"
-                                           class="login__group-input" type="email"
-                                           :placeholder=" $t('webshopform.input4_field') ">
-                                </label>
-                            </div>
-
-                            <div style="text-align: left;" class="login__buttons">
-                                <a class="button btn-large" @click="sendForm()"> {{ $t('webshopform.send') }}</a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div><WebshopForm :content="formContent" :showFormWithPlatform="false" /></div>
+      
     </div>
     </div>
 </template>
@@ -235,7 +151,6 @@
                 formContent: 1,
             }
         }
-
     }
 </script>
 
