@@ -1,6 +1,6 @@
 <template>
     <div class="uk-section section-1" style="padding-bottom: 120px;">
-        <h1 v-if="showPlatform_bool == true" class="main-title">{{ $t('webshopform.title2') }}</h1>
+        <h1 v-if="c_platform == null" class="main-title">{{ $t('webshopform.title2') }}</h1>
         <!-- <h1 class="main-title">Get started</h1>
         <p>Hier zou ook nog wat meer uitleg kunnen, prima hoor </p> -->
         <div class="uk-container form__section uk-container-width" style="margin-top: 0px;">
@@ -32,7 +32,7 @@
                                            :placeholder=" $t('webshopform.input3_field') ">
                                 </label>
 
-                                <label v-if="showPlatform_bool == true" class="login__group">
+                                <label v-if="c_platform == null" class="login__group">
                                     {{ $t('webshopform.input4_label') }}
                                     <input v-model="platform"
                                            class="login__group-input" type="email"
@@ -49,7 +49,7 @@
                 </div>
 
 
-                <div v-if="showPlatform_bool == true" class="uk-width-1-2 to-right">
+                <div v-if="c_platform == null" class="uk-width-1-2 to-right">
                     <div class="uk-card uk-card-body section-1__col-1 final__section" style="background-color: rgb(255, 255, 255); border-radius: 5px; height: 100%;width: 100%;box-shadow: -5px 3px 40px 2px hsla(300,3%,55%,.74);">
                         <h3 style="margin-top: 0px; margin-bottom: 20px;">{{ $t('webshopform.title1') }}</h3>
                         <p> {{ $t('webshopform.subtitle1') }}</p>
@@ -74,11 +74,7 @@
         name: "WebshopForm",
         props: {
             content: Number,
-            c_platform: String,
-            showPlatform_bool: {
-                type: Boolean,
-                default: true
-            }
+            c_platform: String
         },
         components: {
             Modal
