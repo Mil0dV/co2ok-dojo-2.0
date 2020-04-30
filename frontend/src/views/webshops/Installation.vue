@@ -2,6 +2,8 @@
     <div class="main">
         <Header :image="header"></Header>
         <div style="margin-top: 80px;margin-bottom: -70px;"><WebshopForm :content="formContent"/></div>
+
+        <!-- Wordpress/woocommerce guide -->
         <div class="uk-section" id="wc-guide">
             <div class="uk-container uk-container-width" style="">
                 <div class="install__container">
@@ -40,7 +42,11 @@
             </div>
         </div>
 
+        <!-- Form and anchor -->
+        <h1><a class="lightspeed_anchor" name="lightspeed_anchor"></a></h1>
+        <div><WebshopForm :showPlatform_bool="false" c_platform="lightspeed" :content="formContent" /></div>
 
+        <!-- Magento -->
         <div class="uk-section" id="magento-guide">
             <div class="uk-container uk-container-width" style="">
                 <div class="install__container">
@@ -78,9 +84,12 @@
                 </div>
             </div>
         </div>
-        <!-- <WebshopForm :content="formContent"/> -->
 
+        <!-- Form and anchor -->
+        <h1><a class="shopworks_anchor" name="shopworks_anchor"></a></h1>
+        <div><WebshopForm :showPlatform_bool="false" :content="formContent" c_platform="shopworks" /></div>
 
+        <!-- Shopify -->
         <div class="uk-section" id="shopify-guide">
             <div class="uk-container uk-container-width" style="">
                 <div class="install__container">
@@ -117,18 +126,6 @@
                 </div>
             </div>
         </div>
-
-        <h1><a class="lightspeed_anchor" name="lightspeed_anchor"></a></h1>
-        
-        <div>
-            <WebshopForm :content="formContent" :showFormWithPlatform="false" />
-        </div>
-        
-
-        <h1><a class="shopworks_anchor" name="shopworks_anchor"></a></h1>
-
-        <div><WebshopForm :content="formContent" :showFormWithPlatform="false" /></div>
-      
     </div>
     </div>
 </template>
