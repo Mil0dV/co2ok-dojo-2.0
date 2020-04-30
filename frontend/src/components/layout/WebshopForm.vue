@@ -104,9 +104,8 @@
             //Voor de form is alleen de email verplicht
             //De else statemant is bedoeld als de email form leeg is
             sendForm() {
-                if (this.c_platform == "lightspeed" || this.c_platform == "shopworks")
+                if (this.c_platform !== null)
                     this.platform = this.c_platform;
-                console.log(this.platform);
                 if (this.email !== ''){
                     let message = {
                         title: this. $t('webshopform.success') ,
