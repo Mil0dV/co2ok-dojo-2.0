@@ -44,7 +44,7 @@
 
         <!-- Form and anchor -->
         <h1><a class="install_anchors" name="lightspeed_anchor"></a></h1>
-        <div><WebshopForm c_platform="lightspeed" :content="formContent" /></div>
+        <div><WebshopForm c_platform="Lightspeed" :content="formContent" /></div>
 
         <!-- Magento -->
         <div class="uk-section" id="magento-guide">
@@ -87,7 +87,7 @@
 
         <!-- Form and anchor -->
         <h1><a class="install_anchors" name="shopworks_anchor"></a></h1>
-        <div><WebshopForm :content="formContent" c_platform="shopworks" /></div>
+        <div><WebshopForm :content="formContent" c_platform="Shopworks" /></div>
 
         <!-- Shopify -->
         <div class="uk-section" id="shopify-guide">
