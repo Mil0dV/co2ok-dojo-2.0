@@ -211,7 +211,7 @@
                             </p>
 
                             <br>
-                            <a class="link row-link" href="http://www.conecomm.com/research-blog/2015-cone-communications-ebiquity-global-csr-study">
+                            <a class="link row-link" target="_blank" href="http://www.conecomm.com/research-blog/2015-cone-communications-ebiquity-global-csr-study">
                                 {{ $t('home2.s3_row1_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
@@ -244,7 +244,7 @@
                             </p>
 
                             <br>
-                            <a class="link row-link" href="https://www.edelman.com/news/2017-edelman-trust-barometer-reveals-global-implosion">
+                            <a class="link row-link" target="_blank" href="https://www.edelman.com/news/2017-edelman-trust-barometer-reveals-global-implosion">
                                 {{ $t('home2.s3_row2_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
@@ -277,7 +277,7 @@
                             </p>
 
                             <br>
-                            <a class="link row-link" href="http://www.conecomm.com/news-blog/2017/5/15/americans-willing-to-buy-or-boycott-companies-based-on-corporate-values-according-to-new-research-by-cone-communications">
+                            <a class="link row-link" target="_blank" href="http://www.conecomm.com/news-blog/2017/5/15/americans-willing-to-buy-or-boycott-companies-based-on-corporate-values-according-to-new-research-by-cone-communications">
                                 {{ $t('home2.s3_row3_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
@@ -310,7 +310,7 @@
                             </p>
 
                             <br>
-                            <a class="link row-link" href="https://sproutsocial.com/insights/data/championing-change-in-the-age-of-social-media">
+                            <a class="link row-link" target="_blank" href="https://sproutsocial.com/insights/data/championing-change-in-the-age-of-social-media">
                                 {{ $t('home2.s3_row4_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
