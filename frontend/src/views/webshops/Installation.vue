@@ -56,7 +56,7 @@
                         <h3>Magento</h3>
 
                         <ol>
-                            <li> {{ $t('plugin.Magento_step0') }}</li>
+                            <li><p v-html=" $t('plugin.Magento_step0')"></p></li>
 
                             <li class="list__image">
                                 {{ $t('plugin.Magento_step1') }}
