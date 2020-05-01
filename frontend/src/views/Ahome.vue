@@ -244,7 +244,7 @@
                             </p>
 
                             <br>
-                            <a class="link row-link" target="_blank" href="https://www.edelman.com/news/2017-edelman-trust-barometer-reveals-global-implosion">
+                            <a class="link row-link" target="_blank" href="https://www.interbrand.com/wp-content/uploads/2018/02/Best-Global-Brands-2017.pdf">
                                 {{ $t('home2.s3_row2_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
