@@ -38,7 +38,7 @@
                             {{ $t('home2.section_2_text') }}
                         </p>
                         <br>
-                        <a href="/webshops/retailers"
+                        <a href="/#home_form"
                            class="button">{{ $t('home2.button_1') }}</a>
                         <!-- <a href="/ninja"
                            class="button">{{ $t('home2.button_2') }}</a> -->
@@ -407,13 +407,14 @@
                          src="../assets/images/home2/logo4.jpg">
                 </div>
 
-                <router-link to="/webshops/retailers" class="button__home">{{ $t('home2.section_5_btn') }}</router-link>
+                <a href="/#home_form" class="button__home">{{ $t('home2.section_5_btn') }}</a>
             </div>
         </div>
 
 
         <Webshops :content="webshopsContent"/>
 
+        <h1><a class="home_anchors" name="home_form"></a></h1>
         <WebshopForm :content="formContent"/>
 
     </div>
