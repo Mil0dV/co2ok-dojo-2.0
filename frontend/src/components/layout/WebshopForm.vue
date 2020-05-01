@@ -4,14 +4,14 @@
         <!-- <h1 class="main-title">Get started</h1>
         <p>Hier zou ook nog wat meer uitleg kunnen, prima hoor </p> -->
         <div class="uk-container form__section uk-container-width" style="margin-top: 0px;">
-            <h1 v-if="c_platform == null" style="margin-bottom: 50px" class="main-title">{{ $t('webshopform.title2') }}</h1>
+            <h1 v-if="!c_platform" style="margin-bottom: 50px" class="main-title">{{ $t('webshopform.title2') }}</h1>
             <h1 v-if="c_platform" style="margin-bottom: 50px;" class="main-title">{{ $t(c_platform) }}</h1>
             <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                 <div class="uk-width-1-2 to-left">
 
                     <div class="uk-card login__form-container col-2-card uk-card-default uk-card-body" style=" height: 100%; box-shadow: -5px 3px 40px 2px hsla(300,3%,55%,.74);">
                         <form class="login__form">
-                            <p v-if="c_platform == null" style="text-align: left;">{{ $t('webshopform.subtitle2') }}</p>
+                            <p v-if="!c_platform" style="text-align: left;">{{ $t('webshopform.subtitle2') }}</p>
                             <p v-if="c_platform" style="text-align: left;">{{ $t('webshopform.subtitles_LS_SW') }}</p>
                             <div class="login__group">
                                 <label class="login__group">
@@ -35,7 +35,7 @@
                                            :placeholder=" $t('webshopform.input3_field') ">
                                 </label>
 
-                                <label v-if="c_platform == null" class="login__group">
+                                <label v-if="!c_platform" class="login__group">
                                     {{ $t('webshopform.input4_label') }}
                                     <input v-model="platform"
                                            class="login__group-input" type="email"
