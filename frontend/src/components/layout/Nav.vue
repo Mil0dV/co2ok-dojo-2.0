@@ -127,7 +127,7 @@
                         </ul>
                         <!-- <a rel="noopener" v-if="!$store.state.Authenticated" :href="this.$store.state.ninjaExtensionLink"
                            :target="this.$store.state.extensionLinkTarget" class="button">{{ $t('nav.extension') }}</a> -->
-                        <router-link to="/webshops/get-started" class="button">{{ $t('nav.extension') }}</router-link>
+                        <router-link to="/webshops/get-started/" class="button">{{ $t('nav.extension') }}</router-link>
                         <!-- <ul v-else class="uk-navbar-nav">
                             <li @click="logout()">
                                 <a>{{ $t('nav.consumers_2') }}</a>
@@ -238,7 +238,7 @@
                 </ul>
                 <!-- <a rel="noopener" :href="this.$store.state.ninjaExtensionLink" :target="this.$store.state.extensionLinkTarget"
                    class="button">{{ $t('nav.extension') }}</a> -->
-                <router-link to="/webshops/get-started" class="button">{{ $t('nav.extension') }}</router-link>
+                <router-link to="/webshops/get-started/" class="button">{{ $t('nav.extension') }}</router-link>
                 <hr>
                 <transition enter-acitve-class="animated bounceIn"
                             leave-active-class="animated bounceOut"

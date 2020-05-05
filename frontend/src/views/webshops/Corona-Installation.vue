@@ -9,31 +9,31 @@
                         <h3>Wordpress / Woocommerce</h3>
 
                         <ol>
-                            <li v-html="$t('plugin.first_step1C')"></li>
+                            <li v-html="$t('plugin.WP_step0-Corona')"></li>
 
                             <li class="list__image">
-                                {{ $t('plugin.first_step2') }}
+                                {{ $t('plugin.WP_step1') }}
                                 <img alt="plugin-wordpress-1" src="../../assets/images/webshops/plugin/install-step-1.png">
                             </li>
 
                             <li>
-                                {{ $t('plugin.first_step3C') }}
+                                {{ $t('plugin.WP_step2-Corona') }}
                                 <img alt="plugin-wordpress-2" src="../../assets/images/webshops/plugin/install-step-2.png">
                             </li>
 
                             <li>
-                                {{ $t('plugin.first_step4') }}
+                                {{ $t('plugin.WP_step3') }}
                                 <!-- <img alt="plugin-wordpress-3" src="../../assets/images/webshops/plugin/install-step-3.png"> -->
                             </li>
 
                             <li>
-                                {{ $t('plugin.first_step5') }}
+                                {{ $t('plugin.WP_step4') }}
                                 <img class="small-install" alt="plugin-wordpress-3" src="../../assets/images/webshops/plugin/install-step-4.png">
                             </li>
                         </ol>
 
                         <i>
-                            {{ $t('plugin.first_step6C') }}
+                            {{ $t('plugin.WP_step5-Corona') }}
                         </i>
                     </div>
                 </div>
@@ -50,31 +50,31 @@
                         <h3>Magento</h3>
 
                         <ol>
-                            <li> {{ $t('plugin.second_step1') }}</li>
+                            <li> {{ $t('plugin.Magento_step0') }}</li>
 
                             <li class="list__image">
-                                {{ $t('plugin.second_step2') }}
+                                {{ $t('plugin.Magento_step1') }}
                                 <img alt="plugin-wordpress-1" src="../../assets/images/webshops/plugin/install-step-1.png">
                             </li>
 
                             <li>
-                                {{ $t('plugin.second_step3') }}
+                                {{ $t('plugin.Magento_step2') }}
                                 <img alt="plugin-wordpress-2" src="../../assets/images/webshops/plugin/install-step-2.png">
                             </li>
 
                             <li>
-                                {{ $t('plugin.second_step4') }}
+                                {{ $t('plugin.Magento_step3') }}
                                 <img alt="plugin-wordpress-3" src="../../assets/images/webshops/plugin/install-step-3.png">
                             </li>
 
                             <li>
-                                {{ $t('plugin.second_step5') }}
+                                {{ $t('plugin.Magento_step4') }}
                                 <img class="small-install" alt="plugin-wordpress-3" src="../../assets/images/webshops/plugin/install-step-4.png">
                             </li>
                         </ol>
 
                         <i>
-                            {{ $t('plugin.second_step6') }}
+                            {{ $t('plugin.Magento_step5') }}
                         </i>
                     </div>
                 </div>
@@ -89,31 +89,31 @@
                         <h3>Shopify</h3>
 
                         <ol>
-                            <li v-html=" $t('plugin.third_step1')"></li>
+                            <li v-html=" $t('plugin.Shopify_step0')"></li>
 
                             <li class="list__image">
-                                {{ $t('plugin.third_step2') }}
+                                {{ $t('plugin.Shopify_step1') }}
                                 <!-- <img alt="plugin-wordpress-1" src="../../assets/images/webshops/plugin/install-step-1.png"> -->
                             </li>
 
                             <li>
-                                {{ $t('plugin.third_step3') }}
+                                {{ $t('plugin.Shopify_step2') }}
                                 <img alt="plugin-wordpress-2" src="../../assets/images/webshops/plugin/shopi-install-step-3.png">
                             </li>
 
                             <!-- <li>
-                                {{ $t('plugin.third_step4') }}
+                                {{ $t('plugin.Shopify_step3') }}
                                 <img alt="plugin-wordpress-3" src="../../assets/images/webshops/plugin/install-step-3.png">
                             </li>
 
                             <li>
-                                {{ $t('plugin.third_step5') }}
+                                {{ $t('plugin.Shopify_step4') }}
                                 <img class="small-install" alt="plugin-wordpress-3" src="../../assets/images/webshops/plugin/install-step-4.png">
                             </li> -->
                         </ol>
 
                         <i>
-                            {{ $t('plugin.third_step6C') }}
+                            {{ $t('plugin.Shopify_step5-Corona') }}
                         </i>
                     </div>
                 </div>
