@@ -38,7 +38,7 @@
                             {{ $t('home2.section_2_text') }}
                         </p>
                         <br>
-                        <a href="/webshops/retailers"
+                        <a href="/#home_form"
                            class="button">{{ $t('home2.button_1') }}</a>
                         <!-- <a href="/ninja"
                            class="button">{{ $t('home2.button_2') }}</a> -->
@@ -210,7 +210,7 @@
                             </p>
 
                             <br>
-                            <a class="link row-link" href="http://www.conecomm.com/research-blog/2015-cone-communications-ebiquity-global-csr-study">
+                            <a class="link row-link" target="_blank" href="http://www.conecomm.com/research-blog/2015-cone-communications-ebiquity-global-csr-study">
                                 {{ $t('home2.s3_row1_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
@@ -243,7 +243,7 @@
                             </p>
 
                             <br>
-                            <a class="link row-link" href="https://www.edelman.com/news/2017-edelman-trust-barometer-reveals-global-implosion">
+                            <a class="link row-link" target="_blank" href="https://www.interbrand.com/wp-content/uploads/2018/02/Best-Global-Brands-2017.pdf">
                                 {{ $t('home2.s3_row2_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
@@ -276,7 +276,7 @@
                             </p>
 
                             <br>
-                            <a class="link row-link" href="http://www.conecomm.com/news-blog/2017/5/15/americans-willing-to-buy-or-boycott-companies-based-on-corporate-values-according-to-new-research-by-cone-communications">
+                            <a class="link row-link" target="_blank" href="http://www.conecomm.com/news-blog/2017/5/15/americans-willing-to-buy-or-boycott-companies-based-on-corporate-values-according-to-new-research-by-cone-communications">
                                 {{ $t('home2.s3_row3_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
@@ -309,7 +309,7 @@
                             </p>
 
                             <br>
-                            <a class="link row-link" href="https://sproutsocial.com/insights/data/championing-change-in-the-age-of-social-media">
+                            <a class="link row-link" target="_blank" href="https://sproutsocial.com/insights/data/championing-change-in-the-age-of-social-media">
                                 {{ $t('home2.s3_row4_link') }} <span uk-icon="icon: arrow-right"></span>
                             </a>
                         </div>
@@ -406,13 +406,14 @@
                          src="../assets/images/home2/logo4.jpg">
                 </div>
 
-                <router-link to="/webshops/retailers" class="button__home">{{ $t('home2.section_5_btn') }}</router-link>
+                <a href="/#home_form" class="button__home">{{ $t('home2.section_5_btn') }}</a>
             </div>
         </div>
 
 
         <Webshops :content="webshopsContent"/>
 
+        <h1><a class="home_anchors" name="home_form"></a></h1>
         <WebshopForm :content="formContent"/>
 
     </div>
