@@ -16,14 +16,26 @@ let Co2okWidgetXL = {
   
     },
   
+    getCookieValue: function (a) {
+      var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+      return b ? b.pop() : '';
+    },
+
     merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor) {
   
-        if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
-          console.log('hammer time!')
+        // get impact from cookie if available
+        let co2ok_impact = Co2okWidgetXL.getCookieValue('co2ok_impact')
+
+        if (co2ok_impact > 1){
+          console.log('Collaborate and listen')
+          Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor)
           return
         }
+
         // var widgetColor = "gray"
         // var widgetSize = "L"
+
+        // get impact from API
         let xhr = Co2okWidgetXL.xhr()
         // let host = 'http://127.0.0.1:8000'
         let host = 'https://app.co2ok.eco'
@@ -36,16 +48,17 @@ let Co2okWidgetXL = {
                 let totalTransactionData = xhr.responseText
                 // let totalTransactionData = 491
   
-                   console.log(totalTransactionData)
-                   Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor)
-  
-                // ok deze else werkt dus nog niet zoals bedoeld
-            } else {
-                let totalTransactionData = 491
+                console.log(totalTransactionData)
+                document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
+                Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor)
+                   
+                // Something is fishy, let's serve up the total
+                } else {
+                  let totalTransactionData = 491
+                  Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor)
             }
         }
         xhr.send()
-        // let totalTransactionData = 491
         //   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
     },
   
@@ -65,6 +78,10 @@ let Co2okWidgetXL = {
         fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
         document.getElementsByTagName("head")[0].appendChild(fileref)
         
+        if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
+          console.log('hammer time!')
+          return
+        }
 
                 if (totalCompensatedData <500) {
                   var compensatiewidget  = 137.42;
@@ -128,6 +145,12 @@ let Co2okWidgetXL = {
   
         let widgetcontainer = document.getElementById(widgetContainer)
         // let widgetcontainer = document.getElementsByClassName('whb-empty-column')[0]
+
+        // Don't try to place widget if there is no container
+        if(widgetcontainer == null){
+          return
+        }
+
         widgetcontainer.innerHTML = widgetmark
         this.RegisterWidgetInfoBox();
         // this.ShowWidgetInfoBox();
