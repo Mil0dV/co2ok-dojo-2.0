@@ -135,7 +135,7 @@
                         twitter: '', facebook: ''
                     },
                     {
-                        name: 'Lodi de Brauw', title: 'Strategic Advisor',
+                        name: 'Lodi de Brauw', title: 'Co-Founder',
                         quote: 'You must be the change you want to see in the world',
                         image: 'lodi.jpg',
                         twitter: '', facebook: ''

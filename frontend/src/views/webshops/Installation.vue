@@ -86,8 +86,8 @@
         </div>
 
         <!-- Form and anchor -->
-        <h1><a class="install_anchors" name="shopworks_anchor"></a></h1>
-        <div><WebshopForm :content="formContent" c_platform="Shopworks" /></div>
+        <h1><a class="install_anchors" name="shopware_anchor"></a></h1>
+        <div><WebshopForm :content="formContent" c_platform="Shopware" /></div>
 
         <!-- Shopify -->
         <div class="uk-section" id="shopify-guide">
