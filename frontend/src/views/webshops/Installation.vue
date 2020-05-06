@@ -65,7 +65,7 @@
 
                             <li>
                                 {{ $t('plugin.Magento_step2') }}
-                                <img alt="plugin-wordpress-2" src="../../assets/images/webshops/plugin/magento-install3.png">
+                                <img alt="plugin-wordpress-2" src="../../assets/images/webshops/plugin/magento-install-3-new.png">
                             </li>
 
                             <li>
