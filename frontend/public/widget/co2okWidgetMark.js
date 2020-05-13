@@ -21,7 +21,7 @@ let Co2okWidget = {
     return b ? b.pop() : '';
   },
 
-  merchantCompensations: function (widgetContainer, merchantId) {
+  merchantCompensations: function (widgetContainer, merchantId, widgetColor) {
 
     // get impact from cookie if available
     let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
@@ -47,27 +47,27 @@ let Co2okWidget = {
         
         console.log(totalTransactionData)
         document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
-        Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
+        Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData, widgetColor)
         
         // Something is fishy, let's serve up the total
       } else {
         let totalTransactionData = 491
-        Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
+        Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData, widgetColor)
       }
     }
     xhr.send()
       //   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
   },
     
-  widgetGenerator: function (widgetContainer, totalCompensatedData) {
+  widgetGenerator: function (widgetContainer, totalCompensatedData, widgetColor) {
 
       // HT: FDD800
       // CO2ok nu: 11D073
       // Mijnkraamshop: D0C918
       let color = "#D0C918"
       // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-      let  SITE_HOST =  'https://co2ok.eco'
-      // let SITE_HOST = 'http://localhost:8080'
+      // let  SITE_HOST =  'https://co2ok.eco'
+      let SITE_HOST = 'http://localhost:8080'
 
       var fileref=document.createElement("link")
       fileref.setAttribute("rel", "stylesheet")
@@ -80,20 +80,34 @@ let Co2okWidget = {
         return
       }
       
+      // Dit moet nog ff mooier als we dit nog willen gebruiken, anders kan het weg.
       if (totalCompensatedData <500) {
-        var compensatiewidget  = 137.42;
-        var compensatietekst = `De bij CO₂ok aangesloten webshops hebben samen <strong> ${compensatiewidget .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`;
+        var compensatiewidget  = 0.1;
+      //   var compensatietekst = `De bij CO₂ok aangesloten webshops hebben samen <strong> ${compensatiewidget .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`;
       }
       else {
         var compensatiewidget  = totalCompensatedData / 1000;
-        var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`
       }
+        var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`
+
+      // Regular or grayscale widget
+      if (widgetColor == "gray") {
+        var colorSuffix = "-gray";
+        var fileref=document.createElement("link")
+        fileref.setAttribute("rel", "stylesheet")
+        fileref.setAttribute("type", "text/css")
+        fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark-gray.css`)
+        document.getElementsByTagName("head")[0].appendChild(fileref)
+     }
+     else {
+         var colorSuffix = "";
+     }
 
       let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
       let widgetmark = `
       <div>
       <div class="btn_co2ok_widget co2ok_widget_info" href="#">
-          <span class="btn_co2ok_widget co2ok_widget_info">SHOP<img class="logo_co2ok_widget" src="${SITE_HOST}/static/logo.png"></span>
+          <span class="btn_co2ok_widget co2ok_widget_info">SHOP<img class="logo_co2ok_widget" src="${SITE_HOST}/static/logo${colorSuffix}.png"></span>
       </div>
           <div class="caption_co2ok_widget co2ok_widget_info">
               <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t CO₂ reductie </span>

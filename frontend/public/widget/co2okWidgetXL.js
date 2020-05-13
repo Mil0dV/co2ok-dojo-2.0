@@ -83,14 +83,15 @@ let Co2okWidgetXL = {
           return
         }
 
+                // we moeten nog een oplossing bedenken voor co2ok.eco - en dan kan dit ook mooier
                 if (totalCompensatedData <500) {
-                  var compensatiewidget  = 137.42;
-                  var compensatietekst = `De CO₂ok shops hebben samen <span id="large-widget-text-large"> ${compensatiewidget .toFixed(1)}ton CO₂</span> uitstoot voorkomen`;
+                  var compensatiewidget  = 0.1;
+                  // var compensatietekst = `De CO₂ok shops hebben samen <span id="large-widget-text-large"> ${compensatiewidget .toFixed(1)}ton CO₂</span> uitstoot voorkomen`;
                 }
                 else {
                   var compensatiewidget  = totalCompensatedData / 1000;
-                  var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen`
                 }
+                var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen`
                 // Heeft de webshop al voldoende gecompenseerd om een substantieel getal te geven? Zo niet, pak volledige compensatie van webshops aangesloten bij co2ok
 
                 if (widgetSize == "L") {
