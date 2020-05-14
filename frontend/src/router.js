@@ -14,7 +14,6 @@ Vue.use(Router)
 // // next()
 // }
 
-
 const router = new Router({
     mode: 'history',
     base: process.env.BASE_URL,
@@ -115,6 +114,31 @@ const router = new Router({
             name: 'dashboard',
             component: () => import( './views/dashboard/Dashboard'),
             // beforeEnter: ifAuthenticated
+        },
+        {
+            path: '/webshops/get-started',
+            name: 'wc-guide',
+            component: () => import('./views/webshops/Installation')
+        },
+        {
+            path: '/webshops/get-started',
+            name: 'magento-guide',
+            component: () => import('./views/webshops/Installation')
+        },
+        {
+            path: '/webshops/get-started',
+            name: 'shopify-guide',
+            component: () => import('./views/webshops/Installation')
+        },
+        {
+            path: '/webshops/get-started',
+            name: 'shopware-guide',
+            component: () => import('./views/webshops/Installation')
+        },
+        {
+            path: '/webshops/get-started',
+            name: 'lightspeed-guide',
+            component: () => import('./views/webshops/Installation')
         },
         {
             path: '/projects',
