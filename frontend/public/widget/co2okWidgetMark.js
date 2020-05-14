@@ -21,7 +21,7 @@ let Co2okWidget = {
     return b ? b.pop() : '';
   },
 
-  merchantCompensations: function (widgetContainer, merchantId, widgetColor) {
+  merchantCompensations: function (widgetContainer, merchantId, widgetColor, lang) {
 
     // get impact from cookie if available
     let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
@@ -29,7 +29,7 @@ let Co2okWidget = {
     
     if (co2ok_impact > 1){
       console.log('Collaborate and listen')
-      Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact)
+      Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)
       return
     }
 
@@ -47,19 +47,19 @@ let Co2okWidget = {
         
         console.log(totalTransactionData)
         document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
-        Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData, widgetColor)
+        Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData, widgetColor, lang)
         
         // Something is fishy, let's serve up the total
       } else {
         let totalTransactionData = 491
-        Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData, widgetColor)
+        Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData, widgetColor, lang)
       }
     }
     xhr.send()
       //   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
   },
     
-  widgetGenerator: function (widgetContainer, totalCompensatedData, widgetColor) {
+  widgetGenerator: function (widgetContainer, totalCompensatedData, widgetColor, lang) {
 
       // HT: FDD800
       // CO2ok nu: 11D073
@@ -80,6 +80,11 @@ let Co2okWidget = {
         return
       }
       
+      if (lang == 'EN')
+        var reductieText = 'reduction'
+      else
+        var reductieText = 'reductie'
+
       // Dit moet nog ff mooier als we dit nog willen gebruiken, anders kan het weg.
       if (totalCompensatedData <500) {
         var compensatiewidget  = 0.1;
@@ -110,24 +115,21 @@ let Co2okWidget = {
           <span class="btn_co2ok_widget co2ok_widget_info">SHOP<img class="logo_co2ok_widget" src="${SITE_HOST}/static/logo${colorSuffix}.png"></span>
       </div>
           <div class="caption_co2ok_widget co2ok_widget_info">
-              <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t CO₂ reductie </span>
+              <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t CO₂ ${(reductieText)} </span>
               </div>
           </div>
               
       <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
-
       <div class="widget-inner-wrapper">
       <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
       <p class="widget-text-block greyBorder">${compensatietekst} </p>
       </a>
       <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${SITE_HOST}/widget/vliegtuig_hover.png" class="widget-svg-img-large  co2ok_info_hover_image">
       </div>
-
       <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img src="${SITE_HOST}/static/logo.png" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
       <span class="widget-hover-link">
       <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe werkt CO2 compensatie?</a> </span>
       </div>
-
       <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
       
       `
@@ -282,4 +284,3 @@ let Co2okWidget = {
 }
 
 }
-// export default new Co2okWidget()

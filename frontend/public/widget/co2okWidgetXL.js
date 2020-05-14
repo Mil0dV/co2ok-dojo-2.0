@@ -21,14 +21,14 @@ let Co2okWidgetXL = {
       return b ? b.pop() : '';
     },
 
-    merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor) {
+    merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor, lang) {
   
         // get impact from cookie if available
         let co2ok_impact = Co2okWidgetXL.getCookieValue('co2ok_impact')
 
         if (co2ok_impact > 1){
           console.log('Collaborate and listen')
-          Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor)
+          Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
           return
         }
 
@@ -50,19 +50,19 @@ let Co2okWidgetXL = {
   
                 console.log(totalTransactionData)
                 document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
-                Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor)
+                Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
                    
                 // Something is fishy, let's serve up the total
                 } else {
                   let totalTransactionData = 491
-                  Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor)
+                  Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
             }
         }
         xhr.send()
         //   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
     },
   
-    widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor) {
+    widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {
   
         // HT: FDD800
         // CO2ok nu: 11D073
@@ -91,9 +91,14 @@ let Co2okWidgetXL = {
                 else {
                   var compensatiewidget  = totalCompensatedData / 1000;
                 }
-                var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen`
                 // Heeft de webshop al voldoende gecompenseerd om een substantieel getal te geven? Zo niet, pak volledige compensatie van webshops aangesloten bij co2ok
 
+                // Taal keuze
+                if (lang == 'EN')
+                    var compensatietekst = `This webshop has prevented <span id="large-widget-text-large">${compensatiewidget .toFixed(1)} </span>tonnes CO₂-emissions`
+                else
+                    var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen`
+                    
                 if (widgetSize == "L") {
                     var circleSize = 'width="1500" height="1000"> <circle cx="51" cy="39.5" r="38" fill="white">';
                     var fileref=document.createElement("link")
