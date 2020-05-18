@@ -80,10 +80,6 @@ let Co2okWidget = {
         return
       }
       
-      if (lang == 'EN')
-        var reductieText = 'reduction'
-      else
-        var reductieText = 'reductie'
 
       // Dit moet nog ff mooier als we dit nog willen gebruiken, anders kan het weg.
       if (totalCompensatedData <500) {
@@ -108,31 +104,59 @@ let Co2okWidget = {
          var colorSuffix = "";
      }
 
-      let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
-      let widgetmark = `
-      <div>
-      <div class="btn_co2ok_widget co2ok_widget_info" href="#">
-          <span class="btn_co2ok_widget co2ok_widget_info">SHOP<img class="logo_co2ok_widget" src="${SITE_HOST}/static/logo${colorSuffix}.png"></span>
-      </div>
-          <div class="caption_co2ok_widget co2ok_widget_info">
-              <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t CO₂ ${(reductieText)} </span>
-              </div>
-          </div>
+      var widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
+      if (lang == 'EN')
+      {
+        var widgetmark = `
+        <div>
+        <div class="btn_co2ok_widget co2ok_widget_info" href="#">
+            <span class="btn_co2ok_widget co2ok_widget_info">SHOP<img class="logo_co2ok_widget" src="${SITE_HOST}/static/logo${colorSuffix}.png"></span>
+        </div>
+            <div class="caption_co2ok_widget co2ok_widget_info">
+                <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t CO₂ reduction </span>
+                </div>
+            </div>
               
-      <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
-      <div class="widget-inner-wrapper">
-      <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-      <p class="widget-text-block greyBorder">${compensatietekst} </p>
-      </a>
-      <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${SITE_HOST}/widget/vliegtuig_hover.png" class="widget-svg-img-large  co2ok_info_hover_image">
-      </div>
-      <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img src="${SITE_HOST}/static/logo.png" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
-      <span class="widget-hover-link">
-      <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe werkt CO2 compensatie?</a> </span>
-      </div>
-      <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
-      
-      `
+        <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
+        <div class="widget-inner-wrapper">
+        <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
+        <p class="widget-text-block greyBorder">This webshop prevented <strong>${compensatiewidget .toFixed(1)} </strong>tonnes of CO2 emission <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km flight</p>
+        </a>
+        <img alt="Make my purchase climate neutral " title="Make my purchase climate neutral " src="${SITE_HOST}/widget/vliegtuig_hover.png" class="widget-svg-img-large  co2ok_info_hover_image">
+        </div>
+        <a class="widget-hover-link-home" target="_blank" href="http://co2ok.eco"><img src="${SITE_HOST}/static/logo.png" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
+        <span class="widget-hover-link">
+        <a  class="widget-hover-link-compensation" target="_blank" href="http://www.co2ok.eco/co2-compensatie">How does CO2 offsetting work?</a> </span>
+        </div>
+        <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
+        `
+      }
+      else
+      {
+        var widgetmark = `
+        <div>
+        <div class="btn_co2ok_widget co2ok_widget_info" href="#">
+            <span class="btn_co2ok_widget co2ok_widget_info">SHOP<img class="logo_co2ok_widget" src="${SITE_HOST}/static/logo${colorSuffix}.png"></span>
+        </div>
+            <div class="caption_co2ok_widget co2ok_widget_info">
+                <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t CO₂ reductie </span>
+                </div>
+            </div>
+              
+        <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
+        <div class="widget-inner-wrapper">
+        <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
+        <p class="widget-text-block greyBorder">Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen</p>
+        </a>
+        <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${SITE_HOST}/widget/vliegtuig_hover.png" class="widget-svg-img-large  co2ok_info_hover_image">
+        </div>
+        <a class="widget-hover-link-home" target="_blank" href="http://co2ok.eco"><img src="${SITE_HOST}/static/logo.png" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
+        <span class="widget-hover-link">
+        <a  class="widget-hover-link-compensation" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe werkt CO2 compensatie?</a> </span>
+        </div>
+        <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
+        `
+      }
               // console.log(widgetimg)
 
       let widgetcontainer = document.getElementById(widgetContainer)

@@ -15,7 +15,7 @@
   .co2ok_widget_infobox_container {
 position: absolute;
 width: 300px;
-height:185px;
+height: 190px;
 background: white;
 border-radius: 15px;
 box-sizing: border-box;
@@ -102,6 +102,10 @@ display: inline-block;
 vertical-align: middle;
 color: #28db83;
 padding: 0px; }
+
+.widget-hover-link-compensation {
+  margin-left: 15px;
+}
 
 .co2ok_widget_infobox_container .minimal {
 background-color: black; }
