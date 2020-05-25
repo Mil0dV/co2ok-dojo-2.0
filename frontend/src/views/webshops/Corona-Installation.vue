@@ -97,23 +97,23 @@
                             </li>
 
                             <li>
-                                {{ $t('plugin.Shopify_step2') }}
+                                {{ $t('plugin.Shopify_step3') }}
                                 <img alt="plugin-wordpress-2" src="../../assets/images/webshops/plugin/shopi-install-step-3.png">
                             </li>
 
                             <!-- <li>
-                                {{ $t('plugin.Shopify_step3') }}
+                                {{ $t('plugin.Shopify_step4') }}
                                 <img alt="plugin-wordpress-3" src="../../assets/images/webshops/plugin/install-step-3.png">
                             </li>
 
                             <li>
-                                {{ $t('plugin.Shopify_step4') }}
+                                {{ $t('plugin.Shopify_step5') }}
                                 <img class="small-install" alt="plugin-wordpress-3" src="../../assets/images/webshops/plugin/install-step-4.png">
                             </li> -->
                         </ol>
 
                         <i>
-                            {{ $t('plugin.Shopify_step5-Corona') }}
+                            {{ $t('plugin.Shopify_step6-Corona') }}
                         </i>
                     </div>
                 </div>

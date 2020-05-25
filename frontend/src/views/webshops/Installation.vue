@@ -43,7 +43,7 @@
         </div>
 
         <!-- Form and anchor -->
-        <h1><a class="install_anchors" name="lightspeed_anchor"></a></h1>
+        <h1><a class="install_anchors" id="lightspeed_anchor"></a></h1>
         <div><WebshopForm c_platform="Lightspeed" :content="formContent" /></div>
 
         <!-- Magento -->
@@ -86,7 +86,7 @@
         </div>
 
         <!-- Form and anchor -->
-        <h1><a class="install_anchors" name="shopware_anchor"></a></h1>
+        <h1><a class="install_anchors" id="shopware_anchor"></a></h1>
         <div><WebshopForm :content="formContent" c_platform="Shopware" /></div>
 
         <!-- Shopify -->
@@ -99,28 +99,32 @@
                         <ol>
                             <li v-html=" $t('plugin.Shopify_step0')"></li>
 
-                            <li class="list__image">
+                            <li>
                                 {{ $t('plugin.Shopify_step1') }}
                             </li>
 
-                            <li>
+                            <li class="list__image">
                                 {{ $t('plugin.Shopify_step2') }}
+                            </li>
+
+                            <li>
+                                {{ $t('plugin.Shopify_step3') }}
                                 <img alt="plugin-wordpress-2" src="../../assets/images/webshops/plugin/shopi-install-step-3.png">
                             </li>
 
                             <!-- <li>
-                                {{ $t('plugin.Shopify_step3') }}
+                                {{ $t('plugin.Shopify_step4') }}
                                 <img alt="plugin-wordpress-3" src="../../assets/images/webshops/plugin/install-step-3.png">
                             </li>
 
                             <li>
-                                {{ $t('plugin.Shopify_step4') }}
+                                {{ $t('plugin.Shopify_step5') }}
                                 <img class="small-install" alt="plugin-wordpress-3" src="../../assets/images/webshops/plugin/install-step-4.png">
                             </li> -->
                         </ol>
 
                         <i>
-                            {{ $t('plugin.Shopify_step5') }}
+                            {{ $t('plugin.Shopify_step6') }}
                         </i>
                     </div>
                 </div>

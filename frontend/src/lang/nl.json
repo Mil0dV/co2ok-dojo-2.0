@@ -277,13 +277,14 @@
   "Magento_step4": "Via System->Configuration kan je het CO₂ok configuratiescherm bereiken (op de afbeelding linksonder):",
   "Magento_step5": "In het configuratiescherm kan je verschillende instellingen aanpassen zoals de knop aan en uit zetten of de locatie veranderen.",
 
-  "Shopify_step0": "Bezoek <a href=\"https://shopi-app.co2ok.eco/login\" target=_\"blank\">de Shopify app installatie pagina</a> om de installatie te starten.",
-  "Shopify_step1": "Vul je shopify domeinnaam in.",
-  "Shopify_step2": "We zijn in afwachting van de laatste review stap vanuit Shopify, maar er is vertraging. Wees er gerust op dat alles grondig is getest.",
-  "Shopify_step3": "Klik op 'Install now':",
-  "Shopify_step4": "Na een paar momenten zal de plug-in worden geïnstalleerd, alles wat je nog moet doen is hem activeren door op de knop 'Activate' te drukken: ",
-  "Shopify_step5": "Dat is alles! Als je vragen hebt / een probleem tegenkomt, helpen we je graag via de chat op deze pagina / telefoon of e-mail. Bedankt dat je ons helpt de klimaatverandering te bestrijden!",
-  "Shopify_step5-Corona": "Dat is alles! Als je vragen hebt / een probleem tegenkomt, helpen we je graag via de chat op deze pagina / telefoon of e-mail. Bedankt dat je ons helpt de coronacrisis te bestrijden!"
+  "Shopify_step0": "Bezoek <a href=\"https://apps.shopify.com/co2ok?locale=nl\" target=_\"blank\">de Shopify app installatie pagina</a> om de installatie te starten.",
+  "Shopify_step1": "Klik op 'App toevoegen'.",
+  "Shopify_step2": "Vul je shopify domeinnaam in.",
+  "Shopify_step3": "We zijn in afwachting van de laatste review stap vanuit Shopify, maar er is vertraging. Wees er gerust op dat alles grondig is getest.",
+  "Shopify_step4": "Klik op 'Install now':",
+  "Shopify_step5": "Na een paar momenten zal de plug-in worden geïnstalleerd, alles wat je nog moet doen is hem activeren door op de knop 'Activate' te drukken: ",
+  "Shopify_step6": "Dat is alles! Als je vragen hebt / een probleem tegenkomt, helpen we je graag via de chat op deze pagina / telefoon of e-mail. Bedankt dat je ons helpt de klimaatverandering te bestrijden!",
+  "Shopify_step6-Corona": "Dat is alles! Als je vragen hebt / een probleem tegenkomt, helpen we je graag via de chat op deze pagina / telefoon of e-mail. Bedankt dat je ons helpt de coronacrisis te bestrijden!"
  },
  "profile": {
   "title": "Profiel",
