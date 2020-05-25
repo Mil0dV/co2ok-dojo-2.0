@@ -21,14 +21,14 @@ let Co2okWidgetXL = {
       return b ? b.pop() : '';
     },
 
-    merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor) {
+    merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor, lang) {
   
         // get impact from cookie if available
         let co2ok_impact = Co2okWidgetXL.getCookieValue('co2ok_impact')
 
         if (co2ok_impact > 1){
           console.log('Collaborate and listen')
-          Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor)
+          Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
           return
         }
 
@@ -50,19 +50,19 @@ let Co2okWidgetXL = {
   
                 console.log(totalTransactionData)
                 document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
-                Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor)
+                Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
                    
                 // Something is fishy, let's serve up the total
                 } else {
                   let totalTransactionData = 491
-                  Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor)
+                  Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
             }
         }
         xhr.send()
         //   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
     },
   
-    widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor) {
+    widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {
   
         // HT: FDD800
         // CO2ok nu: 11D073
@@ -82,19 +82,20 @@ let Co2okWidgetXL = {
           console.log('hammer time!')
           return
         }
-
-                // we moeten nog een oplossing bedenken voor co2ok.eco - en dan kan dit ook mooier
-                if (totalCompensatedData <500) {
+                var tofixed = 1;
+                if (totalCompensatedData < 100)
                   var compensatiewidget  = 0.1;
-                  // var compensatietekst = `De CO₂ok shops hebben samen <span id="large-widget-text-large"> ${compensatiewidget .toFixed(1)}ton CO₂</span> uitstoot voorkomen`;
-                }
                 else {
+                  if (totalCompensatedData > 9999)
+                    tofixed = 0;
                   var compensatiewidget  = totalCompensatedData / 1000;
                 }
-                var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton co2-uitstoot voorkomen`
-                // Heeft de webshop al voldoende gecompenseerd om een substantieel getal te geven? Zo niet, pak volledige compensatie van webshops aangesloten bij co2ok
-
-                if (widgetSize == "L") {
+                if (lang == 'EN')
+                  var compensatietekst = `This shop prevented <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)} ton CO<sub>₂</sub></span><br> emission`;
+                else
+                  var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)}t CO<sub>₂</sub></span><br> uitstoot voorkomen`;
+                
+                  if (widgetSize == "L") {
                     var circleSize = 'width="1500" height="1000"> <circle cx="51" cy="39.5" r="38" fill="white">';
                     var fileref=document.createElement("link")
                     fileref.setAttribute("rel", "stylesheet")
@@ -135,7 +136,7 @@ let Co2okWidgetXL = {
                     <span class ="large-widget-right-green"></span>
                     <svg id= "half-circle" ${circleSize} /></svg>
                     <p id="large-widget-text">${compensatietekst}</p>
-                    <p id="large-widget-xvliegen">= ${(compensatiewidget * 5000) .toFixed(0)}  <br>km vliegen</p>
+                    <p id="large-widget-xvliegen">= ${(compensatiewidget * 5000) .toFixed(0)} km<br>vliegen</p>
                     <img id="co2ok-logo" src= "${SITE_HOST}/static/logo${colorSuffix}.png">
                     <a target="_blank" href="https://www.co2ok.eco/co2-compensatie"><img id="info-button-widget" src= "${SITE_HOST}/static/info${colorSuffix}.svg"></a>
                     <img id="large-widget-airplane" src= "${SITE_HOST}/widget/large-wiget-airplane.png">

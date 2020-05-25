@@ -31,17 +31,16 @@
   
   #large-widget-text {
     position:absolute;
-    font:9px Poppins, Verdana, sans-serif;
+    font:7px Poppins, Verdana, sans-serif;
     font-weight:400;
-    max-width:75px;
     color:#606468;
-    margin-top: 4px;
+    margin-top: 10px;
     margin-left:3px;
     z-index:3;
   }
   
   #large-widget-text-large {
-    font:10px Poppins, Verdana, sans-serif;
+    font:11px Poppins, Verdana, sans-serif;
     color:#606468;
     font-weight: bold;
   }
@@ -51,9 +50,10 @@
     float:right;
     font:9px Poppins, Verdana, sans-serif;
     color:white;
+    font-weight: bold;
     margin-top:6px;
     margin-right:4px;
-    text-align:right;
+    text-align:center;
     font-weight:500;
   }
   
@@ -61,13 +61,13 @@
     position: absolute;
     z-index:4;
     width:25%;
-    margin-top:55px;
+    margin-top:50px;
     margin-left: 4px;
   }
   
   #info-button-widget {
     position:absolute;
-    margin-top:54px;
+    margin-top:48px;
     margin-left:48px;
     z-index:5;
     width:9%;
