@@ -140,6 +140,11 @@ let Co2okWidget = {
       `
               // console.log(widgetimg)
 
+      // 1. Remove widgetContainer
+      document.getElementById("widgetContainer").remove()
+      // 2. Append widgetcontainer to targeted div
+      jQuery("<div id='widgetContainer' style='width:180px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").appendTo(document.getElementsByClassName("col-md-pull-4")[0])
+
       let widgetcontainer = document.getElementById(widgetContainer)
       // let widgetcontainer = document.getElementsByClassName('whb-empty-column')[0]
 
