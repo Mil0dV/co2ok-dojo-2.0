@@ -104,7 +104,7 @@ let Co2okWidget = {
       if (lang == 'EN') {
         var reductietekst = 'CO₂ reduction'
         var compensatietekst = `This webshop prevented <strong>${compensatiewidget .toFixed(1)} </strong>tonnes of CO₂ emission <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`
-        var how_does_it_worktekst = 'How does CO₂ compensation work?'
+        var how_does_it_worktekst = 'How does CO₂ offsetting work?'
         var titletekst = 'Make my purchase Climate neutral!'
       }
       else {
