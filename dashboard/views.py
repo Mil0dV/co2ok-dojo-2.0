@@ -202,7 +202,7 @@ class UserView(viewsets.ModelViewSet):
                 total += transaction.compensation_cost
         
         # conversion from euro to kg CO2 compensated
-        return Response(round(total * 67))
+        return Response(round(total * 50))
 
 
     # def compnensationsData(self, request):
