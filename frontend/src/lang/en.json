@@ -302,7 +302,7 @@
 
   "Shopify_step0": "Visit <a href=\"https://apps.shopify.com/co2ok?locale=nl\" target=_\"blank\">the Shopify app install page</a> to start the installation",
   "Shopify_step1": "Click on 'Add app'.",
-  "Shopify_step2": "Enter your Shopify domain.",
+  "Shopify_step2": "if necessary, enter your Shopify domain.",
   "Shopify_step3": "We're waiting on Shopify for the final review step, but things are delayed at the moment. Rest assured it's tested thorougly!",
   "Shopify_step4": "Click on ’Install App’:",
   "Shopify_step5": "After a few moments the plugin will be installed, and you will be redirected to the installation page.",
