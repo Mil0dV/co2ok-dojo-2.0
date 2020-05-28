@@ -91,9 +91,9 @@ let Co2okWidgetXL = {
                   var compensatiewidget  = totalCompensatedData / 1000;
                 }
                 if (lang == 'EN')
-                  var compensatietekst = `This shop prevented <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)} ton CO<sub>₂</sub></span><br> emission`;
+                  var compensatietekst = `This shop prevented <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)} ton CO<sub>2</sub></span><br> emission`;
                 else
-                  var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)}t CO<sub>₂</sub></span><br> uitstoot voorkomen`;
+                  var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)}t CO<sub>2</sub></span><br> uitstoot voorkomen`;
                 
                   if (widgetSize == "L") {
                     var circleSize = 'width="1500" height="1000"> <circle cx="51" cy="39.5" r="38" fill="white">';
