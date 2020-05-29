@@ -63,26 +63,46 @@ let Co2okWidgetXL = {
     },
   
     uspInsertion: function () {
-    let usp_html = `<li class="grid__item">
+      let product_usp_html = `<li class="list__item">
+        <a href="https://douchezaak.nl/klantenservice/veelgestelde-vragen/#snellelevering" class="link link--dark-blue">
+          <div class="layout layout--x-small layout--center">
+            <div class="layout__item layout__item--fixed" style="width: 18px">
+              <img src=http://localhost:8080/widget/DZ-globe.png width=18px> 
+            </div>
+            <div class="layout__item">
+              Shop klimaatvriendelijk
+            </div>
+          </div>
+        </a>
+      </li>`
 
-    <a href="https://douchezaak.nl/klantenservice/veelgestelde-vragen/#snellelevering" class="link link--dark-blue">
-    <div class="layout layout--x-small layout--center">
-<div class="layout__item layout__item--fixed">
+      let home_usp_html = `<li class="grid__item">
+        <a href="https://douchezaak.nl/klantenservice/veelgestelde-vragen/#snellelevering" class="link link--dark-blue">
+          <div class="layout layout--x-small layout--center">
+            <div class="layout__item layout__item--fixed" style="width: 24px">
+              <img src=http://localhost:8080/widget/DZ-globe.png width=24px> 
+            </div>
+            <div class="layout__item">
+              Shop klimaatvriendelijk
+            </div>
+          </div>
+        </a>
+      </li>`
 
-<svg class="icon icon--large u-color--dark-blue">
-<use xlink:href="#fast-delivery"></use>
-</svg>
+      // if (window.location.pathname.split("/")[1] == "product")
+      if (window.location.pathname == "/")
+        jQuery('a[href$="snellelevering"]').parent().after(home_usp_html)
+      else
+        jQuery('a[href$="snellelevering"]').parent().after(product_usp_html)
 
-</div>
-<div class="layout__item">
-Shop klimaatvriendelijk                      </div>
-</div>
-    </a>
-</li>`
+    },
 
-      // TODO
-      jQuery('a[href$="snellelevering"]').parent().after(usp_html)
+    cfsTrustMarkInsertion: function () {
+      let cfs_html = `<li class="list__item">
+        <img src="http://localhost:8080/widget/cfs.png" style="width: 100px">
+      </li>`
 
+      jQuery(".wwk-logo--full").parent().after(cfs_html)
     },
 
     widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {
