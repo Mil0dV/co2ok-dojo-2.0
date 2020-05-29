@@ -88,30 +88,32 @@ let Co2okWidgetXL = {
         </a>
       </li>`
 
-      // if (window.location.pathname.split("/")[1] == "product")
       if (window.location.pathname == "/")
         jQuery('a[href$="snellelevering"]').parent().after(home_usp_html)
       else
         jQuery('a[href$="snellelevering"]').parent().after(product_usp_html)
-
+      
     },
-
+    
     cfsTrustMarkInsertion: function () {
       let cfs_html = `<li class="list__item">
         <img src="http://localhost:8080/widget/cfs.png" style="width: 100px">
       </li>`
-
+      
       jQuery(".wwk-logo--full").parent().after(cfs_html)
     },
-
+    
     insertWidget: function() {
       let widget_div = `<div id="widgetContainer" style="margin-top:25px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>`
-      jQuery('a[href$="https://www.feedbackcompany.com/nl-nl/reviews/douchezaak"]').parent().parent().after(widget_div)
+
+      let pagetype = window.location.pathname.split("/")[1]
+      if (pagetype == "product" || pagetype == "product-categorie")
+        jQuery('a[href$="https://www.feedbackcompany.com/nl-nl/reviews/douchezaak"]').parent().parent().after(widget_div)
     },
 
     widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {
       let  SITE_HOST =  'https://co2ok.eco'
-      // let SITE_HOST = 'http://localhost:8080'
+      // let SITE_HOST = 'http://localhost:8080'    
   
       var fileref=document.createElement("link")
       fileref.setAttribute("rel", "stylesheet")
