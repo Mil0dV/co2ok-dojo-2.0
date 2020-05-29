@@ -91,7 +91,7 @@ let Co2okWidgetXL = {
                   var compensatiewidget  = totalCompensatedData / 1000;
                 }
                 if (lang == 'EN') {
-                  var compensatietekst = `This shop prevented <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)} ton CO<sub>2</sub></span><br> emission`;
+                  var compensatietekst = `This shop prevented <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)} ton CO<sub>2</sub></span><br> emissions`;
                   var vliegen = "flying"
                 }
                 else {
