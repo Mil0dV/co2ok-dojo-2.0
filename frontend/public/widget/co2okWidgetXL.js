@@ -90,10 +90,14 @@ let Co2okWidgetXL = {
                     tofixed = 0;
                   var compensatiewidget  = totalCompensatedData / 1000;
                 }
-                if (lang == 'EN')
-                  var compensatietekst = `This shop prevented <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)} ton CO<sub>₂</sub></span><br> emission`;
-                else
-                  var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)}t CO<sub>₂</sub></span><br> uitstoot voorkomen`;
+                if (lang == 'EN') {
+                  var compensatietekst = `This shop prevented <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)} ton CO<sub>2</sub></span><br> emission`;
+                  var vliegen = "flying"
+                }
+                else {
+                  var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)}t CO<sub>2</sub></span><br> uitstoot voorkomen`;
+                  var vliegen = "vliegen"
+                }
                 
                   if (widgetSize == "L") {
                     var circleSize = 'width="1500" height="1000"> <circle cx="51" cy="39.5" r="38" fill="white">';
@@ -136,7 +140,7 @@ let Co2okWidgetXL = {
                     <span class ="large-widget-right-green"></span>
                     <svg id= "half-circle" ${circleSize} /></svg>
                     <p id="large-widget-text">${compensatietekst}</p>
-                    <p id="large-widget-xvliegen">= ${(compensatiewidget * 5000) .toFixed(0)} km<br>vliegen</p>
+                    <p id="large-widget-xvliegen">= ${(compensatiewidget * 5000) .toFixed(0)} km<br>${vliegen}</p>
                     <img id="co2ok-logo" src= "${SITE_HOST}/static/logo${colorSuffix}.png">
                     <a target="_blank" href="https://www.co2ok.eco/co2-compensatie"><img id="info-button-widget" src= "${SITE_HOST}/static/info${colorSuffix}.svg"></a>
                     <img id="large-widget-airplane" src= "${SITE_HOST}/widget/large-wiget-airplane.png">
