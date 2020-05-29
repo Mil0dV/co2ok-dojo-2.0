@@ -1,0 +1,144 @@
+/*
+* Widget
+*/
+.large-widget {
+    width: 400px;
+}
+.large-widget-right-green {
+    background: linear-gradient(180deg, #1DB0EF 0%, #15688B 100%);
+}
+
+#large-widget-airplane {
+    margin-top:55px;
+    margin-left:173px;
+}
+
+#info-button-widget {
+    margin-top:100px;
+    margin-left:68px;
+}
+
+#co2ok-logo {
+    margin-top:100px;
+    margin-left: 10px;
+    width: 20%;
+}
+
+#large-widget-text {
+    font:11px Poppins, Verdana, sans-serif;
+    color:#606468;
+    margin-top: 43px;
+    margin-left:10px;
+    z-index:3;
+}
+
+#large-widget-text-dz {
+    position: absolute;
+    font:11px Poppins, Verdana, sans-serif;
+    color:#606468;
+    margin-left:10px;
+    margin-top: 8px;
+    z-index:4;
+}
+
+/*
+* Infobox
+*/
+.co2ok_widget_infobox_container {
+    position: absolute;
+    width: 300px;
+    height:185px;
+    background: white;
+    border-radius: 15px;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+    font-size: 0.9em;
+    z-index: 999999;
+    display: none;
+    padding: 10px;
+    border: 4px solid #28db83;
+    border-image-slice: 1; }
+    @media (max-width: 768px) {
+
+    .co2ok_widget_infobox_container {
+        margin-left: -150px;
+        width: 300px; 
+    }
+}
+
+.co2ok_widget_infobox_container.ShowWidgetInfoBox {
+    display: block;
+    opacity: 1; 
+}
+
+.co2ok_widget_infobox_container .widget-inner-wrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px; 
+}
+
+.co2ok_widget_infobox_container .widget-inner-wrapper .widget-svg-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 58%;
+    align-items: center;
+    justify-content: center; 
+}
+
+.co2ok_widget_infobox_container .widget-inner-wrapper .widget-svg-img-large {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 55%;
+    align-items: center;
+    justify-content: center; 
+}
+
+.co2ok_widget_infobox_container .widget-inner-wrapper .selectable-text {
+    text-decoration: none;
+    font-weight: 300;
+    color: rgb(59, 56, 56);
+}
+
+.co2ok_widget_infobox_container .widget-inner-wrapper .selectable-text a:link, .co2ok_widget_infobox_container .widget-inner-wrapper .selectable-text a:visited, .co2ok_widget_infobox_container .widget-inner-wrapper .selectable-text a:hover, .co2ok_widget_infobox_container .widget-inner-wrapper .selectable-text a:active {
+color: rgb(59, 56, 56); 
+}
+
+.co2ok_widget_infobox_container .widget-inner-wrapper .widget-text-block {
+margin-top: 0px;
+font:12.5px 'Segoe UI',Tahoma, Arial, sans-serif; 
+line-height: normal;
+box-sizing: border-box;
+text-align: left;
+padding: 5px;
+border-radius: 5px;
+color: rgb(59, 56, 56);
+text-decoration: none; 
+}
+
+.co2ok_widget_infobox_container .widget-inner-wrapper .widget-text-block.greyBorder {
+    border-color: #b8b8b8; }
+.co2ok_widget_infobox_container a {
+    text-decoration: underline; 
+    font:13px 'Segoe UI',Tahoma, Arial, sans-serif; 
+}
+
+#widgetContainer {
+    justify-content: left !important;
+}
+
+.co2ok_widget_infobox_container img, .co2ok_widget_infobox_container span{
+display: inline-block;
+vertical-align: middle;
+color: #28db83;
+padding: 0px; }
+
+.co2ok_widget_infobox_container .minimal {
+background-color: black; 
+}

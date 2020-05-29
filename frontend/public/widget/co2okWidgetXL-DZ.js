@@ -26,11 +26,11 @@ let Co2okWidgetXL = {
         // get impact from cookie if available
         let co2ok_impact = Co2okWidgetXL.getCookieValue('co2ok_impact')
 
-        if (co2ok_impact > 1){
-          console.log('Collaborate and listen')
-          Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
-          return
-        }
+        // if (co2ok_impact > 1){
+        //   console.log('Collaborate and listen')
+        //   Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
+        //   return
+        // }
 
         // var widgetColor = "gray"
         // var widgetSize = "L"
@@ -39,7 +39,7 @@ let Co2okWidgetXL = {
         let xhr = Co2okWidgetXL.xhr()
         // let host = 'http://127.0.0.1:8000'
         let host = 'https://app.co2ok.eco'
-        xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=${merchantId}`, true)
+        xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=519dc2a3`, true)
         //    xhr.withCredentials = true;
            xhr.onreadystatechange = function(){
                if (this.readyState == 4 && this.status == 200){
@@ -47,8 +47,7 @@ let Co2okWidgetXL = {
                 // let totalTransactionData = (xhr.responseText / 1000).toFixed(1)
                 let totalTransactionData = xhr.responseText
                 // let totalTransactionData = 491
-  
-                console.log(totalTransactionData)
+
                 document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
                 Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
                    
@@ -105,100 +104,90 @@ let Co2okWidgetXL = {
       jQuery(".wwk-logo--full").parent().after(cfs_html)
     },
 
+    insertWidget: function() {
+      let widget_div = `<div id="widgetContainer" style="margin-top:25px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>`
+      jQuery('a[href$="https://www.feedbackcompany.com/nl-nl/reviews/douchezaak"]').parent().parent().after(widget_div)
+    },
+
     widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {
+      let  SITE_HOST =  'https://co2ok.eco'
+      // let SITE_HOST = 'http://localhost:8080'
   
-        // HT: FDD800
-        // CO2ok nu: 11D073
-        // Mijnkraamshop: D0C918
-        let color = "#D0C918"
-        // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-        let  SITE_HOST =  'https://co2ok.eco'
-        // let SITE_HOST = 'http://localhost:8080'
+      var fileref=document.createElement("link")
+      fileref.setAttribute("rel", "stylesheet")
+      fileref.setAttribute("type", "text/css")
+      fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
+      document.getElementsByTagName("head")[0].appendChild(fileref)
+      
+      if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
+        console.log('hammer time!')
+        return
+      }
+      var tofixed = 1;
+      if (totalCompensatedData < 100)
+        var compensatiewidget  = 0.1;
+      else {
+        if (totalCompensatedData > 99999)
+          tofixed = 0;
+        var compensatiewidget  = totalCompensatedData / 1000;
+      }
+      var compensatietekst = `We hebben <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)} ton CO<sub>2</sub></span><br> uitstoot voorkomen`;
+      var dz_tekst = 'Douchezaak geeft <br>om het klimaat!'
+
+      var circleSize = 'width="3500" height="4000"> <circle cx="95" cy="65" r="62" fill="white">';
+      var fileref=document.createElement("link")
+      fileref.setAttribute("rel", "stylesheet")
+      fileref.setAttribute("type", "text/css")
+      fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetXL.css`)
+      document.getElementsByTagName("head")[0].appendChild(fileref)
+      var fileref=document.createElement("link")
+      fileref.setAttribute("rel", "stylesheet")
+      fileref.setAttribute("type", "text/css")
+      fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetXL-DZ.css`)
+      document.getElementsByTagName("head")[0].appendChild(fileref)
+
+      let widgetmark = `
   
-        var fileref=document.createElement("link")
-        fileref.setAttribute("rel", "stylesheet")
-        fileref.setAttribute("type", "text/css")
-        fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
-        document.getElementsByTagName("head")[0].appendChild(fileref)
-        
-        if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
-          console.log('hammer time!')
-          return
-        }
-                var tofixed = 1;
-                if (totalCompensatedData < 100)
-                  var compensatiewidget  = 0.1;
-                else {
-                  if (totalCompensatedData > 9999)
-                    tofixed = 0;
-                  var compensatiewidget  = totalCompensatedData / 1000;
-                }
-                if (lang == 'EN')
-                  var compensatietekst = `This shop prevented <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)} ton CO<sub>2</sub></span><br> emission`;
-                else
-                  var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)}t CO<sub>2</sub></span><br> uitstoot voorkomen`;
-                
-                  if (widgetSize == "L") {
-                    var circleSize = 'width="1500" height="1000"> <circle cx="51" cy="39.5" r="38" fill="white">';
-                    var fileref=document.createElement("link")
-                    fileref.setAttribute("rel", "stylesheet")
-                    fileref.setAttribute("type", "text/css")
-                    fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetL.css`)
-                    document.getElementsByTagName("head")[0].appendChild(fileref)
-                 }
-                 else {
-                    var circleSize = 'width="3500" height="4000"> <circle cx="95" cy="65" r="62" fill="white">';
-                    var fileref=document.createElement("link")
-                    fileref.setAttribute("rel", "stylesheet")
-                    fileref.setAttribute("type", "text/css")
-                    fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetXL.css`)
-                    document.getElementsByTagName("head")[0].appendChild(fileref)
-                 }
+      <div class="large-widget">
+        <span class ="large-widget-right-green"></span>
+        <svg id= "half-circle" ${circleSize} /></svg>
+        <p id="large-widget-text-dz">${dz_tekst}</p>
+        <p id="large-widget-text">${compensatietekst}</p>
+        <p id="large-widget-xvliegen">= ${(compensatiewidget * 1000000 / 600) .toFixed(0)} X<br>douchen</p>
+        <img id="co2ok-logo" src= "${SITE_HOST}/static/logo.png">
+        <a target="_blank" href="https://www.co2ok.eco/co2-compensatie"><img id="info-button-widget" class="testclass info_button_widget_hover" src= "${SITE_HOST}/static/info-dz.svg"></a>
+        <img id="large-widget-airplane" src= "${SITE_HOST}/widget/douche.svg">
+      </div>
+      
+      <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
 
-                // Kleine of grote widget
+        <div class="widget-inner-wrapper">
+        <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
+        <p class="widget-text-block greyBorder">We hebben superveel CO2 voorkomen </p>
+        </a>
+        <img alt="Maak mijn aankoop klimaatneutraal" title="Maak mijn aankoop klimaatneutraal" src="${SITE_HOST}/widget/vliegtuig_hover.png" class="widget-svg-img  co2ok_info_hover_image">
+        </div>
 
-                if (widgetColor == "gray") {
-                   var colorSuffix = "-gray";
-                   var fileref=document.createElement("link")
-                   fileref.setAttribute("rel", "stylesheet")
-                   fileref.setAttribute("type", "text/css")
-                   fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetXL-gray.css`)
-                   document.getElementsByTagName("head")[0].appendChild(fileref)
-                }
-                else {
-                    var colorSuffix = "";
-                }
-                // Wordt de widget in grijs of groen weergegeven
+        <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img src="${SITE_HOST}/static/logo.png" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
+        <span class="widget-hover-link">
+        <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe werkt CO<sub>2</sub> compensatie?</a> </span>
+        </div>
 
+        <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
+      `
 
-                
-                let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
-                let widgetmark = `
-            
-                <div class="large-widget">
-                    <span class ="large-widget-right-green"></span>
-                    <svg id= "half-circle" ${circleSize} /></svg>
-                    <p id="large-widget-text">${compensatietekst}</p>
-                    <p id="large-widget-xvliegen">= ${(compensatiewidget * 5000) .toFixed(0)} km<br>vliegen</p>
-                    <img id="co2ok-logo" src= "${SITE_HOST}/static/logo${colorSuffix}.png">
-                    <a target="_blank" href="https://www.co2ok.eco/co2-compensatie"><img id="info-button-widget" src= "${SITE_HOST}/static/info${colorSuffix}.svg"></a>
-                    <img id="large-widget-airplane" src= "${SITE_HOST}/widget/large-wiget-airplane.png">
-              </div>
-              
-              `
-                // console.log(widgetimg)
-  
-        let widgetcontainer = document.getElementById(widgetContainer)
-        // let widgetcontainer = document.getElementsByClassName('whb-empty-column')[0]
+      
+      let widgetcontainer = document.getElementById(widgetContainer)
+      // let widgetcontainer = document.getElementsByClassName('whb-empty-column')[0]
 
-        // Don't try to place widget if there is no container
-        if(widgetcontainer == null){
-          return
-        }
+      // Don't try to place widget if there is no container
+      if(widgetcontainer == null){
+        return
+      }
 
-        widgetcontainer.innerHTML = widgetmark
-        this.RegisterWidgetInfoBox();
-        // this.ShowWidgetInfoBox();
+      widgetcontainer.innerHTML = widgetmark
+      
+      this.RegisterWidgetInfoBox();
     },
   
   
@@ -217,40 +206,38 @@ let Co2okWidgetXL = {
   
     
     placeWidgetInfoBox : function() {
-        // console.log('Platz? Lebensraum!')
-        var widgetInfoButton = jQuery(".co2ok_widget_info");
-        var widgetInfoBox = jQuery(".co2ok_widget_infobox_container");
-        var offset = widgetInfoButton.offset();
-  
-        widgetInfoBox.remove();
-        jQuery("body").append(widgetInfoBox);
-  
-        if (jQuery(window).width() < 480) {
-        // offset.left = offset.left - widgetInfoBox.width() / 4;
-        offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.height() - 9);
-        if ( offset.left < 0) offset.left = 10;
-        if ( offset.top < 0) offset.top = 10;
-        widgetInfoBox.css({
-            top: offset.top,
-            margin: "0 auto",
-            left: offset.left,
-            transform: "none"
-        });
-        } else {
-        offset.left = offset.left - widgetInfoBox.width() / 2;
-        if ( offset.left < 0) offset.left = 10;
-        offset.top = offset.top - (widgetInfoButton.height()) - widgetInfoBox.height() + 6;
-        widgetInfoBox.css({
-            top: offset.top,
-            left: offset.left,
-            margin: "0",
-            transform: "none"
-        });
-        }
+      var widgetInfoButton = jQuery(".large-widget");
+      var widgetInfoBox = jQuery(".co2ok_widget_infobox_container");
+      var offset = widgetInfoButton.offset();
+
+      widgetInfoBox.remove();
+      jQuery("body").append(widgetInfoBox);
+
+      if (jQuery(window).width() < 480) {
+      // offset.left = offset.left - widgetInfoBox.width() / 4;
+      offset.top = offset.top + widgetInfoButton.height();
+      if ( offset.left < 0) offset.left = 10;
+      if ( offset.top < 0) offset.top = 10;
+      widgetInfoBox.css({
+          top: offset.top,
+          margin: "0 auto",
+          left: offset.left,
+          transform: "none"
+      });
+      } else {
+      offset.left = offset.left - widgetInfoBox.width() / 2;
+      if ( offset.left < 0) offset.left = 10;
+      offset.top = offset.top + (widgetInfoButton.height() - 5);
+      widgetInfoBox.css({
+          top: offset.top,
+          left: offset.left,
+          margin: "0",
+          transform: "none"
+      });
+      }
     },
     ShowWidgetInfoBox  : function()
     {
-        // console.log("Show must go on")
       jQuery(".co2ok_widget_infobox_container").removeClass('infobox-hidden')
       jQuery(".co2ok_widget_infobox_container").addClass('ShowWidgetInfoBox')
       jQuery(".co2ok_widget_container").css({
@@ -273,15 +260,16 @@ let Co2okWidgetXL = {
   
     modalRegex: function(e)
     {
-       return jQuery(e.target).hasClass("widget-svg-img") ||
-       jQuery(e.target).hasClass("widget-svg-img-large") ||
-       jQuery(e.target).hasClass("logo_co2ok_widget") ||
-       jQuery(e.target).hasClass("widget-text-block") ||
-       jQuery(e.target).hasClass("widget-inner-wrapper") ||
-       jQuery(e.target).hasClass("co2ok_widget_info") ||
-       jQuery(e.target).hasClass("co2ok_widget_info_hitarea") ||
-       jQuery(e.target).hasClass("co2ok_widget_infobox_container") ||
-       jQuery(e.target).hasClass("widget-hover-link");
+       return jQuery(e.target).hasClass("info_button_widget_hover") ||
+        jQuery(e.target).hasClass("widget-svg-img") ||
+        jQuery(e.target).hasClass("widget-svg-img-large") ||
+        jQuery(e.target).hasClass("logo_co2ok_widget") ||
+        jQuery(e.target).hasClass("widget-text-block") ||
+        jQuery(e.target).hasClass("widget-inner-wrapper") ||
+        jQuery(e.target).hasClass("co2ok_widget_info") ||
+        jQuery(e.target).hasClass("co2ok_widget_info_hitarea") ||
+        jQuery(e.target).hasClass("co2ok_widget_infobox_container") ||
+        jQuery(e.target).hasClass("widget-hover-link");
     },
   
     RegisterWidgetInfoBox : function()
@@ -335,7 +323,12 @@ let Co2okWidgetXL = {
           });
       }
   }
-  
-  }
-  // export default new Co2okWidget()
-  
+}
+
+jQuery(document).ready(function() {
+  console.log("CO2ok is fighting climate change!")
+  Co2okWidgetXL.insertWidget();
+  Co2okWidgetXL.merchantCompensations('widgetContainer', '0', 'XL', 'default')
+  Co2okWidgetXL.uspInsertion();
+  Co2okWidgetXL.cfsTrustMarkInsertion();
+})
