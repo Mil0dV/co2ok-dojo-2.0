@@ -63,29 +63,25 @@ let Co2okWidgetXL = {
   
     uspInsertion: function () {
       let product_usp_html = `<li class="list__item">
-        <a href="https://douchezaak.nl/klantenservice/veelgestelde-vragen/#snellelevering" class="link link--dark-blue">
-          <div class="layout layout--x-small layout--center">
-            <div class="layout__item layout__item--fixed" style="width: 18px">
-              <img src=http://localhost:8080/widget/DZ-globe.png width=18px> 
-            </div>
-            <div class="layout__item">
-              Shop klimaatvriendelijk
-            </div>
+        <div class="layout layout--x-small layout--center">
+          <div class="layout__item layout__item--fixed" style="width: 18px">
+            <img src=http://localhost:8080/widget/DZ-globe.png width=18px> 
           </div>
-        </a>
+          <div class="layout__item">
+            Shop klimaatvriendelijk
+          </div>
+        </div>
       </li>`
 
       let home_usp_html = `<li class="grid__item">
-        <a href="https://douchezaak.nl/klantenservice/veelgestelde-vragen/#snellelevering" class="link link--dark-blue">
-          <div class="layout layout--x-small layout--center">
-            <div class="layout__item layout__item--fixed" style="width: 24px">
-              <img src=http://localhost:8080/widget/DZ-globe.png width=24px> 
-            </div>
-            <div class="layout__item">
-              Shop klimaatvriendelijk
-            </div>
+        <div class="layout layout--x-small layout--center">
+          <div class="layout__item layout__item--fixed" style="width: 24px">
+            <img src=http://localhost:8080/widget/DZ-globe.png width=24px> 
           </div>
-        </a>
+          <div class="layout__item">
+            Shop klimaatvriendelijk
+          </div>
+        </div>
       </li>`
 
       if (window.location.pathname == "/")
@@ -104,7 +100,7 @@ let Co2okWidgetXL = {
     },
     
     insertWidget: function() {
-      let widget_div = `<div id="widgetContainer" style="margin-top:25px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>`
+      let widget_div = `<div id="widgetContainer" style="margin-top:25px;margin-left:18px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>`
 
       let pagetype = window.location.pathname.split("/")[1]
       if (pagetype == "product" || pagetype == "product-categorie")
@@ -112,19 +108,15 @@ let Co2okWidgetXL = {
     },
 
     widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {
-      let  SITE_HOST =  'https://co2ok.eco'
-      // let SITE_HOST = 'http://localhost:8080'    
+      // let  SITE_HOST =  'https://co2ok.eco'
+      let SITE_HOST = 'http://localhost:8080'    
   
-      var fileref=document.createElement("link")
-      fileref.setAttribute("rel", "stylesheet")
-      fileref.setAttribute("type", "text/css")
-      fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
-      document.getElementsByTagName("head")[0].appendChild(fileref)
-      
-      if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
-        console.log('hammer time!')
-        return
-      }
+      // var fileref=document.createElement("link")
+      // fileref.setAttribute("rel", "stylesheet")
+      // fileref.setAttribute("type", "text/css")
+      // fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
+      // document.getElementsByTagName("head")[0].appendChild(fileref)
+     
       var tofixed = 1;
       if (totalCompensatedData < 100)
         var compensatiewidget  = 0.1;
@@ -148,6 +140,11 @@ let Co2okWidgetXL = {
       fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetXL-DZ.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
 
+      if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
+        console.log('hammer time!')
+        return
+      }
+
       let widgetmark = `
   
       <div class="large-widget">
@@ -155,12 +152,41 @@ let Co2okWidgetXL = {
         <svg id= "half-circle" ${circleSize} /></svg>
         <p id="large-widget-text-dz">${dz_tekst}</p>
         <p id="large-widget-text">${compensatietekst}</p>
-        <p id="large-widget-xvliegen">= ${(compensatiewidget * 1000000 / 600) .toFixed(0)} X<br>douchen</p>
+        <p id="large-widget-xvliegen">= ${(compensatiewidget * 1000000 / 500) .toFixed(0)} X<br>douchen</p>
         <img id="co2ok-logo" src= "${SITE_HOST}/static/logo.png">
-        <a target="_blank" href="https://www.co2ok.eco/co2-compensatie"><img id="info-button-widget" class="testclass info_button_widget_hover" src= "${SITE_HOST}/static/info-dz.svg"></a>
+        <img id="info-button-widget" class="testclass info_button_widget_hover" src= "${SITE_HOST}/static/info-dz.svg">
         <img id="large-widget-airplane" src= "${SITE_HOST}/widget/douche.svg">
       </div>
       
+      <div class="co2ok_widget_infobox_container co2ok-popper infobox-hidden" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
+
+      <div class="inner-wrapper">
+      <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
+      <p class="text-block greyBorder">Douchezaak gelooft in minder verspilling, door het aanbieden van producten die (levens)lang mee gaan. Verder werken we hard aan onze verpakkingen en leveringen nóg verder verduurzamen.</p>
+      </a>
+              </div>
+
+      <div class="inner-wrapper">
+      <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " class="svg-img-large   co2ok_info_hover_image" src="http://localhost:8080/widget/heart-earth.png">        <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
+      <p class="text-block greyBorder">Verder bieden we i.s.m. CO₂ok de mogelijkheid om de klimaatimpact van de productie van je aankoop te compenseren.</p>
+      </a>
+      </div>
+
+      <div class="inner-wrapper">
+      <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
+      <p class="text-block">Zo shop jij klimaatneutraal!</p>
+      </a>
+      </div>
+
+      <a class="hover-link" target="_blank" href="http://co2ok.eco"><img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="images/logo.svg" class="co2ok_logo_default_info hover-link co2ok_logo_default_info"></a>
+      <span class="hover-link" style="margin-top: 9px;">
+        <a class="hover-link" target="_blank" href="https://www.co2ok.eco/co2-compensatie" style="margin-left: 80px;margin-top: 17px;">Hoe CO₂ compensatie werkt</a> </span>
+      </div>
+
+      `
+
+
+      let old_hover = `
       <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
 
         <div class="widget-inner-wrapper">
@@ -176,6 +202,10 @@ let Co2okWidgetXL = {
         </div>
 
         <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
+
+        
+
+        
       `
 
       
@@ -240,6 +270,7 @@ let Co2okWidgetXL = {
     },
     ShowWidgetInfoBox  : function()
     {
+      console.log('the show must go on')
       jQuery(".co2ok_widget_infobox_container").removeClass('infobox-hidden')
       jQuery(".co2ok_widget_infobox_container").addClass('ShowWidgetInfoBox')
       jQuery(".co2ok_widget_container").css({
@@ -276,7 +307,7 @@ let Co2okWidgetXL = {
   
     RegisterWidgetInfoBox : function()
     {
-      console.log('it begins')
+      // console.log('it begins')
       var _this = this;
   
       jQuery(".co2ok_widget_info_keyboardarea").focus(function(){

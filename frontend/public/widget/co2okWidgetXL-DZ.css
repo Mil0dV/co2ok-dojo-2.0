@@ -37,3 +37,79 @@
     margin-top: 8px;
     z-index:4;
 }
+
+.co2ok_widget_infobox_container {
+    position: absolute;
+    width: 350px;
+    background: white;
+    border-radius: 15px;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+    font-size: 0.9em;
+    z-index: 999999;
+    display: none;
+    padding: 10px;
+    border: 3px solid #eee;
+    border-image-slice: 1; }
+    @media (max-width: 768px) {
+      .co2ok_widget_infobox_container {
+        margin-left: -150px;
+        width: 300px; } }
+    .co2ok_widget_infobox_container.ShowInfoBox {
+      display: block;
+      opacity: 1; }
+    .co2ok_widget_infobox_container .inner-wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px; }
+      .co2ok_widget_infobox_container .inner-wrapper .svg-img {
+        display: flex;
+        justify-content: center;
+        /* align horizontal */
+        align-items: center;
+        /* align vertical */
+        height: 50%;
+        width: 58%;
+        align-items: center;
+        justify-content: center; }
+      .co2ok_widget_infobox_container .inner-wrapper .svg-img-large {
+        display: flex;
+        justify-content: center;
+        /* align horizontal */
+        align-items: center;
+        /* align vertical */
+        height: 60%;
+        width: 65%;
+        align-items: center;
+        justify-content: center; }
+      .co2ok_widget_infobox_container .inner-wrapper .selectable-text {
+        text-decoration: none;
+        font-weight: 100;
+        color: black;
+        /* unvisited, visited, mouse over and selected link */ }
+        .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:link, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:visited, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:hover, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:active {
+          color: black; }
+      .co2ok_widget_infobox_container .inner-wrapper .text-block {
+        margin: 0px;
+        font-size: 1em;
+        line-height: normal;
+        box-sizing: border-box;
+        text-align: left;
+        padding: 5px;
+        border-radius: 5px;
+        border: 2px solid #28db83;
+        text-decoration: none; }
+        .co2ok_widget_infobox_container .inner-wrapper .text-block.greyBorder {
+          border-color: #b8b8b8; }
+    .co2ok_widget_infobox_container a {
+      text-decoration: underline; }
+    .co2ok_widget_infobox_container img, .co2ok_widget_infobox_container span {
+      display: inline-block;
+      vertical-align: middle;
+      color: #979797;
+      padding: 0px; }
+    .co2ok_widget_infobox_container .minimal {
+      background-color: black; }
