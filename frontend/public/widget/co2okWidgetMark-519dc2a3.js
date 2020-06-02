@@ -113,7 +113,7 @@ let Co2okWidgetXL = {
 
     widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {
       // let  SITE_HOST =  'https://co2ok.eco'
-      let SITE_HOST = 'https://co2ok.eco'    
+      let SITE_HOST = 'http://localhost:8080/'
   
       // var fileref=document.createElement("link")
       // fileref.setAttribute("rel", "stylesheet")
@@ -296,6 +296,7 @@ let Co2okWidgetXL = {
   
     modalRegex: function(e)
     {
+      console.log(jQuery(e.target).hasClass("usp_hover"))
        return jQuery(e.target).hasClass("info_button_widget_hover") ||
         jQuery(e.target).hasClass("svg-img") ||
         jQuery(e.target).hasClass("svg-img-large") ||
