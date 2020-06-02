@@ -158,31 +158,31 @@ let Co2okWidgetXL = {
         <img id="large-widget-airplane" src= "${SITE_HOST}/widget/douche.svg">
       </div>
       
+      
       <div class="co2ok_widget_infobox_container co2ok-popper infobox-hidden" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
 
       <div class="inner-wrapper">
       <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-      <p class="text-block greyBorder">Douchezaak gelooft in minder verspilling, door het aanbieden van producten die (levens)lang mee gaan. Verder werken we hard aan onze verpakkingen en leveringen nóg verder verduurzamen.</p>
+      <p class="text-block greyBorder">Douchezaak geloof in het tegengaan van verspilling. Onze degelijke producten die een leven lang meegaan, zijn hier een voorbeeld van. Daarnaast werken we hard aan het verduurzamen van gebruikte verpakkingsmaterialen en leveringen.</p>
       </a>
               </div>
 
       <div class="inner-wrapper">
-      <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " class="svg-img-large   co2ok_info_hover_image" src="http://localhost:8080/widget/heart-earth.png">        <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-      <p class="text-block greyBorder">Verder bieden we i.s.m. CO₂ok de mogelijkheid om de klimaatimpact van de productie van je aankoop te compenseren.</p>
+      <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " class="svg-img-large   co2ok_info_hover_image" src="http://localhost:8080/widget/DZ-heart-earth.png">        <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
+      <p class="text-block greyBorder">Dankzij onze partner CO2ok kunt ook u een directe bijdrage leveren door de klimaatimpact van productie en transport uw aankoop te compenseren'</p>
       </a>
       </div>
 
       <div class="inner-wrapper">
-      <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
+      <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text-two" style="outline: none; -webkit-appearance: none;">
       <p class="text-block">Zo shop jij klimaatneutraal!</p>
       </a>
       </div>
 
-      <a class="hover-link" target="_blank" href="http://co2ok.eco"><img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="images/logo.svg" class="co2ok_logo_default_info hover-link co2ok_logo_default_info"></a>
-      <span class="hover-link" style="margin-top: 9px;">
-        <a class="hover-link" target="_blank" href="https://www.co2ok.eco/co2-compensatie" style="margin-left: 80px;margin-top: 17px;">Hoe CO₂ compensatie werkt</a> </span>
+      <a class="hover-link" target="_blank" href="http://co2ok.eco"><img alt="Maak mijn aankoop klimaatneutraal" title="Maak mijn aankoop klimaatneutraal" src="${SITE_HOST}/static/logo.png" class="co2ok_logo_default_info hover-link co2ok_logo_default_info"></a>
+        <span class="hover-link">
+        <a  class="hover-link" style="margin-left: 10px; margin-top: 100px;" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe werkt CO<sub>2</sub> compensatie?</a> </span>
       </div>
-
       `
 
 
@@ -270,7 +270,6 @@ let Co2okWidgetXL = {
     },
     ShowWidgetInfoBox  : function()
     {
-      console.log('the show must go on')
       jQuery(".co2ok_widget_infobox_container").removeClass('infobox-hidden')
       jQuery(".co2ok_widget_infobox_container").addClass('ShowWidgetInfoBox')
       jQuery(".co2ok_widget_container").css({
@@ -294,15 +293,15 @@ let Co2okWidgetXL = {
     modalRegex: function(e)
     {
        return jQuery(e.target).hasClass("info_button_widget_hover") ||
-        jQuery(e.target).hasClass("widget-svg-img") ||
-        jQuery(e.target).hasClass("widget-svg-img-large") ||
+        jQuery(e.target).hasClass("svg-img") ||
+        jQuery(e.target).hasClass("svg-img-large") ||
         jQuery(e.target).hasClass("logo_co2ok_widget") ||
-        jQuery(e.target).hasClass("widget-text-block") ||
-        jQuery(e.target).hasClass("widget-inner-wrapper") ||
+        jQuery(e.target).hasClass("text-block") ||
+        jQuery(e.target).hasClass("inner-wrapper") ||
         jQuery(e.target).hasClass("co2ok_widget_info") ||
         jQuery(e.target).hasClass("co2ok_widget_info_hitarea") ||
         jQuery(e.target).hasClass("co2ok_widget_infobox_container") ||
-        jQuery(e.target).hasClass("widget-hover-link");
+        jQuery(e.target).hasClass("hover-link");
     },
   
     RegisterWidgetInfoBox : function()
