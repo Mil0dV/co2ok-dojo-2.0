@@ -65,7 +65,7 @@ let Co2okWidgetXL = {
       let product_usp_html = `<li class="list__item">
         <div class="layout layout--x-small layout--center">
           <div class="layout__item layout__item--fixed" style="width: 18px">
-            <img src=http://localhost:8080/widget/DZ-globe.png width=18px> 
+            <img src=https://co2ok.eco/widget/DZ-globe.png width=18px> 
           </div>
           <div class="layout__item">
             Shop klimaatvriendelijk
@@ -76,7 +76,7 @@ let Co2okWidgetXL = {
       let home_usp_html = `<li class="grid__item">
         <div class="layout layout--x-small layout--center">
           <div class="layout__item layout__item--fixed" style="width: 24px">
-            <img src=http://localhost:8080/widget/DZ-globe.png width=24px> 
+            <img src=https://co2ok.eco/widget/DZ-globe.png width=24px> 
           </div>
           <div class="layout__item">
             Shop klimaatvriendelijk
@@ -93,7 +93,7 @@ let Co2okWidgetXL = {
     
     cfsTrustMarkInsertion: function () {
       let cfs_html = `<li class="list__item">
-        <img src="http://localhost:8080/widget/cfs.png" style="width: 100px">
+        <img src="https://co2ok.eco/widget/cfs.png" style="width: 100px">
       </li>`
       
       jQuery(".wwk-logo--full").parent().after(cfs_html)
@@ -109,7 +109,7 @@ let Co2okWidgetXL = {
 
     widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {
       // let  SITE_HOST =  'https://co2ok.eco'
-      let SITE_HOST = 'http://localhost:8080'    
+      let SITE_HOST = 'https://co2ok.eco'    
   
       // var fileref=document.createElement("link")
       // fileref.setAttribute("rel", "stylesheet")
@@ -168,8 +168,8 @@ let Co2okWidgetXL = {
               </div>
 
       <div class="inner-wrapper">
-      <img alt="Douchezaak geeft om het klimaat! " title="Douchezaak geeft om het klimaat! " class="svg-img-large   co2ok_info_hover_image" src="http://localhost:8080/widget/DZ-heart-earth.png">        <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-      <p class="text-block greyBorder">Dankzij onze partner CO2ok kunt ook u een directe bijdrage leveren door de klimaatimpact van productie en transport uw aankoop te compenseren</p>
+      <img alt="Douchezaak geeft om het klimaat! " title="Douchezaak geeft om het klimaat! " class="svg-img-large   co2ok_info_hover_image" src="https://co2ok.eco/widget/DZ-heart-earth.png">        <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
+      <p class="text-block greyBorder">Dankzij onze partner CO₂ok kunt ook u een directe bijdrage leveren door de klimaatimpact van productie en transport uw aankoop te compenseren.</p>
       </a>
       </div>
 
