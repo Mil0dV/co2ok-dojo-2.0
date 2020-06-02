@@ -95,27 +95,23 @@ let Co2okWidgetXL = {
   
     uspInsertion: function () {
       let product_usp_html = `<li class="list__item">
-        <div class="usp_hover">
-          <div class="layout layout--x-small layout--center">
-            <div class="layout__item layout__item--fixed" style="width: 18px">
-              <img src=https://co2ok.eco/widget/DZ-globe.png width=18px> 
-            </div>
-            <div class="layout__item">
-              Shop klimaatvriendelijk
-            </div>
+        <div class="layout layout--x-small layout--center">
+          <div class="layout__item layout__item--fixed" style="width: 18px">
+            <img src=https://co2ok.eco/widget/DZ-globe.png width=18px> 
+          </div>
+          <div class="layout__item usp_hover">
+            Shop klimaatvriendelijk
           </div>
         </div>
       </li>`
 
       let home_usp_html = `<li class="grid__item">
-        <div class="usp_hover">
-          <div class="layout layout--x-small layout--center">
-            <div class="layout__item layout__item--fixed" style="width: 24px">
-              <img src=https://co2ok.eco/widget/DZ-globe.png width=24px> 
-            </div>
-            <div class="layout__item">
-              Shop klimaatvriendelijk
-            </div>
+        <div class="layout layout--x-small layout--center">
+          <div class="layout__item layout__item--fixed" style="width: 24px">
+            <img src=https://co2ok.eco/widget/DZ-globe.png width=24px> 
+          </div>
+          <div class="layout__item usp_hover">
+            Shop klimaatvriendelijk
           </div>
         </div>
       </li>`
@@ -129,7 +125,7 @@ let Co2okWidgetXL = {
     
     cfsTrustMarkInsertion: function () {
       let cfs_html = `<li class="list__item">
-        <img src="https://co2ok.eco/widget/cfs.png" style="width: 100px">
+        <img class="cfs_hover" src="https://co2ok.eco/widget/cfs.png" style="width: 100px">
       </li>`
       
       jQuery(".wwk-logo--full").parent().after(cfs_html)
@@ -249,39 +245,111 @@ let Co2okWidgetXL = {
     
   
     
-    placeWidgetInfoBox : function() {
-      var widgetInfoButton = jQuery(".large-widget");
-      var widgetInfoBox = jQuery(".co2ok_widget_infobox_container");
-      var offset = widgetInfoButton.offset();
+    placeWidgetInfoBox : function(id) {
+      if (id == 2)
+      {
+        var uspBox = jQuery(".usp_hover");
+        var uspInfoHover = jQuery(".co2ok_widget_infobox_container");
+        var offset = uspBox.offset();
 
-      widgetInfoBox.remove();
-      jQuery("body").append(widgetInfoBox);
+        uspInfoHover.remove();
+        jQuery("body").append(uspInfoHover);
 
-      if (jQuery(window).width() < 480) {
-        offset.left = offset.left - widgetInfoBox.width() / 7;
-        offset.top = offset.top + widgetInfoButton.height();
-        if ( offset.left < 0) offset.left = 10;
-        if ( offset.top < 0) offset.top = 10;
-        widgetInfoBox.css({
-            top: offset.top,
-            margin: "0 auto",
-            left: offset.left,
-            transform: "none"
-      });
-      } else {
-        offset.left = offset.left - widgetInfoBox.width() / 4;
-        if ( offset.left < 0) offset.left = 10;
-        offset.top = offset.top + (widgetInfoButton.height() - 5);
-        widgetInfoBox.css({
-            top: offset.top,
-            left: offset.left,
-            margin: "0",
-            transform: "none"
+        if (jQuery(window).width() < 480) {
+          offset.top = offset.top + 20
+          offset.left -= 25
+          if ( offset.left < 0) offset.left = 10;
+          if ( offset.top < 0) offset.top = 10;
+          uspInfoHover.css({
+              top: offset.top,
+              margin: "0 auto",
+              left: offset.left,
+              transform: "none"
         });
+        } else {
+          offset.top = offset.top + 20
+          offset.left -= 25
+          if ( offset.left < 0) offset.left = 10;
+          if ( offset.top < 0) offset.top = 10;
+          uspInfoHover.css({
+              top: offset.top,
+              left: offset.left,
+              margin: "0",
+              transform: "none"
+          });
+        }
       }
+      else if (id == 3)
+      {
+        var cfsBox = jQuery(".cfs_hover");
+        var cfsInfoHover = jQuery(".co2ok_widget_infobox_container");
+        var offset = cfsBox.offset();
+
+        cfsInfoHover.remove();
+        jQuery("body").append(cfsInfoHover);
+
+        if (jQuery(window).width() < 480) {
+          offset.left -= cfsInfoHover.width();
+          offset.top -= 350 
+          if ( offset.left < 0) offset.left = 10;
+          if ( offset.top < 0) offset.top = 10;
+          cfsInfoHover.css({
+              top: offset.top,
+              margin: "0 auto",
+              left: offset.left,
+              transform: "none"
+        });
+        } else {
+          offset.top -= 350
+          if ( offset.left < 0) offset.left = 10;
+          if ( offset.top < 0) offset.top = 10;
+          cfsInfoHover.css({
+              top: offset.top,
+              left: offset.left,
+              margin: "0",
+              transform: "none"
+          });
+        }
+      }
+      else if (id == 1)
+      {
+        var widgetInfoButton = jQuery(".large-widget");
+        var widgetInfoBox = jQuery(".co2ok_widget_infobox_container");
+        var offset = widgetInfoButton.offset();
+
+        widgetInfoBox.remove();
+        jQuery("body").append(widgetInfoBox);
+
+        if (jQuery(window).width() < 480) {
+          offset.left = offset.left - widgetInfoBox.width() / 7;
+          offset.top = offset.top + widgetInfoButton.height();
+          if ( offset.left < 0) offset.left = 10;
+          if ( offset.top < 0) offset.top = 10;
+          widgetInfoBox.css({
+              top: offset.top,
+              margin: "0 auto",
+              left: offset.left,
+              transform: "none"
+        });
+        } else {
+          offset.left = offset.left - widgetInfoBox.width() / 4;
+          if ( offset.left < 0) offset.left = 10;
+          offset.top = offset.top + (widgetInfoButton.height() - 5);
+          widgetInfoBox.css({
+              top: offset.top,
+              left: offset.left,
+              margin: "0",
+              transform: "none"
+          });
+        }
+      }
+      else
+        return ;
     },
-    ShowWidgetInfoBox  : function()
+    ShowWidgetInfoBox  : function(id)
     {
+      if (id <= 0)
+        return ;
       jQuery(".co2ok_widget_infobox_container").removeClass('infobox-hidden')
       jQuery(".co2ok_widget_infobox_container").addClass('ShowWidgetInfoBox')
       jQuery(".co2ok_widget_container").css({
@@ -293,8 +361,10 @@ let Co2okWidgetXL = {
       //   }
     },
   
-    hideWidgetInfoBox : function()
+    hideWidgetInfoBox : function(id)
     {
+      if (id > 0)
+        return ;
       jQuery(".co2ok_widget_infobox_container").removeClass('ShowWidgetInfoBox')
       jQuery(".co2ok_widget_infobox_container").addClass('infobox-hidden')
       jQuery(".co2ok_widget_container").css({
@@ -302,11 +372,15 @@ let Co2okWidgetXL = {
       });
     },
   
-    modalRegex: function(e)
+    modalRegex: function(e, id)
     {
-      console.log(jQuery(e.target).hasClass("usp_hover"))
-       return jQuery(e.target).hasClass("info_button_widget_hover") ||
-        jQuery(e.target).hasClass("svg-img") ||
+      if (jQuery(e.target).hasClass("cfs_hover"))
+        return (3);
+      else if (jQuery(e.target).hasClass("usp_hover"))
+        return (2);
+      else if (jQuery(e.target).hasClass("info_button_widget_hover"))
+        return (1)
+      else if (jQuery(e.target).hasClass("svg-img") ||
         jQuery(e.target).hasClass("svg-img-large") ||
         jQuery(e.target).hasClass("logo_co2ok_widget") ||
         jQuery(e.target).hasClass("text-block") ||
@@ -314,15 +388,17 @@ let Co2okWidgetXL = {
         jQuery(e.target).hasClass("co2ok_widget_info") ||
         jQuery(e.target).hasClass("co2ok_widget_info_hitarea") ||
         jQuery(e.target).hasClass("co2ok_widget_infobox_container") ||
-        jQuery(e.target).hasClass("usp_hover") ||
-        jQuery(e.target).hasClass("cfs_hover") ||
-        jQuery(e.target).hasClass("hover-link");
+        jQuery(e.target).hasClass("hover-link"))
+        return (id);
+      else
+        return (0)
     },
   
     RegisterWidgetInfoBox : function()
     {
       // console.log('it begins')
       var _this = this;
+      var id = 0;
   
       jQuery(".co2ok_widget_info_keyboardarea").focus(function(){
           _this.ShowWidgetInfoBox();
@@ -331,25 +407,16 @@ let Co2okWidgetXL = {
   
       jQuery('body').click(function(e)
       {
-        if(!_this.modalRegex(e))
-        {
-          _this.hideWidgetInfoBox();
-        }
-        else {
-          _this.ShowWidgetInfoBox();
-        }
-  
+        id = _this.modalRegex(e, id);
+        _this.hideWidgetInfoBox(id);
+        _this.ShowWidgetInfoBox(id);
       });
   
       jQuery('body').on("touchstart",function(e){
-  
-        if(!_this.modalRegex(e)){
-          _this.hideWidgetInfoBox();
-        }
-        else {
-          _this.placeWidgetInfoBox()
-          _this.ShowWidgetInfoBox();
-        }
+        id = _this.modalRegex(e, id);
+        _this.hideWidgetInfoBox(id);
+        _this.placeWidgetInfoBox(id)
+        _this.ShowWidgetInfoBox(id);
       });
   
       if(!this.isMobile())
@@ -359,15 +426,11 @@ let Co2okWidgetXL = {
         });
   
         jQuery(document).mouseover(function(e) {
-            if (!(_this.modalRegex(e)))
-            {
-              _this.hideWidgetInfoBox();
-            }
-            else {
-              _this.placeWidgetInfoBox();
-              _this.ShowWidgetInfoBox();
-            }
-          });
+          id = _this.modalRegex(e, id);
+          _this.hideWidgetInfoBox(id);
+          _this.placeWidgetInfoBox(id);
+          _this.ShowWidgetInfoBox(id);
+        });
       }
   }
 }
