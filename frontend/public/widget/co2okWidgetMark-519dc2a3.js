@@ -63,23 +63,27 @@ let Co2okWidgetXL = {
   
     uspInsertion: function () {
       let product_usp_html = `<li class="list__item">
-        <div class="layout layout--x-small layout--center">
-          <div class="layout__item layout__item--fixed" style="width: 18px">
-            <img src=https://co2ok.eco/widget/DZ-globe.png width=18px> 
-          </div>
-          <div class="layout__item">
-            Shop klimaatvriendelijk
+        <div class="usp_hover">
+          <div class="layout layout--x-small layout--center">
+            <div class="layout__item layout__item--fixed" style="width: 18px">
+              <img src=https://co2ok.eco/widget/DZ-globe.png width=18px> 
+            </div>
+            <div class="layout__item">
+              Shop klimaatvriendelijk
+            </div>
           </div>
         </div>
       </li>`
 
       let home_usp_html = `<li class="grid__item">
-        <div class="layout layout--x-small layout--center">
-          <div class="layout__item layout__item--fixed" style="width: 24px">
-            <img src=https://co2ok.eco/widget/DZ-globe.png width=24px> 
-          </div>
-          <div class="layout__item">
-            Shop klimaatvriendelijk
+        <div class="usp_hover">
+          <div class="layout layout--x-small layout--center">
+            <div class="layout__item layout__item--fixed" style="width: 24px">
+              <img src=https://co2ok.eco/widget/DZ-globe.png width=24px> 
+            </div>
+            <div class="layout__item">
+              Shop klimaatvriendelijk
+            </div>
           </div>
         </div>
       </li>`
@@ -301,6 +305,8 @@ let Co2okWidgetXL = {
         jQuery(e.target).hasClass("co2ok_widget_info") ||
         jQuery(e.target).hasClass("co2ok_widget_info_hitarea") ||
         jQuery(e.target).hasClass("co2ok_widget_infobox_container") ||
+        jQuery(e.target).hasClass("usp_hover") ||
+        jQuery(e.target).hasClass("cfs_hover") ||
         jQuery(e.target).hasClass("hover-link");
     },
   
