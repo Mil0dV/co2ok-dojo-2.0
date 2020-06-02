@@ -169,7 +169,7 @@ let Co2okWidgetXL = {
 
       <div class="inner-wrapper">
       <img alt="Douchezaak geeft om het klimaat! " title="Douchezaak geeft om het klimaat! " class="svg-img-large   co2ok_info_hover_image" src="https://co2ok.eco/widget/DZ-heart-earth.png">        <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-      <p class="text-block greyBorder">Dankzij onze partner CO₂ok kunt ook u een directe bijdrage leveren door de klimaatimpact van productie en transport uw aankoop te compenseren.</p>
+      <p class="text-block greyBorder">Dankzij onze partner CO₂ok kunt ook u een directe bijdrage leveren door de klimaatimpact van productie en transport van uw aankoop te compenseren.</p>
       </a>
       </div>
 
