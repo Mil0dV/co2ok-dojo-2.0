@@ -128,7 +128,7 @@ let Co2okWidgetXL = {
       var compensatietekst = `We hebben <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)} ton CO<sub>2</sub></span><br> uitstoot voorkomen`;
       var dz_tekst = 'Douchezaak geeft <br>om het klimaat!'
 
-      var circleSize = 'width="3500" height="4000"> <circle cx="95" cy="65" r="62" fill="white">';
+      var circleSize = '> <circle cx="95" cy="65" r="62" fill="white">';
       var fileref=document.createElement("link")
       fileref.setAttribute("rel", "stylesheet")
       fileref.setAttribute("type", "text/css")
