@@ -85,7 +85,7 @@ let Co2okWidgetXL = {
                     document.getElementsByTagName("head")[0].appendChild(fileref)
                  }
                  else {
-                    var circleSize = 'width="3500" height="4000"> <circle cx="95" cy="65" r="62" fill="white">';
+                    var circleSize = '> <circle cx="95" cy="65" r="62" fill="white">';
                     var fileref=document.createElement("link")
                     fileref.setAttribute("rel", "stylesheet")
                     fileref.setAttribute("type", "text/css")
