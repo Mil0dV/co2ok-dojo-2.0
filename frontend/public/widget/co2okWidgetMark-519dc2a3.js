@@ -163,13 +163,13 @@ let Co2okWidgetXL = {
 
       <div class="inner-wrapper">
       <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-      <p class="text-block greyBorder">Douchezaak geloof in het tegengaan van verspilling. Onze degelijke producten die een leven lang meegaan, zijn hier een voorbeeld van. Daarnaast werken we hard aan het verduurzamen van gebruikte verpakkingsmaterialen en leveringen.</p>
+      <p class="text-block greyBorder">Douchezaak gelooft in het tegengaan van verspilling. Onze degelijke producten die een leven lang meegaan, zijn hier een voorbeeld van. Daarnaast werken we hard aan het verduurzamen van gebruikte verpakkingsmaterialen en leveringen.</p>
       </a>
               </div>
 
       <div class="inner-wrapper">
-      <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " class="svg-img-large   co2ok_info_hover_image" src="http://localhost:8080/widget/DZ-heart-earth.png">        <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-      <p class="text-block greyBorder">Dankzij onze partner CO2ok kunt ook u een directe bijdrage leveren door de klimaatimpact van productie en transport uw aankoop te compenseren'</p>
+      <img alt="Douchezaak geeft om het klimaat! " title="Douchezaak geeft om het klimaat! " class="svg-img-large   co2ok_info_hover_image" src="http://localhost:8080/widget/DZ-heart-earth.png">        <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
+      <p class="text-block greyBorder">Dankzij onze partner CO2ok kunt ook u een directe bijdrage leveren door de klimaatimpact van productie en transport uw aankoop te compenseren</p>
       </a>
       </div>
 
@@ -181,7 +181,7 @@ let Co2okWidgetXL = {
 
       <a class="hover-link" target="_blank" href="http://co2ok.eco"><img alt="Maak mijn aankoop klimaatneutraal" title="Maak mijn aankoop klimaatneutraal" src="${SITE_HOST}/static/logo.png" class="co2ok_logo_default_info hover-link co2ok_logo_default_info"></a>
         <span class="hover-link">
-        <a  class="hover-link" style="margin-left: 10px; margin-top: 100px;" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe werkt CO<sub>2</sub> compensatie?</a> </span>
+        <a  class="hover-link" style="margin-left: 36px; margin-top: 100px;" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe werkt CO<sub>2</sub> compensatie?</a> </span>
       </div>
       `
 
@@ -246,26 +246,26 @@ let Co2okWidgetXL = {
       jQuery("body").append(widgetInfoBox);
 
       if (jQuery(window).width() < 480) {
-      // offset.left = offset.left - widgetInfoBox.width() / 4;
-      offset.top = offset.top + widgetInfoButton.height();
-      if ( offset.left < 0) offset.left = 10;
-      if ( offset.top < 0) offset.top = 10;
-      widgetInfoBox.css({
-          top: offset.top,
-          margin: "0 auto",
-          left: offset.left,
-          transform: "none"
+        offset.left = offset.left - widgetInfoBox.width() / 7;
+        offset.top = offset.top + widgetInfoButton.height();
+        if ( offset.left < 0) offset.left = 10;
+        if ( offset.top < 0) offset.top = 10;
+        widgetInfoBox.css({
+            top: offset.top,
+            margin: "0 auto",
+            left: offset.left,
+            transform: "none"
       });
       } else {
-      offset.left = offset.left - widgetInfoBox.width() / 2;
-      if ( offset.left < 0) offset.left = 10;
-      offset.top = offset.top + (widgetInfoButton.height() - 5);
-      widgetInfoBox.css({
-          top: offset.top,
-          left: offset.left,
-          margin: "0",
-          transform: "none"
-      });
+        offset.left = offset.left - widgetInfoBox.width() / 4;
+        if ( offset.left < 0) offset.left = 10;
+        offset.top = offset.top + (widgetInfoButton.height() - 5);
+        widgetInfoBox.css({
+            top: offset.top,
+            left: offset.left,
+            margin: "0",
+            transform: "none"
+        });
       }
     },
     ShowWidgetInfoBox  : function()

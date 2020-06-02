@@ -54,7 +54,11 @@
     @media (max-width: 768px) {
       .co2ok_widget_infobox_container {
         margin-left: -150px;
-        width: 300px; } }
+      } }
+    @media (max-width: 340px) {
+      .co2ok_widget_infobox_container {
+        width: 300px;
+      } }
     .co2ok_widget_infobox_container.ShowWidgetInfoBox {
       display: block;
       opacity: 1; }
