@@ -96,7 +96,7 @@ let Co2okWidgetXL = {
     uspInsertion: function () {
       let product_usp_html = `<li class="list__item">
         <div class="layout layout--x-small layout--center">
-          <div class="layout__item layout__item--fixed" style="width: 18px">
+          <div class="layout__item layout__item--fixed usp_hover" style="width: 18px">
             <img src=https://co2ok.eco/widget/DZ-globe.png width=18px> 
           </div>
           <div class="layout__item usp_hover">
@@ -107,7 +107,7 @@ let Co2okWidgetXL = {
 
       let home_usp_html = `<li class="grid__item">
         <div class="layout layout--x-small layout--center">
-          <div class="layout__item layout__item--fixed" style="width: 24px">
+          <div class="layout__item layout__item--fixed usp_hover" style="width: 24px">
             <img src=https://co2ok.eco/widget/DZ-globe.png width=24px> 
           </div>
           <div class="layout__item usp_hover">
@@ -132,7 +132,7 @@ let Co2okWidgetXL = {
     },
     
     insertWidget: function() {
-      let widget_div = `<div id="widgetContainer" style="margin-top:25px;margin-left:18px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>`
+      let widget_div = `<div id="widgetContainerDZ" style="margin-top:25px;margin-left:18px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>`
 
       let pagetype = window.location.pathname.split("/")[1]
       if (pagetype == "product" || pagetype == "product-categorie")
@@ -444,7 +444,7 @@ jQuery(document).ready(function() {
     return
   }
   Co2okWidgetXL.insertWidget();
-  Co2okWidgetXL.merchantCompensations('widgetContainer', '0', 'XL', 'default')
+  Co2okWidgetXL.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default')
   Co2okWidgetXL.uspInsertion();
   Co2okWidgetXL.cfsTrustMarkInsertion();
 })
