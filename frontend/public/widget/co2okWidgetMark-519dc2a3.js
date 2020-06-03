@@ -158,7 +158,6 @@ let Co2okWidgetXL = {
 
     widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {  
       
-      var circleSize = '> <circle cx="95" cy="65" r="62" fill="white">';
       var tofixed = 1;
       if (totalCompensatedData < 100)
         var compensatiewidget  = 0.1;
@@ -168,14 +167,12 @@ let Co2okWidgetXL = {
         var compensatiewidget  = totalCompensatedData / 1000;
       }
       var compensatietekst = `We hebben <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)} ton CO<sub>2</sub></span><br> uitstoot voorkomen`;
-      var dz_tekst = 'Douchezaak geeft <br>om het klimaat!'
 
       let widgetmark = `
-
       <div class="large-widget">
         <span class ="large-widget-right-green"></span>
-        <svg id= "half-circle" ${circleSize} /></svg>
-        <p id="large-widget-text-dz">${dz_tekst}</p>
+        <svg id= "half-circle"> <circle cx="95" cy="65" r="62" fill="white"> /></svg>
+        <p id="large-widget-text-dz">Douchezaak geeft <br>om het klimaat!</p>
         <p id="large-widget-text">${compensatietekst}</p>
         <p id="large-widget-xvliegen">= ${(compensatiewidget * 1000000 / 500) .toFixed(0)} X<br>douchen</p>
         <img id="co2ok-logo" src= "https://douchezaak.nl/wp-content/plugins/co2ok-for-woocommerce/images/logo.svg">
@@ -186,7 +183,7 @@ let Co2okWidgetXL = {
       
       let widgetcontainer = document.getElementById(widgetContainer)
       // let widgetcontainer = document.getElementsByClassName('whb-empty-column')[0]
-
+      
       // Don't try to place widget if there is no container
       if(widgetcontainer == null){
         return
