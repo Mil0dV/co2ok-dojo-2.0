@@ -117,8 +117,10 @@ let Co2okWidgetXL = {
       let widget_div = `<div id="widgetContainerDZ" style="margin-top:25px;margin-bottom:25px;margin-left:18px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>`
 
       let pagetype = window.location.pathname.split("/")[1]
-      if (pagetype == "product" || pagetype == "product-categorie")
+      if (pagetype == "product-categorie")
         jQuery('#egm_call_me_back-2').before(widget_div)
+      else if (pagetype == "product")
+        jQuery('#egm_call_me_back-3').before(widget_div)
     },
 
     insertInfoHoverHtml: function() {
