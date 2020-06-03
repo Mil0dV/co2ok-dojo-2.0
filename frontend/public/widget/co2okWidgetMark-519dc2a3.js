@@ -136,7 +136,7 @@ let Co2okWidgetXL = {
 
       let pagetype = window.location.pathname.split("/")[1]
       if (pagetype == "product" || pagetype == "product-categorie")
-        jQuery('a[href$="https://www.feedbackcompany.com/nl-nl/reviews/douchezaak"]').parent().parent().after(widget_div)
+        jQuery('#egm_call_me_back-2').before(widget_div)
     },
 
     widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {  
