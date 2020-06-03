@@ -153,7 +153,7 @@ let Co2okWidgetXL = {
         </span>
       </div>
       `
-      jQuery('header').after(infoHoverHtml)
+      jQuery('footer').before(infoHoverHtml)
     },
 
     widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {  
