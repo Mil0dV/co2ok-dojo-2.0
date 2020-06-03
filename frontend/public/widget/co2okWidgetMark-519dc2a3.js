@@ -132,7 +132,7 @@ let Co2okWidgetXL = {
     },
     
     insertWidget: function() {
-      let widget_div = `<div id="widgetContainerDZ" style="margin-top:25px;margin-left:18px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>`
+      let widget_div = `<div id="widgetContainerDZ" style="margin-top:25px;margin-bottom:25px;margin-left:18px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>`
 
       let pagetype = window.location.pathname.split("/")[1]
       if (pagetype == "product" || pagetype == "product-categorie")
