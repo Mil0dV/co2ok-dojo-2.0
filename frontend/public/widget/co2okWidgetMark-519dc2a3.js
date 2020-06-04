@@ -147,9 +147,9 @@ let Co2okWidgetXL = {
         </a>
       </div>
 
-      <a class="hover-link" target="_blank" href="http://co2ok.eco"><img alt="Maak mijn aankoop klimaatneutraal" title="Maak mijn aankoop klimaatneutraal" src="${this.SITE_HOST}/static/logo.png" class="co2ok_logo_default_info hover-link co2ok_logo_default_info"></a>
+      <a class="hover-link" href="#!"><img alt="Maak mijn aankoop klimaatneutraal" title="Maak mijn aankoop klimaatneutraal" src="${this.SITE_HOST}/static/logo.png" class="co2ok_logo_default_info hover-link co2ok_logo_default_info"></a>
         <span class="hover-link">
-          <a  class="hover-link" style="margin-left: 36px; margin-top: 100px;" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe werkt CO<sub>2</sub> compensatie?</a>
+          <a  class="hover-link" style="margin-left: 36px; margin-top: 100px;" href="#!"></a>
         </span>
       </div>
       `
