@@ -74,18 +74,12 @@ let Co2okWidgetXL = {
                   var compensatiewidget  = totalCompensatedData / 1000;
                   var compensatietekst = `This webshop has prevented <span id="large-widget-text-large">${compensatiewidget .toFixed(1)} </span>tonnes CO₂-emissions`
                 }
-<<<<<<< 88b184daed3263d9732fbec61ea315abc272cf8c:frontend/public/widget/co2okWidgetXL-f9db1f80.js
-                // Heeft de webshop al voldoende gecompenseerd om een substantieel getal te geven? Zo niet, pak volledige compensatie van webshops aangesloten bij co2ok
-
-                if (widgetSize == "L") {
-=======
                 if (lang == 'EN')
                   var compensatietekst = `This shop prevented <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)} ton CO<sub>2</sub></span><br> emission`;
                 else
                   var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)}t CO<sub>2</sub></span><br> uitstoot voorkomen`;
                 
                   if (widgetSize == "L") {
->>>>>>> Adds cfsmark, blue i and different 2's:frontend/public/widget/co2okWidgetXL-DZ.js
                     var circleSize = 'width="1500" height="1000"> <circle cx="51" cy="39.5" r="38" fill="white">';
                     var fileref=document.createElement("link")
                     fileref.setAttribute("rel", "stylesheet")
