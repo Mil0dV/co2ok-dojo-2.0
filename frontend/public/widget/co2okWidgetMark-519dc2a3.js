@@ -1,5 +1,3 @@
-import { promises } from "dns";
-
 let Co2okWidgetXL = {
 
     SITE_HOST: "https://co2ok.eco",
