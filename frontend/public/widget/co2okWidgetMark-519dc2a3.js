@@ -126,8 +126,10 @@ let Co2okWidgetXL = {
           for (var x = 0; x < 5; x++)
           {
             if (jQuery('.__fbcw__widget').length)
-              jQuery('__fbcw__widget').after(widget_div)
-            x++;
+              {
+                jQuery('__fbcw__widget').after(widget_div)
+                break ;
+              }
             await new Promise(r => setTimeout(r, 200));
           }
         }
