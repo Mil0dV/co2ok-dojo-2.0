@@ -121,7 +121,7 @@ let Co2okWidgetXL = {
         jQuery('#egm_call_me_back-2').before(widget_div)
       else if (pagetype == "product")
         jQuery('#egm_call_me_back-3').before(widget_div)
-      else if (pagetype == "werken-bij-douchezaak" || pagetype == "badkamer-blog" || pagetype == "badkamer-showroom")
+      else if (pagetype == "werken-bij-douchezaak" || pagetype == "badkamer-blog" || pagetype == "badkamer-showroom" || pagetype.split("-")[0] == "vacature")
         {
           for (var x = 0; x < 5; x++)
           {
