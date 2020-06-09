@@ -1,3 +1,5 @@
+import { promises } from "dns";
+
 let Co2okWidgetXL = {
 
     SITE_HOST: "https://co2ok.eco",
@@ -113,7 +115,7 @@ let Co2okWidgetXL = {
       jQuery(".wwk-logo--full").parent().after(cfs_html)
     },
     
-    insertWidget: function() {
+    insertWidget: async function() {
       let widget_div = `<div id="widgetContainerDZ" style="margin-top:25px;margin-bottom:25px;margin-left:18px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>`
 
       let pagetype = window.location.pathname.split("/")[1]
@@ -121,6 +123,16 @@ let Co2okWidgetXL = {
         jQuery('#egm_call_me_back-2').before(widget_div)
       else if (pagetype == "product")
         jQuery('#egm_call_me_back-3').before(widget_div)
+      else if (pagetype == "werken-bij-douchezaak" || pagetype == "badkamer-blog" || pagetype == "badkamer-showroom")
+        {
+          for (var x = 0; x < 5; x++)
+          {
+            if (jQuery('.__fbcw__widget').length)
+              jQuery('__fbcw__widget').after(widget_div)
+            x++;
+            await new Promise(r => setTimeout(r, 200));
+          }
+        }
     },
 
     insertInfoHoverHtml: function() {
