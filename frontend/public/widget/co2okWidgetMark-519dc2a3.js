@@ -123,13 +123,14 @@ let Co2okWidgetXL = {
         jQuery('#egm_call_me_back-3').before(widget_div)
       else if (pagetype == "werken-bij-douchezaak" || pagetype == "badkamer-blog" || pagetype == "badkamer-showroom" || pagetype.split("-")[0] == "vacature")
         {
-          for (var x = 0; x < 6; x++)
+          for (var x = 0; x < 15; x++)
           {
             if (jQuery('.__fbcw__widget').length)
               {
                 jQuery('.__fbcw__widget').after(widget_div) 
                 break ;
               }
+              console.log('Ive been waiting for ' + x + 'rounds to insert the widget!')
             await new Promise(r => setTimeout(r, 200));
           }
         }
