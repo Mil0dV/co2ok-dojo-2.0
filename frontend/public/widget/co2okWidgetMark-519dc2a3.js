@@ -136,6 +136,7 @@ let Co2okWidgetXL = {
         }
         else
           console.log('WidgetDiv Insertion Failed! :(')
+      Co2okWidgetXL.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default')
     },
 
     insertInfoHoverHtml: function() {
@@ -363,7 +364,7 @@ let Co2okWidgetXL = {
     }
 }
 
-jQuery(document).ready(async function() {
+jQuery(document).ready(function() {
   console.log("CO2ok is fighting climate change!")
 
   Co2okWidgetXL.loadResources()
@@ -372,8 +373,9 @@ jQuery(document).ready(async function() {
     return
   }
   Co2okWidgetXL.insertInfoHoverHtml();
-  await Co2okWidgetXL.insertWidget();
-  Co2okWidgetXL.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default')
+  Co2okWidgetXL.insertWidget();
+  // Co2okWidgetXL.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default')
+  console.log('Done inserting!')
   Co2okWidgetXL.uspInsertion();
   Co2okWidgetXL.cfsTrustMarkInsertion();
   Co2okWidgetXL.RegisterWidgetInfoBox();
