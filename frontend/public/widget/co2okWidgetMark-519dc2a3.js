@@ -362,7 +362,7 @@ let Co2okWidgetXL = {
     }
 }
 
-jQuery(document).ready(function() {
+jQuery(document).ready(async function() {
   console.log("CO2ok is fighting climate change!")
 
   Co2okWidgetXL.loadResources()
