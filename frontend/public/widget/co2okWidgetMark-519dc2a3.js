@@ -127,7 +127,7 @@ let Co2okWidgetXL = {
           {
             if (jQuery('.__fbcw__widget').length)
               {
-                jQuery('__fbcw__widget').after(widget_div)
+                jQuery('.__fbcw__widget').after(widget_div)
                 break ;
               }
             await new Promise(r => setTimeout(r, 200));
