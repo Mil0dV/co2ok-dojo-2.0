@@ -123,16 +123,18 @@ let Co2okWidgetXL = {
         jQuery('#egm_call_me_back-3').before(widget_div)
       else if (pagetype == "werken-bij-douchezaak" || pagetype == "badkamer-blog" || pagetype == "badkamer-showroom" || pagetype.split("-")[0] == "vacature")
         {
-          for (var x = 0; x < 5; x++)
+          for (var x = 0; x < 6; x++)
           {
             if (jQuery('.__fbcw__widget').length)
               {
-                jQuery('.__fbcw__widget').after(widget_div)
+                jQuery('.__fbcw__widget').after(widget_div) 
                 break ;
               }
             await new Promise(r => setTimeout(r, 200));
           }
         }
+        else
+          console.log('WidgetDiv Insertion Failed! :(')
     },
 
     insertInfoHoverHtml: function() {
@@ -369,7 +371,7 @@ jQuery(document).ready(function() {
     return
   }
   Co2okWidgetXL.insertInfoHoverHtml();
-  Co2okWidgetXL.insertWidget();
+  await Co2okWidgetXL.insertWidget();
   Co2okWidgetXL.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default')
   Co2okWidgetXL.uspInsertion();
   Co2okWidgetXL.cfsTrustMarkInsertion();
