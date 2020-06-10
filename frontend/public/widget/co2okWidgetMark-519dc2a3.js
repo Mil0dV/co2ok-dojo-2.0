@@ -130,12 +130,11 @@ let Co2okWidgetXL = {
                 jQuery('.__fbcw__widget').after(widget_div) 
                 break ;
               }
-              console.log('Ive been waiting for ' + x + 'rounds to insert the widget!')
             await new Promise(r => setTimeout(r, 200));
           }
         }
         else
-          console.log('WidgetDiv Insertion Failed! :(')
+          return ;
       Co2okWidgetXL.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default')
     },
 
@@ -374,8 +373,6 @@ jQuery(document).ready(function() {
   }
   Co2okWidgetXL.insertInfoHoverHtml();
   Co2okWidgetXL.insertWidget();
-  // Co2okWidgetXL.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default')
-  console.log('Done inserting!')
   Co2okWidgetXL.uspInsertion();
   Co2okWidgetXL.cfsTrustMarkInsertion();
   Co2okWidgetXL.RegisterWidgetInfoBox();
