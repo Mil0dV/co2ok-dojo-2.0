@@ -173,15 +173,15 @@ let Co2okWidgetXL = {
 
     widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {  
       
-      var tofixed = 1;
+      var decimalsToFixed = 1;
       if (totalCompensatedData < 100)
-        var compensatiewidget  = 0.1;
+        var compensationAmount  = 0.1;
       else {
         if (totalCompensatedData > 99999)
-          tofixed = 0;
-        var compensatiewidget  = totalCompensatedData / 1000;
+          decimalsToFixed = 0;
+        var compensationAmount  = totalCompensatedData / 1000;
       }
-      var compensatietekst = `We hebben <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)} ton CO<sub>2</sub></span><br> uitstoot voorkomen`;
+      var compensatietekst = `We hebben <br><span id="large-widget-text-large">${compensationAmount .toFixed(decimalsToFixed)} ton CO<sub>2</sub></span><br> uitstoot voorkomen`;
 
       let widgetmark = `
       <div class="large-widget">
@@ -189,7 +189,7 @@ let Co2okWidgetXL = {
         <svg id= "half-circle"> <circle cx="95" cy="65" r="62" fill="white"> /></svg>
         <p id="large-widget-text-dz">Douchezaak geeft <br>om het klimaat!</p>
         <p id="large-widget-text">${compensatietekst}</p>
-        <p id="large-widget-xvliegen">= ${(compensatiewidget * 1000000 / 500) .toFixed(0)} X<br>douchen</p>
+        <p id="large-widget-xvliegen">= ${(compensationAmount * 1000000 / 500) .toFixed(0)} X<br>douchen</p>
         <img id="co2ok-logo" src= "https://douchezaak.nl/wp-content/plugins/co2ok-for-woocommerce/images/logo.svg">
         <img id="info-button-widget" class="testclass info_button_widget_hover" src= "${this.SITE_HOST}/static/info-dz.svg">
         <img id="large-widget-airplane" src= "${this.SITE_HOST}/widget/douche.svg">
@@ -224,7 +224,6 @@ let Co2okWidgetXL = {
     
     placeWidgetInfoBox : function(element_id) {
       var elementBox = jQuery(element_id);
-      console.log(element_id)
       var infoHoverBox = jQuery(".co2ok_widget_infobox_container");
       var offset = elementBox.offset();
       var offsetMobile = elementBox.offset();
