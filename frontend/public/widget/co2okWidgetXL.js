@@ -82,22 +82,20 @@ let Co2okWidgetXL = {
           console.log('hammer time!')
           return
         }
-                var tofixed = 1;
+                var decimalsCompensation = 1;
                 if (totalCompensatedData < 100)
-                  var compensatiewidget  = 0.1;
+                  var compensationAmount  = 0.1;
                 else {
                   if (totalCompensatedData > 9999)
-                    tofixed = 0;
-                  var compensatiewidget  = totalCompensatedData / 1000;
+                    decimalsCompensation = 0;
+                  var compensationAmount  = totalCompensatedData / 1000;
                 }
                 if (lang == 'EN') {
-                  
-                  var compensatietekst = `This shop prevented <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)} ton CO<sub>2</sub></span><br> emissions`;
-
+                  var compensatietekst = `This shop prevented <br><span id="large-widget-text-large">${compensationAmount .toFixed(decimalsCompensation)} ton CO<sub>2</sub></span><br> emission`;
                   var vliegen = "flying"
                 }
                 else {
-                  var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)}t CO<sub>2</sub></span><br> uitstoot voorkomen`;
+                  var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> uitstoot voorkomen`;
                   var vliegen = "vliegen"
                 }
                 
@@ -142,7 +140,7 @@ let Co2okWidgetXL = {
                     <span class ="large-widget-right-green"></span>
                     <svg id= "half-circle" ${circleSize} /></svg>
                     <p id="large-widget-text">${compensatietekst}</p>
-                    <p id="large-widget-xvliegen">= ${(compensatiewidget * 5000) .toFixed(0)} km<br>${vliegen}</p>
+                    <p id="large-widget-xvliegen">= ${(compensationAmount * 5000) .toFixed(0)} km<br>${vliegen}</p>
                     <img id="co2ok-logo" src= "${SITE_HOST}/static/logo${colorSuffix}.png">
                     <a target="_blank" href="https://www.co2ok.eco/co2-compensatie"><img id="info-button-widget" src= "${SITE_HOST}/static/info${colorSuffix}.svg"></a>
                     <img id="large-widget-airplane" src= "${SITE_HOST}/widget/large-wiget-airplane.png">

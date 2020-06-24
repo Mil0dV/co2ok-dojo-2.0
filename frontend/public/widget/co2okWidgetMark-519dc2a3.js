@@ -173,15 +173,15 @@ let Co2okWidgetXL = {
 
     widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {  
       
-      var decimalsToFixed = 1;
+      var decimalsCompensation = 1;
       if (totalCompensatedData < 100)
         var compensationAmount  = 0.1;
       else {
         if (totalCompensatedData > 99999)
-          decimalsToFixed = 0;
+          decimalsCompensation = 0;
         var compensationAmount  = totalCompensatedData / 1000;
       }
-      var compensatietekst = `We hebben <br><span id="large-widget-text-large">${compensationAmount .toFixed(decimalsToFixed)} ton CO<sub>2</sub></span><br> uitstoot voorkomen`;
+      var compensatietekst = `We hebben <br><span id="large-widget-text-large">${compensationAmount .toFixed(decimalsCompensation)} ton CO<sub>2</sub></span><br> uitstoot voorkomen`;
 
       let widgetmark = `
       <div class="large-widget">
