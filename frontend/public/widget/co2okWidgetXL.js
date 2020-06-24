@@ -91,7 +91,9 @@ let Co2okWidgetXL = {
                   var compensatiewidget  = totalCompensatedData / 1000;
                 }
                 if (lang == 'EN') {
-                  var compensatietekst = `This shop prevented <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)} ton CO<sub>2</sub></span><br> emission`;
+                  
+                  var compensatietekst = `This shop prevented <br><span id="large-widget-text-large">${compensatiewidget .toFixed(tofixed)} ton CO<sub>2</sub></span><br> emissions`;
+
                   var vliegen = "flying"
                 }
                 else {
@@ -100,7 +102,7 @@ let Co2okWidgetXL = {
                 }
                 
                   if (widgetSize == "L") {
-                    var circleSize = 'width="1500" height="1000"> <circle cx="51" cy="39.5" r="38" fill="white">';
+                    var circleSize = '> <circle cx="51" cy="39.5" r="38" fill="white">';
                     var fileref=document.createElement("link")
                     fileref.setAttribute("rel", "stylesheet")
                     fileref.setAttribute("type", "text/css")
@@ -108,7 +110,7 @@ let Co2okWidgetXL = {
                     document.getElementsByTagName("head")[0].appendChild(fileref)
                  }
                  else {
-                    var circleSize = 'width="3500" height="4000"> <circle cx="95" cy="65" r="62" fill="white">';
+                    var circleSize = '> <circle cx="95" cy="65" r="62" fill="white">';
                     var fileref=document.createElement("link")
                     fileref.setAttribute("rel", "stylesheet")
                     fileref.setAttribute("type", "text/css")
@@ -145,7 +147,6 @@ let Co2okWidgetXL = {
                     <a target="_blank" href="https://www.co2ok.eco/co2-compensatie"><img id="info-button-widget" src= "${SITE_HOST}/static/info${colorSuffix}.svg"></a>
                     <img id="large-widget-airplane" src= "${SITE_HOST}/widget/large-wiget-airplane.png">
               </div>
-              
               `
                 // console.log(widgetimg)
   
