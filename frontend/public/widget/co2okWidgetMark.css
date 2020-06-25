@@ -70,6 +70,9 @@ justify-content: center; }
 text-decoration: none;
 font-weight: 300;
 color: rgb(59, 56, 56);
+border: none;
+padding: 0;
+height: auto;
 /* unvisited, visited, mouse over and selected link */ }
 
 .co2ok_widget_infobox_container .widget-inner-wrapper .selectable-text a:link, .co2ok_widget_infobox_container .widget-inner-wrapper .selectable-text a:visited, .co2ok_widget_infobox_container .widget-inner-wrapper .selectable-text a:hover, .co2ok_widget_infobox_container .widget-inner-wrapper .selectable-text a:active {
