@@ -31,7 +31,7 @@ let Co2okWidget = {
     
     if (co2ok_impact > 1){
       console.log('Collaborate and listen')
-      Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)
+      Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact)
       return
     }
 
