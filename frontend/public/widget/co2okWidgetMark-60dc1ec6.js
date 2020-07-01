@@ -1,5 +1,7 @@
 let Co2okWidget = {
 
+// Happy Towels
+
   xhr: function() {
 
       let xhr;
@@ -15,13 +17,23 @@ let Co2okWidget = {
       return xhr;
 
   },
+  
+  getCookieValue: function (a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b ? b.pop() : '';
+  },
 
   merchantCompensations: function (widgetContainer, merchantId) {
 
-      if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
-        console.log('hammer time!')
-        return
-      }
+    // get impact from cookie if available
+    let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
+    console.log(co2ok_impact)
+    
+    if (co2ok_impact > 1){
+      console.log('Collaborate and listen')
+      Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)
+      return
+    }
 
       let xhr = Co2okWidget.xhr()
       // let host = 'http://127.0.0.1:8000'
@@ -68,6 +80,10 @@ let Co2okWidget = {
       fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark-ht.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
 
+      if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
+        console.log('hammer time!')
+        return
+      }
 
       try{
         var image_url = plugin.url;
