@@ -24,3 +24,7 @@
     letter-spacing: 0px;
     line-height: normal;
 }
+
+.co2ok_widget_infobox_container a {
+    font: 12px 'Segoe UI',Tahoma, Arial, sans-serif;
+}
