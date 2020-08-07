@@ -121,6 +121,8 @@ let Co2okWidgetXL = {
         jQuery('#egm_call_me_back-2').before(widget_div)
       else if (pagetype == "product")
         jQuery('#egm_call_me_back-3').before(widget_div)
+      else if (pagetype == "checkout")
+        jQuery('#egm_call_me_back-4').before(widget_div)
       else if (pagetype == "werken-bij-douchezaak" || pagetype == "badkamer-blog" || pagetype == "badkamer-showroom" || pagetype.split("-")[0] == "vacature")
         {
           for (var x = 0; x < 15; x++)
@@ -155,17 +157,17 @@ let Co2okWidgetXL = {
           <p class="text-block greyBorder">Dankzij onze partner CO₂ok kunt ook u een directe bijdrage leveren door de klimaatimpact van productie en transport van uw aankoop te compenseren.</p>
         </a>
       </div>
-
+      
       <div class="inner-wrapper">
+        <a class="hover-link" href="#!"><img alt="Maak mijn aankoop klimaatneutraal" title="Maak mijn aankoop klimaatvriendelijk" src="${this.SITE_HOST}/static/logo.png" class="co2ok_logo_default_info hover-link co2ok_logo_default_info" style="width: 60%;"></a>
+        <span class="hover-link">
+          <a  class="hover-link" style="margin-left: 36px; margin-top: 100px;" href="#!"></a>
+        </span>
         <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text-two" style="outline: none; -webkit-appearance: none;">
           <p class="text-block">Zo shop jij klimaatneutraal!</p>
         </a>
       </div>
 
-      <a class="hover-link" href="#!"><img alt="Maak mijn aankoop klimaatneutraal" title="Maak mijn aankoop klimaatneutraal" src="${this.SITE_HOST}/static/logo.png" class="co2ok_logo_default_info hover-link co2ok_logo_default_info"></a>
-        <span class="hover-link">
-          <a  class="hover-link" style="margin-left: 36px; margin-top: 100px;" href="#!"></a>
-        </span>
       </div>
       `
       jQuery('footer').before(infoHoverHtml)

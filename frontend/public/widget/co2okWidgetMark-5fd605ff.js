@@ -136,7 +136,7 @@ let Co2okWidget = {
       <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">${how_does_it_worktekst}</a> </span>
       </div>
 
-      <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
+      <div class="co2ok_widget_infobox_container co2ok-popper" id="infobox-view">    </div>
       `
               // console.log(widgetimg)
 
