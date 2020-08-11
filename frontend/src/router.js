@@ -95,6 +95,11 @@ const router = new Router({
             component: () => import('./views/webshops/Installation')
         },
         {
+            path: '/webshops/webwinkelkeur',
+            name: 'webwinkelkeur',
+            component: () => import('./views/webshops/WebwinkelkeurForm')
+        },
+        {
             path: '/fight-corona',
             name: 'fight-corona',
             component: () => import('./views/webshops/Corona-Installation')
