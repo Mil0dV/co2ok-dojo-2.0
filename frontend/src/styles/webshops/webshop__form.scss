@@ -109,6 +109,16 @@
   color:black;
 }
 
+.radioButtonsWWK {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 15px;
+  padding-right: 220px;
+}
+
 //------------------Responsive-------------------
 @media (max-width: 1200px) {
   .main-title {
@@ -121,6 +131,9 @@
   }
   .col-2-card{
     width: 100%;
+  }
+  .radioButtonsWWK {
+    padding-right: 300px;
   }
 }
 
@@ -166,7 +179,9 @@
   .section-2 {
     padding: 20px 0;
   }
-
+  .radioButtonsWWK {
+    padding-right: 300px;
+  }
 }
 
 
@@ -239,7 +254,9 @@
   .col-2-card{
     width: 100%;
   }
-
+  .radioButtonsWWK {
+    padding-right: 150px;
+  }
 }
 
 @media (max-width: 670px) {
@@ -260,6 +277,9 @@
   }
   .col-2-card{
     width: 100%;
+  }
+  .radioButtonsWWK {
+    padding-right: 110px;
   }
 }
 

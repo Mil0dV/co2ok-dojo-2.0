@@ -404,6 +404,8 @@
                          src="../assets/images/home2/logo3.jpg">
                     <img alt="logo1" class="section-5__image"
                          src="../assets/images/home2/logo4.jpg">
+                    <img alt="logo1" class="section-5__image"
+                        src="../assets/images/home2/webwinkelkeurLogo.png">
                 </div>
 
                 <a href="/#home_form" class="button__home">{{ $t('home2.section_5_btn') }}</a>

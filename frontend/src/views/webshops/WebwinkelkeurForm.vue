@@ -15,7 +15,7 @@
                                 <!-- <p v-if="!c_platform" style="text-align: left;">{{ $t('webshopform.subtitle2') }}</p>
                                 <p v-if="c_platform" style="text-align: left;">{{ $t('webshopform.subtitles_LS_SW') }}</p> -->
                                 <p style="text-align: left;">
-                                    Maak duurzaamheid onderdeel van je webshop. Met het pakket van CO₂ok speciaal ontwikkeld voor WebwinkelKeur leden is het nu makkelijker dan ooit. Compenseer tot 1000 pakketten per maand en maak het zichtbaar via onze impact calculator voor € 5 per maand.
+                                    Maak duurzaamheid onderdeel van je webshop. Met de twee pakketten die CO₂ok speciaal heeft ontwikkeld voor WebwinkelKeur leden is het nu makkelijker dan ooit. Compenseer met pakket 1 tot aan 500 pakketten voor € 2,50 per maand. Compenseer met pakket 2 tot aan 1000 per maand voor € 5,00 per maand. Voor beide pakketten geldt dat je er de impact calculator bij krijgt waarmee je het resultaat zichtbaar maakt.
                                 </p>
                                 <div class="login__group">
                                     <label class="login__group">
@@ -47,6 +47,12 @@
                                     </label>
                                 </div>
 
+                                <div class="radioButtonsWWK">
+                                    <input type="radio" name="picked" @click="assignPackage('1 pakket')" value="one">
+                                    <label for="1 pakket">1 Pakket</label>
+                                    <input type="radio" name="picked" @click="assignPackage('2 pakketten')" value="two">
+                                    <label for="1 paketten">2 Pakketten</label>
+                                </div>
                                 <div style="width: 100%; text-align: left;" class="login__buttons">
                                     <!-- <a class="button button-empty btn-large" @click="emptyForm()"> {{ $t('webshopform.empty') }}</a> -->
                                     <a class="button btn-large" @click="sendForm()"> Meld je aan</a>
@@ -57,7 +63,8 @@
 
                     <div class="uk-width-1-2 to-right">
                     <div class="uk-card uk-card-body section-1__col-1 final__section" style="background-color: rgb(255, 255, 255); border-radius: 5px;height: 100%;width: 100%;box-shadow: -5px 3px 40px 2px hsla(300,3%,55%,.74);">
-                        <img src="../../assets/images/webshops/webwinkelkeur/ImpactCalculator.png">
+                        <img src="../../assets/images/webshops/webwinkelkeur/webwinkelkeurLogo.png" style="margin-bottom: 100px;">
+                        <img src="../../assets/images/webshops/webwinkelkeur/widgetOnly.png">
 
                     </div>
                     </div>
@@ -92,7 +99,8 @@
                 name: '',
                 email: '',
                 phone: '',
-                platform: ''
+                platform: '',
+                package: ''
             }
         },
 
@@ -103,6 +111,12 @@
                 this.email = ''
                 this.phone = ''
                 this.platform = ''
+                this.package = ''
+            },
+
+            assignPackage(pakket) {
+                console.log(pakket)
+                this.package = pakket;
             },
 
             //Deze functie kan je gebruiken wanneer de data daadwerkelijk verstuurd zijn
