@@ -1,10 +1,11 @@
 <template>
     <div class="main">
+        <img class="Header_logo" src="../../assets/images/webshops/webwinkelkeur/webwinkelkeurLogo.png">
         <Header :image="header"></Header>
         <div class="uk-section section-1">
             
             <!-- <h1 class="main-title">Get started</h1> -->
-            <div class="uk-container form__section uk-container-width" style="margin-top: 0px;">
+            <div class="uk-container form__section uk-container-width" style="margin-top: -80px;">
                 <h1 v-if="!c_platform" style="margin-bottom: 50px" class="main-title">WebwinkelKeur ledenaanbieding</h1>
                 <h1 v-if="c_platform" style="margin-bottom: 50px;" class="main-title">{{ $t(c_platform) }}</h1>
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
@@ -14,8 +15,11 @@
                             <form class="login__form">
                                 <!-- <p v-if="!c_platform" style="text-align: left;">{{ $t('webshopform.subtitle2') }}</p>
                                 <p v-if="c_platform" style="text-align: left;">{{ $t('webshopform.subtitles_LS_SW') }}</p> -->
-                                <p style="text-align: left;">
-                                    Maak duurzaamheid onderdeel van je webshop. Met de twee pakketten die CO₂ok speciaal heeft ontwikkeld voor WebwinkelKeur leden is het nu makkelijker dan ooit. Compenseer met pakket 1 tot aan 500 pakketten voor € 2,50 per maand. Compenseer met pakket 2 tot aan 1000 per maand voor € 5,00 per maand. Voor beide pakketten geldt dat je er de impact calculator bij krijgt waarmee je het resultaat zichtbaar maakt.
+                                <p style="text-align: left; margin-bottom: 20px;">
+                                    Maak duurzaamheid zichtbaar binnen je webwinkel. Met de speciale actie die CO2ok heeft ontwikkeld voor WebwinkelKeur leden is het nu makkelijker dan ooit.
+                                    <br><br>Pakket 1: Tot 500 verzonden of geretourneerde pakketten compenseren: € 2,50 p/m.
+                                    <br>Pakket 2: Tot 1000 verzonden of geretourneerde pakketten compenseren: € 5,00 p/m.
+                                    <br><br>Voor beide pakketten geldt dat je er de impact calculator bij krijgt.
                                 </p>
                                 <div class="login__group">
                                     <label class="login__group">
@@ -49,9 +53,9 @@
 
                                 <div class="radioButtonsWWK">
                                     <input type="radio" name="picked" @click="assignPackage('1 pakket')" value="one">
-                                    <label for="1 pakket">1 Pakket</label>
+                                    <label for="1 pakket">Pakket 1</label>
                                     <input type="radio" name="picked" @click="assignPackage('2 pakketten')" value="two">
-                                    <label for="1 paketten">2 Pakketten</label>
+                                    <label for="1 paketten">Pakket 2</label>
                                 </div>
                                 <div style="width: 100%; text-align: left;" class="login__buttons">
                                     <!-- <a class="button button-empty btn-large" @click="emptyForm()"> {{ $t('webshopform.empty') }}</a> -->
@@ -60,14 +64,14 @@
                             </form>
                         </div>
                     </div>
-
+<!-- 
                     <div class="uk-width-1-2 to-right">
                     <div class="uk-card uk-card-body section-1__col-1 final__section" style="background-color: rgb(255, 255, 255); border-radius: 5px;height: 100%;width: 100%;box-shadow: -5px 3px 40px 2px hsla(300,3%,55%,.74);">
                         <img src="../../assets/images/webshops/webwinkelkeur/webwinkelkeurLogo.png" style="margin-bottom: 100px;">
                         <img src="../../assets/images/webshops/webwinkelkeur/widgetOnly.png">
 
                     </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
@@ -165,9 +169,6 @@
     @import '../../styles/layout/main';
     @import '../../styles/webshops/webshop__form';
     .to-left {
-        width: 65%;
-    }
-    .to-right {
-        width: 35%;
+        width: 100%;
     }
 </style>
