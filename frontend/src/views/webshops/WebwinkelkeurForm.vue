@@ -16,9 +16,9 @@
                                 <!-- <p v-if="!c_platform" style="text-align: left;">{{ $t('webshopform.subtitle2') }}</p>
                                 <p v-if="c_platform" style="text-align: left;">{{ $t('webshopform.subtitles_LS_SW') }}</p> -->
                                 <p style="text-align: left; margin-bottom: 20px;">
-                                    Maak duurzaamheid zichtbaar binnen je webwinkel. Met de speciale actie die CO2ok heeft ontwikkeld voor WebwinkelKeur leden is het nu makkelijker dan ooit.
+                                    Maak duurzaamheid zichtbaar binnen je webwinkel. Met de speciale actie die CO<sub>2</sub>ok heeft ontwikkeld voor WebwinkelKeur leden is het nu makkelijker dan ooit.
                                     <br><br>Pakket 1: Tot 500 verzonden of geretourneerde pakketten compenseren: € 2,50 p/m.
-                                    <br>Pakket 2: Tot 1000 verzonden of geretourneerde pakketten compenseren: € 5,00 p/m.
+                                    <br><br>Pakket 2: Tot 1000 verzonden of geretourneerde pakketten compenseren: € 5,00 p/m.
                                     <br><br>Voor beide pakketten geldt dat je er de impact calculator bij krijgt.
                                 </p>
                                 <div class="login__group">
