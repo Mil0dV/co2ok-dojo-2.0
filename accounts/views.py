@@ -392,7 +392,7 @@ def sendMail(request):
     name = request.data['body']['name']
     phoneNumber = request.data['body']['phone']
     platform = request.data['body']['platform']
-    pakket = request.data['body']['package']
+    package = request.data['body']['package']
 
     rcovery_mail = Mail(
         from_email='dojo@co2ok.eco',
