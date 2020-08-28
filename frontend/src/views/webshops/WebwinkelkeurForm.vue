@@ -119,6 +119,7 @@
             },
 
             assignPackage(pakket) {
+                console.log('Were assigning package');
                 this.package = pakket;
             },
 
@@ -130,6 +131,7 @@
                 if (this.c_platform)
                     this.platform = this.c_platform;
                 if (this.email !== ''){
+                    console.log('Were sending an email');
                     let message = {
                         title: this. $t('webshopform.success') ,
                         text: this. $t('webshopform.success_message') 
@@ -153,6 +155,7 @@
                     this.$store.commit('modalStatus', {message})
                 }
                 else {
+                    console.log('We failed');
                     let message = {
                         title: this. $t('webshopform.error') ,
                         text: this. $t('webshopform.error_message') 
