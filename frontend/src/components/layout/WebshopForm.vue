@@ -123,7 +123,8 @@
                                 email: this.email,
                                 phone: this.phone,
                                 name: this.name,
-                                platform: this.platform
+                                platform: this.platform,
+                                package: 'NVT'
                             }
                         })
                         // .then(response => {
