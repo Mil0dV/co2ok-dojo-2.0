@@ -52,9 +52,9 @@
                                 </div>
 
                                 <div class="radioButtonsWWK">
-                                    <input type="radio" name="picked" @click="assignPackage('1 pakket')" value="one">
+                                    <input type="radio" name="picked" @click="assignPackage('pakket 1')" value="one">
                                     <label for="1 pakket">Pakket 1</label>
-                                    <input type="radio" name="picked" @click="assignPackage('2 pakketten')" value="two">
+                                    <input type="radio" name="picked" @click="assignPackage('pakket 2')" value="two">
                                     <label for="1 paketten">Pakket 2</label>
                                 </div>
                                 <div style="width: 100%; text-align: left;" class="login__buttons">
@@ -119,7 +119,6 @@
             },
 
             assignPackage(pakket) {
-                console.log(pakket)
                 this.package = pakket;
             },
 
@@ -141,7 +140,8 @@
                                 email: this.email,
                                 phone: this.phone,
                                 name: this.name,
-                                platform: this.platform
+                                platform: this.platform,
+                                package: this.package
                             }
                         })
                         // .then(response => {
