@@ -391,6 +391,7 @@ def sendMail(request):
     userEmail = request.data['body']['email']
     name = request.data['body']['name']
     phoneNumber = request.data['body']['phone']
+    domain = request.data['body']['domain']
     platform = request.data['body']['platform']
     package = request.data['body']['package']
 
@@ -398,7 +399,7 @@ def sendMail(request):
         from_email='dojo@co2ok.eco',
         to_emails='make@co2ok.eco',
         subject='New prospect found',
-        html_content='<div style = "width: 700px; height: auto; display: flex;flex-direction:column; justify-content:center;align-items:center;"><h3 style="text-align-left;">Iemand wil los gaan met CO2ok! </h3><br><p style="margi-bottom: 5px;text-align-left;">Hi,<br>Deze dude/chick staat te popelen :) <br>Prospect mail: {}<br>Naam: {}<br>Tel: {}<br>Platform: {}<br>WWK-pakket: {}</p> </div>'.format(userEmail, name, phoneNumber, platform, package))
+        html_content='<div style = "width: 700px; height: auto; display: flex;flex-direction:column; justify-content:center;align-items:center;"><h3 style="text-align-left;">Iemand wil los gaan met CO2ok! </h3><br><p style="margi-bottom: 5px;text-align-left;">Hi,<br>Deze dude/chick staat te popelen :) <br>Prospect mail: {}<br>Naam: {}<br>Tel: {}<br>WWK-domein: {}<br>Platform: {}<br>WWK-pakket: {}</p> </div>'.format(userEmail, name, phoneNumber, domain, platform, package))
 
     try:
         sg = SendGridAPIClient(settings.SENDGRID_API_KEY)

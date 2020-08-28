@@ -123,6 +123,7 @@
                                 email: this.email,
                                 phone: this.phone,
                                 name: this.name,
+                                domain: 'NVT',
                                 platform: this.platform,
                                 package: 'NVT'
                             }

@@ -43,6 +43,13 @@
                                             :placeholder=" 'Vul je telefoonnummer in' ">
                                     </label>
 
+                                    <label class="login__group">
+                                        Domeinnaam
+                                        <input v-model="domain"
+                                            class="login__group-input" type="email"
+                                            :placeholder=" 'Vul de domeinnaam van je webshop in' ">
+                                    </label>
+
                                     <label v-if="!c_platform" class="login__group">
                                         Gemiddeld aantal orders/maand
                                         <input v-model="platform"
@@ -103,6 +110,7 @@
                 name: '',
                 email: '',
                 phone: '',
+                domain: '',
                 platform: '',
                 package: ''
             }
@@ -114,6 +122,7 @@
                 this.name = ''
                 this.email = ''
                 this.phone = ''
+                this.domain = ''
                 this.platform = ''
                 this.package = ''
             },
@@ -142,6 +151,7 @@
                                 email: this.email,
                                 phone: this.phone,
                                 name: this.name,
+                                domain: this.domain,
                                 platform: this.platform,
                                 package: this.package
                             }
