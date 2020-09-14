@@ -110,7 +110,7 @@ let Co2okWidget = {
                     </div>
                 </div>
         
-                <div class="co2ok_widget_infobox_container co2ok-popper" id="infobox-view">    </div>
+          
 
 
                 <!--
