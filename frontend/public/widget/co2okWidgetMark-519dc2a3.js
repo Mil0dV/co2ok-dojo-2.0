@@ -370,11 +370,11 @@ jQuery(document).ready(function() {
   Co2okWidgetXL.loadResources()
 
   var urlParams = new URLSearchParams(window.location.search);
-  var myParam = urlParams.get('ABtest');
+  var myParam = urlParams.get('co2ok_ab');
 
-  if (myParam == 'A')
+  if (myParam == 'show')
     console.log('Co2ok ON!')
-  else if (myParam == 'B')
+  else if (myParam == 'hide')
   {
     console.log('Co2ok OFF!')
     return
