@@ -368,7 +368,18 @@ jQuery(document).ready(function() {
   console.log("CO2ok is fighting climate change!")
 
   Co2okWidgetXL.loadResources()
-  if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
+
+  var urlParams = new URLSearchParams(window.location.search);
+  var myParam = urlParams.get('A/B');
+
+  if (myParam == 'A')
+    console.log('Co2ok ON!')
+  else if (myParam == 'B')
+  {
+    console.log('Co2ok OFF!')
+    return
+  }
+  else if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
     console.log('hammer time!')
     return
   }
