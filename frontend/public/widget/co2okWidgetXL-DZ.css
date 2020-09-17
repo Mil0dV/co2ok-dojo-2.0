@@ -49,7 +49,11 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
 .co2ok_widget_infobox_container {
   position: absolute;
   width: 350px;
+<<<<<<< HEAD
   height: 465px;
+=======
+  height: 600px;
+>>>>>>> saving for EOD
   background: white;
   border-radius: 15px;
   box-sizing: border-box;
@@ -68,6 +72,7 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
     .co2ok_widget_infobox_container {
       width: 300px;
     } }
+<<<<<<< HEAD
   @media (max-width: 320px) {
     .co2ok_widget_infobox_container {
       height: 480px;
@@ -98,6 +103,26 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
       font-size: 14px;
       color: green;
       font-weight: 500;
+=======
+  .co2ok_widget_infobox_container .vertical-line {
+    border-left: 4px solid #0fa5e5;
+    position: absolute;
+    left: 43px; }
+    .co2ok_widget_infobox_container .top {
+      height: 65px;
+      margin-top: 80px; }
+    .co2ok_widget_infobox_container .bottom {
+      margin-top: -290px;
+      height: 70px; }
+  .co2ok_widget_infobox_container.ShowWidgetInfoBox {
+    display: block;
+    opacity: 1; }
+    .co2ok_widget_infobox_container .info_card_header {
+      font-size: 18px;
+      color: green;
+      font-weight: bold;
+      margin-left: 80px;
+>>>>>>> saving for EOD
       line-height: 1.25rem;
       margin-top: 8px; }
       .co2ok_widget_infobox_container .co2ok-widget-content .left {
@@ -110,6 +135,7 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
       flex-direction: row;
       width: 100%;
       margin-top: 0px; }
+<<<<<<< HEAD
     .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .right-align-img {
       right: 14px; }
       @media (max-width: 320px) {
@@ -161,6 +187,41 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
     color: black; }
   .co2ok_widget_infobox_container a {
     text-decoration: underline; }
+=======
+    .co2ok_widget_infobox_container .inner-wrapper .svg-img {
+      display: flex;
+      top: 175px;
+      height: 50%;
+      width: 58%;
+      align-items: center;
+      justify-content: center; }
+    .co2ok_widget_infobox_container .inner-wrapper .svg-img-large {
+      display: flex;
+      position: absolute;
+      left: 12px;
+      height: 11%;
+      width: 20%; }
+    .co2ok_widget_infobox_container .inner-wrapper .selectable-text {
+      text-decoration: none;
+      font-weight: 100;
+      color: black;
+      /* unvisited, visited, mouse over and selected link */ }
+    .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:link, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:visited, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:hover, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:active {
+      color: black; }
+    .co2ok_widget_infobox_container .inner-wrapper .text-block {
+      margin: 0px;
+      font-size: 12px;
+      line-height: normal;
+      text-align: left !important;
+      min-height: 110px;
+      padding-top: 8px;
+      border: none;
+      margin-left: 76px;
+      width: 75%;
+      text-decoration: none; }
+  /* .co2ok_widget_infobox_container a {
+    text-decoration: underline; } */
+>>>>>>> saving for EOD
   .co2ok_widget_infobox_container .hover-link {
     position: absolute;
     width: 40%;

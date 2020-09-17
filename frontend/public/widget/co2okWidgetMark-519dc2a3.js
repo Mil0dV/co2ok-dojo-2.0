@@ -14,6 +14,14 @@ let Co2okWidgetXL = {
     },
 
     loadResources: function () {
+<<<<<<< HEAD
+=======
+      // var fileref=document.createElement("link")
+      // fileref.setAttribute("rel", "stylesheet")
+      // fileref.setAttribute("type", "text/css")
+      // fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetXL-DZ.css`)
+      // document.getElementsByTagName("head")[0].appendChild(fileref)
+>>>>>>> saving for EOD
       var fileref=document.createElement("link")
       fileref.setAttribute("rel", "stylesheet")
       fileref.setAttribute("type", "text/css")
@@ -191,7 +199,11 @@ let Co2okWidgetXL = {
       jQuery('footer').before(infoHoverHtml)
     },
 
+<<<<<<< HEAD
     widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {
+=======
+    widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) { 
+>>>>>>> saving for EOD
 
       var decimalsCompensation = 1;
       if (totalCompensatedData < 100)
