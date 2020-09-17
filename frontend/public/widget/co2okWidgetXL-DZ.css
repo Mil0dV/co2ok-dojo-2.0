@@ -45,7 +45,7 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
 .co2ok_widget_infobox_container {
   position: absolute;
   width: 350px;
-  height: 500px;
+  height: 600px;
   background: white;
   border-radius: 15px;
   box-sizing: border-box;
@@ -67,20 +67,21 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
   .co2ok_widget_infobox_container .vertical-line {
     border-left: 4px solid #0fa5e5;
     position: absolute;
-    left: 43px;
-    height: 55px; }
+    left: 43px; }
     .co2ok_widget_infobox_container .top {
-      margin-top: 100px; }
+      height: 65px;
+      margin-top: 80px; }
     .co2ok_widget_infobox_container .bottom {
-      margin-top: -170px; }
+      margin-top: -290px;
+      height: 70px; }
   .co2ok_widget_infobox_container.ShowWidgetInfoBox {
     display: block;
     opacity: 1; }
     .co2ok_widget_infobox_container .info_card_header {
-      font-size: 20px;
+      font-size: 18px;
       color: green;
       font-weight: bold;
-      margin-left: 76px;
+      margin-left: 80px;
       line-height: 1.25rem;
     }
     .co2ok_widget_infobox_container .inner-wrapper {
@@ -93,10 +94,7 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
       margin-top: 0px; }
     .co2ok_widget_infobox_container .inner-wrapper .svg-img {
       display: flex;
-      justify-content: center;
-      /* align horizontal */
-      align-items: center;
-      /* align vertical */
+      top: 175px;
       height: 50%;
       width: 58%;
       align-items: center;
@@ -105,8 +103,8 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
       display: flex;
       position: absolute;
       left: 12px;
-      height: 12% !important;
-      width: 20% !important; }
+      height: 11%;
+      width: 20%; }
     .co2ok_widget_infobox_container .inner-wrapper .selectable-text {
       text-decoration: none;
       font-weight: 100;
@@ -116,9 +114,12 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
       color: black; }
     .co2ok_widget_infobox_container .inner-wrapper .text-block {
       margin: 0px;
-      font-size: 1em;
+      font-size: 12px;
       line-height: normal;
-      text-align: left;
+      text-align: left !important;
+      min-height: 110px;
+      padding-top: 8px;
+      border: none;
       margin-left: 76px;
       width: 75%;
       text-decoration: none; }
