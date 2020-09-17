@@ -1,7 +1,7 @@
-let Co2okWidgetXL = {
+let Co2okWidget_RD = {
 
-    SITE_HOST: "https://co2ok.eco",
-    // SITE_HOST: "http://localhost:8080",
+    // SITE_HOST: "https://co2ok.eco",
+    SITE_HOST: "http://localhost:8080",
 
     getCookieValue: function (a) {
       var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -40,11 +40,11 @@ let Co2okWidgetXL = {
     merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor, lang) {
 
         // get impact from cookie if available
-        let co2ok_impact = Co2okWidgetXL.getCookieValue('co2ok_impact')
-
+        let co2ok_impact = Co2okWidget_RD.getCookieValue('co2ok_impact')
+        console.log("hello there");
         if (co2ok_impact > 1){
           // console.log('Collaborate and listen')
-          Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
+          Co2okWidget_RD.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
           return
         }
 
@@ -63,12 +63,12 @@ let Co2okWidgetXL = {
                 // let totalTransactionData = 491
 
                 document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
-                Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
+                Co2okWidget_RD.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
                     
                 // Something is fishy, let's serve up the total
                 } else {
                   let totalTransactionData = 22300
-                  Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
+                  Co2okWidget_RD.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
             }
         }
         xhr.send()
@@ -135,7 +135,7 @@ let Co2okWidgetXL = {
         }
         else
           return ;
-      Co2okWidgetXL.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default')
+      Co2okWidget_RD.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default')
     },
 
     insertInfoHoverHtml: function() {
@@ -145,7 +145,7 @@ let Co2okWidgetXL = {
 
       <div class="inner-wrapper">
         <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-          <p class="text-block greyBorder">Douchezaak gelooft in het tegengaan van verspilling. Onze degelijke producten die een leven lang meegaan, zijn hier een voorbeeld van. Daarnaast werken we hard aan het verduurzamen van gebruikte verpakkingsmaterialen en leveringen.</p>
+          <p class="text-block greyBorder">This webshop offers high-quality products that can last a lifetime. The focus on quality means your products can last a lifetime, and in doing so, reduces waste!</p>
         </a>
       </div>
 
@@ -365,14 +365,14 @@ let Co2okWidgetXL = {
 jQuery(document).ready(function() {
   console.log("CO2ok is fighting climate change!")
 
-  Co2okWidgetXL.loadResources()
-  if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
-    console.log('hammer time!')
-    return
-  }
-  Co2okWidgetXL.insertInfoHoverHtml();
-  Co2okWidgetXL.insertWidget();
-  Co2okWidgetXL.uspInsertion();
-  Co2okWidgetXL.cfsTrustMarkInsertion();
-  Co2okWidgetXL.RegisterWidgetInfoBox();
+  Co2okWidget_RD.loadResources()
+  // if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
+  //   console.log('hammer time!')
+  //   return
+  // }
+  Co2okWidget_RD.insertInfoHoverHtml();
+  Co2okWidget_RD.insertWidget();
+  Co2okWidget_RD.uspInsertion();
+  Co2okWidget_RD.cfsTrustMarkInsertion();
+  Co2okWidget_RD.RegisterWidgetInfoBox();
 })
