@@ -12,7 +12,7 @@ let Co2okWidget_RD = {
       var img=new Image();
       img.src=url;
     },
-    
+
     loadResources: function () {
       var fileref=document.createElement("link")
       fileref.setAttribute("rel", "stylesheet")
@@ -64,7 +64,7 @@ let Co2okWidget_RD = {
 
                 document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
                 Co2okWidget_RD.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
-                    
+
                 // Something is fishy, let's serve up the total
                 } else {
                   let totalTransactionData = 22300
@@ -79,7 +79,7 @@ let Co2okWidget_RD = {
       let product_usp_html = `<li class="list__item">
         <div class="layout layout--x-small layout--center">
           <div class="layout__item layout__item--fixed usp_hover" style="width: 18px">
-            <img src=https://co2ok.eco/widget/DZ-globe.png width=18px> 
+            <img src=https://co2ok.eco/widget/DZ-globe.png width=18px>
           </div>
           <div class="layout__item usp_hover_target">
             Shop klimaatvriendelijk
@@ -90,7 +90,7 @@ let Co2okWidget_RD = {
       let home_usp_html = `<li class="grid__item">
         <div class="layout layout--x-small layout--center">
           <div class="layout__item layout__item--fixed usp_hover" style="width: 24px">
-            <img src=https://co2ok.eco/widget/DZ-globe.png width=24px> 
+            <img src=https://co2ok.eco/widget/DZ-globe.png width=24px>
           </div>
           <div class="layout__item usp_hover_target">
             Shop klimaatvriendelijk
@@ -102,17 +102,17 @@ let Co2okWidget_RD = {
         jQuery('a[href$="snellelevering"]').parent().after(home_usp_html)
       else
         jQuery('a[href$="snellelevering"]').parent().after(product_usp_html)
-      
+
     },
-    
+
     cfsTrustMarkInsertion: function () {
       let cfs_html = `<li class="list__item">
         <img class="cfs_hover_target" src="https://co2ok.eco/widget/cfs.png" style="width: 100px">
       </li>`
-      
+
       jQuery(".wwk-logo--full").parent().after(cfs_html)
     },
-    
+
     insertWidget: async function() {
       let widget_div = `<div id="widgetContainerDZ" style="margin-top:25px;margin-bottom:25px;margin-left:18px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>`
 
@@ -127,7 +127,7 @@ let Co2okWidget_RD = {
           {
             if (jQuery('.__fbcw__widget').length)
               {
-                jQuery('.__fbcw__widget').after(widget_div) 
+                jQuery('.__fbcw__widget').after(widget_div)
                 break ;
               }
             await new Promise(r => setTimeout(r, 200));
@@ -139,26 +139,37 @@ let Co2okWidget_RD = {
     },
 
     insertInfoHoverHtml: function() {
-      var infoHoverHtml = 
+      var infoHoverHtml =
       `
       <div class="co2ok_widget_infobox_container co2ok-popper infobox-hidden" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
 
+      <div class="info_card_header">
+        <p class="sub_header">Duurzame Producten</p>
+      </div>
       <div class="inner-wrapper">
+        <div class="vertical-line top"></div>
         <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-          <p class="text-block greyBorder">This webshop offers high-quality products that can last a lifetime. The focus on quality means your products can last a lifetime, and in doing so, reduces waste!</p>
+          <p class="text-block">Deze webshop biedt hoogwaardige producten die een leven lang meegaan. De focus op kwaliteit betekent dat uw producten een leven lang meegaan, en daardoor minder afval opleveren!</p>
         </a>
       </div>
 
+    <div class="info_card_header">
+      <p class="sub_header">Neutrale Verzending</p>
+    </div>
       <div class="inner-wrapper">
         <img alt="Douchezaak geeft om het klimaat! " title="Douchezaak geeft om het klimaat! " class="svg-img-large   co2ok_info_hover_image" src="https://co2ok.eco/widget/DZ-heart-earth.png">
         <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-          <p class="text-block greyBorder">Dankzij onze partner CO₂ok kunt ook u een directe bijdrage leveren door de klimaatimpact van productie en transport van uw aankoop te compenseren.</p>
+          <p class="text-block">Wij neutraliseren de verzending van al onze producten door geld te investeren in Klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!</p>
         </a>
       </div>
 
+    <div class="info_card_header">
+      <p class="sub_header">Neutraliseren van de productie</p>
+    </div>
       <div class="inner-wrapper">
+      <div class="vertical-line bottom"></div>
         <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text-two" style="outline: none; -webkit-appearance: none;">
-          <p class="text-block">Zo shop jij klimaatneutraal!</p>
+          <p class="text-block">We nemen stappen om de duurzaamheid van onze service te verbeteren, maar perfectie kost tijd! Terwijl we eraan werken, bieden we u de mogelijkheid om te kiezen voor een opt-in om de koolstof die wordt gebruikt bij de productie van uw aankoop te compenseren. Eenvoudig gezegd, plant u uw eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
         </a>
       </div>
 
@@ -172,7 +183,7 @@ let Co2okWidget_RD = {
     },
 
     widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {  
-      
+
       var decimalsCompensation = 1;
       if (totalCompensatedData < 100)
         var compensationAmount  = 0.1;
@@ -195,10 +206,10 @@ let Co2okWidget_RD = {
         <img id="large-widget-airplane" src= "${this.SITE_HOST}/widget/douche.svg">
       </div>
       `
-      
+
       let widgetcontainer = document.getElementById(widgetContainer)
       // let widgetcontainer = document.getElementsByClassName('whb-empty-column')[0]
-      
+
       // Don't try to place widget if there is no container
       if(widgetcontainer == null){
         return
@@ -219,9 +230,9 @@ let Co2okWidget_RD = {
         isExistingjQueryElement: function(selector) {
             return !!jQuery(selector).length;
     },
-    
 
-    
+
+
     placeWidgetInfoBox : function(element_id) {
       var elementBox = jQuery(element_id);
       var infoHoverBox = jQuery(".co2ok_widget_infobox_container");
@@ -253,7 +264,7 @@ let Co2okWidget_RD = {
       }
       else
         return ;
-      
+
       if (offset.left < 0) offset.left = 10;
       if (offset.top < 0) offset.top = 10;
       if (offsetMobile.left < 0) offsetMobile.left = 10;
