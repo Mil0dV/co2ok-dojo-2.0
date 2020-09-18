@@ -24,7 +24,7 @@ let Co2okWidget_RD = {
       `${this.SITE_HOST}/widget/DZ-globe.png`,
       `${this.SITE_HOST}/static/info-dz.svg`,
       `${this.SITE_HOST}/widget/douche.svg`,
-      `${this.SITE_HOST}/widget/DZ-heart-earth.png`,
+      `${this.SITE_HOST}/widget/DZ-heart-earth_2.png`,
       `${this.SITE_HOST}/widget/blue_box.png`,
       `${this.SITE_HOST}/widget/plant.png`,
       `${this.SITE_HOST}/widget/douchezaak_logo.png`]
@@ -146,8 +146,11 @@ let Co2okWidget_RD = {
         </div>
         <div class="inner-wrapper">
           <img class="svg-img-large right-align-img box" src="${this.SITE_HOST}/widget/blue_box.png">
+          <div class="curved curved-up"></div>
+          <div class="hr-line top-line"></div>
+          <div class="curved curved-down"></div>
           <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-            <p class="text-block left-align-text">Deze webshop biedt hoogwaardige producten die een leven lang meegaan. De focus op kwaliteit betekent dat uw producten een leven lang meegaan, en daardoor minder afval opleveren!</p>
+          <p class="text-block left-align-text first-text-to-select">Deze webshop biedt hoogwaardige producten die een leven lang meegaan. De focus op kwaliteit betekent dat uw producten een leven lang meegaan, en daardoor minder afval opleveren!</p>
           </a>
         </div>
 
@@ -156,8 +159,12 @@ let Co2okWidget_RD = {
       </div>
         <div class="inner-wrapper">
           <img class="svg-img-large left-align-img plant" src="${this.SITE_HOST}/widget/plant.png">
+          <div class="curved curved-up-middle"></div>
+          <div class="hr-line middle-line"></div>
+          <div class="curved curved-down-bottom"></div>
+          <div class="vr-line"></div>
           <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-            <p class="text-block" style="min-height: 90px;">Wij neutraliseren de verzending van al onze producten door geld te investeren in Klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!</p>
+            <p class="text-block" style="min-height: 83px;">Wij neutraliseren de verzending van al onze producten door geld te investeren in Klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!</p>
           </a>
         </div>
 
@@ -165,9 +172,14 @@ let Co2okWidget_RD = {
         <p class="sub_header">Neutraliseren van de productie</p>
       </div>
         <div class="inner-wrapper">
-        <img class="svg-img-large right-align-img globe" src="${this.SITE_HOST}/widget/DZ-heart-earth.png">
-          <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text-two" style="outline: none; -webkit-appearance: none;">
-            <p class="text-block left-align-text" style="min-height: 190px;">We nemen stappen om de duurzaamheid van onze service te verbeteren, maar perfectie kost tijd! Terwijl we eraan werken, bieden we u de mogelijkheid om te kiezen voor een opt-in om de koolstof die wordt gebruikt bij de productie van uw aankoop te compenseren. Eenvoudig gezegd, plant u uw eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
+        <img class="svg-img-large right-align-img globe" src="${this.SITE_HOST}/widget/DZ-heart-earth_2.png">
+        
+        <div class="vr-line vr-line-bottom"></div>
+        <div class="curved curved-up-bottom"></div>
+        <div class="hr-line bottom-line"></div>
+
+        <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text-two" style="outline: none; -webkit-appearance: none;">
+            <p class="text-block left-align-text" style="min-height: 130px;">We nemen stappen om de duurzaamheid van onze service te verbeteren, maar perfectie kost tijd! Terwijl we eraan werken, bieden we u de mogelijkheid om te kiezen voor een opt-in om de koolstof die wordt gebruikt bij de productie van uw aankoop te compenseren. Eenvoudig gezegd, plant u uw eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
           </a>
         </div>
 
@@ -317,7 +329,9 @@ let Co2okWidget_RD = {
         jQuery(e.target).hasClass("co2ok_widget_info") ||
         jQuery(e.target).hasClass("co2ok_widget_info_hitarea") ||
         jQuery(e.target).hasClass("co2ok_widget_infobox_container") ||
-        jQuery(e.target).hasClass("hover-link"))
+        jQuery(e.target).hasClass("hover-link") ||
+        jQuery(e.target).hasClass("douchezaak_logo") ||
+        jQuery(e.target).hasClass("info_card_header"))
         return (element_id);
       else
         return (null)
