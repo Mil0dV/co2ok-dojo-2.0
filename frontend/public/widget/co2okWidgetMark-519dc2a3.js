@@ -140,54 +140,56 @@ let Co2okWidget_RD = {
       var infoHoverHtml =
       `
       <div class="co2ok_widget_infobox_container co2ok-popper infobox-hidden" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
+        <div class="co2ok-widget-content">
 
-        <div class="info_card_header left-align-text">
-          <p class="sub_header">Duurzame Producten</p>
-        </div>
-        <div class="inner-wrapper">
-          <img class="svg-img-large right-align-img box" src="${this.SITE_HOST}/widget/blue_box.png">
-          <div class="curved curved-up"></div>
-          <div class="hr-line top-line"></div>
-          <div class="curved curved-down"></div>
-          <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-          <p class="text-block left-align-text first-text-to-select">Deze webshop biedt hoogwaardige producten die een leven lang meegaan. De focus op kwaliteit betekent dat uw producten een leven lang meegaan, en daardoor minder afval opleveren!</p>
-          </a>
-        </div>
+          <div class="card-content">
+            <div class="outline">
+              <div class="info_card_header left">
+                <p class="sub_header">Duurzame Producten</p>
+              </div>
+              <div class="inner-wrapper">
+                <img class="svg-img-large left-align-img box" src="${this.SITE_HOST}/widget/blue_box.png">
+                <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
+                  <p class="text-block first-text-to-select">Douchezaal biedt producten die een leven lang meegaan, en daardoor minder afval opleveren!</p>
+                </a>
+              </div>
+            </div>
+          </div>
 
-      <div class="info_card_header left">
-        <p class="sub_header">Neutrale Verzending</p>
-      </div>
-        <div class="inner-wrapper">
-          <img class="svg-img-large left-align-img plant" src="${this.SITE_HOST}/widget/plant.png">
-          <div class="curved curved-up-middle"></div>
-          <div class="hr-line middle-line"></div>
-          <div class="curved curved-down-bottom"></div>
-          <div class="vr-line"></div>
-          <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-            <p class="text-block" style="min-height: 83px;">Wij neutraliseren de verzending van al onze producten door geld te investeren in Klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!</p>
-          </a>
-        </div>
+          <div class="card-content">
+            <div class="outline">
+              <div class="info_card_header left">
+                <p class="sub_header">Neutrale Verzending</p>
+              </div>
+              <div class="inner-wrapper">
+                <img class="svg-img-large left-align-img plant" src="${this.SITE_HOST}/widget/plant.png">
+                <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
+                  <p class="text-block">Wij neutraliseren de verzending van al onze producten door geld te investeren in Klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!</p>
+                </a>
+              </div>
+            </div>
+          </div>
 
-      <div class="info_card_header left-align-text">
-        <p class="sub_header">Neutraliseren van de productie</p>
-      </div>
-        <div class="inner-wrapper">
-        <img class="svg-img-large right-align-img globe" src="${this.SITE_HOST}/widget/DZ-heart-earth_2.png">
-        
-        <div class="vr-line vr-line-bottom"></div>
-        <div class="curved curved-up-bottom"></div>
-        <div class="hr-line bottom-line"></div>
+          <div class="card-content">
+            <div class="outline">
+              <div class="info_card_header left">
+                <p class="sub_header">Neutraliseren van de productie</p>
+              </div>
+              <div class="inner-wrapper">
+                <img class="svg-img-large left-align-img globe" src="${this.SITE_HOST}/widget/DZ-heart-earth_2.png">
+                <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text-two" style="outline: none; -webkit-appearance: none;">
+                  <p class="text-block">Aangezien de productie buiten onze macht ligt bieden we met CO2ok de mogelijkheid om die footprint ook te neutraliseren - plant je eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
+                </a>
+              </div>
+            </div>
+          </div>
 
-        <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text-two" style="outline: none; -webkit-appearance: none;">
-            <p class="text-block left-align-text" style="min-height: 130px;">We nemen stappen om de duurzaamheid van onze service te verbeteren, maar perfectie kost tijd! Terwijl we eraan werken, bieden we u de mogelijkheid om te kiezen voor een opt-in om de koolstof die wordt gebruikt bij de productie van uw aankoop te compenseren. Eenvoudig gezegd, plant u uw eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
-          </a>
-        </div>
-
-        <a class="hover-link" href="#!"><img src="${this.SITE_HOST}/static/logo.png" class="co2ok_logo_default_info hover-link co2ok_logo_default_info"></a>
+          <a class="hover-link" href="#!"><img src="${this.SITE_HOST}/static/logo.png" class="co2ok_logo_default_info hover-link co2ok_logo_default_info"></a>
           <span class="hover-link">
             <a  class="hover-link" style="margin-left: 36px; margin-top: 100px;" href="#!"></a>
           </span>
-        <div class="douchezaak_logo"><img src="${this.SITE_HOST}/widget/douchezaak_logo.png"></div>
+          <div class="douchezaak_logo"><img src="${this.SITE_HOST}/widget/douchezaak_logo.png"></div>
+        </div>
       </div>
       `
       jQuery('footer').before(infoHoverHtml)
