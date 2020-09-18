@@ -25,8 +25,8 @@ let Co2okWidget_RD = {
       `${this.SITE_HOST}/static/info-dz.svg`,
       `${this.SITE_HOST}/widget/douche.svg`,
       `${this.SITE_HOST}/widget/DZ-heart-earth_2.png`,
-      `${this.SITE_HOST}/widget/blue_box.png`,
-      `${this.SITE_HOST}/widget/plant.png`,
+      `${this.SITE_HOST}/widget/box_circle.png`,
+      `${this.SITE_HOST}/widget/plant_circle.png`,
       `${this.SITE_HOST}/widget/douchezaak_logo.png`]
 
       for (img of images){
@@ -140,15 +140,20 @@ let Co2okWidget_RD = {
       var infoHoverHtml =
       `
       <div class="co2ok_widget_infobox_container co2ok-popper infobox-hidden" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
-        <div class="co2ok-widget-content">
 
+        <div class="card-main-header">
+          <img class="svg-img-large header-img" src="${this.SITE_HOST}/widget/DZ-heart-earth_2.png">
+          <p>Climate Friendly Shopping</p>
+        </div>
+
+        <div class="co2ok-widget-content">
           <div class="card-content">
             <div class="outline">
-              <div class="info_card_header left">
+              <div class="card-sub-header left">
                 <p class="sub_header">Duurzame Producten</p>
               </div>
               <div class="inner-wrapper">
-                <img class="svg-img-large left-align-img box" src="${this.SITE_HOST}/widget/blue_box.png">
+                <img class="svg-img-large left-align-img box" src="${this.SITE_HOST}/widget/box_circle.png">
                 <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
                   <p class="text-block first-text-to-select">Douchezaal biedt producten die een leven lang meegaan, en daardoor minder afval opleveren!</p>
                 </a>
@@ -158,13 +163,13 @@ let Co2okWidget_RD = {
 
           <div class="card-content">
             <div class="outline">
-              <div class="info_card_header left">
+              <div class="card-sub-header left">
                 <p class="sub_header">Neutrale Verzending</p>
               </div>
               <div class="inner-wrapper">
-                <img class="svg-img-large left-align-img plant" src="${this.SITE_HOST}/widget/plant.png">
+                <img class="svg-img-large left-align-img plant" src="${this.SITE_HOST}/widget/plant_circle.png">
                 <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-                  <p class="text-block">Wij neutraliseren de verzending van al onze producten door geld te investeren in Klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!</p>
+                  <p class="text-block" style="min-height: 74px;">Wij neutraliseren de verzending van al onze producten door geld te investeren in Klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!</p>
                 </a>
               </div>
             </div>
@@ -172,13 +177,13 @@ let Co2okWidget_RD = {
 
           <div class="card-content">
             <div class="outline">
-              <div class="info_card_header left">
+              <div class="card-sub-header left">
                 <p class="sub_header">Neutraliseren van de productie</p>
               </div>
               <div class="inner-wrapper">
                 <img class="svg-img-large left-align-img globe" src="${this.SITE_HOST}/widget/DZ-heart-earth_2.png">
                 <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text-two" style="outline: none; -webkit-appearance: none;">
-                  <p class="text-block">Aangezien de productie buiten onze macht ligt bieden we met CO2ok de mogelijkheid om die footprint ook te neutraliseren - plant je eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
+                  <p class="text-block" style="min-height: 88px;">Aangezien de productie buiten onze macht ligt bieden we met CO2ok de mogelijkheid om die footprint ook te neutraliseren - plant je eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
                 </a>
               </div>
             </div>
@@ -333,7 +338,7 @@ let Co2okWidget_RD = {
         jQuery(e.target).hasClass("co2ok_widget_infobox_container") ||
         jQuery(e.target).hasClass("hover-link") ||
         jQuery(e.target).hasClass("douchezaak_logo") ||
-        jQuery(e.target).hasClass("info_card_header"))
+        jQuery(e.target).hasClass("card-sub-header"))
         return (element_id);
       else
         return (null)
