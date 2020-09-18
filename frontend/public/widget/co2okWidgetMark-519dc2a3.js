@@ -142,23 +142,21 @@ let Co2okWidgetXL = {
       `
       <div class="co2ok_widget_infobox_container co2ok-popper infobox-hidden" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
 
-        <div class="card-main-header">
-          <img class="svg-img-large header-img" src="${this.SITE_HOST}/widget/DZ-heart-earth_2.png">
-          <p>Climate Friendly Shopping</p>
+      <div class="card-main-header">
+        <img class="svg-img-large header-img" src="${this.SITE_HOST}/widget/DZ-heart-earth_2.png">
+          <p>Our Planet Promise</p>
         </div>
 
         <div class="co2ok-widget-content">
           <div class="card-content">
-            <div class="outline">
-              <div class="card-sub-header left">
-                <p class="sub_header">Duurzame Producten</p>
-              </div>
-              <div class="inner-wrapper">
-                <img class="svg-img-large left-align-img box" src="${this.SITE_HOST}/widget/box_circle.png">
-                <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-                  <p class="text-block first-text-to-select">Douchezaal biedt producten die een leven lang meegaan, en daardoor minder afval opleveren!</p>
-                </a>
-              </div>
+            <div class="card-sub-header left">
+              <p class="sub_header">Duurzame Producten</p>
+            </div>
+            <div class="inner-wrapper">
+              <img class="svg-img-large left-align-img box" src="${this.SITE_HOST}/widget/box_circle.png">
+              <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
+                <p class="text-block first-text-to-select">Douchezaal biedt producten die een leven lang meegaan, en daardoor minder afval opleveren!</p>
+              </a>
             </div>
           </div>
 
