@@ -148,16 +148,15 @@ let Co2okWidgetXL = {
         </div>
 
         <div class="co2ok-widget-content">
-          <div class="card-content">
-            <div class="card-sub-header left">
-              <p class="sub-header">Duurzame Producten</p>
-            </div>
-            <div class="inner-wrapper">
-              <img class="svg-img-large right-align-img box" src="${this.SITE_HOST}/widget/box_circle.png">
-              <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-                <p class="text-block left">Douchezaal biedt producten die een leven lang meegaan, en daardoor minder afval opleveren!</p>
-              </a>
-            </div>
+
+          <div class="card-sub-header left">
+            <p class="sub-header">Duurzame Producten</p>
+          </div>
+          <div class="inner-wrapper">
+            <img class="svg-img-large right-align-img box" src="${this.SITE_HOST}/widget/box_circle.png">
+            <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
+              <p class="text-block left">Douchezaal biedt producten die een leven lang meegaan, en daardoor minder afval opleveren!</p>
+            </a>
           </div>
 
         <div class="card-main-header">
