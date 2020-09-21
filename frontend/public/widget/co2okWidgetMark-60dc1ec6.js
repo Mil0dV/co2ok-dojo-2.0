@@ -68,6 +68,11 @@ let Co2okWidget = {
       fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark-ht.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
 
+      if (Co2ok_JS().getCookieValue('co2ok_ab_hide') % 2 == 0)
+      {
+        console.log('hammer time!')
+        return
+      }
 
       try{
         var image_url = plugin.url;

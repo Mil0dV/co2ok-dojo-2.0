@@ -87,7 +87,8 @@ let Co2okWidget = {
          var colorSuffix = "";
      }
       
-      if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
+     if (Co2ok_JS().getCookieValue('co2ok_ab_hide') % 2 == 0)
+      {
         console.log('hammer time!')
         return
       }
