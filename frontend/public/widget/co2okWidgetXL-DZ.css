@@ -42,30 +42,9 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
   z-index:4;
 }
 
-.co2ok-widget-content {
-  margin-top: 38px; }
-
-.card-content {
-  padding-bottom: 16px; }
-
-.outline {
-  border: 3px solid #009fe3;
-  border-radius: 12px;
-  width: 265px;
-  margin-left: 34px;
-  padding-bottom: 12px; }
-
 .svg-img-large {
   display: flex;
   position: absolute; }
-
-.header-img {
-  top: 10px;
-  width: 19%;
-  left: 12px; }
-
-.left-align-img {
-  left: 14px; }
 
 .co2ok_widget_infobox_container {
   position: absolute;
@@ -79,7 +58,7 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
   z-index: 999999;
   display: none;
   padding: 10px;
-  border: 3px solid #eee;
+  border: 3px solid #201f4b;
   border-image-slice: 1; }
   @media (max-width: 768px) {
     .co2ok_widget_infobox_container {
@@ -93,85 +72,76 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
     display: block;
     opacity: 1; }
     .co2ok_widget_infobox_container .card-main-header {
-      font-size: 25px;
+      font-size: 28px;
       color: #00548f;
       font-weight: 500;
       line-height: 1.25rem;
       margin-left: 75px;
-      margin-top: 18px; }
-    .co2ok_widget_infobox_container .card-sub-header {
+      margin-top: 26px; }
+      .co2ok_widget_infobox_container .card-main-header .header-img {
+        top: 10px;
+        width: 20%;
+        left: 14px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content {
+      margin-top: 31px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .card-content {
+      padding-bottom: 8px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .card-content .card-sub-header {
       font-size: 14px;
       color: green;
       font-weight: 500;
       line-height: 1.25rem;
       margin-top: 8px; }
-    .co2ok_widget_infobox_container .left {
-      margin-left: 74px;
-    }
-    .co2ok_widget_infobox_container .inner-wrapper {
+      .co2ok_widget_infobox_container .co2ok-widget-content .card-content .left {
+        margin-left: 14px; }
+      .co2ok_widget_infobox_container .co2ok-widget-content .card-content .right {
+        margin-left: 80px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .card-content .inner-wrapper {
       display: flex;
       justify-content: space-between;
       flex-direction: row;
       margin-top: 0px; }
-    /* .co2ok_widget_infobox_container .inner-wrapper .svg-img {
-      display: flex;
-      top: 170px;
-      height: 50%;
-      width: 58%;
-      justify-content: center; } */
-        /* .co2ok_widget_infobox_container .inner-wrapper .right-align-img {
-          right: 12px; } */
-        /* .co2ok_widget_infobox_container .inner-wrapper .left-align-img {
-          left: 5px; } */
-      .co2ok_widget_infobox_container .inner-wrapper .box {
-        top: 92px;
-        height: 16%;
+    .co2ok_widget_infobox_container .co2ok-widget-content .card-content .inner-wrapper .right-align-img {
+      right: 14px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .card-content .inner-wrapper .left-align-img {
+      left: 14px; }
+      .co2ok_widget_infobox_container .co2ok-widget-content .card-content .inner-wrapper .box {
+        top: 86px;
+        height: 15%;
         width: 19%; }
-      .co2ok_widget_infobox_container .inner-wrapper .plant {
-        top: 193px;
+      .co2ok_widget_infobox_container .co2ok-widget-content .card-content .inner-wrapper .plant {
+        top: 184px;
         right: 12px;
         height: 15%;
         width: 19%; }
-      .co2ok_widget_infobox_container .inner-wrapper .tree {
-        bottom: 53px;
-        height: 16%;
+      .co2ok_widget_infobox_container .co2ok-widget-content .card-content .inner-wrapper .tree {
+        bottom: 60px;
+        height: 15%;
         width: 19%; }
-    .co2ok_widget_infobox_container
-     .inner-wrapper .selectable-text {
-      text-decoration: none;
-      font-weight: 100;
-      color: black;
-      /* unvisited, visited, mouse over and selected link */ }
-    .co2ok_widget_infobox_container
-     .inner-wrapper .selectable-text a:link, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:visited, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:hover, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:active {
-      color: black; }
-    .co2ok_widget_infobox_container
-     .inner-wrapper .text-block {
-      margin: 0px;
-      font-size: 12px;
-      line-height: normal;
-      text-align: left !important;
-      border: none;
-      border-radius: 0;
-      margin-left: 72px;
-      width: 75%;
-      text-decoration: none;
-      padding: 4px 0px 0px 4px; }
-    .co2ok_widget_infobox_container
-     .inner-wrapper .left-align-text {
-      margin-left: 5px !important; }
+  .co2ok_widget_infobox_container
+    .inner-wrapper .selectable-text a:link, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:visited, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:hover, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:active {
+    color: black; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .card-content .inner-wrapper .text-block {
+    font-size: 12px;
+    line-height: normal;
+    text-align: left !important;
+    border: none;
+    border-radius: 0;
+    width: 71%;
+    text-decoration: none;
+    padding: 4px 0px 4px 0px; }
   .co2ok_widget_infobox_container a {
     text-decoration: underline; }
   .co2ok_widget_infobox_container .hover-link {
     position: absolute;
     width: 40%;
-    right: 8px;
-    bottom: 4px; }
+    right: 10px;
+    bottom: 8px; }
   .co2ok_widget_infobox_container .douchezaak_logo {
     position: absolute;
     width: 10%;
-    left: 26px;
-    bottom: 4px; }
+    left: 22px;
+    bottom: 10px; }
   .co2ok_widget_infobox_container img, .co2ok_widget_infobox_container span {
     display: inline-block;
     vertical-align: middle;

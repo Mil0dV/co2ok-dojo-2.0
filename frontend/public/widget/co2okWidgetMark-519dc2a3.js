@@ -27,7 +27,8 @@ let Co2okWidget_RD = {
       `${this.SITE_HOST}/widget/DZ-heart-earth_2.png`,
       `${this.SITE_HOST}/widget/box_circle.png`,
       `${this.SITE_HOST}/widget/plant_circle.png`,
-      `${this.SITE_HOST}/widget/tree_circle.png`,
+      `${this.SITE_HOST}/widget/forest.png`,
+      `${this.SITE_HOST}/widget/plant.png`,
       `${this.SITE_HOST}/widget/douchezaak_logo.png`]
 
       for (img of images){
@@ -142,8 +143,8 @@ let Co2okWidget_RD = {
       `
       <div class="co2ok_widget_infobox_container co2ok-popper infobox-hidden" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
 
-      <div class="card-main-header">
-        <img class="svg-img-large header-img" src="${this.SITE_HOST}/widget/DZ-heart-earth_2.png">
+        <div class="card-main-header">
+          <img class="svg-img-large left-align-img header-img" src="${this.SITE_HOST}/widget/DZ-heart-earth_2.png">
           <p>Our Planet Promise</p>
         </div>
 
@@ -153,21 +154,21 @@ let Co2okWidget_RD = {
               <p class="sub_header">Duurzame Producten</p>
             </div>
             <div class="inner-wrapper">
-              <img class="svg-img-large left-align-img box" src="${this.SITE_HOST}/widget/box_circle.png">
+              <img class="svg-img-large right-align-img box" src="${this.SITE_HOST}/widget/box_circle.png">
               <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-                <p class="text-block first-text-to-select">Douchezaal biedt producten die een leven lang meegaan, en daardoor minder afval opleveren!</p>
+                <p class="text-block left">Douchezaal biedt producten die een leven lang meegaan, en daardoor minder afval opleveren!</p>
               </a>
             </div>
           </div>
 
           <div class="card-content">
-            <div class="card-sub-header left">
-              <p class="sub_header" style="margin-left: -62px;">Neutrale Verzending</p>
+            <div class="card-sub-header right">
+              <p class="sub_header">Neutrale Verzending</p>
             </div>
             <div class="inner-wrapper">
-              <img class="svg-img-large plant" src="${this.SITE_HOST}/widget/plant_circle.png">
+              <img class="svg-img-large left-align-img plant" src="${this.SITE_HOST}/widget/plant_circle.png">
               <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-                <p class="text-block" style="min-height: 58px; margin-left: 9px;">Wij neutraliseren de verzending van al onze producten door geld te investeren in Klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!</p>
+                <p class="text-block right" style="min-height: 58px;">Wij neutraliseren de verzending van al onze producten door geld te investeren in Klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!</p>
               </a>
             </div>
           </div>
@@ -177,9 +178,9 @@ let Co2okWidget_RD = {
               <p class="sub_header">Neutraliseren van de productie</p>
             </div>
             <div class="inner-wrapper">
-              <img class="svg-img-large left-align-img tree" src="${this.SITE_HOST}/widget/tree_circle.png">
+              <img class="svg-img-large right-align-img tree" src="${this.SITE_HOST}/widget/forest.png">
               <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text-two" style="outline: none; -webkit-appearance: none;">
-                <p class="text-block" style="min-height: 88px;">Aangezien de productie buiten onze macht ligt bieden we met CO2ok de mogelijkheid om die footprint ook te neutraliseren - plant je eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
+                <p class="text-block left" style="min-height: 88px;">Aangezien de productie buiten onze macht ligt bieden we met CO2ok de mogelijkheid om die footprint ook te neutraliseren - plant je eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
               </a>
             </div>
           </div>
