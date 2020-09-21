@@ -27,7 +27,7 @@ let Co2okWidget_RD = {
       `${this.SITE_HOST}/widget/DZ-heart-earth_2.png`,
       `${this.SITE_HOST}/widget/box_circle.png`,
       `${this.SITE_HOST}/widget/plant_circle.png`,
-      `${this.SITE_HOST}/widget/forest.png`,
+      `${this.SITE_HOST}/widget/tree_1.png`,
       `${this.SITE_HOST}/widget/plant.png`,
       `${this.SITE_HOST}/widget/douchezaak_logo.png`]
 
@@ -114,7 +114,7 @@ let Co2okWidget_RD = {
     },
 
     insertWidget: async function() {
-      let widget_div = `<div id="widgetContainerDZ" style="margin-top:25px;margin-bottom:25px;margin-left:18px;width:250px;height:425;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>`
+      let widget_div = `<div id="widgetContainerDZ" style="margin-top:25px; margin-bottom:25px; margin-left:18px;width:250px;height:425;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>`
 
       let pagetype = window.location.pathname.split("/")[1]
       if (pagetype == "product-categorie")
@@ -178,7 +178,7 @@ let Co2okWidget_RD = {
               <p class="sub-header">Neutraliseren van de productie</p>
             </div>
             <div class="inner-wrapper">
-              <img class="svg-img-large right-align-img tree" src="${this.SITE_HOST}/widget/forest.png">
+              <img class="svg-img-large right-align-img tree" src="${this.SITE_HOST}/widget/tree_1.png">
               <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
                 <p class="text-block left" style="min-height: 88px;">Aangezien de productie buiten onze macht ligt bieden we met CO2ok de mogelijkheid om die footprint ook te neutraliseren - plant je eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
               </a>
@@ -189,7 +189,7 @@ let Co2okWidget_RD = {
           <span class="hover-link">
             <a class="hover-link" style="margin-left: 36px; margin-top: 36px;" href="#!"></a>
           </span>
-          <img class="douchezaak_logo" src="${this.SITE_HOST}/widget/douchezaak_logo.png"><
+          <img class="douchezaak_logo" src="${this.SITE_HOST}/widget/douchezaak_logo.png">
         </div>
       </div>
       `
@@ -331,6 +331,7 @@ let Co2okWidget_RD = {
         jQuery(e.target).hasClass("header") ||
         jQuery(e.target).hasClass("sub-header") ||
         jQuery(e.target).hasClass("text-block") ||
+        jQuery(e.target).hasClass("selectable-text") ||
         jQuery(e.target).hasClass("card-main-header") ||
         jQuery(e.target).hasClass("co2ok-widget-content") ||
         jQuery(e.target).hasClass("card-content") ||
