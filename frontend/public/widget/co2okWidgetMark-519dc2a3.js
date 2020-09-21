@@ -149,40 +149,35 @@ let Co2okWidget_RD = {
         </div>
 
         <div class="co2ok-widget-content">
-          <div class="card-content">
-            <div class="card-sub-header left">
-              <p class="sub-header">Duurzame Producten</p>
-            </div>
-            <div class="inner-wrapper">
-              <img class="svg-img-large right-align-img box" src="${this.SITE_HOST}/widget/box_circle.png">
-              <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-                <p class="text-block left">Douchezaal biedt producten die een leven lang meegaan, en daardoor minder afval opleveren!</p>
-              </a>
-            </div>
+
+          <div class="card-sub-header left">
+            <p class="sub-header">Duurzame Producten</p>
+          </div>
+          <div class="inner-wrapper">
+            <img class="svg-img-large right-align-img box" src="${this.SITE_HOST}/widget/box_circle.png">
+            <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
+              <p class="text-block left">Douchezaal biedt producten die een leven lang meegaan, en daardoor minder afval opleveren!</p>
+            </a>
           </div>
 
-          <div class="card-content">
-            <div class="card-sub-header right">
-              <p class="sub-header">Neutrale Verzending</p>
-            </div>
-            <div class="inner-wrapper">
-              <img class="svg-img-large left-align-img plant" src="${this.SITE_HOST}/widget/plant_circle.png">
-              <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-                <p class="text-block right" style="min-height: 58px;">Wij neutraliseren de verzending van al onze producten door geld te investeren in Klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!</p>
-              </a>
-            </div>
+          <div class="card-sub-header right">
+            <p class="sub-header">Neutrale Verzending</p>
+          </div>
+          <div class="inner-wrapper">
+            <img class="svg-img-large left-align-img plant" src="${this.SITE_HOST}/widget/plant_circle.png">
+            <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
+              <p class="text-block right" style="min-height: 58px;">Wij neutraliseren de verzending van al onze producten door geld te investeren in Klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!</p>
+            </a>
           </div>
 
-          <div class="card-content">
-            <div class="card-sub-header left">
-              <p class="sub-header">Neutraliseren van de productie</p>
-            </div>
-            <div class="inner-wrapper">
-              <img class="svg-img-large right-align-img tree" src="${this.SITE_HOST}/widget/tree_1.png">
-              <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-                <p class="text-block left" style="min-height: 88px;">Aangezien de productie buiten onze macht ligt bieden we met CO2ok de mogelijkheid om die footprint ook te neutraliseren - plant je eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
-              </a>
-            </div>
+          <div class="card-sub-header left">
+            <p class="sub-header">Neutraliseren van de productie</p>
+          </div>
+          <div class="inner-wrapper">
+            <img class="svg-img-large right-align-img tree" src="${this.SITE_HOST}/widget/tree_1.png">
+            <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
+              <p class="text-block left" style="min-height: 88px;">Aangezien de productie buiten onze macht ligt bieden we met CO2ok de mogelijkheid om die footprint ook te neutraliseren - plant je eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
+            </a>
           </div>
 
           <a class="hover-link" href="#!"><img src="${this.SITE_HOST}/static/logo.png" class="co2ok_logo_default_info hover-link co2ok_logo_default_info"></a>
