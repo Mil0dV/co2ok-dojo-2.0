@@ -42,45 +42,14 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
   z-index:4;
 }
 
-<<<<<<< HEAD
-=======
-.co2ok-widget-content {
-  margin-top: 38px; }
-
-.card-content {
-  padding-bottom: 16px; }
-
-.outline {
-  border: 3px solid #009fe3;
-  border-radius: 12px;
-  width: 265px;
-  margin-left: 34px;
-  padding-bottom: 12px; }
-
->>>>>>> save EOD Fri Sept 18
 .svg-img-large {
   display: flex;
   position: absolute; }
 
-<<<<<<< HEAD
 .co2ok_widget_infobox_container {
   position: absolute;
   width: 350px;
   height: 465px;
-=======
-.header-img {
-  top: 10px;
-  width: 19%;
-  left: 12px; }
-
-.left-align-img {
-  left: 14px; }
-
-.co2ok_widget_infobox_container {
-  position: absolute;
-  width: 350px !important;
-  height: 425px !important;
->>>>>>> save EOD Fri Sept 18
   background: white;
   border-radius: 15px;
   box-sizing: border-box;
@@ -107,16 +76,11 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
     display: block;
     opacity: 1; }
     .co2ok_widget_infobox_container .card-main-header {
-<<<<<<< HEAD
       font-size: 28px;
-=======
-      font-size: 25px;
->>>>>>> save EOD Fri Sept 18
       color: #00548f;
       font-weight: 500;
       line-height: 1.25rem;
       margin-left: 75px;
-<<<<<<< HEAD
       margin-top: 26px; }
       .co2ok_widget_infobox_container .card-main-header .header-img {
         top: 15px;
@@ -131,33 +95,21 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
     .co2ok_widget_infobox_container .co2ok-widget-content {
       margin-top: 31px; }
     .co2ok_widget_infobox_container .co2ok-widget-content .card-sub-header {
-=======
-      margin-top: 18px; }
-    .co2ok_widget_infobox_container .card-sub-header {
->>>>>>> save EOD Fri Sept 18
       font-size: 14px;
       color: green;
       font-weight: 500;
       line-height: 1.25rem;
       margin-top: 8px; }
-<<<<<<< HEAD
       .co2ok_widget_infobox_container .co2ok-widget-content .left {
         margin-left: 14px; }
       .co2ok_widget_infobox_container .co2ok-widget-content .right {
         margin-left: 80px; }
     .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper {
-=======
-    .co2ok_widget_infobox_container .left {
-      margin-left: 74px;
-    }
-    .co2ok_widget_infobox_container .inner-wrapper {
->>>>>>> save EOD Fri Sept 18
       display: flex;
       justify-content: space-between;
       flex-direction: row;
       width: 100%;
       margin-top: 0px; }
-<<<<<<< HEAD
     .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .right-align-img {
       right: 14px; }
       @media (max-width: 320px) {
@@ -207,61 +159,11 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
     text-decoration: none;
     padding: 4px 0px 12px 0px;
     color: black; }
-=======
-    /* .co2ok_widget_infobox_container .inner-wrapper .svg-img {
-      display: flex;
-      top: 170px;
-      height: 50%;
-      width: 58%;
-      justify-content: center; } */
-        /* .co2ok_widget_infobox_container .inner-wrapper .right-align-img {
-          right: 12px; } */
-        /* .co2ok_widget_infobox_container .inner-wrapper .left-align-img {
-          left: 5px; } */
-      .co2ok_widget_infobox_container .inner-wrapper .box {
-        top: 92px;
-        height: 16%;
-        width: 19%; }
-      .co2ok_widget_infobox_container .inner-wrapper .plant {
-        top: 193px;
-        right: 12px;
-        height: 15%;
-        width: 19%; }
-      .co2ok_widget_infobox_container .inner-wrapper .tree {
-        bottom: 53px;
-        height: 16%;
-        width: 19%; }
-    .co2ok_widget_infobox_container
-     .inner-wrapper .selectable-text {
-      text-decoration: none;
-      font-weight: 100;
-      color: black;
-      /* unvisited, visited, mouse over and selected link */ }
-    .co2ok_widget_infobox_container
-     .inner-wrapper .selectable-text a:link, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:visited, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:hover, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:active {
-      color: black; }
-    .co2ok_widget_infobox_container
-     .inner-wrapper .text-block {
-      margin: 0px;
-      font-size: 12px;
-      line-height: normal;
-      text-align: left !important;
-      border: none;
-      border-radius: 0;
-      margin-left: 72px;
-      width: 75%;
-      text-decoration: none;
-      padding: 4px 0px 0px 4px; }
-    .co2ok_widget_infobox_container
-     .inner-wrapper .left-align-text {
-      margin-left: 5px !important; }
->>>>>>> save EOD Fri Sept 18
   .co2ok_widget_infobox_container a {
     text-decoration: underline; }
   .co2ok_widget_infobox_container .hover-link {
     position: absolute;
     width: 40%;
-<<<<<<< HEAD
     right: 10px;
     bottom: 8px; }
   .co2ok_widget_infobox_container .douchezaak_logo {
@@ -269,15 +171,6 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
     width: 10%;
     left: 22px;
     bottom: 10px; }
-=======
-    right: 8px;
-    bottom: 4px; }
-  .co2ok_widget_infobox_container .douchezaak_logo {
-    position: absolute;
-    width: 10%;
-    left: 26px;
-    bottom: 4px; }
->>>>>>> save EOD Fri Sept 18
   .co2ok_widget_infobox_container img, .co2ok_widget_infobox_container span {
     display: inline-block;
     vertical-align: middle;
