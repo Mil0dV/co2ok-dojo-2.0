@@ -48,8 +48,8 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
 
 .co2ok_widget_infobox_container {
   position: absolute;
-  width: 350px !important;
-  height: 425px !important;
+  width: 350px;
+  height: 425px;
   background: white;
   border-radius: 15px;
   box-sizing: border-box;
@@ -58,7 +58,7 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
   z-index: 999999;
   display: none;
   padding: 10px;
-  border: 3px solid #201f4b;
+  border: 3px solid #eee;
   border-image-slice: 1; }
   @media (max-width: 768px) {
     .co2ok_widget_infobox_container {

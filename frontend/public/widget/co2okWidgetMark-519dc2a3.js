@@ -179,7 +179,7 @@ let Co2okWidget_RD = {
             </div>
             <div class="inner-wrapper">
               <img class="svg-img-large right-align-img tree" src="${this.SITE_HOST}/widget/forest.png">
-              <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text-two" style="outline: none; -webkit-appearance: none;">
+              <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
                 <p class="text-block left" style="min-height: 88px;">Aangezien de productie buiten onze macht ligt bieden we met CO2ok de mogelijkheid om die footprint ook te neutraliseren - plant je eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
               </a>
             </div>
