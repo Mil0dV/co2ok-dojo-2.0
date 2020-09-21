@@ -18,10 +18,11 @@ let Co2okWidgetXL = {
   
     merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor) {
   
-        if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
-          console.log('hammer time!')
-          return
-        }
+      if (Co2ok_JS().getCookieValue('co2ok_ab_hide') % 2 == 0)
+      {
+        console.log('hammer time!')
+        return
+      }
         // var widgetColor = "gray"
         // var widgetSize = "L"
         let xhr = Co2okWidgetXL.xhr()
