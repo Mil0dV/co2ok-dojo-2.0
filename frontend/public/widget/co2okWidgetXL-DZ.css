@@ -87,6 +87,11 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
         width: 19%;
         height: 19%;
         left: 14px; }
+        @media (max-width: 320px) {
+          .co2ok_widget_infobox_container .card-main-header .header-img {
+            height: 15%;
+            top: 20px;
+        } }
     .co2ok_widget_infobox_container .co2ok-widget-content {
       margin-top: 31px; }
     .co2ok_widget_infobox_container .co2ok-widget-content .card-sub-header {
@@ -113,36 +118,34 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
       } }
     .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .left-align-img {
       left: 14px; }
-      .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .box {
-        top: 86px;
-        height: 18%;
-        width: 18%; }
-      .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .box {
-        top: 184px;
-        right: 12px;
-        height: 18%;
-        width: 18%; }
-        @media (max-width: 320px) {
-          .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .plant {
-            top: 101px;
-            width: 23%;
-        } }
-        @media (max-width: 320px) {
-          .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .plant {
-            width: 23%;
-            top: 204px;
-        } }
-      .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .tree {
-        bottom: 60px;
-        height: 18%;
-        width: 18%; }
-        @media (max-width: 320px) {
-          .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .tree {
-            width: 23%;
-        } }
- .co2ok_widget_infobox_container .inner-wrapper .selectable-text {
-   text-decoration: none;
- }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .box {
+      top: 86px;
+      height: 18%;
+      width: 18%; }
+      @media (max-width: 320px) {
+        .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .box {
+          width: 23%;
+      } }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .plant {
+      top: 184px;
+      right: 12px;
+      height: 18%;
+      width: 18%; }
+      @media (max-width: 320px) {
+        .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .plant {
+          width: 23%;
+          top: 204px;
+      } }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .tree {
+      bottom: 60px;
+      height: 18%;
+      width: 18%; }
+      @media (max-width: 320px) {
+        .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .tree {
+          width: 23%;
+      } }
+  .co2ok_widget_infobox_container .inner-wrapper .selectable-text {
+    text-decoration: none; }
   .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:link, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:visited, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:hover, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:active {
     color: black; }
   .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .text-block {

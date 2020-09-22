@@ -250,14 +250,12 @@ let Co2okWidget = {
 
       infoHoverBox.remove();
       jQuery("body").append(infoHoverBox);
-      console.log("offset.left", offset.left);
       if (element_id == '.large-widget')
       {
           offset.left -= infoHoverBox.width() / 4;
           offset.top += elementBox.height() - 8;
           offsetMobile.left -= infoHoverBox.width();
           offsetMobile.top += elementBox.height();
-          console.log("large-window", offset.left, off.top, offsetMobile.left, offsetMobile.top);
       }
       else if (element_id == '.usp_hover_target')
       {
@@ -265,7 +263,6 @@ let Co2okWidget = {
           offset.top += 20;
           offsetMobile.left -= 45;
           offsetMobile.top += 20;
-          console.log("usp_hover", offset.left, offset.top, offsetMobile.left, offsetMobile.top);
       }
       else if (element_id == '.cfs_hover_target')
       {
@@ -273,7 +270,6 @@ let Co2okWidget = {
           offset.top -= 350;
           offsetMobile.top -= 350;
           offsetMobile.left -= infoHoverBox.width() - 10;
-          console.log("cfs_hover", offset.left, offset.top, offsetMobile.left, offsetMobile.top);
       }
       else
         return ;
@@ -282,12 +278,10 @@ let Co2okWidget = {
       if (offset.top < 0) offset.top = 10;
       if (offsetMobile.left < 0) offsetMobile.left = 5;
       if (offsetMobile.top < 0) offsetMobile.top = 10;
-      console.log("checks", offset.left, offset.top, offsetMobile.left, offsetMobile.top);
 
       let window_width = jQuery(window).width();
       let offset_diff = window_width - (offset.left + 350);
 
-      console.log("window width", jQuery(window).width(), "diff", offset_diff, "left", offset.left - offset_diff, "mobile", offsetMobile.left);
        if (jQuery(window).width() < 480) {
         infoHoverBox.css({
           top: offsetMobile.top,
@@ -403,10 +397,10 @@ jQuery(document).ready(function() {
   console.log("CO2ok is fighting climate change!")
 
   Co2okWidget.loadResources()
-  // if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
-  //   console.log('hammer time!')
-  //   return
-  // }
+  if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
+    console.log('hammer time!')
+    return
+  }
   Co2okWidget.insertInfoHoverHtml();
   Co2okWidget.insertWidget();
   Co2okWidget.uspInsertion();
