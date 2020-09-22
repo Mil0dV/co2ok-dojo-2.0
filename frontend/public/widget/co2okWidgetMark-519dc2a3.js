@@ -1,4 +1,4 @@
-let Co2okWidget_RD = {
+let Co2okWidget = {
 
     // SITE_HOST: "https://co2ok.eco",
     SITE_HOST: "http://localhost:8080",
@@ -40,11 +40,11 @@ let Co2okWidget_RD = {
     merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor, lang) {
 
         // get impact from cookie if available
-        let co2ok_impact = Co2okWidget_RD.getCookieValue('co2ok_impact')
+        let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
 
         if (co2ok_impact > 1){
           // console.log('Collaborate and listen')
-          Co2okWidget_RD.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
+          Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
           return
         }
 
@@ -63,12 +63,12 @@ let Co2okWidget_RD = {
                 // let totalTransactionData = 491
 
                 document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
-                Co2okWidget_RD.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
+                Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
 
                 // Something is fishy, let's serve up the total
                 } else {
                   let totalTransactionData = 22300
-                  Co2okWidget_RD.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
+                  Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
             }
         }
         xhr.send()
@@ -135,7 +135,7 @@ let Co2okWidget_RD = {
         }
         else
           return ;
-      Co2okWidget_RD.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default')
+      Co2okWidget.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default')
     },
 
     insertInfoHoverHtml: function() {
@@ -250,36 +250,45 @@ let Co2okWidget_RD = {
 
       infoHoverBox.remove();
       jQuery("body").append(infoHoverBox);
-
+      console.log("offset.left", offset.left);
       if (element_id == '.large-widget')
       {
           offset.left -= infoHoverBox.width() / 4;
           offset.top += elementBox.height() - 8;
           offsetMobile.left -= infoHoverBox.width();
           offsetMobile.top += elementBox.height();
+          console.log("large-window", offset.left, off.top, offsetMobile.left, offsetMobile.top);
       }
       else if (element_id == '.usp_hover_target')
       {
           offset.left -= 25;
           offset.top += 20;
-          offsetMobile.left -= 25;
+          offsetMobile.left -= 45;
           offsetMobile.top += 20;
+          console.log("usp_hover", offset.left, offset.top, offsetMobile.left, offsetMobile.top);
       }
       else if (element_id == '.cfs_hover_target')
       {
+          offset.left -= 55;
           offset.top -= 350;
           offsetMobile.top -= 350;
-          offsetMobile.left -= infoHoverBox.width();
+          offsetMobile.left -= infoHoverBox.width() - 10;
+          console.log("cfs_hover", offset.left, offset.top, offsetMobile.left, offsetMobile.top);
       }
       else
         return ;
 
       if (offset.left < 0) offset.left = 10;
       if (offset.top < 0) offset.top = 10;
-      if (offsetMobile.left < 0) offsetMobile.left = 10;
+      if (offsetMobile.left < 0) offsetMobile.left = 5;
       if (offsetMobile.top < 0) offsetMobile.top = 10;
+      console.log("checks", offset.left, offset.top, offsetMobile.left, offsetMobile.top);
 
-      if (jQuery(window).width() < 480) {
+      let window_width = jQuery(window).width();
+      let offset_diff = window_width - (offset.left + 350);
+
+      console.log("window width", jQuery(window).width(), "diff", offset_diff, "left", offset.left - offset_diff, "mobile", offsetMobile.left);
+       if (jQuery(window).width() < 480) {
         infoHoverBox.css({
           top: offsetMobile.top,
           margin: "0 auto",
@@ -393,14 +402,14 @@ let Co2okWidget_RD = {
 jQuery(document).ready(function() {
   console.log("CO2ok is fighting climate change!")
 
-  Co2okWidget_RD.loadResources()
+  Co2okWidget.loadResources()
   // if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
   //   console.log('hammer time!')
   //   return
   // }
-  Co2okWidget_RD.insertInfoHoverHtml();
-  Co2okWidget_RD.insertWidget();
-  Co2okWidget_RD.uspInsertion();
-  Co2okWidget_RD.cfsTrustMarkInsertion();
-  Co2okWidget_RD.RegisterWidgetInfoBox();
+  Co2okWidget.insertInfoHoverHtml();
+  Co2okWidget.insertWidget();
+  Co2okWidget.uspInsertion();
+  Co2okWidget.cfsTrustMarkInsertion();
+  Co2okWidget.RegisterWidgetInfoBox();
 })
