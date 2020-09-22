@@ -118,7 +118,7 @@ let Co2okWidgetXL = {
                  }
 
                 // Kleine of grote widget
-
+                 
                 if (widgetColor == "gray") {
                    var colorSuffix = "-gray";
                    var fileref=document.createElement("link")
