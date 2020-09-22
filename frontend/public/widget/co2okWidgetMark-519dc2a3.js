@@ -272,7 +272,6 @@ let Co2okWidgetXL = {
           offset.top += elementBox.height() - 8;
           offsetMobile.left -= infoHoverBox.width();
           offsetMobile.top += elementBox.height();
-          console.log("large-window", offset.left, off.top, offsetMobile.left, offsetMobile.top);
       }
       else if (element_id == '.usp_hover_target')
       {
@@ -280,7 +279,6 @@ let Co2okWidgetXL = {
           offset.top += 20;
           offsetMobile.left -= 45;
           offsetMobile.top += 20;
-          console.log("usp_hover", offset.left, offset.top, offsetMobile.left, offsetMobile.top);
       }
       else if (element_id == '.cfs_hover_target')
       {
@@ -296,7 +294,6 @@ let Co2okWidgetXL = {
       if (offset.top < 0) offset.top = 10;
       if (offsetMobile.left < 0) offsetMobile.left = 5;
       if (offsetMobile.top < 0) offsetMobile.top = 10;
-      console.log("checks", offset.left, offset.top, offsetMobile.left, offsetMobile.top);
 
       let window_width = jQuery(window).width();
       let offset_diff = window_width - (offset.left + 350);
