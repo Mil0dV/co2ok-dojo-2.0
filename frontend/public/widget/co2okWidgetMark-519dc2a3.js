@@ -295,9 +295,6 @@ let Co2okWidgetXL = {
       if (offsetMobile.left < 0) offsetMobile.left = 5;
       if (offsetMobile.top < 0) offsetMobile.top = 10;
 
-      let window_width = jQuery(window).width();
-      let offset_diff = window_width - (offset.left + 350);
-
        if (jQuery(window).width() < 480) {
         infoHoverBox.css({
           top: offsetMobile.top,
