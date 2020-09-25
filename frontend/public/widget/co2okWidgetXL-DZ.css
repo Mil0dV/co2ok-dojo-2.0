@@ -49,7 +49,7 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
 .co2ok_widget_infobox_container {
   position: absolute;
   width: 350px;
-  height: 435px;
+  height: 465px;
   background: white;
   border-radius: 15px;
   box-sizing: border-box;
@@ -83,9 +83,9 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
       margin-left: 75px;
       margin-top: 26px; }
       .co2ok_widget_infobox_container .card-main-header .header-img {
-        top: 10px;
+        top: 15px;
         width: 19%;
-        height: 16%;
+        height: 14%;
         left: 14px; }
         @media (max-width: 320px) {
           .co2ok_widget_infobox_container .card-main-header .header-img {
@@ -119,27 +119,27 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
     .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .left-align-img {
       left: 14px; }
     .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .box {
-      top: 86px;
+      top: 89px;
       height: 15%;
-      width: 18%; }
+      width: 20%; }
       @media (max-width: 320px) {
         .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .box {
           width: 23%;
       } }
     .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .plant {
-      top: 184px;
+      top: 195px;
       right: 12px;
       height: 15%;
-      width: 18%; }
+      width: 20%; }
       @media (max-width: 320px) {
         .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .plant {
           width: 23%;
           top: 204px;
       } }
     .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .tree {
-      bottom: 60px;
+      bottom: 74px;
       height: 15%;
-      width: 18%; }
+      width: 20%; }
       @media (max-width: 320px) {
         .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .tree {
           width: 23%;

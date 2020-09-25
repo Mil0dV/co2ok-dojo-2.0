@@ -1,7 +1,7 @@
-let Co2okWidgetXL = {
+let Co2okWidget_JS = {
 
-    SITE_HOST: "https://co2ok.eco",
-    // SITE_HOST: "http://localhost:8080",
+    // SITE_HOST: "https://co2ok.eco",
+    SITE_HOST: "http://localhost:8080",
 
     getCookieValue: function (a) {
       var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -40,11 +40,11 @@ let Co2okWidgetXL = {
     merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor, lang) {
 
         // get impact from cookie if available
-        let co2ok_impact = Co2okWidgetXL.getCookieValue('co2ok_impact')
+        let co2ok_impact = Co2okWidget_JS.getCookieValue('co2ok_impact')
 
         if (co2ok_impact > 1){
           // console.log('Collaborate and listen')
-          Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
+          Co2okWidget_JS.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
           return
         }
 
@@ -63,12 +63,12 @@ let Co2okWidgetXL = {
                 // let totalTransactionData = 491
 
                 document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
-                Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
+                Co2okWidget_JS.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
 
                 // Something is fishy, let's serve up the total
                 } else {
                   let totalTransactionData = 22300
-                  Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
+                  Co2okWidget_JS.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
             }
         }
         xhr.send()
@@ -135,7 +135,7 @@ let Co2okWidgetXL = {
         }
         else
           return ;
-      Co2okWidgetXL.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default')
+      Co2okWidget_JS.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default')
     },
 
     insertInfoHoverHtml: function() {
@@ -151,22 +151,22 @@ let Co2okWidgetXL = {
         <div class="co2ok-widget-content">
 
           <div class="card-sub-header left">
-            <p class="sub-header">Duurzame Producten</p>
+            <p class="sub-header">Duurzame producten</p>
           </div>
           <div class="inner-wrapper">
             <img class="svg-img-large right-align-img box" src="${this.SITE_HOST}/widget/box_circle.png">
             <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-              <p class="text-block left">Douchezaal biedt producten die een leven lang meegaan, en daardoor minder afval opleveren!</p>
+              <p class="text-block left">Douchezaak biedt hoogwaardige producten die een leven lang meegaan, en daardoor minder afval opleveren!</p>
             </a>
           </div>
 
           <div class="card-sub-header right">
-            <p class="sub-header">Neutrale Verzending</p>
+            <p class="sub-header">Neutrale verpakking & verzending</p>
           </div>
           <div class="inner-wrapper">
             <img class="svg-img-large left-align-img plant" src="${this.SITE_HOST}/widget/plant_circle.png">
             <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-              <p class="text-block right" style="min-height: 58px;">Wij neutraliseren de verzending van al onze producten door geld te investeren in Klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!</p>
+              <p class="text-block right" style="min-height: 58px;">Wij neutraliseren de verpakking én de verzending van uw bestelling door geld te investeren in klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!</p>
             </a>
           </div>
 
@@ -176,7 +176,7 @@ let Co2okWidgetXL = {
           <div class="inner-wrapper">
             <img class="svg-img-large right-align-img tree" src="${this.SITE_HOST}/widget/sapling_tree_circle.png">
             <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
-              <p class="text-block left" style="min-height: 88px;">Aangezien de productie buiten onze macht ligt bieden we met CO2ok de mogelijkheid om die footprint ook te neutraliseren - plant je eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
+              <p class="text-block left" style="min-height: 88px;">Verder bieden we u de optie om de CO₂ die wordt uitgestoten bij de productie van uw aankoop te compenseren. Eenvoudig gezegd, plant u uw eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
             </a>
           </div>
 
@@ -393,14 +393,14 @@ let Co2okWidgetXL = {
 jQuery(document).ready(function() {
   console.log("CO2ok is fighting climate change!")
 
-  Co2okWidgetXL.loadResources()
+  Co2okWidget_JS.loadResources()
   if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
     console.log('hammer time!')
     return
   }
-  Co2okWidgetXL.insertInfoHoverHtml();
-  Co2okWidgetXL.insertWidget();
-  Co2okWidgetXL.uspInsertion();
-  Co2okWidgetXL.cfsTrustMarkInsertion();
-  Co2okWidgetXL.RegisterWidgetInfoBox();
+  Co2okWidget_JS.insertInfoHoverHtml();
+  Co2okWidget_JS.insertWidget();
+  Co2okWidget_JS.uspInsertion();
+  Co2okWidget_JS.cfsTrustMarkInsertion();
+  Co2okWidget_JS.RegisterWidgetInfoBox();
 })
