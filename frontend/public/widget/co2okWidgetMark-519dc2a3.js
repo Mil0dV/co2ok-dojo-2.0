@@ -1,7 +1,7 @@
 let Co2okWidgetXL = {
 
-    // SITE_HOST: "https://co2ok.eco",
-    SITE_HOST: "http://localhost:8080",
+    SITE_HOST: "https://co2ok.eco",
+    // SITE_HOST: "http://localhost:8080",
 
     getCookieValue: function (a) {
       var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
