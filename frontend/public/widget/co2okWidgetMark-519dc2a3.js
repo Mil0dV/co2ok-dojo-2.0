@@ -1,7 +1,7 @@
 let Co2okWidgetXL = {
 
     SITE_HOST: "https://co2ok.eco",
-    // SITE_HOST: "http://localhost:8080",
+    SITE_HOST: "http://localhost:8080",
 
     getCookieValue: function (a) {
       var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -141,23 +141,6 @@ let Co2okWidgetXL = {
       var infoHoverHtml =
       `
       <div class="co2ok_widget_infobox_container co2ok-popper infobox-hidden" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
-
-        <div class="card-main-header">
-          <img class="svg-img-large left-align-img header-img" src="${this.SITE_HOST}/widget/DZ-heart-earth_2.png">
-          <p class="header">Our Planet Promise</p>
-        </div>
-
-        <div class="co2ok-widget-content">
-
-          <div class="card-sub-header left">
-            <p class="sub-header">Duurzame producten</p>
-          </div>
-          <div class="inner-wrapper">
-            <img class="svg-img-large right-align-img box" src="${this.SITE_HOST}/widget/box_circle.png">
-            <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-              <p class="text-block left">Douchezaak biedt hoogwaardige producten die een leven lang meegaan, en daardoor minder afval opleveren!</p>
-            </a>
-          </div>
 
         <div class="card-main-header">
           <img class="svg-img-large left-align-img header-img" src="${this.SITE_HOST}/widget/DZ-heart-earth_2.png">
