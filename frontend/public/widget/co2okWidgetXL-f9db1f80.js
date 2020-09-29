@@ -283,6 +283,7 @@ if (document.currentScript.getAttribute('div')) {
   let div = document.currentScript.getAttribute('div')
   let merchantId = document.currentScript.getAttribute('merchantId')
   let widgetColor = document.currentScript.getAttribute('widgetColor')
+  let widgetSize = document.currentScript.getAttribute('widgetSize')
   let lang = document.currentScript.getAttribute('lang')
-  Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
+  Co2okWidgetXL.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
 }  
