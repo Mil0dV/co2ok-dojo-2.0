@@ -377,7 +377,7 @@ jQuery(document).ready(function() {
     console.log('Co2ok OFF!')
     return
   }
-  else if (Co2ok_JS().getCookieValue('co2ok_ab_hide') % 2 == 0)
+  else if (Co2ok_JS().getCookieValue('co2ok_ab_hide') == 0)
   {
     console.log('hammer time!')
     return
