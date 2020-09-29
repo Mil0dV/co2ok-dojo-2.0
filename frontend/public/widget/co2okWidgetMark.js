@@ -306,15 +306,3 @@ if (document.currentScript.getAttribute('div')) {
   let lang = document.currentScript.getAttribute('lang')
   Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
 }
-
-// New style Async execution B)
-// if the variables are set on the script src, we're in async mode 
-// and don't expect the html to run merchantCompensations
-
-if (document.currentScript.getAttribute('div')) {
-  let div = document.currentScript.getAttribute('div')
-  let merchantId = document.currentScript.getAttribute('merchantId')
-  let widgetColor = document.currentScript.getAttribute('widgetColor')
-  let lang = document.currentScript.getAttribute('lang')
-  Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
-}
