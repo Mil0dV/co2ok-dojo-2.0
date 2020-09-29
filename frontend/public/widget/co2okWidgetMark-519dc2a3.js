@@ -367,17 +367,7 @@ jQuery(document).ready(function() {
 
   Co2okWidgetXL.loadResources()
 
-  var urlParams = new URLSearchParams(window.location.search);
-  var myParam = urlParams.get('co2ok_ab');
-
-  if (myParam == 'show')
-    console.log('Co2ok ON!')
-  else if (myParam == 'hide')
-  {
-    console.log('Co2ok OFF!')
-    return
-  }
-  else if (Co2ok_JS().getCookieValue('co2ok_ab_hide') % 2 == 0)
+  if (Co2ok_JS().getCookieValue('co2ok_ab_hide') % 2 == 0)
   {
     console.log('hammer time!')
     return
