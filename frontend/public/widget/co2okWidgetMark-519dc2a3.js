@@ -239,8 +239,6 @@ let Co2okWidgetXL = {
             return !!jQuery(selector).length;
     },
 
-
-
     placeWidgetInfoBox : function(element_id) {
       var elementBox = jQuery(element_id);
       var infoHoverBox = jQuery(".co2ok_widget_infobox_container");
@@ -252,8 +250,12 @@ let Co2okWidgetXL = {
       if (element_id == '.large-widget')
       {
         offset.left -= infoHoverBox.width() / 4;
-        offset.top += elementBox.height() - 8;
-        offsetMobile.left -= infoHoverBox.width();
+        if (jQuery(window).width() <= 800)
+          offset.top += elementBox.height() * 4;
+        if (jQuery(window).width() <= 800)
+          offsetMobile.left = -10;
+        else
+          offsetMobile.left -= infoHoverBox.width();
         offsetMobile.top += elementBox.height();
       }
       else if (element_id == '.usp_hover_target')
@@ -277,7 +279,7 @@ let Co2okWidgetXL = {
       if (offset.top < 0) offset.top = 10;
       if (offsetMobile.left < 0) offsetMobile.left = 5;
       if (offsetMobile.top < 0) offsetMobile.top = 10;
-      if (jQuery(window).width() <= 800 && jQuery(window).width() > 480) {
+      if (jQuery(window).width() <= 800 && jQuery(window).width() > 480 && element_id != ".large-widget") {
         infoHoverBox.css({
           top: offsetMobile.top,
           margin: "0 auto",
