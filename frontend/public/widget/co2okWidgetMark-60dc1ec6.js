@@ -68,7 +68,17 @@ let Co2okWidget = {
       fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark-ht.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
 
-      if (Co2ok_JS().getCookieValue('co2ok_ab_hide') == 0)
+      var urlParams = new URLSearchParams(window.location.search);
+      var co2ok_ab_cookie = urlParams.get('co2ok_ab');
+
+      if (co2ok_ab_cookie == 'show')
+        console.log('Co2ok ON!')
+      else if (co2ok_ab_cookie == 'hide')
+      {
+        console.log('Co2ok OFF!')
+        return
+      }
+      else if (Co2ok_JS().getCookieValue('co2ok_ab_hide') == 0)
       {
         console.log('hammer time!')
         return

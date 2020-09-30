@@ -87,11 +87,21 @@ let Co2okWidget = {
          var colorSuffix = "";
      }
       
-     if (Co2ok_JS().getCookieValue('co2ok_ab_hide') == 0)
-      {
-        console.log('hammer time!')
-        return
-      }
+    var urlParams = new URLSearchParams(window.location.search);
+    var co2ok_ab_cookie = urlParams.get('co2ok_ab');
+
+    if (co2ok_ab_cookie == 'show')
+      console.log('Co2ok ON!')
+    else if (co2ok_ab_cookie == 'hide')
+    {
+      console.log('Co2ok OFF!')
+      return
+    }
+    else if (Co2ok_JS().getCookieValue('co2ok_ab_hide') == 0)
+    {
+      console.log('hammer time!')
+      return
+    }
       // Dit moet nog ff mooier als we dit nog willen gebruiken, anders kan het weg.
       if (totalCompensatedData < 100) {
         var compensatiewidget  = 0.1;
