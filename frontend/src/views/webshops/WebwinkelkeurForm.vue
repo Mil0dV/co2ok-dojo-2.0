@@ -3,7 +3,6 @@
         <img class="Header_logo" src="../../assets/images/webshops/webwinkelkeur/webwinkelkeurLogo.png">
         <Header :image="header"></Header>
         <div class="uk-section section-1">
-            
             <!-- <h1 class="main-title">Get started</h1> -->
             <div class="uk-container form__section uk-container-width" style="margin-top: -80px;">
                 <h1 v-if="!c_platform" style="margin-bottom: 50px" class="main-title">WebwinkelKeur ledenaanbieding</h1>
@@ -25,7 +24,7 @@
                                     <label class="login__group">
                                         Naam
                                         <input v-model="name"
-                                            class="login__group-input" type="email"
+                                            class="login__group-input" type="text"
                                             :placeholder=" 'Vul je naam in' ">
                                     </label>
 
@@ -39,21 +38,21 @@
                                     <label class="login__group">
                                         Telefoonnummer
                                         <input v-model="phone"
-                                            class="login__group-input" type="email"
+                                            class="login__group-input" type="text"
                                             :placeholder=" 'Vul je telefoonnummer in' ">
                                     </label>
 
                                     <label class="login__group">
                                         Domeinnaam
                                         <input v-model="domain"
-                                            class="login__group-input" type="email"
+                                            class="login__group-input" type="text"
                                             :placeholder=" 'Vul de domeinnaam van je webshop in' ">
                                     </label>
 
                                     <label v-if="!c_platform" class="login__group">
                                         Gemiddeld aantal orders/maand
                                         <input v-model="platform"
-                                            class="login__group-input" type="email"
+                                            class="login__group-input" type="text"
                                             :placeholder=" 'Schatting gemiddeld aantal orders' ">
                                     </label>
                                 </div>
@@ -89,8 +88,6 @@
 <script>
     import axios from 'axios'
 
-    const Modal = () => import('@/components/modals/Modal')
-
     export default {
         name: "WebshopForm",
         props: {
@@ -100,10 +97,6 @@
                 default: null
             }
         },
-        components: {
-            Modal
-        },
-
 
         data() {
             return {
@@ -118,14 +111,15 @@
 
         methods: {
 
-            emptyForm() {
-                this.name = ''
-                this.email = ''
-                this.phone = ''
-                this.domain = ''
-                this.platform = ''
-                this.package = ''
-            },
+            //currently commented out
+            // emptyForm() {
+            //     this.name = ''
+            //     this.email = ''
+            //     this.phone = ''
+            //     this.domain = ''
+            //     this.platform = ''
+            //     this.package = ''
+            // },
 
             assignPackage(pakket) {
                 console.log('Were assigning package');
@@ -143,7 +137,7 @@
                     console.log('Were sending an email');
                     let message = {
                         title: this. $t('webshopform.success') ,
-                        text: this. $t('webshopform.success_message') 
+                        text: this. $t('webshopform.success_message')
                     }
                     axios
                         .post(`${this.$store.state.SITE_HOST}/accounts/sendMail/`, {
@@ -168,13 +162,12 @@
                     console.log('We failed');
                     let message = {
                         title: this. $t('webshopform.error') ,
-                        text: this. $t('webshopform.error_message') 
+                        text: this. $t('webshopform.error_message')
                     }
                     this.$store.commit('modalStatus', {message})
                 }
             }
         }
-        
     }
 </script>
 
