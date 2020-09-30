@@ -397,7 +397,7 @@ let Co2okWidgetXL = {
     }
 }
 
-jQuery(document).ready(function() {
+// jQuery(document).ready(function() {
   console.log("CO2ok is fighting climate change!")
 
   Co2okWidgetXL.loadResources()
@@ -410,4 +410,4 @@ jQuery(document).ready(function() {
   Co2okWidgetXL.uspInsertion();
   Co2okWidgetXL.cfsTrustMarkInsertion();
   Co2okWidgetXL.RegisterWidgetInfoBox();
-})
+// })
