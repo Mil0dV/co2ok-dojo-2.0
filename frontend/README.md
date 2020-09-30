@@ -6,6 +6,7 @@ The next commands are used for installing NPM packages and running a local serve
 ```
 
 ## Project setup
+Make sure you have node.js installed, then...
 ```
 npm install
 ```

@@ -67,7 +67,7 @@ let Co2okWidget = {
       let color = "#D0C918"
       // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
       let  SITE_HOST =  'https://co2ok.eco'
-      // let SITE_HOST = 'http://localhost:8080'
+      // let SITE_HOST = 'http://localhost:8081'
 
       var fileref=document.createElement("link")
       fileref.setAttribute("rel", "stylesheet")
@@ -75,7 +75,8 @@ let Co2okWidget = {
       fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
       
-      if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
+      if (Co2ok_JS().getCookieValue('co2ok_ab_hide') % 2 == 0)
+      {
         console.log('hammer time!')
         return
       }
@@ -87,7 +88,6 @@ let Co2okWidget = {
       else {
         var compensatiewidget  = totalCompensatedData / 1000;
       }
-
       // Regular or grayscale widget
       if (widgetColor == "gray") {
         var colorSuffix = "-gray";
@@ -116,7 +116,7 @@ let Co2okWidget = {
       let widgetmark = `
       <div>
       <div class="btn_co2ok_widget co2ok_widget_info" href="#">
-          <span class="btn_co2ok_widget co2ok_widget_info">SHOP<img class="logo_co2ok_widget" src="${SITE_HOST}/static/logo${colorSuffix}.png"></span>
+          <span class="btn_co2ok_widget co2ok_widget_info trustmark-border">SHOP<img class="logo_co2ok_widget" src="${SITE_HOST}/static/logo${colorSuffix}.png"></span>
       </div>
           <div class="caption_co2ok_widget co2ok_widget_info">
               <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t ${reductietekst} </span>

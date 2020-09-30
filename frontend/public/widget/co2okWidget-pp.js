@@ -18,10 +18,11 @@ let Co2okWidget = {
 
     merchantCompensations: function (widgetContainer, merchantId) {
 
-        if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
-          console.log('hammer time!')
-          return
-        }
+      if (Co2ok_JS().getCookieValue('co2ok_ab_hide') % 2 == 0)
+      {
+        console.log('hammer time!')
+        return
+      }
 
         let xhr = Co2okWidget.xhr()
         // let host = 'http://127.0.0.1:8000'

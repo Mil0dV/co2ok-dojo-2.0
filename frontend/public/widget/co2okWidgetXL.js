@@ -78,10 +78,11 @@ let Co2okWidgetXL = {
         fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
         document.getElementsByTagName("head")[0].appendChild(fileref)
         
-        if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
-          console.log('hammer time!')
-          return
-        }
+        if (Co2ok_JS().getCookieValue('co2ok_ab_hide') % 2 == 0)
+      {
+        console.log('hammer time!')
+        return
+      }
                 var decimalsCompensation = 1;
                 if (totalCompensatedData < 100)
                   var compensationAmount  = 0.1;
@@ -117,7 +118,7 @@ let Co2okWidgetXL = {
                  }
 
                 // Kleine of grote widget
-
+                 
                 if (widgetColor == "gray") {
                    var colorSuffix = "-gray";
                    var fileref=document.createElement("link")

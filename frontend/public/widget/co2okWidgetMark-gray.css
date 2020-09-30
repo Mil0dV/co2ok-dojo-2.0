@@ -1,11 +1,11 @@
-.btn_co2ok_widget .co2ok_widget_info {
-        border: 2px solid #85888D
+.trustmark-border{
+        border: 2px solid #85888D !important;
     }
     
 .caption_co2ok_widget {
-    color: #85888D
+    color: #85888D !important;
 }
 
 .co2ok_widget_infobox_container {
-    border-color: #85888D;
+    border-color: #85888D !important;
 }
