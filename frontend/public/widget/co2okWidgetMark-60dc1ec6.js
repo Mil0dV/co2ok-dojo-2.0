@@ -1,5 +1,7 @@
 let Co2okWidget = {
 
+// Happy Towels
+
   xhr: function() {
 
       let xhr;
@@ -15,13 +17,23 @@ let Co2okWidget = {
       return xhr;
 
   },
+  
+  getCookieValue: function (a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b ? b.pop() : '';
+  },
 
   merchantCompensations: function (widgetContainer, merchantId) {
 
-      if (document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/)){
-        console.log('hammer time!')
-        return
-      }
+    // get impact from cookie if available
+    let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
+    // console.log(co2ok_impact)
+    
+    if (co2ok_impact > 1){
+      console.log('Collaborate and listen')
+      Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact)
+      return
+    }
 
       let xhr = Co2okWidget.xhr()
       // let host = 'http://127.0.0.1:8000'
@@ -78,7 +90,7 @@ let Co2okWidget = {
         var image_url = plugin.url;
       }
       catch{
-        var image_url = "https://www.soap7.com/wp-content/plugins/co2ok-plugin-woocommerce-5/images";
+        var image_url = "https://happytowels.nl/wp-content/plugins/co2ok-for-woocommerce/images";
       }
 
               let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
@@ -106,7 +118,7 @@ let Co2okWidget = {
               <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe werkt CO2 compensatie?</a> </span>
               </div>
       
-              <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
+        
               
               `
               // console.log(widgetimg)
@@ -252,3 +264,16 @@ let Co2okWidget = {
 
 }
 // export default new Co2okWidget()
+
+
+// New style Async execution B)
+// if the variables are set on the script src, we're in async mode 
+// and don't expect the html to run merchantCompensations
+
+if (document.currentScript.getAttribute('div')) {
+  let div = document.currentScript.getAttribute('div')
+  let merchantId = document.currentScript.getAttribute('merchantId')
+  let widgetColor = document.currentScript.getAttribute('widgetColor')
+  let lang = document.currentScript.getAttribute('lang')
+  Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
+}

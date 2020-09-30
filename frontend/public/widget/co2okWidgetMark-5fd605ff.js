@@ -137,7 +137,7 @@ let Co2okWidget = {
       <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">${how_does_it_worktekst}</a> </span>
       </div>
 
-      <div class="co2ok_infobox_container co2ok-popper" id="infobox-view">    </div>
+
       `
               // console.log(widgetimg)
 
@@ -296,3 +296,16 @@ let Co2okWidget = {
 
 }
 // export default new Co2okWidget()
+
+
+// New style Async execution B)
+// if the variables are set on the script src, we're in async mode 
+// and don't expect the html to run merchantCompensations
+
+if (document.currentScript.getAttribute('div')) {
+  let div = document.currentScript.getAttribute('div')
+  let merchantId = document.currentScript.getAttribute('merchantId')
+  let widgetColor = document.currentScript.getAttribute('widgetColor')
+  let lang = document.currentScript.getAttribute('lang')
+  Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
+}
