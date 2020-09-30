@@ -78,11 +78,11 @@ let Co2okWidgetXL = {
         fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
         document.getElementsByTagName("head")[0].appendChild(fileref)
         
-        if (Co2ok_JS().getCookieValue('co2ok_ab_hide') % 2 == 0)
-      {
-        console.log('hammer time!')
-        return
-      }
+        if (Co2okWidgetXL.getCookieValue('co2ok_ab_hide') == 0)
+        {
+          console.log('hammer time!')
+          return
+        }
                 var decimalsCompensation = 1;
                 if (totalCompensatedData < 100)
                   var compensationAmount  = 0.1;

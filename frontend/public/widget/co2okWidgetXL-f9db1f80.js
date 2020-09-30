@@ -18,7 +18,7 @@ let Co2okWidgetXL = {
   
     merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor) {
   
-      if (Co2ok_JS().getCookieValue('co2ok_ab_hide') % 2 == 0)
+      if (Co2okWidgetXL.getCookieValue('co2ok_ab_hide') == 0)
       {
         console.log('hammer time!')
         return
