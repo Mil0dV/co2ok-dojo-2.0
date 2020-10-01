@@ -17,6 +17,11 @@ let Co2okWidgetXL = {
       var fileref=document.createElement("link")
       fileref.setAttribute("rel", "stylesheet")
       fileref.setAttribute("type", "text/css")
+      fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetXL.css`)
+      document.getElementsByTagName("head")[0].appendChild(fileref)
+      var fileref=document.createElement("link")
+      fileref.setAttribute("rel", "stylesheet")
+      fileref.setAttribute("type", "text/css")
       fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetXL-DZ.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
 
@@ -154,9 +159,7 @@ let Co2okWidgetXL = {
           </div>
           <div class="inner-wrapper">
             <img class="svg-img-large right-align-img box" src="${this.SITE_HOST}/widget/box_circle.png">
-            <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
               <p class="text-block left">Douchezaak biedt hoogwaardige producten die een leven lang meegaan, en daardoor minder afval opleveren!</p>
-            </a>
           </div>
 
           <div class="card-sub-header right">
@@ -164,9 +167,7 @@ let Co2okWidgetXL = {
           </div>
           <div class="inner-wrapper">
             <img class="svg-img-large left-align-img plant" src="${this.SITE_HOST}/widget/plant_circle.png">
-            <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
               <p class="text-block right" style="min-height: 58px;">Wij neutraliseren de verpakking én de verzending van uw bestelling door geld te investeren in klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!</p>
-            </a>
           </div>
 
           <div class="card-sub-header left">
@@ -174,9 +175,7 @@ let Co2okWidgetXL = {
           </div>
           <div class="inner-wrapper">
             <img class="svg-img-large right-align-img tree" src="${this.SITE_HOST}/widget/sapling_tree_circle.png">
-            <a href="#!" input="" type="text" role="button" tabindex="0" class="selectable-text" style="outline: none; -webkit-appearance: none;">
               <p class="text-block left" style="min-height: 88px;">Verder bieden we u de optie om de CO₂ die wordt uitgestoten bij de productie van uw aankoop te compenseren. Eenvoudig gezegd, plant u uw eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
-            </a>
           </div>
 
           <a class="hover-link" href="#!"><img src="${this.SITE_HOST}/static/logo.png" class="co2ok_logo_default_info hover-link co2ok_logo_default_info"></a>
@@ -257,6 +256,7 @@ let Co2okWidgetXL = {
         else
           offsetMobile.left -= infoHoverBox.width();
         offsetMobile.top += elementBox.height();
+        console.log(offset.left)
       }
       else if (element_id == '.usp_hover_target')
       {
@@ -275,7 +275,11 @@ let Co2okWidgetXL = {
       else
         return ;
 
-      if (offset.left < 0) offset.left = 10;
+      var e = window.event;
+      var posX = e.clientX;
+
+      if (offset.left < 0 && posX < jQuery(window).width() / 2) offset.left = 10;
+      if (offset.left < 0 && posX > jQuery(window).width() / 2) offset.left = jQuery(window).width() - 360;
       if (offset.top < 0) offset.top = 10;
       if (offsetMobile.left < 0) offsetMobile.left = 5;
       if (offsetMobile.top < 0) offsetMobile.top = 10;
@@ -294,13 +298,13 @@ let Co2okWidgetXL = {
           transform: "none"
         });
       } else {
-        infoHoverBox.css({
-          top: offset.top,
-          left: offset.left,
-          margin: "0",
-          transform: "none"
-        });
-      }
+          infoHoverBox.css({
+            top: offset.top,
+            left: offset.left,
+            margin: "0",
+            transform: "none"
+          });
+        }
     },
     ShowWidgetInfoBox  : function()
     {
