@@ -18,7 +18,7 @@ let Co2okWidget = {
 
     merchantCompensations: function (widgetContainer, merchantId) {
 
-      if (Co2okWidget.getCookieValue('co2ok_ab_hide') == 0)
+      if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0')
       {
         console.log('hammer time!')
         return

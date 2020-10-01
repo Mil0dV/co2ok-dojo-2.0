@@ -78,7 +78,7 @@ let Co2okWidgetXL = {
         fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
         document.getElementsByTagName("head")[0].appendChild(fileref)
         
-        if (Co2okWidgetXL.getCookieValue('co2ok_ab_hide') == 0)
+        if (Co2okWidgetXL.getCookieValue('co2ok_ab_hide') == '0')
         {
           console.log('hammer time!')
           return

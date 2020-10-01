@@ -417,7 +417,7 @@ jQuery(document).ready(function() {
     console.log('Co2ok OFF mannually!')
     return
   }
-  else if (Co2okWidgetXL.getCookieValue('co2ok_ab_hide') == 0)
+  else if (Co2okWidgetXL.getCookieValue('co2ok_ab_hide') == '0')
   {
     console.log('hammer time!')
     return
