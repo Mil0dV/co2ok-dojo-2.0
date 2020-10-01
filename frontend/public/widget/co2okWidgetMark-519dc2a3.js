@@ -256,7 +256,6 @@ let Co2okWidgetXL = {
         else
           offsetMobile.left -= infoHoverBox.width();
         offsetMobile.top += elementBox.height();
-        console.log(offset.left)
       }
       else if (element_id == '.usp_hover_target')
       {
