@@ -1,7 +1,7 @@
 let Co2okWidgetXL = {
 
     SITE_HOST: "https://co2ok.eco",
-    // SITE_HOST: "http://localhost:8080",
+    SITE_HOST: "http://localhost:8080",
 
     getCookieValue: function (a) {
       var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -148,7 +148,7 @@ let Co2okWidgetXL = {
       <div class="co2ok_widget_infobox_container co2ok-popper infobox-hidden" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
 
         <div class="card-main-header">
-          <img class="svg-img-large left-align-img header-img" src="${this.SITE_HOST}/widget/DZ-heart-earth_2.png">
+          <img class="png-img-large left-align-img header-img" src="${this.SITE_HOST}/widget/DZ-heart-earth_2.png">
           <p class="header">Our Planet Promise</p>
         </div>
 
@@ -158,7 +158,7 @@ let Co2okWidgetXL = {
             <p class="sub-header">Duurzame producten</p>
           </div>
           <div class="inner-wrapper">
-            <img class="svg-img-large right-align-img box" src="${this.SITE_HOST}/widget/box_circle.png">
+            <img class="png-img-large right-align-img box" src="${this.SITE_HOST}/widget/box_circle.png">
               <p class="text-block left">Douchezaak biedt hoogwaardige producten die een leven lang meegaan, en daardoor minder afval opleveren!</p>
           </div>
 
@@ -166,7 +166,7 @@ let Co2okWidgetXL = {
             <p class="sub-header">Neutrale verpakking & verzending</p>
           </div>
           <div class="inner-wrapper">
-            <img class="svg-img-large left-align-img plant" src="${this.SITE_HOST}/widget/plant_circle.png">
+            <img class="png-img-large left-align-img plant" src="${this.SITE_HOST}/widget/plant_circle.png">
               <p class="text-block right" style="min-height: 58px;">Wij neutraliseren de verpakking én de verzending van uw bestelling door geld te investeren in klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!</p>
           </div>
 
@@ -174,7 +174,7 @@ let Co2okWidgetXL = {
             <p class="sub-header">Neutraliseren van de productie</p>
           </div>
           <div class="inner-wrapper">
-            <img class="svg-img-large right-align-img tree" src="${this.SITE_HOST}/widget/sapling_tree_circle.png">
+            <img class="png-img-large right-align-img tree" src="${this.SITE_HOST}/widget/sapling_tree_circle.png">
               <p class="text-block left" style="min-height: 88px;">Verder bieden we u de optie om de CO₂ die wordt uitgestoten bij de productie van uw aankoop te compenseren. Eenvoudig gezegd, plant u uw eigen bomen direct naast de onze, met slechts één druk op de knop!</p>
           </div>
 
@@ -243,15 +243,16 @@ let Co2okWidgetXL = {
       var infoHoverBox = jQuery(".co2ok_widget_infobox_container");
       var offset = elementBox.offset();
       var offsetMobile = elementBox.offset();
+      var windowWidth = jQuery(window).width();
 
       infoHoverBox.remove();
       jQuery("body").append(infoHoverBox);
       if (element_id == '.large-widget')
       {
         offset.left -= infoHoverBox.width() / 4;
-        if (jQuery(window).width() <= 800)
+        if (windowWidth <= 800)
           offset.top += elementBox.height() * 4;
-        if (jQuery(window).width() <= 800)
+        if (windowWidth <= 800)
           offsetMobile.left = -10;
         else
           offsetMobile.left -= infoHoverBox.width();
@@ -259,14 +260,19 @@ let Co2okWidgetXL = {
       }
       else if (element_id == '.usp_hover_target')
       {
-        offset.left -= 25;
+        if (windowWidth >= 1121 && windowWidth < 1400)
+          offset.left = windowWidth - 370;
+        else
+          offset.left -= 25;
         offset.top += 20;
         offsetMobile.left -= 45;
         offsetMobile.top += 20;
       }
       else if (element_id == '.cfs_hover_target')
       {
-        offset.left -= 55;
+        offset.left = windowWidth - 400;
+        if (offset.left < 0)
+          offset.left = 5;
         offset.top -= 350;
         offsetMobile.top -= 350;
         offsetMobile.left -= infoHoverBox.width() - 10;
@@ -277,19 +283,19 @@ let Co2okWidgetXL = {
       var e = window.event;
       var posX = e.clientX;
 
-      if (offset.left < 0 && posX < jQuery(window).width() / 2) offset.left = 10;
-      if (offset.left < 0 && posX > jQuery(window).width() / 2) offset.left = jQuery(window).width() - 360;
+      if (offset.left < 0 && posX < windowWidth / 2) offset.left = 10;
+      if (offset.left < 0 && posX > windowWidth / 2) offset.left = windowWidth - 360;
       if (offset.top < 0) offset.top = 10;
       if (offsetMobile.left < 0) offsetMobile.left = 5;
       if (offsetMobile.top < 0) offsetMobile.top = 10;
-      if (jQuery(window).width() <= 800 && jQuery(window).width() > 480 && element_id != ".large-widget") {
+      if (windowWidth <= 800 && windowWidth > 480 && element_id != ".large-widget") {
         infoHoverBox.css({
           top: offsetMobile.top,
           margin: "0 auto",
-          left: jQuery(window).width() - 360,
+          left: windowWidth - 360,
           transform: "none"
         });
-      } else if (jQuery(window).width() < 480) {
+      } else if (windowWidth < 480) {
         infoHoverBox.css({
           top: offsetMobile.top,
           margin: "0 auto",
@@ -329,8 +335,7 @@ let Co2okWidgetXL = {
         return ('.usp_hover_target');
       else if (jQuery(e.target).hasClass("info_button_widget_hover"))
         return ('.large-widget')
-      else if (jQuery(e.target).hasClass("svg-img") ||
-        jQuery(e.target).hasClass("svg-img-large") ||
+      else if (jQuery(e.target).hasClass("png-img-large") ||
         jQuery(e.target).hasClass("co2ok_widget_infobox_container") ||
         jQuery(e.target).hasClass("logo_co2ok_widget") ||
         jQuery(e.target).hasClass("header") ||
