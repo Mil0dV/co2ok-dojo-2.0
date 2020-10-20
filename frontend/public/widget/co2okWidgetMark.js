@@ -29,6 +29,13 @@ let Co2okWidget = {
     
     if (co2ok_impact > 1){
       console.log('Collaborate and listen')
+
+      // ugly hack for DGL
+      // adds seperately compensated amount
+      if (merchantId == '12afe7d2' || merchantId == '432c516a') (
+        co2ok_impact += 1683 
+      )
+
       Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)
       return
     }
@@ -75,7 +82,7 @@ let Co2okWidget = {
       fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
       
-      if (Co2okWidget.getCookieValue('co2ok_ab_hide') == 0)
+      if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0')
       {
         console.log('hammer time!')
         return
