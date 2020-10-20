@@ -32,7 +32,7 @@ let Co2okWidgetXL = {
           // ugly hack for DGL
           // adds seperately compensated amount
           if (merchantId == '12afe7d2' || merchantId == '432c516a') {
-            co2ok_impact += 1683 
+            co2ok_impact = 1683 + parseInt(co2ok_impact) 
           }
 
           Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
