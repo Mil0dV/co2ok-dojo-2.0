@@ -42,9 +42,10 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
   z-index:4;
 }
 
-.svg-img-large {
+.png-img-large {
   display: flex;
-  position: absolute; }
+  position: absolute;
+}
 
 .co2ok_widget_infobox_container {
   position: absolute;
@@ -145,10 +146,6 @@ box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
         .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .tree {
           height: 11%;
       } }
-  .co2ok_widget_infobox_container .inner-wrapper .selectable-text {
-    text-decoration: none; }
-  .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:link, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:visited, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:hover, .co2ok_widget_infobox_container .inner-wrapper .selectable-text a:active {
-    color: black; }
   .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .text-block {
     font-size: 12px;
     line-height: normal;

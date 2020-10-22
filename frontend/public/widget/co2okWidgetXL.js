@@ -28,6 +28,13 @@ let Co2okWidgetXL = {
 
         if (co2ok_impact > 1){
           console.log('Collaborate and listen')
+
+          // ugly hack for DGL
+          // adds seperately compensated amount
+          if (merchantId == '12afe7d2' || merchantId == '432c516a') {
+            co2ok_impact = 1683 + parseInt(co2ok_impact) 
+          }
+
           Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
           return
         }
