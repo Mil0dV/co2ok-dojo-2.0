@@ -268,8 +268,8 @@ let Co2okWidgetXL = {
       else if (element_id == '.cfs_hover_target')
       {
         offset.left -= 55;
-        offset.top -= 350;
-        offsetMobile.top -= 350;
+        offset.top -= 430;
+        offsetMobile.top -= 430;
         offsetMobile.left -= infoHoverBox.width() - 10;
       }
       else
