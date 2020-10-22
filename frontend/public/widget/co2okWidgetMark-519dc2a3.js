@@ -118,14 +118,10 @@ let Co2okWidgetXL = {
     },
 
     insertWidget: async function() {
-      let widget_div = `<div id="widgetContainerDZ" style="margin-top:25px; margin-bottom:25px; margin-left:18px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>`
+      let widget_div = `<div class="widgetContainerDZ" style="margin-top:25px; margin-bottom:25px; margin-left:18px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>`
 
       let pagetype = window.location.pathname.split("/")[1]
-      if (pagetype == "product-categorie")
-        jQuery('#egm_call_me_back-2').before(widget_div)
-      else if (pagetype == "product")
-        jQuery('#egm_call_me_back-3').before(widget_div)
-      else if (pagetype == "werken-bij-douchezaak" || pagetype == "badkamer-blog" || pagetype == "badkamer-showroom" || pagetype.split("-")[0] == "vacature")
+      if (pagetype == "product" || pagetype == "product-categorie" || pagetype == "werken-bij-douchezaak" || pagetype == "badkamer-blog" || pagetype == "badkamer-showroom" || pagetype.split("-")[0] == "vacature")
         {
           for (var x = 0; x < 15; x++)
           {
@@ -213,16 +209,16 @@ let Co2okWidgetXL = {
         <img id="large-widget-airplane" src= "${this.SITE_HOST}/widget/douche.svg">
       </div>
       `
-
-      let widgetcontainer = document.getElementById(widgetContainer)
-      // let widgetcontainer = document.getElementsByClassName('whb-empty-column')[0]
+      var widgetContainerArray = document.getElementsByClassName('widgetContainerDZ')
 
       // Don't try to place widget if there is no container
-      if(widgetcontainer == null){
+      if(widgetContainerArray == null){
         return
       }
 
-      widgetcontainer.innerHTML = widgetmark
+      Array.from(widgetContainerArray).forEach(element => {
+        element.innerHTML = widgetmark;
+      });
     },
 
 
