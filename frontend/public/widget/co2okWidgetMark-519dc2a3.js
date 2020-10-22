@@ -217,8 +217,10 @@ let Co2okWidgetXL = {
       }
 
       Array.from(widgetContainerArray).forEach(element => {
-        if (element.offsetLeft > 0)
+        if (element.offsetLeft > 0) {
           element.innerHTML = widgetmark;
+          console.log('applying widgetmark into div')
+        }
       });
     },
 
