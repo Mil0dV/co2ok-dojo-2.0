@@ -217,12 +217,12 @@ let Co2okWidgetXL = {
 
       // Don't try to place widget if there is no container
       if(widgetContainerArray == null){
+        console.log('No widget div was found, returning.')
         return
       }
 
-      console.log(widgetContainerArray);
       Array.from(widgetContainerArray).forEach(element => {
-        console.log(element);
+        console.log('Here is the offset of the element: ' + element.offsetLeft);
         if (element.offsetLeft > 0) {
           element.innerHTML = widgetmark;
         }
