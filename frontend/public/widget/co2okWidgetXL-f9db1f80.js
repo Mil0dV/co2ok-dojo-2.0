@@ -119,7 +119,7 @@ let Co2okWidgetXL = {
             
                 <div class="large-widget">
                     <span class ="large-widget-right-green"></span>
-                    <svg id= "half-circle" ${circleSize} /></svg>
+                    <svg id= "half-circle" style="width: 160px;" ${circleSize} /></svg>
                     <p id="large-widget-text">${compensatietekst}</p>
                     <p id="large-widget-xvliegen">= ${(compensatiewidget * 5000) .toFixed(0)}  <br>km flying</p>
                     <img id="co2ok-logo" src= "${SITE_HOST}/static/logo${colorSuffix}.png">

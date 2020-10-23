@@ -122,19 +122,24 @@ let Co2okWidgetXL = {
 
       let pagetype = window.location.pathname.split("/")[1]
       if (pagetype == "product" || pagetype == "product-categorie" || pagetype == "werken-bij-douchezaak" || pagetype == "badkamer-blog" || pagetype == "badkamer-showroom" || pagetype.split("-")[0] == "vacature")
+      {
+        for (var x = 0; x < 15; x++)
         {
-          for (var x = 0; x < 15; x++)
+          if (jQuery('.__fbcw__widget').length)
           {
-            if (jQuery('.__fbcw__widget').length)
-              {
-                jQuery('.__fbcw__widget').after(widget_div)
+            var FBCWElementArray = document.querySelectorAll(".__fbcw__widget");
+            for (element of FBCWElementArray) {
+              if (jQuery(element).offsetLeft > 0) {
+                jQuery(element).after(widget_div);
                 break ;
               }
-            await new Promise(r => setTimeout(r, 200));
+            }
           }
+          await new Promise(r => setTimeout(r, 200));
         }
-        else
-          return ;
+      }
+      else
+        return ;
       Co2okWidgetXL.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default')
     },
 
@@ -200,7 +205,7 @@ let Co2okWidgetXL = {
       let widgetmark = `
       <div class="large-widget">
         <span class ="large-widget-right-green"></span>
-        <svg id= "half-circle"> <circle cx="95" cy="65" r="62" fill="white"> /></svg>
+        <svg id= "half-circle" style="width: 160px;"> <circle cx="95" cy="65" r="62" fill="white"> /></svg>
         <p id="large-widget-text-dz">Douchezaak geeft <br>om het klimaat!</p>
         <p id="large-widget-text">${compensatietekst}</p>
         <p id="large-widget-xvliegen">= ${(compensationAmount * 1000000 / 500) .toFixed(0)} X<br>douchen</p>
