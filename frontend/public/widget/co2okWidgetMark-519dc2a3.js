@@ -220,7 +220,9 @@ let Co2okWidgetXL = {
         return
       }
 
+      console.log(widgetContainerArray);
       Array.from(widgetContainerArray).forEach(element => {
+        console.log(element);
         if (element.offsetLeft > 0) {
           element.innerHTML = widgetmark;
         }
