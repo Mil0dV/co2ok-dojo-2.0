@@ -128,10 +128,10 @@ let Co2okWidgetXL = {
           if (jQuery('.__fbcw__widget').length)
           {
             var FBCWElementArray = document.querySelectorAll(".__fbcw__widget");
-            for (element of FBCWElementArray) {
-              if (jQuery(element).offsetLeft > 0) {
+            for (var element of FBCWElementArray) {
+              if (element.offsetLeft > 0) {
                 element.after(widget_div);
-                break ;
+                return ;
               }
             }
           }
@@ -140,7 +140,6 @@ let Co2okWidgetXL = {
       }
       else
         return ;
-      Co2okWidgetXL.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default')
     },
 
     insertInfoHoverHtml: function() {
@@ -431,6 +430,7 @@ jQuery(document).ready(function() {
   }
   Co2okWidgetXL.insertInfoHoverHtml();
   Co2okWidgetXL.insertWidget();
+  Co2okWidgetXL.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default');
   Co2okWidgetXL.uspInsertion();
   Co2okWidgetXL.cfsTrustMarkInsertion();
   Co2okWidgetXL.RegisterWidgetInfoBox();
