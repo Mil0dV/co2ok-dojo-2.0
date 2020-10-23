@@ -130,7 +130,7 @@ let Co2okWidgetXL = {
             var FBCWElementArray = document.querySelectorAll(".__fbcw__widget");
             for (element of FBCWElementArray) {
               if (jQuery(element).offsetLeft > 0) {
-                jQuery(element).after(widget_div);
+                element.after(widget_div);
                 break ;
               }
             }
