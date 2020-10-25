@@ -215,6 +215,7 @@ let Co2okWidgetXL = {
       </div>
       `
       var widgetContainerArray = document.getElementsByClassName('widgetContainerDZ')
+      console.log(widgetContainerArray);
 
       // Don't try to place widget if there is no container
       if(widgetContainerArray == null){
