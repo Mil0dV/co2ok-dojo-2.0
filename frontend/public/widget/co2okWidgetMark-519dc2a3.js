@@ -47,7 +47,7 @@ let Co2okWidgetXL = {
         let co2ok_impact = Co2okWidgetXL.getCookieValue('co2ok_impact')
 
         if (co2ok_impact > 1){
-          // console.log('Collaborate and listen')
+          console.log('Collaborate and listen')
           Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
           return
         }
@@ -132,7 +132,8 @@ let Co2okWidgetXL = {
               if (element.offsetLeft > 0) {
                 console.log('inserting widget div');
                 jQuery(element).after(widget_div);
-                return ;
+                Co2okWidgetXL.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default');
+                return
               }
             }
           }
@@ -444,7 +445,6 @@ jQuery(document).ready(function() {
   // }
   Co2okWidgetXL.insertInfoHoverHtml();
   Co2okWidgetXL.insertWidget();
-  Co2okWidgetXL.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default');
   Co2okWidgetXL.uspInsertion();
   Co2okWidgetXL.cfsTrustMarkInsertion();
   Co2okWidgetXL.RegisterWidgetInfoBox();
