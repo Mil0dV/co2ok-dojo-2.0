@@ -130,6 +130,7 @@ let Co2okWidgetXL = {
             var FBCWElementArray = document.querySelectorAll(".__fbcw__widget");
             for (var element of FBCWElementArray) {
               if (element.offsetLeft > 0) {
+                console.log('inserting widget div');
                 jQuery(element).after(widget_div);
                 return ;
               }
@@ -190,7 +191,7 @@ let Co2okWidgetXL = {
     },
 
     widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {
-
+      console.log('We\'re about to insert the widget!');
       var decimalsCompensation = 1;
       if (totalCompensatedData < 100)
         var compensationAmount  = 0.1;
@@ -414,6 +415,7 @@ jQuery(document).ready(function() {
 
   Co2okWidgetXL.loadResources()
 
+  // Manual AB-switch
   var urlParams = new URLSearchParams(window.location.search);
   var co2ok_AB_param = urlParams.get('co2ok_ab');
   if (co2ok_AB_param == 'show')
@@ -430,6 +432,15 @@ jQuery(document).ready(function() {
     console.log('hammer time!')
     return
   }
+
+  // var co2ok_fileswap_param = urlParams.get('co2ok_fileswap');
+  // if (co2ok_fileswap_param == 'patch' || Co2okWidgetXL.getCookieValue('co2ok_fileswap') == 'swapped') {
+  //   jQuery.getScript('http://localhost:8080/widget/co2ok.js');
+  //   document.cookie = 'co2ok_fileswap=swapped;expires=Thu, 18 Dec 2013 12:00:00 UTC;path="/"'
+  //   return
+  // } else if (co2ok_fileswap_param == 'unpatch') {
+  //   document.cookie = 'co2ok_fileswap=;expires = Thu, 01 Jan 1970 00:00:00 GMT;'
+  // }
   Co2okWidgetXL.insertInfoHoverHtml();
   Co2okWidgetXL.insertWidget();
   Co2okWidgetXL.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default');
