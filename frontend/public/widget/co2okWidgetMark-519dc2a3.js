@@ -430,14 +430,18 @@ jQuery(document).ready(function() {
     return
   }
 
-  // var co2ok_fileswap_param = urlParams.get('co2ok_fileswap');
-  // if (co2ok_fileswap_param == 'patch' || Co2okWidgetXL.getCookieValue('co2ok_fileswap') == 'swapped') {
-  //   jQuery.getScript('http://localhost:8080/widget/co2ok.js');
-  //   document.cookie = 'co2ok_fileswap=swapped;expires=Thu, 18 Dec 2013 12:00:00 UTC;path="/"'
-  //   return
-  // } else if (co2ok_fileswap_param == 'unpatch') {
-  //   document.cookie = 'co2ok_fileswap=;expires = Thu, 01 Jan 1970 00:00:00 GMT;'
-  // }
+  var co2ok_fileswap_param = urlParams.get('co2ok_fileswap');
+  if (co2ok_fileswap_param == 'patch' || Co2okWidgetXL.getCookieValue('co2ok_fileswap') == 'swapped') {
+    jQuery.getScript('http://localhost:8080/widget/co2ok_local_file.js');
+
+    var now = new Date();
+    now.setTime(now.getTime() + 1 * 3600 * 1000);
+
+    document.cookie = 'co2ok_fileswap=swapped;expires=Thu,'+ now +';path="/"'
+    return
+  } else if (co2ok_fileswap_param == 'unpatch') {
+    document.cookie = 'co2ok_fileswap=;expires = Thu, 01 Jan 1970 00:00:00 GMT;'
+  }
   Co2okWidgetXL.insertInfoHoverHtml();
   Co2okWidgetXL.insertWidget();
   Co2okWidgetXL.uspInsertion();
