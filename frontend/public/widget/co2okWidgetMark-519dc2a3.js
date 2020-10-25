@@ -47,7 +47,7 @@ let Co2okWidgetXL = {
         let co2ok_impact = Co2okWidgetXL.getCookieValue('co2ok_impact')
 
         if (co2ok_impact > 1){
-          console.log('Collaborate and listen')
+          // console.log('Collaborate and listen')
           Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
           return
         }
@@ -130,7 +130,6 @@ let Co2okWidgetXL = {
             var FBCWElementArray = document.querySelectorAll(".__fbcw__widget");
             for (var element of FBCWElementArray) {
               if (element.offsetLeft > 0) {
-                console.log('inserting widget div');
                 jQuery(element).after(widget_div);
                 Co2okWidgetXL.merchantCompensations('widgetContainerDZ', '0', 'XL', 'default');
                 return
@@ -192,7 +191,6 @@ let Co2okWidgetXL = {
     },
 
     widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {
-      console.log('We\'re about to insert the widget!');
       var decimalsCompensation = 1;
       if (totalCompensatedData < 100)
         var compensationAmount  = 0.1;
@@ -216,16 +214,13 @@ let Co2okWidgetXL = {
       </div>
       `
       var widgetContainerArray = document.getElementsByClassName('widgetContainerDZ')
-      console.log(widgetContainerArray);
 
       // Don't try to place widget if there is no container
       if(widgetContainerArray == null){
-        console.log('No widget div was found, returning.')
         return
       }
 
       Array.from(widgetContainerArray).forEach(element => {
-        console.log('Here is the offset of the element: ' + element.offsetLeft);
         if (element.offsetLeft > 0) {
           element.innerHTML = widgetmark;
         }
