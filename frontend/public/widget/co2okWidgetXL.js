@@ -44,8 +44,8 @@ let Co2okWidgetXL = {
 
         // get impact from API
         let xhr = Co2okWidgetXL.xhr()
-        let host = 'http://127.0.0.1:8000'
-        // let host = 'https://app.co2ok.eco'
+        // let host = 'http://127.0.0.1:8000'
+        let host = 'https://app.co2ok.eco'
         xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=${merchantId}`, true)
         //    xhr.withCredentials = true;
            xhr.onreadystatechange = function(){
@@ -76,14 +76,13 @@ let Co2okWidgetXL = {
         // Mijnkraamshop: D0C918
         let color = "#D0C918"
         // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-        // let  SITE_HOST =  'https://co2ok.eco'
-        let SITE_HOST = 'http://localhost:8080'
+        let  SITE_HOST =  'https://co2ok.eco'
+        // let SITE_HOST = 'http://localhost:8080'
   
         var fileref=document.createElement("link")
         fileref.setAttribute("rel", "stylesheet")
         fileref.setAttribute("type", "text/css")
         fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
-        console.log("here", document.getElementsByTagName("head")[0].appendChild(fileref))
         document.getElementsByTagName("head")[0].appendChild(fileref)
         
         if (Co2okWidgetXL.getCookieValue('co2ok_ab_hide') == '0')
