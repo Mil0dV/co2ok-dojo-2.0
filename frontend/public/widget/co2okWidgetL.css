@@ -31,16 +31,17 @@
   
   #large-widget-text {
     position:absolute;
-    font:7px Poppins, Verdana, sans-serif;
+    font:8px Poppins, Verdana, sans-serif;
     font-weight:400;
     color:#606468;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-left:3px;
     z-index:3;
+    line-height: 1.8;
   }
   
   #large-widget-text-large {
-    font:11px Poppins, Verdana, sans-serif;
+    font:10.5px Poppins, Verdana, sans-serif;
     color:#606468;
     font-weight: bold;
   }
@@ -61,21 +62,21 @@
     position: absolute;
     z-index:4;
     width:25%;
-    margin-top:50px;
+    margin-top:52px;
     margin-left: 4px;
   }
   
   #info-button-widget {
     position:absolute;
-    margin-top:48px;
-    margin-left:48px;
+    margin-top:52px;
+    margin-left:49px;
     z-index:5;
-    width:9%;
+    width:8%;
   }
   
   #large-widget-airplane {
     position:absolute;
-    margin-top:40px;
+    margin-top:38px;
     margin-left:103px;
     z-index:6;
     width:18%;
