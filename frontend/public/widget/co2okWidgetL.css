@@ -9,7 +9,8 @@
       padding: 2px;
       position: relative;
       width: 150px;
-    height:75px; 
+    height:75px;
+    margin-bottom: 16px;
   }
   
   .large-widget-right-green {
