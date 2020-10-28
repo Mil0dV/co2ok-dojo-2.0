@@ -264,6 +264,54 @@
                     {
                         image: 'shop-52',
                         link: 'https://fairbow.myshopify.com/'
+                    },
+                    {
+                        image: 'shop-54',
+                        link: 'https://handigs.nl/'
+                    },
+                    {
+                        image: 'shop-55',
+                        link: 'https://churpi.eu/'
+                    },
+                    {
+                        image: 'shop-56',
+                        link: 'https://deschaineandco.com/'
+                    },
+                    {
+                        image: 'shop-57',
+                        link: 'https://photounited.nl/'
+                    },
+                    {
+                        image: 'shop-58',
+                        link: 'https://purestart.nl/'
+                    },
+                    {
+                        image: 'shop-59',
+                        link: 'https://allespuur.shop/'
+                    },
+                    {
+                        image: 'shop-60',
+                        link: 'https://nosopatches.com/'
+                    },
+                    {
+                        image: 'shop-61',
+                        link: 'https://recynity.com/'
+                    },
+                    {
+                        image: 'shop-62',
+                        link: 'https://69sneaker.com/'
+                    },
+                    {
+                        image: 'shop-63',
+                        link: 'https://nature-najen.com/'
+                    },
+                    {
+                        image: 'shop-64',
+                        link: 'https://exceptionalwine.co.uk/'
+                    },
+                    {
+                        image: 'shop-65',
+                        link: 'https://https://chimps.shop//'
                     }
                 ]
             }
