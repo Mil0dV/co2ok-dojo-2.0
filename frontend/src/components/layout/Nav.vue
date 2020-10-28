@@ -106,6 +106,11 @@
                                                      to="/projects">{{ $t('footer.link7') }}
                                         </router-link>
                                     </li>
+                                    <li>
+                                        <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
+                                                     to="/webshops">{{ $t('nav.webshops_8') }}
+                                        </router-link>
+                                    </li>
                                 </ul>
                             </div>
 
