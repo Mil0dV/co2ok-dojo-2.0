@@ -311,7 +311,7 @@
                     },
                     {
                         image: 'shop-65',
-                        link: 'https://https://chimps.shop//'
+                        link: 'https://chimps.shop/'
                     }
                 ]
             }
