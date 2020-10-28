@@ -58,33 +58,33 @@
 
 <script>
     // const Header = () => import('@/components/layout/Header')
-    const Modal = () => import('@/components/modals/Modal')
+    // const Modal = () => import('@/components/modals/Modal')
 
     export default {
         name: "Webshops",
         props: {
             content: Number
         },
-        components: {
-            Modal
-        },
+        // components: {
+        //     Modal
+        // },
 
         data() {
             return {
                 header: 'webshops',
                 webshop: [
-                    {
-                        image: 'shop-1',
-                        link: 'https://www.natuurlijk-kleurrijk.nl/'
-                    },
+                    // {
+                    //     image: 'shop-1',
+                    //     link: 'https://www.natuurlijk-kleurrijk.nl/'
+                    // },
                     {
                         image: 'shop-2',
                         link: 'https://hutspot.com/'
                     },
-                    {
-                        image: 'shop-3',
-                        link: 'http://www.natuurvol.nl/wonen'
-                    },
+                    // {
+                    //     image: 'shop-3',
+                    //     link: 'http://www.natuurvol.nl/wonen'
+                    // },
                     {
                         image: 'shop-4',
                         link: 'https://www.soap7.com/'
@@ -113,34 +113,34 @@
                         image: 'shop-10',
                         link: 'http://www.metpapier.nl/'
                     },
-                    {
-                        image: 'shop-11',
-                        link: 'https://bamboedesign.nl/'
-                    },
+                    // {
+                    //     image: 'shop-11',
+                    //     link: 'https://bamboedesign.nl/'
+                    // },
                     {
                         image: 'shop-12',
                         link: 'http://www.aquaponicsshop.eu/'
                     },
-                    {
-                        image: 'shop-13',
-                        link: 'http://helpenderobot.nl/'
-                    },
+                    // {
+                    //     image: 'shop-13',
+                    //     link: 'http://helpenderobot.nl/'
+                    // },
                     {
                         image: 'shop-14',
                         link: 'https://millersoils.nl/'
                     },
-                    {
-                        image: 'shop-15',
-                        link: 'https://www.billenboetiek.nl/'
-                    },
+                    // {
+                    //     image: 'shop-15',
+                    //     link: 'https://www.billenboetiek.nl/'
+                    // },
                     {
                         image: 'shop-16',
                         link: 'https://www.bruidenbeautyshop.nl/?v=796834e7a283'
                     },
-                    {
-                        image: 'shop-17',
-                        link: 'https://verloskundeshop.nl/'
-                    },
+                    // {
+                    //     image: 'shop-17',
+                    //     link: 'https://verloskundeshop.nl/'
+                    // },
                     {
                         image: 'shop-18',
                         link: 'http://www.studiospatz.nl/'
@@ -149,10 +149,10 @@
                         image: 'shop-19',
                         link: 'https://www.krnwtr.nl/'
                     },
-                    {
-                        image: 'shop-20',
-                        link: 'https://www.myflame.nl/'
-                    },
+                    // {
+                    //     image: 'shop-20',
+                    //     link: 'https://www.myflame.nl/'
+                    // },
                     {
                         image: 'shop-21',
                         link: 'https://douchezaak.nl/'
@@ -189,10 +189,10 @@
                         image: 'shop-29',
                         link: 'https://www.lijfgoed.nl/'
                     },
-                    {
-                        image: 'shop-30',
-                        link: 'https://food2smile.nl/'
-                    },
+                    // {
+                    //     image: 'shop-30',
+                    //     link: 'https://food2smile.nl/'
+                    // },
                     {
                         image: 'shop-31',
                         link: 'https://www.verifresh.com/'
@@ -203,12 +203,68 @@
                     },
                     {
                         image: 'shop-33',
-                        link: 'https://mijnkleinedraak.nl/'
+                        link: 'https://www.ecowings.nl/'
                     },
                     {
                         image: 'shop-34',
-                        link: 'https://www.ecowings.nl/'
+                        link: 'https://degroenebillenbode.nl/'
                     },
+                    {
+                        image: 'shop-35',
+                        link: 'https://www.urban-goddess.com/'
+                    },
+                    {
+                        image: 'shop-36',
+                        link: 'https://willicroft.com/'
+                    },
+                    {
+                        image: 'shop-37',
+                        link: 'https://degroenelinde.nl/'
+                    },
+                    {
+                        image: 'shop-38',
+                        link: 'https://bio-brouwmaat.nl/'
+                    },
+                    {
+                        image: 'shop-39',
+                        link: 'https://makedo.shop/'
+                    },
+                    {
+                        image: 'shop-40',
+                        link: 'https://www.ecoloco.nl/'
+                    },
+                    {
+                        image: 'shop-41',
+                        link: 'https://naifcare.com/'
+                    },
+                    {
+                        image: 'shop-42',
+                        link: 'https://kussens.nu/'
+                    },
+                    {
+                        image: 'shop-43',
+                        link: 'https://bosbeauty.nl/'
+                    },
+                    {
+                        image: 'shop-44',
+                        link: 'https://mekpaardensport.nl/'
+                    },
+                    {
+                        image: 'shop-45',
+                        link: 'https://mijnkraamshop.nl/'
+                    },
+                    {
+                        image: 'shop-46',
+                        link: 'https://bergco.net/'
+                    },
+                    {
+                        image: 'shop-47',
+                        link: 'https://ruigengeroest.nl/'
+                    },
+                    {
+                        image: 'shop-52',
+                        link: 'https://fairbow.myshopify.com/'
+                    }
                 ]
             }
         }
