@@ -88,7 +88,7 @@
                                     </a>
 
                                     <a target="_blank"
-                                       href="https://www.linkedin.com/company/11418867"
+                                        :href="`${person.linkedin}`"
                                        class=" uk-text-capitalize social__text linkedin--hover">
                                         <span class="icon__wrapper">
                                             <span uk-icon="linkedin"
@@ -125,25 +125,25 @@
                         name: 'Milo de Vries', title: 'Founder',
                         quote: 'Making consumerism sustainable 💚🌍',
                         image: 'milo.jpg',
-                        twitter: '', linkedin: ''
+                        twitter: '', linkedin: 'https://www.linkedin.com/company/co%E2%82%82ok/'
                     },
                     {
                         name: 'Lodi de Brauw', title: 'Co-Founder',
                         quote: 'You must be the change you want to see in the world',
                         image: 'lodi.jpg',
-                        twitter: '', linkedin: ''
+                        twitter: '', linkedin: 'https://www.linkedin.com/company/co%E2%82%82ok/'
                     },
                     {
                         name: 'Maaike Braat', title: 'Scientist',
                         quote: 'It can always be quicker and better, but this is a step in the right direction',
                         image: 'maaike.jpeg',
-                        twitter: '', linkedin: ''
+                        twitter: '', linkedin: 'https://www.linkedin.com/company/co%E2%82%82ok/'
                     },
                     {
                         name: 'Jessica D. Smith', title: 'Software Engineer Trainee',
                         quote: 'Sustainability now for a better future',
                         image: 'jessica.jpg',
-                        twitter: '', linkedin: ''
+                        twitter: '', linkedin: 'https://www.linkedin.com/in/jessicadsmith022/'
                     },
 
                 ]
