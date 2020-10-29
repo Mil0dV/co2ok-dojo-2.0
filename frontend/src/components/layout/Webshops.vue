@@ -106,6 +106,22 @@
                         link: 'https://www.fairtradeupgrade.shop/'
                     },
                     {
+                        image: 'shop-41',
+                        link: 'https://naifcare.com/'
+                    },
+                    {
+                        image: 'shop-35',
+                        link: 'https://www.urban-goddess.com/'
+                    },
+                    {
+                        image: 'shop-36',
+                        link: 'https://willicroft.com/'
+                    },
+                    {
+                        image: 'shop-37',
+                        link: 'https://degroenelinde.nl/'
+                    },
+                    {
                         image: 'shop-9',
                         link: 'http://www.dimlight.nl/'
                     },
@@ -210,18 +226,6 @@
                         link: 'https://degroenebillenbode.nl/'
                     },
                     {
-                        image: 'shop-35',
-                        link: 'https://www.urban-goddess.com/'
-                    },
-                    {
-                        image: 'shop-36',
-                        link: 'https://willicroft.com/'
-                    },
-                    {
-                        image: 'shop-37',
-                        link: 'https://degroenelinde.nl/'
-                    },
-                    {
                         image: 'shop-38',
                         link: 'https://bio-brouwmaat.nl/'
                     },
@@ -232,10 +236,6 @@
                     {
                         image: 'shop-40',
                         link: 'https://www.ecoloco.nl/'
-                    },
-                    {
-                        image: 'shop-41',
-                        link: 'https://naifcare.com/'
                     },
                     {
                         image: 'shop-42',
@@ -263,7 +263,7 @@
                     },
                     {
                         image: 'shop-52',
-                        link: 'https://fairbow.myshopify.com/'
+                        link: 'https://fairbowusa.com/'
                     },
                     {
                         image: 'shop-54',
