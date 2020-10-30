@@ -87,6 +87,8 @@ let Co2okWidgetXL = {
       `${this.SITE_HOST}/widget/hovercard/branch.png`,
       `${this.SITE_HOST}/widget/hovercard/renewable_energy.png`,
       `${this.SITE_HOST}/widget/hovercard/green_truck1.png`
+      `${this.SITE_HOST}/widget/hovercard/green_truck1.png`
+
   ]
 
     for (img of images){
@@ -139,7 +141,7 @@ let Co2okWidgetXL = {
       var vliegen = "flying"
       var stepOne = "During manufacturing and shipping of products, greenhouse gases are emitted."
       var stepTwo = "The emissions produced from shipping are neutralised by this store."
-      var stepThree = "You have the option to neutralised the emissions created during production by opting into CO₂ compensation."
+      var stepThree = "You can neutralised the emissions created during production by opting into CO₂ compensation."
       var stepFour = "This makes your purchase climate neutral!"
       var works = "How CO₂ compensation works"
 
@@ -148,8 +150,8 @@ let Co2okWidgetXL = {
       var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> uitstoot voorkomen`;
       var vliegen = "vliegen"
       var stepOne = "During manufacturing and shipping of products, greenhouse gases are emitted."
-      var stepTwo = "The emission produced from shipping is neutralised by this store."
-      var stepThree = "You have the option to neutralised the emissions created during production by opting into CO₂ compensation."
+      var stepTwo = "The emissions produced from shipping are neutralised by this store."
+      var stepThree = "You can neutralised the emissions created during production by opting into CO₂ compensation."
       var stepFour = "This makes your purchase climate neutral!"
       var works = "How CO₂ compensation works"
 
