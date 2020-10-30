@@ -51,11 +51,11 @@ let Co2okWidget = {
         // let totalTransactionData = (xhr.responseText / 1000).toFixed(1)
         let totalTransactionData = xhr.responseText
         // let totalTransactionData = 491
-        
+
         console.log(totalTransactionData)
         document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
         Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData, widgetColor, lang)
-        
+
         // Something is fishy, let's serve up the total
       } else {
         let totalTransactionData = 491
@@ -65,7 +65,7 @@ let Co2okWidget = {
     xhr.send()
       //   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
   },
-    
+
   widgetGenerator: function (widgetContainer, totalCompensatedData, widgetColor, lang) {
 
       // HT: FDD800
@@ -81,13 +81,13 @@ let Co2okWidget = {
       fileref.setAttribute("type", "text/css")
       fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
-      
+
       if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0')
       {
         console.log('hammer time!')
         return
       }
-      
+
       // Dit moet nog ff mooier als we dit nog willen gebruiken, anders kan het weg.
       if (totalCompensatedData < 100) {
         var compensatiewidget  = 0.1;
@@ -122,28 +122,27 @@ let Co2okWidget = {
       }
       let widgetmark = `
       <div>
-      <div class="btn_co2ok_widget co2ok_widget_info" href="#">
+        <div class="btn_co2ok_widget co2ok_widget_info" href="#">
           <span class="btn_co2ok_widget co2ok_widget_info trustmark-border">SHOP<img class="logo_co2ok_widget" src="${SITE_HOST}/static/logo${colorSuffix}.png"></span>
+        </div>
+        <div class="caption_co2ok_widget co2ok_widget_info">
+          <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t ${reductietekst} </span>
+        </div>
       </div>
-          <div class="caption_co2ok_widget co2ok_widget_info">
-              <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t ${reductietekst} </span>
-              </div>
-          </div>
-              
+
       <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
 
-      <div class="widget-inner-wrapper">
-      <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-      <p class="widget-text-block greyBorder">${compensatietekst} </p>
-      </a>
-      <img alt="${titletekst}" title="${titletekst}" src="${SITE_HOST}/widget/vliegtuig_hover.png" class="widget-svg-img-large  co2ok_info_hover_image">
-      </div>
+        <div class="widget-inner-wrapper">
+          <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
+            <p class="widget-text-block greyBorder">${compensatietekst} </p>
+          </a>
+          <img alt="${titletekst}" title="${titletekst}" src="${SITE_HOST}/widget/vliegtuig_hover.png" class="widget-svg-img-large  co2ok_info_hover_image">
+        </div>
 
-      <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img src="${SITE_HOST}/static/logo.png" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
-      <span class="widget-hover-link">
-      <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">${how_does_it_worktekst}</a> </span>
+        <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img src="${SITE_HOST}/static/logo.png" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
+        <span class="widget-hover-link">
+        <a class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">${how_does_it_worktekst}</a> </span>
       </div>
-
 
       `
               // console.log(widgetimg)
