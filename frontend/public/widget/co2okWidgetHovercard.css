@@ -1,7 +1,7 @@
 .co2ok_widget_infobox_container {
 	position: absolute;
 	width: 330px;
-height: 300px;
+	height: 300px;
 	background: #f7f7f7;
 	border-radius: 15px;
 	box-sizing: border-box;
@@ -44,29 +44,29 @@ height: 300px;
 
 .left {
 	width: 52%;
-margin-top: 12px;
-margin-left: 15px; }
+	margin-top: 12px;
+	margin-left: 15px; }
 
 .right {
-	margin-top: 27px;
-margin-left: 158px; }
+	margin-top: 16px;
+	margin-left: 158px; }
 
 .png_right {
 	position: absolute;
 	width: 30%;
-right: 22px;
-top: 13px; }
+	right: 22px;
+	top: 13px; }
 
 .png_left {
 	position: absolute;
-width: 41%;
-left: 16px;
-bottom: 58px; }
+	width: 41%;
+	left: 16px;
+	bottom: 49px; }
 
 .widget-hovercard-links {
 	text-align: center;
-display: flex !important;
-margin-top: 20px; }
+	display: flex !important;
+	margin-top: 0px; }
 
 .logo-hovercard {
 	width: 16%;
@@ -91,7 +91,7 @@ margin-top: 20px; }
 .branch-png {
 	width: 33%;
 	position: absolute;
-	right: -3px;
-	bottom: -1px;
+	right: -7px;
+	bottom: -8px;
 	transform: rotate(-51deg);
 	z-index: -1; }
