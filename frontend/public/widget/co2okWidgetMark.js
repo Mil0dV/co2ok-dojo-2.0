@@ -81,7 +81,6 @@ let Co2okWidget = {
     }
   },
 
-
   widgetGenerator: function (widgetContainer, totalCompensatedData, widgetColor, lang) {
 
       // HT: FDD800
@@ -145,16 +144,19 @@ let Co2okWidget = {
       }
       let widgetmark = `
         <div>
+
           <div class="btn_co2ok_widget co2ok_widget_info widget-small" href="#">
             <span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${SITE_HOST}/static/logo${colorSuffix}.png"></span>
           </div>
           <div class="caption_co2ok_widget co2ok_widget_info widget-small">
             <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t ${reductietekst} </span>
           </div>
+
         </div>
 
-        <div class="co2ok_widget_infobox_container co2ok-popper-small small" id="widget-infobox-view">
-          <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="small info_hover_png png_right">
+        <div class="co2ok_widget_infobox_container co2ok-popper hovercard-trustmark small" id="widget-infobox-view">
+
+        <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="small info_hover_png png_right">
           <div class="small hovercard-wrapper">
             <p class="small steps step-one left"> ${compensation} </p>
           </div>
@@ -203,7 +205,7 @@ let Co2okWidget = {
   placeWidgetInfoBox : function() {
       // console.log('Platz? Lebensraum!')
       var widgetInfoButton = jQuery(".co2ok_widget_info");
-      var widgetInfoBox = jQuery(".co2ok-popper-small");
+      var widgetInfoBox = jQuery(".hovercard-trustmark");
       var offset = widgetInfoButton.offset();
 
       widgetInfoBox.remove();
@@ -221,9 +223,12 @@ let Co2okWidget = {
           transform: "none"
       });
       } else {
-      offset.left = offset.left - widgetInfoBox.width() / 2;
+      offset.left = offset.left - widgetInfoBox.outerWidth() / 2 + widgetInfoButton.outerWidth() / 2;
       if ( offset.left < 0) offset.left = 10;
-      offset.top = offset.top - (widgetInfoButton.height()) - widgetInfoBox.height() + 6;
+      offset.top = offset.top + (widgetInfoBox.height() * 1.5) - 20;
+      if (offset.top > jQuery(window).height() - widgetInfoBox.outerWidth()) {
+        offset.top = offset.top - widgetInfoButton.height() - widgetInfoBox.outerWidth() + 6;
+      }
       widgetInfoBox.css({
           top: offset.top,
           left: offset.left,
@@ -235,8 +240,8 @@ let Co2okWidget = {
   ShowWidgetInfoBox  : function()
   {
       // console.log("Show must go on")
-    jQuery(".co2ok-popper-small").removeClass('infobox-hidden')
-    jQuery(".co2ok-popper-small").addClass('ShowWidgetInfoBox')
+    jQuery(".hovercard-trustmark").removeClass('infobox-hidden')
+    jQuery(".hovercard-trustmark").addClass('ShowWidgetInfoBox')
     jQuery(".co2ok_widget_container").css({
       marginBottom: 200
     });
@@ -248,8 +253,8 @@ let Co2okWidget = {
 
   hideWidgetInfoBox : function()
   {
-    jQuery(".co2ok-popper-small").removeClass('ShowWidgetInfoBox')
-    jQuery(".co2ok-popper-small").addClass('infobox-hidden')
+    jQuery(".hovercard-trustmark").removeClass('ShowWidgetInfoBox')
+    jQuery(".hovercard-trustmark").addClass('infobox-hidden')
     jQuery(".co2ok_widget_container").css({
       marginBottom: 0
     });

@@ -197,27 +197,27 @@ let Co2okWidgetXL = {
         <p id="large-widget-xvliegen">= ${(compensationAmount * 5000) .toFixed(0)} km<br>${vliegen}</p>
         <img id="co2ok-logo" src= "${SITE_HOST}/static/logo${colorSuffix}.png">
         <a target="_blank" href="https://www.co2ok.eco/co2-compensatie">
-          <img id="info-button-widget-${widgetSize}" class="info-button-widget" src= "${SITE_HOST}/static/info${colorSuffix}.svg">
+          <img id="info-button-widget" class="info-button-widget" src= "${SITE_HOST}/static/info${colorSuffix}.svg">
         </a>
         <img id="large-widget-airplane" src= "${SITE_HOST}/widget/large-wiget-airplane.png">
       </div>
 
-      <div class="co2ok_widget_infobox_container co2ok-popper-${widgetSize} ${widgetSize}" id="widget-infobox-view">
+      <div class="co2ok_widget_infobox_container co2ok-popper hovercard-large" id="widget-infobox-view">
 
-        <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="${widgetSize} info_hover_png png_right">
-        <div class="${widgetSize} hovercard-wrapper">
-          <p class="${widgetSize} steps step-one left"> ${compensation} </p>
+        <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="large info_hover_png png_right">
+        <div class="large hovercard-wrapper">
+          <p class="large steps step-one left"> ${compensation} </p>
         </div>
 
-        <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="${widgetSize} info_hover_png png_left">
-        <div class="${widgetSize} hovercard-wrapper">
-          <p class="${widgetSize} steps step-two right"> ${shipping} </p>
+        <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="large info_hover_png png_left">
+        <div class="large hovercard-wrapper">
+          <p class="large steps step-two right"> ${shipping} </p>
         </div>
 
-        <span class="${widgetSize} widget-hovercard-links">
-          <a class="${widgetSize} compensation" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
+        <span class="large widget-hovercard-links">
+          <a class="large compensation" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
         </span>
-        <img class="${widgetSize} branch-png" src="${SITE_HOST}/widget/hovercard/branch.png">
+        <img class="large branch-png" src="${SITE_HOST}/widget/hovercard/branch.png">
 
       </div>
     `
@@ -250,33 +250,34 @@ let Co2okWidgetXL = {
 
 
 
-  placeWidgetInfoBox : function(widgetSize) {
-      // console.log('Platz? Lebensraum!')
-      var widgetInfoButton = jQuery("#info-button-widget-" + widgetSize);
-      var widgetInfoBox = jQuery(".co2ok-popper-" + widgetSize);
+  placeWidgetInfoBox : function() {
+    // console.log('Platz? Lebensraum!')
+    var widgetInfoButton = jQuery("#info-button-widget");
+    var widgetInfoBox = jQuery(".hovercard-large");
+    var widgetBox = jQuery(".large-widget")
 
-      console.log(widgetInfoButton)
-      var offset = widgetInfoButton.offset();
+    console.log(widgetInfoButton)
+    var offset = widgetInfoButton.offset();
 
-      widgetInfoBox.remove();
-      jQuery("body").append(widgetInfoBox);
+    widgetInfoBox.remove();
+    jQuery("body").append(widgetInfoBox);
 
-      if (jQuery(window).width() < 480) {
+    if (jQuery(window).width() < 480) {
 
-      // offset.left = offset.left - widgetInfoBox.width() / 4;
-        offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.height() - 9);
-        if ( offset.left < 0) offset.left = 10;
-        if ( offset.top < 0) offset.top = 10;
-        widgetInfoBox.css({
-            top: offset.top,
-            margin: "0 auto",
-            left: offset.left,
-            transform: "none"
-        });
+      offset.left = offset.left - widgetInfoBox.width() / 2;
+      offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.height() - 9);
+      if ( offset.left < 0) offset.left = 10;
+      if ( offset.top < 0) offset.top = 10;
+      widgetInfoBox.css({
+          top: offset.top,
+          margin: "0 auto",
+          left: offset.left,
+          transform: "none"
+      });
 
-      } else {
+    } else {
 
-        offset.left = offset.left - widgetInfoBox.width() / 2;
+      offset.left = offset.left -  widgetBox.outerWidth() / 2;
       if ( offset.left < 0) offset.left = 10;
       offset.top = offset.top - (widgetInfoButton.height()) - widgetInfoBox.height() + 6;
       widgetInfoBox.css({
@@ -285,16 +286,15 @@ let Co2okWidgetXL = {
           margin: "0",
           transform: "none"
       });
-
     }
   },
 
 
-  ShowWidgetInfoBox  : function(widgetSize)
+  ShowWidgetInfoBox  : function()
   {
       // console.log("Show must go on")
-    jQuery(".co2ok-popper-" + widgetSize).removeClass('infobox-hidden')
-    jQuery(".co2ok-popper-" + widgetSize).addClass('ShowWidgetInfoBox')
+    jQuery(".hovercard-large").removeClass('infobox-hidden')
+    jQuery(".hovercard-large").addClass('ShowWidgetInfoBox')
     jQuery(".co2ok_widget_container").css({
       marginBottom: 200
     });
@@ -305,35 +305,25 @@ let Co2okWidgetXL = {
   },
 
 
-  hideWidgetInfoBox : function(widgetSize)
+  hideWidgetInfoBox : function()
   {
-    jQuery(".co2ok-popper-" + widgetSize).removeClass('ShowWidgetInfoBox')
-    jQuery(".co2ok-popper-" + widgetSize).addClass('infobox-hidden')
+    jQuery(".hovercard-large").removeClass('ShowWidgetInfoBox')
+    jQuery(".hovercard-large").addClass('infobox-hidden')
     jQuery(".co2ok_widget_container").css({
       marginBottom: 0
     });
   },
 
 
-  modalRegex: function(e, widgetSize)
+  modalRegex: function(e)
   {
-     return jQuery(e.target).hasClass(widgetSize) ||
-    //  jQuery(e.target).hasClass("hovercard-wrapper") ||
-    //  jQuery(e.target).hasClass("co2ok_widget_info") ||
-    //  jQuery(e.target).hasClass("co2ok_widget_info_hitarea") ||
-    //  jQuery(e.target).hasClass("co2ok_widget_infobox_container") ||
-    //  jQuery(e.target).hasClass("widget-hover-link") ||
-    //  jQuery(e.target).hasClass("compensation") ||
-    //  jQuery(e.target).hasClass("steps") ||
-    //  jQuery(e.target).hasClass("info_hover_png") ||
-    //  jQuery(e.target).hasClass("hovercard_road") ||
-    //  jQuery(e.target).hasClass("info_hover_road_png") ||
-     jQuery(e.target).is("#info-button-widget-L") ||
-     jQuery(e.target).is("#info-button-widget-XL");
+     return jQuery(e.target).hasClass("large") ||
+     jQuery(e.target).hasClass("hovercard-large") ||
+     jQuery(e.target).is("#info-button-widget");
   },
 
 
-  RegisterWidgetInfoBox : function(widgetSize) {
+  RegisterWidgetInfoBox : function() {
     console.log('it begins YEASS')
     var _this = this;
 
@@ -344,40 +334,40 @@ let Co2okWidgetXL = {
 
     jQuery('body').click(function(e)
     {
-      if(!_this.modalRegex(e, widgetSize))
+      if(!_this.modalRegex(e, ))
       {
-        _this.hideWidgetInfoBox(widgetSize);
+        _this.hideWidgetInfoBox();
       } else {
-        _this.ShowWidgetInfoBox(widgetSize);
+        _this.ShowWidgetInfoBox();
       }
 
     });
 
     jQuery('body').on("touchstart",function(e){
 
-      if(!_this.modalRegex(e, widgetSize)){
-        _this.hideWidgetInfoBox(widgetSize);
+      if(!_this.modalRegex(e)){
+        _this.hideWidgetInfoBox();
       } else {
-        _this.placeWidgetInfoBox(widgetSize)
-        _this.ShowWidgetInfoBox(widgetSize);
+        _this.placeWidgetInfoBox()
+        _this.ShowWidgetInfoBox();
       }
     });
 
     if(!this.isMobile())
     {
       jQuery(".co2ok_widgets_info , .co2ok_widget_info_hitarea").mouseenter(function() {
-        _this.placeWidgetInfoBox(widgetSize);
+        _this.placeWidgetInfoBox();
       });
 
       jQuery(document).mouseover(function(e) {
 
-        if (!_this.modalRegex(e, widgetSize)) {
+        if (!_this.modalRegex(e)) {
 
-          _this.hideWidgetInfoBox(widgetSize);
+          _this.hideWidgetInfoBox();
 
         } else {
-          _this.placeWidgetInfoBox(widgetSize);
-          _this.ShowWidgetInfoBox(widgetSize);
+          _this.placeWidgetInfoBox();
+          _this.ShowWidgetInfoBox();
         }
       });
     }
