@@ -44,8 +44,8 @@ let Co2okWidgetXL = {
 
     // get impact from API
     let xhr = Co2okWidgetXL.xhr()
-    let host = 'http://127.0.0.1:8000'
-    // let host = 'https://app.co2ok.eco'
+    // let host = 'http://127.0.0.1:8000'
+    let host = 'https://app.co2ok.eco'
     xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=${merchantId}`, true)
     //    xhr.withCredentials = true;
     xhr.onreadystatechange = function(){
@@ -79,15 +79,10 @@ let Co2okWidgetXL = {
 
   loadResources: function() {
     images = [
-      `${this.SITE_HOST}/widget/hovercard/factory.png`,
+      `${this.SITE_HOST}/widget/hovercard/green_truck.png`,
       `${this.SITE_HOST}/static/logo.png`,
-      `${this.SITE_HOST}/widget/hovercard/green_road_right.png`,
-      `${this.SITE_HOST}/widget/hovercard/green_road_left.png`,
-      `${this.SITE_HOST}/widget/hovercard/gray_road.png`,
       `${this.SITE_HOST}/widget/hovercard/branch.png`,
-      `${this.SITE_HOST}/widget/hovercard/renewable_energy.png`,
-      `${this.SITE_HOST}/widget/hovercard/green_truck1.png`
-      `${this.SITE_HOST}/widget/hovercard/green_truck1.png`
+      `${this.SITE_HOST}/widget/hovercard/heart_plant`
 
   ]
 
@@ -106,6 +101,7 @@ let Co2okWidgetXL = {
     // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
     // let  SITE_HOST =  'https://co2ok.eco'
     let SITE_HOST = 'http://localhost:8080'
+    console.log("inside generator")
 
     var fileref=document.createElement("link")
     fileref.setAttribute("rel", "stylesheet")
@@ -140,9 +136,9 @@ let Co2okWidgetXL = {
       var compensatietekst = `This shop prevented <br><span id="large-widget-text-large">${compensationAmount .toFixed(decimalsCompensation)} ton CO<sub>2</sub></span><br> emission`;
       var vliegen = "flying"
       var stepOne = "During manufacturing and shipping of products, greenhouse gases are emitted."
-      var stepTwo = "The emissions produced from shipping are neutralised by this store."
-      var stepThree = "You can neutralised the emissions created during production by opting into CO₂ compensation."
-      var stepFour = "This makes your purchase climate neutral!"
+      var stepTwo = "This shop's climate friendly shipping neutralised shipping emissions."
+      // var stepThree = "You can neutralised the emissions created during production by opting into CO₂ compensation."
+
       var works = "How CO₂ compensation works"
 
     } else {
@@ -150,9 +146,8 @@ let Co2okWidgetXL = {
       var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> uitstoot voorkomen`;
       var vliegen = "vliegen"
       var stepOne = "During manufacturing and shipping of products, greenhouse gases are emitted."
-      var stepTwo = "The emissions produced from shipping are neutralised by this store."
-      var stepThree = "You can neutralised the emissions created during production by opting into CO₂ compensation."
-      var stepFour = "This makes your purchase climate neutral!"
+      var stepTwo = "This shop's climate friendly shipping neutralised shipping emissions."
+      // var stepThree = "You can neutralised the emissions created during production by opting into CO₂ compensation."
       var works = "How CO₂ compensation works"
 
     }
@@ -168,7 +163,7 @@ let Co2okWidgetXL = {
 
     } else {
 
-      var circleSize = '> <circle cx="95" cy="65" r="62" fill="white">';
+      var circleSize = '> <cx="95" cy="64.6" r="62.6" fill="white">';
       var fileref=document.createElement("link")
       fileref.setAttribute("rel", "stylesheet")
       fileref.setAttribute("type", "text/css")
@@ -210,43 +205,19 @@ let Co2okWidgetXL = {
         <img id="large-widget-airplane" src= "${SITE_HOST}/widget/large-wiget-airplane.png">
 
         <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
-          <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/factory.png" class="info_hover_png png_right">
+
+          <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="info_hover_png png_right">
           <div class="hovercard-wrapper">
             <p class="steps step-one left"> ${stepOne} </p>
           </div>
 
-          <div class="hovercard-road">
-            <img alt="road" title="Production emissions" src="${SITE_HOST}/widget/hovercard/gray_road.png" class="info_hover_road_png top">
-          </div>
-
-          <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck1.png" class="info_hover_png png_left" style="width: 37%;
-          left: 14px;">
+          <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="info_hover_png png_left">
           <div class="hovercard-wrapper">
-            <p class="steps step-two right" style="margin-top: 20px; margin-left: 117px"> ${stepTwo} </p>
+            <p class="steps step-two right"> ${stepTwo} </p>
           </div>
 
-          <div class="hovercard-road">
-            <img alt="road" title="Production emissions" src="${SITE_HOST}/widget/hovercard/green_road_left.png" class="info_hover_road_png middle">
-          </div>
-
-          <img alt="Store cover shipping" title="Store cover shipping" src="${SITE_HOST}/widget/hovercard/factory.png" class="info_hover_png png_right">
-          <div class="hovercard-wrapper">
-            <p class="steps step-three left""> ${stepThree} </p>
-          </div>
-
-          <div class="hovercard-road">
-            <img alt="road" title="Production emissions" src="${SITE_HOST}/widget/hovercard/green_road_right.png" class="info_hover_road_png bottom">
-          </div>
-
-          <img alt="Compensate production" title="Compensate production" src="${SITE_HOST}/widget/hovercard/renewable_energy.png" class="info_hover_png png_left" style="width: 27%; bottom: 64px; left: 17px">
-          <div class="hovercard-wrapper">
-            <p class="steps step-four right" style="margin-top: 20px;"> ${stepFour} </p>
-          </div>
-
-          <img class="logo-hovercard" style="width: 16%;" href="http://www.co2ok.eco/co2-compensatie" src="${SITE_HOST}/static/logo.png">
           <span class="widget-hovercard-links">
             <a class="compensation" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
-            
           </span>
           <img class="branch-png" src="${SITE_HOST}/widget/hovercard/branch.png">
 

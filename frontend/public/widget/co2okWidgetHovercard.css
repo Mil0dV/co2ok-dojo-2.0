@@ -1,8 +1,8 @@
 .co2ok_widget_infobox_container {
 	position: absolute;
 	width: 330px;
-	height: 500px;
-	background: white;
+height: 300px;
+	background: #f7f7f7;
 	border-radius: 15px;
 	box-sizing: border-box;
 	font-family: Roboto, sans-serif;
@@ -20,9 +20,8 @@
 
 .steps {
 	color: black;
-	font-size: 12px;
-	text-decoration: none;
-	padding: 16px; }
+	font-size: 14px;
+	text-decoration: none; }
 
 .info_hover_png {
 	margin: auto;
@@ -35,44 +34,39 @@
 
 .info_hover_road_png {
 	position: absolute;
-	width: 80%;
-	height: 30%;
+	width: 73%;
+	height: 58%;
 	margin: auto;
-	left: 36px; }
+	left: 48px; }
 
 .top {
-	top: 41px; }
-
-.middle {
-	top: 155px; }
-
-.bottom {
-	bottom: 86px;
-	width: 76%;
-	left: 38px; }
+	top: 52px; }
 
 .left {
-	width: 75%;
-	margin-top: 15px;
-}
+	width: 52%;
+margin-top: 12px;
+margin-left: 15px; }
 
 .right {
-	margin-left: 95px; }
+	margin-top: 27px;
+margin-left: 158px; }
 
 .png_right {
-	width: 27%;
-	display: flex;
 	position: absolute;
-	right: 10px; }
+	width: 30%;
+right: 22px;
+top: 13px; }
 
 .png_left {
-	display: flex;
-	position: absolute; }
+	position: absolute;
+width: 41%;
+left: 16px;
+bottom: 58px; }
 
 .widget-hovercard-links {
 	text-align: center;
-	display: flex !important;
-	margin-top: 8px; }
+display: flex !important;
+margin-top: 20px; }
 
 .logo-hovercard {
 	width: 16%;
@@ -87,8 +81,8 @@
 	background: white;
 	border-radius: 5px;
 	text-align: center;
-	width: 61%;
-	padding: 3px; }
+	width: 67%;
+	padding: 6px; }
 
 .widget-hover-card {
 	padding: 16px 0px;
@@ -98,6 +92,6 @@
 	width: 33%;
 	position: absolute;
 	right: -3px;
-	bottom: 8px;
+	bottom: -1px;
 	transform: rotate(-51deg);
 	z-index: -1; }
