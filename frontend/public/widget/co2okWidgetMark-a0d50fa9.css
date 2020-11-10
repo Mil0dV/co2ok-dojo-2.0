@@ -67,7 +67,7 @@
 .widget-hovercard-links {
 	text-align: center;
 	display: flex !important;
-	padding-top: 16px;
+	padding-top: 16px !important;
 	margin-top: 0px; }
 
 .logo-hovercard {
