@@ -2,7 +2,7 @@
 	position: absolute;
 	width: 330px;
 	height: 280px;
-	background: #f7f7f7;
+	/* background: #f7f7f7; */
 	border-radius: 15px;
 	box-sizing: border-box;
 	font-family: Roboto, sans-serif;
@@ -12,70 +12,60 @@
 	padding: 10px;
 	border: 4px solid #E3E3E3;
 	cursor: default;
+	box-shadow: 5px 5px 10px #a0a0a0;
 	/* border: 4px solid #28db83; */
-	border-image-slice: 1; }
+	border-image-slice: 1;
+	line-height: 1.25rem; }
 
 .hovercard-wrapper {
 	display: flex;
 	flex-direction: row; }
 
-.steps {
+.widget-steps {
 	color: black;
 	font-size: 14px;
 	text-decoration: none; }
 
-.info_hover_png {
+.widget-info-hover-png {
 	margin: auto;
 	z-index: 1; }
 
-.hovercard_road {
-	position: relative;
-	width: 70%;
-	height: 30%; }
-
-.info_hover_road_png {
-	position: absolute;
-	width: 73%;
-	height: 58%;
-	margin: auto;
-	left: 48px; }
-
-.top {
+.widget-top {
 	top: 52px; }
 
-.left {
+.widget-left {
 	width: 52%;
 	margin-top: 12px;
 	margin-left: 15px; }
 
-.right {
-	margin-top: 16px;
+.widget-right {
+	margin-top: 24px;
 	margin-left: 158px; }
 
-.png_right {
+.widget-png-right {
 	position: absolute;
 	width: 30%;
 	right: 22px;
 	top: 13px; }
 
-.png_left {
+.widget-png-left {
 	position: absolute;
-	width: 41%;
-	left: 16px;
+	width: 43%;
+	left: 13px;
+	top: 91px;
 	bottom: 49px; }
 
 .widget-hovercard-links {
 	text-align: center;
 	display: flex !important;
-	padding-top: 16px !important;
-	margin-top: 0px; }
+	padding-top: 24px !important}
 
-.logo-hovercard {
+.widget-logo-hovercard {
 	width: 16%;
 	position: absolute;
 	margin-top: 15px; }
 
-.compensation {
+.widget-compensation {
 	margin: auto;
 	text-decoration: none !important;
 	color: black;
@@ -90,7 +80,7 @@
 	padding: 16px 0px;
 }
 
-.branch-png {
+.widget-branch-png {
 	width: 33%;
 	position: absolute;
 	right: -7px;

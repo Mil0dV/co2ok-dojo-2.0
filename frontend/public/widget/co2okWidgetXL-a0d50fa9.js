@@ -99,8 +99,8 @@ let Co2okWidgetXL = {
     // Mijnkraamshop: D0C918
     let color = "#D0C918"
     // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-    let  SITE_HOST =  'https://co2ok.eco'
-    // let SITE_HOST = 'http://localhost:8080'
+    // let  SITE_HOST =  'https://co2ok.eco'
+    let SITE_HOST = 'http://localhost:8080'
     console.log("inside generator")
     //css for widget
     var fileref=document.createElement("link")
@@ -202,22 +202,22 @@ let Co2okWidgetXL = {
         <img id="large-widget-airplane" src= "${SITE_HOST}/widget/large-wiget-airplane.png">
       </div>
 
-      <div class="co2ok_widget_infobox_container co2ok-popper hovercard-large" id="widget-infobox-view">
+      <div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-large" id="widget-infobox-view">
 
-        <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="large info_hover_png png_right">
+        <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="large widget-info-hover-png widget-png-right">
         <div class="large hovercard-wrapper">
-          <p class="large steps step-one left"> ${compensation} </p>
+          <p class="large widget-steps step-one widget-left"> ${compensation} </p>
         </div>
 
-        <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="large info_hover_png png_left">
+        <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="large widget-info-hover-png widget-png-left">
         <div class="large hovercard-wrapper">
-          <p class="large steps step-two right"> ${shipping} </p>
+          <p class="large widget-steps step-two widget-right"> ${shipping} </p>
         </div>
 
         <span class="large widget-hovercard-links">
-          <a class="large compensation" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
+          <a class="large widget-compensation" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
         </span>
-        <img class="large branch-png" src="${SITE_HOST}/widget/hovercard/branch.png">
+        <img class="large widget-branch-png" src="${SITE_HOST}/widget/hovercard/branch.png">
 
       </div>
     `
@@ -253,7 +253,7 @@ let Co2okWidgetXL = {
   placeWidgetInfoBox : function() {
     // console.log('Platz? Lebensraum!')
     var widgetInfoButton = jQuery("#info-button-widget");
-    var widgetInfoBox = jQuery(".hovercard-large");
+    var widgetInfoBox = jQuery(".widget-hovercard-large");
     var widgetBox = jQuery(".large-widget")
 
     console.log(widgetInfoButton)
@@ -293,8 +293,8 @@ let Co2okWidgetXL = {
   ShowWidgetInfoBox  : function()
   {
       // console.log("Show must go on")
-    jQuery(".hovercard-large").removeClass('infobox-hidden')
-    jQuery(".hovercard-large").addClass('ShowWidgetInfoBox')
+    jQuery(".widget-hovercard-large").removeClass('infobox-hidden')
+    jQuery(".widget-hovercard-large").addClass('ShowWidgetInfoBox')
     jQuery(".co2ok_widget_container").css({
       marginBottom: 200
     });
@@ -307,8 +307,8 @@ let Co2okWidgetXL = {
 
   hideWidgetInfoBox : function()
   {
-    jQuery(".hovercard-large").removeClass('ShowWidgetInfoBox')
-    jQuery(".hovercard-large").addClass('infobox-hidden')
+    jQuery(".widget-hovercard-large").removeClass('ShowWidgetInfoBox')
+    jQuery(".widget-hovercard-large").addClass('infobox-hidden')
     jQuery(".co2ok_widget_container").css({
       marginBottom: 0
     });
@@ -318,7 +318,7 @@ let Co2okWidgetXL = {
   modalRegex: function(e)
   {
      return jQuery(e.target).hasClass("large") ||
-     jQuery(e.target).hasClass("hovercard-large") ||
+     jQuery(e.target).hasClass("widget-hovercard-large") ||
      jQuery(e.target).is("#info-button-widget");
   },
 

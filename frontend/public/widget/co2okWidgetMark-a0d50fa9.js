@@ -88,8 +88,8 @@ let Co2okWidget = {
       // Mijnkraamshop: D0C918
       let color = "#D0C918"
       // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-      let  SITE_HOST =  'https://co2ok.eco'
-      // let SITE_HOST = 'http://localhost:8080'
+      // let  SITE_HOST =  'https://co2ok.eco'
+      let SITE_HOST = 'http://localhost:8080'
 
       //css for trustmark
       var fileref=document.createElement("link")
@@ -156,20 +156,20 @@ let Co2okWidget = {
 
         <div class="co2ok_widget_infobox_container co2ok-popper hovercard-trustmark small" id="widget-infobox-view">
 
-        <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="small info_hover_png png_right">
+        <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="small widget-info-hover-png widget-png-right">
           <div class="small hovercard-wrapper">
-            <p class="small steps step-one left"> ${compensation} </p>
+            <p class="small widget-steps step-one widget-left"> ${compensation} </p>
           </div>
 
-          <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="small info_hover_png png_left">
+          <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="small widget-info-hover-png widget-png-left">
           <div class="small hovercard-wrapper">
-            <p class="small steps step-two right"> ${shipping} </p>
+            <p class="small widget-steps step-two widget-right"> ${shipping} </p>
           </div>
 
           <span class="small widget-hovercard-links">
-            <a class="small compensation" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
+            <a class="small widget-compensation" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
           </span>
-          <img class="small branch-png" src="${SITE_HOST}/widget/hovercard/branch.png">
+          <img class="small widget-branch-png" src="${SITE_HOST}/widget/hovercard/branch.png">
 
         </div>
       `
