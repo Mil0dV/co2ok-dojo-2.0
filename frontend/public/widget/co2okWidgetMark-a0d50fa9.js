@@ -112,7 +112,7 @@ let Co2okWidgetXL = {
     var fileref=document.createElement("link")
     fileref.setAttribute("rel", "stylesheet")
     fileref.setAttribute("type", "text/css")
-    fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetHovercard.css`)
+    fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark-a0d50fa9.css`)
     document.getElementsByTagName("head")[0].appendChild(fileref)
 
 

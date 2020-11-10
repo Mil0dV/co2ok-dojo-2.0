@@ -101,7 +101,7 @@ let Co2okWidget = {
       var fileref=document.createElement("link")
       fileref.setAttribute("rel", "stylesheet")
       fileref.setAttribute("type", "text/css")
-      fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetHovercard.css`)
+      fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark-a0d50fa9.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
 
       if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0')
