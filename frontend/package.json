@@ -27,7 +27,7 @@
     "vue-chartjs": "^3.4.2",
     "vue-i18n": "^8.14.0",
     "vue-lodash": "^2.0.2",
-    "vue-moment": "^4.0.0",
+    "vue-moment": "^4.1.0",
     "vue-router": "^3.0.1",
     "vuetify": "^1.5.11",
     "vuex": "^3.1.0"
@@ -40,7 +40,7 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.14.1",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.5.21",
     "webpack-bundle-tracker": "^0.4.2-beta"
