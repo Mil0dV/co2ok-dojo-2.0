@@ -140,12 +140,23 @@
                         twitter: '', linkedin: 'https://www.linkedin.com/company/co%E2%82%82ok/'
                     },
                     {
+                        name: 'Robert Pothoven', title: 'Business Developer',
+                        quote: 'Working hard for the betterment of the world',
+                        image: 'robert.png',
+                        twitter: '', linkedin: 'https://www.linkedin.com/in/robert-pothoven-5173a949/'
+                    },
+                    {
+                        name: 'Alois Wehlburg', title: 'Software Engineer Trainee',
+                        quote: 'Green is the way',
+                        image: 'alois.png',
+                        twitter: '', linkedin: 'https://www.linkedin.com/in/alois-wehlburg/'
+                    },
+                    {
                         name: 'Jessica D. Smith', title: 'Software Engineer Trainee',
                         quote: 'Sustainability now for a better future',
                         image: 'jessica.jpg',
                         twitter: '', linkedin: 'https://www.linkedin.com/in/jessicadsmith022/'
-                    },
-
+                    }
                 ]
             }
         },
