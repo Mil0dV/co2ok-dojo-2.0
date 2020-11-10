@@ -30,11 +30,15 @@ let Co2okWidget = {
     if (co2ok_impact > 1){
       console.log('Collaborate and listen')
 
-      // ugly hack for DGL
-      // adds seperately compensated amount
+      // ugly hack for DGL (degroenelinde)
+      // enforces impact retrieval from backend
       if (merchantId == '12afe7d2' || merchantId == '432c516a') {
-        co2ok_impact = 1683 + parseInt(co2ok_impact)
-      }
+        if (co2ok_impact > 100){
+          Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)
+          return
+        }
+        // for DGL: continue to retrieval and storing in the cookie
+      } else {
 
       Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)
       return
@@ -52,6 +56,15 @@ let Co2okWidget = {
         let totalTransactionData = xhr.responseText
         // let totalTransactionData = 491
         
+        // ugly hack for DGL
+        // adds seperately compensated amount
+        if (merchantId == '12afe7d2' || merchantId == '432c516a') {
+          var d = new Date()
+          var month = d.getMonth() + 1 // since count starts at zero
+          month = month < 10 ? month + 12 : month // add 12 for 2021
+          totalTransactionData = 168.3 * month + parseInt(totalTransactionData)
+        }
+
         console.log(totalTransactionData)
         document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
         Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData, widgetColor, lang)
