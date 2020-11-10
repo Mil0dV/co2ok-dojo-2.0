@@ -88,12 +88,11 @@
                                     </a>
 
                                     <a target="_blank"
-                                       href="https://www.linkedin.com/company/11418867"
+                                        :href="`${person.linkedin}`"
                                        class=" uk-text-capitalize social__text linkedin--hover">
                                         <span class="icon__wrapper">
                                             <span uk-icon="linkedin"
                                                   class="crew__icon">
-
                                             </span>
                                         </span>
                                         LinkedIn
@@ -126,51 +125,38 @@
                         name: 'Milo de Vries', title: 'Founder',
                         quote: 'Making consumerism sustainable 💚🌍',
                         image: 'milo.jpg',
-                        twitter: '', facebook: ''
-                    },
-                    {
-                        name: 'Nick Maier', title: 'Co-Founder',
-                        quote: 'The climate is important and companies can have a big impact, either good or bad',
-                        image: 'nick.jpg',
-                        twitter: '', facebook: ''
+                        twitter: '', linkedin: 'https://www.linkedin.com/company/co%E2%82%82ok/'
                     },
                     {
                         name: 'Lodi de Brauw', title: 'Co-Founder',
                         quote: 'You must be the change you want to see in the world',
                         image: 'lodi.jpg',
-                        twitter: '', facebook: ''
+                        twitter: '', linkedin: 'https://www.linkedin.com/company/co%E2%82%82ok/'
                     },
                     {
                         name: 'Maaike Braat', title: 'Scientist',
                         quote: 'It can always be quicker and better, but this is a step in the right direction',
                         image: 'maaike.jpeg',
-                        twitter: '', facebook: ''
+                        twitter: '', linkedin: 'https://www.linkedin.com/company/co%E2%82%82ok/'
                     },
                     {
-                        name: 'Michiel van Tienhoven', title: "Programmer and Graphic Designer",
-                        quote: 'More green is always better, after all we only have one planet earth',
-                        image: 'michiel-1.jpeg',
-                        twitter: '', facebook: ''
+                        name: 'Robert Pothoven', title: 'Business Developer',
+                        quote: 'Working hard for the betterment of the world',
+                        image: 'robert.png',
+                        twitter: '', linkedin: 'https://www.linkedin.com/in/robert-pothoven-5173a949/'
                     },
                     {
-                        name: 'Krista Peters', title: 'Trainee programming & Web Development ',
-                        quote: 'Let\'s try and speed up the transition to a greener world.',
-                        image: 'krista.jpg',
-                        twitter: '', facebook: ''
-                    },
-{
-                        name: 'Ahlam Saber', title: 'Partner Manager',
-                        quote: 'Silence is evil itself. Not to speak is to speak. Not to act is to act',
-                        image: 'ahlam.jpeg',
-                        twitter: '', facebook: ''
+                        name: 'Alois Wehlburg', title: 'Software Engineer Trainee',
+                        quote: 'Green is the way',
+                        image: 'alois.png',
+                        twitter: '', linkedin: 'https://www.linkedin.com/in/alois-wehlburg/'
                     },
                     {
-                        name: 'Sanne Tielemans', title: 'Finance/Admin Assistant',
-                        quote: 'The greener, the better',
-                        image: 'sanne.jpeg',
-                        twitter: '', facebook: ''
-                    },
-
+                        name: 'Jessica D. Smith', title: 'Software Engineer Trainee',
+                        quote: 'Sustainability now for a better future',
+                        image: 'jessica.jpg',
+                        twitter: '', linkedin: 'https://www.linkedin.com/in/jessicadsmith022/'
+                    }
                 ]
             }
         },
