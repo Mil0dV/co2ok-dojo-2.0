@@ -99,8 +99,8 @@ let Co2okWidgetXL = {
     // Mijnkraamshop: D0C918
     let color = "#D0C918"
     // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-    // let  SITE_HOST =  'https://co2ok.eco'
-    let SITE_HOST = 'http://localhost:8080'
+    let  SITE_HOST =  'https://co2ok.eco'
+    // let SITE_HOST = 'http://localhost:8080'
     console.log("inside generator")
     //css for widget
     var fileref=document.createElement("link")
