@@ -67,6 +67,7 @@
 .widget-hovercard-links {
 	text-align: center;
 	display: flex !important;
+	padding-top: 16px;
 	margin-top: 0px; }
 
 .logo-hovercard {
@@ -93,6 +94,6 @@
 	width: 33%;
 	position: absolute;
 	right: -7px;
-	bottom: -8px;
+	bottom: -7px;
 	transform: rotate(-51deg);
 	z-index: -1; }
