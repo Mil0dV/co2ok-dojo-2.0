@@ -42,6 +42,7 @@ let Co2okWidget = {
 
       Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)
       return
+      }
     }
 
     // get impact from API
