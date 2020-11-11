@@ -142,7 +142,7 @@
                     {
                         name: 'Robert Pothoven', title: 'Business Developer',
                         quote: 'Working hard for the betterment of the world',
-                        image: 'robert.png',
+                        image: 'robert.jpg',
                         twitter: '', linkedin: 'https://www.linkedin.com/in/robert-pothoven-5173a949/'
                     },
                     {
