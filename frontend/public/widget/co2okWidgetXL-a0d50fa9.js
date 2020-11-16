@@ -101,7 +101,6 @@ let Co2okWidgetXL = {
     // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
     let  SITE_HOST =  'https://co2ok.eco'
     // let SITE_HOST = 'http://localhost:8080'
-    console.log("inside generator")
     //css for widget
     var fileref=document.createElement("link")
     fileref.setAttribute("rel", "stylesheet")
@@ -231,7 +230,6 @@ let Co2okWidgetXL = {
 
     widgetcontainer.innerHTML = widgetmark
     this.RegisterWidgetInfoBox(widgetSize);
-    console.log(widgetcontainer)
     // this.ShowWidgetInfoBox();
   },
 
@@ -255,8 +253,6 @@ let Co2okWidgetXL = {
     var widgetInfoButton = jQuery("#info-button-widget");
     var widgetInfoBox = jQuery(".widget-hovercard-large");
     var widgetBox = jQuery(".large-widget")
-
-    console.log(widgetInfoButton)
     var offset = widgetInfoButton.offset();
 
     widgetInfoBox.remove();
@@ -324,7 +320,7 @@ let Co2okWidgetXL = {
 
 
   RegisterWidgetInfoBox : function() {
-    console.log('it begins YEASS')
+    console.log('it begins')
     var _this = this;
 
     jQuery(".co2ok_widget_info_keyboardarea").focus(function(){

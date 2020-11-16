@@ -25,8 +25,7 @@ let Co2okWidget = {
 
     // get impact from cookie if available
     let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
-    console.log(co2ok_impact)
-    
+
     if (co2ok_impact > 1){
       console.log('Collaborate and listen')
 
