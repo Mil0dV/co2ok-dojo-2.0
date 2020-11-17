@@ -123,16 +123,16 @@ let Co2okWidget = {
      }
 
       if (lang == 'EN') {
-        var reductietekst = 'CO₂ reduction'
-        var compensatietekst = `This webshop prevented <strong>${compensatiewidget .toFixed(1)} </strong>tonnes of CO₂ emission <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`
-        var how_does_it_worktekst = 'How does CO₂ offsetting work?'
-        var titletekst = 'Make my purchase Climate neutral!'
+        var reductietekst = 'CO₂ reduction';
+        var compensatietekst = `This webshop prevented <strong>${compensatiewidget .toFixed(1)} </strong>tonnes of CO₂ emission <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`;
+        var how_does_it_worktekst = 'How does CO₂ offsetting work?';
+        var titletekst = 'Make my purchase Climate neutral!';
       }
       else {
-        var reductietekst = 'CO₂ reductie'
-        var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`
-        var how_does_it_worktekst = 'Hoe werkt CO₂ compensatie?'
-        var titletekst = 'Maak mijn aankoop klimaatneutraal'
+        var reductietekst = 'CO₂ reductie';
+        var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`;
+        var how_does_it_worktekst = 'Hoe werkt CO₂ compensatie?';
+        var titletekst = 'Maak mijn aankoop klimaatneutraal';
       }
       let widgetmark = `
       <div>
@@ -159,7 +159,7 @@ let Co2okWidget = {
       </div>
 
 
-      `
+      `;
               // console.log(widgetimg)
 
       let widgetcontainer = document.getElementById(widgetContainer)
