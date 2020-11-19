@@ -87,8 +87,8 @@ let Co2okWidget = {
       // Mijnkraamshop: D0C918
       let color = "#D0C918"
       // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-      let  SITE_HOST =  'https://co2ok.eco'
-      // let SITE_HOST = 'http://localhost:8080'
+      // let  SITE_HOST =  'https://co2ok.eco'
+      let SITE_HOST = 'http://localhost:8080'
 
       //css for trustmark
       var fileref=document.createElement("link")
@@ -129,17 +129,20 @@ let Co2okWidget = {
          var colorSuffix = "";
      }
 
+     var compensatiewidget = 23.42;
+     console.log("lang", lang);
+
       if (lang == 'EN') {
         var reductietekst = 'CO₂ reduction';
         var compensation = `This webshop prevented <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>tonnes of CO₂ emission = <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`;
         var shipping = "This shop's climate friendly shipping neutralised shipping emissions.";
-        var works = "How CO₂ compensation works";
+        var works = "How we do this";
       }
       else {
         var reductietekst = 'CO₂ reductie';
         var compensation = `Deze webshop heeft <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen = <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`;
-        var shipping = "This shop's climate friendly shipping neutralised shipping emissions.";
-        var works = 'Hoe werkt CO₂ compensatie?';
+        var shipping = "De klimaatvriendelijke verzending van deze winkel neutraliseerde de uitstoot van de scheepvaart";
+        var works = 'Hoe we dat doen';
       }
       let widgetmark = `
         <div>
@@ -153,7 +156,7 @@ let Co2okWidget = {
 
         </div>
 
-        <div class="co2ok_widget_infobox_container co2ok-popper hovercard-trustmark small" id="widget-infobox-view">
+        <div class="co2ok_widget_infobox_container co2ok-popper hovercard-trustmark co2ok-small" id="widget-infobox-view">
 
           <div class="co2ok-small hovercard-wrapper">
             <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-small widget-info-hover-png widget-png-right">

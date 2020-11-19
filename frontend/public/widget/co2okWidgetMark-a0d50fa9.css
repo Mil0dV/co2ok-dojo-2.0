@@ -59,7 +59,7 @@
 .widget-hovercard-links {
 	text-align: center;
 	display: flex !important;
-	padding-top: 17px !important; }
+	margin-top: 17px !important; }
 
 .widget-compensation {
 	margin: auto;
@@ -69,7 +69,7 @@
 	background: white;
 	border-radius: 5px;
 	text-align: center;
-	width: 67%;
+	width: 42%;
 	padding: 6px; }
 	.widget-compensation:hover {
 		opacity: 1;
@@ -78,7 +78,7 @@
 .widget-branch-png {
 	width: 33%;
 	position: absolute;
-	right: -7px;
+	right: 32px;
 	bottom: -13px;
 	transform: rotate(-51deg);
 	z-index: -1; }

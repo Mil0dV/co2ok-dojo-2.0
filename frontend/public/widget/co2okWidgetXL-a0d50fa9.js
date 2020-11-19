@@ -124,21 +124,22 @@ let Co2okWidgetXL = {
       }
       var compensationAmount  = totalCompensatedData / 1000;
     }
+    var compensationAmount = 23.42;
     if (lang == 'EN') {
 
       var compensatietekst = `This shop prevented <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)} ton CO<sub>2</sub></span><br> emission`;
       var vliegen = "flying";
       var compensation = `This webshop prevented <strong class="co2ok-large">${compensationAmount .toFixed(1)} </strong>tonnes of CO₂ emission = <strong class="co2ok-large">${(compensationAmount * 5000).toFixed(0)} </strong>km of flying`;
-      var shipping = "This shop's climate friendly shipping neutralised shipping emissions.";
-      var works = "How CO₂ compensation works";
+      var shipping = "This shop's climate friendly shipping neutralised shipping emissions";
+      var works = "How we do this";
 
     } else {
 
       var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> uitstoot voorkomen`;
       var vliegen = "vliegen";
       var compensation = `Deze webshop heeft <strong class="co2ok-large">${compensationAmount .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen = <strong class="co2ok-large">${(compensationAmount * 5000).toFixed(0)} </strong>km vliegen`;
-      var shipping = "This shop's climate friendly shipping neutralised shipping emissions.";
-      var works = 'Hoe werkt CO₂ compensatie?';
+      var shipping = "This shop's climate friendly shipping neutralised shipping emissions";
+      var works = 'Hoe we dat doen';
 
     }
 
@@ -195,7 +196,7 @@ let Co2okWidgetXL = {
         <img id="large-widget-airplane" src= "${SITE_HOST}/widget/large-wiget-airplane.png">
       </div>
 
-      <div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-large" id="widget-infobox-view">
+      <div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-large co2ok-large" id="widget-infobox-view">
 
         <div class="co2ok-large hovercard-wrapper">
           <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-large widget-info-hover-png widget-png-right">
