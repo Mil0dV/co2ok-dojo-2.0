@@ -190,9 +190,7 @@ let Co2okWidgetXL = {
         <p id="large-widget-text">${compensatietekst}</p>
         <p id="large-widget-xvliegen">= ${(compensationAmount * 5000) .toFixed(0)} km<br>${vliegen}</p>
         <img id="co2ok-logo" src= "${SITE_HOST}/static/logo${colorSuffix}.png">
-        <a target="_blank" href="https://www.co2ok.eco/co2-compensatie">
-          <img id="info-button-widget" class="info-button-widget" src= "${SITE_HOST}/static/info${colorSuffix}.svg">
-        </a>
+        <img id="info-button-widget" class="info-button-widget" src= "${SITE_HOST}/static/info${colorSuffix}.svg">
         <img id="large-widget-airplane" src= "${SITE_HOST}/widget/large-wiget-airplane.png">
       </div>
 
@@ -256,7 +254,7 @@ let Co2okWidgetXL = {
     if (jQuery(window).width() < 480) {
 
       offset.left = offset.left - widgetInfoBox.width() / 2;
-      offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.height() - 9);
+      offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.height() - 9) - 10;
       if ( offset.left < 0) offset.left = 10;
       if ( offset.top < 0) offset.top = 10;
       widgetInfoBox.css({
