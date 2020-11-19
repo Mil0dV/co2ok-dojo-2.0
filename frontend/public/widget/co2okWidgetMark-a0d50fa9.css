@@ -2,7 +2,7 @@
 	position: absolute;
 	width: 330px;
 	height: 280px;
-	/* background: #f7f7f7; */
+	background: white;
 	border-radius: 15px;
 	box-sizing: border-box;
 	font-family: Roboto, sans-serif;
@@ -16,6 +16,9 @@
 	/* border: 4px solid #28db83; */
 	border-image-slice: 1;
 	line-height: 1.25rem; }
+	.co2ok_widget_infobox_container.ShowWidgetInfoBox {
+		display: block;
+		opacity: 1; }
 
 .hovercard-wrapper {
 	display: flex;
@@ -30,17 +33,16 @@
 	margin: auto;
 	z-index: 1; }
 
-.widget-top {
-	top: 52px; }
-
 .widget-left {
 	width: 52%;
-	margin-top: 12px;
-	margin-left: 15px; }
+	margin: auto;
+	padding-top: 12px;
+	margin-left: 15px !important; }
 
 .widget-right {
-	margin-top: 24px;
-	margin-left: 158px; }
+	/* margin-top: 27px; */
+	margin: auto;
+	margin-left: 158px !important; }
 
 .widget-png-right {
 	position: absolute;
@@ -52,18 +54,12 @@
 	position: absolute;
 	width: 43%;
 	left: 13px;
-	top: 91px;
-	bottom: 49px; }
+	margin-top: -34px; }
 
 .widget-hovercard-links {
 	text-align: center;
 	display: flex !important;
-	padding-top: 24px !important}
-
-.widget-logo-hovercard {
-	width: 16%;
-	position: absolute;
-	margin-top: 15px; }
+	padding-top: 17px !important; }
 
 .widget-compensation {
 	margin: auto;
@@ -75,15 +71,14 @@
 	text-align: center;
 	width: 67%;
 	padding: 6px; }
-
-.widget-hover-card {
-	padding: 16px 0px;
-}
+	.widget-compensation:hover {
+		opacity: 1;
+	}
 
 .widget-branch-png {
 	width: 33%;
 	position: absolute;
 	right: -7px;
-	bottom: -7px;
+	bottom: -13px;
 	transform: rotate(-51deg);
 	z-index: -1; }

@@ -50,7 +50,7 @@ let Co2okWidgetXL = {
     //    xhr.withCredentials = true;
     xhr.onreadystatechange = function(){
       if (this.readyState == 4 && this.status == 200){
-        // For the near future: detect large numbers, then divide and adjust kilo to ton
+        // For the near future: detect co2ok-large numbers, then divide and adjust kilo to ton
         // let totalTransactionData = (xhr.responseText / 1000).toFixed(1)
         let totalTransactionData = xhr.responseText
         // let totalTransactionData = 491
@@ -101,12 +101,6 @@ let Co2okWidgetXL = {
     // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
     let  SITE_HOST =  'https://co2ok.eco'
     // let SITE_HOST = 'http://localhost:8080'
-    //css for widget
-    var fileref=document.createElement("link")
-    fileref.setAttribute("rel", "stylesheet")
-    fileref.setAttribute("type", "text/css")
-    fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
-    document.getElementsByTagName("head")[0].appendChild(fileref)
     //css for hovercard
     var fileref=document.createElement("link")
     fileref.setAttribute("rel", "stylesheet")
@@ -132,19 +126,19 @@ let Co2okWidgetXL = {
     }
     if (lang == 'EN') {
 
-      var compensatietekst = `This shop prevented <br><span id="large-widget-text-large">${compensationAmount .toFixed(decimalsCompensation)} ton CO<sub>2</sub></span><br> emission`;
-      var vliegen = "flying"
-      var compensation = `This webshop prevented <strong>${compensationAmount .toFixed(1)} </strong>tonnes of CO₂ emission = <strong>${(compensationAmount * 5000).toFixed(0)} </strong>km of flying`
-      var shipping = "This shop's climate friendly shipping neutralised shipping emissions."
-      var works = "How CO₂ compensation works"
+      var compensatietekst = `This shop prevented <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)} ton CO<sub>2</sub></span><br> emission`;
+      var vliegen = "flying";
+      var compensation = `This webshop prevented <strong class="co2ok-large">${compensationAmount .toFixed(1)} </strong>tonnes of CO₂ emission = <strong class="co2ok-large">${(compensationAmount * 5000).toFixed(0)} </strong>km of flying`;
+      var shipping = "This shop's climate friendly shipping neutralised shipping emissions.";
+      var works = "How CO₂ compensation works";
 
     } else {
 
-      var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> uitstoot voorkomen`;
-      var vliegen = "vliegen"
-      var compensation = `Deze webshop heeft <strong>${compensationAmount .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen = <strong>${(compensationAmount * 5000).toFixed(0)} </strong>km vliegen`
-      var shipping = "This shop's climate friendly shipping neutralised shipping emissions."
-      var works = 'Hoe werkt CO₂ compensatie?'
+      var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> uitstoot voorkomen`;
+      var vliegen = "vliegen";
+      var compensation = `Deze webshop heeft <strong class="co2ok-large">${compensationAmount .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen = <strong class="co2ok-large">${(compensationAmount * 5000).toFixed(0)} </strong>km vliegen`;
+      var shipping = "This shop's climate friendly shipping neutralised shipping emissions.";
+      var works = 'Hoe werkt CO₂ compensatie?';
 
     }
 
@@ -203,20 +197,20 @@ let Co2okWidgetXL = {
 
       <div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-large" id="widget-infobox-view">
 
-        <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="large widget-info-hover-png widget-png-right">
-        <div class="large hovercard-wrapper">
-          <p class="large widget-steps step-one widget-left"> ${compensation} </p>
+        <div class="co2ok-large hovercard-wrapper">
+          <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-large widget-info-hover-png widget-png-right">
+          <p class="co2ok-large widget-steps step-one widget-left"> ${compensation} </p>
         </div>
 
-        <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="large widget-info-hover-png widget-png-left">
-        <div class="large hovercard-wrapper">
-          <p class="large widget-steps step-two widget-right"> ${shipping} </p>
+        <div class="co2ok-large hovercard-wrapper" style="padding-top: 29px;">
+          <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-large widget-info-hover-png widget-png-left">
+          <p class="co2ok-large widget-steps step-two widget-right"> ${shipping} </p>
         </div>
 
-        <span class="large widget-hovercard-links">
-          <a class="large widget-compensation" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
+        <span class="co2ok-large widget-hovercard-links">
+          <a class="co2ok-large widget-compensation" target="_blank" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
         </span>
-        <img class="large widget-branch-png" src="${SITE_HOST}/widget/hovercard/branch.png">
+        <img class="co2ok-large widget-branch-png" src="${SITE_HOST}/widget/hovercard/branch.png">
 
       </div>
     `
@@ -313,7 +307,7 @@ let Co2okWidgetXL = {
 
   modalRegex: function(e)
   {
-     return jQuery(e.target).hasClass("large") ||
+     return jQuery(e.target).hasClass("co2ok-large") ||
      jQuery(e.target).hasClass("widget-hovercard-large") ||
      jQuery(e.target).is("#info-button-widget");
   },

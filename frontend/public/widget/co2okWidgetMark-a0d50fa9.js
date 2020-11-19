@@ -130,16 +130,16 @@ let Co2okWidget = {
      }
 
       if (lang == 'EN') {
-        var reductietekst = 'CO₂ reduction'
-        var compensation = `This webshop prevented <strong>${compensatiewidget .toFixed(1)} </strong>tonnes of CO₂ emission = <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`
-        var shipping = "This shop's climate friendly shipping neutralised shipping emissions."
-        var works = "How CO₂ compensation works"
+        var reductietekst = 'CO₂ reduction';
+        var compensation = `This webshop prevented <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>tonnes of CO₂ emission = <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`;
+        var shipping = "This shop's climate friendly shipping neutralised shipping emissions.";
+        var works = "How CO₂ compensation works";
       }
       else {
-        var reductietekst = 'CO₂ reductie'
-        var compensation = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen = <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`
-        var shipping = "This shop's climate friendly shipping neutralised shipping emissions."
-        var works = 'Hoe werkt CO₂ compensatie?'
+        var reductietekst = 'CO₂ reductie';
+        var compensation = `Deze webshop heeft <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen = <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`;
+        var shipping = "This shop's climate friendly shipping neutralised shipping emissions.";
+        var works = 'Hoe werkt CO₂ compensatie?';
       }
       let widgetmark = `
         <div>
@@ -155,20 +155,20 @@ let Co2okWidget = {
 
         <div class="co2ok_widget_infobox_container co2ok-popper hovercard-trustmark small" id="widget-infobox-view">
 
-        <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="small widget-info-hover-png widget-png-right">
-          <div class="small hovercard-wrapper">
-            <p class="small widget-steps step-one widget-left"> ${compensation} </p>
+          <div class="co2ok-small hovercard-wrapper">
+            <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-small widget-info-hover-png widget-png-right">
+            <p class="co2ok-small widget-steps step-one widget-left"> ${compensation} </p>
           </div>
 
-          <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="small widget-info-hover-png widget-png-left">
-          <div class="small hovercard-wrapper">
-            <p class="small widget-steps step-two widget-right"> ${shipping} </p>
+          <div class="co2ok-small hovercard-wrapper" style="padding-top: 29px;">
+            <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-small widget-info-hover-png widget-png-left">
+            <p class="co2ok-small widget-steps step-two widget-right"> ${shipping} </p>
           </div>
 
-          <span class="small widget-hovercard-links">
-            <a class="small widget-compensation" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
+          <span class="co2ok-small widget-hovercard-links">
+            <a class="co2ok-small widget-compensation" target="_blank" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
           </span>
-          <img class="small widget-branch-png" src="${SITE_HOST}/widget/hovercard/branch.png">
+          <img class="co2ok-small widget-branch-png" src="${SITE_HOST}/widget/hovercard/branch.png">
 
         </div>
       `
@@ -261,7 +261,7 @@ let Co2okWidget = {
 
   modalRegex: function(e)
   {
-    return jQuery(e.target).hasClass("small") ||
+    return jQuery(e.target).hasClass("co2ok-small") ||
     jQuery(e.target).hasClass("widget-small");
   },
 
