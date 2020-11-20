@@ -169,6 +169,10 @@
                     <h2 class="main-title">{{ $t('retailers.subtitle3') }}</h2>
                     <h2 class="sub-title">{{ $t('retailers.title3') }}</h2>
                 </div>
+                <div class="section-2--col-1 section-4--header">
+                <a href="/#home_form" class="button__banner">Sign up in 2020, get 2021 for free!</a>
+                </div>
+            <!-- <a href="/#home_form" class="button__banner">{{ $t('home2.section_5_btn') }}</a> -->
 
                 <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
                     <div>
