@@ -122,6 +122,25 @@
   font-size: 16px;
 }
 
+.button__banner {
+  padding: 10px 50px;
+  border-radius: 5px;
+  transition: 0.1s;
+  outline: none;
+  cursor: pointer;
+  font-size: 22px;
+  background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);
+  color: #fff;
+  border: 1px solid #08BA4D;
+
+  font-weight: 400 !important;
+
+  &:hover {
+    opacity: 0.8;
+    color: #fff;
+  }
+}
+
 //------------------Responsive-------------------
 @media (max-width: 1200px) {
   .main-title {
