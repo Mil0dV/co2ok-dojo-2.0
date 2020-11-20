@@ -29,41 +29,43 @@
         </div>
 
         <div class="uk-section home__section-2 prefix__section">
+
+
             <div class="section-2__content">
-                    <div class="section-2__row-1">
-                        <h2 class="main-title">
-                            {{ $t('home2.section_2_title') }}
-                        </h2>
-                        <p class="main-text">
-                            {{ $t('home2.section_2_text') }}
-                        </p>
-                        <br>
-                        <a href="/#home_form"
-                           class="button">{{ $t('home2.button_1') }}</a>
-                        <!-- <a href="/ninja"
-                           class="button">{{ $t('home2.button_2') }}</a> -->
+                <div class="section-2__row-1">
+                    <h2 class="main-title">
+                        {{ $t('home2.section_2_title') }}
+                    </h2>
+                    <p class="main-text">
+                        {{ $t('home2.section_2_text') }}
+                    </p>
+                    <br>
+                    <a href="/#home_form"
+                    class="button">{{ $t('home2.button_1') }}</a>
+                    <!-- <a href="/ninja"
+                        class="button">{{ $t('home2.button_2') }}</a> -->
 
                     </div>
                     <!-- voor webshops: hAsY9pNJ3fE -->
                     <div class="section-2__row-2">
-                    <iframe title="co2ok intro" class="section-2__image" width="532" height="299"
-                            src="https://www.youtube.com/embed/hAsY9pNJ3fE"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
-                        </iframe>
-                    </div>
-
+                        <iframe title="co2ok intro" class="section-2__image" width="532" height="299"
+                        src="https://www.youtube.com/embed/hAsY9pNJ3fE"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
         </div>
 
-        <div class="steps__container">
+        <Retailers />
+        <!-- <div class="steps__container">
             <h2 class="main-title">
                 {{ $t('home2.steps_title') }}
-            </h2>
+            </h2> -->
 
             <!--Stap 1-->
-            <div uk-grid class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">
+            <!-- <div uk-grid class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">
                 <div class="step__text-wrapper  step__img-left step__img-wrapper">
                     <div class="uk-light">
                         <img class="step__img uk-box-shadow-large" alt="2 factory"
@@ -87,10 +89,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!--Stap 2-->
-            <div uk-grid class="steps__intro uk-child-width-expand@s uk-text-center">
+            <!-- <div uk-grid class="steps__intro uk-child-width-expand@s uk-text-center">
                 <div class="step__text-wrapper step__img-left">
                     <div class="intro__text step__col steps__content steps__content-left uk-padding">
                         <div class="steps__wrapper">
@@ -105,7 +107,7 @@
                                 {{ $t('home2.s3_text') }}
                             </p>
                         </div> -->
-                    </div>
+                    <!-- </div>
                 </div>
 
                 <div class="step__text-wrapper step__img-wrapper">
@@ -114,11 +116,11 @@
                              src="../assets/images/steps/step-3.jpg">
                     </div>
                 </div>
-            </div>
+            </div>  -->
 
 
             <!--Stap 3-->
-            <div uk-grid class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">
+            <!-- <div uk-grid class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">
                 <div class="step__text-wrapper step__img-left step__img-wrapper">
                     <div class="uk-light step__img-left">
                         <img class="step__img  uk-box-shadow-large" alt="solar-panels"
@@ -142,11 +144,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
             <!--Stap 4-->
-            <div uk-grid class="steps__intro uk-child-width-expand@s uk-text-center">
+            <!-- <div uk-grid class="steps__intro uk-child-width-expand@s uk-text-center">
                 <div class="step__text-wrapper step__img-left">
                     <div class="intro__text step__col steps__content steps__content-left uk-padding">
                         <div class="steps__wrapper">
@@ -169,8 +171,8 @@
                              src="../assets/images/steps/step-4.jpg">
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> -->
+        <!-- </div> -->
 
 
         <div class="uk-section section-4 section--dark">
@@ -395,16 +397,16 @@
 
                 <div class="section-5__images">
                     <!-- <a href="https://www.atmosfair.de/en"> -->
-                    <img alt="logo1" class="section-5__image"
+                        <img alt="logo1" class="section-5__image" style="padding: 0px 8px;"
+                             src="../assets/images/home2/logo5.png">
+                    <img alt="logo1" class="section-5__image" style="padding: 0px 8px;"
                          src="../assets/images/home2/logo1.jpg">
                          <!-- </a> -->
-                    <img alt="logo1" class="section-5__image"
+                    <img alt="logo1" class="section-5__image" style="padding: 0px 8px;"
                          src="../assets/images/home2/logo2.jpg">
-                    <img alt="logo1" class="section-5__image"
+                    <img alt="logo1" class="section-5__image" style="padding: 0px 8px;"
                          src="../assets/images/home2/logo3.jpg">
-                    <img alt="logo1" class="section-5__image"
-                         src="../assets/images/home2/logo4.jpg">
-                    <img alt="logo1" class="section-5__image"
+                    <img alt="logo1" class="section-5__image" style="padding: 0px 8px;"
                         src="../assets/images/home2/webwinkelkeurLogo.png">
                 </div>
 
@@ -425,6 +427,8 @@
     // const Widget = () => import('@/components/layout/widget')
     const WebshopForm = () => import('@/components/layout/WebshopForm')
     const Webshops = () => import('@/components/layout/Webshops')
+    const Retailers = () => import('@/views/webshops/Retailers.vue')
+
     // import Widget from '../co2okWidget'
 
     export default {
@@ -448,7 +452,8 @@
         components: {
             // 'Widget': Widget
             'WebshopForm': WebshopForm,
-            'Webshops': Webshops 
+            'Webshops': Webshops,
+            'Retailers': Retailers
         },
 
         computed: {

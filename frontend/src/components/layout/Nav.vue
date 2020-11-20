@@ -18,6 +18,7 @@
                                     <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
                                 </router-link>
                             </li>
+
                             <div class="dropdown__menu-wrapper" uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
                                     <li v-if="$store.state.Authenticated && $store.state.status === 'webshop'">
@@ -37,10 +38,15 @@
                                     </li>
                                     <li>
                                         <router-link :class="[checkActive('webshops2') ? 'navbar__active' : '']"
-                                                     to="/webshops/cause-marketing">{{ $t('nav.webshops_2') }}
-                                        </router-link>
+                                        to="/webshops/cause-marketing">{{ $t('nav.webshops_2') }}
+                                    </router-link>
+                                     </li>
+
+                                     <li>
+                                        <a href="https://bewustbezorgd.org/" >Bewust Bezorgd</a>
                                     </li>
-                                    <li>
+
+                                     <li>
                                         <!-- <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
                                                      to="/webshops/retailers/#pricing">{{ $t('nav.webshops_3') }}
                                         </router-link> -->
@@ -66,6 +72,13 @@
                                 </ul>
                             </div>
 
+                            <li>
+                                <router-link :class="[checkActive('about') ? 'navbar__active' : '']" to="/how-it-works">
+                                    How it works
+                                </router-link>
+                            </li>
+
+
                             <li v-if="$store.state.Authenticated &&  $store.state.status === 'ninja'">
                                 <router-link to="/consumers/profile">{{ $t('nav.consumers') }}
                                     <span uk-icon="icon: triangle-down"
@@ -75,10 +88,15 @@
                             </li>
 
                             <li v-else>
-                                <router-link :class="[checkActive('consumers') ? 'navbar__active' : '']"
+                                <li>
+                                    <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
+                                                 to="/consumers"> Consumers
+                                    </router-link>
+                                </li>
+                                <!-- <router-link :class="[checkActive('consumers') ? 'navbar__active' : '']"
                                              to="/co2-compensatie">
                                     {{ $t('nav.consumers') }}
-                                </router-link>
+                                </router-link> -->
                             </li>
 
                             <div v-if="$store.state.Authenticated && $store.state.status === 'ninja'"
@@ -106,24 +124,10 @@
                                                      to="/projects">{{ $t('footer.link7') }}
                                         </router-link>
                                     </li>
-                                    <li>
-                                        <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
-                                                     to="/webshops">{{ $t('nav.webshops_8') }}
-                                        </router-link>
-                                    </li>
                                 </ul>
                             </div>
 
-                            <li>
-                                <router-link :class="[checkActive('about') ? 'navbar__active' : '']" to="/about">
-                                    {{ $t('nav.about') }}
-                                </router-link>
-                            </li>
-                            <li>
-                                <router-link :class="[checkActive('news') ? 'navbar__active' : '']" to="/news">
-                                    {{ $t('nav.news') }}
-                                </router-link>
-                            </li>
+
                             <li>
                                 <router-link :class="[checkActive('faq') ? 'navbar__active' : '']" to="/faq">
                                     {{ $t('nav.faq') }}
