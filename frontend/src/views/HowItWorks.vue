@@ -31,7 +31,7 @@
 													 src="../assets/images/home2/shoppingcart-snippet-nl.png">
 									</div>
 							</div>
-					</div> 
+					</div>
 
             <!--Stap 1-->
             <div uk-grid class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">

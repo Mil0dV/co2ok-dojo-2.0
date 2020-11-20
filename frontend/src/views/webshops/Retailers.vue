@@ -165,9 +165,9 @@
                 <div class="section-2--col-1 section-4--header">
                 <a href="/#home_form" class="button__banner">Sign up in 2020, get 2021 for free!</a>
                 </div>
-            <!-- <a href="/#home_form" class="button__banner">{{ $t('home2.section_5_btn') }}</a> -->
+            <a href="/#home_form" class="button__banner">{{ $t('home2.section_5_btn') }}</a> -->
 
-                <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
+                <!-- <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body"> -->
                             <!-- <img alt="retailer shop 1" class="shop__image"
