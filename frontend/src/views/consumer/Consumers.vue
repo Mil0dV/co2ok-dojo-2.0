@@ -5,8 +5,8 @@
 					<div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
 							<div class="uk-width-expand">
 									<div class="uk-card uk-card-body section-1__col-1">
-											<h3 class="sub-title">Instagram Feed</h3>
-											<h2 class="main-title">Follow us on Instagram</h2>
+											<h3 class="sub-title">Follow us on Instagram</h3>
+											<!-- <h2 class="main-title">Follow us on Instagram</h2> -->
 											<br>
 									</div>
 							</div>
