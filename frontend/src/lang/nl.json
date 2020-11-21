@@ -175,8 +175,9 @@
   "section5_btn": "STARTUP CO₂OK MAAKT ONLINE WINKELEN KLIMAAT NEUTRAAL"
  },
  "home2": {
-  "intro_first_desktop"  : "CO₂ COMPENSATIE",
-  "intro_second_desktop" : " VOOR IN JE WEBSHOP",
+  "intro_first_desktop": "CLIMATE FRIENDLY DELIVERY",
+  "intro_second_desktop"  : "CO₂ COMPENSATIE",
+  "intro_third_desktop" : " VOOR IN JE WEBSHOP",
   "intro_first_mobile-1" : "CO₂ COM",
   "intro_first_mobile-2" : "VOOR IN J",
   "intro_second_mobile-1" : "PENSATIE",
@@ -392,5 +393,47 @@
   "link2": "Meer over Cause Marketing",
   "title2": "Winkels",
   "subTitle2": "Deze winkels zijn CO₂ok"
- }
+ },
+ "howItWorks": {
+  "mainText" : "It's quick and easy to install CO₂ok into your webstore, and your customers will have the option to offset the environmental impact of their orders with a single click.",
+  "title": "CO₂ok is an easy way to show your shop cares",
+  "subTitle": "CO₂ok Plugin",
+  "button": "Get started",
+  "steps_title": "How it works",
+  "steps_subtitle": "Become a climate neutral webstore in four easy steps",
+  "s1_title": "1. Install CO₂ok",
+  "s1_text": "Quickly and seamlessly add the CO₂ok plugin to your webstore",
+  "s2_title": "2. Choose settings options",
+  "s2_text": "Our default settings will automatically fit perfectly into your store, but if you like, you have the option to choose a style and placement option.",
+  "s3_title": "3. Checkbox at checkout",
+  "s3_text": "On the shopping cart / checkout page the customer sees the CO₂ok plugin. Adds an average of 2% on top of the purchase amount. (For this we calculate all greenhouse gases that are released during production and transport.)",
+  "s4_title": "4. We finance projects",
+  "s4_text": "Projects that directly lead to less greenhouse gas emissions. For this we work together with our certified partners <a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a> and <a href= \"https://www.fairclimatefund.nl/projecten\" target=_\"blank\">Fair Climate Fund</a>."
+  },
+  "clients": {
+    "mainText" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "title": "Webshop Results",
+    "subTitle": "A/B Testing"
+  },
+  "testimonials": {
+    "nameOne": "Cor Sandburg",
+    "companyOne": "Happy Towels"
+  },
+  "retailLanding": {
+    "row1": "Go Green",
+    "row1_extra": "Help fight climate change",
+    "row2": "Higher conversion rate, more turnover",
+    "row3": "High ROI",
+    "row4": "Easy integration and use",
+    "row_text1": "Besides the plugin, Co2ok offers various services which can assist you in building a solid MVO strategy.",
+    "row_text1_extra": "Everyone tries to contribute daily to build a greener and more sustainable future. As do you, as a retailer. But some things are simply beyond your control. For example: it is quite impossible to have insight into every step of the supply chain. Co2ok enables you to fight climate change in a simple and efficient way.",
+    "row_text2": " As a retailer, you naturally try to run your business as sustainably as possible.",
+    "row_text2_extra": " You reach even more customers if you go along with our marketing campaign. During our campaign\n                        you can easily ride along on our network. We post on Facebook, LinkedIn, Twitter and are\n                        featured in magazines and on radio! If you would like to know more you can contact us.",
+    "row_text3": "The plugin has a 3 month free trial for starting webshop owners. It only takes 1 minute to install the\n                        CO₂ok-plugin.",
+    "row_text4": " Both installing our plugin and using it can be done with just one click.",
+    "row_button": "Personalized strategy",
+    "row_button2": "Cause Marketing",
+    "row_button3": "Risk Free Trial",
+    "row_button4": "Quick installation"
+    }
 }

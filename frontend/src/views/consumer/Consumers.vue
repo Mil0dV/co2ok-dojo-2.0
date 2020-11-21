@@ -13,8 +13,7 @@
 
 						</div>
 					</div>
-					<img style="width: 950px;" src="../../assets/images/blog/instagram.png"
-					alt="Protest climate" uk-img>
+					<img style="width: 950px;" src="../../assets/images/blog/instagram.png" uk-img>
 	</div>
 
 			<div class="uk-section section-2" id="webshops">

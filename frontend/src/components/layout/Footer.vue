@@ -56,9 +56,6 @@
                             <li @click="logout()">{{ $t('footer.link15') }}</li>
                         </span>
                         <li>
-                            <router-link to="/news">{{ $t('footer.link10') }}</router-link>
-                        </li>
-                        <li>
                             <router-link to="/faq">FAQ</router-link>
                         </li>
                         <li>

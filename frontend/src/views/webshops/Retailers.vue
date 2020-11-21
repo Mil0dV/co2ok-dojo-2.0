@@ -2,18 +2,15 @@
     <div class="main">
         <Header :image="header"></Header>
 
-        <!-- <div class="uk-section section-1">
-            <div class="uk-container uk-container-width"> -->
-                <!-- <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
+        <div class="uk-section section-1">
+            <div class="uk-container uk-container-width">
+                <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
                         <div class="uk-card uk-card-body section-1__col-1">
                             <h3 class="sub-title">{{ $t('retailers.subTitle') }}</h3>
                             <h2 class="main-title">{{ $t('retailers.title') }}</h2>
-     
-
                             <p class="main-text">
                                 {{ $t('retailers.mainText') }}
-
                             </p>
 
                             <br>
@@ -38,15 +35,15 @@
                                 <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>
                                     {{ $t('retailers.icon4') }}
                                 </li>
-                                <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>
+                                <li><span class="col-1-icon uk-icon-medium" uk-icon="icon: heart; ratio: 1.5"></span>                                    
                                     {{ $t('retailers.icon5') }}
                                 </li>
                             </ul>
                         </div>
                     </div>
-                </div> -->
+                </div>
                                 <!-- <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid> -->
-                <!-- <div class="uk-card shop__card uk-card-default uk-card-body" style="top: 70px; margin-bottom: 40px; border-radius: 10px;">
+                <div class="uk-card shop__card uk-card-default uk-card-body" style="top: 70px; margin-bottom: 40px; border-radius: 10px;">
                     <div class=" uk-container-width testimonial-container" style="padding: 10px !important;">
                         <div class="img-text">
                             <img alt="retailer icon 3" src="../../assets/images/home2/profile-foto.jpg">
@@ -60,75 +57,85 @@
                             </p>
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <!-- </div> -->
-            <!-- </div>
-        </div> -->
+            </div>
+        </div>
 
 
         <div class="uk-section section-2 section--content">
-            <div class=" uk-container-width section-2-content col-square col-2">
+            <div class=" uk-container-width section-2-content">
                 <img alt="retailer icon 1" src="../../assets/images/webshops/retailers/retailer-icon-1.png">
 
                 <div class="content--wrapper">
                     <h2 class="main-title">{{ $t('retailers.row1') }} </h2>
-                    <p class="content-text" v-html=" $t('retailers.row_text1') "></p>
-                    <router-link to="/webshops/cause-marketing">Personalized strategy </router-link>
+
+                    <p class="content-text" v-html=" $t('retailers.row_text1') ">
+                    <h2 class="sub-title">{{ $t('retailers.row1_extra') }} </h2>
+                    <p class="content-text" v-html=" $t('retailers.row_text1_extra') ">
+                        <!-- {{ $t('retailers.row_text1') }} -->
+                    </p>
                 </div>
             </div>
+        </div>
 
-            <div class=" uk-container-width section-2-content col-square col-2">
 
+        <div class="uk-section section-2 section--dark section--content">
+            <div class=" uk-container-width section-2-content">
                 <img alt="retailer icon 2" src="../../assets/images/webshops/retailers/retailer-icon-2.png">
 
                 <div class="content--wrapper">
                     <h2 class="main-title">{{ $t('retailers.row2') }}</h2>
-                    <p class="content-text" v-html=" $t('retailers.row_text2') "></p>
-                    <router-link to="/webshops/cause-marketing">Cause Marketing </router-link>
+
+                    <p class="content-text" v-html=" $t('retailers.row_text2') ">
+                    </p>
+                           <router-link to="/webshops/cause-marketing"> Cause Marketing </router-link>
+
+                    <!-- <p class="content-text">
+                        {{ $t('retailers.row_text2_extra') }}
+                    </p> -->
                 </div>
-
             </div>
-
         </div>
 
         <div class="uk-section section-2 section--content">
-
-            <div class="uk-container-width section-2-content col-square col-2">
+            <div class=" uk-container-width section-2-content">
                 <img alt="retailer icon 3" src="../../assets/images/webshops/retailers/retailer-icon-3.png">
 
                 <div class="content--wrapper">
                     <h2 class="main-title">{{ $t('retailers.row3') }}</h2>
+
                     <p class="content-text">
                         {{ $t('retailers.row_text3') }}
                     </p>
-                    <router-link to="/webshops/cause-marketing">Risk free trial </router-link>
                 </div>
             </div>
+        </div>
 
-            <div class="uk-container-width section-2-content col-square col-2">
-
+        <div class="uk-section section-2 section--dark section--content" style="margin-bottom: 0px;">
+            <div class=" uk-container-width section-2-content">
                 <img alt="retailer icon 4" src="../../assets/images/webshops/retailers/retailer-icon-4.png">
+
                 <div class="content--wrapper">
                     <h2 class="main-title">{{ $t('retailers.row4') }}</h2>
+
                     <p class="content-text">
                         {{ $t('retailers.row_text4') }}
                     </p>
-                    <router-link to="/webshops/cause-marketing">Quick installation </router-link>
+
+                    <!-- <br> -->
+                    <!-- <div class="col-1--links">
+                        <router-link to="/webshops/plug-in-installation" class="button">{{ $t('retailers.row_button') }}</router-link>
+                    </div> -->
                 </div>
             </div>
-
         </div>
 
+        <WebshopForm :content="formContent"/>
 
-        <BBApi />
-        <!-- <div class="uk-section section-2 section--dark section--content" style="margin-bottom: 0px;"> -->
-        <!-- </div> -->
+        <Webshops :content="webshopsContent"/>
 
-        <!-- <WebshopForm :content="formContent"/> -->
-
-        <!-- <Webshops :content="webshopsContent"/> -->
-
-        <!-- <div class="uk-section section-3">
+        <div class="uk-section section-3">
             <div class="uk-container uk-container-width" style="padding: 0px 0 !important;">
                 <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
                     <div class="uk-width-expand">
@@ -154,9 +161,9 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
 
-        <!-- <div class="uk-section section-4" id="pricing">
+        <div class="uk-section section-4" id="pricing">
             <div class="uk-container uk-container-width">
                 <div class="section-2--col-1 section-4--header">
                     <h2 class="main-title">{{ $t('retailers.subtitle3') }}</h2>
@@ -165,18 +172,18 @@
                 <div class="section-2--col-1 section-4--header">
                 <a href="/#home_form" class="button__banner">Sign up in 2020, get 2021 for free!</a>
                 </div>
-            <a href="/#home_form" class="button__banner">{{ $t('home2.section_5_btn') }}</a> -->
+            <!-- <a href="/#home_form" class="button__banner">{{ $t('home2.section_5_btn') }}</a> -->
 
-                <!-- <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
+                <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
                     <div>
-                        <div class="uk-card shop__card uk-card-default uk-card-body"> -->
+                        <div class="uk-card shop__card uk-card-default uk-card-body">
                             <!-- <img alt="retailer shop 1" class="shop__image"
                                  src="../../assets/images/webshops/retailers/shop-1.png"> -->
-                            <!-- <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
+                            <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
                             <p class="shop--text" v-html=" $t('retailers.quote1') ">
                             </p>
                         </div>
-                    </div> -->
+                    </div>
                     <!--<div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
                             <img alt="retailer shop 2" class="shop__image"
@@ -186,20 +193,20 @@
                             </p>
                         </div>
                     </div>-->
-                    <!-- <div>
-                        <div class="uk-card shop__card uk-card-default uk-card-body"> -->
+                    <div>
+                        <div class="uk-card shop__card uk-card-default uk-card-body">
                             <!-- <img alt="retailer shop 3" class="shop__image"
                                  src="../../assets/images/webshops/retailers/shop-3.png"> -->
-                            <!-- <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
+                            <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
                             <p class="shop--text" v-html=" $t('retailers.quote3') ">
                             </p>
                         </div>
                     </div>
                     <div>
-                        <div class="uk-card shop__card uk-card-default uk-card-body"> -->
+                        <div class="uk-card shop__card uk-card-default uk-card-body">
                             <!-- <img alt="retailer shop 3" class="shop__image"
                                  src="../../assets/images/webshops/retailers/shop-3.png"> -->
-                            <!-- <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
+                            <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
                             <div class="col-1--links">
                                 <router-link to="/webshops/get-started" class="button">{{ $t('retailers.row_button3') }}</router-link>
                             </div>
@@ -209,24 +216,21 @@
                     </div>
                 </div>
             </div>
-        </div> -->
-
+        </div>
     </div>
 </template>
 
 <script>
     const Header = () => import('@/components/layout/Header')
     const WebshopForm = () => import('@/components/layout/WebshopForm')
-    const Webshops = () => import('@/components/layout/Webshops')
-    const BBApi = () => import('@/views/BBApi')
+    const Webshops = () => import('@/components/webshops/WebshopLogos')
 
     export default {
         name: "Retailers",
         components: {
             'Header': Header,
             'WebshopForm': WebshopForm,
-            'Webshops': Webshops,
-            'BBApi': BBApi
+            'Webshops': Webshops
         },
 
         data() {

@@ -1,34 +1,55 @@
 <template>
     <div class="home__container">
-        <div class="uk-section home__section-1">
+        <div class="home__section-1">
             <div class="section-1__filler">
                 <img src="../assets/images/home2/logo-1.svg" alt="intro co2ok"
                      class="intro__logo">
 
                 <div class="intro__text__wrapper">
-                    <h1 class="desktop__intro">{{ $t('home2.intro_first_desktop') }}</h1>
+                    <h1 class="desktop__intro left-intro">{{ $t('home2.intro_first_desktop') }}</h1>
+                    <h1 class="desktop__intro left-intro">{{ $t('home2.intro_second_desktop') }}</h1>
+                    <h1 class="desktop__intro left-intro">{{ $t('home2.intro_third_desktop') }}</h1>
                     <div class="mobile__intro mobile__intro-1">
-                        <h1>{{ $t('home2.intro_first_mobile-1') }}</h1>
-                        <h1>{{ $t('home2.intro_first_mobile-2') }}</h1>
+                        <h1 class="left-intro">{{ $t('home2.intro_first_mobile-1') }}</h1>
+                        <h1 class="left-intro">{{ $t('home2.intro_first_mobile-2') }}</h1>
+                        <h1 class="left-intro">{{ $t('home2.intro_first_mobile-3') }}</h1>
                     </div>
+
                 </div>
             </div>
 
-            <div class="section-2__filler">
+             <div class="section-2__filler">
                 <img src="../assets/images/home2/logo-2.svg" alt="intro co2ok"
                      class="intro__logo intro__logo-lower">
 
                 <div class="intro__text__wrapper">
-                    <h1 class="desktop__intro">{{ $t('home2.intro_second_desktop') }}</h1>
+                    <h1 class="desktop__intro right-intro">{{ $t('home2.intro_first_desktop_2') }}</h1>
+                    <h1 class="desktop__intro right-intro">{{ $t('home2.intro_second_desktop_2') }}</h1>
+                    <h1 class="desktop__intro right-intro">{{ $t('home2.intro_third_desktop_2') }}</h1>
+                    <div class="mobile__intro mobile__intro-1">
+                        <h1 class="right-intro" style="margin-top: -2px;">{{ $t('home2.intro_second_mobile-1') }}</h1>
+                        <h1 class="right-intro">{{ $t('home2.intro_second_mobile-2') }}</h1>
+                        <h1 class="right-intro">{{ $t('home2.intro_second_mobile-3') }}</h1>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <div class="section-3__filler">
+                <img src="../assets/images/home2/logo-2.svg" alt="intro co2ok"
+                     class="intro__logo intro__logo-lower">
+
+                <div class="intro__text__wrapper">
+                    <h1 class="desktop__intro">{{ $t('home2.intro_third_desktop') }}</h1>
                     <div class="mobile__intro mobile__intro-2">
                         <h1>{{ $t('home2.intro_second_mobile-1') }}</h1>
                         <h1>{{ $t('home2.intro_second_mobile-2') }}</h1>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
-        <div class="uk-section home__section-2 prefix__section">
+        <div class="home__section-2 prefix__section">
 
 
             <div class="section-2__content">
@@ -58,277 +79,26 @@
             </div>
         </div>
 
-        <Retailers />
-        <!-- <div class="steps__container">
-            <h2 class="main-title">
-                {{ $t('home2.steps_title') }}
-            </h2> -->
+        <Retail />
+        <BBApi />
+        <MarketingCause/>
+        <Partners />
+        <Testimonials
+            :name="$t('testimonials.nameOne')"
+            :company="$t('testimonials.companyOne')"
+            :title="$t('home2.testimonial_head')"
+            :mainText="$t('home2.testimonial_content')"
+            :imageUrl="require('../assets/images/home2/profile-foto.jpg')"
+        >
+        </Testimonials>
 
-            <!--Stap 1-->
-            <!-- <div uk-grid class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">
-                <div class="step__text-wrapper  step__img-left step__img-wrapper">
-                    <div class="uk-light">
-                        <img class="step__img uk-box-shadow-large" alt="2 factory"
-                             src="../assets/images/home2/shoppingcart-snippet-nl.png">
-                    </div>
-                </div>
-
-                <div class="step__text-wrapper">
-                    <div class="intro__text step__col steps__content steps__content-right uk-padding">
-                        <div class="steps__wrapper">
-                            <div class="steps__title-container">
-                                <i class="fas fa-smog step__icon"></i>
-                                <p class="steps__title">
-                                    {{ $t('home2.s2_title') }}
-                                </p>
-                            </div>
-
-                            <p class="main-text">
-                                {{ $t('home2.s2_text') }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-            <!--Stap 2-->
-            <!-- <div uk-grid class="steps__intro uk-child-width-expand@s uk-text-center">
-                <div class="step__text-wrapper step__img-left">
-                    <div class="intro__text step__col steps__content steps__content-left uk-padding">
-                        <div class="steps__wrapper">
-                            <div class="steps__title-container">
-                                <i class="fas fa-shopping-cart step__icon"></i>
-                                <p class="steps__title">
-                                    {{ $t('home2.s3a_title') }}
-                                </p>
-                            </div>
-
-                            <p class="main-text">
-                                {{ $t('home2.s3_text') }}
-                            </p>
-                        </div> -->
-                    <!-- </div>
-                </div>
-
-                <div class="step__text-wrapper step__img-wrapper">
-                    <div class="uk-light step__img-right">
-                        <img class="step__img uk-box-shadow-large" alt="payment"
-                             src="../assets/images/steps/step-3.jpg">
-                    </div>
-                </div>
-            </div>  -->
-
-
-            <!--Stap 3-->
-            <!-- <div uk-grid class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">
-                <div class="step__text-wrapper step__img-left step__img-wrapper">
-                    <div class="uk-light step__img-left">
-                        <img class="step__img  uk-box-shadow-large" alt="solar-panels"
-                             src="../assets/images/steps/step-2.jpg">
-                    </div>
-                </div>
-
-                <div class="step__text-wrapper">
-                    <div class="intro__text step__col steps__content steps__content-right uk-padding">
-                        <div class="steps__wrapper">
-                            <div class="steps__title-container">
-                                <i class="fas fa-solar-panel step__icon"></i>
-                                <p class="steps__title">
-                                    {{ $t('home2.s4_title') }}
-                                </p>
-                            </div>
-
-                            <p class="main-text">
-                                {{ $t('home2.s4_text') }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-
-            <!--Stap 4-->
-            <!-- <div uk-grid class="steps__intro uk-child-width-expand@s uk-text-center">
-                <div class="step__text-wrapper step__img-left">
-                    <div class="intro__text step__col steps__content steps__content-left uk-padding">
-                        <div class="steps__wrapper">
-                            <div class="steps__title-container">
-                                <i class="fas fa-check step__icon"></i>
-                                <p class="steps__title">
-                                    {{ $t('home2.s5_title') }}
-                                </p>
-                            </div>
-
-                            <p class="main-text" v-html="$t('home2.s5_text')" >
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step__text-wrapper step__img-wrapper">
-                    <div class="uk-light step__img-right">
-                        <img class="step__img step__img-4 uk-box-shadow-large" alt="payment"
-                             src="../assets/images/steps/step-4.jpg">
-                    </div>
-                </div>
-            </div> -->
-        <!-- </div> -->
-
-
-        <div class="uk-section section-4 section--dark">
-            <div class="uk-container uk-container-width">
-                <div class="section-2--col-1 section-4--header">
-                    <h2 class="sub-title dark--color">{{ $t('home2.s3_subTitle') }}</h2>
-                    <h2 class="main-title">{{ $t('home2.s3_title') }}</h2>
-                </div>
-                <br><br>
-
-                <div class="graph__section">
-
-                    <div class="graph-wrapper">
-                        <div class="flex-wrapper">
-                            <div class="single-chart">
-                                <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
-                                    <path class="circle-bg"
-                                          d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                    />
-                                    <path class="circle"
-                                          stroke-dasharray="90, 100"
-                                          d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                    />
-                                    <text x="18" y="20.35" class="percentage">90%</text>
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div class="graph__text">
-                            <h2 class="main-title">{{ $t('home2.s3_consumers') }}</h2>
-                            <p class="main-text">
-                                {{ $t('home2.s3_row1_text') }}
-                            </p>
-
-                            <br>
-                            <a class="link row-link" target="_blank" href="http://www.conecomm.com/research-blog/2015-cone-communications-ebiquity-global-csr-study">
-                                {{ $t('home2.s3_row1_link') }} <span uk-icon="icon: arrow-right"></span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="graph-wrapper">
-                        <div class="flex-wrapper">
-                            <div class="single-chart">
-                                <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
-                                    <path class="circle-bg"
-                                          d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                    />
-                                    <path class="circle"
-                                          stroke-dasharray="75, 100"
-                                          d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                    />
-                                    <text x="18" y="20.35" class="percentage">75%</text>
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div class="graph__text">
-                            <h2 class="main-title">{{ $t('home2.s3_respondents') }}</h2>
-                            <p class="main-text">
-                                {{ $t('home2.s3_row2_text') }}
-                            </p>
-
-                            <br>
-                            <a class="link row-link" target="_blank" href="https://www.interbrand.com/wp-content/uploads/2018/02/Best-Global-Brands-2017.pdf">
-                                {{ $t('home2.s3_row2_link') }} <span uk-icon="icon: arrow-right"></span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="graph-wrapper">
-                        <div class="flex-wrapper">
-                            <div class="single-chart">
-                                <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
-                                    <path class="circle-bg"
-                                          d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                    />
-                                    <path class="circle"
-                                          stroke-dasharray="92, 100"
-                                          d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                    />
-                                    <text x="18" y="20.35" class="percentage">92%</text>
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div class="graph__text">
-                            <h2 class="main-title">{{ $t('home2.s3_consumers') }}</h2>
-                            <p class="main-text">
-                                {{ $t('home2.s3_row3_text') }}
-                            </p>
-
-                            <br>
-                            <a class="link row-link" target="_blank" href="http://www.conecomm.com/news-blog/2017/5/15/americans-willing-to-buy-or-boycott-companies-based-on-corporate-values-according-to-new-research-by-cone-communications">
-                                {{ $t('home2.s3_row3_link') }} <span uk-icon="icon: arrow-right"></span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="graph-wrapper">
-                        <div class="flex-wrapper">
-                            <div class="single-chart">
-                                <svg viewBox="0 0 36 36" class="circular-chart green-to-stroke">
-                                    <path class="circle-bg"
-                                          d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                    />
-                                    <path class="circle"
-                                          stroke-dasharray="66, 100"
-                                          d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-                                    />
-                                    <text x="18" y="20.35" class="percentage">66%</text>
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div class="graph__text">
-                            <h2 class="main-title">{{ $t('home2.s3_consumers') }}</h2>
-                            <p class="main-text">
-                                {{ $t('home2.s3_row4_text') }}
-                            </p>
-
-                            <br>
-                            <a class="link row-link" target="_blank" href="https://sproutsocial.com/insights/data/championing-change-in-the-age-of-social-media">
-                                {{ $t('home2.s3_row4_link') }} <span uk-icon="icon: arrow-right"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="uk-section home__section-3 prefix__section">
+        <!-- <div class="prefix__section"> -->
            <!--  <div class="section-3__content">
                 <h3 class="sub-title">{{ $t('home2.section_3_sub') }}</h3>
                 <h2 class="main-title">{{ $t('home2.section_3_title') }}</h2>
                 <img alt="graph" class="section-3__image" src="../assets/images/home2/shoppingcart-nl.png">
             </div>  -->
-            <div class="uk-card shop__card uk-card-default uk-card-body" style="top: 70px; margin-bottom: 40px; border-radius: 10px;">
+            <!-- <div class="uk-card shop__card uk-card-default uk-card-body" style="border-radius: 10px;">
                 <div class=" uk-container-width testimonial-container" style="padding: 10px !important;">
                     <div class="img-text">
                         <img alt="retailer icon 3" src="../assets/images/home2/profile-foto.jpg">
@@ -343,7 +113,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
         <!-- <Widget/> -->
@@ -389,32 +159,6 @@
         </div> -->
 
 
-        <!-- Partners -->
-        <div class="uk-section home__section-5 prefix__section">
-            <div class="section-5__content">
-                <h3 class="sub-title">{{ $t('home2.section_5_sub') }}</h3>
-                <h2 class="main-title">{{ $t('home2.section_5_title') }}</h2>
-
-                <div class="section-5__images">
-                    <!-- <a href="https://www.atmosfair.de/en"> -->
-                        <img alt="logo1" class="section-5__image" style="padding: 0px 8px;"
-                             src="../assets/images/home2/logo5.png">
-                    <img alt="logo1" class="section-5__image" style="padding: 0px 8px;"
-                         src="../assets/images/home2/logo1.jpg">
-                         <!-- </a> -->
-                    <img alt="logo1" class="section-5__image" style="padding: 0px 8px;"
-                         src="../assets/images/home2/logo2.jpg">
-                    <img alt="logo1" class="section-5__image" style="padding: 0px 8px;"
-                         src="../assets/images/home2/logo3.jpg">
-                    <img alt="logo1" class="section-5__image" style="padding: 0px 8px;"
-                        src="../assets/images/home2/webwinkelkeurLogo.png">
-                </div>
-
-                <a href="/#home_form" class="button__home">{{ $t('home2.section_5_btn') }}</a>
-            </div>
-        </div>
-
-
         <Webshops :content="webshopsContent"/>
 
         <h1><a class="home_anchors" name="home_form"></a></h1>
@@ -426,12 +170,20 @@
 <script>
     // const Widget = () => import('@/components/layout/widget')
     const WebshopForm = () => import('@/components/layout/WebshopForm')
-    const Webshops = () => import('@/components/layout/Webshops')
-    const Retailers = () => import('@/views/webshops/Retailers.vue')
+    const Webshops = () => import('@/components/webshops/WebshopLogos')
+    const BBApi = () => import('@/views/landing/BBApi')
+    const Retail = () => import('@/views/landing/Retail')
+    const MarketingCause = () => import('@/views/landing/MarketingCause')
+    const Partners = () => import('@/views/landing/Partners')
+    const Testimonials = () => import('@/views/landing/Testimonials')
+
+
+
 
     // import Widget from '../co2okWidget'
 
     export default {
+        name: "Ahome",
         data() {
             return {
                 formContent: 2,
@@ -441,7 +193,7 @@
 
         mounted() {
             // this.checkLanguage()
-            // Co2okWidget.merchantCompensations('widgetContainer', '0') 
+            // Co2okWidget.merchantCompensations('widgetContainer', '0')
         },
 
         created() {
@@ -453,7 +205,11 @@
             // 'Widget': Widget
             'WebshopForm': WebshopForm,
             'Webshops': Webshops,
-            'Retailers': Retailers
+            'Retail': Retail,
+            'BBApi': BBApi,
+            'MarketingCause': MarketingCause,
+            'Partners': Partners,
+            'Testimonials': Testimonials
         },
 
         computed: {
@@ -467,96 +223,6 @@
 
 <style scoped lang="scss">
     @import '../styles/home.scss';
-    @import '../styles/webshops/cause';
-
-//      .section-2-content {
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: flex-start;
-//   align-items: flex-start;
-
-//   img {
-//     padding: 0;
-//     margin: 0 30px 0 0;
-//     max-width: 100px;
-//     min-width: 100px;
-//     max-height: 100px;
-//     width: 100%;
-//     height: 100%;
-//   }
-// }
-
-// .widget-container{
-//     width: 100%;
-//     height: auto;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     padding: 50px 0px 50px 0px;
-// }
-
-// .widget-core{
-//     width: 80%;
-//     height: auto;
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-//     justify-content: space-between;
-//     align-items: center;
-// }
-
-// .widget-txt{
-//     width: 45%;
-//     height: auto;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: flex-start;
-// }
-
-// .widget-tx h3{
-//     text-align: left;
-// }
-
-// .widget-txt p{
-//     text-align: left;
-//     font-size: 16px;
-//     margin-top: 10px;
-// }
-
-//  .widgets{
-//     width: 47%;
-//     height: auto;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     border: 1px solid red;
-// }
-
-// .co2-widget, .wood-widget{
-//     width: 100%;
-//     height: auto;
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: flex-start;
-//     align-items: flex-start;
-// }
-
-// .wood-widget h1, .co2-widget h1{
-//     text-align: right;
-//     font-size: 50px;
-//     color: green;
-// }
-
-// .wood-widget p, .co2-widget p{
-//     text-align: left;
-//     /* font-size: 16px; */
-// }
-
-// .compensate-icon{
-//     width: 20px;
-//     height: 20px;
-//     border: 1px solid red;
-// }
+    @import '../styles/splash.scss';
+    @import '../styles/webshops/cause.scss';
 </style>

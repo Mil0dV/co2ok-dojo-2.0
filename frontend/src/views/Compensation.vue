@@ -226,7 +226,7 @@
 </template>
 
 <script>
-    const Webshops = () => import('@/components/layout/Webshops')
+    const Webshops = () => import('@/components/webshops/WebshopLogos')
     const Header = () => import('@/components/layout/Header')
     export default {
         name: "Steps",

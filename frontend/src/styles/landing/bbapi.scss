@@ -1,0 +1,25 @@
+.section__white-square {
+  box-shadow: 0 5px 30px rgba(0,0,0,.15);
+  border-radius: 10px;
+  max-width: 1146px;
+  width: 100%;
+  max-height: 420px;
+  height: 100%;
+  padding: 16px;
+  background-color: white;
+  max-height: 675px !important;
+  align-items: center;
+  .bb-icon-text {
+    padding-bottom: 16px !important;
+  }
+  .bb-cta {
+    padding-bottom: 16px;
+  }
+  .bb-text-left {
+    max-width: 478px;
+    width: 100%;
+    text-align: left;
+    padding: 36px;
+    padding-bottom: 0px;
+  }
+}

@@ -11,7 +11,6 @@
                             <p class="main-text">
                                 {{ $t('webshops.mainText') }}
                             </p>
-
                             <br>
                             <div class="col-1--links">
                                 <router-link to="/webshops/retailers" class="button">Retailer</router-link>
@@ -34,19 +33,19 @@
                 </div>
             </div>
         </div>
-        <Webstores></Webstores>
+        <WebshopLogos />
     </div>
 </template>
 
 <script>
     const Header = () => import('@/components/layout/Header')
-    const Webstores = () => import('@/components/layout/Webshops.vue')
+    const WebshopLogos = () => import('@/components/webshops/WebshopLogos')
 
     export default {
         name: "Webshops",
         components: {
             'Header': Header,
-            'Webstores' : Webstores,
+            'WebshopLogos' : WebshopLogos,
         }
     }
 </script>

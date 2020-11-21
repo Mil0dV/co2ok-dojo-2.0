@@ -43,7 +43,9 @@
                                      </li>
 
                                      <li>
-                                        <a href="https://bewustbezorgd.org/" >Bewust Bezorgd</a>
+                                        <router-link :to="{ path: '/', hash: '#cfd-bb'}">
+                                            Climate Friendly Delivery
+                                        </router-link>
                                     </li>
 
                                      <li>
@@ -90,13 +92,10 @@
                             <li v-else>
                                 <li>
                                     <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
-                                                 to="/consumers"> Consumers
+                                        to="/consumers"> Consumers
+                                        <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
                                     </router-link>
                                 </li>
-                                <!-- <router-link :class="[checkActive('consumers') ? 'navbar__active' : '']"
-                                             to="/co2-compensatie">
-                                    {{ $t('nav.consumers') }}
-                                </router-link> -->
                             </li>
 
                             <div v-if="$store.state.Authenticated && $store.state.status === 'ninja'"
@@ -122,6 +121,12 @@
                                     <li>
                                         <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
                                                      to="/projects">{{ $t('footer.link7') }}
+                                        </router-link>
+                                    </li>
+                                    <li>
+                                        <router-link :class="[checkActive('consumers') ? 'navbar__active' : '']"
+                                             to="/co2-compensatie">
+                                            {{ $t('nav.consumers') }}
                                         </router-link>
                                     </li>
                                 </ul>

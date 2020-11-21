@@ -181,6 +181,11 @@ const router = new Router({
             name: 'welcome',
             component: () => import('./views/consumer/Welcome')
         },
+        {
+            path: '/clients',
+            name: 'clients',
+            component: () => import('./views/clients/Clients')
+        },
         { //404 page, redirects back to home (= /)
             path: '*', redirect: '/'
         }

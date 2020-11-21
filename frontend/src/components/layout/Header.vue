@@ -66,6 +66,9 @@
                 //     }
                 // } else {
                     switch (this.image) {
+                        case 'clients':
+                            this.title = 'Webshops using CO₂ok'
+                            break;
                         case 'compensation':
                             this.title = 'How it works'
                             break;
@@ -152,7 +155,7 @@
         text-align: left;
         font-weight: 400;
         font-size: 55px;
-        margin-bottom: 50px;
+        /* margin-bottom: 50px; */
     }
 
     @media (max-width: 1200px) {

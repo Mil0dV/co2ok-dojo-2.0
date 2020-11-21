@@ -1,0 +1,27 @@
+.home__section-1 {
+  padding: 0;
+  margin: 0;
+  min-height: 96vh;
+  width: 100%;
+  background: url("../assets/images/home2/home.jpg") no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+}
+
+
+@media (max-width: 960px) {
+  .home__section-1 {
+    background: url("../assets/images/home2/home.jpg") no-repeat 45% 0%;
+    min-height: 90vh;
+	}
+}
+	@media (max-width: 670px) {
+		.home__section-1 {
+			background: url("../assets/images/home2/home.jpg") no-repeat 65% 90%;
+			min-height: 90vh;
+			height: 100%;
+		}
+	}
