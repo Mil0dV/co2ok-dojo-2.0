@@ -20,7 +20,7 @@
 								<div class="content--wrapper">
 									<h2 class="main-title">{{ $t('retailers.row1') }} </h2>
 									<p class="content-text">
-										Besides the plugin, Co2ok offers various services which can assist you in building a solid MVO strategy. Did you know that broadening your CSR strategy is likely to be more efficient than advertising?
+										With CFD your delivery is climate Friendly - compensation of the emissions is included in our service! Also you get insight in your impact and can give your consumers the choice to choose the most environmentally friendly delivery option.
 									</p>
 								</div>
 							</div>
