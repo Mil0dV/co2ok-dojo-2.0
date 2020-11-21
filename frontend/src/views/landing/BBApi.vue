@@ -18,7 +18,8 @@
 							<div class=" uk-container-width section-2-content col-2 bb-icon-text">
 								<img alt="retailer icon 1" src="../../assets/images/webshops/retailers/retailer-icon-1.png">
 								<div class="content--wrapper">
-									<h2 class="main-title">{{ $t('retailers.row1') }} </h2>
+									<!-- <h2 class="main-title">{{ $t('retailers.row1') }} </h2> -->
+									<h2 class="main-title">Greenify your shipping </h2>
 									<p class="content-text">
 										With CFD your delivery is climate Friendly - compensation of the emissions is included in our service! Also you get insight in your impact and can give your consumers the choice to choose the most environmentally friendly delivery option.
 									</p>
