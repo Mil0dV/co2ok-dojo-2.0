@@ -160,8 +160,6 @@
 
 
         <Webshops :content="webshopsContent"/>
-
-        <h1><a class="home_anchors" name="home_form"></a></h1>
         <WebshopForm :content="formContent"/>
 
     </div>

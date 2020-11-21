@@ -3,7 +3,7 @@
         
         <!-- <h1 class="main-title">Get started</h1>
         <p>Hier zou ook nog wat meer uitleg kunnen, prima hoor </p> -->
-        <div class="uk-container form__section uk-container-width" style="margin-top: 0px;">
+        <div class="uk-container form__section uk-container-width" style="margin-top: 0px; padding-top: 0px !important;">
             <h1 v-if="!c_platform" style="margin-bottom: 50px" class="main-title">{{ $t('webshopform.title2') }}</h1>
             <h1 v-if="c_platform" style="margin-bottom: 50px;" class="main-title">{{ $t(c_platform) }}</h1>
             <div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
