@@ -5,7 +5,9 @@
 					<div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
 							<div class="uk-width-expand">
 									<div class="uk-card uk-card-body section-1__col-1">
-											<h3 class="sub-title">Follow us on Instagram</h3>
+											<a href="https://www.instagram.com/co2ok.eco/" target=_blank><u>
+												<h3 class="sub-title">Follow us on Instagram</h3>
+											</u></a>
 											<!-- <h2 class="main-title">Follow us on Instagram</h2> -->
 											<br>
 									</div>
@@ -19,8 +21,8 @@
 			<div class="uk-section section-2" id="webshops">
 					<div class="uk-container uk-container-width">
 							<div class="section-2--col-1">
-								<h1 class="main-title">{{ $t('webshops.title2') }}</h1>
-								<h2 class="sub-title sub-title--s2">{{ $t('webshops.subTitle2') }}</h2>
+								<h1 class="main-title">{{ $t('webshops.title3') }}</h1>
+								<h2 class="sub-title sub-title--s2">{{ $t('webshops.subTitle3') }}</h2>
 							</div>
 							<br>
 
