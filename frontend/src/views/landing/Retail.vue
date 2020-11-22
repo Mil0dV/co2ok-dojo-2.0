@@ -8,7 +8,7 @@
 							<div class="content--wrapper">
 									<h2 class="main-title">{{ $t('retailLanding.row1') }} </h2>
 									<p class="content-text" v-html=" $t('retailLanding.row_text1') "></p>
-									<router-link to="/retailers">{{ $t('retailLanding.row_button') }}</router-link>
+									<router-link to="/webshops/cause-marketing">{{ $t('retailLanding.row_button') }}</router-link>
 							</div>
 					</div>
 
@@ -17,8 +17,10 @@
 							<img alt="retailer icon 2" src="../../assets/images/webshops/retailers/retailer-icon-2.png">
 							<div class="content--wrapper">
 									<h2 class="main-title">{{ $t('retailLanding.row2') }}</h2>
-									<p class="content-text" v-html=" $t('retailLanding.row_text2') "></p>
-									<router-link to="/webshops/cause-marketing">{{ $t('retailLanding.row_button2') }}</router-link>
+									<!-- <p class="content-text" v-html=" $t('retailLanding.row_text2') "></p> -->
+									<p class="content-text">Up to 15% increased conversion</p>
+									<!-- <router-link to="/clients">{{ $t('retailLanding.row_button2') }}</router-link> -->
+									<router-link to="/clients">Check these amazing A/B results</router-link>
 							</div>
 					</div>
 
@@ -27,14 +29,14 @@
 			<div class="uk-section section-2 section--content">
 
 					<div class="uk-container-width section-2-content col-square col-2">
-							<img alt="retailer icon 3" src="../../assets/images/webshops/retailers/retailer-icon-3.png">
+							<img alt="retailer icon 3" src="../../assets/images/webshops/retailers/green_truck.png">
 
 							<div class="content--wrapper">
 									<h2 class="main-title">{{ $t('retailLanding.row3') }}</h2>
 									<p class="content-text">
 											{{ $t('retailLanding.row_text3') }}
 									</p>
-									<router-link to="/retailers">{{ $t('retailLanding.row_button3') }}</router-link>
+									<router-link :to="{ path: '/', hash: '#cfd-bb'}">{{ $t('retailLanding.row_button3') }}</router-link>
 							</div>
 					</div>
 

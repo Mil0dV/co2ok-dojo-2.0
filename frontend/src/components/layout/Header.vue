@@ -67,7 +67,7 @@
                 // } else {
                     switch (this.image) {
                         case 'clients':
-                            this.title = 'Webshops using CO₂ok'
+                            this.title = 'Doveryay, no proveryay'
                             break;
                         case 'compensation':
                             this.title = 'How it works'

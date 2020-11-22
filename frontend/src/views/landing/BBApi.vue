@@ -16,7 +16,7 @@
 
 						<div class="uk-section section-2 section--content" style="margin-left:24px; margin-top: -32px !important;">
 							<div class=" uk-container-width section-2-content col-2 bb-icon-text">
-								<img alt="retailer icon 1" src="../../assets/images/webshops/retailers/retailer-icon-1.png">
+								<img alt="retailer icon 1" src="../../assets/images/webshops/retailers/heart_plane.png">
 								<div class="content--wrapper">
 									<!-- <h2 class="main-title">{{ $t('retailers.row1') }} </h2> -->
 									<h2 class="main-title">Greenify your shipping </h2>
@@ -28,7 +28,7 @@
 						</div>
 
 						<div class="bb-cta">
-							<a href="/#home_form" class="button"> Join the climate fight</a>
+							<router-link to="/webshops/get-started" class="button">Join the climate fight</router-link>
 						</div>
 
 						<div style="display: flex;">

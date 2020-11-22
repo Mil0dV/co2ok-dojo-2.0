@@ -128,7 +128,13 @@
                 </div>
             </div>
         </div>
-    </div>
+
+                <!-- Form and anchor -->
+        <h1><a class="install_anchors" id="mijnwebwinkel_anchor"></a></h1>
+        <!-- <h><a href="https://feedback.mijnwebwinkel.nl/142">Voice your support!</a></h> -->
+        <div><WebshopForm :content="formContent" c_platform="mijnwebwinkel" /></div>
+
+
     </div>
 </template>
 

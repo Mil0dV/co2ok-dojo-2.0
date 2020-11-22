@@ -156,6 +156,11 @@ const router = new Router({
             component: () => import('./views/webshops/Installation')
         },
         {
+            path: '/webshops/get-started',
+            name: 'mijnwebwinkel-guide',
+            component: () => import('./views/webshops/Installation')
+        },
+        {
             path: '/projects',
             name: 'projects',
             component: () => import('./views/Projects')

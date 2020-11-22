@@ -20,26 +20,27 @@
 		a 15.9155 15.9155 0 0 1 0 -31.831"
 															/>
 															<path class="circle"
-																		stroke-dasharray="90, 100"
+																		stroke-dasharray="15, 100"
 																		d="M18 2.0845
 		a 15.9155 15.9155 0 0 1 0 31.831
 		a 15.9155 15.9155 0 0 1 0 -31.831"
 															/>
-															<text x="18" y="20.35" class="percentage">90%</text>
+															<text x="18" y="20.35" class="percentage">15%</text>
 													</svg>
 											</div>
 									</div>
 
 									<div class="graph__text">
-											<h2 class="main-title">{{ $t('home2.s3_consumers') }}</h2>
+											<h2 class="main-title">{{ $t('home2.s3_row1_header') }}</h2>
 											<p class="main-text">
 													{{ $t('home2.s3_row1_text') }}
 											</p>
 
 											<br>
-											<a class="link row-link" target="_blank" href="http://www.conecomm.com/research-blog/2015-cone-communications-ebiquity-global-csr-study">
+											<router-link to="/clients" class="link">see the results</router-link>
+											<!-- <a class="link row-link" target="_blank" href="http://www.conecomm.com/research-blog/2015-cone-communications-ebiquity-global-csr-study">
 													{{ $t('home2.s3_row1_link') }} <span uk-icon="icon: arrow-right"></span>
-											</a>
+											</a> -->
 									</div>
 							</div>
 

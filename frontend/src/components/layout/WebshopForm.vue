@@ -12,7 +12,8 @@
                     <div class="uk-card login__form-container col-2-card uk-card-default uk-card-body" style=" height: 100%; box-shadow: -5px 3px 40px 2px hsla(300,3%,55%,.74);">
                         <form class="login__form">
                             <p v-if="!c_platform" style="text-align: left;">{{ $t('webshopform.subtitle2') }}</p>
-                            <p v-if="c_platform" style="text-align: left;">{{ $t('webshopform.subtitles_LS_SW') }}</p>
+                            <p v-if="c_platform == 'mijnwebwinkel'" style="text-align: left;"><u><a href="https://feedback.mijnwebwinkel.nl/142">Let Mijnwebwinkel know that you'd love to fight climate change!</a></u> Also, you could leave your details below so we'll inform you once it's done</p>
+                            <p v-else-if="c_platform" style="text-align: left;">{{ $t('webshopform.subtitles_LS_SW') }}</p>
                             <div class="login__group">
                                 <label class="login__group">
                                     {{ $t('webshopform.input1_label') }}
@@ -61,7 +62,9 @@
                         <router-link :to="{ name: 'magento-guide', hash: '#magento-guide'}" style="cursor: pointer;width: 90%;"><button style="margin-top: 15px;cursor: pointer;border: 0px;border-radius: 5px;color: white;background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);width: 100%; height: auto;padding: 15px 0px 15px 0px; border-radius: 5px;font-size:16px;text-align:center">Magento</button></router-link>
                         <router-link :to="{ name: 'shopify-guide', hash: '#shopify-guide'}" style="cursor: pointer;width: 90%;"><button style="margin-top: 15px;cursor: pointer;border: 0px;background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);border-radius: 5px;color: white;width: 100%; height: auto;padding: 15px 0px 15px 0px; border-radius: 5px;font-size:16px;text-align:center">Shopify</button></router-link>
                         <router-link :to="{ name: 'lightspeed-guide', hash: '#lightspeed_anchor'}" style="cursor: pointer;width: 90%;"><button style="margin-top: 15px;cursor: pointer;border: 0px;background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);border-radius: 5px;color: white;width: 100%; height: auto;padding: 15px 0px 15px 0px; border-radius: 5px;font-size:16px;text-align:center">Lightspeed</button></router-link>
-                        <router-link :to="{ name: 'shopware-guide', hash: '#shopware_anchor'}" style="cursor: pointer;width: 90%;"><button style="margin-top: 15px;cursor: pointer;border: 0px;background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);border-radius: 5px;color: white;width: 100%; height: auto;padding: 15px 0px 15px 0px; border-radius: 5px;font-size:16px;text-align:center">Shopware</button></router-link>                    </div>
+                        <router-link :to="{ name: 'shopware-guide', hash: '#shopware_anchor'}" style="cursor: pointer;width: 90%;"><button style="margin-top: 15px;cursor: pointer;border: 0px;background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);border-radius: 5px;color: white;width: 100%; height: auto;padding: 15px 0px 15px 0px; border-radius: 5px;font-size:16px;text-align:center">Shopware</button></router-link>
+                        <router-link :to="{ name: 'mijnwebwinkel-guide', hash: '#mijnwebwinkel_anchor'}" style="cursor: pointer;width: 90%;"><button style="margin-top: 15px;cursor: pointer;border: 0px;background: linear-gradient(to bottom, #10dc87 0%, #08ba4d 100%);border-radius: 5px;color: white;width: 100%; height: auto;padding: 15px 0px 15px 0px; border-radius: 5px;font-size:16px;text-align:center">Mijnwebwinkel</button></router-link>
+                    </div>
                 </div>
             </div>
         </div>
