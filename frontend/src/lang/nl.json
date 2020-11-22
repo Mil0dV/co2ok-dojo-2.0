@@ -202,11 +202,14 @@
   "section_3_title": "Top 10 impact van de gemiddelde Nederlander",
   "testimonial_head": "Testimonial",
   "testimonial_content": "De eerste keer dat ik werd gebeld over CO₂ok, zag ik het totáál niet zitten (de tweede en derde keer trouwens ook niet). Het concept van CO₂ compensatie kende ik wel en vind ik een goed idee. Maar ja, extra tekst en afbeeldingen kosten bezoekers – zeggen ze. En ook: 'Je moet de customer-journey kort houden.' Maar deze plugin draagt bij aan het duurzame verhaal van mijn webwinkel. Het ondersteunt de geloofwaardigheid en draagt zo bij aan de omzet. Sinds de installatie zijn de verkopen gestegen, en meer klanten dan verwacht compenseren CO₂.",
-  "s3_subTitle": "Cause Marketing toont aan",
-  "s3_title": "Dat men nu sneller terug keert naar jouw webshop",
+  "s3_subTitle": "Ervaar de vele voordelen die",
+  "s3_title": "Cause Marketing je bedrijf zal brengen",
   "s3_consumers": "Klanten",
-  "s3_respondents": "Respondenten",
-  "s3_row1_text": "Bij de keuze tussen twee merken van gelijke kwaliteit en prijs, kiest 90% van de klanten waarschijnlijk een 'cause branded' -product",
+  "s3_row1_header": "Conversie- verhoging",
+  "s3_respondents": "Groei",
+  "s3_row3_header": "Imago boost",
+  "s3_row4_header": "Strijdt mee",
+  "s3_row1_text": "De resultaten van onze A/B test laten zien dat onze dienst voor een gemiddeld 15% hogere conversie zorgt, dit kan oplopen tot 20%.",
   "s3_row2_text": "Merken met een doel om de levenstandaard te verbeteren presteren 120% beter dan de aandelenmarkt.",
   "s3_row3_text": "92% van de consumenten verklaarde een positief beeld van een bedrijf te hebben wanneer een bedrijf een sociaal of milieuprobleem aanpakt",
   "s3_row4_text": "66% van de consumenten wil dat merken een sociaal-politieke houding aannemen",
@@ -222,7 +225,7 @@
   "section_5_title": "Samen kunnen we een verandering realiseren",
   "section_5_btn": "Sluit je webshop aan bij de strijd",
   "bb-section-title": "Bewust Bezorgd: samenwerken voor een grotere impact",
-  "bb-section-text": "CO₂ok slaat de handen ineen met Thuiswinkel.org in de strijd voor meer duurzaamheid in de e-commerce. Samen met TNO heeft Thuiswinkel.org Bewust Bezorgd ontwikkeld, dat de uitstoot van het bezorgen van een pakket nauwkeurig berekent. Hierdoor krijgen webshops inzicht in de klimaatimpact van de bezorging en indien gewenst kan de consument kiezen voor de meest duurzame afleveroptie."
+  "bb-section-text": "CO₂ok slaat de handen ineen met Thuiswinkel.org in de strijd voor meer duurzaamheid in de e-commerce. Samen met TNO heeft Thuiswinkel.org Bewust Bezorgd ontwikkeld, dat de uitstoot van het bezorgen van een pakket nauwkeurig berekent. Hierdoor krijgen webshops inzicht in de klimaatimpact van de bezorging en indien gewenst kan de consument kiezen voor de meest duurzame afleveroptie. Geef de consument de mogelijk om te kiezen voor duurrzaamheid en installleer de dienst binnen 3 clicks."
  },
  "login": {
   "subTitle": "Login consumers",
@@ -416,7 +419,7 @@
   "s4_text": "Projects that directly lead to less greenhouse gas emissions. For this we work together with our certified partners <a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a> and <a href= \"https://www.fairclimatefund.nl/projecten\" target=_\"blank\">Fair Climate Fund</a>."
   },
   "clients": {
-    "mainText" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "mainText" : "Na het uitvoeren van een uitgebreide A/B-test met een middelgrote online retailer in de sanitair branche hebben we 15% conversie-uplift bereikt! Bij andere webshops zien we tot wel 20% conversieverhoging. Meer details zijn beschikbaar op aanvraag.",
     "title": "Webshop Results",
     "subTitle": "A/B Testing"
   },
@@ -427,17 +430,17 @@
   "retailLanding": {
     "row1": "Go Green",
     "row1_extra": "Help fight climate change",
-    "row2": "Higher conversion rate, more turnover",
+    "row2": "Hogere conversie en omzet",
     "row3": "Vergroen je bezorging",
-    "row4": "Easy integration and use",
-    "row_text1": "Besides the plugin, Co2ok offers various services which can assist you in building a solid MVO strategy.",
+    "row4": "Eenvoudige integratie en gebruik",
+    "row_text1": "Naast de plugin biedt Co2ok verschillende diensten aan die u kunnen helpen bij het opbouwen van een solide MVO-strategie.",
     "row_text1_extra": "Everyone tries to contribute daily to build a greener and more sustainable future. As do you, as a retailer. But some things are simply beyond your control. For example: it is quite impossible to have insight into every step of the supply chain. Co2ok enables you to fight climate change in a simple and efficient way.",
-    "row_text2": " As a retailer, you naturally try to run your business as sustainably as possible.",
+    "row_text2": " Tot 20% hogere conversie",
     "row_text2_extra": " You reach even more customers if you go along with our marketing campaign. During our campaign\n                        you can easily ride along on our network. We post on Facebook, LinkedIn, Twitter and are\n                        featured in magazines and on radio! If you would like to know more you can contact us.",
     "row_text3": "Maak uw levering klimaatvriendelijk - compensatie van de uitstoot is inbegrepen in onze service!",
     "row_text4": "Integratie duurt een paar minuten - of laat ons het doen!",
     "row_button": "Personalized strategy",
-    "row_button2": "Cause Marketing",
+    "row_button2": "Bekijk deze verbazende A/B resultaten",
     "row_button3": "Climate Friendly Delivery",
     "row_button4": "Quick installation"
     }

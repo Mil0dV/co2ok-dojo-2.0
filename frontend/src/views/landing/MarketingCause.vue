@@ -20,12 +20,12 @@
 		a 15.9155 15.9155 0 0 1 0 -31.831"
 															/>
 															<path class="circle"
-																		stroke-dasharray="15, 100"
+																		stroke-dasharray="20, 100"
 																		d="M18 2.0845
 		a 15.9155 15.9155 0 0 1 0 31.831
 		a 15.9155 15.9155 0 0 1 0 -31.831"
 															/>
-															<text x="18" y="20.35" class="percentage">15%</text>
+															<text x="18" y="20.35" class="percentage">20%</text>
 													</svg>
 											</div>
 									</div>
@@ -54,12 +54,12 @@
 		a 15.9155 15.9155 0 0 1 0 -31.831"
 															/>
 															<path class="circle"
-																		stroke-dasharray="75, 100"
+																		stroke-dasharray="100, 100"
 																		d="M18 2.0845
 		a 15.9155 15.9155 0 0 1 0 31.831
 		a 15.9155 15.9155 0 0 1 0 -31.831"
 															/>
-															<text x="18" y="20.35" class="percentage">75%</text>
+															<text x="18" y="20.35" class="percentage">120%</text>
 													</svg>
 											</div>
 									</div>
@@ -98,7 +98,7 @@
 									</div>
 
 									<div class="graph__text">
-											<h2 class="main-title">{{ $t('home2.s3_consumers') }}</h2>
+											<h2 class="main-title">{{ $t('home2.s3_row3_header') }}</h2>
 											<p class="main-text">
 													{{ $t('home2.s3_row3_text') }}
 											</p>
@@ -131,7 +131,7 @@
 									</div>
 
 									<div class="graph__text">
-											<h2 class="main-title">{{ $t('home2.s3_consumers') }}</h2>
+											<h2 class="main-title">{{ $t('home2.s3_row4_header') }}</h2>
 											<p class="main-text">
 													{{ $t('home2.s3_row4_text') }}
 											</p>

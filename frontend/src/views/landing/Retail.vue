@@ -17,10 +17,10 @@
 							<img alt="retailer icon 2" src="../../assets/images/webshops/retailers/retailer-icon-2.png">
 							<div class="content--wrapper">
 									<h2 class="main-title">{{ $t('retailLanding.row2') }}</h2>
-									<!-- <p class="content-text" v-html=" $t('retailLanding.row_text2') "></p> -->
-									<p class="content-text">Up to 15% increased conversion</p>
-									<!-- <router-link to="/clients">{{ $t('retailLanding.row_button2') }}</router-link> -->
-									<router-link to="/clients">Check these amazing A/B results</router-link>
+									<p class="content-text" v-html=" $t('retailLanding.row_text2') "></p>
+									<!-- <p class="content-text">Up to 15% increased conversion</p> -->
+									<router-link to="/clients">{{ $t('retailLanding.row_button2') }}</router-link>
+									<!-- <router-link to="/clients">Check these amazing A/B results</router-link> -->
 							</div>
 					</div>
 

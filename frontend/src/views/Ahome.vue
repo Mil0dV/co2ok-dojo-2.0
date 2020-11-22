@@ -80,9 +80,7 @@
         </div>
 
         <Retail />
-        <BBApi />
         <MarketingCause/>
-        <Partners />
         <Testimonials
             :name="$t('testimonials.nameOne')"
             :company="$t('testimonials.companyOne')"
@@ -91,6 +89,8 @@
             :imageUrl="require('../assets/images/home2/profile-foto.jpg')"
         >
         </Testimonials>
+        <BBApi />
+        <Partners />
 
         <!-- <div class="prefix__section"> -->
            <!--  <div class="section-3__content">

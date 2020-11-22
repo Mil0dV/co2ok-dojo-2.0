@@ -8,14 +8,14 @@
 		:imageUrl="require('../../assets/images/clients/ab-results.png')"
 	 >
 	 </TextImgSection>
-	 <TextSection
+	 <!-- <TextSection
 	 	:title="$t('clients.sectionOneTitle')"
 		:mainText="$t('clients.sectionOneMainText')"
 	 ></TextSection>
 	 <TextSection
 		:title="$t('clients.sectionOneTitle')"
 		:mainText="$t('clients.sectionOneMainText')"
-	 ></TextSection>
+	 ></TextSection> -->
  </div>
 </template>
 
