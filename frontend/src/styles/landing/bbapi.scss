@@ -44,7 +44,7 @@
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 480px) {
   .section__white-square {
     max-height: 100% !important;
     .bb-icon-text {
@@ -53,26 +53,26 @@
     .bbapi-content-top {
       margin-left: 0px !important;
       .cfd-png {
-        margin: auto;
+        margin: auto !important;
       }
       .content--wrapper {
         h2 {
-          text-align: center;
+          text-align: center !important;
         }
       }
     }
     .section-2__content {
-      height: auto;
-      margin: auto;
-      width: 94%;
+      height: auto !important;
+      margin: auto !important;
+      width: 94% !important;
       .section-2__row-1 {
-        margin: auto;
+        margin: auto !important;
         h2 {
           padding-top: 42px !important;
         }
         p {
-          text-align: left;
-          padding-bottom: 24px;
+          text-align: left !important;
+          padding-bottom: 24px !important;
         }
       }
       .section-2__row-2 {
