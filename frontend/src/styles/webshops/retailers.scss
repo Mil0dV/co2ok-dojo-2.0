@@ -26,6 +26,10 @@
 .col-square {
   width: 516px !important;
   padding: 36px 44px !important;
+  @media (max-width: 430px) {
+    width: 85% !important;
+    padding: 36px 0px !important;
+  }
   // margin-left: 16px;
 }
 
@@ -88,6 +92,9 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
+  @media (max-width: 430px) {
+    flex-direction: column !important;
+  }
 }
 
 .section-2-content {
@@ -104,6 +111,9 @@
     max-height: 100px;
     width: 100%;
     height: 100%;
+    @media (max-width: 430px) {
+      margin: auto;
+    }
   }
 }
 
@@ -111,6 +121,17 @@
   max-width: 822px;
   width: 100%;
   text-align: left;
+  a{
+    &:hover {
+      color: green;
+    }
+  }
+  @media (max-width: 430px) {
+    text-align: center;
+    p {
+      padding-bottom: 24px;
+    }
+  }
 }
 
 .content-title {
@@ -120,6 +141,7 @@
 
 .content-text {
   font-size: 16px;
+  padding-bottom: 8px;
 }
 
 .button__banner {
@@ -317,3 +339,13 @@
   }
 }
 
+.truck-icon {
+  max-width: 138px !important;
+  max-height: 100% !important;
+  margin-left: -22px !important;
+  margin-right: 15px !important;
+  margin-top: -15px !important;
+  @media (max-width: 430px) {
+    margin-right: 0px !important;
+  }
+}

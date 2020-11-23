@@ -31,11 +31,11 @@
                                                      to="/webshops">{{ $t('nav.webshops') }}
                                         </router-link>
                                     </li> -->
-                                    <li>
+                                    <!-- <li>
                                         <router-link :class="[checkActive('webshops1') ? 'navbar__active' : '']"
                                                      to="/webshops/retailers">{{ $t('nav.webshops') }}
                                         </router-link>
-                                    </li>
+                                    </li> -->
                                     <li>
                                         <router-link :class="[checkActive('webshops2') ? 'navbar__active' : '']"
                                         to="/webshops/cause-marketing">{{ $t('nav.webshops_2') }}
@@ -225,6 +225,9 @@
                             <router-link to="/webshops/login">{{ $t('nav.webshops_4') }} webshop</router-link>
                         </li>
                     </ul>
+                    <li>
+                        <router-link to="/how-it-works">How it works</router-link>
+                    </li>
                     <li v-if="$store.state.Authenticated && $store.state.status === 'ninja'">
                         <router-link to="/consumers/profile">{{ $t('nav.consumers_1') }}</router-link>
                     </li>
@@ -236,12 +239,7 @@
                             <router-link to="/projects">{{ $t('nav.webshops_3') }}</router-link>
                         </li>
                     </ul> -->
-                    <li>
-                        <router-link to="/about">{{ $t('nav.about') }}</router-link>
-                    </li>
-                    <li>
-                        <router-link to="/news">{{ $t('nav.news') }}</router-link>
-                    </li>
+
                     <li>
                         <router-link to="/faq">{{ $t('nav.faq') }}</router-link>
                     </li>

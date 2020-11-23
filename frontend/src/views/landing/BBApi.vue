@@ -14,11 +14,10 @@
 				<div class="prefix__section">
 					<div class="section__white-square">
 
-						<div class="uk-section section-2 section--content" style="margin-left:24px; margin-top: -32px !important;">
+						<div class="uk-section section--content bbapi-content-top">
 							<div class=" uk-container-width section-2-content col-2 bb-icon-text">
-								<img alt="retailer icon 1" src="../../assets/images/webshops/retailers/heart_plane.png">
+								<img class="cfd-png" alt="retailer icon 1" src="../../assets/images/webshops/retailers/heart_plane.png">
 								<div class="content--wrapper">
-									<!-- <h2 class="main-title">{{ $t('retailers.row1') }} </h2> -->
 									<h2 class="main-title">Greenify your shipping </h2>
 									<p class="content-text">
 										With CFD your delivery is climate Friendly - compensation of the emissions is included in our service! Also you get insight in your impact and can give your consumers the choice to choose the most environmentally friendly delivery option.
@@ -31,18 +30,18 @@
 							<router-link to="/webshops/get-started" class="button">Join the climate fight</router-link>
 						</div>
 
-						<div style="display: flex;">
-							<div class="bb-text-left">
-								<h2 class="main-title">
-									{{ $t('home2.bb-section-title') }}
-								</h2>
-								<p class="main-text">
-									{{ $t('home2.bb-section-text') }}
-								</p>
-								<br>
+						<div class="section-2__content">
+							<div class="section-2__row-1">
+									<h2 class="main-title">
+										{{ $t('home2.bb-section-title') }}
+									</h2>
+									<p class="main-text">
+										{{ $t('home2.bb-section-text') }}
+									</p>
+									<br>
 							</div>
-							<div class="section-2__row-2" style="margin: auto;padding: 16px;">
-								<img alt="retailer icon 2"  src="../../assets/images/home2/bb-dashboard.png">
+							<div class="section-2__row-2">
+								<img class="section-2__image" alt="retailer icon 2"  style="width: 532px; height:280px;" src="../../assets/images/home2/bb-dashboard.png">
 							</div>
 						</div>
 
@@ -62,6 +61,8 @@
 
 <style scoped lang="scss">
 	@import '../../styles/layout/main.scss';
+	@import '../../styles/home.scss';
+
 	@import '../../styles/layout/section.scss';
   @import '../../styles/webshops/retailers';
 	@import '../../styles/landing/bbapi.scss';
