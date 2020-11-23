@@ -14,9 +14,9 @@
 			<h2 class="main-title" style="padding-top: 42px;">
 				{{ $t('howItWorks.steps_title') }}
 			</h2>
-			<h3>
+			<h2 class="sub-title">
 				{{ $t('howItWorks.steps_subtitle') }}
-			</h3>
+			</h2>
 
 			 <!--Stap 1-->
 			 <div uk-grid class="steps__intro uk-child-width-expand@s uk-text-center">

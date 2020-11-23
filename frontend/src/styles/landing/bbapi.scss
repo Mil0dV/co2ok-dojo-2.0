@@ -6,7 +6,7 @@
     width: 100%;
     padding: 16px;
     background-color: white;
-    max-height: 675px !important;
+    max-height: 100% !important;
     align-items: center;
     .bbapi-content-top {
       margin-top: -10px !important;
@@ -23,7 +23,7 @@
       background-image: none;
       box-shadow: none;
       border-radius: none;
-      padding-top: 24px;
+      padding-top: 36px;
       .section-2__row-1 {
         margin: auto;
         h2 {
@@ -32,6 +32,9 @@
       }
       .section-2__row-2 {
         margin: auto;
+        .section-2__image {
+          margin: auto;
+        }
       }
       .bbapi-text-left {
         padding: 36px;
@@ -44,13 +47,11 @@
 @media (max-width: 430px) {
   .section__white-square {
     max-height: 100% !important;
-    // margin-top: -75px;
     .bb-icon-text {
       padding-top: 16px !important;
     }
     .bbapi-content-top {
-      margin-top: -10px !important;
-      margin-left: 0px;
+      margin-left: 0px !important;
       .cfd-png {
         margin: auto;
       }
@@ -66,7 +67,6 @@
       width: 94%;
       .section-2__row-1 {
         margin: auto;
-        // height: 100%;
         h2 {
           padding-top: 42px !important;
         }

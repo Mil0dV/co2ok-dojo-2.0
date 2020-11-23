@@ -142,7 +142,8 @@
   "link12": "Privacy Verklaring",
   "link13": "Profiel",
   "link14": "Inloggen",
-  "link15": "Uitloggen"
+  "link15": "Uitloggen",
+  "link16": "Doveryay, no proveryay"
  },
  "home": {
   "section1_subTitle": "HOI WIJ ZIJN CO₂ok",
@@ -254,12 +255,14 @@
   "webshops_6": "Dashboard",
   "webshops_7": "Plug-in installatie",
   "webshops_8": "CO₂ok Winkels",
-  "consumers": "CO₂-compensatie",
+  "consumers": "Consumers",
   "consumers_1": "Profiel",
   "consumers_2": "Logout",
   "news": "Nieuws",
   "faq": "FAQ",
-  "extension": "Boek een demo"
+  "extension": "Boek een demo",
+  "compensation": "CO₂-compensatie",
+  "projects": "CO₂-compensatie projects"
  },
  "plugin": {
   "third_step1": "Visit <a href=\"https://shopi-app.co2ok.eco/login\" target=_\"blank\">the Shopify app install page</a> to start the installation",

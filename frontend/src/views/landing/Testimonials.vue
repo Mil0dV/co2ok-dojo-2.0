@@ -4,7 +4,7 @@
 		 <div class="uk-card shop__card uk-card-default uk-card-body" style="border-radius: 10px;">
 			 <div class="uk-container-width testimonial-container" style="padding: 10px !important;">
 				 <div class="img-text">
-					 <img alt="retailer icon 3" :src="imageUrl">
+					 <img class="testimonial-img" alt="retailer icon 3" :src="imageUrl">
 					 <p><strong> {{ name }} </strong><br> {{ company }} </p>
 				 </div>
 				 <div class="testimonial-wrapper">

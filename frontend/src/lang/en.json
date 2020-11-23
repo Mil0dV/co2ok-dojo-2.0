@@ -133,7 +133,8 @@
   "link12": "Privacy Policy",
   "link13": "Profile",
   "link14": "Login",
-  "link15": "Logout"
+  "link15": "Logout",
+  "link16": "Trust, but verify"
  },
  "home": {
   "section1_subTitle": "HI WE'RE CO₂ok",
@@ -281,12 +282,14 @@
   "webshops_6": "Dashboard",
   "webshops_7": "Plug-in installation",
   "webshops_8": "CO₂ok Stores",
-  "consumers": "CO₂ compensation",
+  "consumers": "Consumers",
   "consumers_1": "Profile",
   "consumers_2": "Logout",
   "news": "News",
   "faq": "FAQ",
-  "extension": "Book a demo"
+  "extension": "Book a demo",
+  "compensation": "CO₂-compensation",
+  "projects": "CO₂-compensation projects"
  },
  "plugin": {
   "WP_step0": "Login to the admin area of your webshop (WordPress admin)",

@@ -70,6 +70,11 @@ input, .input-c__input {
   border-left: 10px solid #10DC87;
 }
 
+.sub-title {
+  color: #08ba4d;
+  font-size: 17px;
+  margin-bottom: -3px;
+}
 
 .asterik {
   color: red;
@@ -484,6 +489,8 @@ a {
 @media (max-width: 600px) {
   .step__text-wrapper {
       min-width: unset;
+      margin:auto;
+      padding: 16px 0px;
   }
 
   .intro__text {
@@ -497,5 +504,11 @@ a {
   .intro__img, .step__img {
       width: 90%;
       max-height: 400px;
+  }
+}
+
+@media (max-width: 430px) {
+  .instagram-feed {
+    width: 100% !important;
   }
 }

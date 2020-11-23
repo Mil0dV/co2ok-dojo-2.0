@@ -92,7 +92,8 @@
                             <li v-else>
                                 <li>
                                     <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
-                                        to="/consumers"> Consumers
+                                        to="/consumers">
+                                        {{ $t('nav.consumers') }}
                                         <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
                                     </router-link>
                                 </li>
@@ -125,8 +126,8 @@
                                     </li>
                                     <li>
                                         <router-link :class="[checkActive('consumers') ? 'navbar__active' : '']"
-                                             to="/co2-compensatie">
-                                            {{ $t('nav.consumers') }}
+                                            to="/co2-compensatie">
+                                            {{ $t('nav.compensation') }}
                                         </router-link>
                                     </li>
                                 </ul>
@@ -232,13 +233,16 @@
                         <router-link to="/consumers/profile">{{ $t('nav.consumers_1') }}</router-link>
                     </li>
                     <li v-else>
-                        <router-link to="/co2-compensatie">{{ $t('nav.consumers') }}</router-link>
+                        <router-link to="/consumers">{{ $t('nav.consumers') }}</router-link>
                     </li>
-                    <!-- <ul class="mobile__dropdown">
+                    <ul class="mobile__dropdown">
                         <li>
-                            <router-link to="/projects">{{ $t('nav.webshops_3') }}</router-link>
+                            <router-link to="/projects">{{ $t('nav.projects') }}</router-link>
                         </li>
-                    </ul> -->
+                        <li>
+                            <router-link to="/co2-compensatie">{{ $t('nav.compensation') }}</router-link>
+                        </li>
+                    </ul>
 
                     <li>
                         <router-link to="/faq">{{ $t('nav.faq') }}</router-link>

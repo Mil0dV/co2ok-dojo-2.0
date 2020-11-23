@@ -19,7 +19,7 @@
 
 				<div class="uk-width-auto" style="margin: auto; width: 65%;">
 					<div class="uk-card uk-card-body ">
-							<img class="col-2--image" :src="imageUrl"
+							<img class="col-2--image" style="max-height: 100%; max-width: 100%;" :src="imageUrl"
 									alt="Protest climate" uk-img>
 					</div>
 				</div>
@@ -43,5 +43,6 @@
 </script>
 
 <style scoped lang="scss">
-	@import '../../styles/layout/main.scss';
+	@import '../../styles/layout/main';
+	@import '../../styles/webshops/cause';
 </style>

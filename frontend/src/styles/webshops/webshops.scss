@@ -81,6 +81,10 @@
 
 .section-1 {
   padding-bottom: 0;
+  @media (max-width: 430px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .section-2 {
@@ -150,9 +154,11 @@
   }
 
   .shops--image {
-    max-width: 150px;
-    min-width: 75px;
-    width: 100%;
+    width: 47%;
+    // max-width: 150px;
+    // min-width: 75px;
+    // width: 100%;
+    // padding: 8px;
   }
 
   .section-2--col-2 {

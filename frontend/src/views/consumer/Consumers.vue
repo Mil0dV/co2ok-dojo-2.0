@@ -2,54 +2,48 @@
 	<div class="main">
 		<div class="uk-section section-1">
 			<div class="uk-container uk-container-width">
-					<div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
-							<div class="uk-width-expand">
-									<div class="uk-card uk-card-body section-1__col-1">
-											<a href="https://www.instagram.com/co2ok.eco/" target=_blank><u>
-												<h3 class="sub-title">Follow us on Instagram</h3>
-											</u></a>
-											<!-- <h2 class="main-title">Follow us on Instagram</h2> -->
-											<br>
-									</div>
-							</div>
-
+				<div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
+					<div class="uk-width-expand">
+							<div class="uk-card uk-card-body section-1__col-2" style="text-decoration: none;">
+								<a href="https://www.instagram.com/co2ok.eco/" target=_blank style="text-decoration: none;"><u>
+									<h3 class="sub-title" style="text-decoration: none;">Follow us on Instagram</h3>
+								</u></a>
+								<!-- <h2 class="main-title">Follow us on Instagram</h2> -->
+							<br>
 						</div>
 					</div>
-					<img style="width: 950px;" src="../../assets/images/blog/instagram.png" uk-img>
-	</div>
+				</div>
+			</div>
+			<img class="instagram-feed"style="width: 950px; display:flex;" src="../../assets/images/blog/instagram.png" uk-img>
+		</div>
 
 			<div class="uk-section section-2" id="webshops">
-					<div class="uk-container uk-container-width">
-							<div class="section-2--col-1">
-								<h1 class="main-title">{{ $t('webshops.title3') }}</h1>
-								<h2 class="sub-title sub-title--s2">{{ $t('webshops.subTitle3') }}</h2>
-							</div>
-							<br>
-
-							<div class="section-2--col-2">
-									<a target="_blank" :href="i.link" :style="{'background-image': 'url(' + require(`@/assets/images/webshops/shops/${i.image}.png`) + ')'}"
-											 class=" shops--image section-2--shops" v-for="i in webshop" :key="i.link">
-											<div class="section-2--shops shop--image-wrapper ">
-											</div>
-									</a>
-							</div>
+				<div class="uk-container uk-container-width">
+					<div class="section-2--col-1">
+						<h1 class="main-title">{{ $t('webshops.title3') }}</h1>
+						<h2 class="sub-title sub-title--s2">{{ $t('webshops.subTitle3') }}</h2>
 					</div>
+					<br>
+
+					<div class="section-2--col-2">
+						<a target="_blank" :href="i.link" :style="{'background-image': 'url(' + require(`@/assets/images/webshops/shops/${i.image}.png`) + ')'}"
+						 class=" shops--image section-2--shops" v-for="i in webshop" :key="i.link">
+						<div class="section-2--shops shop--image-wrapper ">
+						</div>
+					</a>
+				</div>
 			</div>
+		</div>
 	</div>
 </template>
 
 <script>
-	// const Header = () => import('@/components/layout/Header')
-	// const Modal = () => import('@/components/modals/Modal')
 
 	export default {
 			name: "Webshops",
 			props: {
 					content: Number
 			},
-			// components: {
-			//     Modal
-			// },
 
 			data() {
 					return {
@@ -303,6 +297,6 @@
 </script>
 
 <style scoped lang="scss">
-	@import '../../styles/layout/main.scss';
+	@import '../../styles/layout/main';
 	@import '../../styles/webshops/webshops';
 </style>
