@@ -33,7 +33,7 @@
                         <p class='blog-title' v-html="blog.blog_title"></p>
                         <v-divider style="width:85%;"></v-divider>
                         <p class="blog-content-txt" v-html="stripBlogContent(blog.blog_preface)"></p>
-                        <div :class="[blog.id]" class="readmore-container" @click="newsContent()"><button class="readmore-btn text-capitalize mt-3">Read more<v-icon small color="#10DC87" style="position:relative;left:10px;">arrow_forward</v-icon></button></div>
+                        <div :class="[blog.id]" class="readmore-container" @click="newsContent()"><button class="readmore-btn text-capitalize mt-3">Read more<v-icon small color="#10DC87" style="position:relative;left:10px;">→</v-icon></button></div>
                     </div>
                 </div>
 

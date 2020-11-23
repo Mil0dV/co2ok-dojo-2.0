@@ -277,7 +277,7 @@
                             {{ $t('cause.s4_row3_text') }}
                         </p>
                         <br>
-                        <router-link to="/webshops/plug-in-installation" class="button">{{ $t('cause.s4_row3_link') }}
+                        <router-link to="/webshops/get-started" class="button">{{ $t('cause.s4_row3_link') }}
                         </router-link>
                     </div>
                 </div>

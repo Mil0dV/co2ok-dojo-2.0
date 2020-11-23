@@ -48,7 +48,7 @@
 									<p class="content-text">
 											{{ $t('retailLanding.row_text4') }}
 									</p>
-									<router-link to="/retailers" class="usp-link">{{ $t('retailLanding.row_button4') }}</router-link>
+									<router-link :to="{ path: '/webshops/retailers', hash: 'installation_anchor'}" class="usp-link">{{ $t('retailLanding.row_button4') }}</router-link>
 							</div>
 					</div>
 

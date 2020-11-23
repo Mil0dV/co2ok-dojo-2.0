@@ -52,7 +52,7 @@
                                         <!-- <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
                                                      to="/webshops/retailers/#pricing">{{ $t('nav.webshops_3') }}
                                         </router-link> -->
-                                        <router-link :to="{ name: 'retailers', hash: '#pricing'}">
+                                        <router-link :to="{ path: '/webshops/retailers', hash: '#pricing'}">
                                             {{ $t('nav.webshops_3') }}
                                         </router-link>
                                         <!-- <a href="/webshops/retailers/#pricing">{{ $t('nav.webshops_3') }}
@@ -128,6 +128,13 @@
                                         <router-link :class="[checkActive('consumers') ? 'navbar__active' : '']"
                                             to="/co2-compensatie">
                                             {{ $t('nav.compensation') }}
+                                        </router-link>
+                                    </li>
+                                    <li>
+                                        <router-link :class="[checkActive('webshops') ? 'navbar__active' : '']"
+                                            :to="{ path: '/consumers', hash: '#webshops' }">
+                                            💚 Shops
+                                            <!-- {{ $t('nav.compensation') }} -->
                                         </router-link>
                                     </li>
                                 </ul>

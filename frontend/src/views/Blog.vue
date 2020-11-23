@@ -64,7 +64,7 @@
                                 <div class="readmore-container" @click="newsContent(blog.id)">
                                     <button class="readmore-btn text-capitalize mt-3">Read more
                                         <v-icon small color="#10DC87" class="read-more-arrow"
-                                                style="position:relative;left:5px;">arrow_forward
+                                                style="position:relative;left:5px;">→
                                         </v-icon>
                                     </button>
                                 </div>

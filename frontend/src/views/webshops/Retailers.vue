@@ -98,7 +98,7 @@
             </div>
         </div>
 
-        <div class="uk-section section-2 section--content">
+        <div class="uk-section section-2 section--content" id="installation_anchor">
             <div class=" uk-container-width section-2-content">
                 <img alt="retailer icon 3" src="../../assets/images/webshops/retailers/retailer-icon-3.png">
 
@@ -147,7 +147,7 @@
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/plug-in-installation" class="button">{{ $t('retailers.row_button') }}
+                                <router-link to="/webshops/get-started" class="button">{{ $t('retailers.row_button') }}
                                 </router-link>
                             </div>
                         </div>
