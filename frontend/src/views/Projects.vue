@@ -6,33 +6,36 @@
             <div class="uk-container uk-container-column uk-container-width">
                 <div class="sect-1-col-1">
                     <div class="img-wrapper-1 uk-box-shadow-medium">
-                        <img class="sect-1__img-1" src="../assets/images/projects/project-1.png" alt="project 1">
+                        <img class="sect-1__img-1" src="../assets/images/projects/project-3.png" alt="project 1">
+                    </div>
+                    <p class="main-text" v-html=" $t('projects.section1_text') ">
+                    <div class="img-wrapper-1 uk-box-shadow-medium">
+                        <img class="sect-1__img-2" src="../assets/images/projects/project-2.png" alt="project 2">
                     </div>
 
-                    <p class="main-text" v-html=" $t('projects.section1_text') ">
 
                     <div class="img-wrapper-2 uk-box-shadow-medium">
-                        <img class="sect-1__img-2" src="../assets/images/projects/project-2.png" alt="project 2">
+                        <!-- <img class="sect-1__img-2" src="../assets/images/projects/project-2.png" alt="project 2"> -->
                     </div>
                 </div>
 
-                <div class="sect-1-col-2">
-                    <div class="second-img-wrapper-1 hide-desktop">
+                <!-- <div class="sect-1-col-2"> -->
+                    <!-- <div class="second-img-wrapper-1 hide-desktop">
                         <img class="sect-1__img-3 responsive-img  uk-box-shadow-medium" src="../assets/images/projects/project-1.png" alt="project 1">
-                    </div>
+                    </div> -->
 
-                    <div class="second-img-wrapper-2 hide-desktop">
+                    <!-- <div class="second-img-wrapper-2 hide-desktop">
                         <img class="sect-1__img-4 responsive-img uk-box-shadow-medium" src="../assets/images/projects/project-2.png" alt="project 1">
                     </div>
 
                     <div class="second-img-wrapper-1">
                         <img class="sect-1__img-3 responsive-img uk-box-shadow-medium" src="../assets/images/projects/project-3.png" alt="project 1">
-                    </div>
+                    </div> -->
 
-                    <div class="second-img-wrapper-2">
+                    <!-- <div class="second-img-wrapper-2">
                         <img class="sect-1__img-4 responsive-img uk-box-shadow-medium" src="../assets/images/projects/project-4.png" alt="project 1">
-                    </div>
-                </div>
+                    </div> -->
+                <!-- </div> -->
             </div>
         </div>
 

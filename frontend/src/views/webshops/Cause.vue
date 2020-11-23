@@ -13,7 +13,7 @@
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/plug-in-installation" class="button">{{ $t('cause.s1_btn') }}
+                                <router-link to="/webshops/get-started" class="button">{{ $t('cause.s1_btn') }}
                                 </router-link>
                             </div>
                         </div>

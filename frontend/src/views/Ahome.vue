@@ -61,8 +61,11 @@
                         {{ $t('home2.section_2_text') }}
                     </p>
                     <br>
-                    <a href="/#home_form"
-                    class="button">{{ $t('home2.button_1') }}</a>
+                    <!-- <a href="/#home_form"
+                    class="button">{{ $t('home2.button_1') }}</a> -->
+                    <!-- <router-link :to="{ path: '/', hash: '#home_form'}" class="button">{{ $t('home2.button_1') }} -->
+                    <router-link to="/webshops/get-started" class="button">{{ $t('home2.button_1') }}
+                                </router-link>
                     <!-- <a href="/ninja"
                         class="button">{{ $t('home2.button_2') }}</a> -->
 

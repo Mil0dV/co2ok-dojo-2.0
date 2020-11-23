@@ -125,7 +125,7 @@
   "link4": "CO₂-compensation",
   "link5": "Retailers",
   "link6": "Cause Marketing",
-  "link7": "CO₂-compensatie projects",
+  "link7": "CO₂-compensation projects",
   "link8": "Login",
   "link9": "Consumers",
   "link10": "News",
@@ -208,8 +208,10 @@
   "section_5_sub": "Some of our partners",
   "section_5_title": "Together we can make a change",
   "section_5_btn": "Join us in the fight against climate change!",
+  "cfd-section-title": "Greenify your shipping",
+  "cfd-section-text": "With CFD your delivery is Climate Friendly - compensation of the emissions is included in our service! Also you get insight in your impact and can give your consumers the choice to choose the most environmentally friendly delivery option.  Allow the consumer to choose sustainability and install the service within 3 clicks.",
   "bb-section-title": "Bewust Bezorgd: Working together for a larger impact",
-  "bb-section-text": "CO₂ok is joining forces with Thuiswinkel.org in the fight for more sustainability in e-commerce. Thuiswinkel.org has developed Bewust Bezorgd together with TNO, which accurately calculates the emissions of delivering a parcel. This gives web shops insight into the climate impact of the delivery and, if desired, the consumer can choose the most sustainable delivery option. Allow the consumer to choose sustainability and install the service within 3 clicks."
+  "bb-section-text": "CO₂ok is joining forces with Thuiswinkel.org in the fight for more sustainability in e-commerce. Thuiswinkel.org has developed Bewust Bezorgd together with TNO, which accurately calculates the emissions of delivering a parcel. This gives web shops insight into the climate impact of the delivery and, if desired, the consumer can choose the most sustainable delivery option."
  },
  "corona": {
   "s1_subtitle": "The story behind the plugin",
@@ -452,7 +454,7 @@
     "row1": "Go Green",
     "row1_extra": "Help fight climate change",
     "row2": "Higher conversion rate, more turnover",
-    "row3": "Greenify your delivery",
+    "row3": "Greenify your shipping",
     "row4": "Easy integration and use",
     "row_text1": "Besides the plugin, Co2ok offers various services which can assist you in building a solid MVO strategy.",
     "row_text1_extra": "Everyone tries to contribute daily to build a greener and more sustainable future. As do you, as a retailer. But some things are simply beyond your control. For example: it is quite impossible to have insight into every step of the supply chain. Co2ok enables you to fight climate change in a simple and efficient way.",

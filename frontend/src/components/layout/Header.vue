@@ -29,51 +29,18 @@
         methods: {
             checkHeaderTitle() {
                 // if(this.currentLanguage === 'en'){
-                //     switch (this.image) {
-                //         case 'steps':
-                //             this.title = 'How it works'
-                //             break;
-                //         case 'about':
-                //             this.title = 'About us'
-                //             break;
-                //         case 'webshops':
-                //             this.title = 'Webshops'
-                //             break;
-                //         case 'retailers':
-                //             this.title = 'Retailers'
-                //             break;
-                //         case 'cause-marketing':
-                //             this.title = 'Cause Marketing'
-                //             break;
-                //         case 'installation':
-                //             this.title = 'Plug-in Installation'
-                //             break;
-                //         case 'faq':
-                //             this.title = 'Frequently asked questions'
-                //             break;
-                //         case 'privacy':
-                //             this.title = 'Privacy policy'
-                //             break;
-                //         case 'projects':
-                //             this.title = 'CO₂-compensation projects'
-                //             break;
-                //         case 'news':
-                //             this.title = 'News'
-                //             break;
-                //         default:
-                //             this.title = 'CO₂ compensation'
-                //             break;
-                //     }
-                // } else {
                     switch (this.image) {
                         case 'clients':
                             this.title = 'Doveryay, no proveryay'
                             break;
                         case 'compensation':
-                            this.title = 'How it works'
+                            this.title = 'CO₂ compensation'
+                            break;
+                        case 'steps':
+                            this.title = 'CO₂ compensation'
                             break;
                         case 'about':
-                            this.title = 'Over ons'
+                            this.title = 'About us'
                             break;
                         case 'webshops':
                             this.title = 'Webshops'
@@ -85,24 +52,64 @@
                             this.title = 'Cause Marketing'
                             break;
                         case 'installation':
-                            this.title = 'Plug-in Installatie'
+                            this.title = 'Plug-in Installation'
                             break;
                         case 'faq':
-                            this.title = 'Veelgestelde vragen'
+                            this.title = 'Frequently asked questions'
                             break;
                         case 'privacy':
-                            this.title = 'Privacy voorwaarden'
+                            this.title = 'Privacy policy'
                             break;
                         case 'projects':
-                            this.title = 'CO₂-compensatie projecten'
+                            this.title = 'CO₂-compensation projects'
                             break;
                         case 'news':
-                            this.title = 'Nieuws'
+                            this.title = 'News'
                             break;
                         default:
-                            this.title = 'CO₂ compensatie'
+                            this.title = 'CO₂ compensation'
                             break;
                     }
+                // } else {
+                    // switch (this.image) {
+                    //     case 'clients':
+                    //         this.title = 'Doveryay, no proveryay'
+                    //         break;
+                    //     case 'compensation':
+                    //         this.title = 'How it works'
+                    //         break;
+                    //     case 'about':
+                    //         this.title = 'Over ons'
+                    //         break;
+                    //     case 'webshops':
+                    //         this.title = 'Webshops'
+                    //         break;
+                    //     case 'retailers':
+                    //         this.title = 'Retailers'
+                    //         break;
+                    //     case 'cause-marketing':
+                    //         this.title = 'Cause Marketing'
+                    //         break;
+                    //     case 'installation':
+                    //         this.title = 'Plug-in Installatie'
+                    //         break;
+                    //     case 'faq':
+                    //         this.title = 'Veelgestelde vragen'
+                    //         break;
+                    //     case 'privacy':
+                    //         this.title = 'Privacy voorwaarden'
+                    //         break;
+                    //     case 'projects':
+                    //         // this.title = "{{ $t('footer.link7') }}"
+                    //         this.title = 'CO₂ compensation projects'
+                    //         break;
+                    //     case 'news':
+                    //         this.title = 'Nieuws'
+                    //         break;
+                    //     default:
+                    //         this.title = 'CO₂ compensatie'
+                    //         break;
+                    // }
                 // }
 
             }

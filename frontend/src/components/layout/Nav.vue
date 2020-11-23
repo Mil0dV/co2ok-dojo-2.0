@@ -43,7 +43,7 @@
                                      </li>
 
                                      <li>
-                                        <router-link :to="{ path: '/', hash: '#cfd-bb'}">
+                                        <router-link :to="{ path: '/', hash: '#ClimateFriendlyDelivery'}">
                                             Climate Friendly Delivery
                                         </router-link>
                                     </li>

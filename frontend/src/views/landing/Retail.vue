@@ -36,7 +36,7 @@
 									<p class="content-text">
 											{{ $t('retailLanding.row_text3') }}
 									</p>
-									<router-link :to="{ path: '/', hash: '#cfd-bb'}" class="usp-link">{{ $t('retailLanding.row_button3') }}</router-link>
+									<router-link :to="{ path: '/', hash: '#ClimateFriendlyDelivery'}" class="usp-link">{{ $t('retailLanding.row_button3') }}</router-link>
 							</div>
 					</div>
 
