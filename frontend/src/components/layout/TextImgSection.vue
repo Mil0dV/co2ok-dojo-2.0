@@ -12,7 +12,7 @@
 						</p>
 						<br>
 						<div v-if="button" class="col-1--links">
-							<router-link to="/webshops/retailers" class="button"> {{ button }} </router-link>
+							<router-link to="/webshops/get-started" class="button"> {{ button }} </router-link>
 						</div>
 					</div>
 				</div>
