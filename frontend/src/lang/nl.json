@@ -143,7 +143,8 @@
   "link13": "Profiel",
   "link14": "Inloggen",
   "link15": "Uitloggen",
-  "link16": "Doveryay, no proveryay"
+  "link16": "Doveryay, no proveryay",
+  "link17": "Hoe het werkt"
  },
  "home": {
   "section1_subTitle": "HOI WIJ ZIJN CO₂ok",
@@ -410,7 +411,7 @@
   "mainText" : "It's quick and easy to install CO₂ok into your webstore, and your customers will have the option to offset the environmental impact of their orders with a single click.",
   "title": "CO₂ok is an easy way to show your shop cares",
   "subTitle": "CO₂ok Plugin",
-  "button": "Get started",
+  "button": "Aan de slag",
   "steps_title": "Hoe het werkt",
   "steps_subtitle": "In vier eenvoudige stappen een klimaatneutrale webwinkel worden",
   "s1_title": "1. Installeer CO₂ok",
