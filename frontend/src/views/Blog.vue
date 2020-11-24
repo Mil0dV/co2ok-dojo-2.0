@@ -22,11 +22,12 @@
                     <div id="instafeed"></div>
                     <div class="insta-ctrl hidden-md-and-down">
                         <v-icon medium v-if="instaPrev" @click="instaFeedsPrev"
-                                style="border: 1px solid #6E6E6E;background-color: #6E6E6E;color: white;border-radius: 100%;padding: 7px;cursor: pointer;"
-                                class="insta-ctrl-btn mr-1">keyboard_arrow_left</v-icon>
+                            style="background-color: #08BA4D;color: white;border-radius: 100%;padding: 8px;cursor: pointer;"
+                            class="insta-ctrl-btn mr-1 fas fa-arrow-left">
+                        </v-icon>
                         <v-icon medium v-if="instaNext" @click="instaFeedsNext"
-                                style="border: 1px solid #6E6E6E;background-color: #6E6E6E;color: white;border-radius: 100%;padding: 7px;cursor: pointer;"
-                                class="insta-ctrl-btn ml-1">keyboard_arrow_right
+                            style="background-color: #08BA4D;color: white;border-radius: 100%;padding: 8px;cursor: pointer;"
+                            class="insta-ctrl-btn ml-1 fas fa-arrow-right">
                         </v-icon>
                     </div>
                 </div>

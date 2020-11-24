@@ -222,6 +222,9 @@
                         <router-link to="/webshops/retailers">{{ $t('nav.webshops') }}</router-link>
                     </li>
                     <ul class="mobile__dropdown">
+                        <li>
+                            <router-link to="/webshops/retailers">{{ $t('nav.webshops') }}</router-link>
+                        </li>
                         <li v-if="$store.state.Authenticated && $store.state.status === 'webshop'">
                             <router-link to="/webshops/dashboard">{{ $t('nav.webshops_6') }}</router-link>
                         </li>
@@ -258,6 +261,9 @@
                         <router-link to="/consumers">{{ $t('nav.consumers') }}</router-link>
                     </li>
                     <ul class="mobile__dropdown">
+                        <li>
+                            <router-link to="/consumers">{{ $t('nav.consumers') }}</router-link>
+                        </li>
                         <li>
                             <router-link to="/projects">{{ $t('nav.projects') }}</router-link>
                         </li>

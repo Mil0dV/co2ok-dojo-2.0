@@ -108,7 +108,7 @@
         name: "Footer",
 
         mounted() {
-            Co2okWidgetXL.merchantCompensations('widgetContainer', '0', 'XL', 'default') 
+            Co2okWidgetXL.merchantCompensations('widgetContainer', '0', 'XL', 'default')
         },
 
         methods: {
@@ -130,7 +130,6 @@
             }
 
         }
-        
     }
 </script>
 

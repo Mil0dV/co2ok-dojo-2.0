@@ -44,9 +44,15 @@ $darkblue: #152439;
 footer {
   padding: 50px 0;
   background-color: $darkblue;
-
+  
   .footer-container {
     width: 1090px;
+    .uk-grid {
+      @media(max-width: 1065px) {
+        display: flex;
+        flex-direction: column;;
+      }
+    }
   }
 
   h2 {
