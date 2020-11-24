@@ -174,18 +174,21 @@ h2 {
   .main-title {
     margin-bottom: 16px;
   }
+  .main-text {
+    padding-bottom: 24px;
+  }
 
   .button {
     margin-left: 0;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1200px) {
   .section-2__row-1 {
     margin: auto !important;
-    padding-top: 16px;
+    padding-top: 24px;
     p {
-      padding-bottom: 16px;
+      padding-bottom: 24px;
     }
   }
   .section-2__row-2 {
@@ -346,7 +349,7 @@ h2 {
 }
 
 
-@media (max-width: 1180px) {
+@media (max-width: 1200px) {
   .intro__text__wrapper {
     h1 {
       letter-spacing: 0.2em;

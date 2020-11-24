@@ -9,8 +9,6 @@
                                  :src="require('@/assets/images/nav/logo.png')">
                         </router-link>
                     </div>
-                    <router-link tag="ClimateFriendlyDelivery" :to=" { path: '/', hash: '#ClimateFriendlyDelivery' }"></router-link>
-
                     <div class="uk-navbar-right uk-visible@m">
                         <ul class="uk-navbar-nav">
                             <li>
