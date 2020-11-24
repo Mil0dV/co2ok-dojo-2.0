@@ -215,7 +215,7 @@
                             <router-link to="/webshops/dashboard">{{ $t('nav.webshops_6') }}</router-link>
                         </li>
                         <li>
-                            <router-link :to="{ path: '/', hash: 'ClimateFriendlyDelivery'}" @click.native="scrollFix('#ClimateFriendlyDelivery')">
+                            <router-link :to="{ path: '/', hash: '#ClimateFriendlyDelivery'}" @click.native="scrollFix('#ClimateFriendlyDelivery')">
                                 Climate Friendly Delivery
                             </router-link>
                         </li>
