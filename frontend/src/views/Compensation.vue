@@ -171,7 +171,7 @@
 
             <Webshops :content="webshopsContent"/>
 
-            <div class="about__col-1-wrapper">
+            <div class="about__col-1-wrapper" id="CalcComp">
                 <!--Eerste blok-->
                 <div class="about__col-1">
                     <div class="col-1__content col-1__image">

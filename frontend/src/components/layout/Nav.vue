@@ -9,6 +9,7 @@
                                  :src="require('@/assets/images/nav/logo.png')">
                         </router-link>
                     </div>
+                    <router-link tag="ClimateFriendlyDelivery" :to=" { path: '/', hash: '#ClimateFriendlyDelivery' }"></router-link>
 
                     <div class="uk-navbar-right uk-visible@m">
                         <ul class="uk-navbar-nav">
@@ -43,7 +44,7 @@
                                      </li>
 
                                      <li>
-                                        <router-link :to="{ path: '/' }" @click.native="scrollFix('#ClimateFriendlyDelivery')">
+                                        <router-link :to="{ path: '/', hash: '#ClimateFriendlyDelivery' }" @click.native="scrollFix('#ClimateFriendlyDelivery')">
                                             Climate Friendly Delivery
                                         </router-link>
                                     </li>
@@ -52,7 +53,7 @@
                                         <!-- <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
                                                      to="/webshops/retailers/#pricing">{{ $t('nav.webshops_3') }}
                                         </router-link> -->
-                                        <router-link :to="{ path: '/webshops/retailers'}"  @click.native="scrollFix('#pricing')">
+                                        <router-link :to="{ path: '/webshops/retailers', hash: '#pricing'}"  @click.native="scrollFix('#pricing')">
                                             {{ $t('nav.webshops_3') }}
                                         </router-link>
                                         <!-- <a href="/webshops/retailers/#pricing">{{ $t('nav.webshops_3') }}
@@ -216,7 +217,7 @@
                             <router-link to="/webshops/dashboard">{{ $t('nav.webshops_6') }}</router-link>
                         </li>
                         <li>
-                            <router-link :to="{ path: '/'}" @click.native="scrollFix('#ClimateFriendlyDelivery')">
+                            <router-link :to="{ path: '/', hash: 'ClimateFriendlyDelivery'}" @click.native="scrollFix('#ClimateFriendlyDelivery')">
                                 Climate Friendly Delivery
                             </router-link>
                         </li>
@@ -227,7 +228,7 @@
                             <router-link to="/webshops/cause-marketing">{{ $t('nav.webshops_2') }}</router-link>
                         </li>
                         <li>
-                            <router-link :to="{ name: 'retailers' }" @click.native="scrollFix('#pricing')">
+                            <router-link :to="{ path: '/webshops/retailers', hash: '#pricing' }" @click.native="scrollFix('#pricing')">
                                 {{ $t('nav.webshops_3') }}
                             </router-link>
                         </li>
@@ -345,11 +346,11 @@
         },
 
         methods: {
-            scrollFix: function(hash) {
-              setTimeout(() => $('html, body').animate({
-              scrollTop: $(hash).offset().top
-              }, 1000), 1)
-            },
+        scrollFix: function(hash) {
+                  setTimeout(() => $('html, body').animate({
+                  scrollTop: $(hash).offset().top
+                  }, 10), 1)
+                },
 
             switchLang(lang) {
                 this.$i18n.locale = lang

@@ -107,15 +107,15 @@
   "faq11_title": "How can I be sure that the money will be used to compensate greenhouse gasses?",
   "faq11_text": "<a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a> and <a href= \"https://www.fairclimatefund.nl/projecten\" target=_\"blank\">Fair Climate Fund</a> provide us with certificates to prove we compensated. Additionally, we will report our income and spending each year.",
   "faq12_title": "How does CO2 compensation work?",
-  "faq12_text": " Greenhouse gases are emitted during the production and transport of the products you purchase. By investing in products that prevent an equal amount of these greenhouse gases to be emitted, your purchase can be made climate neutral. <a class=\"link\" href=\"#\">(details)</a> So how do you reduce emissions? By financing renewable energy and emission reducing projects, future emissions are prevented: a net reduction. <a class=\"link\" href=\"#\">(details)</a>",
+  "faq12_text": " Greenhouse gases are emitted during the production and transport of the products you purchase. By investing in products that prevent an equal amount of these greenhouse gases to be emitted, your purchase can be made climate neutral. So how do you reduce emissions? By financing renewable energy and emission reducing projects, future emissions are prevented: a net reduction. <a class=\"link\" href=\"https://www.co2ok.eco/projects\">(details)</a>",
   "faq13_title": "So how do you reduce emissions?",
-  "faq13_text": " By financing renewable energy and emission reducing projects, future emissions are prevented: a net reduction. <a class=\"link\" href=\"#\">(details)</a>",
+  "faq13_text": " By financing renewable energy and emission reducing projects, future emissions are prevented: a net reduction. <a class=\"link\" href=\"https://www.co2ok.eco/projects\">(details)</a>",
   "faq14_title": "How do you determine the carbon footprint of products?",
-  "faq14_text": " We use manufacturer data whenever we can, since this is the most accurate. If the manufacturers don’t know or report this data, we will estimate it, gradually improving our accuracy. <a class=\"link\" href=\"#\">(details)</a>",
+  "faq14_text": " We use manufacturer data whenever we can, since this is the most accurate. If the manufacturers don’t know or report this data, we will estimate it, gradually improving our accuracy. <a class=\"link\" href=\"https://www.co2ok.eco/co2-compensatie\">(details)</a>",
   "faq15_title": "Will my entire contribution go to CO2 compensation?",
   "faq15_text": "Initially, 75% of your contribution will go to CO2 compensation through <a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a>. Our 25% margin will be used to keep CO₂ok alive and ensure more and more online stores offer CO2 compensation. We will report our income and spending each year.",
   "faq16_title": "What kind of projects will we finance?",
-  "faq16_text": " In addition to renewable energy projects such as solar, wind and hydropower, we will also fund projects that increase energy efficiency. For instance, the Save80 cooking stoves, which are 80% more energy efficient, reduce CO2 emissions and offer a tremendous health boost.<a class=\"link\" href=\"#\">(View the other projects here)</a>"
+  "faq16_text": " In addition to renewable energy projects such as solar, wind and hydropower, we will also fund projects that increase energy efficiency. For instance, the Save80 cooking stoves, which are 80% more energy efficient, reduce CO2 emissions and offer a tremendous health boost.<a class=\"link\" href=\"https://www.co2ok.eco/projects\">(View the other projects here)</a>"
  },
  "footer": {
   "kvk": "KvK number:",
@@ -212,7 +212,7 @@
   "cfd-section-title": "Greenify your shipping",
   "cfd-section-text": "With CFD your delivery is Climate Friendly - compensation of the emissions is included in our service! Also you get insight in your impact and can give your consumers the choice to choose the most environmentally friendly delivery option.  Allow the consumer to choose sustainability and install the service within 3 clicks.",
   "bb-section-title": "Bewust Bezorgd: Working together for a larger impact",
-  "bb-section-text": "CO₂ok is joining forces with Thuiswinkel.org in the fight for more sustainability in e-commerce. Thuiswinkel.org has developed Bewust Bezorgd together with TNO, which accurately calculates the emissions of delivering a parcel. This gives web shops insight into the climate impact of the delivery and, if desired, the consumer can choose the most sustainable delivery option."
+  "bb-section-text": "CO₂ok is joining forces with <a href=\"https://www.thuiswinkel.org/\" target=_\"blank\">Thuiswinkel.org</a> in the fight for more sustainability in e-commerce. Thuiswinkel.org has developed <a href=\"https://bewustbezorgd.org/\" target=_\"blank\">Bewust Bezorgd</a> together with TNO, which accurately calculates the emissions of delivering a parcel. This gives web shops insight into the climate impact of the delivery and, if desired, the consumer can choose the most sustainable delivery option."
  },
  "corona": {
   "s1_subtitle": "The story behind the plugin",

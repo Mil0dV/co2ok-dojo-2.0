@@ -116,15 +116,15 @@
   "faq11_title": "Hoe weet ik zeker dat het geld zal worden gebruikt om broeikasgassen te compenseren?",
   "faq11_text": "<a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a> en <a href= \"https://www.fairclimatefund.nl/projecten\" target=_\"blank\">Fair Climate Fund</a> verschaffen ons certificaten om te bewijzen dat we hebben gecompenseerd. Daarnaast zullen we elk jaar onze inkomsten en uitgaven rapporteren.",
   "faq12_title": "Hoe werkt CO2-compensatie?",
-  "faq12_text": "Broeikasgassen worden uitgestoten tijdens de productie en het transport van de producten die u koopt. Door te investeren in producten die voorkomen dat een gelijke hoeveelheid van deze broeikasgassen wordt uitgestoten, kan jouw aankoop klimaatneutraal worden gemaakt. <a class=\"link\" href=\"#\"> (details) </a> Dus hoe reduceer je de uitstoot? Door de financiering van projecten voor hernieuwbare energie en emissiebeperking worden toekomstige emissies voorkomen: een netto reductie. <a class=\"link\" href=\"#\"> (details) </a>",
+  "faq12_text": "Broeikasgassen worden uitgestoten tijdens de productie en het transport van de producten die u koopt. Door te investeren in producten die voorkomen dat een gelijke hoeveelheid van deze broeikasgassen wordt uitgestoten, kan jouw aankoop klimaatneutraal worden gemaakt. Dus hoe reduceer je de uitstoot? Door de financiering van projecten voor hernieuwbare energie en emissiebeperking worden toekomstige emissies voorkomen: een netto reductie. <a class=\"link\" href=\"https://www.co2ok.eco/projects\"> (details) </a>",
   "faq13_title": "Hoe reduceer je de uitstoot?",
-  "faq13_text": "Door de financiering van projecten voor hernieuwbare energie en emissiebeperking worden toekomstige emissies voorkomen: een netto reductie. <a class=\"link\" href=\"#\"> (details) </a>",
+  "faq13_text": "Door de financiering van projecten voor hernieuwbare energie en emissiebeperking worden toekomstige emissies voorkomen: een netto reductie. <a class=\"link\" href=\"https://www.co2ok.eco/projects\"> (details) </a>",
   "faq14_title": "Hoe bepaalt u de CO2-voetafdruk van producten?",
-  "faq14_text": "We gebruiken fabrikantengegevens wanneer we kunnen, omdat dit het meest accuraat is. Als de fabrikanten deze gegevens niet kennen of rapporteren, zullen we deze schatten, waardoor onze nauwkeurigheid geleidelijk verbetert. <a class=\"link\" href=\"#\"> (details) </a>",
+  "faq14_text": "We gebruiken fabrikantengegevens wanneer we kunnen, omdat dit het meest accuraat is. Als de fabrikanten deze gegevens niet kennen of rapporteren, zullen we deze schatten, waardoor onze nauwkeurigheid geleidelijk verbetert. <a class=\"link\" href=\"https://www.co2ok.eco/co2-compensatie\"> (details) </a>",
   "faq15_title": "Gaat mijn hele bijdrage naar CO2-compensatie?",
   "faq15_text": "Aanvankelijk gaat 75% van jouw bijdrage naar CO2-compensatie via <a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a>. Onze marge van 25% zal worden gebruikt om alles rondom CO₂ok in leven te houden en ervoor te zorgen dat meer en meer online winkels CO2-compensatie aanbieden. We rapporteren elk jaar onze inkomsten en uitgaven.",
   "faq16_title": "Wat voor soort projecten zullen we financieren?",
-  "faq16_text": "Naast projecten op het gebied van hernieuwbare energie, zoals zonne-, wind- en waterkracht, zullen we ook projecten financieren die de energie-efficiëntie verhogen. De Save80-fornuizen, die 80% energie-efficiënter zijn, verminderen de CO2-uitstoot en bieden een enorme gezondheidsboost. <a class=\"link\" href=\"#\"> (Bekijk de andere projecten hier) </a>"
+  "faq16_text": "Naast projecten op het gebied van hernieuwbare energie, zoals zonne-, wind- en waterkracht, zullen we ook projecten financieren die de energie-efficiëntie verhogen. De Save80-fornuizen, die 80% energie-efficiënter zijn, verminderen de CO2-uitstoot en bieden een enorme gezondheidsboost. <a class=\"link\" href=\"https://www.co2ok.eco/projects\"> (Bekijk de andere projecten hier) </a>"
  },
  "footer": {
   "kvk": "KvK nummer:",
@@ -226,7 +226,7 @@
   "section_5_title": "Samen kunnen we een verandering realiseren",
   "section_5_btn": "Sluit je webshop aan bij de strijd",
   "bb-section-title": "Bewust Bezorgd: samenwerken voor een grotere impact",
-  "bb-section-text": "CO₂ok slaat de handen ineen met Thuiswinkel.org in de strijd voor meer duurzaamheid in de e-commerce. Samen met TNO heeft Thuiswinkel.org Bewust Bezorgd ontwikkeld, dat de uitstoot van het bezorgen van een pakket nauwkeurig berekent. Hierdoor krijgen webshops inzicht in de klimaatimpact van de bezorging en indien gewenst kan de consument kiezen voor de meest duurzame afleveroptie. Geef de consument de mogelijk om te kiezen voor duurrzaamheid en installleer de dienst binnen 3 clicks."
+  "bb-section-text": "CO₂ok slaat de handen ineen met <a href=\"https://www.thuiswinkel.org/\" target=_\"blank\">Thuiswinkel.org</a> in de strijd voor meer duurzaamheid in de e-commerce. Samen met TNO heeft Thuiswinkel.org <a href=\"https://bewustbezorgd.org/\" target=_\"blank\">Bewust Bezorgd</a> ontwikkeld, dat de uitstoot van het bezorgen van een pakket nauwkeurig berekent. Hierdoor krijgen webshops inzicht in de klimaatimpact van de bezorging en indien gewenst kan de consument kiezen voor de meest duurzame afleveroptie. Geef de consument de mogelijk om te kiezen voor duurrzaamheid en installleer de dienst binnen 3 clicks."
  },
  "login": {
   "subTitle": "Login consumers",
@@ -410,17 +410,17 @@
   "title": "CO₂ok is an easy way to show your shop cares",
   "subTitle": "CO₂ok Plugin",
   "button": "Get started",
-  "steps_title": "How it works",
-  "steps_subtitle": "Become a climate neutral webstore in four easy steps",
-  "s1_title": "1. Install CO₂ok",
-  "s1_text": "Quickly and seamlessly add the CO₂ok plugin to your webstore",
-  "s2_title": "2. Choose settings options",
-  "s2_text": "Our default settings will automatically fit perfectly into your store, but if you like, you have the option to choose a style and placement option.",
-  "s3_title": "3. Checkbox at checkout",
-  "s3_text": "On the shopping cart / checkout page the customer sees the CO₂ok plugin. Adds an average of 2% on top of the purchase amount. (For this we calculate all greenhouse gases that are released during production and transport.)",
-  "s4_title": "4. We finance projects",
-  "s4_text": "Projects that directly lead to less greenhouse gas emissions. For this we work together with our certified partners <a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a> and <a href= \"https://www.fairclimatefund.nl/projecten\" target=_\"blank\">Fair Climate Fund</a>."
-  },
+  "steps_title": "Hoe het werkt",
+  "steps_subtitle": "In vier eenvoudige stappen een klimaatneutrale webwinkel worden",
+  "s1_title": "1. Installeer CO₂ok",
+  "s1_text": "Voeg de CO₂ok-plug-in snel en naadloos toe aan uw webwinkel",
+  "s2_title": "2. Kies instellingenopties",
+  "s2_text": "Onze standaardinstellingen passen automatisch perfect in uw winkel, maar als u wilt, heeft u de mogelijkheid om een ​​stijl en plaatsingsoptie te kiezen",
+  "s3_title": "3. Bij het aanklikken van de knop",
+  "s3_text": "Op de winkelwagen/checkout pagina ziet de klant de CO₂ok plugin. Komt er gemiddeld 2% bovenop het aankoopbedrag. (Hiervoor berekenen wij alle broeikasgassen die vrijkomen tijdens productie en transport.)",
+  "s4_title": "4. Hiermee financieren wij",
+  "s4_text": "Projecten die direct leiden tot minder broeikasgasuitstoot. Hiervoor werken we samen met onze gecertificeerde partners <a href=\"https://www.atmosfair.de/en/climate-protection-projects\" target=_\"blank\">Atmosfair</a> en <a href= \"https://www.fairclimatefund.nl/projecten\" target=_\"blank\">Fair Climate Fund</a>."
+},
   "clients": {
     "mainText" : "Na het uitvoeren van een uitgebreide A/B-test met een middelgrote online retailer in de sanitair branche hebben we 15% conversie-uplift bereikt! Bij andere webshops zien we tot wel 20% conversieverhoging. Meer details zijn beschikbaar op aanvraag.",
     "title": "Webshop Results",

@@ -44,7 +44,8 @@
   }
 }
 
-@media (max-width: 480px) {
+
+@media (max-width: 1200px) {
   .section__white-square {
     max-height: 100% !important;
     .bb-icon-text {
@@ -61,13 +62,14 @@
         }
         p {
           text-align: left;
+          padding-left: 8px;
         }
       }
     }
     .section-2__content {
       height: auto !important;
       margin: auto !important;
-      width: 94% !important;
+      width: 96% !important;
       .section-2__row-1 {
         margin: auto !important;
         h2 {

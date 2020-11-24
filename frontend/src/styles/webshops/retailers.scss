@@ -26,7 +26,7 @@
 .col-square {
   width: 516px !important;
   padding: 36px 44px !important;
-  @media (max-width: 430px) {
+  @media (max-width: 500px) {
     width: 85% !important;
     padding: 36px 0px !important;
   }
@@ -92,7 +92,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
-  @media (max-width: 430px) {
+  @media (max-width: 1200px) {
     flex-direction: column !important;
   }
 }
@@ -111,7 +111,7 @@
     max-height: 100px;
     width: 100%;
     height: 100%;
-    @media (max-width: 430px) {
+    @media (max-width: 1200px) {
       margin: auto;
     }
   }
@@ -126,7 +126,7 @@
       color: green;
     }
   }
-  @media (max-width: 430px) {
+  @media (max-width: 1200px) {
     text-align: center;
     p {
       padding-bottom: 24px;
@@ -345,7 +345,7 @@
   margin-left: -22px !important;
   margin-right: 15px !important;
   margin-top: -15px !important;
-  @media (max-width: 430px) {
+  @media (max-width: 500px) {
     margin-right: 0px !important;
   }
 }

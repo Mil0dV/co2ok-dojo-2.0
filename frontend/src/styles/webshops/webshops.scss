@@ -81,7 +81,7 @@
 
 .section-1 {
   padding-bottom: 0;
-  @media (max-width: 430px) {
+  @media (max-width: 500px) {
     display: flex;
     flex-direction: column;
   }
@@ -168,7 +168,7 @@
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 500px) {
   .uk-width-auto {
     margin: auto;
     padding-top: 24px;

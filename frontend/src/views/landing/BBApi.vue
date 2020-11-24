@@ -36,8 +36,7 @@
 									<h2 class="main-title">
 										{{ $t('home2.bb-section-title') }}
 									</h2>
-									<p class="main-text">
-										{{ $t('home2.bb-section-text') }}
+									<p class="main-text" v-html=" $t('home2.bb-section-text') ">
 									</p>
 									<br>
 							</div>
@@ -63,7 +62,6 @@
 <style scoped lang="scss">
 	@import '../../styles/layout/main.scss';
 	@import '../../styles/home.scss';
-
 	@import '../../styles/layout/section.scss';
   @import '../../styles/webshops/retailers';
 	@import '../../styles/landing/bbapi.scss';
