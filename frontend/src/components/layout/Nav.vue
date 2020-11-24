@@ -37,13 +37,13 @@
                                         </router-link>
                                     </li> -->
                                     <li>
-                                        <router-link :class="[checkActive('webshops2') ? 'navbar__active' : '']"
-                                        to="/webshops/cause-marketing">{{ $t('nav.webshops_2') }}
+                                        <router-link
+                                            to="/webshops/cause-marketing">{{ $t('nav.webshops_2') }}
                                     </router-link>
                                      </li>
 
                                      <li>
-                                        <router-link :to="{ path: '/', hash: '#ClimateFriendlyDelivery'}">
+                                        <router-link :to="{ path: '/' }" @click.native="scrollFix('#ClimateFriendlyDelivery')">
                                             Climate Friendly Delivery
                                         </router-link>
                                     </li>
@@ -52,7 +52,7 @@
                                         <!-- <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
                                                      to="/webshops/retailers/#pricing">{{ $t('nav.webshops_3') }}
                                         </router-link> -->
-                                        <router-link :to="{ path: '/webshops/retailers', hash: '#pricing'}">
+                                        <router-link :to="{ path: '/webshops/retailers'}"  @click.native="scrollFix('#pricing')">
                                             {{ $t('nav.webshops_3') }}
                                         </router-link>
                                         <!-- <a href="/webshops/retailers/#pricing">{{ $t('nav.webshops_3') }}
@@ -75,7 +75,7 @@
                             </div>
 
                             <li>
-                                <router-link :class="[checkActive('about') ? 'navbar__active' : '']" to="/how-it-works">
+                                <router-link to="/how-it-works">
                                     How it works
                                 </router-link>
                             </li>
@@ -91,7 +91,7 @@
 
                             <li v-else>
                                 <li>
-                                    <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
+                                    <router-link
                                         to="/consumers">
                                         {{ $t('nav.consumers') }}
                                         <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
@@ -120,19 +120,19 @@
                                  uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
                                     <li>
-                                        <router-link :class="[checkActive('webshops3') ? 'navbar__active' : '']"
+                                        <router-link
                                                      to="/projects">{{ $t('footer.link7') }}
                                         </router-link>
                                     </li>
                                     <li>
-                                        <router-link :class="[checkActive('consumers') ? 'navbar__active' : '']"
+                                        <router-link
                                             to="/co2-compensatie">
                                             {{ $t('nav.compensation') }}
                                         </router-link>
                                     </li>
                                     <li>
-                                        <router-link :class="[checkActive('webshops') ? 'navbar__active' : '']"
-                                            :to="{ path: '/consumers', hash: '#webshops' }">
+                                        <router-link
+                                            :to="{ path: '/consumers' }" @click.native="scrollFix('#webshops')" >
                                             💚 Shops
                                             <!-- {{ $t('nav.compensation') }} -->
                                         </router-link>
@@ -215,6 +215,11 @@
                         <li v-if="$store.state.Authenticated && $store.state.status === 'webshop'">
                             <router-link to="/webshops/dashboard">{{ $t('nav.webshops_6') }}</router-link>
                         </li>
+                        <li>
+                            <router-link :to="{ path: '/'}" @click.native="scrollFix('#ClimateFriendlyDelivery')">
+                                Climate Friendly Delivery
+                            </router-link>
+                        </li>
                         <!-- <li>
                             <router-link to="/webshops/retailers">{{ $t('nav.webshops_1') }}</router-link>
                         </li> -->
@@ -222,7 +227,7 @@
                             <router-link to="/webshops/cause-marketing">{{ $t('nav.webshops_2') }}</router-link>
                         </li>
                         <li>
-                            <router-link :to="{ name: 'retailers', hash: '#pricing'}">
+                            <router-link :to="{ name: 'retailers' }" @click.native="scrollFix('#pricing')">
                                 {{ $t('nav.webshops_3') }}
                             </router-link>
                         </li>
@@ -248,6 +253,13 @@
                         </li>
                         <li>
                             <router-link to="/co2-compensatie">{{ $t('nav.compensation') }}</router-link>
+                        </li>
+                        <li>
+                            <router-link :class="[checkActive('webshops') ? 'navbar__active' : '']"
+                                :to="{ path: '/consumers'} " @click.native="scrollFix('#webshops')">
+                                💚 Shops
+                                <!-- {{ $t('nav.compensation') }} -->
+                            </router-link>
                         </li>
                     </ul>
 
@@ -333,6 +345,12 @@
         },
 
         methods: {
+            scrollFix: function(hash) {
+              setTimeout(() => $('html, body').animate({
+              scrollTop: $(hash).offset().top
+              }, 1000), 1)
+            },
+
             switchLang(lang) {
                 this.$i18n.locale = lang
             },

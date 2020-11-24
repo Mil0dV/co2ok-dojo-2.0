@@ -168,3 +168,13 @@
   }
 }
 
+@media (max-width: 430px) {
+  .uk-width-auto {
+    margin: auto;
+    padding-top: 24px;
+  }
+  .col-1--links-wrapper {
+    margin: auto !important;
+    padding-top: 16px !important;
+  }
+}
