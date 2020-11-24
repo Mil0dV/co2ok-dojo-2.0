@@ -192,7 +192,7 @@ const router = new Router({
             component: () => import('./views/clients/Clients')
         },
         {
-            path: '/#ClimateFriendlyDelivery',
+            path: '/ClimateFriendlyDelivery',
             hash: '#ClimateFriendlyDelivery',
             //uploads BBAPI component
             component: () => import('./views/landing/BBApi')
