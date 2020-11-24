@@ -191,6 +191,18 @@ const router = new Router({
             name: 'clients',
             component: () => import('./views/clients/Clients')
         },
+        {
+            path: '/#ClimateFriendlyDelivery',
+            hash: '#ClimateFriendlyDelivery',
+            //uploads BBAPI component
+            component: () => import('./views/landing/BBApi')
+        },
+        //pricing
+        // {
+        //     path: '/#pricing',
+        //     hash: '#pricing',
+        //     component: () => import('./views/webshops/Retailers')
+        // },
         { //404 page, redirects back to home (= /)
             path: '*', redirect: '/'
         }
