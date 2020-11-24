@@ -23,10 +23,10 @@
                             <router-link to="/about">{{ $t('footer.link2') }}</router-link>
                         </li>
                         <li>
-                            <router-link to="/webshops">{{ $t('footer.link3') }}</router-link>
+                            <router-link to="/news">{{ $t('footer.link10') }}</router-link>
                         </li>
                         <li>
-                            <router-link to="/compensation">{{ $t('footer.link4') }}</router-link>
+                            <router-link to="/webshops">{{ $t('footer.link3') }}</router-link>
                         </li>
                         <li>
                             <ul>
@@ -34,10 +34,7 @@
                                     <router-link to="/webshops/retailers">{{ $t('footer.link5') }}</router-link>
                                 </li>
                                 <li>
-                                    <router-link to="webshops/cause-marketing">{{ $t('footer.link6') }}</router-link>
-                                </li>
-                                <li>
-                                    <router-link to="/projects">{{ $t('footer.link7') }}</router-link>
+                                    <router-link to="/webshops/cause-marketing">{{ $t('footer.link6') }}</router-link>
                                 </li>
                                 <span v-if="$store.state.userStatus">
                                      <li><router-link to="/webshops/dashboard">Dashboard</router-link></li>
@@ -50,13 +47,21 @@
                         </li>
                         <li v-if="!$store.state.userStatus">
                             <router-link to="/consumers/login">{{ $t('footer.link9') }}</router-link>
+                            <ul>
+                                <li>
+                                    <router-link to="/co2-compensatie">{{ $t('footer.link4') }}</router-link>
+                                </li>
+                                <li>
+                                    <router-link to="/projects">{{ $t('footer.link7') }}</router-link>
+                                </li>
+                            </ul>
                         </li>
                         <span v-else>
                             <li><router-link to="/consumers/profile">{{ $t('footer.link13') }}</router-link></li>
                             <li @click="logout()">{{ $t('footer.link15') }}</li>
                         </span>
                         <li>
-                            <router-link to="/faq">FAQ</router-link>
+                            <router-link to="/faq">{{ $t('footer.link11') }}</router-link>
                         </li>
                         <li>
                             <router-link to="/privacy">{{ $t('footer.link12') }}</router-link>

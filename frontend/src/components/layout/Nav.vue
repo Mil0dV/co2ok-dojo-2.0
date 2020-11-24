@@ -20,6 +20,11 @@
 
                             <div class="dropdown__menu-wrapper" uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
+                                    <li>
+                                        <router-link to="/webshops/retailers">
+                                            {{ $t('nav.webshops') }}
+                                        </router-link>
+                                    </li>
                                     <li v-if="$store.state.Authenticated && $store.state.status === 'webshop'">
                                         <router-link :class="[checkActive('webshops6') ? 'navbar__active' : '']"
                                                      to="/webshops/dashboard">{{ $t('nav.webshops_6') }}
@@ -118,6 +123,12 @@
                                  class="dropdown__menu-wrapper"
                                  uk-dropdown="offset: -15">
                                 <ul class="uk-nav uk-dropdown-nav dropdown__nav">
+                                    <li>
+                                        <router-link
+                                            to="/consumers">
+                                            {{ $t('nav.consumers') }}
+                                        </router-link>
+                                    </li>
                                     <li>
                                         <router-link
                                                      to="/projects">{{ $t('footer.link7') }}
