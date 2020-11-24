@@ -18,6 +18,8 @@ import { i18n } from '@/plugins/i18n'
 // Vue lodash
 import VueLodash from 'vue-lodash'
 
+import LoadScript from 'vue-plugin-load-script';
+
 import './registerServiceWorker'
 
 import VueAnalytics from 'vue-analytics'
@@ -34,6 +36,7 @@ Vue.use(VAnimateCss);
 Vue.use(Vuex);
 Vue.use(VueMoment);
 Vue.use(VueLodash);
+Vue.use(LoadScript);
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = Axios

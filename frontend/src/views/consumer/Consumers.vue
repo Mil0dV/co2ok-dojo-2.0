@@ -14,7 +14,7 @@
 					</div>
 				</div>
 			</div>
-			<img class="instagram-feed"style="width: 950px; display:flex; margin: auto;" src="../../assets/images/blog/instagram.png" uk-img>
+			<img class="instagram-feed" style="width: 950px; display:flex; margin: auto;" src="../../assets/images/blog/instagram.png" uk-img>
 		</div>
 
 			<div class="uk-section section-2" id="webshops">

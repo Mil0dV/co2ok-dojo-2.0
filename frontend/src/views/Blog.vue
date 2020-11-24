@@ -10,8 +10,10 @@
 
             <v-flex xs12 sm12 md12 lg12 xlg12 class="feeds-flex mb-5">
 
-                <p class="feed-header-p animated fadeInUp">Instagram feed</p>
-                <h1 class="mb-3 animated fadeInUp">Follow us on Instagram</h1>
+                <a href="https://www.instagram.com/co2ok.eco/" target=_blank style="text-decoration: none;">
+                    <p class="feed-header-p animated fadeInUp">Follow us on Instagram</p>
+                </a>
+                <!-- <h1 class="mb-3 animated fadeInUp">Follow us on Instagram</h1> -->
 
                 <div class="feeds">
                     <!-- <div class="insta-container" style="">
@@ -88,8 +90,10 @@
     import Vue from 'vue'
     import Vuetify from 'vuetify'
     import 'vuetify/dist/vuetify.min.css'
+    import Instafeed from 'instafeed.js'
+    import LoadScript from 'vue-plugin-load-script';
 
-    Vue.use(Vuetify);
+    Vue.use(Vuetify, LoadScript);
     export default {
         name: 'blog',
 
@@ -103,8 +107,7 @@
                     limit: 24,
                     resolution: 'standard_resolution',
                     // height: '500px',
-                    accessToken: '6780198652.1677ed0.80d6f1f003594055b2112c307d8807c3',
-                    // accessToken: process.env.INSTA_ACCESS_TOKEN,
+                    accessToken: "InstagramToken",
                     template: '<div class="insta-container animated zoomIn" style="z-index: 0;width: 400px; height: 400px;display:flex;justify:center;align-items:center;"><a href="{{link}}" target="_blank" style="width: 400px;height:400px;border-radius: 5px;"><img src="{{image}}" style="width: 100%;height:100%;border-radius: 5px;"/></a></div>',
                     sortBy: 'most-recent'
                     // filter: function(image) {
@@ -118,14 +121,10 @@
             }
         },
 
-        created() {
+        mounted() {
 
             this.getBlogs()
-            let Instafeed = require("instafeed.js");
-            Instafeed = new Instafeed(
-                this.instaOptions
-            );
-            Instafeed.run();
+            this.getInstaFeed()
 
         },
 
@@ -140,16 +139,26 @@
                 }).then(response => {
 
                     self.$store.commit('getBlogs', response.data)
-                    console.log(response.data);
+                    // console.log(response.data);
 
                     self.$store.commit('getBlogs', response.data)
-                    console.log(response);
+                    // console.log(response);
 
                 }).catch(error => {
-                    console.log(error);
-
+                    // console.log(error);
+                    self.$store.commit('getBlogsError', error)
                 })
 
+            },
+
+            getInstaFeed() {
+                this.$loadScript('https://ig.instant-tokens.com/users/d8ce056d-25a8-421f-8bb2-da6ff5221048/instagram/17841406919567524/token.js?userSecret=jc9z3ww0mjmi6hdd8vc4u').then(() => {
+                    this.instaOptions["accessToken"] = InstagramToken
+                    let feed = new Instafeed(
+                        this.instaOptions
+                    );
+                    feed.run();
+                })
             },
 
             stripBlogContent(content) {
