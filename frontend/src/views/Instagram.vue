@@ -232,14 +232,14 @@
 	}
 
 	.insta-ctrl {
-			margin: auto;
+			/* margin: auto; */
 			display: flex;
 			flex-direction: row;
 			justify-content: flex-end;
 			align-items: flex-end;
 			z-index: 3;
-			margin-top: -25px;
-			padding-bottom: 16px;
+			position: absolute;
+			right: 18%;
 	}
 
 	.insta-container {
@@ -277,6 +277,11 @@
 	}
 
 	@media only screen and (max-width: 800px) {
+
+			.insta-ctrl {
+				right: 10%;
+				margin-top: 333px;
+			}
 
 			.feeds-flex {
 				width: 400px !important;
