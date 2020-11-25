@@ -1,20 +1,19 @@
 <template>
 	<div class="main">
 		<div class="uk-section section-1">
-			<div class="uk-container uk-container-width">
+			<!-- <div class="uk-container uk-container-width" style="padding: 0px !important;">
 				<div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
 					<div class="uk-width-expand">
-							<div class="uk-card uk-card-body section-1__col-2" style="text-decoration: none;">
-								<a href="https://www.instagram.com/co2ok.eco/" target=_blank style="text-decoration: none;"><u>
-									<h3 class="sub-title" style="text-decoration: none;">Follow us on Instagram</h3>
-								</u></a>
-								<!-- <h2 class="main-title">Follow us on Instagram</h2> -->
-							<br>
+							<div class="uk-card uk-card-body section-1__col-2" style="padding: 0px !important;">
+								<h2 class="main-title" style="padding: 0px !important;">
+									{{ $t('webshops.instagramTitle') }}
+								</h2>
 						</div>
 					</div>
 				</div>
-			</div>
-			<img class="instagram-feed" style="width: 950px; display:flex; margin: auto;" src="../../assets/images/blog/instagram.png" uk-img>
+			</div> -->
+			<Instagram />
+			<!-- <img class="instagram-feed" style="width: 950px; display:flex; margin: auto;" src="../../assets/images/blog/instagram.png" uk-img> -->
 		</div>
 
 			<div class="uk-section section-2" id="webshops">
@@ -39,10 +38,16 @@
 
 <script>
 
+	const Instagram = () => import('@/views/Instagram')
+
 	export default {
 			name: "Webshops",
 			props: {
 					content: Number
+			},
+
+			components: {
+				'Instagram': Instagram
 			},
 
 			data() {
@@ -299,4 +304,12 @@
 <style scoped lang="scss">
 	@import '../../styles/layout/main';
 	@import '../../styles/webshops/webshops';
+
+	@media (max-width: 1045px) {
+		.section-1 {
+			display: flex !important;
+			flex-direction: column !important;
+		}
+	}
+
 </style>

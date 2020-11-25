@@ -7,21 +7,21 @@
         </div>
 
         <v-layout column class="feeds-layout" style="">
-
-            <v-flex xs12 sm12 md12 lg12 xlg12 class="feeds-flex mb-5">
+            <Instagram />
+            <!-- <v-flex xs12 sm12 md12 lg12 xlg12 class="feeds-flex mb-5">
 
                 <a href="https://www.instagram.com/co2ok.eco/" target=_blank style="text-decoration: none;">
                     <p class="feed-header-p animated fadeInUp">Follow us on Instagram</p>
-                </a>
+                </a> -->
                 <!-- <h1 class="mb-3 animated fadeInUp">Follow us on Instagram</h1> -->
 
-                <div class="feeds">
+                <!-- <div class="feeds"> -->
                     <!-- <div class="insta-container" style="">
                         <a :href="link" target="_blank" style="" class="insta-link">
                             <img :src="image"/>
                          </a>
                      </div> -->
-                    <div id="instafeed"></div>
+                    <!-- <div id="instafeed"></div>
                     <div class="insta-ctrl hidden-md-and-down">
                         <v-icon medium v-if="instaPrev" @click="instaFeedsPrev"
                             style="background-color: #08BA4D;color: white;border-radius: 100%;padding: 8px;cursor: pointer;"
@@ -34,7 +34,7 @@
                     </div>
                 </div>
 
-            </v-flex>
+            </v-flex> -->
 
             <v-flex xs12 sm12 md6 lg6 xlg6 class="blogs-flex mb-5">
                 <p class="blog-header-p">Our blog</p>
@@ -87,6 +87,8 @@
 
 
 <script>
+    const Instagram = () => import('@/views/Instagram')
+
     import Vue from 'vue'
     import Vuetify from 'vuetify'
     import 'vuetify/dist/vuetify.min.css'
@@ -96,6 +98,9 @@
     Vue.use(Vuetify, LoadScript);
     export default {
         name: 'blog',
+        components: {
+            'Instagram': Instagram
+        },
 
         data() {
             return {
