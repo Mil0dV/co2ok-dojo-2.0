@@ -6,35 +6,9 @@
             <h3 class="display-3 white--text font-weight-bold mb-5 animated fadeInUp">News</h3>
         </div>
 
-        <v-layout column class="feeds-layout" style="">
+        <v-layout column class="feeds-layout">
+
             <Instagram />
-            <!-- <v-flex xs12 sm12 md12 lg12 xlg12 class="feeds-flex mb-5">
-
-                <a href="https://www.instagram.com/co2ok.eco/" target=_blank style="text-decoration: none;">
-                    <p class="feed-header-p animated fadeInUp">Follow us on Instagram</p>
-                </a> -->
-                <!-- <h1 class="mb-3 animated fadeInUp">Follow us on Instagram</h1> -->
-
-                <!-- <div class="feeds"> -->
-                    <!-- <div class="insta-container" style="">
-                        <a :href="link" target="_blank" style="" class="insta-link">
-                            <img :src="image"/>
-                         </a>
-                     </div> -->
-                    <!-- <div id="instafeed"></div>
-                    <div class="insta-ctrl hidden-md-and-down">
-                        <v-icon medium v-if="instaPrev" @click="instaFeedsPrev"
-                            style="background-color: #08BA4D;color: white;border-radius: 100%;padding: 8px;cursor: pointer;"
-                            class="insta-ctrl-btn mr-1 fas fa-arrow-left">
-                        </v-icon>
-                        <v-icon medium v-if="instaNext" @click="instaFeedsNext"
-                            style="background-color: #08BA4D;color: white;border-radius: 100%;padding: 8px;cursor: pointer;"
-                            class="insta-ctrl-btn ml-1 fas fa-arrow-right">
-                        </v-icon>
-                    </div>
-                </div>
-
-            </v-flex> -->
 
             <v-flex xs12 sm12 md6 lg6 xlg6 class="blogs-flex mb-5">
                 <p class="blog-header-p">Our blog</p>
