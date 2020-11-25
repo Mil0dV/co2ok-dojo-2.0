@@ -1,7 +1,7 @@
 <template>
   <div class="news-container">
 
-    <v-layout column class="feeds-layout" style="">
+    <v-layout column class="feeds-layout">
 
       <v-flex xs12 sm12 md12 lg12 xlg12 class="feeds-flex mb-5">
 
@@ -70,34 +70,11 @@
 			},
 
 			mounted() {
-					// this.getBlogs()
 					this.getInstaFeed()
 
 			},
 
 			methods: {
-					// getBlogs() {
-					// 		let self = this
-					// 		this.$axios.get(`${this.$store.state.SITE_HOST}/blog/`, {
-					// 				headers: {
-					// 						// "X-CSRFToken": `${this.$store.state.userToken}`,
-					// 						// Authorization: `token ${window.localStorage.getItem('userToken')}`
-					// 				}
-					// 		}).then(response => {
-
-					// 				self.$store.commit('getBlogs', response.data)
-					// 				// console.log(response.data);
-
-					// 				self.$store.commit('getBlogs', response.data)
-					// 				// console.log(response);
-
-					// 		}).catch(error => {
-					// 				// console.log(error);
-					// 				self.$store.commit('getBlogsError', error)
-					// 		})
-
-					// },
-
 					getInstaFeed() {
 							this.$loadScript('https://ig.instant-tokens.com/users/d8ce056d-25a8-421f-8bb2-da6ff5221048/instagram/17841406919567524/token.js?userSecret=jc9z3ww0mjmi6hdd8vc4u').then(() => {
 									this.instaOptions["accessToken"] = InstagramToken

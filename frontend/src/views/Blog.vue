@@ -63,13 +63,6 @@
 <script>
     const Instagram = () => import('@/views/Instagram')
 
-    import Vue from 'vue'
-    import Vuetify from 'vuetify'
-    import 'vuetify/dist/vuetify.min.css'
-    import Instafeed from 'instafeed.js'
-    import LoadScript from 'vue-plugin-load-script';
-
-    Vue.use(Vuetify, LoadScript);
     export default {
         name: 'blog',
         components: {
@@ -79,31 +72,14 @@
         data() {
             return {
                 blogs: this.$store.state.blogs,
-                instaOptions: {
-                    get: 'user',
-                    // userId: process.env.INSTA_USER_ID,
-                    userId: '6780198652',
-                    limit: 24,
-                    resolution: 'standard_resolution',
-                    // height: '500px',
-                    accessToken: "InstagramToken",
-                    template: '<div class="insta-container animated zoomIn" style="z-index: 0;width: 400px; height: 400px;display:flex;justify:center;align-items:center;"><a href="{{link}}" target="_blank" style="width: 400px;height:400px;border-radius: 5px;"><img src="{{image}}" style="width: 100%;height:100%;border-radius: 5px;"/></a></div>',
-                    sortBy: 'most-recent'
-                    // filter: function(image) {
-                    //     return image.tags.indexOf('TAG_NAME') >= 0;
-                    // }
-                },
-                instaNext: true,
-                instaPrev: false,
-                slide: 0,
-                slideAnimation: 'slideInRight'
+
             }
         },
 
         mounted() {
 
             this.getBlogs()
-            this.getInstaFeed()
+            // this.getInstaFeed()
 
         },
 
@@ -130,16 +106,6 @@
 
             },
 
-            getInstaFeed() {
-                this.$loadScript('https://ig.instant-tokens.com/users/d8ce056d-25a8-421f-8bb2-da6ff5221048/instagram/17841406919567524/token.js?userSecret=jc9z3ww0mjmi6hdd8vc4u').then(() => {
-                    this.instaOptions["accessToken"] = InstagramToken
-                    let feed = new Instafeed(
-                        this.instaOptions
-                    );
-                    feed.run();
-                })
-            },
-
             stripBlogContent(content) {
                 return content.substr(0, 150) + '...'
             },
@@ -154,57 +120,6 @@
                 this.$store.commit('getArticle', articleId)
 
             },
-
-            instaFeedsNext() {
-
-                let instaContainer = document.querySelector('#instafeed')
-                let feedBySlide = 2 //number of image sliding out
-                let slideCount = (this.instaOptions.limit / feedBySlide) - 1
-                let paginationNumber = 600 // number of pixel moving while sliding
-                this.slide += paginationNumber
-
-                if (this.slide <= paginationNumber * slideCount) {
-
-                    this.instaPrev = true
-                    instaContainer.style.transition = 'margin-left 0.5s linear 0s'
-                    instaContainer.style.marginLeft = `-${this.slide}px`
-
-                } else {
-                    this.slide = paginationNumber * slideCount
-                    this.instaNext = false
-                    this.instaPrev = true
-                }
-
-            },
-
-            instaFeedsPrev() {
-
-                let instaContainer = document.querySelector('#instafeed')
-                let feedBySlide = 2 //number of image sliding out
-                let slideCount = (this.instaOptions.limit / feedBySlide) - 1
-                let paginationNumber = 600 // number of pixel moving while sliding
-                this.slide -= paginationNumber
-
-                if (this.slide >= paginationNumber) {
-
-                    this.instaNext = true
-                    this.instaPrev = true
-                    instaContainer.style.transition = 'margin-left 0.5s linear 0s'
-                    instaContainer.style.marginLeft = `-${this.slide}px`
-
-                } else if (this.slide == paginationNumber) {
-                    this.slide = paginationNumber
-                    this.instaNext = true
-                    this.instaPrev = false
-                } else {
-                    this.instaNext = true
-                    this.instaPrev = false
-                    instaContainer.style.transition = 'margin-left 0.5s linear 0s'
-                    instaContainer.style.marginLeft = `-${this.slide}px`
-                    this.slide = 0
-                }
-
-            }
 
         }
 
