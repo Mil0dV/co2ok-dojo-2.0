@@ -195,49 +195,10 @@
         width: 0px;
     }
 
-    #instafeed {
-        width: 100%;
-        height: 400px;
-        display: flex;
-        /* flex-direction: row; */
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .insta-ctrl {
-        width: 70%;
-        height: auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: flex-end;
-        position: absolute;
-        z-index: 3;
-    }
-
-    .insta-container {
-        border: 1px solid blue;
-        width: 100%;
-        height: 500px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .insta-ctrl-btn:hover {
-        transform: scale(0.9, 0.9)
-    }
-
     .feeds a {
         width: 300px;
         height: 500px;
         border: 1px solid green
-    }
-
-    .insta-container a img {
-        width: 300px;
-        height: 500px;
-        border: 1px solid magenta
     }
 
     .blogs-flex {
