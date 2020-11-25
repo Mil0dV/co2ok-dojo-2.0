@@ -1,6 +1,6 @@
 <template>
 	<div class="main">
-		<div class="uk-section section-1">
+		<div class="uk-section section-1" style="background-color: white !important;">
 			<!-- <div class="uk-container uk-container-width" style="padding: 0px !important;">
 				<div class="uk-flex uk-flex-wrap uk-flex-wrap-around col-1" uk-grid>
 					<div class="uk-width-expand">

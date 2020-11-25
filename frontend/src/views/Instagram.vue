@@ -20,7 +20,8 @@
 					</div>
 				</v-flex>
 			</v-layout>
-			<div class="insta-ctrl hidden-md-and-down">
+			<!-- add to class below to remove arrows on mobile hidden-md-and-down -->
+			<div class="insta-ctrl ">
 				<v-icon medium v-if="instaPrev" @click="instaFeedsPrev"
 					style="background-color: #08BA4D;color: white;border-radius: 100%;padding: 8px;cursor: pointer;"
 					class="insta-ctrl-btn mr-1 fas fa-arrow-left">

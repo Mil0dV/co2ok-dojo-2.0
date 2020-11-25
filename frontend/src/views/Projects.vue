@@ -54,19 +54,19 @@
 
                     <div class="content-row">
                         <div class="row-item">
-                            <h3 class="row-title"><i class="fas fa-wind subheading"></i> {{ $t('projects.s2_title1') }}</h3>
+                            <h3 class="row-title"><i class="fas fa-wind" style="color: #08BA4D"></i> {{ $t('projects.s2_title1') }}</h3>
                             <p>
                                 {{ $t('projects.s2_text1') }}
                             </p>
                         </div>
 
                         <div class="row-item">
-                            <h3 class="row-title"><i class="fas fa-solar-panel subheading"></i> {{ $t('projects.s2_title2') }}</h3>
+                            <h3 class="row-title"><i class="fas fa-solar-panel" style="color: #08BA4D"></i> {{ $t('projects.s2_title2') }}</h3>
                             <p>{{ $t('projects.s2_text2') }}</p>
                         </div>
 
                         <div class="row-item">
-                            <h3 class="row-title"><i class="fas fa-tint subheading"></i> {{ $t('projects.s2_title3') }}</h3>
+                            <h3 class="row-title"><i class="fas fa-tint" style="color: #08BA4D"></i> {{ $t('projects.s2_title3') }}</h3>
                             <p>{{ $t('projects.s2_text3') }}</p>
                         </div>
                     </div>
@@ -93,14 +93,14 @@
 
                     <div class="content-row">
                         <div class="row-item">
-                            <h3 class="row-title"><i class="fa fa-utensils subheading"></i> {{ $t('projects.s3_title1') }}</h3>
+                            <h3 class="row-title"><i class="fa fa-utensils" style="color: #08BA4D"></i> {{ $t('projects.s3_title1') }}</h3>
                             <p>
                                 {{ $t('projects.s3_text1') }}
                             </p>
                         </div>
 
                         <div class="row-item">
-                            <h3 class="row-title"><i class="far fa-sun subheading"></i> {{ $t('projects.s3_title2') }}</h3>
+                            <h3 class="row-title"><i class="far fa-sun" style="color: #08BA4D"></i> {{ $t('projects.s3_title2') }}</h3>
                             <p v-html="$t('projects.s3_text2')">
 							</p>
                         </div>
