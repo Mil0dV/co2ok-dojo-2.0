@@ -78,7 +78,7 @@
 	border-radius: 5px;
 	text-align: center !important;
 	width: 42%;
-	padding: 6px; }
+	padding: 4px !important; }
 	.widget-compensation:hover {
 		opacity: 1;
 	}
