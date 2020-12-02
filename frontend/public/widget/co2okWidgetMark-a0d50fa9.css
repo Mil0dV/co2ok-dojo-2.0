@@ -1,7 +1,7 @@
 .co2ok_widget_infobox_container {
 	position: absolute;
 	width: 330px;
-	height: 280px;
+	height: 390px;
 	background: white;
 	border-radius: 15px;
 	box-sizing: border-box;
@@ -22,7 +22,8 @@
 
 .hovercard-wrapper {
 	display: flex;
-	flex-direction: row; }
+	flex-direction: row;
+	height: 92px; }
 
 .widget-steps {
 	color: black !important;
@@ -36,27 +37,24 @@
 	z-index: 1; }
 
 .widget-left {
-	width: 52%;
+	width: 56%;
 	margin: auto;
-	padding-top: 12px;
-	margin-left: 15px !important; }
+	margin-left: 5px !important; }
 
 .widget-right {
-	/* margin-top: 27px; */
 	margin: auto;
-	margin-left: 158px !important; }
+	margin-left: 123px !important; }
 
 .widget-png-right {
 	position: absolute;
-	width: 30%;
-	right: 22px;
-	top: 13px; }
+	width: 43%;
+	right: 8px;
+	margin-top: -30px; }
 
 .widget-png-left {
 	position: absolute;
-	width: 43%;
-	left: 13px;
-	margin-top: -34px; }
+	width: 28%;
+	left: 13px; }
 
 .widget-hovercard-links {
 	text-align: center !important;
@@ -64,7 +62,7 @@
 	font-size: 14px !important;
 	line-height: 1.25rem  !important;
 	display: flex !important;
-	margin-top: 17px !important; }
+	margin-top: 19px !important; }
 
 .widget-compensation {
 	margin: auto !important;
@@ -87,6 +85,6 @@
 	width: 33%;
 	position: absolute;
 	right: 32px;
-	bottom: -13px;
+	bottom: -11px;
 	transform: rotate(-51deg);
 	z-index: -1; }

@@ -82,8 +82,8 @@ let Co2okWidgetXL = {
       `${this.SITE_HOST}/widget/hovercard/green_truck.png`,
       `${this.SITE_HOST}/static/logo.png`,
       `${this.SITE_HOST}/widget/hovercard/branch.png`,
-      `${this.SITE_HOST}/widget/hovercard/heart_plant`
-
+      `${this.SITE_HOST}/widget/hovercard/heart_plant.png`,
+      `${this.SITE_HOST}/widget/hovercard/renewable_energy.png`
   ]
 
     for (img of images){
@@ -197,13 +197,18 @@ let Co2okWidgetXL = {
       <div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-large co2ok-large" id="widget-infobox-view">
 
         <div class="co2ok-large hovercard-wrapper">
-          <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-large widget-info-hover-png widget-png-right">
-          <p class="co2ok-large widget-steps step-one widget-left"> ${compensation} </p>
+          <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-large widget-info-hover-png widget-png-left">
+          <p class="co2ok-large widget-steps step-one widget-right"> ${compensation} </p>
         </div>
 
-        <div class="co2ok-large hovercard-wrapper" style="padding-top: 29px;">
-          <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-large widget-info-hover-png widget-png-left">
-          <p class="co2ok-large widget-steps step-two widget-right"> ${shipping} </p>
+        <div class="co2ok-large hovercard-wrapper" style="margin: 16px 0px;">
+          <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-large widget-info-hover-png widget-png-right">
+          <p class="co2ok-large widget-steps step-two widget-left"> ${shipping} </p>
+        </div>
+
+        <div class="co2ok-large hovercard-wrapper">
+          <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-large widget-info-hover-png widget-png-left">
+          <p class="co2ok-large widget-steps step-one widget-right"> ${compensation} </p>
         </div>
 
         <span class="co2ok-large widget-hovercard-links">

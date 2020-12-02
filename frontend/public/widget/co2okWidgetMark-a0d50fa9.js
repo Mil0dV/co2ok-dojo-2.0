@@ -71,8 +71,8 @@ let Co2okWidget = {
       `${this.SITE_HOST}/widget/hovercard/green_truck.png`,
       `${this.SITE_HOST}/static/logo.png`,
       `${this.SITE_HOST}/widget/hovercard/branch.png`,
-      `${this.SITE_HOST}/widget/hovercard/heart_plant`
-
+      `${this.SITE_HOST}/widget/hovercard/heart_plant.png`,
+      `${this.SITE_HOST}/widget/hovercard/renewable_energy.png`
   ]
 
     for (img of images){
@@ -129,8 +129,8 @@ let Co2okWidget = {
          var colorSuffix = "";
      }
 
+     //force for test store
      var compensatiewidget = 23.42;
-     console.log("lang", lang);
 
       if (lang == 'EN') {
         var reductietekst = 'CO₂ reduction';
@@ -159,13 +159,18 @@ let Co2okWidget = {
         <div class="co2ok_widget_infobox_container co2ok-popper hovercard-trustmark co2ok-small" id="widget-infobox-view">
 
           <div class="co2ok-small hovercard-wrapper">
-            <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-small widget-info-hover-png widget-png-right">
-            <p class="co2ok-small widget-steps step-one widget-left"> ${compensation} </p>
+            <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-small widget-info-hover-png widget-png-left">
+            <p class="co2ok-small widget-steps step-one widget-right"> ${compensation} </p>
           </div>
 
-          <div class="co2ok-small hovercard-wrapper" style="padding-top: 29px;">
-            <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-small widget-info-hover-png widget-png-left">
-            <p class="co2ok-small widget-steps step-two widget-right"> ${shipping} </p>
+          <div class="co2ok-small hovercard-wrapper" style="margin: 16px 0px;">
+            <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-small widget-info-hover-png widget-png-right">
+            <p class="co2ok-small widget-steps step-two widget-left"> ${shipping} </p>
+          </div>
+
+          <div class="co2ok-small hovercard-wrapper">
+            <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-small widget-info-hover-png widget-png-left">
+            <p class="co2ok-small widget-steps step-one widget-right"> ${compensation} </p>
           </div>
 
           <span class="co2ok-small widget-hovercard-links">
@@ -214,29 +219,29 @@ let Co2okWidget = {
       jQuery("body").append(widgetInfoBox);
 
       if (jQuery(window).width() < 480) {
-      // offset.left = offset.left - widgetInfoBox.width() / 4;
-      offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.height() - 9);
-      if ( offset.left < 0) offset.left = 10;
-      if ( offset.top < 0) offset.top = 10;
-      widgetInfoBox.css({
-          top: offset.top,
-          margin: "0 auto",
-          left: offset.left,
-          transform: "none"
-      });
+        // offset.left = offset.left - widgetInfoBox.width() / 4;
+        offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.height() - 9);
+        if ( offset.left < 0) offset.left = 10;
+        if ( offset.top < 0) offset.top = 10;
+        widgetInfoBox.css({
+            top: offset.top,
+            margin: "0 auto",
+            left: offset.left,
+            transform: "none"
+        });
       } else {
-      offset.left = offset.left - widgetInfoBox.outerWidth() / 2 + widgetInfoButton.outerWidth() / 2;
-      if ( offset.left < 0) offset.left = 10;
-      offset.top = offset.top + (widgetInfoBox.height() * 1.5) - 20;
-      if (offset.top > jQuery(window).height() - widgetInfoBox.outerWidth()) {
-        offset.top = offset.top - widgetInfoButton.height() - widgetInfoBox.outerWidth() + 6;
-      }
-      widgetInfoBox.css({
+        offset.left = offset.left - widgetInfoBox.outerWidth() / 2 + widgetInfoButton.outerWidth() / 2;
+        if ( offset.left < 0) offset.left = 10;
+        offset.top = offset.top + widgetInfoBox.height() - 20;
+        if (offset.top > jQuery(window).height() - widgetInfoBox.outerWidth()) {
+          offset.top = offset.top - widgetInfoButton.height() - widgetInfoBox.outerWidth() + 6;
+        }
+        widgetInfoBox.css({
           top: offset.top,
           left: offset.left,
           margin: "0",
           transform: "none"
-      });
+        });
       }
   },
   ShowWidgetInfoBox  : function()
