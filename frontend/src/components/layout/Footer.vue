@@ -49,7 +49,7 @@
                             <router-link to="/how-it-works">{{ $t('footer.link17') }}</router-link>
                         </li>
                         <li v-if="!$store.state.userStatus">
-                            <router-link to="/consumers/login">{{ $t('footer.link9') }}</router-link>
+                            <router-link to="/consumers">{{ $t('footer.link9') }}</router-link>
                             <ul>
                                 <li>
                                     <router-link to="/co2-compensatie">{{ $t('footer.link4') }}</router-link>
