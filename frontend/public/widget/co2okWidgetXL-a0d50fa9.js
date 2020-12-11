@@ -99,8 +99,8 @@ let Co2okWidgetXL = {
     // Mijnkraamshop: D0C918
     let color = "#D0C918"
     // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-    let  SITE_HOST =  'https://co2ok.eco'
-    // let SITE_HOST = 'http://localhost:8080'
+    // let  SITE_HOST =  'https://co2ok.eco'
+    let SITE_HOST = 'http://localhost:8080'
     //css for hovercard
     var fileref=document.createElement("link")
     fileref.setAttribute("rel", "stylesheet")
@@ -129,19 +129,22 @@ let Co2okWidgetXL = {
 
       var compensatietekst = `This shop prevented <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)} ton CO<sub>2</sub></span><br> emission`;
       var vliegen = "flying";
-      var compensation = `This webshop prevented <strong class="co2ok-large">${compensationAmount .toFixed(1)} </strong>tonnes of CO₂ emission = <strong class="co2ok-large">${(compensationAmount * 5000).toFixed(0)} </strong>km of flying`;
-      var shipping = "This shop's climate friendly shipping neutralised shipping emissions";
-      var works = "How we do this";
+      var stepOne = "You are empowered to fight climate change by neutralising emissions from production of your purchase";
+      var stepTwo = "This shop has committed to climate friendly delivery; all emissions are neutralised through carbon offsetting projects";
+      var stepThree = `Together we offset <strong class="co2ok-small">${compensationAmount .toFixed(1)} </strong>tons of CO₂ emission. Ths is equaal to <strong class="co2ok-small">${(compensationAmount * 5000).toFixed(0)} </strong>km of flying`;
+      var works = 'How do do this';
 
     } else {
 
       var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> uitstoot voorkomen`;
       var vliegen = "vliegen";
-      var compensation = `Deze webshop heeft <strong class="co2ok-large">${compensationAmount .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen = <strong class="co2ok-large">${(compensationAmount * 5000).toFixed(0)} </strong>km vliegen`;
-      var shipping = "This shop's climate friendly shipping neutralised shipping emissions";
+      var stepOne = "You are empowered to fight climate change by neutralising emissions from production of your";
+      var stepTwo = "This shop has committed to climate friendly delivery; all emissions are neutralised through carbon offsetting projects";
+      var stepThree = `Together we offset <strong class="co2ok-small">${compensationAmount .toFixed(1)} </strong>tons of CO₂ emission. Ths is equaal to <strong class="co2ok-small">${(compensationAmount * 5000).toFixed(0)} </strong>km of flying`;
       var works = 'Hoe we dat doen';
 
     }
+
 
     if (widgetSize == "L") {
 
@@ -198,17 +201,17 @@ let Co2okWidgetXL = {
 
         <div class="co2ok-large hovercard-wrapper">
           <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-large widget-info-hover-png widget-png-left">
-          <p class="co2ok-large widget-steps step-one widget-right"> ${compensation} </p>
+          <p class="co2ok-large widget-steps step-one widget-right"> ${stepOne} </p>
         </div>
 
-        <div class="co2ok-large hovercard-wrapper" style="margin: 16px 0px;">
+        <div class="co2ok-large hovercard-wrapper" style="margin: 20px 0px;">
           <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-large widget-info-hover-png widget-png-right">
-          <p class="co2ok-large widget-steps step-two widget-left"> ${shipping} </p>
+          <p class="co2ok-large widget-steps step-two widget-left"> ${stepTwo} </p>
         </div>
 
         <div class="co2ok-large hovercard-wrapper">
           <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-large widget-info-hover-png widget-png-left">
-          <p class="co2ok-large widget-steps step-one widget-right"> ${compensation} </p>
+          <p class="co2ok-large widget-steps step-one widget-right"> ${stepThree} </p>
         </div>
 
         <span class="co2ok-large widget-hovercard-links">

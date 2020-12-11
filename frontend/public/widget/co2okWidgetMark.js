@@ -25,24 +25,18 @@ let Co2okWidget = {
 
     // get impact from cookie if available
     let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
-    console.log(co2ok_impact)
-    
+
     if (co2ok_impact > 1){
       console.log('Collaborate and listen')
 
-      // ugly hack for DGL (degroenelinde)
-      // enforces impact retrieval from backend
+      // ugly hack for DGL
+      // adds seperately compensated amount
       if (merchantId == '12afe7d2' || merchantId == '432c516a') {
-        if (co2ok_impact > 100){
-          Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)
-          return
-        }
-        // for DGL: continue to retrieval and storing in the cookie
-      } else {
+        co2ok_impact = 1683 + parseInt(co2ok_impact)
+      }
 
       Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)
       return
-      }
     }
 
     // get impact from API
@@ -56,20 +50,11 @@ let Co2okWidget = {
         // let totalTransactionData = (xhr.responseText / 1000).toFixed(1)
         let totalTransactionData = xhr.responseText
         // let totalTransactionData = 491
-        
-        // ugly hack for DGL
-        // adds seperately compensated amount
-        if (merchantId == '12afe7d2' || merchantId == '432c516a') {
-          var d = new Date()
-          var month = d.getMonth() + 1 // since count starts at zero
-          month = month < 10 ? month + 12 : month // add 12 for 2021
-          totalTransactionData = 168.3 * month + parseInt(totalTransactionData)
-        }
 
         console.log(totalTransactionData)
         document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
         Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData, widgetColor, lang)
-        
+
         // Something is fishy, let's serve up the total
       } else {
         let totalTransactionData = 491
@@ -79,7 +64,22 @@ let Co2okWidget = {
     xhr.send()
       //   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
   },
-    
+
+
+  loadResources: function() {
+    images = [
+      `${this.SITE_HOST}/widget/hovercard/green_truck.png`,
+      `${this.SITE_HOST}/static/logo.png`,
+      `${this.SITE_HOST}/widget/hovercard/branch.png`,
+      `${this.SITE_HOST}/widget/hovercard/heart_plant.png`,
+      `${this.SITE_HOST}/widget/hovercard/renewable_energy.png`
+  ]
+
+    for (img of images){
+      this.preloadImage(img)
+    }
+  },
+
   widgetGenerator: function (widgetContainer, totalCompensatedData, widgetColor, lang) {
 
       // HT: FDD800
@@ -87,21 +87,28 @@ let Co2okWidget = {
       // Mijnkraamshop: D0C918
       let color = "#D0C918"
       // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-      let  SITE_HOST =  'https://co2ok.eco'
-      // let SITE_HOST = 'http://localhost:8081'
+      // let  SITE_HOST =  'https://co2ok.eco'
+      let SITE_HOST = 'http://localhost:8080'
 
+      //css for trustmark
       var fileref=document.createElement("link")
       fileref.setAttribute("rel", "stylesheet")
       fileref.setAttribute("type", "text/css")
       fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
-      
+      //css for hovercard
+      var fileref=document.createElement("link")
+      fileref.setAttribute("rel", "stylesheet")
+      fileref.setAttribute("type", "text/css")
+      fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark-a0d50fa9.css`)
+      document.getElementsByTagName("head")[0].appendChild(fileref)
+
       if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0')
       {
         console.log('hammer time!')
         return
       }
-      
+
       // Dit moet nog ff mooier als we dit nog willen gebruiken, anders kan het weg.
       if (totalCompensatedData < 100) {
         var compensatiewidget  = 0.1;
@@ -122,44 +129,59 @@ let Co2okWidget = {
          var colorSuffix = "";
      }
 
+     //force for test store
+     var compensatiewidget = 23.42;
+
       if (lang == 'EN') {
         var reductietekst = 'CO₂ reduction';
-        var compensatietekst = `This webshop prevented <strong>${compensatiewidget .toFixed(1)} </strong>tonnes of CO₂ emission <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`;
-        var how_does_it_worktekst = 'How does CO₂ offsetting work?';
-        var titletekst = 'Make my purchase Climate neutral!';
+        var stepOne = "You are empowered to fight climate change by neutralising emissions from production of your purchase";
+        var stepTwo = "This shop has committed to climate friendly delivery; all emissions are neutralised through carbon offsetting projects";
+        var stepThree = `Together we offset <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>tons of CO₂ emission. This is equal to <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`;
+        var works = "How we do this";
       }
       else {
         var reductietekst = 'CO₂ reductie';
-        var compensatietekst = `Deze webshop heeft <strong>${compensatiewidget .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen <br><br>= <strong>${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`;
-        var how_does_it_worktekst = 'Hoe werkt CO₂ compensatie?';
-        var titletekst = 'Maak mijn aankoop klimaatneutraal';
+        var stepOne = "Je kan bij ons klimaatverandering te bestrijden door de uitstoot van de productie van je aankoop te neutraliseren";
+        var stepTwo = "Deze winkel zet zich in voor een klimaatvriendelijke bezorging; alle uitstoot worden geneutraliseerd door middel van CO2-compensatieprojecten";
+        var stepThree = `Samen hebben we <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km  km vliegen.`;
+        var works = 'Hoe we dat doen';
       }
       let widgetmark = `
-      <div>
-      <div class="btn_co2ok_widget co2ok_widget_info" href="#">
-          <span class="btn_co2ok_widget co2ok_widget_info trustmark-border">SHOP<img class="logo_co2ok_widget" src="${SITE_HOST}/static/logo${colorSuffix}.png"></span>
-      </div>
-          <div class="caption_co2ok_widget co2ok_widget_info">
-              <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t ${reductietekst} </span>
-              </div>
+        <div>
+
+          <div class="btn_co2ok_widget co2ok_widget_info widget-small" href="#">
+            <span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${SITE_HOST}/static/logo${colorSuffix}.png"></span>
           </div>
-              
-      <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
+          <div class="caption_co2ok_widget co2ok_widget_info widget-small">
+            <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t ${reductietekst} </span>
+          </div>
 
-      <div class="widget-inner-wrapper">
-      <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-      <p class="widget-text-block greyBorder">${compensatietekst} </p>
-      </a>
-      <img alt="${titletekst}" title="${titletekst}" src="${SITE_HOST}/widget/vliegtuig_hover.png" class="widget-svg-img-large  co2ok_info_hover_image">
-      </div>
+        </div>
 
-      <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img src="${SITE_HOST}/static/logo.png" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
-      <span class="widget-hover-link">
-      <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">${how_does_it_worktekst}</a> </span>
-      </div>
+        <div class="co2ok_widget_infobox_container co2ok-popper hovercard-trustmark co2ok-small" id="widget-infobox-view">
 
+          <div class="co2ok-small hovercard-wrapper">
+            <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-small widget-info-hover-png widget-png-left">
+            <p class="co2ok-small widget-steps step-one widget-right"> ${stepOne} </p>
+          </div>
 
-      `;
+          <div class="co2ok-small hovercard-wrapper" style="margin: 20px 0px;">
+            <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-small widget-info-hover-png widget-png-right">
+            <p class="co2ok-small widget-steps step-two widget-left"> ${stepTwo} </p>
+          </div>
+
+          <div class="co2ok-small hovercard-wrapper">
+            <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-small widget-info-hover-png widget-png-left">
+            <p class="co2ok-small widget-steps step-one widget-right"> ${stepThree} </p>
+          </div>
+
+          <span class="co2ok-small widget-hovercard-links">
+            <a class="co2ok-small widget-compensation" target="_blank" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
+          </span>
+          <img class="co2ok-small widget-branch-png" src="${SITE_HOST}/widget/hovercard/branch.png">
+
+        </div>
+      `
               // console.log(widgetimg)
 
       let widgetcontainer = document.getElementById(widgetContainer)
@@ -187,46 +209,48 @@ let Co2okWidget = {
       isExistingjQueryElement: function(selector) {
           return !!jQuery(selector).length;
   },
-  
 
-  
+
   placeWidgetInfoBox : function() {
       // console.log('Platz? Lebensraum!')
       var widgetInfoButton = jQuery(".co2ok_widget_info");
-      var widgetInfoBox = jQuery(".co2ok_widget_infobox_container");
+      var widgetInfoBox = jQuery(".hovercard-trustmark");
       var offset = widgetInfoButton.offset();
 
       widgetInfoBox.remove();
       jQuery("body").append(widgetInfoBox);
 
       if (jQuery(window).width() < 480) {
-      // offset.left = offset.left - widgetInfoBox.width() / 4;
-      offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.height() - 9);
-      if ( offset.left < 0) offset.left = 10;
-      if ( offset.top < 0) offset.top = 10;
-      widgetInfoBox.css({
-          top: offset.top,
-          margin: "0 auto",
-          left: offset.left,
-          transform: "none"
-      });
+        // offset.left = offset.left - widgetInfoBox.width() / 4;
+        offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.height() - 9);
+        if ( offset.left < 0) offset.left = 10;
+        if ( offset.top < 0) offset.top = 10;
+        widgetInfoBox.css({
+            top: offset.top,
+            margin: "0 auto",
+            left: offset.left,
+            transform: "none"
+        });
       } else {
-      offset.left = offset.left - widgetInfoBox.width() / 2;
-      if ( offset.left < 0) offset.left = 10;
-      offset.top = offset.top - (widgetInfoButton.height()) - widgetInfoBox.height() + 6;
-      widgetInfoBox.css({
+        offset.left = offset.left - widgetInfoBox.outerWidth() / 2 + widgetInfoButton.outerWidth() / 2;
+        if ( offset.left < 0) offset.left = 10;
+        offset.top = offset.top + widgetInfoBox.height() - 20;
+        if (offset.top > jQuery(window).height() - widgetInfoBox.outerWidth()) {
+          offset.top = offset.top - widgetInfoButton.height() - widgetInfoBox.outerWidth() + 6;
+        }
+        widgetInfoBox.css({
           top: offset.top,
           left: offset.left,
           margin: "0",
           transform: "none"
-      });
+        });
       }
   },
   ShowWidgetInfoBox  : function()
   {
       // console.log("Show must go on")
-    jQuery(".co2ok_widget_infobox_container").removeClass('infobox-hidden')
-    jQuery(".co2ok_widget_infobox_container").addClass('ShowWidgetInfoBox')
+    jQuery(".hovercard-trustmark").removeClass('infobox-hidden')
+    jQuery(".hovercard-trustmark").addClass('ShowWidgetInfoBox')
     jQuery(".co2ok_widget_container").css({
       marginBottom: 200
     });
@@ -238,8 +262,8 @@ let Co2okWidget = {
 
   hideWidgetInfoBox : function()
   {
-    jQuery(".co2ok_widget_infobox_container").removeClass('ShowWidgetInfoBox')
-    jQuery(".co2ok_widget_infobox_container").addClass('infobox-hidden')
+    jQuery(".hovercard-trustmark").removeClass('ShowWidgetInfoBox')
+    jQuery(".hovercard-trustmark").addClass('infobox-hidden')
     jQuery(".co2ok_widget_container").css({
       marginBottom: 0
     });
@@ -247,15 +271,8 @@ let Co2okWidget = {
 
   modalRegex: function(e)
   {
-     return jQuery(e.target).hasClass("widget-svg-img") ||
-     jQuery(e.target).hasClass("widget-svg-img-large") ||
-     jQuery(e.target).hasClass("logo_co2ok_widget") ||
-     jQuery(e.target).hasClass("widget-text-block") ||
-     jQuery(e.target).hasClass("widget-inner-wrapper") ||
-     jQuery(e.target).hasClass("co2ok_widget_info") ||
-     jQuery(e.target).hasClass("co2ok_widget_info_hitarea") ||
-     jQuery(e.target).hasClass("co2ok_widget_infobox_container") ||
-     jQuery(e.target).hasClass("widget-hover-link");
+    return jQuery(e.target).hasClass("co2ok-small") ||
+    jQuery(e.target).hasClass("widget-small");
   },
 
   RegisterWidgetInfoBox : function()
@@ -317,7 +334,7 @@ let Co2okWidget = {
 
 
 // New style Async execution B)
-// if the variables are set on the script src, we're in async mode 
+// if the variables are set on the script src, we're in async mode
 // and don't expect the html to run merchantCompensations
 
 if (document.currentScript.getAttribute('div')) {

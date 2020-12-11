@@ -1,6 +1,6 @@
 .co2ok_widget_infobox_container {
 	position: absolute;
-	width: 330px;
+	width: 340px;
 	height: 390px;
 	background: white;
 	border-radius: 15px;
@@ -28,7 +28,7 @@
 .widget-steps {
 	color: black !important;
 	font-family: Roboto, sans-serif !important;
-	font-size: 14px !important;
+	font-size: 13px !important;
 	line-height: 1.25rem  !important;
 	text-decoration: none !important; }
 
@@ -37,19 +37,19 @@
 	z-index: 1; }
 
 .widget-left {
-	width: 56%;
+	width: 59%;
 	margin: auto;
 	margin-left: 5px !important; }
 
 .widget-right {
 	margin: auto;
-	margin-left: 123px !important; }
+	margin-left: 109px !important; }
 
 .widget-png-right {
 	position: absolute;
-	width: 43%;
+	width: 39%;
 	right: 8px;
-	margin-top: -30px; }
+	margin-top: -23px; }
 
 .widget-png-left {
 	position: absolute;
@@ -60,9 +60,10 @@
 	text-align: center !important;
 	font-family: Roboto, sans-serif !important;
 	font-size: 14px !important;
+	font-style: italic;
 	line-height: 1.25rem  !important;
 	display: flex !important;
-	margin-top: 19px !important; }
+	margin-top: 12px !important; }
 
 .widget-compensation {
 	margin: auto !important;
@@ -70,13 +71,13 @@
 	color: black !important;
 	border: 2px solid #d9d7d7;
 	font-family: Roboto, sans-serif !important;
-	font-size: 14px !important;
+	font-size: 13px !important;
 	line-height: 1.25rem  !important;
 	background: white;
 	border-radius: 5px;
 	text-align: center !important;
 	width: 42%;
-	padding: 4px !important; }
+	padding: 3px !important; }
 	.widget-compensation:hover {
 		opacity: 1;
 	}

@@ -87,8 +87,8 @@ let Co2okWidget = {
       // Mijnkraamshop: D0C918
       let color = "#D0C918"
       // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-      let  SITE_HOST =  'https://co2ok.eco'
-      // let SITE_HOST = 'http://localhost:8080'
+      // let  SITE_HOST =  'https://co2ok.eco'
+      let SITE_HOST = 'http://localhost:8080'
 
       //css for trustmark
       var fileref=document.createElement("link")
@@ -134,14 +134,16 @@ let Co2okWidget = {
 
       if (lang == 'EN') {
         var reductietekst = 'CO₂ reduction';
-        var compensation = `This webshop prevented <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>tonnes of CO₂ emission = <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`;
-        var shipping = "This shop's climate friendly shipping neutralised shipping emissions.";
+        var stepOne = "You are empowered to fight climate change by neutralising emissions from production of your purchase";
+        var stepTwo = "This shop has committed to climate friendly delivery; all emissions are neutralised through carbon offsetting projects";
+        var stepThree = `Together we offset <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>tons of CO₂ emission. Ths is equaal to <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`;
         var works = "How we do this";
       }
       else {
         var reductietekst = 'CO₂ reductie';
-        var compensation = `Deze webshop heeft <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>ton CO₂-uitstoot voorkomen = <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen`;
-        var shipping = "De klimaatvriendelijke verzending van deze winkel neutraliseerde de uitstoot van de scheepvaart";
+        var stepOne = "You are empowered to fight climate change by neutralising emissions from production of your";
+        var stepTwo = "This shop has committed to climate friendly delivery; all emissions are neutralised through carbon offsetting projects";
+        var stepThree = `Together we offset <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>tons of CO₂ emission. Ths is equaal to <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`;
         var works = 'Hoe we dat doen';
       }
       let widgetmark = `
@@ -160,17 +162,17 @@ let Co2okWidget = {
 
           <div class="co2ok-small hovercard-wrapper">
             <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-small widget-info-hover-png widget-png-left">
-            <p class="co2ok-small widget-steps step-one widget-right"> ${compensation} </p>
+            <p class="co2ok-small widget-steps step-one widget-right"> ${stepOne} </p>
           </div>
 
-          <div class="co2ok-small hovercard-wrapper" style="margin: 16px 0px;">
+          <div class="co2ok-small hovercard-wrapper" style="margin: 20px 0px;">
             <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-small widget-info-hover-png widget-png-right">
-            <p class="co2ok-small widget-steps step-two widget-left"> ${shipping} </p>
+            <p class="co2ok-small widget-steps step-two widget-left"> ${stepTwo} </p>
           </div>
 
           <div class="co2ok-small hovercard-wrapper">
             <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-small widget-info-hover-png widget-png-left">
-            <p class="co2ok-small widget-steps step-one widget-right"> ${compensation} </p>
+            <p class="co2ok-small widget-steps step-one widget-right"> ${stepThree} </p>
           </div>
 
           <span class="co2ok-small widget-hovercard-links">
