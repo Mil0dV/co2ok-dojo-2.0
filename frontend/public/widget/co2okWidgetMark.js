@@ -87,20 +87,14 @@ let Co2okWidget = {
       // Mijnkraamshop: D0C918
       let color = "#D0C918"
       // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-      // let  SITE_HOST =  'https://co2ok.eco'
-      let SITE_HOST = 'http://localhost:8080'
+      let  SITE_HOST =  'https://co2ok.eco'
+      // let SITE_HOST = 'http://localhost:8080'
 
-      //css for trustmark
+      //css for trustmark and hovercard
       var fileref=document.createElement("link")
       fileref.setAttribute("rel", "stylesheet")
       fileref.setAttribute("type", "text/css")
       fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
-      document.getElementsByTagName("head")[0].appendChild(fileref)
-      //css for hovercard
-      var fileref=document.createElement("link")
-      fileref.setAttribute("rel", "stylesheet")
-      fileref.setAttribute("type", "text/css")
-      fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark-a0d50fa9.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
 
       if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0')
@@ -141,7 +135,7 @@ let Co2okWidget = {
       }
       else {
         var reductietekst = 'CO₂ reductie';
-        var stepOne = "Je kan bij ons klimaatverandering te bestrijden door de uitstoot van de productie van je aankoop te neutraliseren";
+        var stepOne = "Je kan bij ons klimaatverandering bestrijden door de uitstoot van de productie van je aankoop te neutraliseren";
         var stepTwo = "Deze winkel zet zich in voor een klimaatvriendelijke bezorging; alle uitstoot worden geneutraliseerd door middel van CO2-compensatieprojecten";
         var stepThree = `Samen hebben we <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km  km vliegen.`;
         var works = 'Hoe we dat doen';
