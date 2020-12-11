@@ -2,17 +2,45 @@ let Co2okWidgetXL = {
 
   xhr: function() {
 
-      let xhr;
+    let xhr;
 
-      if (window.XMLHttpRequest) {
-          // code for IE7+, Firefox, Chrome, Opera, Safari
-          xhr = new XMLHttpRequest();
+    if (window.XMLHttpRequest) {
+      // code for IE7+, Firefox, Chrome, Opera, Safar
+      xhr = new XMLHttpRequest();
+    } else {
+      // code for IE6, IE
+      xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    return xhr;
+  },
+
+  getCookieValue: function (a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b ? b.pop() : '';
+  },
+
+
+  merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor, lang) {	      let xhr;
+
+    // get impact from cookie if available
+    let co2ok_impact = Co2okWidgetXL.getCookieValue('co2ok_impact')
+
+    if (co2ok_impact > 1){
+      console.log('Collaborate and listen')
+
+      // ugly hack for DGL (degroenelinde)
+      // enforces impact retrieval from backend
+      if (merchantId == '12afe7d2' || merchantId == '432c516a') {
+        if (co2ok_impact > 100){
+          Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
+          return
+        }
+        // for DGL: continue to retrieval and storing in the cookie
       } else {
-          // code for IE6, IE5
-          xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
+        return
       }
-
-      return xhr;
+    }
 
   },
 
