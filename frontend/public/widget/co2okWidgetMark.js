@@ -137,9 +137,6 @@ let Co2okWidget = {
          var colorSuffix = "";
      }
 
-     //force for test store
-     var compensatiewidget = 23.42;
-
       if (lang == 'EN') {
         var reductietekst = 'CO₂ reduction';
         var stepOne = "You are empowered to fight climate change by neutralising emissions from production of your purchase";
