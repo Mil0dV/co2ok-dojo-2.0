@@ -1,3 +1,7 @@
+html {
+  font-size: initial !important;
+}
+
 .co2ok_widget_container .co2ok_widget_payoff #p .co2ok_widget_info_hitarea {
     height: 72px;
     width: 72px;
@@ -44,6 +48,7 @@
   color: black !important;
   font-family: Roboto, sans-serif !important;
   font-size: 13px !important;
+  letter-spacing: initial !important;
   line-height: 1.25rem  !important;
   text-decoration: none !important; }
 
@@ -172,4 +177,3 @@ background-color: black; }
       margin-top:4px;
       text-align: center;
         }
-        
