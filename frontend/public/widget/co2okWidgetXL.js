@@ -25,6 +25,10 @@ let Co2okWidgetXL = {
     // get impact from cookie if available
     let co2ok_impact = Co2okWidgetXL.getCookieValue('co2ok_impact')
 
+    //ungly hack for demo store
+    if (merchantId == 'a0d50fa9')
+      co2ok_impact = 2342;
+
     if (co2ok_impact > 1){
       console.log('Collaborate and listen')
 
@@ -127,8 +131,8 @@ let Co2okWidgetXL = {
     // Mijnkraamshop: D0C918
     let color = "#D0C918"
     // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-    let  SITE_HOST =  'https://co2ok.eco'
-    // let SITE_HOST = 'http://localhost:8080'
+    // let  SITE_HOST =  'https://co2ok.eco'
+    let SITE_HOST = 'http://localhost:8080'
     //css for hovercard
     var fileref=document.createElement("link")
     fileref.setAttribute("rel", "stylesheet")
@@ -152,10 +156,6 @@ let Co2okWidgetXL = {
       }
       var compensationAmount  = totalCompensatedData / 1000;
     }
-
-    //to beef up demo store comp amount
-    if (merchantId == 'a0d50fa9')
-      compensationAmount = 23.42;
 
     if (lang == 'EN') {
 

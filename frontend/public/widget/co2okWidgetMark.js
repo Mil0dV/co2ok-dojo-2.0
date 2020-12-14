@@ -26,7 +26,11 @@ let Co2okWidget = {
     // get impact from cookie if available
     let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
 
-    if (co2ok_impact > 1){
+    //ungly hack for demo store
+    if (merchantId == 'a0d50fa9')
+      co2ok_impact = 2342;
+
+      if (co2ok_impact > 1){
       console.log('Collaborate and listen')
 
       // ugly hack for DGL (degroenelinde)
@@ -122,10 +126,6 @@ let Co2okWidget = {
       else {
         var compensatiewidget  = totalCompensatedData / 1000;
       }
-
-       //to beef up demo store comp amount
-      if (merchantId == 'a0d50fa9')
-        compensatiwidget = 23.42;
 
       // Regular or grayscale widget
       if (widgetColor == "gray") {
