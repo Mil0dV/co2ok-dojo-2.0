@@ -14,7 +14,7 @@
     text-align: initial !important;
   }
   
-  .large-widget-right-green {
+  .large-widget-right-hutspot {
   position: absolute;
   border-radius: 7px;
   left:40.84%;
@@ -22,8 +22,19 @@
   top: 0;
   bottom: 0;
   
-  background: linear-gradient(180deg, #1DEFAC 0%, #08BE51 100%);
+  background: linear-gradient(180deg, #7081A9 0%, #4F5B77 100%);
   }
+
+  .large-widget-right-green {
+    position: absolute;
+    border-radius: 7px;
+    left:40.84%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    
+    background: linear-gradient(180deg, #1DEFAC 0%, #08BE51 100%);
+    }
   
   #half-circle {
   position:absolute;
