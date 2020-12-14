@@ -29,10 +29,8 @@ let Co2okWidget = {
     if (co2ok_impact > 1){
       console.log('Collaborate and listen')
 
-      // ugly hack for DGL
-      // adds seperately compensated amount
-           // ugly hack for DGL (degroenelinde)	      // ugly hack for DGL
-      // enforces impact retrieval from backend	      // adds seperately compensated amount
+      // ugly hack for DGL (degroenelinde)
+      // enforces impact retrieval from backend
       if (merchantId == '12afe7d2' || merchantId == '432c516a') {
         if (co2ok_impact > 100){
           Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)	      }
@@ -124,6 +122,11 @@ let Co2okWidget = {
       else {
         var compensatiewidget  = totalCompensatedData / 1000;
       }
+
+       //to beef up demo store comp amount
+      if (merchantId == 'a0d50fa9')
+        compensatiwidget = 23.42;
+
       // Regular or grayscale widget
       if (widgetColor == "gray") {
         var colorSuffix = "-gray";

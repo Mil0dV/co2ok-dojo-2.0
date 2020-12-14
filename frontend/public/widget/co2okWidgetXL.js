@@ -153,6 +153,10 @@ let Co2okWidgetXL = {
       var compensationAmount  = totalCompensatedData / 1000;
     }
 
+    //to beef up demo store comp amount
+    if (merchantId == 'a0d50fa9')
+      compensationAmount = 23.42;
+
     if (lang == 'EN') {
 
       var compensatietekst = `This shop prevented <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)} ton CO<sub>2</sub></span><br> emission`;
