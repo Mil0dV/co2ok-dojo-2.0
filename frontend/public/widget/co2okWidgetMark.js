@@ -355,5 +355,5 @@ if (document.currentScript.getAttribute('div')) {
 
 let  SITE_HOST =  'https://co2ok.eco'
 // let SITE_HOST = 'http://localhost:8080'
-Co2okWidgetXL.loadResources()
+Co2okWidget.loadResources()
 
