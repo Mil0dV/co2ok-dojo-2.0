@@ -30,20 +30,23 @@ let Co2okWidget = {
     if (merchantId == 'a0d50fa9')
       co2ok_impact = 2342;
 
+      // if there is an impact value found in the cookie, render the widget
       if (co2ok_impact > 1){
-      console.log('Collaborate and listen')
+        console.log('Collaborate and listen')
 
-      // ugly hack for DGL (degroenelinde)
-      // enforces impact retrieval from backend
-      if (merchantId == '12afe7d2' || merchantId == '432c516a') {
-        if (co2ok_impact > 100){
-          Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)	      }
+        // ugly hack for DGL (degroenelinde)
+        // enforces impact retrieval from backend
+        if (merchantId == '12afe7d2' || merchantId == '432c516a') {
+          // for DGL: continue to retrieval and storing in the cookie if the actual value hasn't been stored
+          // (100 is the default value in WC)
+          if (co2ok_impact > 100){
+            Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)
+            return
+          }
+        } else {
+          Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)
           return
         }
-        // for DGL: continue to retrieval and storing in the cookie
-      } else {
-        Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)
-        return
       }
 
     // get impact from API
@@ -102,9 +105,6 @@ let Co2okWidget = {
       // CO2ok nu: 11D073
       // Mijnkraamshop: D0C918
       let color = "#D0C918"
-      // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-      let  SITE_HOST =  'https://co2ok.eco'
-      // let SITE_HOST = 'http://localhost:8080'
 
       //css for trustmark and hovercard
       var fileref=document.createElement("link")
@@ -352,3 +352,8 @@ if (document.currentScript.getAttribute('div')) {
   let lang = document.currentScript.getAttribute('lang')
   Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
 }
+
+let  SITE_HOST =  'https://co2ok.eco'
+// let SITE_HOST = 'http://localhost:8080'
+Co2okWidgetXL.loadResources()
+

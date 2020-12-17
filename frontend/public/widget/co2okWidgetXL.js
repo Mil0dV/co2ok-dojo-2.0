@@ -35,40 +35,16 @@ let Co2okWidgetXL = {
       // ugly hack for DGL (degroenelinde)
       // enforces impact retrieval from backend
       if (merchantId == '12afe7d2' || merchantId == '432c516a') {
+        // for DGL: continue to retrieval and storing in the cookie if the actual value hasn't been stored
+        // (100 is the default value in WC)
         if (co2ok_impact > 100){
           Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
           return
         }
-        // for DGL: continue to retrieval and storing in the cookie
       } else {
         Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
         return
       }
-    }
-
-  },
-
-  getCookieValue: function (a) {
-    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
-    return b ? b.pop() : '';
-  },
-
-  merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor, lang) {
-
-    // get impact from cookie if available
-    let co2ok_impact = Co2okWidgetXL.getCookieValue('co2ok_impact')
-
-    if (co2ok_impact > 1){
-      console.log('Collaborate and listen today')
-
-      // ugly hack for DGL
-      // adds seperately compensated amount
-      if (merchantId == '12afe7d2' || merchantId == '432c516a') {
-        co2ok_impact = 1683 + parseInt(co2ok_impact)
-      }
-
-      Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
-      return
     }
 
     // var widgetColor = "gray"
@@ -86,6 +62,15 @@ let Co2okWidgetXL = {
         // let totalTransactionData = (xhr.responseText / 1000).toFixed(1)
         let totalTransactionData = xhr.responseText
         // let totalTransactionData = 491
+
+        // ugly hack for DGL
+        // adds seperately compensated amount
+        if (merchantId == '12afe7d2' || merchantId == '432c516a') {
+          var d = new Date()
+          var month = d.getMonth() + 1 // since count starts at zero
+          month = month < 10 ? month + 12 : month // add 12 for 2021
+          totalTransactionData = 168.3 * month + parseInt(totalTransactionData)
+        }
 
         console.log(totalTransactionData)
         document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
@@ -130,9 +115,7 @@ let Co2okWidgetXL = {
     // CO2ok nu: 11D073
     // Mijnkraamshop: D0C918
     let color = "#D0C918"
-    // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-    let  SITE_HOST =  'https://co2ok.eco'
-    // let SITE_HOST = 'http://localhost:8080'
+
     //css for hovercard
     var fileref=document.createElement("link")
     fileref.setAttribute("rel", "stylesheet")
@@ -420,8 +403,6 @@ if (document.currentScript.getAttribute('div')) {
   Co2okWidgetXL.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
 }
 
-jQuery(document).ready(function() {
-  console.log("CO2ok is fighting climate change!")
-  Co2okWidgetXL.loadResources()
-  // Co2okWidgetXL.insertInfoHoverHtml(widgetSize);
-})
+let  SITE_HOST =  'https://co2ok.eco'
+// let SITE_HOST = 'http://localhost:8080'
+Co2okWidgetXL.loadResources()
