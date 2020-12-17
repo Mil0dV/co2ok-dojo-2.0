@@ -34,7 +34,8 @@ let Co2okWidget = {
       }
 
     // get impact from API
-    let xhr = Co2okWidget.xhr()
+    let xhr = new XMLHttpRequest();
+
     // let host = 'http://127.0.0.1:8000'
     let host = 'https://app.co2ok.eco'
     xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=${merchantId}`, true)
