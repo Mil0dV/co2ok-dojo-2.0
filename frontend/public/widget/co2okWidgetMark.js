@@ -329,6 +329,9 @@ let Co2okWidget = {
 }
 // export default new Co2okWidget()
 
+Co2okWidget.SITE_HOST =  'https://co2ok.eco'
+// let SITE_HOST = 'http://localhost:8080'
+Co2okWidget.loadResources()
 
 // New style Async execution B)
 // if the variables are set on the script src, we're in async mode
@@ -341,8 +344,3 @@ if (document.currentScript.getAttribute('div')) {
   let lang = document.currentScript.getAttribute('lang')
   Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
 }
-
-Co2okWidget.SITE_HOST =  'https://co2ok.eco'
-// let SITE_HOST = 'http://localhost:8080'
-Co2okWidget.loadResources()
-
