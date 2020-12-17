@@ -1,26 +1,12 @@
 let Co2okWidgetXL = {
 
-  xhr: function() {
-
-    let xhr;
-
-    if (window.XMLHttpRequest) {
-      // code for IE7+, Firefox, Chrome, Opera, Safar
-      xhr = new XMLHttpRequest();
-    } else {
-      // code for IE6, IE
-      xhr = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    return xhr;
-  },
-
   getCookieValue: function (a) {
     var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
     return b ? b.pop() : '';
   },
 
 
-  merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor, lang) {	      let xhr;
+  merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor, lang) {	      
 
     // get impact from cookie if available
     let co2ok_impact = Co2okWidgetXL.getCookieValue('co2ok_impact')

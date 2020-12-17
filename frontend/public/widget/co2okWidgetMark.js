@@ -1,21 +1,5 @@
 let Co2okWidget = {
 
-  xhr: function() {
-
-      let xhr;
-
-      if (window.XMLHttpRequest) {
-          // code for IE7+, Firefox, Chrome, Opera, Safari
-          xhr = new XMLHttpRequest();
-      } else {
-          // code for IE6, IE5
-          xhr = new ActiveXObject("Microsoft.XMLHTTP");
-      }
-
-      return xhr;
-
-  },
-
   getCookieValue: function (a) {
     var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
     return b ? b.pop() : '';
@@ -84,6 +68,10 @@ let Co2okWidget = {
       //   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
   },
 
+  preloadImage: function (url) {
+    var img=new Image();
+    img.src=url;
+  },
 
   loadResources: function() {
     images = [
@@ -353,7 +341,7 @@ if (document.currentScript.getAttribute('div')) {
   Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
 }
 
-let  SITE_HOST =  'https://co2ok.eco'
+Co2okWidget.SITE_HOST =  'https://co2ok.eco'
 // let SITE_HOST = 'http://localhost:8080'
 Co2okWidget.loadResources()
 
