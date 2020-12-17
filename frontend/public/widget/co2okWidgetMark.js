@@ -98,7 +98,7 @@ let Co2okWidget = {
       var fileref=document.createElement("link")
       fileref.setAttribute("rel", "stylesheet")
       fileref.setAttribute("type", "text/css")
-      fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
+      fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
 
       if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0')
@@ -121,7 +121,7 @@ let Co2okWidget = {
         var fileref=document.createElement("link")
         fileref.setAttribute("rel", "stylesheet")
         fileref.setAttribute("type", "text/css")
-        fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark-gray.css`)
+        fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-gray.css`)
         document.getElementsByTagName("head")[0].appendChild(fileref)
      }
      else {
@@ -146,7 +146,7 @@ let Co2okWidget = {
         <div>
 
           <div class="btn_co2ok_widget co2ok_widget_info widget-small" href="#">
-            <span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${SITE_HOST}/static/logo${colorSuffix}.png"></span>
+            <span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${this.SITE_HOST}/static/logo${colorSuffix}.png"></span>
           </div>
           <div class="caption_co2ok_widget co2ok_widget_info widget-small">
             <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t ${reductietekst} </span>
@@ -157,24 +157,24 @@ let Co2okWidget = {
         <div class="co2ok_widget_infobox_container co2ok-popper hovercard-trustmark co2ok-small" id="widget-infobox-view">
 
           <div class="co2ok-small hovercard-wrapper">
-            <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-small widget-info-hover-png widget-png-left">
+            <img alt="Production emissions" title="Production emissions" src="${this.SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-small widget-info-hover-png widget-png-left">
             <p class="co2ok-small widget-steps step-one widget-right"> ${stepOne} </p>
           </div>
 
           <div class="co2ok-small hovercard-wrapper" style="margin: 20px 0px;">
-            <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-small widget-info-hover-png widget-png-right">
+            <img alt="Shipping emissions" title="Shipping emissions" src="${this.SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-small widget-info-hover-png widget-png-right">
             <p class="co2ok-small widget-steps step-two widget-left"> ${stepTwo} </p>
           </div>
 
           <div class="co2ok-small hovercard-wrapper">
-            <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-small widget-info-hover-png widget-png-left">
+            <img alt="Production emissions" title="Production emissions" src="${this.SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-small widget-info-hover-png widget-png-left">
             <p class="co2ok-small widget-steps step-one widget-right"> ${stepThree} </p>
           </div>
 
           <span class="co2ok-small widget-hovercard-links">
             <a class="co2ok-small widget-compensation" target="_blank" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
           </span>
-          <img class="co2ok-small widget-branch-png" src="${SITE_HOST}/widget/hovercard/branch.png">
+          <img class="co2ok-small widget-branch-png" src="${this.SITE_HOST}/widget/hovercard/branch.png">
 
         </div>
       `
