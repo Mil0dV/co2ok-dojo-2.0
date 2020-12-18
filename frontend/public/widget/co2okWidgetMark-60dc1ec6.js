@@ -104,34 +104,50 @@ let Co2okWidget = {
         var image_url = "https://happytowels.nl/wp-content/plugins/co2ok-for-woocommerce/images";
       }
 
-              let widgetimg = `<img src = "${SITE_HOST}/widget/widgetmark-grayscale.png" width=101px>`
-              let widgetmark = `
-              <div>
-              <div class="btn_co2ok_widget co2ok_widget_info" href="#">
-                  <span class="btn_co2ok_widget co2ok_widget_info">SHOP<img class="logo_co2ok_widget" src="${SITE_HOST}/static/logo.png"></span>
-              </div>
-                  <div class="caption_co2ok_widget co2ok_widget_info">
-                      <span> <strong>${(totalCompensatedData/ 1000).toFixed(1)}</strong>t CO₂ reductie </span>
-                      </div>
-                  </div>
-                      
-              <div class="co2ok_widget_infobox_container co2ok-popper" id="widget-infobox-view">
 
-              <div class="widget-inner-wrapper">
-              <a href="#!" input type="text" role="button" tabindex="0" class="selectable-text first-text-to-select" style="outline: none; -webkit-appearance: none;">
-              <p class="widget-text-block greyBorder">Deze webshop heeft <strong>${(totalCompensatedData/ 1000).toFixed(1)} </strong>ton CO&#8322;-uitstoot voorkomen <br>= <strong>${(totalCompensatedData * 5).toFixed(0)} </strong>km vliegen</p>
-              </a>
-              <img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${SITE_HOST}/widget/vliegtuig_hover.png" class="widget-svg-img-large  co2ok_info_hover_image">
-              </div>
-      
-              <a class="widget-hover-link" target="_blank" href="http://co2ok.eco"><img alt="Maak mijn aankoop klimaatneutraal " title="Maak mijn aankoop klimaatneutraal " src="${image_url}/logo.svg" class="co2ok_logo_default_info widget-hover-link co2ok_logo_default_info"></a>
-              <span class="widget-hover-link">
-              <a  class="widget-hover-link" target="_blank" href="http://www.co2ok.eco/co2-compensatie">Hoe werkt CO2 compensatie?</a> </span>
-              </div>
-      
-        
-              
-              `
+      var reductietekst = 'CO₂ reductie';
+      var stepOne = "Je kan bij ons klimaatverandering bestrijden door de uitstoot van de productie van je aankoop te neutraliseren";
+      var stepTwo = "Deze winkel zet zich in voor een klimaatvriendelijke bezorging; alle uitstoot worden geneutraliseerd door middel van CO2-compensatieprojecten";
+      var stepThree = `Samen hebben we <strong class="co2ok-small">${(totalCompensatedData/ 1000).toFixed(1)}</strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(totalCompensatedData * 5).toFixed(0)} </strong>km  km vliegen.`;
+      var works = 'Hoe we dat doen';
+    
+    let widgetmark = `
+      <div>
+
+        <div class="btn_co2ok_widget co2ok_widget_info widget-small" href="#">
+          <span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${SITE_HOST}/static/logo.png"></span>
+        </div>
+        <div class="caption_co2ok_widget co2ok_widget_info widget-small">
+          <span> <strong>${(totalCompensatedData/ 1000).toFixed(1)}</strong>t ${reductietekst} </span>
+        </div>
+
+      </div>
+
+      <div class="co2ok_widget_infobox_container co2ok-popper hovercard-trustmark co2ok-small" id="widget-infobox-view">
+
+        <div class="co2ok-small hovercard-wrapper">
+          <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-small widget-info-hover-png widget-png-left">
+          <p class="co2ok-small widget-steps step-one widget-right"> ${stepOne} </p>
+        </div>
+
+        <div class="co2ok-small hovercard-wrapper" style="margin: 20px 0px;">
+          <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-small widget-info-hover-png widget-png-right">
+          <p class="co2ok-small widget-steps step-two widget-left"> ${stepTwo} </p>
+        </div>
+
+        <div class="co2ok-small hovercard-wrapper">
+          <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-small widget-info-hover-png widget-png-left">
+          <p class="co2ok-small widget-steps step-one widget-right"> ${stepThree} </p>
+        </div>
+
+        <span class="co2ok-small widget-hovercard-links">
+          <a class="co2ok-small widget-compensation" target="_blank" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
+        </span>
+        <img class="co2ok-small widget-branch-png" src="${SITE_HOST}/widget/hovercard/branch.png">
+
+      </div>
+
+      `
               // console.log(widgetimg)
 
       let widgetcontainer = document.getElementById(widgetContainer)
@@ -210,11 +226,7 @@ let Co2okWidget = {
 
   modalRegex: function(e)
   {
-     return jQuery(e.target).hasClass("widget-svg-img") ||
-     jQuery(e.target).hasClass("widget-svg-img-large") ||
-     jQuery(e.target).hasClass("logo_co2ok_widget") ||
-     jQuery(e.target).hasClass("widget-text-block") ||
-     jQuery(e.target).hasClass("widget-inner-wrapper") ||
+     return jQuery(e.target).hasClass("co2ok-small") ||
      jQuery(e.target).hasClass("co2ok_widget_info") ||
      jQuery(e.target).hasClass("co2ok_widget_info_hitarea") ||
      jQuery(e.target).hasClass("co2ok_widget_infobox_container") ||

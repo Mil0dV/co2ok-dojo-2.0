@@ -1,21 +1,5 @@
 let Co2okWidget = {
 
-  xhr: function() {
-
-      let xhr;
-
-      if (window.XMLHttpRequest) {
-          // code for IE7+, Firefox, Chrome, Opera, Safari
-          xhr = new XMLHttpRequest();
-      } else {
-          // code for IE6, IE5
-          xhr = new ActiveXObject("Microsoft.XMLHTTP");
-      }
-
-      return xhr;
-
-  },
-
   getCookieValue: function (a) {
     var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
     return b ? b.pop() : '';
@@ -26,24 +10,32 @@ let Co2okWidget = {
     // get impact from cookie if available
     let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
 
-    if (co2ok_impact > 1){
-      console.log('Collaborate and listen')
+    //ungly hack for demo store
+    if (merchantId == 'a0d50fa9')
+      co2ok_impact = 2342;
 
-      // ugly hack for DGL (degroenelinde)
-      // enforces impact retrieval from backend
-      if (merchantId == '12afe7d2' || merchantId == '432c516a') {
-        if (co2ok_impact > 100){
-          Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)	      }
+      // if there is an impact value found in the cookie, render the widget
+      if (co2ok_impact > 1){
+        console.log('Collaborate and listen')
+
+        // ugly hack for DGL (degroenelinde)
+        // enforces impact retrieval from backend
+        if (merchantId == '12afe7d2' || merchantId == '432c516a') {
+          // for DGL: continue to retrieval and storing in the cookie if the actual value hasn't been stored
+          // (100 is the default value in WC)
+          if (co2ok_impact > 100){
+            Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)
+            return
+          }
+        } else {
+          Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)
           return
         }
-        // for DGL: continue to retrieval and storing in the cookie
-      } else {
-        Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)
-        return
       }
 
     // get impact from API
-    let xhr = Co2okWidget.xhr()
+    let xhr = new XMLHttpRequest();
+
     // let host = 'http://127.0.0.1:8000'
     let host = 'https://app.co2ok.eco'
     xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=${merchantId}`, true)
@@ -77,6 +69,10 @@ let Co2okWidget = {
       //   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
   },
 
+  preloadImage: function (url) {
+    var img=new Image();
+    img.src=url;
+  },
 
   loadResources: function() {
     images = [
@@ -98,15 +94,12 @@ let Co2okWidget = {
       // CO2ok nu: 11D073
       // Mijnkraamshop: D0C918
       let color = "#D0C918"
-      // Het zou een idee zijn om deze te verduidelijken tov de host var hierboven
-      let  SITE_HOST =  'https://co2ok.eco'
-      // let SITE_HOST = 'http://localhost:8080'
 
       //css for trustmark and hovercard
       var fileref=document.createElement("link")
       fileref.setAttribute("rel", "stylesheet")
       fileref.setAttribute("type", "text/css")
-      fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
+      fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
 
       if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0')
@@ -123,17 +116,13 @@ let Co2okWidget = {
         var compensatiewidget  = totalCompensatedData / 1000;
       }
 
-       //to beef up demo store comp amount
-      if (merchantId == 'a0d50fa9')
-        compensatiwidget = 23.42;
-
       // Regular or grayscale widget
       if (widgetColor == "gray") {
         var colorSuffix = "-gray";
         var fileref=document.createElement("link")
         fileref.setAttribute("rel", "stylesheet")
         fileref.setAttribute("type", "text/css")
-        fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark-gray.css`)
+        fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-gray.css`)
         document.getElementsByTagName("head")[0].appendChild(fileref)
      }
      else {
@@ -158,7 +147,7 @@ let Co2okWidget = {
         <div>
 
           <div class="btn_co2ok_widget co2ok_widget_info widget-small" href="#">
-            <span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${SITE_HOST}/static/logo${colorSuffix}.png"></span>
+            <span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${this.SITE_HOST}/static/logo${colorSuffix}.png"></span>
           </div>
           <div class="caption_co2ok_widget co2ok_widget_info widget-small">
             <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t ${reductietekst} </span>
@@ -169,24 +158,24 @@ let Co2okWidget = {
         <div class="co2ok_widget_infobox_container co2ok-popper hovercard-trustmark co2ok-small" id="widget-infobox-view">
 
           <div class="co2ok-small hovercard-wrapper">
-            <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-small widget-info-hover-png widget-png-left">
+            <img alt="Production emissions" title="Production emissions" src="${this.SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-small widget-info-hover-png widget-png-left">
             <p class="co2ok-small widget-steps step-one widget-right"> ${stepOne} </p>
           </div>
 
           <div class="co2ok-small hovercard-wrapper" style="margin: 20px 0px;">
-            <img alt="Shipping emissions" title="Shipping emissions" src="${SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-small widget-info-hover-png widget-png-right">
+            <img alt="Shipping emissions" title="Shipping emissions" src="${this.SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-small widget-info-hover-png widget-png-right">
             <p class="co2ok-small widget-steps step-two widget-left"> ${stepTwo} </p>
           </div>
 
           <div class="co2ok-small hovercard-wrapper">
-            <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-small widget-info-hover-png widget-png-left">
+            <img alt="Production emissions" title="Production emissions" src="${this.SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-small widget-info-hover-png widget-png-left">
             <p class="co2ok-small widget-steps step-one widget-right"> ${stepThree} </p>
           </div>
 
           <span class="co2ok-small widget-hovercard-links">
             <a class="co2ok-small widget-compensation" target="_blank" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
           </span>
-          <img class="co2ok-small widget-branch-png" src="${SITE_HOST}/widget/hovercard/branch.png">
+          <img class="co2ok-small widget-branch-png" src="${this.SITE_HOST}/widget/hovercard/branch.png">
 
         </div>
       `
@@ -340,6 +329,9 @@ let Co2okWidget = {
 }
 // export default new Co2okWidget()
 
+Co2okWidget.SITE_HOST =  'https://co2ok.eco'
+// let SITE_HOST = 'http://localhost:8080'
+Co2okWidget.loadResources()
 
 // New style Async execution B)
 // if the variables are set on the script src, we're in async mode
