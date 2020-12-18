@@ -48,21 +48,21 @@ let Co2okWidgetXL = {
 
 	},
 
-	merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor, lang) {
+	merchantCompensations: function (widgetContainer) {
 
 			// get impact from cookie if available
+			console.log("merchantCompensation")
 			let co2ok_impact = Co2okWidgetXL.getCookieValue('co2ok_impact')
 
 			console.log("co2ok_impact", co2ok_impact);
-			if (co2ok_impact > 1){
-				// console.log('Collaborate and listen')
+			if (co2ok_impact > 1) {
+				console.log('Collaborate and listen')
 				if (window.location.toString().includes('sustainability')) {
-					Co2okWidgetXL.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
-				} else {
-					Co2okWidgetXL.trustmarkGenerator(widgetContainer, co2ok_impact);
+					Co2okWidgetXL.widgetGenerator("widgetContainerXL", co2ok_impact)
 				}
+				Co2okWidgetXL.trustmarkGenerator("widgetContainer", co2ok_impact);
 				Co2okWidgetXL.insertInfoHoverHtml(co2ok_impact);
-				return;
+				return ;
 			}
 
 			// get impact from API
@@ -81,19 +81,17 @@ let Co2okWidgetXL = {
 
 					document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
 					if (window.location.toString().includes('sustainability')) {
-						Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
-					} else {
-						Co2okWidgetXL.trustmarkGenerator(widgetContainer, totalTransactionData);
+						Co2okWidgetXL.widgetGenerator("widgetContainerXL", totalTransactionData)
 					}
+					Co2okWidgetXL.trustmarkGenerator("widgetContainer", totalTransactionData);
 
 					// Something is fishy, let's serve up the total
 					} else {
 						let totalTransactionData = 22300
 						if (window.location.toString().includes('sustainability')) {
-							Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
-						} else {
-							Co2okWidgetXL.trustmarkGenerator(widgetContainer, totalTransactionData);
+							Co2okWidgetXL.widgetGenerator("widgetContainerXL", totalTransactionData)
 						}
+						Co2okWidgetXL.trustmarkGenerator("widgetContainer", totalTransactionData);
 					}
 				}
 			Co2okWidgetXL.insertInfoHoverHtml(totalTransactionData);
@@ -101,6 +99,18 @@ let Co2okWidgetXL = {
 			//   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
 	},
 
+	cfsPopupInsertion: function() {
+
+	},
+
+	//product shipping page insertion
+	cfsProductInsertion: function () {
+		element = Array.from(document.querySelectorAll('div')).find(el => el.textContent === 'Shipping cost & schedule');
+		console.log(element);
+		if (element) {
+			document.querySelector('.content > p').innerHTML = `Enjoy climate friendly shipping, free above €70 </br>Delivery in 1-3 working days in NL</br>Free 14-day returns in NL`;
+		}
+	},
 
 	//marquee insertion
 	cfsMarqueeInsertion: function () {
@@ -113,28 +123,6 @@ let Co2okWidgetXL = {
 	},
 
 
-	//impact widget: either impact calc or trustmark
-	insertWidget: async function() {
-		console.log("inside insertWidget");
-
-		let pagetype = window.location.pathname.split("/")[1]
-		if (pagetype == "sustainability") {
-			console.log("xl widget on sustainability");
-			document.getElementById("widgetContainer").remove();
-			jQuery("<div id='widgetContainer' class='widgetContainer' style='margin-top:25px; margin-bottom:25px; margin-left:18px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").appendTo(document.getElementsByClassName("col-md-2")[0])
-			Co2okWidgetXL.merchantCompensations('widgetContainer', '', '', '');
-			return ;
-				// await new Promise(r => setTimeout(r, 200));
-		} else {
-			document.getElementById("widgetContainer").remove();
-			jQuery("<div id='widgetContainer' style='width:180px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").appendTo(document.getElementsByClassName("col-md-pull-4")[0])
-			Co2okWidgetXL.merchantCompensations('widgetContainer', '', '', '');
-
-			if (document.getElementById("widgetContainer") == null) {
-        return ;
-      }
-		}
-	},
 
 	//infohovercard to fall widgets
 	insertInfoHoverHtml: function(compensationAmount) {
@@ -173,8 +161,10 @@ let Co2okWidgetXL = {
 		jQuery('footer').before(infoHoverHtml)
 	},
 
+
 	//XL Gray widget
-	widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {
+	widgetGenerator: function (widgetContainer, totalCompensatedData) {
+		console.log("xl widget on sustainability");
 		var decimalsCompensation = 1;
 		if (totalCompensatedData < 100)
 			var compensationAmount  = 0.1;
@@ -187,6 +177,11 @@ let Co2okWidgetXL = {
     var compensatietekst = `This shop prevented <br><span id="large-widget-text-large" class="co2ok-widget-card">${compensationAmount .toFixed(decimalsCompensation)} ton CO<sub>2</sub></span><br> emission`;
     var vliegen = "flying";
 
+		let paragraph = `
+		<div id='co2ok-paragraph'>
+			<p>Lowering carbon emissions is a high priority for Hutspot, together with CO₂ok we are reducing our impact. Our shipping is climate friendly because Hutspot neutralises all emissions related to parcel delivery. Also, we empower you to choose to neutralise the carbon emissions related to production of your order. By limiting our carbon footprint together, we can fight climate change!</p>
+		</div>
+		`
 		let widgetmark = `
 			<div class="large-widget">
 				<span class ="large-widget-right-hutspot"></span>
@@ -198,7 +193,9 @@ let Co2okWidgetXL = {
 				<img id="large-widget-airplane" src= "${this.SITE_HOST}/widget/large-wiget-airplane.png">
 			</div>
 		`
-		jQuery("<div id='widgetContainer' style='width:180px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").appendTo(document.getElementsByClassName("col-md-pull-4")[0])
+
+		jQuery(paragraph).appendTo(document.getElementsByClassName("article-content"))
+		jQuery("<div id='widgetContainerXL' style='margin-top:25px; margin-bottom:25px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").appendTo(document.getElementsByClassName("article-content"))
 		let widgetcontainer = document.getElementById(widgetContainer)
 		widgetcontainer.innerHTML = widgetmark;
 	},
@@ -206,6 +203,7 @@ let Co2okWidgetXL = {
 
 	//trustmark generator
 	trustmarkGenerator : function(widgetContainer, totalCompensatedData) {
+		console.log("trustmark")
 		if (totalCompensatedData < 100) {
 			var compensatiewidget  = 0.1;
 		}
@@ -248,79 +246,39 @@ let Co2okWidgetXL = {
 					return !!jQuery(selector).length;
 	},
 
-	placeWidgetInfoBox : function(element_id) {
-		var elementBox = jQuery(element_id);
-		var infoHoverBox = jQuery(".co2ok_widget_infobox_container");
-		var offset = elementBox.offset();
-		var offsetMobile = elementBox.offset();
-		var windowWidth = jQuery(window).width();
+	placeWidgetInfoBox : function() {
+		// console.log('Platz? Lebensraum!')
+		var widgetInfoButton = jQuery(".co2ok_widget_info");
+		var widgetInfoBox = jQuery(".co2ok_widget_infobox_container");
+		var offset = widgetInfoButton.offset();
 
-		infoHoverBox.remove();
-		jQuery("body").append(infoHoverBox);
-		if (element_id == '.large-widget')
-		{
-			offset.left -= infoHoverBox.width() / 4;
-			if (windowWidth <= 800)
-				offset.top += elementBox.height() * 4;
-			if (windowWidth <= 800)
-				offsetMobile.left = -10;
-			else
-				offsetMobile.left -= infoHoverBox.width();
-			offsetMobile.top += elementBox.height();
-		}
-		else if (element_id == '.usp_hover_target')
-		{
-			if (windowWidth >= 1121 && windowWidth < 1400)
-				offset.left = windowWidth - 370;
-			else
-				offset.left -= 25;
-			offset.top += 20;
-			offsetMobile.left -= 45;
-			offsetMobile.top += 20;
-		}
-		else if (element_id == '.cfs_hover_target')
-		{
-			offset.left = windowWidth - 400;
-			if (offset.left < 0)
-				offset.left = 5;
-			offset.top -= 430;
-			offsetMobile.top -= 430;
-			offsetMobile.left -= infoHoverBox.width() - 10;
-		}
-		else
-			return ;
+		widgetInfoBox.remove();
+		jQuery("body").append(widgetInfoBox);
 
-		var e = window.event;
-		var posX = e.clientX;
-
-		if (offset.left < 0 && posX < windowWidth / 2) offset.left = 10;
-		if (offset.left < 0 && posX > windowWidth / 2) offset.left = windowWidth - 360;
-		if (offset.top < 0) offset.top = 10;
-		if (offsetMobile.left < 0) offsetMobile.left = 5;
-		if (offsetMobile.top < 0) offsetMobile.top = 10;
-		if (windowWidth <= 800 && windowWidth > 480 && element_id != ".large-widget") {
-			infoHoverBox.css({
-				top: offsetMobile.top,
+		if (jQuery(window).width() < 480) {
+		// offset.left = offset.left - widgetInfoBox.width() / 4;
+		offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.height() - 9);
+		if ( offset.left < 0) offset.left = 10;
+		if ( offset.top < 0) offset.top = 10;
+		widgetInfoBox.css({
+				top: offset.top,
 				margin: "0 auto",
-				left: windowWidth - 360,
+				left: offset.left,
 				transform: "none"
-			});
-		} else if (windowWidth < 480) {
-			infoHoverBox.css({
-				top: offsetMobile.top,
-				margin: "0 auto",
-				left: offsetMobile.left,
-				transform: "none"
-			});
+		});
 		} else {
-				infoHoverBox.css({
-					top: offset.top,
-					left: offset.left,
-					margin: "0",
-					transform: "none"
-				});
-			}
+		offset.left = offset.left - widgetInfoBox.width() / 2;
+		if ( offset.left < 0) offset.left = 10;
+		offset.top = offset.top - (widgetInfoButton.height()) - widgetInfoBox.height() + 6;
+		widgetInfoBox.css({
+				top: offset.top,
+				left: offset.left,
+				margin: "0",
+				transform: "none"
+		});
+		}
 	},
+
 	ShowWidgetInfoBox  : function()
 	{
 		jQuery(".co2ok_widget_infobox_container").removeClass('infobox-hidden')
@@ -339,14 +297,21 @@ let Co2okWidgetXL = {
 
 	modalRegex: function(e, element_id)
 	{
-		if (jQuery(e.target).hasClass("cfs_hover_target"))
-			return ('.cfs_hover_target');
-		else if (jQuery(e.target).hasClass("info-button-widget"))
-			return ('.large-widget')
-		else if (jQuery(e.target).hasClass("co2ok-widget-card"))
-			return (element_id);
-		else
-			return (null)
+		return jQuery(e.target).hasClass("co2ok-small") ||
+		jQuery(e.target).hasClass("widget-small") ||
+		jQuery(e.target).hasClass("co2ok_widget_info") ||
+		jQuery(e.target).hasClass("co2ok_widget_info_hitarea") ||
+		jQuery(e.target).hasClass("co2ok_widget_infobox_container") ||
+		jQuery(e.target).hasClass("widget-hover-link");
+		// console.log("e.target", e.target);
+		// if (jQuery(e.target).hasClass("cfs_hover_target"))
+		// 	return ('.cfs_hover_target');
+		// else if (jQuery(e.target).hasClass("info-button-widget"))
+		// 	return ('.large-widget')
+		// else if (jQuery(e.target).hasClass("co2ok-widget-card"))
+		// 	return (".co2ok_widget_info");
+		// else
+		// 	return (null)
 	},
 
 	RegisterWidgetInfoBox : function()
@@ -381,7 +346,7 @@ let Co2okWidgetXL = {
 
 		if(!this.isMobile())
 		{
-			jQuery(".co2ok_widget_info , .co2ok_widget_info_hitarea").mouseenter(function() {
+			jQuery(".co2ok_widget_info , .co2ok_widget_info_hitarea, widget-small").mouseenter(function() {
 				_this.placeWidgetInfoBox();
 			});
 
@@ -434,7 +399,9 @@ if (co2ok_fileswap_param == 'patch' || Co2okWidgetXL.getCookieValue('co2ok_files
 	document.cookie = 'co2ok_fileswap=;expires = Thu, 01 Jan 1970 00:00:00 GMT;'
 }
 // Co2okWidgetXL.insertInfoHoverHtml();
-Co2okWidgetXL.insertWidget();
 Co2okWidgetXL.cfsMarqueeInsertion();
+Co2okWidgetXL.cfsProductInsertion();
+Co2okWidgetXL.merchantCompensations();
+Co2okWidgetXL.cfsPopupInsertion();
 Co2okWidgetXL.RegisterWidgetInfoBox();
 })
