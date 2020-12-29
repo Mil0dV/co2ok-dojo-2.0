@@ -202,7 +202,7 @@ let Co2okWidgetXL = {
       <div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-large co2ok-large" id="widget-infobox-view">
 
         <div class="co2ok-large hovercard-wrapper">
-          <img alt="Production emissions" title="Production emissions" src="${this.SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-large widget-info-hover-png widget-png-left">
+          <img alt="Rewnewable Energy" title="Rewnewable Energy" src="${this.SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-large widget-info-hover-png widget-png-left">
           <p class="co2ok-large widget-steps step-one widget-right"> ${stepOne} </p>
         </div>
 
@@ -376,8 +376,8 @@ let Co2okWidgetXL = {
 }
   // export default new Co2okWidget()
 
-Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
-// let SITE_HOST = 'http://localhost:8080'
+// Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
+Co2okWidgetXL.SITE_HOST = 'http://localhost:8080'
 Co2okWidgetXL.loadResources()
 
 // New style Async execution B)

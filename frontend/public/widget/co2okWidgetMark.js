@@ -158,7 +158,7 @@ let Co2okWidget = {
         <div class="co2ok_widget_infobox_container co2ok-popper hovercard-trustmark co2ok-small" id="widget-infobox-view">
 
           <div class="co2ok-small hovercard-wrapper">
-            <img alt="Production emissions" title="Production emissions" src="${this.SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-small widget-info-hover-png widget-png-left">
+            <img alt="Rewnewable energy" title="Rewnewable energy" src="${this.SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-small widget-info-hover-png widget-png-left">
             <p class="co2ok-small widget-steps step-one widget-right"> ${stepOne} </p>
           </div>
 
