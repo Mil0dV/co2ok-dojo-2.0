@@ -376,8 +376,8 @@ let Co2okWidgetXL = {
 }
   // export default new Co2okWidget()
 
-// Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
-Co2okWidgetXL.SITE_HOST = 'http://localhost:8080'
+Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
+// Co2okWidgetXL.SITE_HOST = 'http://localhost:8080'
 Co2okWidgetXL.loadResources()
 
 // New style Async execution B)
