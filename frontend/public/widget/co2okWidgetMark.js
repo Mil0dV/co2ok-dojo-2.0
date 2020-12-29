@@ -79,7 +79,7 @@ let Co2okWidget = {
       `${this.SITE_HOST}/widget/hovercard/green_truck.png`,
       `${this.SITE_HOST}/static/logo.png`,
       `${this.SITE_HOST}/widget/hovercard/branch.png`,
-      `${this.SITE_HOST}/widget/hovercard/heart_plant.png`,
+      `${this.SITE_HOST}/widget/hovercard/heart_plane.png`,
       `${this.SITE_HOST}/widget/hovercard/renewable_energy.png`
   ]
 
