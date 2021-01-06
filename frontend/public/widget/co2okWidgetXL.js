@@ -141,7 +141,7 @@ let Co2okWidgetXL = {
       var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> uitstoot voorkomen`;
       var vliegen = "vliegen";
       var stepOne = "Je kan bij ons klimaatverandering bestrijden door de uitstoot van de productie van je aankoop te neutraliseren";
-      var stepTwo = "Deze winkel zet zich in voor een klimaatvriendelijke bezorging; alle uitstoot worden geneutraliseerd door middel van CO2-compensatieprojecten";
+      var stepTwo = "Deze winkel zet zich in voor een klimaatvriendelijke bezorging; alle uitstoot wordt geneutraliseerd door middel van CO2-compensatieprojecten";
       var stepThree = `Samen hebben we <strong class="co2ok-small">${compensationAmount .toFixed(1)} </strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(compensationAmount * 5000).toFixed(0)} </strong>km  km vliegen.`;
       var works = 'Hoe we dat doen';
 
