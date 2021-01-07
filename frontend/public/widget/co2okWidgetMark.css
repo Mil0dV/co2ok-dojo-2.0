@@ -131,7 +131,6 @@ html {
       text-decoration: none;
       width: 120px;
       z-index: 2; }
-
     .btn_co2ok_widget:hover .co2ok_widget_info {
       color: #ffffff !important;
       background: rgb(11, 179, 89)
@@ -179,6 +178,11 @@ html {
 .btn_co2ok_widget * {
   letter-spacing: 0px !important;
   line-height: 26px !important;
+}
+
+.widget-hovercard-links * {
+  letter-spacing: 0px !important;
+  line-height: 20px !important;
 }
 
 .widget-compensation * {
