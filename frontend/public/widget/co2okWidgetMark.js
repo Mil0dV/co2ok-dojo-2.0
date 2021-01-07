@@ -140,7 +140,7 @@ let Co2okWidget = {
         var reductietekst = 'CO₂ reductie';
         var stepOne = "Je kan bij ons klimaatverandering bestrijden door de uitstoot van de productie van je aankoop te neutraliseren";
         var stepTwo = "Deze winkel zet zich in voor een klimaatvriendelijke bezorging; alle uitstoot wordt geneutraliseerd door middel van CO2-compensatieprojecten";
-        var stepThree = `Samen hebben we <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km  km vliegen.`;
+        var stepThree = `Samen hebben we <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen.`;
         var works = 'Hoe we dat doen';
       }
       let widgetmark = `
@@ -231,9 +231,9 @@ let Co2okWidget = {
       } else {
         offset.left = offset.left - widgetInfoBox.outerWidth() / 2 + widgetInfoButton.outerWidth() / 2;
         if ( offset.left < 0) offset.left = 10;
-        offset.top = offset.top + widgetInfoBox.height() - 20;
-        if (offset.top > jQuery(window).height() - widgetInfoBox.outerWidth()) {
-          offset.top = offset.top - widgetInfoButton.height() - widgetInfoBox.outerWidth() + 6;
+        offset.top = offset.top + widgetInfoButton.outerHeight();
+        if (offset.top > jQuery(window).height() - widgetInfoBox.width()) {
+          offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.width() / 2) - 6;
         }
         widgetInfoBox.css({
           top: offset.top,

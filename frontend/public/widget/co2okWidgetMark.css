@@ -10,7 +10,7 @@ html {
     display: inline-block;
     margin-left: -17px;
     position: relative; }
-    
+
     .co2ok_widget_container .co2ok_widget_payoff #p .co2ok_widget_info_hitarea img {
     width: 18px;
     margin-top: 25px;
@@ -33,8 +33,7 @@ html {
   cursor: default;
   box-shadow: 5px 5px 10px #a0a0a0  !important;
   /* border: 4px solid #28db83; */
-  border-image-slice: 1;
-  line-height: 1.25rem  !important; }
+  border-image-slice: 1; }
   .co2ok_widget_infobox_container.ShowWidgetInfoBox {
     display: block;
     opacity: 1; }
@@ -48,8 +47,8 @@ html {
   color: black !important;
   font-family: Roboto, sans-serif !important;
   font-size: 13px !important;
-  letter-spacing: initial !important;
-  line-height: 1.25rem  !important;
+  letter-spacing: 0px !important;
+  line-height: 20px !important;
   text-decoration: none !important; }
 
 .widget-info-hover-png {
@@ -80,7 +79,7 @@ html {
   font-family: Roboto, sans-serif !important;
   font-size: 14px !important;
   font-style: italic;
-  line-height: 1.25rem  !important;
+  /* line-height: 1.25rem  !important; */
   display: flex !important;
   margin-top: 12px !important; }
 
@@ -91,7 +90,7 @@ html {
   border: 2px solid #d9d7d7;
   font-family: Roboto, sans-serif !important;
   font-size: 13px !important;
-  line-height: 1.25rem  !important;
+  /* line-height: 1.25rem  !important; */
   background: white;
   border-radius: 5px;
   text-align: center !important;
@@ -113,7 +112,8 @@ html {
 
 /*trustmark*/
 .co2ok_widget_infobox_container .minimal {
-background-color: black; }
+  background-color: black;
+  text-decoration: none; }
 
    .btn_co2ok_widget .co2ok_widget_info {
       /* 	background-image: linear-gradient(to right, #006175 0%, #00a950 100%); */
@@ -125,21 +125,18 @@ background-color: black; }
       font: 19px 'Verdana', Arial, sans-serif;
       color: rgb(93,97,93);
       height: 35px;
-      letter-spacing: 0px;
       margin: 0 auto;
       padding: 2px;
       position: relative;
       text-decoration: none;
       width: 120px;
-      z-index: 2;
-        }
-        
+      z-index: 2; }
+
     .btn_co2ok_widget:hover .co2ok_widget_info {
-      color: #fff;
+      color: #ffffff !important;
       background: rgb(11, 179, 89)
-      -webkit-linear-gradient(#1DEFAC -50.09%, #11D071 51.05%, #10CC6B 56.81%, #05B139 100%);
-        }
-        
+      -webkit-linear-gradient(#1DEFAC -50.09%, #11D071 51.05%, #10CC6B 56.81%, #05B139 100%); }
+
     .btn_co2ok_widget span .co2ok_widget_info{
       align-items: center;
       background: transparent;
@@ -148,32 +145,43 @@ background-color: black; }
       justify-content: center;
       height: 100%;
       transition: background .5s ease;
-      width: 100%;
-        }
-        
-    .btn_co2ok_widget:hover span .co2ok_widget_info { 
-      background: transparent;
-        }
-        
-    .logo_co2ok_widget { 
+      width: 100%; }
+
+    .btn_co2ok_widget:hover span .co2ok_widget_info {
+      background: transparent; }
+
+    .logo_co2ok_widget {
       width:50%;
       float:right;
       margin-left:2px;
-      margin-top:3px;
-          }
-        
+      margin-top:3px;  }
+
     .co2ok_logo_default_info {
 
       display: inline-block;
       width: 25%;
       vertical-align: middle;
-      margin: 9px 0px 0px 0px;
-    }
+      margin: 9px 0px 0px 0px; }
 
     .caption_co2ok_widget {
-      font:13px 'Segoe UI',Tahoma, Arial, sans-serif; 
+      font:13px 'Segoe UI',Tahoma, Arial, sans-serif;
       color: rgb(59, 56, 56);
       letter-spacing: 0px;
       margin-top:4px;
-      text-align: center;
-        }
+      text-align: center; }
+
+/*overrides universal selector for spacing of lines/letters in hovercard*/
+.widget-steps * {
+  letter-spacing: 0px !important;
+  line-height: 20px !important;
+}
+
+.btn_co2ok_widget * {
+  letter-spacing: 0px !important;
+  line-height: 26px !important;
+}
+
+.widget-compensation * {
+  letter-spacing: 0px !important;
+  line-height: 20px !important;
+}

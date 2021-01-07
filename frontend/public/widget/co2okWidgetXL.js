@@ -142,7 +142,7 @@ let Co2okWidgetXL = {
       var vliegen = "vliegen";
       var stepOne = "Je kan bij ons klimaatverandering bestrijden door de uitstoot van de productie van je aankoop te neutraliseren";
       var stepTwo = "Deze winkel zet zich in voor een klimaatvriendelijke bezorging; alle uitstoot wordt geneutraliseerd door middel van CO2-compensatieprojecten";
-      var stepThree = `Samen hebben we <strong class="co2ok-small">${compensationAmount .toFixed(1)} </strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(compensationAmount * 5000).toFixed(0)} </strong>km  km vliegen.`;
+      var stepThree = `Samen hebben we <strong class="co2ok-small">${compensationAmount .toFixed(1)} </strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(compensationAmount * 5000).toFixed(0)} </strong>km vliegen.`;
       var works = 'Hoe we dat doen';
 
     }
@@ -279,6 +279,9 @@ let Co2okWidgetXL = {
       offset.left = offset.left -  widgetBox.outerWidth() / 2;
       if ( offset.left < 0) offset.left = 10;
       offset.top = offset.top - (widgetInfoButton.height()) - widgetInfoBox.height() + 6;
+      if (offset.top < 0) {
+        offset.top = offset.top + (widgetInfoBox.height() + widgetInfoButton.width() / 2) + 6;
+      }
       widgetInfoBox.css({
           top: offset.top,
           left: offset.left,

@@ -1,3 +1,5 @@
+//Douchezaak
+
 let Co2okWidgetXL = {
 
     SITE_HOST: "https://co2ok.eco",
@@ -272,7 +274,7 @@ let Co2okWidgetXL = {
       }
       else if (element_id == '.cfs_hover_target')
       {
-        offset.left = windowWidth - 400;
+        offset.left -= infoHoverBox.width() / 2;
         if (offset.left < 0)
           offset.left = 5;
         offset.top -= 430;

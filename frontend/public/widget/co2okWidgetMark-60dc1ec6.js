@@ -17,7 +17,7 @@ let Co2okWidget = {
       return xhr;
 
   },
-  
+
   getCookieValue: function (a) {
     var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
     return b ? b.pop() : '';
@@ -28,7 +28,7 @@ let Co2okWidget = {
     // get impact from cookie if available
     let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
     // console.log(co2ok_impact)
-    
+
     if (co2ok_impact > 1){
       console.log('Collaborate and listen')
       Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact)
@@ -73,7 +73,7 @@ let Co2okWidget = {
       fileref.setAttribute("type", "text/css")
       fileref.setAttribute("href", `${SITE_HOST}/widget/co2okWidgetMark.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
-      
+
       var fileref=document.createElement("link")
       fileref.setAttribute("rel", "stylesheet")
       fileref.setAttribute("type", "text/css")
@@ -110,7 +110,7 @@ let Co2okWidget = {
       var stepTwo = "Deze winkel zet zich in voor een klimaatvriendelijke bezorging; alle uitstoot wordt geneutraliseerd door middel van CO2-compensatieprojecten";
       var stepThree = `Samen hebben we <strong class="co2ok-small">${(totalCompensatedData/ 1000).toFixed(1)}</strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(totalCompensatedData * 5).toFixed(0)} </strong>km  km vliegen.`;
       var works = 'Hoe we dat doen';
-    
+
     let widgetmark = `
       <div>
 
@@ -137,7 +137,7 @@ let Co2okWidget = {
 
         <div class="co2ok-small hovercard-wrapper">
           <img alt="Production emissions" title="Production emissions" src="${SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-small widget-info-hover-png widget-png-left">
-          <p class="co2ok-small widget-steps step-one widget-right"> ${stepThree} </p>
+          <p class="co2ok-small widget-steps step-three widget-right"> ${stepThree} </p>
         </div>
 
         <span class="co2ok-small widget-hovercard-links">
@@ -169,9 +169,8 @@ let Co2okWidget = {
       isExistingjQueryElement: function(selector) {
           return !!jQuery(selector).length;
   },
-  
 
-  
+
   placeWidgetInfoBox : function() {
     // console.log('Platz? Lebensraum!')
     var widgetInfoButton = jQuery(".co2ok_widget_info");
@@ -226,11 +225,8 @@ let Co2okWidget = {
 
   modalRegex: function(e)
   {
-     return jQuery(e.target).hasClass("co2ok-small") ||
-     jQuery(e.target).hasClass("co2ok_widget_info") ||
-     jQuery(e.target).hasClass("co2ok_widget_info_hitarea") ||
-     jQuery(e.target).hasClass("co2ok_widget_infobox_container") ||
-     jQuery(e.target).hasClass("widget-hover-link");
+    return jQuery(e.target).hasClass("co2ok-small") ||
+    jQuery(e.target).hasClass("widget-small");
   },
 
   RegisterWidgetInfoBox : function()
@@ -290,7 +286,7 @@ let Co2okWidget = {
 
 
 // New style Async execution B)
-// if the variables are set on the script src, we're in async mode 
+// if the variables are set on the script src, we're in async mode
 // and don't expect the html to run merchantCompensations
 
 if (document.currentScript.getAttribute('div')) {

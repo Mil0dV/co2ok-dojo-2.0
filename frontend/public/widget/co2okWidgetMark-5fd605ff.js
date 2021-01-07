@@ -26,7 +26,7 @@ let Co2okWidget = {
   merchantCompensations: function (widgetContainer, merchantId) {
 
     let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
-    
+
     if (co2ok_impact > 1){
       console.log('Collaborate and listen')
       Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact)
@@ -44,11 +44,11 @@ let Co2okWidget = {
         // let totalTransactionData = (xhr.responseText / 1000).toFixed(1)
         let totalTransactionData = xhr.responseText
         // let totalTransactionData = 491
-        
+
         console.log(totalTransactionData)
         document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
         Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
-        
+
         // Something is fishy, let's serve up the total
       } else {
         let totalTransactionData = 491
@@ -86,7 +86,7 @@ let Co2okWidget = {
      else {
          var colorSuffix = "";
      }
-      
+
       var urlParams = new URLSearchParams(window.location.search);
       var co2ok_AB_param = urlParams.get('co2ok_ab');
       if (co2ok_AB_param == 'show')
@@ -123,7 +123,7 @@ let Co2okWidget = {
         var reductietekst = 'CO₂ reductie';
         var stepOne = "Je kan bij ons klimaatverandering bestrijden door de uitstoot van de productie van je aankoop te neutraliseren";
         var stepTwo = "Deze winkel zet zich in voor een klimaatvriendelijke bezorging; alle uitstoot wordt geneutraliseerd door middel van CO2-compensatieprojecten";
-        var stepThree = `Samen hebben we <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km  km vliegen.`;
+        var stepThree = `Samen hebben we <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen.`;
         var works = 'Hoe we dat doen';
       }
       let widgetmark = `
@@ -194,9 +194,8 @@ let Co2okWidget = {
       isExistingjQueryElement: function(selector) {
           return !!jQuery(selector).length;
   },
-  
 
-  
+
   placeWidgetInfoBox : function() {
       // console.log('Platz? Lebensraum!')
       var widgetInfoButton = jQuery(".co2ok_widget_info");
@@ -318,7 +317,7 @@ let Co2okWidget = {
 
 
 // New style Async execution B)
-// if the variables are set on the script src, we're in async mode 
+// if the variables are set on the script src, we're in async mode
 // and don't expect the html to run merchantCompensations
 
 if (document.currentScript.getAttribute('div')) {
