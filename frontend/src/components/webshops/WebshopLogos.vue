@@ -38,7 +38,7 @@
                     // },
                     {
                         image: 'shop-2',
-                        link: 'https://hutspot.com/'
+                        link: 'https://woonliving.nl/'
                     },
                     // {
                     //     image: 'shop-3',
