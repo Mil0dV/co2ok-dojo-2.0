@@ -169,18 +169,19 @@
                     <h2 class="main-title">{{ $t('retailers.subtitle3') }}</h2>
                     <h2 class="sub-title">{{ $t('retailers.title3') }}</h2>
                 </div>
-                <div class="section-2--col-1 section-4--header">
+                <!-- <div class="section-2--col-1 section-4--header">
                     <router-link to="/webshops/get-started" class="button">Sign up before Christmas, get 2021 for free!</router-link>
-                </div>
+                </div> -->
             <!-- <a href="/#home_form" class="button__banner">{{ $t('home2.section_5_btn') }}</a> -->
 
-                <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
+            <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
                     <div>
                         <div class="uk-card shop__card uk-card-default uk-card-body">
                             <!-- <img alt="retailer shop 1" class="shop__image"
                                  src="../../assets/images/webshops/retailers/shop-1.png"> -->
-                            <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
-                            <p class="shop--text" v-html=" $t('retailers.quote1') ">
+                            <p class="shop--text" style="text-align: center; padding-bottom: 16px;" v-html=" $t('retailers.quote1') ">
+                            <hr style="border-bottom: 2px solid #152439; opacity: 0.5; margin-top: 0px;">
+                            <p class="shop--text" v-html=" $t('retailers.paragraph1') ">
                             </p>
                         </div>
                     </div>
@@ -188,8 +189,9 @@
                         <div class="uk-card shop__card uk-card-default uk-card-body">
                             <!-- <img alt="retailer shop 2" class="shop__image"
                                  src="../../assets/images/webshops/retailers/shop-2.png"> -->
-                            <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
-                            <p class="shop--text" v-html=" $t('retailers.quote2') ">
+                            <p class="shop--text" style="text-align: center; padding-bottom: 16px;" v-html=" $t('retailers.quote2') ">
+                            <hr style="border-bottom: 2px solid #152439; opacity: 0.5; margin-top: 0px;">
+                            <p class="shop--text" v-html=" $t('retailers.paragraph2') ">
                             </p>
                         </div>
                     </div>
@@ -197,20 +199,12 @@
                         <div class="uk-card shop__card uk-card-default uk-card-body">
                             <!-- <img alt="retailer shop 3" class="shop__image"
                                  src="../../assets/images/webshops/retailers/shop-3.png"> -->
-                            <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
-                            <p class="shop--text" v-html=" $t('retailers.quote3') ">
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-card shop__card uk-card-default uk-card-body">
-                            <!-- <img alt="retailer shop 3" class="shop__image"
-                                 src="../../assets/images/webshops/retailers/shop-3.png"> -->
-                            <hr style="border-bottom: 2px solid #152439; opacity: 0.5;">
-                            <div class="col-1--links">
-                                <router-link to="/webshops/get-started" class="button">{{ $t('retailers.row_button3') }}</router-link>
+                            <p class="shop--text" style="text-align: center; padding-bottom: 16px;" v-html=" $t('retailers.quote3') ">
+                            <div class="col-1--links" style="text-align: center; margin: auto !important; padding-bottom: 22px;">
+                                <router-link to="/webshops/get-started" class="button" style="margin: auto !important; ">{{ $t('retailers.row_button3') }}</router-link>
                             </div>
-                            <p class="shop--text" v-html=" $t('retailers.quote4') ">
+                            <hr style="border-bottom: 2px solid #152439; opacity: 0.5; margin-top: 0px;">
+                            <p class="shop--text" v-html=" $t('retailers.paragraph3') ">
                             </p>
                         </div>
                     </div>

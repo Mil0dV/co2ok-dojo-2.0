@@ -368,11 +368,13 @@
   "row_button2": "Installeer de Plug-in",
   "subtitle3": "Tarieven",
   "title3": "Maandelijkse prijzen, Jaarlijkse facturatie",
-  "quote1": "<h2>€15<small></small></h2> <br><h3>Plug & Play</h3> <br>● <5K bezoekers/maand<br>● CO₂ok plugin<br>● Climate Friendly Delivery<br>● Impact calculator<br>● Eén domein<br>● Climate Friendly Trustmarks<br>",
-  "quote2": "<h2>€45</h2> <br><h3>Pro</h3> <br>● <50K bezoekers/maand<br>● Diensten Plug & Play<br>● Drie domeinen<br>● Tijdslot support",
-  "quote3": "<h2>€95<small></small></h2> <br><h3>Partnership</h3> <br>● <200K bezoekers/maand<br>● Diensten Pro<br>● A/B test en sustainable marketing<br>● Project communication<br>● Vijf domeinen<br>● Tijdslot support",
-  "quote4": "<h3>Premium Partnership</h3> <br>● >200K bezoekers/maand<br>●Diensten Partnership<br>● Maatwerk oplossingen<br>● Consultancy diensten<br>● Ongelimiteerd aantal domeinen<br>● Ongelimiteerd support<br>"
- },
+  "quote1": "<h3>Startup</h3><br> <h2>€15/mo<small></small></h2>",
+  "paragraph1": "<br>● < 5 K bezoekers/maand<br><br>● CO₂ok plugin<br><br>● Climate Friendly Delivery",
+  "quote2": "<h3>Premium</h3><br> <h2>€45/mo</h2>",
+  "paragraph2": " <br>● < 50K monthly visitors <br><br>● Alle opstartservices <br><br>● Inzicht in leveringsvoetafdruk<br>",
+  "quote3": " <h3>Enterprise</h3> ",
+  "paragraph3": "<br>● Alle premium services<br><br>● Op maat gemaakte diensten <br><br>● A/B testing <br><br>● CRS partnerschap<br><br>"
+},
  "webshopform": {
   "title1": "Plugin installatie",
   "subtitle1": "Wil je direct aan de slag? Bekijk hieronder hoe snel je onze plugin kan installeren.",
