@@ -1,0 +1,176 @@
+/*
+* Widget
+*/
+/* .large-widget-right-green {
+  background: linear-gradient(180deg, #1DB0EF 0%, #15688B 100%);
+}
+
+.large-widget {
+box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+#large-widget-airplane {
+  margin-top:55px;
+  margin-left:173px;
+}
+
+#info-button-widget {
+  margin-top:100px;
+  margin-left:68px;
+}
+
+#co2ok-logo {
+  margin-top:100px;
+  margin-left: 10px;
+  width: 20%;
+}
+
+#large-widget-text {
+  font:11px Poppins, Verdana, sans-serif;
+  color:#606468;
+  margin-top: 43px;
+  margin-left:10px;
+  z-index:3;
+}
+
+#large-widget-text-dz {
+  position: absolute;
+  font:11px Poppins, Verdana, sans-serif;
+  color:#606468;
+  margin-left:10px;
+  margin-top: 8px;
+  z-index:4;
+} */
+
+.png-img-large {
+  display: flex;
+  position: absolute;
+}
+
+.co2ok_widget_infobox_container {
+  position: absolute;
+  width: 350px;
+  height: 465px;
+  background: white;
+  border-radius: 15px;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  font-size: 0.9em;
+  z-index: 999999;
+  display: none;
+  padding: 10px;
+  border: 3px solid #eee;
+  border-image-slice: 1; }
+  @media (max-width: 768px) {
+    .co2ok_widget_infobox_container {
+      margin-left: -150px;
+    } }
+  @media (max-width: 340px) {
+    .co2ok_widget_infobox_container {
+      width: 300px;
+    } }
+  @media (max-width: 320px) {
+    .co2ok_widget_infobox_container {
+      height: 540px;
+    } }
+  .co2ok_widget_infobox_container.ShowWidgetInfoBox {
+    display: block;
+    opacity: 1; }
+    .co2ok_widget_infobox_container .card-main-header {
+      font-size: 28px;
+      color: #01bad4;
+      font-weight: 500;
+      line-height: 1.75rem;
+      margin-left: 75px;
+      margin-top: 26px; }
+      .co2ok_widget_infobox_container .card-main-header .header-img {
+        top: 15px;
+        width: 19%;
+        height: 14%;
+        left: 14px; }
+        @media (max-width: 320px) {
+          .co2ok_widget_infobox_container .card-main-header .header-img {
+            height: 11%;
+            top: 34px;
+        } }
+    .co2ok_widget_infobox_container .co2ok-widget-content {
+      margin-top: 31px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .card-sub-header {
+      font-size: 14px;
+      color: #01bad4;
+      font-weight: 500;
+      line-height: 1.25rem;
+      margin-top: 8px; }
+      .co2ok_widget_infobox_container .co2ok-widget-content .left {
+        margin-left: 14px; }
+      .co2ok_widget_infobox_container .co2ok-widget-content .right {
+        margin-left: 80px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      width: 100%;
+      margin-top: 0px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .right-align-img {
+      right: 14px; }
+      @media (max-width: 320px) {
+        .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .right-align-img {
+          right: 6px;
+      } }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .left-align-img {
+      left: 14px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .box {
+      top: 89px;
+      height: 15%;
+      width: 20%; }
+      @media (max-width: 320px) {
+        .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .box {
+          height: 11%;
+          top: 130px;
+      } }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .plant {
+      top: 195px;
+      right: 12px;
+      height: 15%;
+      width: 20%; }
+      @media (max-width: 320px) {
+        .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .plant {
+          height: 11%;
+          top: 260px;
+      } }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .tree {
+      bottom: 74px;
+      height: 15%;
+      width: 20%; }
+      @media (max-width: 320px) {
+        .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .tree {
+          height: 11%;
+      } }
+  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .text-block {
+    font-size: 12px;
+    line-height: normal;
+    text-align: left;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0;
+    width: 71%;
+    text-decoration: none;
+    padding: 4px 0px 12px 0px;
+    color: black; }
+  .co2ok_widget_infobox_container a {
+    text-decoration: underline; }
+  .co2ok_widget_infobox_container .hover-link {
+    position: absolute;
+    width: 40%;
+    right: 10px;
+    bottom: 8px; }
+  .co2ok_widget_infobox_container .woonliving_logo {
+    position: absolute;
+    width: 26%;
+    left: 22px;
+    bottom: 21px; }
+  .co2ok_widget_infobox_container img, .co2ok_widget_infobox_container span {
+    display: inline-block;
+    vertical-align: middle;
+    color: #979797;
+    padding: 0px; }
