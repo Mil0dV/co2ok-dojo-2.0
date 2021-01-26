@@ -114,10 +114,13 @@ let Co2okWidget = {
 	 */
 	cfsTrustMarkInsertion: function () {
 		let cfs_html = `
-			<img class="cfs_hover_target" src="https://co2ok.eco/widget/cfs.png" style="width: 100px; height: 48px">
+			<img class="cfs_hover_target_footer" src="https://co2ok.eco/widget/cfs.png" style="width: 100px; height: 48px">
 		`
 		jQuery(".bot_footer_svg").after(cfs_html)
-		jQuery(".pr_trust_seal").append(cfs_html)
+		let cfsf_html = `
+			<img class="cfs_hover_target" src="https://co2ok.eco/widget/cfs.png" style="width: 100px; height: 48px">
+		`
+		jQuery(".pr_trust_seal").append(cfsf_html)
 	},
 
 	insertWidget: async function() {
@@ -331,6 +334,14 @@ let Co2okWidget = {
 			offset.top -= infoHoverBox.height();
 			offsetMobile.top  -= infoHoverBox.height();
 			offsetMobile.left -= infoHoverBox.width() - 10;
+		} else if (element_id == '.cfs_hover_target_footer') {
+			offset.left -= infoHoverBox.width() / 2;
+			if (offset.left < 0) {
+				offset.left = 5;
+			}
+			offset.top -= infoHoverBox.height();
+			offsetMobile.top  -= infoHoverBox.height();
+			offsetMobile.left -= infoHoverBox.width() - 10;
 		}
 	  else
 		return ;
@@ -386,6 +397,8 @@ let Co2okWidget = {
 	{
 	  if (jQuery(e.target).hasClass("cfs_hover_target"))
 			return ('.cfs_hover_target');
+			if (jQuery(e.target).hasClass("cfs_hover_target_footer"))
+			return ('.cfs_hover_target_footer');
 	  else if (jQuery(e.target).hasClass("usp_hover_target"))
 			return ('.usp_hover_target');
 	  else if (jQuery(e.target).hasClass("co2ok-small"))
