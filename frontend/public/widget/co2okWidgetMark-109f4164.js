@@ -302,7 +302,7 @@ let Co2okWidget = {
 	  var windowWidth = jQuery(window).width();
 
 	  infoHoverBox.remove();
-	  jQuery("body").append(infoHoverBox);
+		jQuery("body").append(infoHoverBox);
 	  if (element_id == '.widget-small')
 	  {
 			offset.left -= infoHoverBox.width() / 4;
@@ -313,8 +313,8 @@ let Co2okWidget = {
 			else
 		  	offsetMobile.left -= infoHoverBox.width();
 			offsetMobile.top += elementBox.height();
-			if (offset.top > jQuery(window).height()) {
-				offset.top -= infoHoverBox.height();
+			if (offset.top < jQuery(window).height()) {
+				offset.top += infoHoverBox.height();
 			}
 	  }
 	  else if (element_id == '.usp_hover_target')
@@ -331,7 +331,7 @@ let Co2okWidget = {
 			if (offset.left < 0) {
 				offset.left = 5;
 			}
-			offset.top -= infoHoverBox.height();
+			offset.top += 40;
 			offsetMobile.top  -= infoHoverBox.height();
 			offsetMobile.left -= infoHoverBox.width() - 10;
 		} else if (element_id == '.cfs_hover_target_footer') {
