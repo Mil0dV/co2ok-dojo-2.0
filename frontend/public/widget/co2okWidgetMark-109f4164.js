@@ -45,7 +45,7 @@ let Co2okWidget = {
 		// get impact from cookie if available
 		let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
 
-		if (co2ok_impact > 1){
+		if (co2ok_impact > 1) {
 		  // console.log('Collaborate and listen')
 		  Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
 		  return
@@ -80,31 +80,32 @@ let Co2okWidget = {
 
 	uspInsertion: function () {
 	  let product_usp_html = `<li class="list__item">
-		<div class="layout layout--x-small layout--center">
-		  <div class="layout__item layout__item--fixed usp_hover" style="width: 18px">
-			<img src=https://co2ok.eco/widget/DZ-globe.png width=18px>
-		  </div>
-		  <div class="layout__item usp_hover_target">
-			Shop klimaatvriendelijk
-		  </div>
-		</div>
-	  </li>`
+			<div class="layout layout--x-small layout--center">
+				<div class="layout__item layout__item--fixed usp_hover" style="width: 18px">
+					<img src=https://co2ok.eco/widget/DZ-globe.png width=18px>
+				</div>
+				<div class="layout__item usp_hover_target">
+					Shop klimaatvriendelijk
+				</div>
+			</div>
+		</li>`
 
 	  let home_usp_html = `<li class="grid__item">
-		<div class="layout layout--x-small layout--center">
-		  <div class="layout__item layout__item--fixed usp_hover" style="width: 24px">
-			<img src=https://co2ok.eco/widget/DZ-globe.png width=24px>
-		  </div>
-		  <div class="layout__item usp_hover_target">
-			Shop klimaatvriendelijk
-		  </div>
-		</div>
-	  </li>`
+			<div class="layout layout--x-small layout--center">
+				<div class="layout__item layout__item--fixed usp_hover" style="width: 24px">
+					<img src=https://co2ok.eco/widget/DZ-globe.png width=24px>
+				</div>
+				<div class="layout__item usp_hover_target">
+					Shop klimaatvriendelijk
+				</div>
+			</div>
+		</li>`
 
-	  if (window.location.pathname == "/")
-		jQuery('a[href$="snellelevering"]').parent().after(home_usp_html)
-	  else
-		jQuery('a[href$="snellelevering"]').parent().after(product_usp_html)
+	  if (window.location.pathname == "/") {
+			jQuery('a[href$="snellelevering"]').parent().after(home_usp_html)
+		} else {
+			jQuery('a[href$="snellelevering"]').parent().after(product_usp_html)
+		}
 
 	},
 
@@ -127,71 +128,63 @@ let Co2okWidget = {
 	  let widget_div = `<div class="widgetContainermark" style="margin-top:25px; margin-bottom:25px; margin-left:18px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;"></div>`
 
 	  let pagetype = window.location.pathname.split("/")[1]
-	  if (pagetype == "product" || pagetype == "product-categorie" || pagetype == "werken-bij-douchezaak" || pagetype == "badkamer-blog" || pagetype == "badkamer-showroom" || pagetype.split("-")[0] == "vacature")
-	  {
-		for (var x = 0; x < 15; x++)
-		{
-		  if (jQuery('.__fbcw__widget').length)
-		  {
-			var FBCWElementArray = document.querySelectorAll(".__fbcw__widget");
-			for (var element of FBCWElementArray) {
-			  if (element.offsetLeft > 0) {
-				jQuery(element).after(widget_div);
-				Co2okWidget.merchantCompensations('widgetContainermark', '0', 'XL', 'default');
-				return
-			  }
-			}
-		  }
+	  if (pagetype == "product" || pagetype == "product-categorie" || pagetype == "werken-bij-douchezaak" || pagetype == "badkamer-blog" || pagetype == "badkamer-showroom" || pagetype.split("-")[0] == "vacature") {
+			for (var x = 0; x < 15; x++) {
+		  	if (jQuery('.__fbcw__widget').length) {
+					var FBCWElementArray = document.querySelectorAll(".__fbcw__widget");
+					for (var element of FBCWElementArray) {
+			  		if (element.offsetLeft > 0) {
+							jQuery(element).after(widget_div);
+							Co2okWidget.merchantCompensations('widgetContainermark', '0', 'XL', 'default');
+							return
+			  		}
+					}
+		  	}
 		  await new Promise(r => setTimeout(r, 200));
+			}
+	  } else {
+			return ;
 		}
-	  }
-	  else
-		return ;
 	},
 
 	widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {
 	//   let color = "#D0C918"
 
-	//css for trustmark
-	var fileref=document.createElement("link")
-	fileref.setAttribute("rel", "stylesheet")
-	fileref.setAttribute("type", "text/css")
-	fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark.css`)
-	document.getElementsByTagName("head")[0].appendChild(fileref)
-	//css for hovercard
-	var fileref=document.createElement("link")
-	fileref.setAttribute("rel", "stylesheet")
-	fileref.setAttribute("type", "text/css")
-	fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-109f4164.css`)
-	document.getElementsByTagName("head")[0].appendChild(fileref)
+		//css for trustmark
+		var fileref=document.createElement("link")
+		fileref.setAttribute("rel", "stylesheet")
+		fileref.setAttribute("type", "text/css")
+		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark.css`)
+		document.getElementsByTagName("head")[0].appendChild(fileref)
+		//css for hovercard
+		var fileref=document.createElement("link")
+		fileref.setAttribute("rel", "stylesheet")
+		fileref.setAttribute("type", "text/css")
+		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-109f4164.css`)
+		document.getElementsByTagName("head")[0].appendChild(fileref)
 
-	  if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0')
-	  {
-		console.log('hammer time!')
-		return
+	  if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0') {
+			console.log('hammer time!')
+			return
 	  }
 
 	  // Dit moet nog ff mooier als we dit nog willen gebruiken, anders kan het weg.
 	  if (totalCompensatedData < 100) {
-		var compensatiewidget  = 0.1;
+			var compensatiewidget  = 0.1;
+	  } else {
+			var compensatiewidget  = totalCompensatedData / 1000;
 	  }
-	  else {
-		var compensatiewidget  = totalCompensatedData / 1000;
-	  }
-
-		var colorSuffix = "";
 
 		var reductietekst = 'CO₂ reductie';
-		var stepOne = "Douchezaak biedt hoogwaardige producten die een leven lang meegaan, en daardoor minder afval opleveren!";
+		var stepOne = "Woonliving biedt hoogwaardige producten die een leven lang meegaan, en daardoor minder afval opleveren!";
 		var stepTwo = "Wij neutraliseren de verpakking én de verzending van uw bestelling door geld te investeren in klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!";
 		var stepThree = "Verder bieden we u de optie om de CO₂ die wordt uitgestoten bij de productie van uw aankoop te compenseren. Eenvoudig gezegd, plant u uw eigen bomen direct naast de onze, met slechts één druk op de knop!";
-		var works = 'Hoe we dat doen';
 
 		let widgetmark = `
 			<div>
 
 				<div class="btn_co2ok_widget co2ok_widget_info widget-small" href="#">
-				<span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${this.SITE_HOST}/static/logo${colorSuffix}.png"></span>
+				<span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${this.SITE_HOST}/static/logo.png"></span>
 				</div>
 				<div class="caption_co2ok_widget co2ok_widget_info widget-small">
 				<span> <strong>${(compensatiewidget.toFixed(1))}</strong>t ${reductietekst} </span>
@@ -240,45 +233,17 @@ let Co2okWidget = {
         </div>
       </div>
 
-
-			
-			`
-			// <div class="co2ok_widget_infobox_container co2ok-popper hovercard-trustmark co2ok-small" id="widget-infobox-view">
-
-			// 	<div class="co2ok-small hovercard-wrapper">
-			// 	<img alt="Rewnewable energy" title="Rewnewable energy" src="${this.SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-small widget-info-hover-png widget-png-left">
-			// 	<p class="co2ok-small widget-steps step-one widget-right"> ${stepOne} </p>
-			// 	</div>
-
-			// 	<div class="co2ok-small hovercard-wrapper" style="margin: 20px 0px;">
-			// 	<img alt="Shipping emissions" title="Shipping emissions" src="${this.SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-small widget-info-hover-png widget-png-right">
-			// 	<p class="co2ok-small widget-steps step-two widget-left"> ${stepTwo} </p>
-			// 	</div>
-
-			// 	<div class="co2ok-small hovercard-wrapper">
-			// 	<img alt="Production emissions" title="Production emissions" src="${this.SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-small widget-info-hover-png widget-png-left">
-			// 	<p class="co2ok-small widget-steps step-one widget-right"> ${stepThree} </p>
-			// 	</div>
-
-			// 	<span class="co2ok-small widget-hovercard-links">
-			// 	<a class="co2ok-small widget-compensation" target="_blank" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
-			// 	</span>
-			// 	<img class="co2ok-small widget-branch-png" src="${this.SITE_HOST}/widget/hovercard/branch.png">
-
-			// </div>
-			  // console.log(widgetimg)
+		`
 
 	  let widgetcontainer = document.getElementById(widgetContainer)
-	  // let widgetcontainer = document.getElementsByClassName('whb-empty-column')[0]
 
 	  // Don't try to place widget if there is no container
 	  if(widgetcontainer == null){
-		return
+			return
 	  }
 
 	  widgetcontainer.innerHTML = widgetmark
 	  this.RegisterWidgetInfoBox();
-	  // this.ShowWidgetInfoBox();
 	},
 
 
@@ -397,7 +362,7 @@ let Co2okWidget = {
 	{
 	  if (jQuery(e.target).hasClass("cfs_hover_target"))
 			return ('.cfs_hover_target');
-			if (jQuery(e.target).hasClass("cfs_hover_target_footer"))
+		else if (jQuery(e.target).hasClass("cfs_hover_target_footer"))
 			return ('.cfs_hover_target_footer');
 	  else if (jQuery(e.target).hasClass("usp_hover_target"))
 			return ('.usp_hover_target');
@@ -405,23 +370,6 @@ let Co2okWidget = {
 			return ('.co2ok-small')
 		else if (jQuery(e.target).hasClass("widget-small"))
 			return ('.widget-small')
-	//   else if (jQuery(e.target).hasClass("png-img-large") ||
-	//     jQuery(e.target).hasClass("co2ok_widget_infobox_container") ||
-	//     jQuery(e.target).hasClass("logo_co2ok_widget") ||
-	//     jQuery(e.target).hasClass("header") ||
-	//     jQuery(e.target).hasClass("sub-header") ||
-	//     jQuery(e.target).hasClass("text-block") ||
-	//     jQuery(e.target).hasClass("selectable-text") ||
-	//     jQuery(e.target).hasClass("card-main-header") ||
-	//     jQuery(e.target).hasClass("co2ok-widget-content") ||
-	//     jQuery(e.target).hasClass("card-content") ||
-	//     jQuery(e.target).hasClass("card-sub-header") ||
-	//     jQuery(e.target).hasClass("inner-wrapper") ||
-	//     jQuery(e.target).hasClass("co2ok_widget_info") ||
-	//     jQuery(e.target).hasClass("co2ok_widget_info_hitarea") ||
-	//     jQuery(e.target).hasClass("hover-link") ||
-	//     jQuery(e.target).hasClass("douchezaak_logo"))
-	//     return (element_id);
 	  else
 		return (null)
 	},
@@ -436,13 +384,13 @@ let Co2okWidget = {
 		  jQuery(".first-text-to-select").focus();
 	  });
 
-	  jQuery('body').click(function(e)
-	  {
-		element_id = _this.modalRegex(e, element_id);
-		  if (!element_id)
-			_this.hideWidgetInfoBox();
-		  else {
-			_this.ShowWidgetInfoBox();
+	  jQuery('body').click(function(e) {
+			element_id = _this.modalRegex(e, element_id);
+		  if (!element_id) {
+				_this.hideWidgetInfoBox();
+
+			} else {
+				_this.ShowWidgetInfoBox();
 		  }
 	  });
 
@@ -458,19 +406,19 @@ let Co2okWidget = {
 
 	  if(!this.isMobile())
 	  {
-		jQuery(".co2ok_widget_info , .co2ok_widget_info_hitarea").mouseenter(function() {
-		  _this.placeWidgetInfoBox();
-		});
+			jQuery(".co2ok_widget_info , .co2ok_widget_info_hitarea").mouseenter(function() {
+				_this.placeWidgetInfoBox();
+			});
 
-		jQuery(document).mouseover(function(e) {
-		  element_id = _this.modalRegex(e, element_id);
-		  if (!element_id)
-			_this.hideWidgetInfoBox();
-		  else {
-			_this.ShowWidgetInfoBox();
-			_this.placeWidgetInfoBox(element_id);
-		  }
-		});
+			jQuery(document).mouseover(function(e) {
+				element_id = _this.modalRegex(e, element_id);
+				if (!element_id) {
+					_this.hideWidgetInfoBox();
+				} else {
+					_this.ShowWidgetInfoBox();
+					_this.placeWidgetInfoBox(element_id);
+				}
+			});
 	  }
 	}
 }
@@ -483,34 +431,29 @@ jQuery(document).ready(function() {
   // Manual AB-switch
   var urlParams = new URLSearchParams(window.location.search);
   var co2ok_AB_param = urlParams.get('co2ok_ab');
-  if (co2ok_AB_param == 'show')
-  {
-	console.log('Co2ok ON manually!')
-  }
-  else if (co2ok_AB_param == 'hide')
-  {
-	console.log('Co2ok OFF mannually!')
-	return
-  }
-  else if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0')
-  {
-	console.log('hammer time!')
-	return
+  if (co2ok_AB_param == 'show') {
+		console.log('Co2ok ON manually!')
+  } else if (co2ok_AB_param == 'hide') {
+		console.log('Co2ok OFF mannually!')
+		return
+  } else if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0') {
+		console.log('hammer time!')
+		return
   }
 
   var co2ok_fileswap_param = urlParams.get('co2ok_fileswap');
   if (co2ok_fileswap_param == 'patch' || Co2okWidget.getCookieValue('co2ok_fileswap') == 'swapped') {
-	jQuery.getScript('http://localhost:8080/widget/co2ok_local_file.js');
+		jQuery.getScript('http://localhost:8080/widget/co2ok_local_file.js');
 
-	var now = new Date();
-	now.setTime(now.getTime() + 1 * 3600 * 1000);
+		var now = new Date();
+		now.setTime(now.getTime() + 1 * 3600 * 1000);
 
-	document.cookie = 'co2ok_fileswap=swapped;expires=Thu,'+ now +';path="/"'
-	return
+		document.cookie = 'co2ok_fileswap=swapped;expires=Thu,'+ now +';path="/"'
+		return
   } else if (co2ok_fileswap_param == 'unpatch') {
-	document.cookie = 'co2ok_fileswap=;expires = Thu, 01 Jan 1970 00:00:00 GMT;'
-  }
-//   Co2okWidget.insertInfoHoverHtml();
+		document.cookie = 'co2ok_fileswap=;expires = Thu, 01 Jan 1970 00:00:00 GMT;'
+	};
+
 //   Co2okWidget.insertWidget();
 //   Co2okWidget.uspInsertion();
   Co2okWidget.cfsTrustMarkInsertion();
