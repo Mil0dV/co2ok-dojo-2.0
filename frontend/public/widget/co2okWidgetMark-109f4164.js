@@ -1,7 +1,5 @@
 //Woonliving
 
-//Douchezaak
-
 let Co2okWidget = {
 
 	// SITE_HOST: "https://co2ok.eco",
@@ -122,6 +120,7 @@ let Co2okWidget = {
 			<img class="cfs_hover_target" src="https://co2ok.eco/widget/cfs.png" style="width: 100px; height: 48px">
 		`
 		jQuery(".pr_trust_seal").append(cfsf_html)
+		console.log("cfs inserted")
 	},
 
 	insertWidget: async function() {
@@ -420,42 +419,59 @@ let Co2okWidget = {
 				}
 			});
 	  }
+	},
+
+}
+
+function co2okInit() {
+	jQuery(document).ready(function() {
+		console.log("CO2ok is fighting climate change!")
+
+		Co2okWidget.loadResources()
+
+		// Manual AB-switch
+		var urlParams = new URLSearchParams(window.location.search);
+		var co2ok_AB_param = urlParams.get('co2ok_ab');
+		if (co2ok_AB_param == 'show') {
+			console.log('Co2ok ON manually!')
+		} else if (co2ok_AB_param == 'hide') {
+			console.log('Co2ok OFF mannually!')
+			return
+		} else if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0') {
+			console.log('hammer time!')
+			return
+		}
+
+		var co2ok_fileswap_param = urlParams.get('co2ok_fileswap');
+		if (co2ok_fileswap_param == 'patch' || Co2okWidget.getCookieValue('co2ok_fileswap') == 'swapped') {
+			jQuery.getScript('http://localhost:8080/widget/co2ok_local_file.js');
+
+			var now = new Date();
+			now.setTime(now.getTime() + 1 * 3600 * 1000);
+
+			document.cookie = 'co2ok_fileswap=swapped;expires=Thu,'+ now +';path="/"'
+			return
+		} else if (co2ok_fileswap_param == 'unpatch') {
+			document.cookie = 'co2ok_fileswap=;expires = Thu, 01 Jan 1970 00:00:00 GMT;'
+		};
+	//   Co2okWidget.insertWidget();
+	//   Co2okWidget.uspInsertion();
+		Co2okWidget.cfsTrustMarkInsertion();
+		Co2okWidget.RegisterWidgetInfoBox();
+	})
+}
+
+function jQueryLoadDefer(number, co2okInit) {
+	if (number == 50 && window.jQuery) {
+		console.log("jQuery Loaded")
+		co2okInit();
+	} else {
+		number = number + 1;
+		console.log("waiting for jQuery to load", number)
+		setTimeout(function() { jQueryLoadDefer(number, co2okInit) }, 50);
 	}
 }
 
-jQuery(document).ready(function() {
-  console.log("CO2ok is fighting climate change!")
-
-  Co2okWidget.loadResources()
-
-  // Manual AB-switch
-  var urlParams = new URLSearchParams(window.location.search);
-  var co2ok_AB_param = urlParams.get('co2ok_ab');
-  if (co2ok_AB_param == 'show') {
-		console.log('Co2ok ON manually!')
-  } else if (co2ok_AB_param == 'hide') {
-		console.log('Co2ok OFF mannually!')
-		return
-  } else if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0') {
-		console.log('hammer time!')
-		return
-  }
-
-  var co2ok_fileswap_param = urlParams.get('co2ok_fileswap');
-  if (co2ok_fileswap_param == 'patch' || Co2okWidget.getCookieValue('co2ok_fileswap') == 'swapped') {
-		jQuery.getScript('http://localhost:8080/widget/co2ok_local_file.js');
-
-		var now = new Date();
-		now.setTime(now.getTime() + 1 * 3600 * 1000);
-
-		document.cookie = 'co2ok_fileswap=swapped;expires=Thu,'+ now +';path="/"'
-		return
-  } else if (co2ok_fileswap_param == 'unpatch') {
-		document.cookie = 'co2ok_fileswap=;expires = Thu, 01 Jan 1970 00:00:00 GMT;'
-	};
-
-//   Co2okWidget.insertWidget();
-//   Co2okWidget.uspInsertion();
-  Co2okWidget.cfsTrustMarkInsertion();
-  Co2okWidget.RegisterWidgetInfoBox();
-})
+jQueryLoadDefer(0, function Co2okInit() {
+	console.log("jQueryLoadDefer finished")
+});
