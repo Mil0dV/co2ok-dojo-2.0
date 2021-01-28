@@ -337,26 +337,29 @@ Co2okWidget.loadResources()
 // if the variables are set on the script src, we're in async mode
 // and don't expect the html to run merchantCompensations
 
-// function co2okInit() {
-  if (document.currentScript.getAttribute('div')) {
-    let div = document.currentScript.getAttribute('div')
-    let merchantId = document.currentScript.getAttribute('merchantId')
-    let widgetColor = document.currentScript.getAttribute('widgetColor')
-    let lang = document.currentScript.getAttribute('lang')
-    Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
-  }
+// if (document.currentScript.getAttribute('div')) {
+//   let div = document.currentScript.getAttribute('div')
+//   let merchantId = document.currentScript.getAttribute('merchantId')
+//   let widgetColor = document.currentScript.getAttribute('widgetColor')
+//   let lang = document.currentScript.getAttribute('lang')
+//   Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
 // }
 
-// function jQueryLoadDefer(co2okInit) {
-// 	if (window.jQuery) {
-// 		co2okInit();
-// 	} else {
-// 		console.log("waiting for jQuery to load")
-// 		setTimeout(function() { jQueryLoadDefer(co2okInit) }, 50);
-// 	}
-// }
+function jQueryLoadDefer() {
+	if (window.jQuery) {
+    console.log("jQuery loaded ", document.currentScript.getAttribute('div'))
+    if (document.currentScript.getAttribute('div')) {
+      let div = document.currentScript.getAttribute('div')
+      let merchantId = document.currentScript.getAttribute('merchantId')
+      let widgetColor = document.currentScript.getAttribute('widgetColor')
+      let lang = document.currentScript.getAttribute('lang')
+      Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
+    }
+	} else {
+		console.log("waiting for jQuery to load")
+		setTimeout(function() { jQueryLoadDefer() }, 50);
+	}
+}
 
-// jQueryLoadDefer(function Co2okInit() {
-// 	console.log("jQueryLoadDefer finished")
-// });
+jQueryLoadDefer();
 
