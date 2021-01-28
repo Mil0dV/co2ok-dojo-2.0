@@ -337,29 +337,29 @@ Co2okWidget.loadResources()
 // if the variables are set on the script src, we're in async mode
 // and don't expect the html to run merchantCompensations
 
-// if (document.currentScript.getAttribute('div')) {
-//   let div = document.currentScript.getAttribute('div')
-//   let merchantId = document.currentScript.getAttribute('merchantId')
-//   let widgetColor = document.currentScript.getAttribute('widgetColor')
-//   let lang = document.currentScript.getAttribute('lang')
-//   Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
-// }
-
-function jQueryLoadDefer() {
-	if (window.jQuery) {
-    console.log("jQuery loaded ", document.currentScript.getAttribute('div'))
-    if (document.currentScript.getAttribute('div')) {
-      let div = document.currentScript.getAttribute('div')
-      let merchantId = document.currentScript.getAttribute('merchantId')
-      let widgetColor = document.currentScript.getAttribute('widgetColor')
-      let lang = document.currentScript.getAttribute('lang')
-      Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
-    }
-	} else {
-		console.log("waiting for jQuery to load")
-		setTimeout(function() { jQueryLoadDefer() }, 50);
-	}
+if (document.currentScript.getAttribute('div')) {
+  let div = document.currentScript.getAttribute('div')
+  let merchantId = document.currentScript.getAttribute('merchantId')
+  let widgetColor = document.currentScript.getAttribute('widgetColor')
+  let lang = document.currentScript.getAttribute('lang')
+  Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
 }
 
-jQueryLoadDefer();
+// function jQueryLoadDefer() {
+// 	if (window.jQuery) {
+//     console.log("jQuery loaded ", document.currentScript.getAttribute('div'))
+//     if (document.currentScript.getAttribute('div')) {
+//       let div = document.currentScript.getAttribute('div')
+//       let merchantId = document.currentScript.getAttribute('merchantId')
+//       let widgetColor = document.currentScript.getAttribute('widgetColor')
+//       let lang = document.currentScript.getAttribute('lang')
+//       Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
+//     }
+// 	} else {
+// 		console.log("waiting for jQuery to load")
+// 		setTimeout(function() { jQueryLoadDefer() }, 50);
+// 	}
+// }
+
+// jQueryLoadDefer();
 
