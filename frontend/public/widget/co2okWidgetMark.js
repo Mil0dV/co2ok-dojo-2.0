@@ -350,6 +350,5 @@ Co2okWidget.loadResources()
     let lang = script.getAttribute('lang')
     Co2okWidget.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
   }
+  return ;
 })
-
-return ;
