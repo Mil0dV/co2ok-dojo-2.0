@@ -90,7 +90,6 @@ let Co2okWidget = {
     for (img of images){
       result = await this.preloadImage(img)
     }
-    console.log("resources loaded")
   },
 
   widgetGenerator: function (widgetContainer, totalCompensatedData, widgetColor, lang) {
@@ -353,3 +352,4 @@ Co2okWidget.loadResources()
   }
 })
 
+return ;
