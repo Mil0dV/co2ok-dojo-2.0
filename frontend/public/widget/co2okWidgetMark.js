@@ -340,7 +340,7 @@ Co2okWidget.SITE_HOST =  'https://co2ok.eco'
 //loadResouces() returns a promise, meaning that by .then() the script has stopped running and cannot be found
 var  script = document.currentScript;
 
-Co2okWidgetXL.loadResources()
+Co2okWidget.loadResources()
 .then(_ => {
   if (script && script.getAttribute('div')) {
     let div = script.getAttribute('div')
