@@ -385,8 +385,8 @@ let Co2okWidgetXL = {
 }
   // export default new Co2okWidget()
 
-// Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
-Co2okWidgetXL.SITE_HOST = 'http://localhost:8080'
+Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
+// Co2okWidgetXL.SITE_HOST = 'http://localhost:8080'
 
 // New style Async execution B)
 // if the variables are set on the script src, we're in async mode
