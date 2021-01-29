@@ -70,11 +70,15 @@ let Co2okWidget = {
   },
 
   preloadImage: function (url) {
-    var img=new Image();
-    img.src=url;
+    return new Promise(resolve => {
+      var img = new Image();
+      img.src = url;
+      resolve('resolved');
+    });
   },
 
-  loadResources: function() {
+
+  loadResources: async function() {
     images = [
       `${this.SITE_HOST}/widget/hovercard/green_truck.png`,
       `${this.SITE_HOST}/static/logo.png`,
@@ -84,7 +88,7 @@ let Co2okWidget = {
   ]
 
     for (img of images){
-      this.preloadImage(img)
+      result = await this.preloadImage(img)
     }
   },
 
@@ -331,35 +335,20 @@ let Co2okWidget = {
 
 Co2okWidget.SITE_HOST =  'https://co2ok.eco'
 // Co2okWidget.SITE_HOST = 'http://localhost:8080'
-Co2okWidget.loadResources()
 
-// New style Async execution B)
-// if the variables are set on the script src, we're in async mode
-// and don't expect the html to run merchantCompensations
+//document.currentScript must be saved before entering loadResrouces to avoid null return
+//loadResouces() returns a promise, meaning that by .then() the script has stopped running and cannot be found
+var  script = document.currentScript;
 
-if (document.currentScript.getAttribute('div')) {
-  let div = document.currentScript.getAttribute('div')
-  let merchantId = document.currentScript.getAttribute('merchantId')
-  let widgetColor = document.currentScript.getAttribute('widgetColor')
-  let lang = document.currentScript.getAttribute('lang')
-  Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
-}
-
-// function jQueryLoadDefer() {
-// 	if (window.jQuery) {
-//     console.log("jQuery loaded ", document.currentScript.getAttribute('div'))
-//     if (document.currentScript.getAttribute('div')) {
-//       let div = document.currentScript.getAttribute('div')
-//       let merchantId = document.currentScript.getAttribute('merchantId')
-//       let widgetColor = document.currentScript.getAttribute('widgetColor')
-//       let lang = document.currentScript.getAttribute('lang')
-//       Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
-//     }
-// 	} else {
-// 		console.log("waiting for jQuery to load")
-// 		setTimeout(function() { jQueryLoadDefer() }, 50);
-// 	}
-// }
-
-// jQueryLoadDefer();
+Co2okWidgetXL.loadResources()
+.then(_ => {
+  if (script && script.getAttribute('div')) {
+    let div = script.getAttribute('div')
+    let merchantId = script.getAttribute('merchantId')
+    let widgetColor = script.getAttribute('widgetColor')
+    let widgetSize = script.getAttribute('widgetSize')
+    let lang = script.getAttribute('lang')
+    Co2okWidgetXL.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
+  }
+})
 

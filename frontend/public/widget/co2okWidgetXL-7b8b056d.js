@@ -86,7 +86,6 @@ let Co2okWidgetXL = {
 
 
   loadResources: async function() {
-    console.log('calling');
     images = [
       `${this.SITE_HOST}/widget/hovercard/green_truck.png`,
       `${this.SITE_HOST}/static/logo.png`,
@@ -97,9 +96,7 @@ let Co2okWidgetXL = {
 
     for (img of images){
       result = await this.preloadImage(img)
-      console.log("logging result ", result)
     }
-    console.log("done calling")
   },
 
 
@@ -388,11 +385,10 @@ let Co2okWidgetXL = {
 Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
 // Co2okWidgetXL.SITE_HOST = 'http://localhost:8080'
 
-// New style Async execution B)
-// if the variables are set on the script src, we're in async mode
-// and don't expect the html to run merchantCompensations
+//document.currentScript must be saved here before entering loadResrouces to avoid null
+//loadResouces returns a promise, this means that by .then()
+//the script has stopped running and cannot be found
 var  script = document.currentScript;
-console.log(script.getAttribute('div'))
 
 Co2okWidgetXL.loadResources()
 .then(_ => {
@@ -402,7 +398,6 @@ Co2okWidgetXL.loadResources()
     let widgetColor = script.getAttribute('widgetColor')
     let widgetSize = script.getAttribute('widgetSize')
     let lang = script.getAttribute('lang')
-    console.log("calling merchant compensation")
     Co2okWidgetXL.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
   }
 })
