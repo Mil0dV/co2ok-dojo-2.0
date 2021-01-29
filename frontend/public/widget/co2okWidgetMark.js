@@ -348,7 +348,7 @@ Co2okWidget.loadResources()
     let widgetColor = script.getAttribute('widgetColor')
     let widgetSize = script.getAttribute('widgetSize')
     let lang = script.getAttribute('lang')
-    Co2okWidgetXL.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
+    Co2okWidget.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
   }
 })
 
