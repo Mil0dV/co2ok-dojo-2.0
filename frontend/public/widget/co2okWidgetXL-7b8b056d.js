@@ -8,8 +8,7 @@ let Co2okWidgetXL = {
   },
 
 
-  merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor, lang) {	      
-
+  merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor, lang) {
     // get impact from cookie if available
     let co2ok_impact = Co2okWidgetXL.getCookieValue('co2ok_impact')
 
@@ -87,6 +86,7 @@ let Co2okWidgetXL = {
 
 
   loadResources: async function() {
+    console.log('calling');
     images = [
       `${this.SITE_HOST}/widget/hovercard/green_truck.png`,
       `${this.SITE_HOST}/static/logo.png`,
@@ -95,10 +95,11 @@ let Co2okWidgetXL = {
       `${this.SITE_HOST}/widget/hovercard/renewable_energy.png`
   ]
 
-    for (img of images){
+    for (imagess of img){
       result = await this.preloadImage(img)
       console.log("logging result ", result)
     }
+    console.log("done calling")
   },
 
 
@@ -379,26 +380,32 @@ let Co2okWidgetXL = {
         }
       });
     }
-  }
-
+  },
 
 }
   // export default new Co2okWidget()
 
-Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
-// Co2okWidgetXL.SITE_HOST = 'http://localhost:8080'
-Co2okWidgetXL.loadResources()
+// Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
+Co2okWidgetXL.SITE_HOST = 'http://localhost:8080'
 
 // New style Async execution B)
 // if the variables are set on the script src, we're in async mode
 // and don't expect the html to run merchantCompensations
 
-if (document.currentScript.getAttribute('div')) {
-  let div = document.currentScript.getAttribute('div')
-  let merchantId = document.currentScript.getAttribute('merchantId')
-  let widgetColor = document.currentScript.getAttribute('widgetColor')
-  let widgetSize = document.currentScript.getAttribute('widgetSize')
-  let lang = document.currentScript.getAttribute('lang')
-  console.log("calling merchant compensation")
-  Co2okWidgetXL.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
-}
+Co2okWidgetXL.loadResources()
+.then(_ => {
+  if (document.currentScript.getAttribute('div')) {
+    let div = document.currentScript.getAttribute('div')
+    let merchantId = document.currentScript.getAttribute('merchantId')
+    let widgetColor = document.currentScript.getAttribute('widgetColor')
+    let widgetSize = document.currentScript.getAttribute('widgetSize')
+    let lang = document.currentScript.getAttribute('lang')
+    console.log("calling merchant compensation")
+    Co2okWidgetXL.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
+  }
+})
+
+
+
+
+
