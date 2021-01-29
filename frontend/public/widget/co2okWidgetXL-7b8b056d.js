@@ -379,6 +379,22 @@ let Co2okWidgetXL = {
     }
   },
 
+  jQueryLoadDefer: function() {
+    if (window.jQuery) {
+      console.log("jQuery loaded!")
+      if (script.getAttribute('div')) {
+        let div = script.getAttribute('div')
+        let merchantId = script.getAttribute('merchantId')
+        let widgetColor = script.getAttribute('widgetColor')
+        let lang = script.getAttribute('lang')
+        Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
+      }
+    } else {
+      console.log("waiting for jQuery to load")
+      setTimeout(function() { Co2okWidgetXL.jQueryLoadDefer() }, 50);
+    }
+  }
+
 }
   // export default new Co2okWidget()
 
@@ -390,17 +406,22 @@ Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
 //the script has stopped running and cannot be found
 var  script = document.currentScript;
 
+
+
+// jQueryLoadDefer();
 Co2okWidgetXL.loadResources()
-.then(_ => {
-  if (script && script.getAttribute('div')) {
-    let div = script.getAttribute('div')
-    let merchantId = script.getAttribute('merchantId')
-    let widgetColor = script.getAttribute('widgetColor')
-    let widgetSize = script.getAttribute('widgetSize')
-    let lang = script.getAttribute('lang')
-    Co2okWidgetXL.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
-  }
-})
+.then(_ => Co2okWidgetXL.jQueryLoadDefer(script))
+  // if (window.jQuery) {
+  //   if (script && script.getAttribute('div')) {
+  //     let div = script.getAttribute('div')
+  //     let merchantId = script.getAttribute('merchantId')
+  //     let widgetColor = script.getAttribute('widgetColor')
+  //     let widgetSize = script.getAttribute('widgetSize')
+  //     let lang = script.getAttribute('lang')
+  //     Co2okWidgetXL.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
+  //   }
+  // }
+// })
 
 
 
