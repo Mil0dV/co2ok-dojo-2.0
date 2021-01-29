@@ -391,15 +391,17 @@ Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
 // New style Async execution B)
 // if the variables are set on the script src, we're in async mode
 // and don't expect the html to run merchantCompensations
+var  script = document.currentScript;
+console.log(script.getAttribute('div'))
 
 Co2okWidgetXL.loadResources()
 .then(_ => {
-  if (document.currentScript && document.currentScript.getAttribute('div')) {
-    let div = document.currentScript.getAttribute('div')
-    let merchantId = document.currentScript.getAttribute('merchantId')
-    let widgetColor = document.currentScript.getAttribute('widgetColor')
-    let widgetSize = document.currentScript.getAttribute('widgetSize')
-    let lang = document.currentScript.getAttribute('lang')
+  if (script && script.getAttribute('div')) {
+    let div = script.getAttribute('div')
+    let merchantId = script.getAttribute('merchantId')
+    let widgetColor = script.getAttribute('widgetColor')
+    let widgetSize = script.getAttribute('widgetSize')
+    let lang = script.getAttribute('lang')
     console.log("calling merchant compensation")
     Co2okWidgetXL.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
   }
