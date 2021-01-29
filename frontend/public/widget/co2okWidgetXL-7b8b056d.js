@@ -95,7 +95,7 @@ let Co2okWidgetXL = {
       `${this.SITE_HOST}/widget/hovercard/renewable_energy.png`
   ]
 
-    for (imagess of img){
+    for (img of images){
       result = await this.preloadImage(img)
       console.log("logging result ", result)
     }
@@ -394,7 +394,7 @@ Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
 
 Co2okWidgetXL.loadResources()
 .then(_ => {
-  if (document.currentScript.getAttribute('div')) {
+  if (document.currentScript && document.currentScript.getAttribute('div')) {
     let div = document.currentScript.getAttribute('div')
     let merchantId = document.currentScript.getAttribute('merchantId')
     let widgetColor = document.currentScript.getAttribute('widgetColor')
