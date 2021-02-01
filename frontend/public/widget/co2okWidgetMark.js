@@ -15,7 +15,7 @@ let Co2okWidget = {
       co2ok_impact = 2342;
 
       // if there is an impact value found in the cookie, render the widget
-      if (co2ok_impact > 1){
+      if (co2ok_impact > 1) {
         console.log('Collaborate and listen')
 
         // ugly hack for DGL (degroenelinde)
@@ -23,7 +23,7 @@ let Co2okWidget = {
         if (merchantId == '12afe7d2' || merchantId == '432c516a') {
           // for DGL: continue to retrieval and storing in the cookie if the actual value hasn't been stored
           // (100 is the default value in WC)
-          if (co2ok_impact > 100){
+          if (co2ok_impact > 100) {
             Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetColor, lang)
             return
           }
@@ -39,8 +39,8 @@ let Co2okWidget = {
     // let host = 'http://127.0.0.1:8000'
     let host = 'https://app.co2ok.eco'
     xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=${merchantId}`, true)
-    xhr.onreadystatechange = function(){
-      if (this.readyState == 4 && this.status == 200){
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
         // For the near future: detect large numbers, then divide and adjust kilo to ton
         // let totalTransactionData = (xhr.responseText / 1000).toFixed(1)
         let totalTransactionData = xhr.responseText
@@ -85,117 +85,114 @@ let Co2okWidget = {
       `${this.SITE_HOST}/widget/hovercard/branch.png`,
       `${this.SITE_HOST}/widget/hovercard/heart_plane.png`,
       `${this.SITE_HOST}/widget/hovercard/renewable_energy.png`
-  ]
+    ]
 
-    for (img of images){
+    for (img of images) {
       result = await this.preloadImage(img)
     }
   },
 
   widgetGenerator: function (widgetContainer, totalCompensatedData, widgetColor, lang) {
 
-      // HT: FDD800
-      // CO2ok nu: 11D073
-      // Mijnkraamshop: D0C918
-      let color = "#D0C918"
+    // HT: FDD800
+    // CO2ok nu: 11D073
+    // Mijnkraamshop: D0C918
+    let color = "#D0C918"
 
-      //css for trustmark and hovercard
+    //css for trustmark and hovercard
+    var fileref=document.createElement("link")
+    fileref.setAttribute("rel", "stylesheet")
+    fileref.setAttribute("type", "text/css")
+    fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark.css`)
+    document.getElementsByTagName("head")[0].appendChild(fileref)
+
+    if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0') {
+      console.log('hammer time!')
+      return
+    }
+
+    // Dit moet nog ff mooier als we dit nog willen gebruiken, anders kan het weg.
+    if (totalCompensatedData < 100) {
+      var compensatiewidget  = 0.1;
+    } else {
+      var compensatiewidget  = totalCompensatedData / 1000;
+    }
+
+    // Regular or grayscale widget
+    if (widgetColor == "gray") {
+      var colorSuffix = "-gray";
       var fileref=document.createElement("link")
       fileref.setAttribute("rel", "stylesheet")
       fileref.setAttribute("type", "text/css")
-      fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark.css`)
+      fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-gray.css`)
       document.getElementsByTagName("head")[0].appendChild(fileref)
+    } else {
+        var colorSuffix = "";
+    }
 
-      if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0')
-      {
-        console.log('hammer time!')
-        return
-      }
+    if (lang == 'EN') {
+      var reductietekst = 'CO₂ reduction';
+      var stepOne = "You are empowered to fight climate change by neutralising emissions from production of your purchase";
+      var stepTwo = "This shop has committed to climate friendly delivery; all emissions are neutralised through carbon offsetting projects";
+      var stepThree = `Together we offset <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong> tonne of CO₂ emissions. This is equal to <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`;
+      var works = "How we do this";
+    } else {
+      var reductietekst = 'CO₂ reductie';
+      var stepOne = "Je kan bij ons klimaatverandering bestrijden door de uitstoot van de productie van je aankoop te neutraliseren";
+      var stepTwo = "Deze winkel zet zich in voor een klimaatvriendelijke bezorging; alle uitstoot wordt geneutraliseerd door middel van CO2-compensatieprojecten";
+      var stepThree = `Samen hebben we <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen.`;
+      var works = 'Hoe we dat doen';
+    }
 
-      // Dit moet nog ff mooier als we dit nog willen gebruiken, anders kan het weg.
-      if (totalCompensatedData < 100) {
-        var compensatiewidget  = 0.1;
-      }
-      else {
-        var compensatiewidget  = totalCompensatedData / 1000;
-      }
+    let widgetmark = `
+      <div>
 
-      // Regular or grayscale widget
-      if (widgetColor == "gray") {
-        var colorSuffix = "-gray";
-        var fileref=document.createElement("link")
-        fileref.setAttribute("rel", "stylesheet")
-        fileref.setAttribute("type", "text/css")
-        fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-gray.css`)
-        document.getElementsByTagName("head")[0].appendChild(fileref)
-     }
-     else {
-         var colorSuffix = "";
-     }
-
-      if (lang == 'EN') {
-        var reductietekst = 'CO₂ reduction';
-        var stepOne = "You are empowered to fight climate change by neutralising emissions from production of your purchase";
-        var stepTwo = "This shop has committed to climate friendly delivery; all emissions are neutralised through carbon offsetting projects";
-        var stepThree = `Together we offset <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong> tonne of CO₂ emissions. This is equal to <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`;
-        var works = "How we do this";
-      }
-      else {
-        var reductietekst = 'CO₂ reductie';
-        var stepOne = "Je kan bij ons klimaatverandering bestrijden door de uitstoot van de productie van je aankoop te neutraliseren";
-        var stepTwo = "Deze winkel zet zich in voor een klimaatvriendelijke bezorging; alle uitstoot wordt geneutraliseerd door middel van CO2-compensatieprojecten";
-        var stepThree = `Samen hebben we <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen.`;
-        var works = 'Hoe we dat doen';
-      }
-      let widgetmark = `
-        <div>
-
-          <div class="btn_co2ok_widget co2ok_widget_info widget-small" href="#">
-            <span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${this.SITE_HOST}/static/logo${colorSuffix}.png"></span>
-          </div>
-          <div class="caption_co2ok_widget co2ok_widget_info widget-small">
-            <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t ${reductietekst} </span>
-          </div>
-
+        <div class="btn_co2ok_widget co2ok_widget_info widget-small" href="#">
+          <span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${this.SITE_HOST}/static/logo${colorSuffix}.png"></span>
+        </div>
+        <div class="caption_co2ok_widget co2ok_widget_info widget-small">
+          <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t ${reductietekst} </span>
         </div>
 
-        <div class="co2ok_widget_infobox_container co2ok-popper hovercard-trustmark co2ok-small" id="widget-infobox-view">
+      </div>
 
-          <div class="co2ok-small hovercard-wrapper">
-            <img alt="Rewnewable energy" title="Rewnewable energy" src="${this.SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-small widget-info-hover-png widget-png-left">
-            <p class="co2ok-small widget-steps step-one widget-right"> ${stepOne} </p>
-          </div>
+      <div class="co2ok_widget_infobox_container co2ok-popper hovercard-trustmark co2ok-small" id="widget-infobox-view">
 
-          <div class="co2ok-small hovercard-wrapper" style="margin: 20px 0px;">
-            <img alt="Shipping emissions" title="Shipping emissions" src="${this.SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-small widget-info-hover-png widget-png-right">
-            <p class="co2ok-small widget-steps step-two widget-left"> ${stepTwo} </p>
-          </div>
-
-          <div class="co2ok-small hovercard-wrapper">
-            <img alt="Production emissions" title="Production emissions" src="${this.SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-small widget-info-hover-png widget-png-left">
-            <p class="co2ok-small widget-steps step-one widget-right"> ${stepThree} </p>
-          </div>
-
-          <span class="co2ok-small widget-hovercard-links">
-            <a class="co2ok-small widget-compensation" target="_blank" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
-          </span>
-          <img class="co2ok-small widget-branch-png" src="${this.SITE_HOST}/widget/hovercard/branch.png">
-
+        <div class="co2ok-small hovercard-wrapper">
+          <img alt="Rewnewable energy" title="Rewnewable energy" src="${this.SITE_HOST}/widget/hovercard/renewable_energy.png" class="co2ok-small widget-info-hover-png widget-png-left">
+          <p class="co2ok-small widget-steps step-one widget-right"> ${stepOne} </p>
         </div>
-      `
-              // console.log(widgetimg)
 
-      let widgetcontainer = document.getElementById(widgetContainer)
-      // let widgetcontainer = document.getElementsByClassName('whb-empty-column')[0]
+        <div class="co2ok-small hovercard-wrapper" style="margin: 20px 0px;">
+          <img alt="Shipping emissions" title="Shipping emissions" src="${this.SITE_HOST}/widget/hovercard/green_truck.png" class="co2ok-small widget-info-hover-png widget-png-right">
+          <p class="co2ok-small widget-steps step-two widget-left"> ${stepTwo} </p>
+        </div>
 
-      // Don't try to place widget if there is no container
-      if(widgetcontainer == null){
-        return
-      }
+        <div class="co2ok-small hovercard-wrapper">
+          <img alt="Production emissions" title="Production emissions" src="${this.SITE_HOST}/widget/hovercard/heart_plane.png" class="co2ok-small widget-info-hover-png widget-png-left">
+          <p class="co2ok-small widget-steps step-one widget-right"> ${stepThree} </p>
+        </div>
 
-      widgetcontainer.innerHTML = widgetmark
-      this.RegisterWidgetInfoBox();
-      // this.ShowWidgetInfoBox();
+        <span class="co2ok-small widget-hovercard-links">
+          <a class="co2ok-small widget-compensation" target="_blank" href="http://www.co2ok.eco/co2-compensatie"> ${works} </a>
+        </span>
+        <img class="co2ok-small widget-branch-png" src="${this.SITE_HOST}/widget/hovercard/branch.png">
+
+      </div>
+    `
+            // console.log(widgetimg)
+
+    let widgetcontainer = document.getElementById(widgetContainer)
+    // let widgetcontainer = document.getElementsByClassName('whb-empty-column')[0]
+
+    // Don't try to place widget if there is no container
+    if(widgetcontainer == null) {
+      return
+    }
+
+    widgetcontainer.innerHTML = widgetmark
+    this.RegisterWidgetInfoBox();
+    // this.ShowWidgetInfoBox();
   },
 
 
@@ -209,46 +206,47 @@ let Co2okWidget = {
       // Returns true if jQuery can find an element that matches the given selector string.
       isExistingjQueryElement: function(selector) {
           return !!jQuery(selector).length;
+
   },
 
 
   placeWidgetInfoBox : function() {
-      // console.log('Platz? Lebensraum!')
-      var widgetInfoButton = jQuery(".co2ok_widget_info");
-      var widgetInfoBox = jQuery(".hovercard-trustmark");
-      var offset = widgetInfoButton.offset();
+    // console.log('Platz? Lebensraum!')
+    var widgetInfoButton = jQuery(".co2ok_widget_info");
+    var widgetInfoBox = jQuery(".hovercard-trustmark");
+    var offset = widgetInfoButton.offset();
 
-      widgetInfoBox.remove();
-      jQuery("body").append(widgetInfoBox);
+    widgetInfoBox.remove();
+    jQuery("body").append(widgetInfoBox);
 
-      if (jQuery(window).width() < 480) {
-        // offset.left = offset.left - widgetInfoBox.width() / 4;
-        offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.height() - 9);
-        if ( offset.left < 0) offset.left = 10;
-        if ( offset.top < 0) offset.top = 10;
-        widgetInfoBox.css({
-            top: offset.top,
-            margin: "0 auto",
-            left: offset.left,
-            transform: "none"
-        });
-      } else {
-        offset.left = offset.left - widgetInfoBox.outerWidth() / 2 + widgetInfoButton.outerWidth() / 2;
-        if ( offset.left < 0) offset.left = 10;
-        offset.top = offset.top + widgetInfoButton.outerHeight();
-        if (offset.top > jQuery(window).height() - widgetInfoBox.width()) {
-          offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.width() / 2) - 6;
-        }
-        widgetInfoBox.css({
+    if (jQuery(window).width() < 480) {
+      // offset.left = offset.left - widgetInfoBox.width() / 4;
+      offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.height() - 9);
+      if ( offset.left < 0) offset.left = 10;
+      if ( offset.top < 0) offset.top = 10;
+      widgetInfoBox.css({
           top: offset.top,
+          margin: "0 auto",
           left: offset.left,
-          margin: "0",
           transform: "none"
-        });
+      });
+    } else {
+      offset.left = offset.left - widgetInfoBox.outerWidth() / 2 + widgetInfoButton.outerWidth() / 2;
+      if ( offset.left < 0) offset.left = 10;
+      offset.top = offset.top + widgetInfoButton.outerHeight();
+      if (offset.top > jQuery(window).height() - widgetInfoBox.width()) {
+        offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.width() / 2) - 6;
       }
+      widgetInfoBox.css({
+        top: offset.top,
+        left: offset.left,
+        margin: "0",
+        transform: "none"
+      });
+    }
   },
-  ShowWidgetInfoBox  : function()
-  {
+
+  ShowWidgetInfoBox  : function() {
       // console.log("Show must go on")
     jQuery(".hovercard-trustmark").removeClass('infobox-hidden')
     jQuery(".hovercard-trustmark").addClass('ShowWidgetInfoBox')
@@ -261,8 +259,7 @@ let Co2okWidget = {
     //   }
   },
 
-  hideWidgetInfoBox : function()
-  {
+  hideWidgetInfoBox : function() {
     jQuery(".hovercard-trustmark").removeClass('ShowWidgetInfoBox')
     jQuery(".hovercard-trustmark").addClass('infobox-hidden')
     jQuery(".co2ok_widget_container").css({
@@ -270,14 +267,12 @@ let Co2okWidget = {
     });
   },
 
-  modalRegex: function(e)
-  {
+  modalRegex: function(e) {
     return jQuery(e.target).hasClass("co2ok-small") ||
     jQuery(e.target).hasClass("widget-small");
   },
 
-  RegisterWidgetInfoBox : function()
-  {
+  RegisterWidgetInfoBox : function() {
     console.log('it begins')
     var _this = this;
 
@@ -300,35 +295,49 @@ let Co2okWidget = {
 
     jQuery('body').on("touchstart",function(e){
 
-      if(!_this.modalRegex(e)){
+      if(!_this.modalRegex(e)) {
         _this.hideWidgetInfoBox();
-      }
-      else {
+      } else {
         _this.placeWidgetInfoBox()
         _this.ShowWidgetInfoBox();
       }
     });
 
-    if(!this.isMobile())
-    {
+    if(!this.isMobile()) {
       jQuery(".co2ok_widget_info , .co2ok_widget_info_hitarea").mouseenter(function() {
         _this.placeWidgetInfoBox();
       });
 
       jQuery(document).mouseover(function(e) {
-          if (!(_this.modalRegex(e)))
-          {
-            _this.hideWidgetInfoBox();
-          }
-          else {
-            _this.placeWidgetInfoBox();
-            _this.ShowWidgetInfoBox();
-          }
-        });
+        if (!(_this.modalRegex(e))) {
+          _this.hideWidgetInfoBox();
+        } else {
+          _this.placeWidgetInfoBox();
+          _this.ShowWidgetInfoBox();
+        }
+      });
     }
-}
+  },
 
+  updateScriptToDefer : function(script) {
+    jQuery('script[div="widgetContainermark"]').removeAttr("async")
+    jQuery('script[div="widgetContainermark"]').attr("defer", true);
+  },
 
+  jQueryLoadDefer: function(script) {
+    if (window.jQuery) {
+      console.log("jQuery loaded!")
+      if (script.getAttribute('div')) {
+        let div = script.getAttribute('div')
+        let merchantId = script.getAttribute('merchantId')
+        let widgetColor = script.getAttribute('widgetColor')
+        let lang = script.getAttribute('lang')
+        Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
+      }
+    } else {
+      setTimeout(function() { Co2okWidget.jQueryLoadDefer(script) }, 50);
+    }
+  }
 
 }
 // export default new Co2okWidget()
@@ -341,14 +350,15 @@ Co2okWidget.SITE_HOST =  'https://co2ok.eco'
 var  script = document.currentScript;
 
 Co2okWidget.loadResources()
-.then(_ => {
-  if (script && script.getAttribute('div')) {
-    let div = script.getAttribute('div')
-    let merchantId = script.getAttribute('merchantId')
-    let widgetColor = script.getAttribute('widgetColor')
-    let widgetSize = script.getAttribute('widgetSize')
-    let lang = script.getAttribute('lang')
-    Co2okWidget.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
-  }
-  return ;
-})
+.then(_ => Co2okWidget.updateScriptToDefer(script))
+.then(_ => Co2okWidget.jQueryLoadDefer(script))
+// {
+//   if (script && script.getAttribute('div')) {
+//     let div = script.getAttribute('div')
+//     let merchantId = script.getAttribute('merchantId')
+//     let widgetColor = script.getAttribute('widgetColor')
+//     let widgetSize = script.getAttribute('widgetSize')
+//     let lang = script.getAttribute('lang')
+//     Co2okWidget.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
+//   }
+// })

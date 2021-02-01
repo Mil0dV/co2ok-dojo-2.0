@@ -381,7 +381,7 @@ let Co2okWidgetXL = {
 
   updateScriptToDefer : function() {
     jQuery('script[div="widgetContainerXL"]').removeAttr("async")
-    jQuery('script[div="widgetContainerXL"]').attr("defer", "defer");
+    jQuery('script[div="widgetContainerXL"]').attr("defer", true);
   },
 
   jQueryLoadDefer: function(nb, script) {
