@@ -327,6 +327,7 @@ let Co2okWidget = {
   jQueryLoadDefer: function(script) {
     if (window.jQuery) {
       console.log("jQuery loaded!")
+      Co2okWidget.updateScriptToDefer(script);
       if (script.getAttribute('div')) {
         let div = script.getAttribute('div')
         let merchantId = script.getAttribute('merchantId')
@@ -351,15 +352,15 @@ Co2okWidget.SITE_HOST =  'https://co2ok.eco'
 var  script = document.currentScript;
 
 Co2okWidget.loadResources()
+.then(_ => Co2okWidget.jQueryLoadDefer(script))
 // .then(_ => Co2okWidget.updateScriptToDefer(script))
-// .then(_ => Co2okWidget.jQueryLoadDefer(script))
-.then(_ => {
-  if (script && script.getAttribute('div')) {
-    let div = script.getAttribute('div')
-    let merchantId = script.getAttribute('merchantId')
-    let widgetColor = script.getAttribute('widgetColor')
-    let widgetSize = script.getAttribute('widgetSize')
-    let lang = script.getAttribute('lang')
-    Co2okWidget.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
-  }
-})
+// .then(_ => {
+//   if (script && script.getAttribute('div')) {
+//     let div = script.getAttribute('div')
+//     let merchantId = script.getAttribute('merchantId')
+//     let widgetColor = script.getAttribute('widgetColor')
+//     let widgetSize = script.getAttribute('widgetSize')
+//     let lang = script.getAttribute('lang')
+//     Co2okWidget.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
+//   }
+// })
