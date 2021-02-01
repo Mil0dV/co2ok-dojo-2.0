@@ -319,19 +319,8 @@ let Co2okWidget = {
     }
   },
 
-  updateScriptToDefer : function() {
-    if (document.querySelector('script[div="widgetContainermark"]')) {
-      document.querySelector('script[div="widgetContainermark"]').setAttribute("defer", "");
-      document.querySelector('script[div="widgetContainermark"]').removeAttribute("async")
-    }
-    // jQuery('script[div="widgetContainermark"]').attr("defer", "defer");
-    // jQuery('script[div="widgetContainermark"]').removeAttr("async")
-  },
-
   jQueryLoadDefer: function(script) {
     if (window.jQuery) {
-      console.log("jQuery loaded!")
-      // Co2okWidget.updateScriptToDefer();
       if (script.getAttribute('div')) {
         let div = script.getAttribute('div')
         let merchantId = script.getAttribute('merchantId')
@@ -355,5 +344,4 @@ Co2okWidget.SITE_HOST =  'https://co2ok.eco'
 var  script = document.currentScript;
 
 Co2okWidget.loadResources()
-.then(_ => Co2okWidget.updateScriptToDefer())
 .then(_ => Co2okWidget.jQueryLoadDefer(script))
