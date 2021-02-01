@@ -379,22 +379,27 @@ let Co2okWidgetXL = {
     }
   },
 
-  // jQueryLoadDefer: function(nb, script) {
-  //   if (nb == 10 && window.jQuery) {
-  //     console.log("jQuery loaded!")
-  //     if (script.getAttribute('div')) {
-  //       let div = script.getAttribute('div')
-  //       let merchantId = script.getAttribute('merchantId')
-  //       let widgetColor = script.getAttribute('widgetColor')
-  //       let lang = script.getAttribute('lang')
-  //       Co2okWidgetXL.merchantCompensations(div, merchantId, widgetColor, lang)
-  //     }
-  //   } else {
-  //     console.log("waiting for jQuery to load")
-  //     nb = nb + 1;
-  //     setTimeout(function() { Co2okWidgetXL.jQueryLoadDefer(nb, script) }, 50);
-  //   }
-  // }
+  updateScriptToDefer : function() {
+    jQuery('script[div="widgetContainerXL"]').removeAttr("async")
+    jQuery('script[div="widgetContainerXL"]').attr("defer", "defer");
+  },
+
+  jQueryLoadDefer: function(nb, script) {
+    if (nb == 10 && window.jQuery) {
+      console.log("jQuery loaded!")
+      if (script.getAttribute('div')) {
+        let div = script.getAttribute('div')
+        let merchantId = script.getAttribute('merchantId')
+        let widgetColor = script.getAttribute('widgetColor')
+        let lang = script.getAttribute('lang')
+        Co2okWidgetXL.merchantCompensations(div, merchantId, widgetColor, lang)
+      }
+    } else {
+      console.log("waiting for jQuery to load")
+      nb = nb + 1;
+      setTimeout(function() { Co2okWidgetXL.jQueryLoadDefer(nb, script) }, 50);
+    }
+  }
 
 }
   // export default new Co2okWidget()
@@ -411,18 +416,20 @@ var  script = document.currentScript;
 
 // jQueryLoadDefer();
 Co2okWidgetXL.loadResources()
-.then(_  => { //=> Co2okWidgetXL.jQueryLoadDefer(0, script))
-  if (window.jQuery) {
-    if (script && script.getAttribute('div')) {
-      let div = script.getAttribute('div')
-      let merchantId = script.getAttribute('merchantId')
-      let widgetColor = script.getAttribute('widgetColor')
-      let widgetSize = script.getAttribute('widgetSize')
-      let lang = script.getAttribute('lang')
-      Co2okWidgetXL.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
-    }
-  }
-})
+.then(_ => Co2okWidgetXL.updateScriptToDefer())
+.then(_  => Co2okWidgetXL.jQueryLoadDefer(0, script))
+// {
+//   if (window.jQuery) {
+//     if (script && script.getAttribute('div')) {
+//       let div = script.getAttribute('div')
+//       let merchantId = script.getAttribute('merchantId')
+//       let widgetColor = script.getAttribute('widgetColor')
+//       let widgetSize = script.getAttribute('widgetSize')
+//       let lang = script.getAttribute('lang')
+//       Co2okWidgetXL.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
+//     }
+//   }
+// })
 
 
 
