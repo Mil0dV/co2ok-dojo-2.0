@@ -380,15 +380,16 @@ let Co2okWidgetXL = {
   },
 
   updateScriptToDefer : function() {
-    document.querySelector('script[div="widgetContainerXL"]').removeAttr("async")
-    document.querySelector('script[div="widgetContainerXL"]').attr("defer", true);
-    console.log("changed to defer")
+    document.querySelector('script[div="widgetContainerXL"]').setAttribute("defer", "");
+    document.querySelector('script[div="widgetContainerXL"]').removeAttribute("async")
+    console.log("changed script to defer")
   },
 
   jQueryLoadDefer: function(nb, script) {
     if (nb == 10 && window.jQuery) {
       console.log("jQuery loaded!")
       if (script.getAttribute('div')) {
+        console
         let div = script.getAttribute('div')
         let merchantId = script.getAttribute('merchantId')
         let widgetColor = script.getAttribute('widgetColor')
@@ -396,7 +397,6 @@ let Co2okWidgetXL = {
         Co2okWidgetXL.merchantCompensations(div, merchantId, widgetColor, lang)
       }
     } else {
-      console.log("waiting for jQuery to load")
       nb = nb + 1;
       setTimeout(function() { Co2okWidgetXL.jQueryLoadDefer(nb, script) }, 50);
     }
