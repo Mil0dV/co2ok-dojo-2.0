@@ -161,8 +161,8 @@
         </div> -->
 
 
-        <Webshops :content="webshopsContent"/>
-        <WebshopForm id="get-started":content="formContent"/>
+        <WebshopLogos />
+        <WebshopForm id="get-started" :content="formContent"/>
 
     </div>
 </template>
@@ -170,7 +170,7 @@
 <script>
     // const Widget = () => import('@/components/layout/widget')
     const WebshopForm = () => import('@/components/layout/WebshopForm')
-    const Webshops = () => import('@/components/webshops/WebshopLogos')
+    const WebshopLogos = () => import('@/components/webshops/WebshopLogos')
     const BBApi = () => import('@/views/landing/BBApi')
     const Retail = () => import('@/views/landing/Retail')
     const MarketingCause = () => import('@/views/landing/MarketingCause')
@@ -186,8 +186,7 @@
         name: "Ahome",
         data() {
             return {
-                formContent: 2,
-                webshopsContent: 2,
+                formContent: 2
             }
         },
 
@@ -204,7 +203,7 @@
         components: {
             // 'Widget': Widget
             'WebshopForm': WebshopForm,
-            'Webshops': Webshops,
+            'WebshopLogos': WebshopLogos,
             'Retail': Retail,
             'BBApi': BBApi,
             'MarketingCause': MarketingCause,

@@ -271,6 +271,26 @@
                     {
                         image: 'shop-65',
                         link: 'https://chimps.shop/'
+                    },
+                    {
+                        image: 'shop-66',
+                        link: 'https://www.grafverzorgingdeveluwe.nl/'
+                    },
+                    {
+                        image: 'shop-67',
+                        link: 'https://www.lndbln.com/'
+                    },
+                    {
+                        image: 'shop-68',
+                        link: 'https://eraci.nl/'
+                    },
+                    {
+                        image: 'shop-69',
+                        link: 'https://passionpla.net/'
+                    },
+                    {
+                        image: 'shop-70',
+                        link: 'https://kabloom.co.uk'
                     }
                 ]
             }
