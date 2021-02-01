@@ -319,7 +319,7 @@ let Co2okWidget = {
     }
   },
 
-  updateScriptToDefer : function(script) {
+  updateScriptToDefer : function() {
     jQuery('script[div="widgetContainermark"]').removeAttr("async")
     jQuery('script[div="widgetContainermark"]').attr("defer", "defer");
   },
@@ -327,7 +327,7 @@ let Co2okWidget = {
   jQueryLoadDefer: function(script) {
     if (window.jQuery) {
       console.log("jQuery loaded!")
-      Co2okWidget.updateScriptToDefer(script);
+      Co2okWidget.updateScriptToDefer();
       if (script.getAttribute('div')) {
         let div = script.getAttribute('div')
         let merchantId = script.getAttribute('merchantId')
@@ -336,7 +336,6 @@ let Co2okWidget = {
         Co2okWidget.merchantCompensations(div, merchantId, widgetColor, lang)
       }
     } else {
-      console.log("waiting for jQuery to load")
       setTimeout(function() { Co2okWidget.jQueryLoadDefer(script) }, 50);
     }
   }
@@ -353,14 +352,3 @@ var  script = document.currentScript;
 
 Co2okWidget.loadResources()
 .then(_ => Co2okWidget.jQueryLoadDefer(script))
-// .then(_ => Co2okWidget.updateScriptToDefer(script))
-// .then(_ => {
-//   if (script && script.getAttribute('div')) {
-//     let div = script.getAttribute('div')
-//     let merchantId = script.getAttribute('merchantId')
-//     let widgetColor = script.getAttribute('widgetColor')
-//     let widgetSize = script.getAttribute('widgetSize')
-//     let lang = script.getAttribute('lang')
-//     Co2okWidget.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
-//   }
-// })

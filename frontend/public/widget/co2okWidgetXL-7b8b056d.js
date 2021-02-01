@@ -380,8 +380,9 @@ let Co2okWidgetXL = {
   },
 
   updateScriptToDefer : function() {
-    jQuery('script[div="widgetContainerXL"]').removeAttr("async")
-    jQuery('script[div="widgetContainerXL"]').attr("defer", true);
+    document.querySelector('script[div="widgetContainerXL"]').removeAttr("async")
+    document.querySelector('script[div="widgetContainerXL"]').attr("defer", true);
+    console.log("changed to defer")
   },
 
   jQueryLoadDefer: function(nb, script) {
