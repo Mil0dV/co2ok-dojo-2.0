@@ -94,7 +94,7 @@ let Co2okWidgetXL = {
 	  var fileref=document.createElement("link")
 	  fileref.setAttribute("rel", "stylesheet")
 	  fileref.setAttribute("type", "text/css")
-	  fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-109f4164.css`)
+	  fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetXL-7b8b056d.css`)
 	  document.getElementsByTagName("head")[0].appendChild(fileref)
 
 	  images = [
@@ -464,8 +464,8 @@ let Co2okWidgetXL = {
 }
 // export default new Co2okWidget()
 
-Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
-// Co2okWidgetXL.SITE_HOST = 'http://localhost:8080'
+// Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
+Co2okWidgetXL.SITE_HOST = 'http://localhost:8080'
 
 //document.currentScript must be saved here before entering loadResrouces to avoid null
 //loadResouces returns a promise, this means that by .then()

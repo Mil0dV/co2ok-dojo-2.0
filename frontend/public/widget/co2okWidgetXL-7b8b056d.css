@@ -46,6 +46,8 @@
           margin-top: 11px;
         }
       }
+      .co2ok_widget_infobox_container .card-main-header .header {
+        color: #00B67A; }
       .co2ok_widget_infobox_container .card-main-header .header-img {
         margin-top: -22px;
         width: 20%;
@@ -61,6 +63,7 @@
       margin-top: 8px; }
       .co2ok_widget_infobox_container .co2ok-widget-content .card-sub-header .sub-header {
         margin-bottom: 0px !important;
+        color: #239DCC;
       }
       .co2ok_widget_infobox_container .co2ok-widget-content .left {
         margin-left: 14px; }
