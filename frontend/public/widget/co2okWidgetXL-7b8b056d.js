@@ -1,3 +1,4 @@
+//dev store
 let Co2okWidgetXL = {
 
   getCookieValue: function (a) {
@@ -367,6 +368,7 @@ let Co2okWidgetXL = {
   modalRegex: function(e)
   {
      return jQuery(e.target).hasClass("co2ok-large") ||
+     jQuery(e.target).hasClass("exit-area") ||
      jQuery(e.target).is("#info-button-widget");
   },
 
@@ -382,8 +384,7 @@ let Co2okWidgetXL = {
 
     jQuery('body').click(function(e)
     {
-      if(!_this.modalRegex(e, ))
-      {
+      if(!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area")) {
         _this.hideWidgetInfoBox();
       } else {
         _this.ShowWidgetInfoBox();
@@ -392,8 +393,7 @@ let Co2okWidgetXL = {
     });
 
     jQuery('body').on("touchstart",function(e){
-
-      if(!_this.modalRegex(e)){
+      if(!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area")){
         _this.hideWidgetInfoBox();
       } else {
         _this.placeWidgetInfoBox()
@@ -408,7 +408,7 @@ let Co2okWidgetXL = {
       });
 
       jQuery(document).mouseover(function(e) {
-        if (!_this.modalRegex(e)) {
+        if (!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area")) {
           _this.hideWidgetInfoBox();
         } else {
           _this.placeWidgetInfoBox();
