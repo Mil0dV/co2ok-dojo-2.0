@@ -3,17 +3,16 @@
   position: absolute;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 500px) {
   .mobile-hidden {
     display: none;
   }
 }
 
-@media (min-width: 421px) {
+@media (min-width: 501px) {
   .desktop-hidden {
     display: none;
   }
-
 }
 
 .co2ok_widget_infobox_container {
@@ -137,7 +136,7 @@
     position: absolute;
     width: 24%;
     left: 38%;
-    bottom: 6px; }
+    margin-top: -8px; }
   .co2ok_widget_infobox_container img, .co2ok_widget_infobox_container span {
     display: inline-block;
     vertical-align: middle;
@@ -145,101 +144,116 @@
     padding: 0px; }
 
 
-@media (max-width: 420px) {
+/*mobile settings*/
+@media (max-width: 500px) {
   .co2ok_widget_infobox_container {
     left: 0 !important;
     top: 0 !important;
     position: fixed;
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden; }
-  .co2ok_widget_infobox_container .mobile-bar {
-    height: 40px;
-    width: 110%;
-    background: #00B67A;
-    margin-top: -10px !important;
-    margin-left: -10px; }
-  .co2ok_widget_infobox_container .co2ok-widget-content {
-    margin-top: 16px;
-  }
-  .co2ok_widget_infobox_container .mobile .exit-area {
-    color: white;
-    font-size: 12px;
-    /* display: flex !important; */
-    position: absolute;
-    right: 0;
-    top: 12px;
-    height: 35px;
-    width: 35px;
-  }
-  .co2ok_widget_infobox_container .mobile .mobile-header {
-    color: white;
-    padding-top: 4px;
-    font-size: 20px;
-    margin-left: 16px;
-  }
-  .co2ok_widget_infobox_container .card-main-header {
-    margin-top: 34px;
-  }
-  .co2ok_widget_infobox_container .card-main-header .header-img {
-    width: 16%;
-    /* margin-top: 36px; */
-    left: 12px; }
+    overflow-y: auto;
+    overflow-x: hidden;
+    transform: none !important; }
+    .co2ok_widget_infobox_container .co2ok-widget-content {
+      margin-top: 16px;
+    }
+    .co2ok_widget_infobox_container .mobile-bar {
+      height: 40px;
+      width: 110%;
+      background: #00B67A;
+      margin-top: -10px !important;
+      margin-left: -10px; }
+    .co2ok_widget_infobox_container .mobile .exit-area-span {
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      right: 0px;
+      top: 3px;
+    }
+    .co2ok_widget_infobox_container .mobile .exit-area-span .exit-area {
+      color: white;
+      font-size: 12px;
+      margin: auto;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .co2ok_widget_infobox_container .card-main-header {
+      margin-top: 34px;
+    }
+    .co2ok_widget_infobox_container .mobile .mobile-header {
+      color: white;
+      padding-top: 4px;
+      font-size: 20px;
+      margin-left: 16px;
+    }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .text-block {
+      padding: 8px 0px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .box {
+      /* margin-top: 34px; */
+      width: 14%; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .plant {
+      margin-top: -20px;
+      width: 14%;
+      left: 24px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .tree {
+      margin-top: -12px;
+      width: 14%; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .left {
+      margin-left: 12px;
+    }
+    .co2ok_widget_infobox_container .co2ok-widget-content .right {
+      margin-left: 101px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .right-align-img {
+      right: 30px; }
+}
+
+@media (max-width: 450px) {
   .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .text-block {
     padding: 8px 0px; }
   .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .right-align-img {
     right: 12px; }
   .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .box {
-    /* margin-top: 34px; */
+    margin-top: -30px;
     width: 18%; }
   .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .plant {
-    /* margin-top: 30px; */
     width: 18%;
     left: 9px; }
   .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .tree {
     margin-top: -12px;
     width: 18%; }
-  /* .co2ok_widget_infobox_container .co2ok-logos .hover-link{
-    bottom: -34px; } */
   .co2ok_widget_infobox_container .co2ok-logos .woonliving_logo {
-   position: unset;
-  }
+   position: unset; }
   .co2ok_widget_infobox_container .co2ok-logos .treesforall_logo {
-    position: sticky;
-  }
+    position: sticky; }
 }
 
 /*smallest mobile*/
 @media (max-width: 320px) {
   .co2ok_widget_infobox_container .card-main-header {
-    margin-top: 12px;
-  }
+    margin-top: 12px; }
   .co2ok_widget_infobox_container .card-main-header .header-img {
     width: 18%;
     top: 48px;
     left: 12px; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .right {
+    margin-left: 75px; }
   .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .right-align-img {
     right: 6px; }
   .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .box {
-    margin-top: 14px;
+    margin-top: -19px;
     width: 20%;
-    right: 14px;}
+    right: 14px; }
   .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .plant {
-    margin-top: 32px;
+    margin-top: -6px;
     width: 20%;
     left: 11px; }
   .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .tree {
-    margin-top: 48px;
+    margin-top: 0px;
     width: 20%;
     right: 14px; }
-  /* .co2ok_widget_infobox_container .co2ok-logos .hover-link {
-    bottom: -24px;
-  } */
   .co2ok_widget_infobox_container .co2ok-logos .woonliving_logo {
-   position: unset;
-  }
+   position: unset; }
   .co2ok_widget_infobox_container .co2ok-logos .treesforall_logo {
-    position: sticky;
-  }
+    position: sticky; }
 }
