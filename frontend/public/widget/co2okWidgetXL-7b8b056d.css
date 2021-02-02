@@ -30,14 +30,6 @@
   padding: 10px;
   border: 3px solid #eee;
   border-image-slice: 1; }
-  /* @media (max-width: 340px) {
-    .co2ok_widget_infobox_container {
-      width: 300px;
-    } }
-  @media (max-width: 320px) {
-    .co2ok_widget_infobox_container {
-      height: 540px;
-    } } */
   .co2ok_widget_infobox_container.ShowWidgetInfoBox {
     display: block;
     opacity: 1; }
@@ -46,15 +38,13 @@
       color: #00B67A;
       font-weight: 500;
       line-height: 1.75rem;
+      margin-bottom: 0px !important;
       margin-left: 75px;
       margin-top: 26px; }
       @media (max-width: 370px) {
         .co2ok_widget_infobox_container .card-main-header {
           margin-top: 11px;
         }
-      }
-      .co2ok_widget_infobox_container .card-main-header .header {
-        color: #00B67A;
       }
       .co2ok_widget_infobox_container .card-main-header .header-img {
         margin-top: -22px;
@@ -66,10 +56,11 @@
       font-size: 14px;
       color: #239DCC;
       font-weight: 500;
+      margin-bottom: 0px !important;
       line-height: 1.25rem;
       margin-top: 8px; }
       .co2ok_widget_infobox_container .co2ok-widget-content .card-sub-header .sub-header {
-        color: #239DCC;
+        margin-bottom: 0px !important;
       }
       .co2ok_widget_infobox_container .co2ok-widget-content .left {
         margin-left: 14px; }
@@ -98,6 +89,7 @@
       width: 18%; }
   .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .text-block {
     font-size: 11px;
+    margin-bottom: 0px !important;
     line-height: normal;
     text-align: left;
     box-sizing: border-box;
@@ -114,6 +106,7 @@
     font-size: 12px;
     width: 92%;
     margin: 16px 0px 16px 13px;
+    margin-bottom: 0px !important;
   }
   .co2ok_widget_infobox_container .co2-compensation-projects .project-img {
     padding: 8px 0px;
@@ -122,6 +115,7 @@
     text-align: center;
     font-size: 9px;
     font-style: italic;
+    margin-bottom: 0px !important;
     padding-bottom: 16px; }
   .co2ok_widget_infobox_container .co2ok-logos {
     height: 40px;

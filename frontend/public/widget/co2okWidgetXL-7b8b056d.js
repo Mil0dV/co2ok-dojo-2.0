@@ -1,5 +1,3 @@
-//co2ok dev store
-
 let Co2okWidgetXL = {
 
   getCookieValue: function (a) {
@@ -93,13 +91,13 @@ let Co2okWidgetXL = {
     fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetXL.css`)
     document.getElementsByTagName("head")[0].appendChild(fileref)
     //css for hovercard
-    var fileref=document.createElement("link")
-    fileref.setAttribute("rel", "stylesheet")
-    fileref.setAttribute("type", "text/css")
-    fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetXL-7b8b056d.css`)
-    document.getElementsByTagName("head")[0].appendChild(fileref)
+	  var fileref=document.createElement("link")
+	  fileref.setAttribute("rel", "stylesheet")
+	  fileref.setAttribute("type", "text/css")
+	  fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-109f4164.css`)
+	  document.getElementsByTagName("head")[0].appendChild(fileref)
 
-	  images = [`${this.SITE_HOST}/widget/cfs.png`,
+	  images = [
 	  `${this.SITE_HOST}/widget/devstore/WL_world.png`,
 	  `${this.SITE_HOST}/widget/devstore/WL_box.png`,
 	  `${this.SITE_HOST}/widget/devstore/WL_seedling.png`,
@@ -107,6 +105,7 @@ let Co2okWidgetXL = {
 		`${this.SITE_HOST}/widget/devstore/WL_logo.png`,
 		`${this.SITE_HOST}/widget/devstore/treeslogo.png`
 		]
+
 
 	  for (img of images) {
 			result = await this.preloadImage(img)
@@ -368,7 +367,6 @@ let Co2okWidgetXL = {
   modalRegex: function(e)
   {
      return jQuery(e.target).hasClass("co2ok-large") ||
-     jQuery(e.target).hasClass("widget-hovercard-large") ||
      jQuery(e.target).is("#info-button-widget");
   },
 
@@ -410,13 +408,9 @@ let Co2okWidgetXL = {
       });
 
       jQuery(document).mouseover(function(e) {
-
         if (!_this.modalRegex(e)) {
-
           _this.hideWidgetInfoBox();
-
         } else {
-          console.log("logging things", _this.modalRegex(e))
           _this.placeWidgetInfoBox();
           _this.ShowWidgetInfoBox();
         }
@@ -428,23 +422,30 @@ let Co2okWidgetXL = {
     // Manual AB-switch
     var urlParams = new URLSearchParams(window.location.search);
     var co2ok_AB_param = urlParams.get('co2ok_ab');
-    if (co2ok_AB_param == 'show')
-    {
+    if (co2ok_AB_param == 'show') {
       console.log('Co2ok ON manually!')
-      return true;
-    }
-    else if (co2ok_AB_param == 'hide')
-    {
+    } else if (co2ok_AB_param == 'hide') {
       console.log('Co2ok OFF mannually!')
       return false;
-    }
-    else if (Co2okWidgetXL.getCookieValue('co2ok_ab_hide') == '0')
-    {
+    } else if (Co2okWidgetXL.getCookieValue('co2ok_ab_hide') == '0') {
       console.log('hammer time!')
       return false;
-    }
-    return false;
-  },
+		}
+
+    var co2ok_fileswap_param = urlParams.get('co2ok_fileswap');
+		if (co2ok_fileswap_param == 'patch' || Co2okWidgetXL.getCookieValue('co2ok_fileswap') == 'swapped') {
+			jQuery.getScript('http://localhost:8080/widget/co2ok_local_file.js');
+
+			var now = new Date();
+			now.setTime(now.getTime() + 1 * 3600 * 1000);
+
+			document.cookie = 'co2ok_fileswap=swapped;expires=Thu,'+ now +';path="/"'
+			return false;
+		} else if (co2ok_fileswap_param == 'unpatch') {
+			document.cookie = 'co2ok_fileswap=;expires = Thu, 01 Jan 1970 00:00:00 GMT;'
+		}
+		return true;
+	},
 
   jQueryLoadDefer: function(script) {
     if (window.jQuery) {
@@ -460,13 +461,11 @@ let Co2okWidgetXL = {
     }
   }
 
-
-
 }
-  // export default new Co2okWidget()
+// export default new Co2okWidget()
 
-// Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
-Co2okWidgetXL.SITE_HOST = 'http://localhost:8080'
+Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
+// Co2okWidgetXL.SITE_HOST = 'http://localhost:8080'
 
 //document.currentScript must be saved here before entering loadResrouces to avoid null
 //loadResouces returns a promise, this means that by .then()
