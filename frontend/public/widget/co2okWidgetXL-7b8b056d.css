@@ -1,0 +1,242 @@
+.png-img-large {
+  display: flex;
+  position: absolute;
+}
+
+@media (max-width: 420px) {
+  .mobile-hidden {
+    display: none;
+  }
+}
+
+@media (min-width: 421px) {
+  .desktop-hidden {
+    display: none;
+  }
+
+}
+
+.co2ok_widget_infobox_container {
+  position: absolute;
+  width: 350px;
+  height: 705px;
+  background: white;
+  border-radius: 15px;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  font-size: 0.9em;
+  z-index: 99999999999;
+  display: none;
+  padding: 10px;
+  border: 3px solid #eee;
+  border-image-slice: 1; }
+  /* @media (max-width: 340px) {
+    .co2ok_widget_infobox_container {
+      width: 300px;
+    } }
+  @media (max-width: 320px) {
+    .co2ok_widget_infobox_container {
+      height: 540px;
+    } } */
+  .co2ok_widget_infobox_container.ShowWidgetInfoBox {
+    display: block;
+    opacity: 1; }
+    .co2ok_widget_infobox_container .card-main-header {
+      font-size: 28px;
+      color: #00B67A;
+      font-weight: 500;
+      line-height: 1.75rem;
+      margin-left: 75px;
+      margin-top: 26px; }
+      @media (max-width: 370px) {
+        .co2ok_widget_infobox_container .card-main-header {
+          margin-top: 11px;
+        }
+      }
+      .co2ok_widget_infobox_container .card-main-header .header-img {
+        margin-top: -22px;
+        width: 20%;
+        left: 14px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content {
+      margin-top: 31px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .card-sub-header {
+      font-size: 14px;
+      color: #239DCC;
+      font-weight: 500;
+      line-height: 1.25rem;
+      margin-top: 8px; }
+      .co2ok_widget_infobox_container .co2ok-widget-content .left {
+        margin-left: 14px; }
+      .co2ok_widget_infobox_container .co2ok-widget-content .right {
+        margin-left: 80px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper {
+      display: flex;
+      font-size: 10px;
+      justify-content: space-between;
+      flex-direction: row;
+      width: 100%;
+      margin-top: 0px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .right-align-img {
+      right: 14px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .left-align-img {
+      left: 14px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .box {
+      margin-top: -20px;
+      width: 18%; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .plant {
+      margin-top: -15px;
+      right: 12px;
+      width: 18%; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .tree {
+      margin-top: -4px;
+      width: 18%; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .text-block {
+    font-size: 11px;
+    line-height: normal;
+    text-align: left;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0;
+    width: 71%;
+    text-decoration: none;
+    padding: 4px 0px 4px 0px;
+    color: black; }
+  .co2ok_widget_infobox_container .co2-compensation-projects .co2-project-text {
+    color: black;
+    line-height: 14px;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    width: 92%;
+    margin: 16px 0px 16px 13px;
+  }
+  .co2ok_widget_infobox_container .co2-compensation-projects .project-img {
+    padding: 8px 0px;
+  }
+  .co2ok_widget_infobox_container .co2-compensation-projects .co2-project-img {
+    text-align: center;
+    font-size: 9px;
+    font-style: italic;
+    padding-bottom: 16px; }
+  .co2ok_widget_infobox_container .co2ok-logos {
+    height: 40px;
+  }
+  .co2ok_widget_infobox_container .co2ok-logos a {
+    text-decoration: underline; }
+  .co2ok_widget_infobox_container .co2ok-logos .hover-link {
+    position: absolute;
+    width: 40%;
+    right: 10px; }
+  .co2ok_widget_infobox_container .co2ok-logos .woonliving_logo {
+    position: absolute;
+    width: 26%;
+    left: 16px; }
+  .co2ok_widget_infobox_container .co2ok-logos .treesforall_logo {
+    position: absolute;
+    width: 24%;
+    left: 38%;
+    bottom: 6px; }
+  .co2ok_widget_infobox_container img, .co2ok_widget_infobox_container span {
+    display: inline-block;
+    vertical-align: middle;
+    color: #979797;
+    padding: 0px; }
+
+
+@media (max-width: 420px) {
+  .co2ok_widget_infobox_container {
+    left: 0 !important;
+    top: 0 !important;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden; }
+  .co2ok_widget_infobox_container .mobile-bar {
+    height: 40px;
+    width: 110%;
+    background: #00B67A;
+    margin-top: -10px !important;
+    margin-left: -10px; }
+  .co2ok_widget_infobox_container .co2ok-widget-content {
+    margin-top: 16px;
+  }
+  .co2ok_widget_infobox_container .mobile .exit-area {
+    color: white;
+    font-size: 12px;
+    /* display: flex !important; */
+    position: absolute;
+    right: 0;
+    top: 12px;
+    height: 35px;
+    width: 35px;
+  }
+  .co2ok_widget_infobox_container .mobile .mobile-header {
+    color: white;
+    padding-top: 4px;
+    font-size: 20px;
+    margin-left: 16px;
+  }
+  .co2ok_widget_infobox_container .card-main-header {
+    margin-top: 34px;
+  }
+  .co2ok_widget_infobox_container .card-main-header .header-img {
+    width: 16%;
+    /* margin-top: 36px; */
+    left: 12px; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .text-block {
+    padding: 8px 0px; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .right-align-img {
+    right: 12px; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .box {
+    /* margin-top: 34px; */
+    width: 18%; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .plant {
+    /* margin-top: 30px; */
+    width: 18%;
+    left: 9px; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .tree {
+    margin-top: -12px;
+    width: 18%; }
+  /* .co2ok_widget_infobox_container .co2ok-logos .hover-link{
+    bottom: -34px; } */
+  .co2ok_widget_infobox_container .co2ok-logos .woonliving_logo {
+   position: unset;
+  }
+  .co2ok_widget_infobox_container .co2ok-logos .treesforall_logo {
+    position: sticky;
+  }
+}
+
+/*smallest mobile*/
+@media (max-width: 320px) {
+  .co2ok_widget_infobox_container .card-main-header {
+    margin-top: 12px;
+  }
+  .co2ok_widget_infobox_container .card-main-header .header-img {
+    width: 18%;
+    top: 48px;
+    left: 12px; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .right-align-img {
+    right: 6px; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .box {
+    margin-top: 14px;
+    width: 20%;
+    right: 14px;}
+  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .plant {
+    margin-top: 32px;
+    width: 20%;
+    left: 11px; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .tree {
+    margin-top: 48px;
+    width: 20%;
+    right: 14px; }
+  /* .co2ok_widget_infobox_container .co2ok-logos .hover-link {
+    bottom: -24px;
+  } */
+  .co2ok_widget_infobox_container .co2ok-logos .woonliving_logo {
+   position: unset;
+  }
+  .co2ok_widget_infobox_container .co2ok-logos .treesforall_logo {
+    position: sticky;
+  }
+}
