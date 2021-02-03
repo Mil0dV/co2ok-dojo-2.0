@@ -162,8 +162,7 @@
     overflow-x: hidden; }
     .co2ok_widget_infobox_container .co2ok-widget-content {
       margin-top: 16px;
-      height: 92vh;
-      position: absolute; }
+      height: 100vh; }
     .co2ok_widget_infobox_container .mobile-bar {
       height: 40px;
       width: 110%;

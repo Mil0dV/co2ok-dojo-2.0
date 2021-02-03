@@ -124,19 +124,19 @@ let Co2okWidgetXL = {
 		let infoHoverHtml = `
 			<div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-large co2ok-large" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
 
-				<div class="mobile mobile-bar desktop-hidden co2ok-large">
-          <p class="mobile-header desktop-hidden co2ok-large">Our Planet Promise</p>
-            <span class="exit-area-span">
-						  <p class="exit-area desktop-hidden co2ok-large"> X </p>
-            </span>
-				</div>
+      <div class="mobile mobile-bar desktop-hidden co2ok-large">
+        <p class="mobile-header desktop-hidden co2ok-large">Our Planet Promise</p>
+        <span class="exit-area-span">
+          <p class="exit-area desktop-hidden co2ok-large"> X </p>
+        </span>
+      </div>
 
+      <div class="co2ok-widget-content co2ok-large">
 				<div class="card-main-header mobile-hidden co2ok-large">
 					<img class="png-img-large mobile-hidden left-align-img header-img co2ok-large" src="${this.SITE_HOST}/widget/devstore/WL_world.png">
 					<p class="header mobile-hidden co2ok-large">Our Planet Promise</p>
 				</div>
 
-				<div class="co2ok-widget-content co2ok-large">
 
 					<div class="card-sub-header left co2ok-large">
 						<p class="sub-header co2ok-large">Duurzame producten</p>
