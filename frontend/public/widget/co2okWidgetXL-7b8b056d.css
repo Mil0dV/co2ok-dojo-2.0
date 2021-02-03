@@ -51,8 +51,8 @@
         margin-top: -22px;
         width: 20%;
         left: 14px; }
-    .co2ok_widget_infobox_container .co2ok-widget-content {
-      margin-top: 31px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-one {
+      margin-top: 31px !important; }
     .co2ok_widget_infobox_container .co2ok-widget-content .card-sub-header {
       font-size: 14px;
       color: #239DCC;
@@ -134,11 +134,11 @@
     position: absolute;
     width: 15%;
     right: 18px; }
-  .co2ok_widget_infobox_container .co2ok-logos .woonliving_logo {
+  .co2ok_widget_infobox_container .co2ok-logos .woonliving-logo {
     position: absolute;
     width: 26%;
     left: 16px; }
-  .co2ok_widget_infobox_container .co2ok-logos .treesforall_logo {
+  .co2ok_widget_infobox_container .co2ok-logos .treesforall-logo {
     position: absolute;
     width: 24%;
     left: 38%;
@@ -157,12 +157,16 @@
     top: 0 !important;
     position: fixed;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden; }
     .co2ok_widget_infobox_container .co2ok-widget-content {
-      margin-top: 16px;
-      height: 100vh; }
+      /* margin-top: 16px; */
+      position: relative;
+      height: 100%; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-one {
+      margin-top: 16px !important;
+    }
     .co2ok_widget_infobox_container .mobile-bar {
       height: 40px;
       width: 110%;
@@ -214,9 +218,13 @@
       width: 97%; }
     .co2ok_widget_infobox_container .co2-compensation-projects .co2-project-img-text {
       width: 98%; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-logos {
+    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-logo {
       position: absolute;
-      width: 100%;
+      bottom: 1px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .woonliving-logo {
+      bottom: 8px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .treesforall-logo {
+      position: absolute;
       bottom: 0; }
 }
 
@@ -238,6 +246,18 @@
   .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .co2ok-tree {
     margin-top: -12px;
     width: 18%; }
+}
+
+@media (max-height: 730px) {
+  .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-logo {
+    bottom: auto !important;
+  }
+  .co2ok_widget_infobox_container .co2ok-widget-content .woonliving-logo {
+    bottom: auto !important;
+  }
+  .co2ok_widget_infobox_container .co2ok-widget-content .treesforall-logo {
+    bottom: auto !important;
+  }
 }
 
 /*smallest mobile*/
