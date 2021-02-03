@@ -118,7 +118,7 @@ let Co2okWidgetXL = {
 		var stepOne = "Woonliving biedt hoogwaardige producten die een leven lang meegaan, en daardoor minder afval opleveren!";
 		var stepTwo = "Wij neutraliseren de verpakking én de verzending van uw bestelling door geld te investeren in klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!";
 		var stepThree = "Verder bieden we u de optie om de CO₂ die wordt uitgestoten bij de productie van uw aankoop te compenseren. Eenvoudig gezegd, plant u uw eigen bomen direct naast de onze, met slechts één druk op de knop!";
-		var co2Projects = "We ondersteunen verschillende CO₂-compensatieprojecten, gecoördineerd door Atmosfair en Fair Climate Fund. Deze zijn gecertificeerd met de CDM Gold Standard, de strengste norm voor projecten voor klimaatbescherming."
+		var co2Projects = "We ondersteunen verschillende CO₂-compensatie-projecten, gecoördineerd door Atmosfair en Fair Climate Fund. Deze zijn gecertificeerd met de CDM Gold Standard, de strengste norm voor projecten voor klimaatbescherming."
 		var imageDesc = "Niet alleen het klimaat profiteert: we realiseren zo ook minder ontbossing en gezondheidsvoordelen door minder rook en giftige koolmonoxide"
 
 		let infoHoverHtml = `
@@ -142,7 +142,7 @@ let Co2okWidgetXL = {
 						<p class="sub-header co2ok-large">Duurzame producten</p>
 					</div>
 					<div class="inner-wrapper co2ok-large">
-						<img class="png-img-large right-align-img box co2ok-large" src="${this.SITE_HOST}/widget/devstore/WL_box.png">
+						<img class="png-img-large right-align-img co2ok-box co2ok-large" src="${this.SITE_HOST}/widget/devstore/WL_box.png">
 							<p class="text-block left co2ok-large"> ${stepOne} </p>
 					</div>
 
@@ -150,15 +150,15 @@ let Co2okWidgetXL = {
 						<p class="sub-header co2ok-large">Neutrale verpakking & verzending</p>
 					</div>
 					<div class="inner-wrapper co2ok-large">
-						<img class="png-img-large left-align-img plant co2ok-large" src="${this.SITE_HOST}/widget/devstore/WL_seedling.png">
-							<p class="text-block right co2ok-large" style="min-height: 58px;"> ${stepTwo} </p>
+						<img class="png-img-large left-align-img co2ok-plant co2ok-large" src="${this.SITE_HOST}/widget/devstore/WL_seedling.png">
+							<p class="text-block right co2ok-large co2-neutrale" style="min-height: 58px;"> ${stepTwo} </p>
 					</div>
 
 					<div class="card-sub-header left co2ok-large">
 						<p class="sub-header co2ok-large">Neutraliseren van de productie</p>
 					</div>
 					<div class="inner-wrapper co2ok-large">
-						<img class="png-img-large right-align-img tree co2ok-large" src="${this.SITE_HOST}/widget/devstore/WL_trees.png">
+						<img class="png-img-large right-align-img co2ok-tree co2ok-large" src="${this.SITE_HOST}/widget/devstore/WL_trees.png">
 							<p class="text-block left co2ok-large"> ${stepThree} </p>
 					</div>
 
@@ -166,18 +166,16 @@ let Co2okWidgetXL = {
 						<p class="sub-header co2ok-large">CO₂-compensatieprojecten</p>
 					</div>
 					<div class="inner-wrapper co2ok-large">
-						<p class="text-block left co2ok-large" style="width: 100%;"> ${co2Projects} </p>
+						<p class="text-block left co2ok-large" style="width: 90%;"> ${co2Projects} </p>
 					</div>
 
 					<div class="co2-compensation-projects co2ok-large">
-						<img class="project-img co2ok-large" src="${this.SITE_HOST}/widget/devstore/Lesotho-cookstoves.jpg">
-						<p class="co2-project-img co2ok-large"> ${imageDesc} </p>
+						<img class="co2-project-img co2ok-large" src="${this.SITE_HOST}/widget/devstore/Lesotho-cookstoves.jpg">
+						<p class="co2-project-img-text co2ok-large"> ${imageDesc} </p>
 					</div>
 
 					<div class="co2ok-logos co2ok-large">
-						<a class="hover-link co2ok-large" target="_blank" href="https://www.co2ok.eco/projects">
-							<img src="${this.SITE_HOST}/static/logo.png" class="hover-link co2ok-large">
-						</a>
+            <img src="${this.SITE_HOST}/static/logo.png" href="https://www.co2ok.eco/projects" class="co2ok-logo co2ok-large">
 						<img class="woonliving_logo co2ok-large" src="${this.SITE_HOST}/widget/devstore/WL_logo.png">
 						<img class="treesforall_logo co2ok-large" src="${this.SITE_HOST}/widget/devstore/logotrees.png">
 					</div>
