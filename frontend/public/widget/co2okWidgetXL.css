@@ -75,6 +75,7 @@
   }
 
   #info-button-widget {
+    width: 16px;
     position:absolute;
     margin-top:82px;
     margin-left:80px;

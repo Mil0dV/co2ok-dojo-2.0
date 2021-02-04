@@ -34,65 +34,71 @@
     opacity: 1; }
     .co2ok_widget_infobox_container .card-main-header {
       font-size: 28px;
-      color: #00B67A;
+      font-weight: normal;
+      color: #76862D;;
       font-weight: 500;
       line-height: 1.75rem;
       margin-bottom: 0px !important;
       margin-left: 75px;
-      margin-top: 26px; }
+      margin-top: 26px !Important; }
       @media (max-width: 370px) {
         .co2ok_widget_infobox_container .card-main-header {
           margin-top: 11px;
         }
       }
       .co2ok_widget_infobox_container .card-main-header .header {
-        color: #00B67A; }
+        color: #76862D;; }
       .co2ok_widget_infobox_container .card-main-header .header-img {
-        margin-top: -22px;
+        margin-top: -22px !important;
         width: 20%;
         left: 14px; }
     .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-one {
       margin-top: 31px !important; }
     .co2ok_widget_infobox_container .co2ok-widget-content .card-sub-header {
       font-size: 14px;
-      color: #239DCC;
+      color: #dc3077;
       font-weight: 500;
       margin-bottom: 0px !important;
       line-height: 1.25rem;
-      margin-top: 8px; }
+      margin-top: 8px !important; }
       .co2ok_widget_infobox_container .co2ok-widget-content .card-sub-header .sub-header {
         margin-bottom: 0px !important;
-        color: #239DCC;
+        line-height: 0.5rem;
+        font-weight: normal;
+        color: #dc3077;
       }
       .co2ok_widget_infobox_container .co2ok-widget-content .left {
         margin-left: 14px; }
       .co2ok_widget_infobox_container .co2ok-widget-content .right {
         margin-left: 80px; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper {
+    .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper {
       display: flex;
       font-size: 10px;
+      font-weight: normal;
       justify-content: space-between;
       flex-direction: row;
       width: 100%;
       margin-top: 0px; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .right-align-img {
+    .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .right-align-img {
       right: 14px; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .left-align-img {
+    .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .left-align-img {
       left: 14px; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .co2ok-box {
+    .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .co2ok-box {
       margin-top: -20px;
       width: 18%; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .co2ok-plant {
+    .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .co2ok-plant {
       margin-top: -15px;
       left: 22px;
       width: 18%; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .co2ok-tree {
+    .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .co2ok-tree {
       margin-top: -4px;
       width: 18%; }
-  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .text-block {
+  .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .widget-text-block {
     font-size: 11px;
     margin-bottom: 0px !important;
+    margin-top: 8px !important;
     line-height: normal;
+    font-weight: normal;
     text-align: left;
     box-sizing: border-box;
     border: none;
@@ -107,6 +113,7 @@
   .co2ok_widget_infobox_container .co2-compensation-projects .co2-project-text {
     color: black;
     line-height: 14px;
+    font-weight: normal;
     font-family: Roboto, sans-serif;
     font-size: 12px;
     width: 92%;
@@ -120,6 +127,7 @@
   .co2ok_widget_infobox_container .co2-compensation-projects .co2-project-img-text {
     text-align: center;
     font-size: 9px;
+    font-weight: normal;
     font-style: italic;
     width: 92%;
     margin: auto;
@@ -196,15 +204,15 @@
       font-size: 20px;
       margin-left: 16px;
     }
-    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .text-block {
+    .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .widget-text-block {
       padding: 8px 0px; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .co2ok-box {
+    .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .co2ok-box {
       /* margin-top: 34px; */
       width: 14%; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .co2ok-plant {
+    .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .co2ok-plant {
       margin-top: -20px;
       width: 14%; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .co2ok-tree {
+    .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .co2ok-tree {
       margin-top: -12px;
       width: 14%; }
     .co2ok_widget_infobox_container .co2ok-widget-content .left {
@@ -212,7 +220,7 @@
     }
     .co2ok_widget_infobox_container .co2ok-widget-content .right {
       margin-left: 101px; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .right-align-img {
+    .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .right-align-img {
       right: 30px; }
     .co2ok_widget_infobox_container .co2ok-widget-content .co2-compensation-projects {
       width: 97%; }
@@ -229,21 +237,21 @@
 }
 
 @media (max-width: 450px) {
-  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .text-block {
+  .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .widget-text-block {
     padding: 8px 0px; }
-  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .co2-neutrale {
+  .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .co2-neutrale {
     width: 65%;
   }
-  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .right-align-img {
+  .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .right-align-img {
     right: 16px; }
-  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .left-align-img {
+  .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .left-align-img {
     left: 12px; }
-  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .co2ok-box {
+  .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .co2ok-box {
     margin-top: -30px;
     width: 18%; }
-  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .co2ok-plant {
+  .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .co2ok-plant {
     width: 18%; }
-  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .co2ok-tree {
+  .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .co2ok-tree {
     margin-top: -12px;
     width: 18%; }
 }
@@ -270,19 +278,19 @@
     left: 12px; }
   .co2ok_widget_infobox_container .co2ok-widget-content .right {
     margin-left: 75px; }
-  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .text-block {
+  .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .widget-text-block {
     width: 67%; }
-  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .right-align-img {
+  .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .right-align-img {
     right: 6px; }
-  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .co2ok-box {
+  .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .co2ok-box {
     margin-top: -19px;
     width: 20%;
     right: 14px; }
-  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .co2ok-plant {
+  .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .co2ok-plant {
     margin-top: -6px;
     width: 20%;
     left: 11px; }
-  .co2ok_widget_infobox_container .co2ok-widget-content .inner-wrapper .co2ok-tree {
+  .co2ok_widget_infobox_container .co2ok-widget-content .widget-wrapper .co2ok-tree {
     margin-top: 0px;
     width: 20%;
     right: 14px;
