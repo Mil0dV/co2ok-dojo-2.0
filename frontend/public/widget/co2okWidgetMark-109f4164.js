@@ -2,8 +2,8 @@
 
 let Co2okWidget = {
 
-	SITE_HOST: "https://co2ok.eco",
-	// SITE_HOST: "http://localhost:8080",
+	// SITE_HOST: "https://co2ok.eco",
+	SITE_HOST: "http://localhost:8080",
 
 	getCookieValue: function (a) {
 	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -29,7 +29,7 @@ let Co2okWidget = {
 	  var fileref=document.createElement("link")
 	  fileref.setAttribute("rel", "stylesheet")
 	  fileref.setAttribute("type", "text/css")
-	  fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-109f4164.css`)
+	  fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-projects.css`)
 	  document.getElementsByTagName("head")[0].appendChild(fileref)
 
 	  images = [`${this.SITE_HOST}/widget/cfs.png`,
@@ -38,7 +38,7 @@ let Co2okWidget = {
 	  `${this.SITE_HOST}/widget/woonliving/WL_seedling.png`,
 	  `${this.SITE_HOST}/widget/woonliving/WL_trees.png`,
 		`${this.SITE_HOST}/widget/woonliving/WL_logo.png`,
-		`${this.SITE_HOST}/widget/woonliving/treeslogo.png`
+		`${this.SITE_HOST}/widget/woonliving/logotrees.png`
 		]
 
 	  for (img of images) {
@@ -46,14 +46,14 @@ let Co2okWidget = {
 	  }
 	},
 
-	merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor, lang) {
+	merchantCompensations: function (widgetContainer) {
 
 		// get impact from cookie if available
 		let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
 
 		if (co2ok_impact > 1) {
 		  // console.log('Collaborate and listen')
-		  Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact, widgetSize, widgetColor, lang)
+		  Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact)
 		  return
 		}
 
@@ -72,12 +72,12 @@ let Co2okWidget = {
 				// let totalTransactionData = 491
 
 				document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
-				Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
+				Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
 
 				// Something is fishy, let's serve up the total
 				} else {
 				  let totalTransactionData = 22300
-				  Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
+				  Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
 			}
 		}
 		xhr.send()
@@ -146,81 +146,68 @@ let Co2okWidget = {
 
 	insertHovercardHTML: function () {
 
-		var stepOne = "Woonliving biedt hoogwaardige producten die een leven lang meegaan, en daardoor minder afval opleveren!";
-		var stepTwo = "Wij neutraliseren de verpakking én de verzending van uw bestelling door geld te investeren in klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!";
-		var stepThree = "Verder bieden we u de optie om de CO₂ die wordt uitgestoten bij de productie van uw aankoop te compenseren. Eenvoudig gezegd, plant u uw eigen bomen direct naast de onze, met slechts één druk op de knop!";
-		var co2Projects = "We ondersteunen verschillende CO₂-compensatie-projecten, gecoördineerd door Atmosfair en Fair Climate Fund. Deze zijn gecertificeerd met de CDM Gold Standard, de strengste norm voor projecten voor klimaatbescherming."
+		var stepOne = "Woonliving werkt samen met de beste en onafhankelijke designers en meubelmakers. Geen tussenpersonen en geen winkels waardoor de keten duurzamer is.  Je kunt in de webshop zien hoe milieubewust een product is, zo helpen ze je een duurzame keuze te maken.";
+		var stepTwo = `Woonliving denkt goed na over hoe ze jouw producten verzenden, ze doen dit met zo min mogelijk klimaat impact, vaak zelfs zonder verpakking! Daarnaast hebben ze nu al <strong>148</strong> bomen geplant met Trees for All!`;
+		var stepThree = "Verder bieden wij (CO2ok) je de mogelijkheid om met één klik de CO2 uitstoot van je aankoop direct te compenseren. Het geld dat je hiervoor extra betaalt gaat naar CO2 compensatieprojecten van Fair Climate Fund en Atmosfair die Gold Standard gecertificeerd zijn.";
+		// var co2Projects = "We ondersteunen verschillende CO₂-compensatie-projecten, gecoördineerd door Atmosfair en Fair Climate Fund. Deze zijn gecertificeerd met de CDM Gold Standard, de strengste norm voor projecten voor klimaatbescherming."
 		var imageDesc = "Niet alleen het klimaat profiteert: we realiseren zo ook minder ontbossing en gezondheidsvoordelen door minder rook en giftige koolmonoxide"
 
     let infoHoverHtml = `
 
 			<div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-small co2ok-small" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
 
-        <div class="co2ok-widget-content co2ok-small">
-          <div class="mobile mobile-bar desktop-hidden co2ok-small">
-            <p class="mobile-header desktop-hidden co2ok-small">Our Planet Promise</p>
-            <span class="exit-area-span">
-              <p class="exit-area desktop-hidden co2ok-small"> X </p>
-            </span>
-          </div>
+				<div class="mobile mobile-bar desktop-hidden co2ok-small" style="background-color: #00B67A;">
+					<p class="mobile-header desktop-hidden co2ok-small">Woonliving's Planet Promise</p>
+					<span class="exit-area-span co2ok-small">
+						<p class="exit-area desktop-hidden co2ok-small"> X </p>
+					</span>
+				</div>
 
-          <div class="card-main-header mobile-hidden co2ok-small">
-            <img class="png-img-large mobile-hidden left-align-img header-img co2ok-small" src="${this.SITE_HOST}/widget/woonliving/WL_world.png">
-            <p class="header mobile-hidden co2ok-small">Our Planet Promise</p>
-          </div>
+				<div class="co2ok-widget-content co2ok-small">
+					<div class="card-main-header mobile-hidden co2ok-small">
+						<img class="png-img-large mobile-hidden left-align-img header-img co2ok-small" src="${this.SITE_HOST}/widget/woonliving/WL_world.png">
+						<p class="header mobile-hidden co2ok-small" style="color: #00B67A;">Woonliving's Planet Promise</p>
+					</div>
 
-          <div class="card-sub-header left co2ok-small co2ok-header-one">
-            <p class="sub-header co2ok-small">Duurzame producten</p>
-          </div>
-          <div class="inner-wrapper co2ok-small">
-            <img class="png-img-large right-align-img co2ok-box co2ok-small" src="${this.SITE_HOST}/widget/woonliving/WL_box.png">
-              <p class="text-block left co2ok-small"> ${stepOne} </p>
-          </div>
+					<div class="co2ok-widget-wrapper co2ok-small co2ok-header-one co2ok-small" style="padding-top: 4px;">
+						<img class="png-img-large right-align-img co2ok-box co2ok-small" src="${this.SITE_HOST}/widget/woonliving/WL_box.png">
+						<p class="sub-header right co2ok-small" style="color: #239DCC;">Duurzame producten</p>
+						<p class="widget-wrapper right widget-text-block left co2ok-small"> ${stepOne} </p>
+					</div>
 
-          <div class="card-sub-header right co2ok-small">
-            <p class="sub-header co2ok-small">Neutrale verpakking & verzending</p>
-          </div>
-          <div class="inner-wrapper co2ok-small">
-            <img class="png-img-large left-align-img co2ok-plant co2ok-small" src="${this.SITE_HOST}/widget/woonliving/WL_seedling.png">
-              <p class="text-block right co2ok-small co2-neutrale" style="min-height: 58px;"> ${stepTwo} </p>
-          </div>
 
-          <div class="card-sub-header left co2ok-small">
-            <p class="sub-header co2ok-small">Neutraliseren van de productie</p>
-          </div>
-          <div class="inner-wrapper co2ok-small">
-            <img class="png-img-large right-align-img co2ok-tree co2ok-small" src="${this.SITE_HOST}/widget/woonliving/WL_trees.png">
-              <p class="text-block left co2ok-small"> ${stepThree} </p>
-          </div>
+					<div class="co2ok-widget-wrapper co2ok-small">
+						<p class="sub-header left co2ok-small" style="color: #239DCC;">Neutrale verpakking & verzending</p>
+						<p class="widget-text-block left co2ok-small co2-neutrale" style="min-height: 58px;"> ${stepTwo} </p>
+						<img class="png-img-large left-align-img co2ok-plant co2ok-small" src="${this.SITE_HOST}/widget/woonliving/WL_seedling.png">
+					</div>
 
-          <div class="card-sub-header left co2ok-small">
-            <p class="sub-header co2ok-small">CO₂-compensatieprojecten</p>
-          </div>
-          <div class="inner-wrapper co2ok-small">
-            <p class="text-block left co2ok-small" style="width: 90%;"> ${co2Projects} </p>
-          </div>
+					<div class="co2ok-widget-wrapper co2ok-small">
+						<img class="png-img-large right-align-img co2ok-tree co2ok-small" src="${this.SITE_HOST}/widget/woonliving/WL_trees.png">
+						<p class="sub-header right co2ok-small" style="color: #239DCC;">Neutraliseren van de productie</p>
+						<p class="widget-text-block right co2ok-small"> ${stepThree} </p>
+					</div>
 
-          <div class="co2-compensation-projects co2ok-small">
-            <img class="co2-project-img co2ok-small" src="${this.SITE_HOST}/widget/woonliving/Lesotho-cookstoves.jpg">
-            <p class="co2-project-img-text co2ok-small"> ${imageDesc} </p>
-          </div>
+					<div class="co2-compensation-projects co2ok-small">
+						<img class="co2-project-img co2ok-small" src="${this.SITE_HOST}/widget/woonliving/Lesotho-cookstoves.jpg">
+						<p class="co2-project-img-text co2ok-small"> ${imageDesc} </p>
+					</div>
 
-          <div class="co2ok-logos co2ok-small">
-            <img src="${this.SITE_HOST}/static/logo.png" href="https://www.co2ok.eco/projects" class="co2ok-logo co2ok-small">
-            <img class="woonliving-logo co2ok-small" src="${this.SITE_HOST}/widget/woonliving/WL_logo.png">
-            <img class="treesforall-logo co2ok-small" src="${this.SITE_HOST}/widget/woonliving/logotrees.png">
-          </div>
+					<div class="co2ok-logos co2ok-small">
+						<img src="${this.SITE_HOST}/static/logo.png" href="https://www.co2ok.eco/projects" class="co2ok-logo co2ok-small">
+						<img class="feat-company-logo co2ok-small" src="${this.SITE_HOST}/widget/woonliving/WL_logo.png">
+						<img class="treesforall-logo co2ok-small" src="${this.SITE_HOST}/widget/woonliving/logotrees.png">
+					</div>
 
 				</div>
-      </div>
+			</div>
 
 		`
 		jQuery('footer').before(infoHoverHtml)
 	},
 
 
-	widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {
-	//   let color = "#D0C918"
+	widgetGenerator: function (widgetContainer, totalCompensatedData) {
 
 	  if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0') {
 			console.log('hammer time!')
@@ -277,7 +264,6 @@ let Co2okWidget = {
 	  var elementBox = jQuery(element_id);
 	  var infoHoverBox = jQuery(".widget-hovercard-small");
 	  var offset = elementBox.offset();
-	  var offsetMobile = elementBox.offset();
 		var windowWidth = jQuery(window).width();
 		var y = event.clientY;
 
@@ -287,11 +273,6 @@ let Co2okWidget = {
 			offset.left -= infoHoverBox.width() / 4;
 			if (windowWidth <= 800)
 		  	offset.top += elementBox.height() * 4;
-			if (windowWidth <= 800)
-		  	offsetMobile.left = -10;
-			else
-		  	offsetMobile.left -= infoHoverBox.width();
-			offsetMobile.top += elementBox.height();
 			if (offset.top < jQuery(window).height()) {
 				offset.top += infoHoverBox.height();
 			}
@@ -311,16 +292,12 @@ let Co2okWidget = {
 				offset.top -= (y + infoHoverBox.height()) - jQuery(window).height();
 				offset.top -= 30;
 			}
-			offsetMobile.top  -= infoHoverBox.height();
-			offsetMobile.left -= infoHoverBox.width() - 10;
 		} else if (element_id == '.cfs_hover_target_footer') {
 			offset.left -= infoHoverBox.width() / 2;
 			if (offset.left < 0) {
 				offset.left = 5;
 			}
 			offset.top -= infoHoverBox.height();
-			offsetMobile.top  -= infoHoverBox.height();
-			offsetMobile.left -= infoHoverBox.width() - 10;
 		}
 	  else
 			return ;
@@ -331,43 +308,20 @@ let Co2okWidget = {
 	  if (offset.left < 0 && posX < windowWidth / 2) offset.left = 10;
 	  if (offset.left < 0 && posX > windowWidth / 2) offset.left = windowWidth - 360;
 	  if (offset.top < 0) offset.top = 10;
-	  if (offsetMobile.left < 0) offsetMobile.left = 5;
-	  if (offsetMobile.top < 0) offsetMobile.top = 10;
-	  if (windowWidth <= 800 && windowWidth > 480 && element_id != ".large-widget") {
-		infoHoverBox.css({
-		  top: offsetMobile.top,
-		  margin: "0 auto",
-		  left: windowWidth - 360,
-		  transform: "none"
-		});
-	  } else if (windowWidth < 480) {
-		infoHoverBox.css({
-		  top: offsetMobile.top,
-		  margin: "0 auto",
-		  left: offsetMobile.left,
-		  transform: "none"
-		});
-	  } else {
 		  infoHoverBox.css({
 			top: offset.top,
 			left: offset.left,
 			margin: "0",
 			transform: "none"
 		  });
-		}
-	},
-	ShowWidgetInfoBox  : function()
-	{
-	  jQuery(".widget-hovercard-small").removeClass('infobox-hidden')
-	  jQuery(".widget-hovercard-small").addClass('ShowWidgetInfoBox')
-	  // if (!this.isMobile() == true ) {
-	  //     var elmnt = document.getElementById("widget-infobox-view");
-	  //     elmnt.scrollIntoView(false); // false leads to bottom of the infobox
-	  //   }
 	},
 
-	hideWidgetInfoBox : function()
-	{
+	ShowWidgetInfoBox  : function() {
+	  jQuery(".widget-hovercard-small").removeClass('infobox-hidden')
+	  jQuery(".widget-hovercard-small").addClass('ShowWidgetInfoBox')
+	},
+
+	hideWidgetInfoBox : function() {
 	  jQuery(".widget-hovercard-small").removeClass('ShowWidgetInfoBox')
 	  jQuery(".widget-hovercard-small").addClass('infobox-hidden')
 	},
@@ -398,7 +352,7 @@ let Co2okWidget = {
 
 	  jQuery('body').click(function(e) {
 			element_id = _this.modalRegex(e);
-		  if (!element_id || element_id === '.exit-area') {
+		  if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area")) {
 				_this.hideWidgetInfoBox();
 
 			} else {
@@ -408,7 +362,7 @@ let Co2okWidget = {
 
 	  jQuery('body').on("touchstart",function(e){
 		element_id = _this.modalRegex(e);
-		  if (!element_id || element_id === '.exit-area')
+		  if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area"))
 			_this.hideWidgetInfoBox();
 		  else {
 			_this.ShowWidgetInfoBox();
@@ -424,7 +378,7 @@ let Co2okWidget = {
 
 			jQuery(document).mouseover(function(e) {
 				element_id = _this.modalRegex(e);
-				if (!element_id || element_id === '.mobile-exit') {
+				if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area")) {
 					_this.hideWidgetInfoBox();
 				} else {
 					_this.ShowWidgetInfoBox();
@@ -469,7 +423,7 @@ let Co2okWidget = {
 			Co2okWidget.menuIconInsertion();
 			Co2okWidget.cfsTrustMarkInsertion();
 			Co2okWidget.RegisterWidgetInfoBox();
-			Co2okWidget.merchantCompensations('widgetContainermark', '109f4164', '', '', '');
+			Co2okWidget.merchantCompensations('widgetContainermark');
     } else {
       setTimeout(function() { Co2okWidget.jQueryLoadDefer(script) }, 50);
     }
