@@ -2,8 +2,8 @@
 
 let Co2okWidget = {
 
-	// SITE_HOST: "https://co2ok.eco",
-	SITE_HOST: "http://localhost:8080",
+	SITE_HOST: "https://co2ok.eco",
+	// SITE_HOST: "http://localhost:8080",
 
 	getCookieValue: function (a) {
 	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -19,7 +19,7 @@ let Co2okWidget = {
 	},
 
 	loadResources: async function () {
-    //css for XL widget 
+    //css for XL widget
     var fileref=document.createElement("link")
     fileref.setAttribute("rel", "stylesheet")
     fileref.setAttribute("type", "text/css")
@@ -115,10 +115,10 @@ let Co2okWidget = {
 
     let uspHtml = `
       <div class="icon">
-        <img class="co2ok_usp_icon_header" src="${this.SITE_HOST}/widget/kabloom/KB_heart.png" style="width: 100px; height: 100px">
-        <p class="co2ok_usp_text" style="font-weight: bolder;font-size: 12px;width: 105px;text-align: center;margin: auto; line-height: 13px;color: #6d7533;">CLIMATE FRIENDLY SHIPPING</p>
-      </div>
-    `
+        <img class="co2ok_usp_icon_header" src="${this.SITE_HOST}/widget/kabloom/KB_heart.png" style="width: 120px !important; max-width: 120px !important; height: 120px !important;">
+				</div>
+				`
+        // <p class="co2ok_usp_text" style="font-weight: bolder;font-size: 12px;width: 105px;text-align: center;margin: auto; line-height: 13px;color: #6d7533;">CLIMATE FRIENDLY SHIPPING</p>
 		jQuery(".icons-container").append(uspHtml)
 
   },
@@ -135,48 +135,41 @@ let Co2okWidget = {
 
 			<div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-large co2ok-large" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none; height: 730px;">
 
-        <div class="co2ok-widget-content co2ok-large">
-          <div class="mobile mobile-bar desktop-hidden co2ok-large" style="color: #dc3078">
-            <p class="mobile-header desktop-hidden co2ok-large">Our Planet Promise</p>
-            <span class="exit-area-span">
-              <p class="exit-area desktop-hidden co2ok-large"> X </p>
-            </span>
-          </div>
+				<div class="mobile mobile-bar desktop-hidden co2ok-large" style="background-color: #dc3078">
+					<p class="mobile-header desktop-hidden co2ok-large">Our Planet Promise</p>
+					<span class="exit-area-span">
+						<p class="exit-area desktop-hidden co2ok-large"> X </p>
+					</span>
+				</div>
 
+				<div class="co2ok-widget-content co2ok-large">
           <div class="card-main-header mobile-hidden co2ok-large" style="color: #76862D;">
             <img class="png-img-large mobile-hidden left-align-img header-img co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_world.png">
             <p class="header mobile-hidden co2ok-large">Our Planet Promise</p>
           </div>
 
-          <div class="card-sub-header left co2ok-large co2ok-header-one">
-            <p class="sub-header co2ok-large" style="margin-top: 31px !important; color: #dc3077;">Duurzame producten</p>
-          </div>
-          <div class="widget-wrapper co2ok-large">
-            <img class="png-img-large right-align-img co2ok-box co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_box.png">
-              <p class="widget-text-block left co2ok-large" style="margin-top: 8px !important"> ${stepOne} </p>
+          <div class="co2ok-widget-wrapper co2ok-large co2ok-header-one">
+						<img class="png-img-large right-align-img co2ok-box co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_box.png">
+            <p class="sub-header right co2ok-large" style="color: #dc3077;">Duurzame producten</p>
+						<p class="widget-wrapper right widget-text-block left co2ok-large"> ${stepOne} </p>
           </div>
 
-          <div class="card-sub-header right co2ok-large">
-            <p class="sub-header co2ok-large" style="color: #dc3077;">Neutrale verpakking & verzending</p>
-          </div>
-          <div class="widget-wrapper co2ok-large">
-            <img class="png-img-large left-align-img co2ok-plant co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_seedling.png">
-              <p class="widget-text-block right co2ok-large co2-neutrale" style="min-height: 58px; margin-top: 8px !important;"> ${stepTwo} </p>
+
+          <div class="co2ok-widget-wrapper co2ok-large">
+            <p class="sub-header left co2ok-large" style="color: #dc3077;">Neutrale verpakking & verzending</p>
+						<p class="widget-text-block left co2ok-large co2-neutrale" style="min-height: 58px;"> ${stepTwo} </p>
+						<img class="png-img-large left-align-img co2ok-plant co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_seedling.png">
           </div>
 
-          <div class="card-sub-header left co2ok-large">
-            <p class="sub-header co2ok-large" style="color: #dc3077;">Neutraliseren van de productie</p>
-          </div>
-          <div class="widget-wrapper co2ok-large">
-            <img class="png-img-large right-align-img co2ok-tree co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_trees.png">
-              <p class="widget-text-block left co2ok-large" style="margin-top: 8px !important"> ${stepThree} </p>
+          <div class="co2ok-widget-wrapper co2ok-large">
+						<img class="png-img-large right-align-img co2ok-tree co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_trees.png">
+            <p class="sub-header right co2ok-large" style="color: #dc3077;">Neutraliseren van de productie</p>
+						<p class="widget-text-block right co2ok-large"> ${stepThree} </p>
           </div>
 
-          <div class="card-sub-header left co2ok-large">
-            <p class="sub-header co2ok-large" style="color: #dc3077;">CO₂-compensatieprojecten</p>
-          </div>
-          <div class="widget-wrapper co2ok-large">
-            <p class="widget-text-block left co2ok-large" style="width: 90%; margin-top: 8px !important;"> ${co2Projects} </p>
+          <div class="co2ok-widget-wrapper co2ok-large">
+            <p class="sub-header right co2ok-large" style="color: #dc3077;">CO₂-compensatieprojecten</p>
+						<p class="widget-text-block right co2ok-large" style="width: 90% !important;"> ${co2Projects} </p>
           </div>
 
           <div class="co2-compensation-projects co2ok-large">
@@ -319,8 +312,8 @@ let Co2okWidget = {
       return ('.cfs_hover_cart_target');
     else if (jQuery(e.target).hasClass("cfs_hover_target"))
 			return ('.cfs_hover_target');
-		else if (jQuery(e.target).hasClass("exit-area"))
-			return ('.exit-area')
+		else if (jQuery(e.target).hasClass("exit-area-span"))
+			return ('.exit-area-span')
 	},
 
 	RegisterWidgetInfoBox : function() {
@@ -329,7 +322,7 @@ let Co2okWidget = {
 
 	  jQuery('body').click(function(e) {
 			element_id = _this.modalRegex(e);
-		  if (!element_id || element_id === '.exit-area') {
+		  if (!element_id || element_id === '.exit-area-span') {
 				_this.hideWidgetInfoBox();
 
 			} else {
@@ -339,7 +332,7 @@ let Co2okWidget = {
 
 	  jQuery('body').on("touchstart",function(e){
 		element_id = _this.modalRegex(e);
-		  if (!element_id || element_id === '.exit-area') {
+		  if (!element_id || element_id === '.exit-area-span') {
         _this.hideWidgetInfoBox();
       }
 		  else {
@@ -352,7 +345,7 @@ let Co2okWidget = {
 
 			jQuery(document).mouseover(function(e) {
         element_id = _this.modalRegex(e);
-				if (!element_id || element_id === '.exit-area') {
+				if (!element_id || element_id === '.exit-area-span') {
 					_this.hideWidgetInfoBox();
 				} else {
 					_this.ShowWidgetInfoBox();
