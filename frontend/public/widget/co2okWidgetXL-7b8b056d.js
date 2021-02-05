@@ -100,12 +100,12 @@ let Co2okWidgetXL = {
 	  document.getElementsByTagName("head")[0].appendChild(fileref)
 
 	  images = [
-	  `${this.SITE_HOST}/widget/devstore/WL_world.png`,
-	  `${this.SITE_HOST}/widget/devstore/WL_box.png`,
-	  `${this.SITE_HOST}/widget/devstore/WL_seedling.png`,
-	  `${this.SITE_HOST}/widget/devstore/WL_trees.png`,
-		`${this.SITE_HOST}/widget/devstore/WL_logo.png`,
-		`${this.SITE_HOST}/widget/devstore/treeslogo.png`
+	  `${this.SITE_HOST}/widget/woonliving/WL_world.png`,
+	  `${this.SITE_HOST}/widget/woonliving/WL_box.png`,
+	  `${this.SITE_HOST}/widget/woonliving/WL_seedling.png`,
+	  `${this.SITE_HOST}/widget/woonliving/WL_trees.png`,
+		`${this.SITE_HOST}/widget/woonliving/WL_logo.png`,
+		`${this.SITE_HOST}/widget/woonliving/treeslogo.png`
 		]
 
 
@@ -128,66 +128,58 @@ let Co2okWidgetXL = {
 
     let infoHoverHtml = `
 
-			<div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-large co2ok-large" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
+      <div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-large co2ok-large" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
+
+        <div class="mobile mobile-bar desktop-hidden co2ok-large" style="background-color: #00B67A;">
+          <p class="mobile-header desktop-hidden co2ok-large">Our Planet Promise</p>
+          <span class="exit-area-span co2ok-large">
+            <p class="exit-area desktop-hidden co2ok-large"> X </p>
+          </span>
+        </div>
 
         <div class="co2ok-widget-content co2ok-large">
-          <div class="mobile mobile-bar desktop-hidden co2ok-large">
-            <p class="mobile-header desktop-hidden co2ok-large">Our Planet Promise</p>
-            <span class="exit-area-span">
-              <p class="exit-area desktop-hidden co2ok-large"> X </p>
-            </span>
-          </div>
-
           <div class="card-main-header mobile-hidden co2ok-large">
-            <img class="png-img-large mobile-hidden left-align-img header-img co2ok-large" src="${this.SITE_HOST}/widget/devstore/WL_world.png">
-            <p class="header mobile-hidden co2ok-large">Our Planet Promise</p>
+            <img class="png-img-large mobile-hidden left-align-img header-img co2ok-large" src="${this.SITE_HOST}/widget/woonliving/WL_world.png">
+            <p class="header mobile-hidden co2ok-large" style="color: #00B67A;">Our Planet Promise</p>
           </div>
 
-          <div class="card-sub-header left co2ok-large co2ok-header-one">
-            <p class="sub-header co2ok-large">Duurzame producten</p>
-          </div>
-          <div class="inner-wrapper co2ok-large">
-            <img class="png-img-large right-align-img co2ok-box co2ok-large" src="${this.SITE_HOST}/widget/devstore/WL_box.png">
-              <p class="text-block left co2ok-large"> ${stepOne} </p>
+          <div class="co2ok-widget-wrapper co2ok-small co2ok-header-one co2ok-large" style="padding-top: 24px;">
+            <img class="png-img-large right-align-img co2ok-box co2ok-large" src="${this.SITE_HOST}/widget/woonliving/WL_box.png">
+            <p class="sub-header right co2ok-large" style="color: #239DCC;">Duurzame producten</p>
+            <p class="widget-wrapper right widget-text-block left co2ok-large"> ${stepOne} </p>
           </div>
 
-          <div class="card-sub-header right co2ok-large">
-            <p class="sub-header co2ok-large">Neutrale verpakking & verzending</p>
-          </div>
-          <div class="inner-wrapper co2ok-large">
-            <img class="png-img-large left-align-img co2ok-plant co2ok-large" src="${this.SITE_HOST}/widget/devstore/WL_seedling.png">
-              <p class="text-block right co2ok-large co2-neutrale" style="min-height: 58px;"> ${stepTwo} </p>
+
+          <div class="co2ok-widget-wrapper co2ok-large">
+            <p class="sub-header left co2ok-large" style="color: #239DCC;">Neutrale verpakking & verzending</p>
+            <p class="widget-text-block left co2ok-large co2-neutrale" style="min-height: 58px;"> ${stepTwo} </p>
+            <img class="png-img-large left-align-img co2ok-plant co2ok-large" src="${this.SITE_HOST}/widget/woonliving/WL_seedling.png">
           </div>
 
-          <div class="card-sub-header left co2ok-large">
-            <p class="sub-header co2ok-large">Neutraliseren van de productie</p>
-          </div>
-          <div class="inner-wrapper co2ok-large">
-            <img class="png-img-large right-align-img co2ok-tree co2ok-large" src="${this.SITE_HOST}/widget/devstore/WL_trees.png">
-              <p class="text-block left co2ok-large"> ${stepThree} </p>
+          <div class="co2ok-widget-wrapper co2ok-large">
+            <img class="png-img-large right-align-img co2ok-tree co2ok-large" src="${this.SITE_HOST}/widget/woonliving/WL_trees.png">
+            <p class="sub-header right co2ok-large" style="color: #239DCC;">Neutraliseren van de productie</p>
+            <p class="widget-text-block right co2ok-large"> ${stepThree} </p>
           </div>
 
-          <div class="card-sub-header left co2ok-large">
-            <p class="sub-header co2ok-large">CO₂-compensatieprojecten</p>
-          </div>
-          <div class="inner-wrapper co2ok-large">
-            <p class="text-block left co2ok-large" style="width: 90%;"> ${co2Projects} </p>
+          <div class="co2ok-widget-wrapper co2ok-large">
+            <p class="sub-header right co2ok-large" style="color: #239DCC;">CO₂-compensatieprojecten</p>
+            <p class="widget-text-block right co2ok-large" style="width: 90% !important;"> ${co2Projects} </p>
           </div>
 
           <div class="co2-compensation-projects co2ok-large">
-            <img class="co2-project-img co2ok-large" src="${this.SITE_HOST}/widget/devstore/Lesotho-cookstoves.jpg">
+            <img class="co2-project-img co2ok-large" src="${this.SITE_HOST}/widget/woonliving/Lesotho-cookstoves.jpg">
             <p class="co2-project-img-text co2ok-large"> ${imageDesc} </p>
           </div>
 
           <div class="co2ok-logos co2ok-large">
             <img src="${this.SITE_HOST}/static/logo.png" href="https://www.co2ok.eco/projects" class="co2ok-logo co2ok-large">
-            <img class="woonliving-logo co2ok-large" src="${this.SITE_HOST}/widget/devstore/WL_logo.png">
-            <img class="treesforall-logo co2ok-large" src="${this.SITE_HOST}/widget/devstore/logotrees.png">
+            <img class="feat-company-logo co2ok-large" src="${this.SITE_HOST}/widget/woonliving/WL_logo.png">
+            <img class="treesforall-logo co2ok-large" src="${this.SITE_HOST}/widget/woonliving/logotrees.png">
           </div>
 
-				</div>
+        </div>
       </div>
-
 		`
 		jQuery('footer').before(infoHoverHtml)
 	},
@@ -351,7 +343,7 @@ let Co2okWidgetXL = {
 
   modalRegex: function(e) {
      return jQuery(e.target).hasClass("co2ok-large") ||
-     jQuery(e.target).hasClass("exit-area") ||
+     jQuery(e.target).hasClass("exit-area-span") ||
      jQuery(e.target).is("#info-button-widget");
   },
 
@@ -366,7 +358,7 @@ let Co2okWidgetXL = {
     });
 
     jQuery('body').click(function(e) {
-      if(!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area")) {
+      if(!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area-span")|| jQuery(e.target).hasClass("exit-area")) {
         _this.hideWidgetInfoBox();
       } else {
         _this.ShowWidgetInfoBox();
@@ -374,7 +366,7 @@ let Co2okWidgetXL = {
     });
 
     jQuery('body').on("touchstart",function(e) {
-      if(!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area")) {
+      if(!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area-span") || jQuery(e.target).hasClass("exit-area")) {
         _this.hideWidgetInfoBox();
       } else {
         _this.placeWidgetInfoBox()
@@ -383,12 +375,11 @@ let Co2okWidgetXL = {
     });
 
     if(!this.isMobile()) {
-      jQuery(".co2ok_widgets_info , .co2ok_widget_info_hitarea").mouseenter(function() {
+      jQuery(".widget-hovercard-large").mouseenter(function() {
         _this.placeWidgetInfoBox();
       });
-
       jQuery(document).mouseover(function(e) {
-        if (!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area")) {
+        if (!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area-span") || jQuery(e.target).hasClass("exit-area")) {
           _this.hideWidgetInfoBox();
         } else {
           _this.placeWidgetInfoBox();
