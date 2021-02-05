@@ -136,20 +136,20 @@ let Co2okWidget = {
 			<div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-large co2ok-large" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none; height: 730px;">
 
         <div class="co2ok-widget-content co2ok-large">
-          <div class="mobile mobile-bar desktop-hidden co2ok-large" style="color: #dc3078 !important">
+          <div class="mobile mobile-bar desktop-hidden co2ok-large" style="color: #dc3078">
             <p class="mobile-header desktop-hidden co2ok-large">Our Planet Promise</p>
             <span class="exit-area-span">
               <p class="exit-area desktop-hidden co2ok-large"> X </p>
             </span>
           </div>
 
-          <div class="card-main-header mobile-hidden co2ok-large">
+          <div class="card-main-header mobile-hidden co2ok-large" style="color: #76862D;">
             <img class="png-img-large mobile-hidden left-align-img header-img co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_world.png">
             <p class="header mobile-hidden co2ok-large">Our Planet Promise</p>
           </div>
 
           <div class="card-sub-header left co2ok-large co2ok-header-one">
-            <p class="sub-header co2ok-large" style="margin-top: 31px !important">Duurzame producten</p>
+            <p class="sub-header co2ok-large" style="margin-top: 31px !important; color: #dc3077;">Duurzame producten</p>
           </div>
           <div class="widget-wrapper co2ok-large">
             <img class="png-img-large right-align-img co2ok-box co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_box.png">
@@ -157,7 +157,7 @@ let Co2okWidget = {
           </div>
 
           <div class="card-sub-header right co2ok-large">
-            <p class="sub-header co2ok-large">Neutrale verpakking & verzending</p>
+            <p class="sub-header co2ok-large" style="color: #dc3077;">Neutrale verpakking & verzending</p>
           </div>
           <div class="widget-wrapper co2ok-large">
             <img class="png-img-large left-align-img co2ok-plant co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_seedling.png">
@@ -165,7 +165,7 @@ let Co2okWidget = {
           </div>
 
           <div class="card-sub-header left co2ok-large">
-            <p class="sub-header co2ok-large">Neutraliseren van de productie</p>
+            <p class="sub-header co2ok-large" style="color: #dc3077;">Neutraliseren van de productie</p>
           </div>
           <div class="widget-wrapper co2ok-large">
             <img class="png-img-large right-align-img co2ok-tree co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_trees.png">
@@ -173,7 +173,7 @@ let Co2okWidget = {
           </div>
 
           <div class="card-sub-header left co2ok-large">
-            <p class="sub-header co2ok-large" >CO₂-compensatieprojecten</p>
+            <p class="sub-header co2ok-large" style="color: #dc3077;">CO₂-compensatieprojecten</p>
           </div>
           <div class="widget-wrapper co2ok-large">
             <p class="widget-text-block left co2ok-large" style="width: 90%; margin-top: 8px !important;"> ${co2Projects} </p>

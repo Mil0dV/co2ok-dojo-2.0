@@ -35,7 +35,6 @@
     .co2ok_widget_infobox_container .card-main-header {
       font-size: 28px;
       font-weight: normal;
-      color: #76862D;;
       font-weight: 500;
       line-height: 1.75rem;
       margin-bottom: 0px !important;
@@ -56,7 +55,6 @@
       margin-top: 31px !important; }
     .co2ok_widget_infobox_container .co2ok-widget-content .card-sub-header {
       font-size: 14px;
-      color: #dc3077;
       font-weight: 500;
       margin-bottom: 0px !important;
       line-height: 1.25rem;
@@ -65,7 +63,6 @@
         margin-bottom: 0px !important;
         line-height: 0.5rem;
         font-weight: normal;
-        color: #dc3077;
       }
       .co2ok_widget_infobox_container .co2ok-widget-content .left {
         margin-left: 14px; }
