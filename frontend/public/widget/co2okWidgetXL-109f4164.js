@@ -108,7 +108,7 @@ let Co2okWidgetXL = {
       <div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-large co2ok-large" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
 
         <div class="mobile mobile-bar desktop-hidden co2ok-large" style="background-color: #00B67A;">
-          <p class="mobile-header desktop-hidden co2ok-large">Our Planet Promise</p>
+          <p class="mobile-header desktop-hidden co2ok-large">Woonliving's Planet Promise</p>
           <span class="exit-area-span co2ok-large">
             <p class="exit-area desktop-hidden co2ok-large"> X </p>
           </span>
@@ -117,7 +117,7 @@ let Co2okWidgetXL = {
         <div class="co2ok-widget-content co2ok-large">
           <div class="card-main-header mobile-hidden co2ok-large">
             <img class="png-img-large mobile-hidden left-align-img header-img co2ok-large" src="${this.SITE_HOST}/widget/woonliving/WL_world.png">
-            <p class="header mobile-hidden co2ok-large" style="color: #00B67A;">Our Planet Promise</p>
+            <p class="header mobile-hidden co2ok-large" style="color: #00B67A;">Woonliving's Planet Promise</p>
           </div>
 
           <div class="co2ok-widget-wrapper co2ok-header-one co2ok-large" style="padding-top: 4px;">
