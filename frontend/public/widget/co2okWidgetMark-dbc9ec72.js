@@ -2,8 +2,8 @@
 
 let Co2okWidget = {
 
-	SITE_HOST: "https://co2ok.eco",
-	// SITE_HOST: "http://localhost:8080",
+	// SITE_HOST: "https://co2ok.eco",
+	SITE_HOST: "http://localhost:8080",
 
 	getCookieValue: function (a) {
 	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -44,7 +44,6 @@ let Co2okWidget = {
 	  `${this.SITE_HOST}/widget/kabloom/KB_seedling.png`,
 	  `${this.SITE_HOST}/widget/kabloom/KB_trees.png`,
 		`${this.SITE_HOST}/widget/kabloom/KB_logo.png`,
-    `${this.SITE_HOST}/widget/kabloom/treeslogo.png`,
     `${this.SITE_HOST}/widget/kabloom/KB_heart.png`
 		]
 
@@ -180,7 +179,6 @@ let Co2okWidget = {
           <div class="co2ok-logos co2ok-large">
             <img src="${this.SITE_HOST}/static/logo.png" href="https://www.co2ok.eco/projects" class="co2ok-logo co2ok-large">
             <img class="feat-company-logo co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_logo.png">
-            <img class="treesforall-logo co2ok-large" src="${this.SITE_HOST}/widget/logotrees.png">
           </div>
 
 				</div>
@@ -215,12 +213,12 @@ let Co2okWidget = {
     let widgetXL = `
 
         <div class="large-widget">
-          <span class ="large-widget-right-green"></span>
+          <span class ="large-widget-right-kabloom"></span>
           <svg id= "half-circle" style="width: 160px;" ${circleSize} /></svg>
           <p id="large-widget-text">${compensatietekst}</p>
           <p id="large-widget-xvliegen">= ${(compensationAmount * 5000) .toFixed(0)} km<br>${vliegen}</p>
-          <img id="co2ok-logo" src= "${this.SITE_HOST}/static/logo.png">
-          <img id="info-button-widget" class="info-button-widget widget-large" src= "${this.SITE_HOST}/static/info.svg">
+          <img id="co2ok-logo" src= "${this.SITE_HOST}/static/logo-gray.png">
+          <img id="info-button-widget" class="info-button-widget widget-large" src= "${this.SITE_HOST}/static/info-kabloom.svg">
           <img id="large-widget-airplane" src= "${this.SITE_HOST}/widget/large-wiget-airplane.png">
       </div>
     `

@@ -14,15 +14,25 @@
     text-align: initial !important;
   }
 
-  .large-widget-right-hutspot {
+  .large-widget-right-kabloom {
   position: absolute;
   border-radius: 7px;
   left:40.84%;
   right: 0;
   top: 0;
   bottom: 0;
-  background: linear-gradient(180deg, #7081A9 0%, #4F5B77 100%);
+  background: linear-gradient(180deg, #B7CC55 0%, #76862D 100%);
   }
+
+  .large-widget-right-hutspot {
+    position: absolute;
+    border-radius: 7px;
+    left:40.84%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, #7081A9 0%, #4F5B77 100%);
+    }
 
   .large-widget-right-green {
     position: absolute;
