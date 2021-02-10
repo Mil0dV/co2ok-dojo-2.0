@@ -13,7 +13,7 @@
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/get-started" class="button">{{ $t('cause.s1_btn') }}
+                                <router-link :to="`/${$i18n.locale}/webshops/get-started`" class="button">{{ $t('cause.s1_btn') }}
                                 </router-link>
                             </div>
                         </div>
@@ -277,7 +277,7 @@
                             {{ $t('cause.s4_row3_text') }}
                         </p>
                         <br>
-                        <router-link to="/webshops/get-started" class="button">{{ $t('cause.s4_row3_link') }}
+                        <router-link :to="`/${$i18n.locale}/webshops/get-started`" class="button">{{ $t('cause.s4_row3_link') }}
                         </router-link>
                     </div>
                 </div>

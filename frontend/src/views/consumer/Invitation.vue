@@ -33,7 +33,7 @@
         <v-flex xs12 sm12 md8 lg6 xlg6 class="submit-flex">
             <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                 We won't share your email adress or other <br>
-                user data, read here about our <router-link to="/privacy" class="privacy">Privacy Policy</router-link>
+                user data, read here about our <router-link :to="`/${$i18n.locale}/privacy`" class="privacy">Privacy Policy</router-link>
             </p>
             <v-btn depressed class="submit-btn text-capitalize" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300" @click="register()">Make an account</v-btn>
         </v-flex>

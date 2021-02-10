@@ -8,7 +8,7 @@
 							<div class="content--wrapper">
 									<h2 class="main-title">{{ $t('retailLanding.row1') }} </h2>
 									<p class="content-text" v-html=" $t('retailLanding.row_text1') "></p>
-									<router-link to="/webshops/cause-marketing" class="usp-link">{{ $t('retailLanding.row_button') }}</router-link>
+									<router-link :to="`/${$i18n.locale}/webshops/cause-marketing`" class="usp-link">{{ $t('retailLanding.row_button') }}</router-link>
 							</div>
 					</div>
 
@@ -19,8 +19,8 @@
 									<h2 class="main-title">{{ $t('retailLanding.row2') }}</h2>
 									<p class="content-text" v-html=" $t('retailLanding.row_text2') "></p>
 									<!-- <p class="content-text">Up to 15% increased conversion</p> -->
-									<router-link to="/clients" class="usp-link">{{ $t('retailLanding.row_button2') }}</router-link>
-									<!-- <router-link to="/clients">Check these amazing A/B results</router-link> -->
+									<router-link :to="`/${$i18n.locale}/clients`" class="usp-link">{{ $t('retailLanding.row_button2') }}</router-link>
+									<!-- <router-link :to="`/${$i18n.locale}/clients`">Check these amazing A/B results</router-link> -->
 							</div>
 					</div>
 

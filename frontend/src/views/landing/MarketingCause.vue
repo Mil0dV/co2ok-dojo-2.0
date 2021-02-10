@@ -37,7 +37,7 @@
 											</p>
 
 											<br>
-											<router-link to="/clients" class="link">see the results</router-link>
+											<router-link :to="`/${$i18n.locale}/clients`" class="link">see the results</router-link>
 											<!-- <a class="link row-link" target="_blank" href="http://www.conecomm.com/research-blog/2015-cone-communications-ebiquity-global-csr-study">
 													{{ $t('home2.s3_row1_link') }} <span uk-icon="icon: arrow-right"></span>
 											</a> -->

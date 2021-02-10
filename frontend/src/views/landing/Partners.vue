@@ -18,7 +18,7 @@
 						src="../../assets/images/home2/webwinkelkeurLogo.png">
 				</div>
 				<div class="partners-button">
-					<router-link to="/webshops/get-started" class="button">{{ $t('home2.section_5_btn') }}</router-link>
+					<router-link :to="`/${$i18n.locale}/webshops/get-started`" class="button">{{ $t('home2.section_5_btn') }}</router-link>
 					<!-- <a href="/#home_form" class="button__partners">{{ $t('home2.section_5_btn') }}</a> -->
 				</div>
 			</div>

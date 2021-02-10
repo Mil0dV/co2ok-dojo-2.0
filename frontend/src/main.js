@@ -41,6 +41,20 @@ Vue.use(LoadScript);
 Vue.config.productionTip = false
 Vue.prototype.$axios = Axios
 
+//use beforeEach route guard to set language
+router.beforeEach((to, from, next) => {
+
+  //use language from routing param or default
+  let language = to.params.lang;
+  if (!language) {
+    language = 'en'
+  }
+
+  //set current lang for i18n
+  i18n.locale = language
+  next()
+})
+
 new Vue({
   created () {
     AOS.init()

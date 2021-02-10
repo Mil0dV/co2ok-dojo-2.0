@@ -17,57 +17,57 @@
                     <h2>Sitemap</h2>
                     <ul>
                         <li>
-                            <router-link to="/">{{ $t('footer.link1') }}</router-link>
+                            <router-link :to="`/${$i18n.locale}/`">{{ $t('footer.link1') }}</router-link>
                         </li>
                         <li>
-                            <router-link to="/about">{{ $t('footer.link2') }}</router-link>
+                            <router-link :to="`/${$i18n.locale}/about`">{{ $t('footer.link2') }}</router-link>
                         </li>
                         <li>
-                            <router-link to="/news">{{ $t('footer.link10') }}</router-link>
+                            <router-link :to="`/${$i18n.locale}/news`">{{ $t('footer.link10') }}</router-link>
                         </li>
                         <li>
-                            <router-link to="/webshops">{{ $t('footer.link3') }}</router-link>
+                            <router-link :to="`/${$i18n.locale}/webshops`">{{ $t('footer.link3') }}</router-link>
                         </li>
                         <li>
                             <ul>
                                 <li>
-                                    <router-link to="/webshops/retailers">{{ $t('footer.link5') }}</router-link>
+                                    <router-link :to="`/${$i18n.locale}/webshops/retailers`">{{ $t('footer.link5') }}</router-link>
                                 </li>
                                 <li>
-                                    <router-link to="/webshops/cause-marketing">{{ $t('footer.link6') }}</router-link>
+                                    <router-link :to="`/${$i18n.locale}/webshops/cause-marketing`">{{ $t('footer.link6') }}</router-link>
                                 </li>
                                 <span v-if="$store.state.userStatus">
-                                     <li><router-link to="/webshops/dashboard">Dashboard</router-link></li>
+                                     <li><router-link :to="`/${$i18n.locale}/webshops/dashboard`">Dashboard</router-link></li>
                                      <li @click="logout()">Logout</li>
                                 </span>
                                 <span v-else>
-                                    <li><router-link to="/webshops/login">{{ $t('footer.link14') }}</router-link></li>
+                                    <li><router-link :to="`/${$i18n.locale}/webshops/login`">{{ $t('footer.link14') }}</router-link></li>
                                 </span>
                             </ul>
                         </li>
                         <li>
-                            <router-link to="/how-it-works">{{ $t('footer.link17') }}</router-link>
+                            <router-link :to="`/${$i18n.locale}/how-it-works`">{{ $t('footer.link17') }}</router-link>
                         </li>
                         <li v-if="!$store.state.userStatus">
-                            <router-link to="/consumers">{{ $t('footer.link9') }}</router-link>
+                            <router-link :to="`/${$i18n.locale}/consumers`">{{ $t('footer.link9') }}</router-link>
                             <ul>
                                 <li>
-                                    <router-link to="/co2-compensatie">{{ $t('footer.link4') }}</router-link>
+                                    <router-link :to="`/${$i18n.locale}/co2-compensatie`">{{ $t('footer.link4') }}</router-link>
                                 </li>
                                 <li>
-                                    <router-link to="/projects">{{ $t('footer.link7') }}</router-link>
+                                    <router-link :to="`/${$i18n.locale}/projects`">{{ $t('footer.link7') }}</router-link>
                                 </li>
                             </ul>
                         </li>
                         <span v-else>
-                            <li><router-link to="/consumers/profile">{{ $t('footer.link13') }}</router-link></li>
+                            <li><router-link :to="`/${$i18n.locale}/consumers/profile`">{{ $t('footer.link13') }}</router-link></li>
                             <li @click="logout()">{{ $t('footer.link15') }}</li>
                         </span>
                         <li>
-                            <router-link to="/faq">{{ $t('footer.link11') }}</router-link>
+                            <router-link :to="`/${$i18n.locale}/faq`">{{ $t('footer.link11') }}</router-link>
                         </li>
                         <li>
-                            <router-link to="/privacy">{{ $t('footer.link12') }}</router-link>
+                            <router-link :to="`/${$i18n.locale}/privacy`">{{ $t('footer.link12') }}</router-link>
                         </li>
                     </ul>
                 </div>

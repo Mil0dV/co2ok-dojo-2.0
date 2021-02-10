@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import VueAnalytics from 'vue-analytics'
+import { i18n } from './plugins/i18n.js'
 
 Vue.use(Router)
 
@@ -30,181 +31,198 @@ const router = new Router({
         // },
         {
             path: '/',
-            name: 'home2',
-            component: () => import('./views/Ahome'),
+            redirect: `/${i18n.locale}`
         },
         {
-            path: '/consumers',
-            name: 'consumers',
-            component: () => import('./views/consumer/Consumers')
+            path: '',
+            redirect: `/${i18n.locale}`
         },
         {
-            path: '/how-it-works',
-            name: 'how-it-works',
-            component: () => import('./views/HowItWorks')
-        },
-        {
-            path: '/about',
-            name: 'about',
-            component: () => import( './views/About'),
-        },
-        {
-            path: '/faq',
-            name: 'faq',
-            component: () => import( './views/Faq'),
-        },
-        {
-            path: '/co2-compensatie',
-            name: 'compensation',
-            component: () => import( './views/Compensation'),
-        },
-        {
-            path: '/corona',
-            name: 'corona',
-            component: () => import( './views/Corona'),
-        },
-        {
-            path: '/privacy',
-            name: 'privacy',
-            component: () => import('./views/Privacy'),
 
-        },
-        {
-            path: '/news',
-            name: 'news',
-            component: () => import('./views/Blog')
-        },
-        {
-          path: '/news/:id(\\d+)',
-          name: 'article',
-          component: () => import('./views/Article')
-        },
-        {
-            path: '/webshops',
-            name: 'webshops',
-            component: () => import('./views/webshops/Webshops')
-        },
-        {
-            path: '/webshops/retailers',
-            name: 'retailers',
-            component: () => import('./views/webshops/Retailers')
-        },
-        {
-            path: '/retailers',
-            name: 'retailers',
-            component: () => import('./views/webshops/Retailers')
-        },
-        {
-            path: '/webshops/cause-marketing',
-            name: 'cause-marketing',
-            component: () => import('./views/webshops/Cause')
-        },
-        {
-            path: '/webshops/get-started',
-            name: 'get-started',
-            component: () => import('./views/webshops/Installation')
-        },
-        {
-            path: '/webshops/webwinkelkeur',
-            name: 'webwinkelkeur',
-            component: () => import('./views/webshops/WebwinkelkeurForm')
-        },
-        {
-            path: '/fight-corona',
-            name: 'fight-corona',
-            component: () => import('./views/webshops/Corona-Installation')
-        },
-        {
-            path: '/webshops/register/:merchantId',
-            name: 'webshops-register',
-            component: () => import( './views/dashboard/Register.vue')
-        },
-        {
-            path: '/webshops/login',
-            name: 'webshops-login',
-            component: () => import( './views/dashboard/Login.vue')
-        },
-        {
-            path: '/webshops/dashboard',
-            name: 'dashboard',
-            component: () => import( './views/dashboard/Dashboard'),
-            // beforeEnter: ifAuthenticated
-        },
-        {
-            path: '/webshops/get-started',
-            name: 'wc-guide',
-            component: () => import('./views/webshops/Installation')
-        },
-        {
-            path: '/webshops/get-started',
-            name: 'magento-guide',
-            component: () => import('./views/webshops/Installation')
-        },
-        {
-            path: '/webshops/get-started',
-            name: 'shopify-guide',
-            component: () => import('./views/webshops/Installation')
-        },
-        {
-            path: '/webshops/get-started',
-            name: 'shopware-guide',
-            component: () => import('./views/webshops/Installation')
-        },
-        {
-            path: '/webshops/get-started',
-            name: 'lightspeed-guide',
-            component: () => import('./views/webshops/Installation')
-        },
-        {
-            path: '/webshops/get-started',
-            name: 'mijnwebwinkel-guide',
-            component: () => import('./views/webshops/Installation')
-        },
-        {
-            path: '/projects',
-            name: 'projects',
-            component: () => import('./views/Projects')
-        },
-        {
-            path: '/consumers/profile',
-            name: 'consumers-profile',
-            component: () => import('./views/consumer/Consumer'),
-            // beforeEnter: ifAuthenticated
-        },
-        {
-            path: '/consumers/login',
-            name: 'consumers-login',
-            component: () => import('./views/consumer/LoginConsumer')
-        },
-        {
-            path: '/:id(\\d+)',
-            name: 'consumers-invitation',
-            component: () => import('./views/consumer/Invitation')
-        },
-        {
-            path: '/welcome',
-            name: 'welcome',
-            component: () => import('./views/consumer/Welcome')
-        },
-        {
-            path: '/clients',
-            name: 'clients',
-            component: () => import('./views/clients/Clients')
-        },
-        {
-            path: '/ClimateFriendlyDelivery',
-            hash: '#ClimateFriendlyDelivery',
-            //uploads BBAPI component
-            component: () => import('./views/landing/BBApi')
-        },
-        //pricing
-        // {
-        //     path: '/#pricing',
-        //     hash: '#pricing',
-        //     component: () => import('./views/webshops/Retailers')
-        // },
-        { //404 page, redirects back to home (= /)
-            path: '*', redirect: '/'
+            path: '/:lang',
+            component: {
+                render(c) {return c('router-view')}
+            },
+            children: [
+                {
+                    path: '/',
+                    name: 'home2',
+                    component: () => import('./views/Ahome'),
+                },
+                {
+                    path: 'consumers',
+                    name: 'consumers',
+                    component: () => import('./views/consumer/Consumers')
+                },
+                {
+                    path: 'how-it-works',
+                    name: 'how-it-works',
+                    component: () => import('./views/HowItWorks')
+                },
+                {
+                    path: 'about',
+                    name: 'about',
+                    component: () => import( './views/About'),
+                },
+                {
+                    path: 'faq',
+                    name: 'faq',
+                    component: () => import( './views/Faq'),
+                },
+                {
+                    path: 'co2-compensatie',
+                    name: 'compensation',
+                    component: () => import( './views/Compensation'),
+                },
+                {
+                    path: 'corona',
+                    name: 'corona',
+                    component: () => import( './views/Corona'),
+                },
+                {
+                    path: 'privacy',
+                    name: 'privacy',
+                    component: () => import('./views/Privacy'),
+
+                },
+                {
+                    path: 'news',
+                    name: 'news',
+                    component: () => import('./views/Blog')
+                },
+                {
+                    path: 'news/:id(\\d+)',
+                    name: 'article',
+                    component: () => import('./views/Article')
+                },
+                {
+                    path: 'webshops',
+                    name: 'webshops',
+                    component: () => import('./views/webshops/Webshops')
+                },
+                {
+                    path: 'webshops/retailers',
+                    name: 'retailers',
+                    component: () => import('./views/webshops/Retailers')
+                },
+                {
+                    path: 'retailers',
+                    name: 'retailers',
+                    component: () => import('./views/webshops/Retailers')
+                },
+                {
+                    path: 'webshops/cause-marketing',
+                    name: 'cause-marketing',
+                    component: () => import('./views/webshops/Cause')
+                },
+                {
+                    path: 'webshops/get-started',
+                    name: 'get-started',
+                    component: () => import('./views/webshops/Installation')
+                },
+                {
+                    path: 'webshops/webwinkelkeur',
+                    name: 'webwinkelkeur',
+                    component: () => import('./views/webshops/WebwinkelkeurForm')
+                },
+                {
+                    path: 'fight-corona',
+                    name: 'fight-corona',
+                    component: () => import('./views/webshops/Corona-Installation')
+                },
+                {
+                    path: 'webshops/register/:merchantId',
+                    name: 'webshops-register',
+                    component: () => import( './views/dashboard/Register.vue')
+                },
+                {
+                    path: 'webshops/login',
+                    name: 'webshops-login',
+                    component: () => import( './views/dashboard/Login.vue')
+                },
+                {
+                    path: 'webshops/dashboard',
+                    name: 'dashboard',
+                    component: () => import( './views/dashboard/Dashboard'),
+                    // beforeEnter: ifAuthenticated
+                },
+                {
+                    path: 'webshops/get-started',
+                    name: 'wc-guide',
+                    component: () => import('./views/webshops/Installation')
+                },
+                {
+                    path: 'webshops/get-started',
+                    name: 'magento-guide',
+                    component: () => import('./views/webshops/Installation')
+                },
+                {
+                    path: 'webshops/get-started',
+                    name: 'shopify-guide',
+                    component: () => import('./views/webshops/Installation')
+                },
+                {
+                    path: 'webshops/get-started',
+                    name: 'shopware-guide',
+                    component: () => import('./views/webshops/Installation')
+                },
+                {
+                    path: 'webshops/get-started',
+                    name: 'lightspeed-guide',
+                    component: () => import('./views/webshops/Installation')
+                },
+                {
+                    path: 'webshops/get-started',
+                    name: 'mijnwebwinkel-guide',
+                    component: () => import('./views/webshops/Installation')
+                },
+                {
+                    path: 'projects',
+                    name: 'projects',
+                    component: () => import('./views/Projects')
+                },
+                {
+                    path: 'consumers/profile',
+                    name: 'consumers-profile',
+                    component: () => import('./views/consumer/Consumer'),
+                    // beforeEnter: ifAuthenticated
+                },
+                {
+                    path: 'consumers/login',
+                    name: 'consumers-login',
+                    component: () => import('./views/consumer/LoginConsumer')
+                },
+                {
+                    path: ':id(\\d+)',
+                    name: 'consumers-invitation',
+                    component: () => import('./views/consumer/Invitation')
+                },
+                {
+                    path: 'welcome',
+                    name: 'welcome',
+                    component: () => import('./views/consumer/Welcome')
+                },
+                {
+                    path: 'clients',
+                    name: 'clients',
+                    component: () => import('./views/clients/Clients')
+                },
+                {
+                    path: 'ClimateFriendlyDelivery',
+                    hash: '#ClimateFriendlyDelivery',
+                    //uploads BBAPI component
+                    component: () => import('./views/landing/BBApi')
+                },
+                //pricing
+                // {
+                //     path: '/#pricing',
+                //     hash: '#pricing',
+                //     component: () => import('./views/webshops/Retailers')
+                // },
+                { //404 page, redirects back to home (= /)
+                    path: '*', redirect: '/'
+                }
+            ]
         }
     ],
 

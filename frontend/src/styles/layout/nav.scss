@@ -24,7 +24,7 @@
     width: 100%;
   }
 
-
+  
   .line {
     width: 1px;
     height: 4vh;
@@ -36,6 +36,12 @@
   .language-icon {
     width: 28px;
   }
+}
+
+.lang-flags li {
+    display: inline;
+    float: left;
+    margin: 0px 8px;
 }
 
 .uk-navbar-nav li a {

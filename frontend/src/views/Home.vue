@@ -69,7 +69,7 @@
 
         </v-layout>
 
-        <router-link to="/webshops" style="width: 100%;">
+        <router-link :to="`/${$i18n.locale}/webshops`" style="width: 100%;">
             <v-btn depressed class="white--text involed-btn font-weight-bold"
                    style="background: linear-gradient(to right, #10DC87, #08BA4D);">GET INVOLVED & FIGHT CLIMATE CHANGE
             </v-btn>

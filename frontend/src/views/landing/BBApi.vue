@@ -28,7 +28,7 @@
 						</div>
 
 						<div class="bb-cta">
-							<router-link to="/webshops/get-started" class="button">Join the climate fight</router-link>
+							<router-link :to="`/${$i18n.locale}/webshops/get-started`" class="button">Join the climate fight</router-link>
 						</div>
 
 						<div class="section-2__content">

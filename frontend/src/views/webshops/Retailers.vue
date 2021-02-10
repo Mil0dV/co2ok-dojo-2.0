@@ -15,7 +15,7 @@
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/get-started" class="button">{{ $t('retailers.row_button') }}</router-link>
+                                <router-link :to="`/${$i18n.locale}/webshops/get-started`" class="button">{{ $t('retailers.row_button') }}</router-link>
                             </div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
 
                     <p class="content-text" v-html=" $t('retailers.row_text2') ">
                     </p>
-                           <router-link to="/webshops/cause-marketing"> Cause Marketing </router-link>
+                           <router-link :to="`/${$i18n.locale}/webshops/cause-marketing`"> Cause Marketing </router-link>
 
                     <!-- <p class="content-text">
                         {{ $t('retailers.row_text2_extra') }}
@@ -125,7 +125,7 @@
 
                     <!-- <br> -->
                     <!-- <div class="col-1--links">
-                        <router-link to="/webshops/plug-in-installation" class="button">{{ $t('retailers.row_button') }}</router-link>
+                        <router-link :to="`/${$i18n.locale}/webshops/plug-in-installation`" class="button">{{ $t('retailers.row_button') }}</router-link>
                     </div> -->
                 </div>
             </div>
@@ -147,7 +147,7 @@
 
                             <br>
                             <div class="col-1--links">
-                                <router-link to="/webshops/get-started" class="button">{{ $t('retailers.row_button') }}
+                                <router-link :to="`/${$i18n.locale}/webshops/get-started`" class="button">{{ $t('retailers.row_button') }}
                                 </router-link>
                             </div>
                         </div>
@@ -170,7 +170,7 @@
                     <h2 class="sub-title">{{ $t('retailers.title3') }}</h2>
                 </div>
                 <!-- <div class="section-2--col-1 section-4--header">
-                    <router-link to="/webshops/get-started" class="button">Sign up before Christmas, get 2021 for free!</router-link>
+                    <router-link :to="`/${$i18n.locale}/webshops/get-started`" class="button">Sign up before Christmas, get 2021 for free!</router-link>
                 </div> -->
             <!-- <a href="/#home_form" class="button__banner">{{ $t('home2.section_5_btn') }}</a> -->
 
@@ -201,7 +201,7 @@
                                  src="../../assets/images/webshops/retailers/shop-3.png"> -->
                             <p class="shop--text" style="text-align: center; padding-bottom: 16px;" v-html=" $t('retailers.quote3') ">
                             <div class="col-1--links" style="text-align: center; margin: auto !important; padding-bottom: 22px;">
-                                <router-link to="/webshops/get-started" class="button" style="margin: auto !important; ">{{ $t('retailers.row_button3') }}</router-link>
+                                <router-link :to="`/${$i18n.locale}/webshops/get-started`" class="button" style="margin: auto !important; ">{{ $t('retailers.row_button3') }}</router-link>
                             </div>
                             <hr style="border-bottom: 2px solid #152439; opacity: 0.5; margin-top: 0px;">
                             <p class="shop--text" v-html=" $t('retailers.paragraph3') ">

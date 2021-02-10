@@ -63,7 +63,7 @@
                     <!-- <a href="/#home_form"
                     class="button">{{ $t('home2.button_1') }}</a> -->
                     <!-- <router-link :to="{ path: '/', hash: '#home_form'}" class="button">{{ $t('home2.button_1') }} -->
-                    <router-link to="#get-started" class="button">{{ $t('home2.button_1') }}
+                    <router-link :to="`/${$i18n.locale}/#get-started`" class="button">{{ $t('home2.button_1') }}
                                 </router-link>
                     <!-- <a href="/ninja"
                         class="button">{{ $t('home2.button_2') }}</a> -->
@@ -155,7 +155,7 @@
                     </div>
                     <br>
 
-                    <router-link to="/projects/" class="button">{{ $t('home2.section_4_btn') }}</router-link>
+                    <router-link :to="`/${$i18n.locale}/projects/`" class="button">{{ $t('home2.section_4_btn') }}</router-link>
                 </div>
             </div>
         </div> -->

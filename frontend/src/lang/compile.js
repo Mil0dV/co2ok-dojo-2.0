@@ -11,6 +11,7 @@ console.log('execute compile.js');
 
 createLanguageJsonFile('nl')
 createLanguageJsonFile('en')
+createLanguageJsonFile('de')
 
 function createLanguageJsonFile(languageCode) {
 

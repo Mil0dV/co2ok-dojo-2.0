@@ -4,7 +4,7 @@
        <v-layout row wrap justify-center align-start class="article-layout">
 
            <v-flex xs12 sm8 md8 lg8 xlg6 class="article-flex">
-               <router-link to="/news" class="return mt-5 animated bounceInDown"><div class="return mb-3"><v-icon small color="#818181" style="">← </v-icon><p>Go back to the news page</p></div></router-link>
+               <router-link :to="`/${$i18n.locale}/news`" class="return mt-5 animated bounceInDown"><div class="return mb-3"><v-icon small color="#818181" style="">← </v-icon><p>Go back to the news page</p></div></router-link>
                <div class="article-flex-container" v-for="(article, i) in articles" :key="i">
                     <div class="article-img animated zoomIn" :style="{backgroundImage: `url(${$store.state.SITE_HOST}${article.blog_image})`}"></div>
                     <span class="mt-3 animated fadeInUp">Posted By: Milo de Fries | {{formatBlogDate(article.posted_on)}}</span>
@@ -12,7 +12,7 @@
                     <h2 class="aticle-title mb-2 animated fadeInUp" style="text-align: left;">{{article.blog_title}}</h2>
                     <div class="article-content" style="text-align: left;" v-html="article.blog_content"></div>
                </div>
-               <router-link to="/news" class="return"><div class="return mt-3 mb-3"><v-icon small color="#818181" style="">←</v-icon><p>Go back to the news page</p></div></router-link>
+               <router-link :to="`/${$i18n.locale}/news`" class="return"><div class="return mt-3 mb-3"><v-icon small color="#818181" style="">←</v-icon><p>Go back to the news page</p></div></router-link>
            </v-flex>
 
            <v-flex xs12 sm4 md4 lg4 xlg6 class="all-article-flex">
