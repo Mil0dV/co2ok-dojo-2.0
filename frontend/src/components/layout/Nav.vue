@@ -167,40 +167,7 @@
                         </ul> -->
 
                         <div class="line"></div>
-                        <transition enter-acitve-class="animated bounceIn"
-                                    leave-active-class="animated bounceOut"
-                                    mode="out-in">
-                            <ul key="en" v-if="$i18n.locale === 'en'" class="uk-navbar-nav">
-                                <li @click="switchLang('en')" style="cursor: pointer">
-                                    <img alt="engelse vlag" class="language-icon english icon"
-                                         src="../../assets/images/nav/english-icon.png">
-                                    <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
-                                </li>
-                                <div class="dropdown__menu-wrapper dropdown__smaller" uk-dropdown="offset:10">
-                                    <ul class="uk-nav uk-dropdown-nav dropdown__nav dropdown__lang">
-                                        <li @click="switchLang('nl')">
-                                            <img alt="nederlandse vlag" class="language-icon english icon"
-                                                 src="../../assets/images/nav/dutch-icon.png">
-                                        </li>
-                                    </ul>
-                                </div>
-                            </ul>
-                            <ul v-else class="uk-navbar-nav" key="nl">
-                                <li @click="switchLang('nl')" style="cursor: pointer">
-                                    <img alt="engelse vlag" class="language-icon english icon"
-                                         src="../../assets/images/nav/dutch-icon.png">
-                                    <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
-                                </li>
-                                <div class="dropdown__menu-wrapper" uk-dropdown="offset:10">
-                                    <ul class="uk-nav uk-dropdown-nav dropdown__nav dropdown__lang">
-                                        <li @click="switchLang('en')">
-                                            <img alt="nederlandse vlag" class="language-icon english icon"
-                                                 src="../../assets/images/nav/english-icon.png">
-                                        </li>
-                                    </ul>
-                                </div>
-                            </ul>
-                        </transition>
+                        <LanguageSwitcher />
                     </div>
 
                     <div class="uk-navbar-right uk-hidden@m">
@@ -291,41 +258,7 @@
                    class="button">{{ $t('nav.extension') }}</a> -->
                 <router-link to="/webshops/get-started/" class="button">{{ $t('nav.extension') }}</router-link>
                 <hr>
-                <transition enter-acitve-class="animated bounceIn"
-                            leave-active-class="animated bounceOut"
-                            mode="out-in">
-                    <ul key="en" v-if="$i18n.locale === 'en'" class="uk-navbar-nav navbar__mobile">
-                        <li @click="switchLang('en')" style="cursor: pointer">
-                            <img alt="engelse vlag" class="language-icon english icon"
-                                 src="../../assets/images/nav/english-icon.png">
-                            <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
-                        </li>
-                        <div class="dropdown__menu-wrapper" uk-dropdown="offset:10">
-                            <ul class="uk-nav uk-dropdown-nav dropdown__nav dropdown__lang">
-                                <li style="text-align: center;"  @click="switchLang('nl')">
-                                    <img alt="nederlandse vlag" class="language-icon english icon"
-                                         src="../../assets/images/nav/dutch-icon.png">
-                                </li>
-                            </ul>
-                        </div>
-                    </ul>
-                    <ul v-else class="uk-navbar-nav" key="nl">
-                        <li @click="switchLang('nl')" style="cursor: pointer">
-                            <img alt="engelse vlag" class="language-icon english icon"
-                                 src="../../assets/images/nav/dutch-icon.png">
-                            <span class="nav__triangle" uk-icon="icon: triangle-down"></span>
-                        </li>
-                        <div class="dropdown__menu-wrapper" uk-dropdown="offset:10">
-                            <ul class="uk-nav uk-dropdown-nav dropdown__nav dropdown__lang">
-                                <li @click="switchLang('en')">
-                                    <img alt="nederlandse vlag" class="language-icon english icon"
-                                         src="../../assets/images/nav/english-icon.png">
-                                </li>
-                            </ul>
-                        </div>
-                    </ul>
-                </transition>
-
+                <LanguageSwitcher />
             </div>
         </div>
     </div>
@@ -333,6 +266,7 @@
 
 <script>
     import axios from 'axios'
+    const LanguageSwitcher = () => import('@/components/layout/LanguageSwitcher.vue')
 
     export default {
         name: "Nav",
@@ -416,9 +350,15 @@
             '$route'() {
                 this.userLoggedIn = this.$router.currentRoute['name'] === 'dashboard';
             }
+        },
+
+        components: {
+            'LanguageSwitcher': LanguageSwitcher,
         }
     }
 </script>
+
+
 
 <style lang="scss" scoped>
     @import '../../styles/layout/nav';
