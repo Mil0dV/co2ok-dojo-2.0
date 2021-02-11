@@ -26,7 +26,7 @@
 		name: "Testimonials",
 		props: {
 			name: String,
-			position: String,
+			company: String,
 			title: String,
 			mainText: String,
 			imageUrl: String
