@@ -348,7 +348,6 @@ let Co2okWidget = {
     if (element_id == '.widget-large' || element_id == '.co2ok_product_usp') {
       offset.left -= infoHoverBox.width() / 2;
     } else if (element_id == '.widget-small') {
-      console.log("what we ding?")
 			offset.left -= infoHoverBox.width() / 4;
 			if (windowWidth <= 800)
 		  	offset.top += elementBox.height() * 4;
@@ -493,7 +492,6 @@ let Co2okWidget = {
 		} else if (co2ok_fileswap_param == 'unpatch') {
 			document.cookie = 'co2ok_fileswap=;expires = Thu, 01 Jan 1970 00:00:00 GMT;'
 		}
-		console.log("down hereeeee")
 		return true;
 	},
 
