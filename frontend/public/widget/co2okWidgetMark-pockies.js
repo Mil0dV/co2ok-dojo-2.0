@@ -27,15 +27,25 @@ let Co2okWidget = {
 		document.getElementsByTagName("head")[0].appendChild(fileref)
     //css for trustmark
 		var fileref=document.createElement("link")
+    fileref.setAttribute("rel", "stylesheet")
+    fileref.setAttribute("type", "text/css")
+    fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark.css`)
+    document.getElementsByTagName("head")[0].appendChild(fileref)
+		var fileref=document.createElement("link")
 		fileref.setAttribute("rel", "stylesheet")
 		fileref.setAttribute("type", "text/css")
-		fileref.setAttribute("href", `${Co2okWidget.SITE_HOST}/widget/co2okWidgetMark.css`)
+		fileref.setAttribute("href", `${Co2okWidget.SITE_HOST}/widget/co2okWidgetMark-gray.css`)
 		document.getElementsByTagName("head")[0].appendChild(fileref)
 		//hovercard css
 	  var fileref=document.createElement("link")
 	  fileref.setAttribute("rel", "stylesheet")
 	  fileref.setAttribute("type", "text/css")
 	  fileref.setAttribute("href", `${Co2okWidget.SITE_HOST}/widget/co2okWidgetMark-projects.css`)
+	  document.getElementsByTagName("head")[0].appendChild(fileref)
+		var fileref=document.createElement("link")
+	  fileref.setAttribute("rel", "stylesheet")
+	  fileref.setAttribute("type", "text/css")
+	  fileref.setAttribute("href", `${Co2okWidget.SITE_HOST}/widget/co2okWidgetMark-pockies.css`)
 	  document.getElementsByTagName("head")[0].appendChild(fileref)
 
 	  images = [`${Co2okWidget.SITE_HOST}/widget/cfs.png`,
@@ -45,6 +55,9 @@ let Co2okWidget = {
 	  `${Co2okWidget.SITE_HOST}/widget/pockies/PK_trees.png`,
 		`${Co2okWidget.SITE_HOST}/widget/pockies/PK_logo.png`,
     `${Co2okWidget.SITE_HOST}/widget/pockies/PK_cloud.png`,
+		`${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_white.png`,
+		`${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_black.png`,
+		`${Co2okWidget.SITE_HOST}/static/logo-gray.png`
 		]
 
 	  for (img of images) {
@@ -103,47 +116,11 @@ let Co2okWidget = {
 		//   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
 	},
 
-	uspInsertion: function () {
-	  let product_usp_html = `<li class="list__item">
-			<div class="layout layout--x-small layout--center">
-				<div class="layout__item layout__item--fixed usp_hover" style="width: 18px">
-					<img src=https://co2ok.eco/widget/DZ-globe.png width=18px>
-				</div>
-				<div class="layout__item usp_hover_target">
-					Shop klimaatvriendelijk
-				</div>
-			</div>
-		</li>`
-
-	  let home_usp_html = `<li class="grid__item">
-			<div class="layout layout--x-small layout--center">
-				<div class="layout__item layout__item--fixed usp_hover" style="width: 24px">
-					<img src=https://co2ok.eco/widget/DZ-globe.png width=24px>
-				</div>
-				<div class="layout__item usp_hover_target">
-					Shop klimaatvriendelijk
-				</div>
-			</div>
-		</li>`
-
-	  if (window.location.pathname == "/") {
-			jQuery('a[href$="snellelevering"]').parent().after(home_usp_html)
-		} else {
-			jQuery('a[href$="snellelevering"]').parent().after(product_usp_html)
-		}
-
-	},
-
 	/** insert CFSmark in footer and product page
 	 *
-	 * CFSmark inserted in footer next to last pay icon and on product page next to last pay icons
+	 * CFSmark inserted in footer in front of first pay icon
 	 */
 	cfsTrustMarkInsertion: function () {
-    // let cfsHtml = `
-		// 	<img class="cfs_hover_target_footer" src="https://co2ok.eco/widget/cfs.png" height: 48px">
-		// `
-		// jQuery(".bot_footer_svg").after(cfsHtml)
-
     //payment icons in footer
 		let cfsfHtml = `
     <img class="cfs_hover_target_footer" src="https://co2ok.eco/widget/cfs.png" style="height: 30px;">
@@ -151,11 +128,14 @@ let Co2okWidget = {
 		jQuery(".paymentCall").prepend(cfsfHtml)
 	},
 
+	/**inserts USP
+	 * USP inserted on landing page in black strip mid-way down page
+	 */
   uspInsertion: function() {
     let uspLandingPage = `
       <li class="item" style="padding-left: 0px;">
         <a class=" flex text-left" style="width: 275px;">
-          <img style="font-size:40px;width:50px; margin: 0 15px 0 0;" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_cloud_white.png">
+          <img style="font-size:42px; width:50px; margin: -16px 15px 0 0;" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_white.png">
           <div class="text"><h5>SHOP CLIMATE FRIENDLY</h5>
           <span class="sub-text">
             <p>We are a proud Climate Friendly Shop</p>
@@ -167,45 +147,43 @@ let Co2okWidget = {
     jQuery(".store-info").append(uspLandingPage)
   },
 
-  insertOnProductPage: function() {
+	/** inserts UPS on product page
+	 * USP on shipping tab under product and under site USP next to product
+	*/
+  insertUspProductPage: function() {
     //shipping tab on product pag
-    let title = `<p><strong>Climate Friendly Shipping<strong></p>`
-    jQuery("#tab1551070955235").append(title)
+		let paragraph = `<p>With CFD your parcel deliveries will become Climate Friendly as neutralisation of the emissions is included in our service!
+		 As a customer, you have the option to choose the most environmentally friendly delivery option. Responsible e-commerce has never been this simple!</p>`
+		jQuery("#tab1551070955235").prepend(paragraph)
 
-    let paragraph = `<p>With CFD your parcel deliveries will become Climate Friendly as neutralisation of the emissions is included in our service!
-     As a customer, you have the option to choose the most environmentally friendly delivery option. Responsible e-commerce has never been this simple!</p>`
-    jQuery("#tab1551070955235").append(paragraph)
+    let title = `
+			<img style="height: 20px; float: left; padding-right: 8px;" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_black.png">
+			<h4>
+				Climate Friendly Shipping
+			</h4>
+			`
+    jQuery("#tab1551070955235").prepend(title)
 
-    //insert under truck icons
+
+    //next to product under their own USPs
     let productIcon = `
-      <div class="htusb-ui-section_0 htusb-ui-prod-static_0">
-        <div class="htusb-ui-inline">💚</div>
-        <div class="htusb-ui-inline">Climate friendly shiping</div>
-      </div>
+      <div class="htusb-ui-section_0 htusb-ui-prod-static_0 ">
+				<div class="htusb-ui-inline co2ok_product_usp">
+					<img class="co2ok_product_usp" style="height: 17px; margin-top: -9px;" src="${Co2okWidget.SITE_HOST}/widget/co2_truck.png">
+					+
+					<img class="co2ok_product_usp" style="height: 22px;"src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_cfp.png">
+				</div>
+      	<div class="htusb-ui-inline co2ok_product_usp">Climate friendly shipping and packaging</div>
+			</div>
     `
-    // let productIcon = `
-    //   <div class="htusb-ui-section_0 htusb-ui-prod-static_0"><div class="htusb-ui-inline">
-    //     <img style="height: 16px; margin-top: -9px;"src="${Co2okWidget.SITE_HOST}/widget/co2_truck.png">
-    //   </div>
-    //   <div class="htusb-ui-inline">Climate friendly shiping</div></div>
-    // `
-    jQuery("#htusb_container_html_prod_generic_pricing").append(productIcon)
+    jQuery(".product__policies").prepend(productIcon)
 
-    //insert above ATC button
-    let productCfs = `
-      <img class="cfs_hover_target_footer" src="https://co2ok.eco/widget/cfs.png" style="height: 44px; margin-top: -15px;">
-    `
-    jQuery(".infolinks").append(productCfs)
   },
 
-	/** inserts green heart and edit text of marquee */
+	/** Edits text of marquee at top of webpage */
 	marqueeInsertion: function () {
-    newMarqueeText = "FREE CLIMATE FRIENDLY SHIPPING 💚 over €50. Standard shipping: €4.99 (all countries).";
+    newMarqueeText = "CLIMATE FRIENDLY SHIPPING 💚: free over €50, otherwise €4.99 (all countries)"
     jQuery(".middle-hdr").html(newMarqueeText)
-
-    // newMarqueeText = `<div class="header-txt middle-hdr text-center"><i class="ad ad-telegram-plane"></i>FREE CLIMATE FRIENDLY SHIPPING <img style="height: 22px; margin-top: -9px;" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_cloud.png"> over €50. Standard shipping: €4.99 (all countries).</div>`
-    // jQuery(".middle-hdr").remove()
-		// jQuery(".left-hdr").after(newMarqueeText)
 	},
 
 	insertHovercardHTML: function () {
@@ -219,7 +197,7 @@ let Co2okWidget = {
 
 			<div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-small co2ok-small" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
 
-				<div class="mobile mobile-bar desktop-hidden co2ok-small" style="background-color: #00B67A;">
+				<div class="mobile mobile-bar desktop-hidden co2ok-small" style="background-color: #43b364;">
 					<p class="mobile-header desktop-hidden co2ok-small">Pockies's Planet Promise</p>
 					<span class="exit-area-span co2ok-small">
 						<p class="exit-area desktop-hidden co2ok-small"> X </p>
@@ -229,7 +207,7 @@ let Co2okWidget = {
 				<div class="co2ok-widget-content co2ok-small">
 					<div class="card-main-header mobile-hidden co2ok-small">
 						<img class="png-img-large mobile-hidden left-align-img header-img co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_world.png">
-						<p class="header mobile-hidden co2ok-small" style="color: #00B67A;">Pockies's Planet Promise</p>
+						<p class="header mobile-hidden co2ok-small" style="color: #43b364;">Pockies's Planet Promise</p>
 					</div>
 
 					<div class="co2ok-widget-wrapper co2ok-small co2ok-header-one co2ok-small" style="padding-top: 4px;">
@@ -321,16 +299,13 @@ let Co2okWidget = {
 		var reductietekst = 'CO₂ reductie';
 		let widgetmark = `
 			<div>
-
 				<div class="btn_co2ok_widget co2ok_widget_info widget-small" href="#">
-				<span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${Co2okWidget.SITE_HOST}/static/logo.png"></span>
-				</div>
-				<div class="caption_co2ok_widget co2ok_widget_info widget-small">
-				<span> <strong>${(compensatiewidget.toFixed(1))}</strong>t ${reductietekst} </span>
-				</div>
-
+          <span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${this.SITE_HOST}/static/logo-gray.png"></span>
+        </div>
+        <div class="caption_co2ok_widget co2ok_widget_info widget-small">
+          <span> <strong>${(compensatiewidget.toFixed(1))}</strong>t ${reductietekst} </span>
+        </div>
 			</div>
-
 		`
 	  // let widgetcontainer = document.getElementById(widgetContainer)
 
@@ -370,7 +345,7 @@ let Co2okWidget = {
 
 	  infoHoverBox.remove();
 		jQuery("body").append(infoHoverBox);
-    if (element_id == '.widget-large') {
+    if (element_id == '.widget-large' || element_id == '.co2ok_product_usp') {
       offset.left -= infoHoverBox.width() / 2;
     } else if (element_id == '.widget-small') {
       console.log("what we ding?")
@@ -383,9 +358,9 @@ let Co2okWidget = {
         offset.top -= infoHoverBox.height();
       }
 			//protection for hovercard clipping off window
-      if (y - infoHoverBox.height() < 0 && element_id == '.widget-large') {
+      if (y - infoHoverBox.height() < 0) {
 				offset.top = y;
-      } 
+      }
 	  } else if (element_id == '.cfs_hover_target') {
 			offset.left -= infoHoverBox.width() / 2;
 			if (offset.left < 0) {
@@ -445,17 +420,14 @@ let Co2okWidget = {
 			return ('.widget-small')
     else if (jQuery(e.target).hasClass("widget-large"))
       return ('.widget-large')
+		else if (jQuery(e.target).hasClass("co2ok_product_usp"))
+			return ('.co2ok_product_usp')
 	},
 
 	RegisterWidgetInfoBox : function()
 	{
 	  var _Co2okWidget = Co2okWidget;
 	  var element_id = null;
-
-	  jQuery(".co2ok_widget_info_keyboardarea").focus(function(){
-		  _Co2okWidget.ShowWidgetInfoBox();
-		  jQuery(".first-text-to-select").focus();
-	  });
 
 	  jQuery('body').click(function(e) {
 			element_id = _Co2okWidget.modalRegex(e);
@@ -521,6 +493,7 @@ let Co2okWidget = {
 		} else if (co2ok_fileswap_param == 'unpatch') {
 			document.cookie = 'co2ok_fileswap=;expires = Thu, 01 Jan 1970 00:00:00 GMT;'
 		}
+		console.log("down hereeeee")
 		return true;
 	},
 
@@ -528,7 +501,7 @@ let Co2okWidget = {
     if (window.jQuery) {
       Co2okWidget.marqueeInsertion();
       if (window.location.toString().includes('products')) {
-        Co2okWidget.insertOnProductPage();
+        Co2okWidget.insertUspProductPage();
       }
       Co2okWidget.uspInsertion();
 			Co2okWidget.cfsTrustMarkInsertion();
