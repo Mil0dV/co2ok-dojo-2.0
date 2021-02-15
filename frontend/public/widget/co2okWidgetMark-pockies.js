@@ -72,12 +72,11 @@ let Co2okWidget = {
 
 		if (co2ok_impact > 1) {
 		  // console.log('Collaborate and listen')
-      Co2okWidget.trustmarkGenerator(widgetContainer, totalTransactionData)
+      Co2okWidget.trustmarkGenerator('widgetContainermark', co2ok_impact)
       //places impact cal on mvo page
       if (window.location.toString().includes('mvo')) {
-        Co2okWidget.widgetGenerator('widgetContainerXL', totalTransactionData)
+        Co2okWidget.widgetGenerator('widgetContainerXL', co2ok_impact)
       }
-
 		  return
 		}
 
@@ -96,7 +95,7 @@ let Co2okWidget = {
 				// let totalTransactionData = 491
 
 				document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
-				Co2okWidget.trustmarkGenerator(widgetContainer, totalTransactionData)
+				Co2okWidget.trustmarkGenerator('widgetContainermark', totalTransactionData)
         //places impact cal on mvo page
         if (window.location.toString().includes('mvo')) {
           Co2okWidget.widgetGenerator('widgetContainerXL', totalTransactionData)
@@ -105,7 +104,7 @@ let Co2okWidget = {
 				// Something is fishy, let's serve up the total
 				} else {
 				  let totalTransactionData = 22300
-				  Co2okWidget.trustmarkGenerator(widgetContainer, totalTransactionData)
+				  Co2okWidget.trustmarkGenerator('widgetContainermark', totalTransactionData)
           //places impact cal on mvo page
           if (window.location.toString().includes('mvo')) {
             Co2okWidget.widgetGenerator('widgetContainerXL', totalTransactionData)
@@ -135,7 +134,7 @@ let Co2okWidget = {
     let uspLandingPage = `
       <li class="item" style="padding-left: 0px;">
         <a class=" flex text-left" style="width: 275px;">
-          <img style="font-size:42px; width:50px; margin: -16px 15px 0 0;" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_white.png">
+          <img class="co2-usp-img" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_white.png">
           <div class="text"><h5>SHOP CLIMATE FRIENDLY</h5>
           <span class="sub-text">
             <p>We are a proud Climate Friendly Shop</p>
@@ -157,7 +156,7 @@ let Co2okWidget = {
 		jQuery("#tab1551070955235").prepend(paragraph)
 
     let title = `
-			<img style="height: 20px; float: left; padding-right: 8px;" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_black.png">
+			<img class="co2-product-usp-img" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_black.png">
 			<h4>
 				Climate Friendly Shipping
 			</h4>
@@ -169,9 +168,9 @@ let Co2okWidget = {
     let productIcon = `
       <div class="htusb-ui-section_0 htusb-ui-prod-static_0 ">
 				<div class="htusb-ui-inline co2ok_product_usp">
-					<img class="co2ok_product_usp" style="height: 17px; margin-top: -9px;" src="${Co2okWidget.SITE_HOST}/widget/co2_truck.png">
+					<img class="co2-truck-product-usp" src="${Co2okWidget.SITE_HOST}/widget/co2_truck.png">
 					+
-					<img class="co2ok_product_usp" style="height: 22px;"src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_cfp.png">
+					<img class="co2-box-product-usp" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_cfp.png">
 				</div>
       	<div class="htusb-ui-inline co2ok_product_usp">Climate friendly shipping and packaging</div>
 			</div>
@@ -257,8 +256,8 @@ let Co2okWidget = {
       var compensationAmount  = totalCompensatedData / 1000;
     }
 
-    var compensatietekst = `This shop prevented <br><span id="large-widget-text-large" class="co2ok-widget-card">${compensationAmount .toFixed(decimalsCompensation)} ton CO<sub>2</sub></span><br> emission`;
-    var vliegen = "flying";
+    var compensatietekst = `cares about the climate! We prevented <br><span id="large-widget-text-large" class="co2ok-widget-card">${compensationAmount .toFixed(decimalsCompensation)} t CO<sub>2</sub></span><br> emissions`;
+    var vliegen = "of laundry";
 
     // let paragraph = `
     // `
@@ -266,17 +265,18 @@ let Co2okWidget = {
       <div class="large-widget">
         <span class ="large-widget-right-pockies"></span>
         <svg id= "half-circle" style="width: 160px;"> <circle cx="95" cy="64.6" r="62.6" fill="white"> /></svg>
+				<img class="co2-widget-company-logo" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_logo.png">
         <p id="large-widget-text">${compensatietekst}</p>
         <p id="large-widget-xvliegen">= ${(compensationAmount * 5000) .toFixed(0)} km<br>${vliegen}</p>
         <img id="co2ok-logo" src= "${this.SITE_HOST}/static/logo-gray.png">
         <img id="info-button-widget" class="widget-large" src="${this.SITE_HOST}/static/info-PK.svg">
-        <img id="large-widget-airplane" src= "${this.SITE_HOST}/widget/large-wiget-airplane.png">
+        <img id="large-widget-airplane" src= "${this.SITE_HOST}/widget/pockies/PK_laundry.png">
       </div>
     `
 
     // jQuery(paragraph).appendTo(document.getElementsByClassName("article-content"))
     jQuery("<div id='widgetContainerXL' style='margin-top:25px; margin-bottom:25px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").appendTo(document.getElementsByClassName("rte"))
-    let widgetcontainer = document.getElementById('widgetContainerXL')
+    let widgetcontainer = document.getElementById(widgetContainer)
     widgetcontainer.innerHTML = widgetmark;
   },
 
@@ -309,8 +309,8 @@ let Co2okWidget = {
 		`
 	  // let widgetcontainer = document.getElementById(widgetContainer)
 
-		jQuery("<div id='widgetContainer' style='width:180px;height:auto;display:flex;flex-direction:row;align-items:center; margin-top: 10px;'></div>").appendTo(document.getElementById("nav_menu-1561010286273"))
-		let widgetcontainer = document.getElementById("widgetContainer")
+		jQuery("<div id='widgetContainermark' style='width:180px;height:auto;display:flex;flex-direction:row;align-items:center; margin-top: 10px;'></div>").appendTo(document.getElementById("nav_menu-1561010286273"))
+		let widgetcontainer = document.getElementById(widgetContainer)
 		widgetcontainer.innerHTML = widgetmark;
 		this.RegisterWidgetInfoBox();
 

@@ -4,10 +4,10 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M1.18519 0C1.83964 0 2.37037 0.530726 2.37037 1.18519C2.37037 1.83964 1.83964 2.37037 1.18519 2.37037C0.530726 2.37037 0 1.83964 0 1.18519C0 0.530726 0.530489 0 1.18519 0Z" transform="translate(7.58496 3.2002)" fill="white"/>
 <defs>
 <linearGradient id="paint0_linear" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="scale(18.7348) rotate(45)">
-<stop stop-color="#fbb7da"/>
-<stop offset="0.510458" stop-color="#fbb7da"/>
-<stop offset="0.568062" stop-color="#fbb7da"/>
-<stop offset="1" stop-color="#fbb7da"/>
+<stop stop-color="#43B364"/>
+<stop offset="0.510458" stop-color="#43B364"/>
+<stop offset="0.568062" stop-color="#43B364"/>
+<stop offset="1" stop-color="#43B364"/>
 </linearGradient>
 </defs>
 </svg>
