@@ -76,25 +76,27 @@ let Co2okWidgetXL = {
 
 
   preloadImage: function (url) {
-    var img=new Image();
-    img.src=url;
+    return new Promise(resolve => {
+      var img = new Image();
+      img.src = url;
+      resolve('resolved');
+    });
   },
 
 
-  loadResources: function() {
+  loadResources: async function() {
     images = [
       `${this.SITE_HOST}/widget/hovercard/green_truck.png`,
       `${this.SITE_HOST}/static/logo.png`,
       `${this.SITE_HOST}/widget/hovercard/branch.png`,
       `${this.SITE_HOST}/widget/hovercard/heart_plane.png`,
       `${this.SITE_HOST}/widget/hovercard/renewable_energy.png`
-  ]
+    ]
 
-    for (img of images){
-      this.preloadImage(img)
+    for (img of images) {
+      result = await this.preloadImage(img)
     }
   },
-
 
   widgetGenerator: function (widgetContainer, totalCompensatedData, widgetSize, widgetColor, lang) {
 
@@ -129,11 +131,11 @@ let Co2okWidgetXL = {
 
     if (lang == 'EN') {
 
-      var compensatietekst = `This shop prevented <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)} ton CO<sub>2</sub></span><br> emission`;
+      var compensatietekst = `This shop prevented <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> emissions`;
       var vliegen = "flying";
       var stepOne = "You are empowered to fight climate change by neutralising emissions from production of your purchase";
       var stepTwo = "This shop has committed to climate friendly delivery; all emissions are neutralised through carbon offsetting projects";
-      var stepThree = `Together we offset <strong class="co2ok-small">${compensationAmount .toFixed(1)} </strong>tons of CO₂ emission. This is equal to <strong class="co2ok-small">${(compensationAmount * 5000).toFixed(0)} </strong>km of flying`;
+      var stepThree = `Together we offset <strong class="co2ok-small">${compensationAmount .toFixed(1)} </strong>tonnes of CO₂ emissions. This is equal to <strong class="co2ok-small">${(compensationAmount * 5000).toFixed(0)} </strong>km of flying`;
       var works = 'How do do this';
 
     } else {
@@ -373,6 +375,20 @@ let Co2okWidgetXL = {
         }
       });
     }
+  },
+
+  jQueryLoadDefer: function(script) {
+    if (window.jQuery) {
+      if (script.getAttribute('div')) {
+        let div = script.getAttribute('div')
+        let merchantId = script.getAttribute('merchantId')
+        let widgetColor = script.getAttribute('widgetColor')
+        let lang = script.getAttribute('lang')
+        Co2okWidgetXL.merchantCompensations(div, merchantId, widgetColor, lang)
+      }
+    } else {
+      setTimeout(function() { Co2okWidgetXL.jQueryLoadDefer(script) }, 50);
+    }
   }
 
 
@@ -381,17 +397,10 @@ let Co2okWidgetXL = {
 
 Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
 // Co2okWidgetXL.SITE_HOST = 'http://localhost:8080'
+
+//document.currentScript must be saved before entering loadResrouces to avoid null return
+//loadResouces() returns a promise, meaning that by .then() the script has stopped running and cannot be found
+var  script = document.currentScript;
+
 Co2okWidgetXL.loadResources()
-
-// New style Async execution B)
-// if the variables are set on the script src, we're in async mode
-// and don't expect the html to run merchantCompensations
-
-if (document.currentScript.getAttribute('div')) {
-  let div = document.currentScript.getAttribute('div')
-  let merchantId = document.currentScript.getAttribute('merchantId')
-  let widgetColor = document.currentScript.getAttribute('widgetColor')
-  let widgetSize = document.currentScript.getAttribute('widgetSize')
-  let lang = document.currentScript.getAttribute('lang')
-  Co2okWidgetXL.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
-}
+.then(_ => Co2okWidgetXL.jQueryLoadDefer(script))

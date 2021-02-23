@@ -49,34 +49,60 @@
             </div> -->
         </div>
 
-        <div class="home__section-2 prefix__section">
-
-
-            <div class="section-2__content">
-                <div class="section-2__row-1">
-                    <h2 class="main-title">
-                        {{ $t('home2.section_2_title') }}
-                    </h2>
-                    <p class="main-text">
-                        {{ $t('home2.section_2_text') }}
-                    </p>
-                    <!-- <a href="/#home_form"
-                    class="button">{{ $t('home2.button_1') }}</a> -->
-                    <!-- <router-link :to="{ path: '/', hash: '#home_form'}" class="button">{{ $t('home2.button_1') }} -->
-                    <router-link to="#get-started" class="button">{{ $t('home2.button_1') }}
-                                </router-link>
-                    <!-- <a href="/ninja"
-                        class="button">{{ $t('home2.button_2') }}</a> -->
-
+        <div class="home__section-2 section-2">
+			<div class="uk-container uk-container-width">
+                <div class="section-2-content">
+                    <div class="main-section-title" style="padding-top: 24px; padding-bottom: 16px;">
+                        <h2>{{ $t('home2.section_2_title') }}</h2>
                     </div>
-                    <!-- voor webshops: hAsY9pNJ3fE -->
-                    <div class="section-2__row-2">
-                        <iframe title="co2ok intro" class="section-2__image" width="532" height="299"
-                        src="https://www.youtube.com/embed/hAsY9pNJ3fE"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
+                    <div uk-grid class="steps__intro steps__intro-reverse uk-child-width-expand@s uk-text-center">
+                        <div class="step__text-wrapper step__img-left step__img-wrapper">
+                            <div class="uk-light">
+                                <img class="step__img uk-box-shadow-large" alt="1 cloak-button" width="532"
+                                src="../assets/images/home2/integratedButton.png">
+                            </div>
+                        </div>
+                        <div class="step__text-wrapper">
+                            <div class="intro__text step__col steps__content steps__content-right">
+                                <div class="steps__wrapper">
+                                    <div class="steps__title-container">
+                                        <i class="fas fa-heart step__icon"></i>
+                                        <p class="steps__title">
+                                            {{ $t('home2.section_2_subtitle_1') }}
+                                        </p>
+                                    </div>
+                                    <p class="main-text">{{ $t('home2.section_2_text_1') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div uk-grid class="steps__intro uk-child-width-expand@s uk-text-center">
+                        <div class="step__text-wrapper step__img-left">
+                            <div class="intro__text step__col steps__content steps__content-left">
+                                <div class="steps__wrapper">
+                                    <div class="steps__title-container">
+                                        <i class="fas fa-chart-line step__icon"></i>
+                                        <p class="steps__title">
+                                            {{ $t('home2.section_2_subtitle_2') }}
+                                        </p>
+                                    </div>
+                                    <p class="main-text" style="padding-bottom: 24px;">{{ $t('home2.section_2_text_2') }}</p>
+                                    <router-link to="#get-started" style="margin: 0px;" class="button">{{ $t('home2.button_1') }}
+                                </router-link>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step__text-wrapper step__img-wrapper">
+                            <div class="uk-light step__img-right">
+                                <iframe title="co2ok intro" class="section-2__image" style="box-shadow: rgba(0, 0, 0, 0.51) 0px 5px 30px;" width="532" height="299"
+                                src="https://www.youtube.com/embed/hAsY9pNJ3fE"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -161,8 +187,8 @@
         </div> -->
 
 
-        <Webshops :content="webshopsContent"/>
-        <WebshopForm id="get-started":content="formContent"/>
+        <WebshopLogos />
+        <WebshopForm id="get-started" :content="formContent"/>
 
     </div>
 </template>
@@ -170,7 +196,7 @@
 <script>
     // const Widget = () => import('@/components/layout/widget')
     const WebshopForm = () => import('@/components/layout/WebshopForm')
-    const Webshops = () => import('@/components/webshops/WebshopLogos')
+    const WebshopLogos = () => import('@/components/webshops/WebshopLogos')
     const BBApi = () => import('@/views/landing/BBApi')
     const Retail = () => import('@/views/landing/Retail')
     const MarketingCause = () => import('@/views/landing/MarketingCause')
@@ -186,8 +212,7 @@
         name: "Ahome",
         data() {
             return {
-                formContent: 2,
-                webshopsContent: 2,
+                formContent: 2
             }
         },
 
@@ -204,7 +229,7 @@
         components: {
             // 'Widget': Widget
             'WebshopForm': WebshopForm,
-            'Webshops': Webshops,
+            'WebshopLogos': WebshopLogos,
             'Retail': Retail,
             'BBApi': BBApi,
             'MarketingCause': MarketingCause,

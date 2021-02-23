@@ -1,3 +1,5 @@
+//Kabloom
+
 let Co2okWidget = {
 
   getCookieValue: function (a) {
@@ -131,13 +133,13 @@ let Co2okWidget = {
     }
 
     if (lang == 'EN') {
-      var reductietekst = 'CO₂ reduction';
+      var reductietekst = 'COâ‚‚ reduction';
       var stepOne = "You are empowered to fight climate change by neutralising emissions from production of your purchase";
       var stepTwo = "This shop has committed to climate friendly delivery; all emissions are neutralised through carbon offsetting projects";
-      var stepThree = `Together we offset <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong> tonne of CO₂ emissions. This is equal to <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`;
+      var stepThree = `Together we offset <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong> tonne of COâ‚‚ emissions. This is equal to <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`;
       var works = "How we do this";
     } else {
-      var reductietekst = 'CO₂ reductie';
+      var reductietekst = 'COâ‚‚ reductie';
       var stepOne = "Je kan bij ons klimaatverandering bestrijden door de uitstoot van de productie van je aankoop te neutraliseren";
       var stepTwo = "Deze winkel zet zich in voor een klimaatvriendelijke bezorging; alle uitstoot wordt geneutraliseerd door middel van CO2-compensatieprojecten";
       var stepThree = `Samen hebben we <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen.`;
@@ -283,9 +285,11 @@ let Co2okWidget = {
 
     jQuery('body').click(function(e)
     {
-      if(!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area")) {
+      if(!_this.modalRegex(e))
+      {
         _this.hideWidgetInfoBox();
-      } else {
+      }
+      else {
         _this.ShowWidgetInfoBox();
       }
 
@@ -293,7 +297,7 @@ let Co2okWidget = {
 
     jQuery('body').on("touchstart",function(e){
 
-      if(!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area")) {
+      if(!_this.modalRegex(e)) {
         _this.hideWidgetInfoBox();
       } else {
         _this.placeWidgetInfoBox()
@@ -307,13 +311,13 @@ let Co2okWidget = {
       });
 
       jQuery(document).mouseover(function(e) {
-          if (!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area")) {
-            _this.hideWidgetInfoBox();
-          } else {
-            _this.placeWidgetInfoBox();
-            _this.ShowWidgetInfoBox();
-          }
-        });
+        if (!(_this.modalRegex(e))) {
+          _this.hideWidgetInfoBox();
+        } else {
+          _this.placeWidgetInfoBox();
+          _this.ShowWidgetInfoBox();
+        }
+      });
     }
   },
 
@@ -341,5 +345,5 @@ Co2okWidget.SITE_HOST =  'https://co2ok.eco'
 //loadResouces() returns a promise, meaning that by .then() the script has stopped running and cannot be found
 var  script = document.currentScript;
 
-Co2okWidget.loadResources()
-.then(_ => Co2okWidget.jQueryLoadDefer(script))
+// Co2okWidget.loadResources()
+// .then(_ => Co2okWidget.jQueryLoadDefer(script))

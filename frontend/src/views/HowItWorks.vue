@@ -18,8 +18,8 @@
 				{{ $t('howItWorks.steps_subtitle') }}
 			</h2>
 
-			 <!--Stap 1-->
-			 <div uk-grid class="steps__intro uk-child-width-expand@s uk-text-center">
+			<!--Stap 1-->
+			<div uk-grid class="steps__intro uk-child-width-expand@s uk-text-center">
 				<div class="step__text-wrapper step__img-left">
 					<div class="intro__text step__col steps__content steps__content-left uk-padding">
 						<div class="steps__wrapper">
@@ -50,7 +50,7 @@
 				<div class="step__text-wrapper  step__img-left step__img-wrapper">
 					<div class="uk-light">
 						<img class="step__img uk-box-shadow-large" alt="2 factory"
-							 src="../assets/images/home2/shoppingcart-snippet-nl.png">
+							src="../assets/images/home2/shoppingcart-snippet-nl.png">
 					</div>
 				</div>
 
@@ -94,7 +94,7 @@
 				<div class="step__text-wrapper step__img-wrapper">
 					<div class="uk-light step__img-right">
 						<img class="step__img  uk-box-shadow-large" alt="solar-panels"
-							 src="../assets/images/steps/step-2.jpg">
+							src="../assets/images/steps/step-2.jpg">
 					</div>
 				</div>
 
@@ -106,7 +106,7 @@
 				<div class="step__text-wrapper  step__img-left step__img-wrapper">
 					<div class="uk-light">
 						<img class="step__img step__img-4 uk-box-shadow-large" alt="payment"
-							 src="../assets/images/steps/step-4.jpg">
+							src="../assets/images/steps/step-4.jpg">
 					</div>
 				</div>
 				<div class="step__text-wrapper">
@@ -137,20 +137,20 @@
 </template>
 
 <script>
-	const Header = () => import('@/components/layout/Header')
 	const TextImgSection = () => import('@/components/layout/TextImgSection')
 	const MarketingCause = () => import('@/views/landing/MarketingCause')
 	const Partners = () => import('@/views/landing/Partners')
 	const WebshopForm = () => import('@/components/layout/WebshopForm')
+	const WebshopLogos = () => import('@/components/webshops/WebshopLogos')
 
 	export default {
 		name: "HowItWorks",
 		components: {
-			'Header': Header,
 			'TextImgSection': TextImgSection,
 			'MarketingCause': MarketingCause,
 			'Partners': Partners,
-			'WebshopForm': WebshopForm
+			'WebshopForm': WebshopForm,
+			'WebshopLogos': WebshopLogos
 		},
 		data() {
 			return {
