@@ -255,7 +255,7 @@ let Co2okWidgetXL = {
 
   placeWidgetInfoBox : function() {
     // console.log('Platz? Lebensraum!')
-    var widgetInfoButton = jQuery("#info-button-widget");
+    var widgetInfoButton = jQuery(".info-button-widget");
     var widgetInfoBox = jQuery(".widget-hovercard-large");
     var widgetBox = jQuery(".large-widget")
     var offset = widgetInfoButton.offset();
@@ -323,7 +323,7 @@ let Co2okWidgetXL = {
   {
      return jQuery(e.target).hasClass("co2ok-large") ||
      jQuery(e.target).hasClass("widget-hovercard-large") ||
-     jQuery(e.target).is("#info-button-widget");
+     jQuery(e.target).hasClass("info-button-widget");
   },
 
 
