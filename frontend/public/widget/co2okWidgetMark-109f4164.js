@@ -400,10 +400,10 @@ let Co2okWidget = {
     } else if (co2ok_AB_param == 'hide') {
       console.log('Co2ok OFF mannually!')
       return false;
-    } else if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0') {
-      console.log('hammer time!')
-      return false;
-		}
+    } else {//if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0') {
+		console.log('Co2ok Testing');
+    	return false;
+	}
 
     var co2ok_fileswap_param = urlParams.get('co2ok_fileswap');
 		if (co2ok_fileswap_param == 'patch' || Co2okWidget.getCookieValue('co2ok_fileswap') == 'swapped') {
@@ -436,7 +436,6 @@ let Co2okWidget = {
 
 Co2okWidget.manualABSwitch()
 .then(abSwitch => {
-	console.log("abSwitch", abSwitch)
   if (abSwitch === true) {
     Co2okWidget.loadResources()
 		.then(_  => Co2okWidget.jQueryLoadDefer())
