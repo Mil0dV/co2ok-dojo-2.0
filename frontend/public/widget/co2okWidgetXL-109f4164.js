@@ -255,35 +255,32 @@ let Co2okWidgetXL = {
     var widgetInfoBox = jQuery(".widget-hovercard-large");
     var widgetBox = jQuery(".large-widget")
     var offset = widgetInfoButton.offset();
+    var windowHeight = jQuery(window).height();
+		var y = event.clientY;
 
     widgetInfoBox.remove();
     jQuery("body").append(widgetInfoBox);
 
-    if (jQuery(window).width() < 480) {
-      offset.left = offset.left - widgetInfoBox.width() / 2;
-      offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.height() - 9) - 10;
-      if ( offset.left < 0) offset.left = 10;
-      if ( offset.top < 0) offset.top = 10;
-      widgetInfoBox.css({
-          top: offset.top,
-          margin: "0 auto",
-          left: offset.left,
-          transform: "none"
-      });
-    } else {
-      offset.left = offset.left -  widgetBox.outerWidth() / 2;
-      if ( offset.left < 0) offset.left = 10;
-      offset.top = offset.top - (widgetInfoButton.height()) - widgetInfoBox.height() + 6;
-      if (offset.top < 0) {
-        offset.top = offset.top + (widgetInfoBox.height() + widgetInfoButton.width() / 2) + 6;
-      }
-      widgetInfoBox.css({
-        top: offset.top,
-        left: offset.left,
-        margin: "0",
-        transform: "none"
-      });
+    offset.left = offset.left -  widgetBox.outerWidth() / 2;
+    if ( offset.left < 0) offset.left = 10;
+    offset.top = offset.top - (widgetInfoButton.height()) - widgetInfoBox.height() + 6;
+    if (offset.top < 0) {
+      offset.top = offset.top + (widgetInfoBox.height() + widgetInfoButton.width() / 2) + 6;
     }
+    console.log("offset 1", offset.top);
+    let overflow = offset.top - widgetInfoBox.outerHeight();
+    if (overflow < 0) {
+      console.log("offset: ", overflow);
+      offset.top -= overflow;
+    console.log("offset 2", offset.top);
+
+    }
+    widgetInfoBox.css({
+      top: offset.top,
+      left: offset.left,
+      margin: "0",
+      transform: "none"
+    });
   },
 
 
@@ -325,6 +322,7 @@ let Co2okWidgetXL = {
     jQuery('body').click(function(e) {
       if(!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area-span")|| jQuery(e.target).hasClass("exit-area")) {
         _this.hideWidgetInfoBox();
+        e.stopPropagation();
       } else {
         _this.ShowWidgetInfoBox();
       }
@@ -333,6 +331,7 @@ let Co2okWidgetXL = {
     jQuery('body').on("touchstart",function(e) {
       if(!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area-span") || jQuery(e.target).hasClass("exit-area")) {
         _this.hideWidgetInfoBox();
+        e.stopPropagation();
       } else {
         _this.placeWidgetInfoBox()
         _this.ShowWidgetInfoBox();
@@ -347,6 +346,7 @@ let Co2okWidgetXL = {
       jQuery(document).mouseover(function(e) {
         if (!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area-span") || jQuery(e.target).hasClass("exit-area")) {
           _this.hideWidgetInfoBox();
+          e.stopPropagation();
         } else {
           _this.placeWidgetInfoBox();
           _this.ShowWidgetInfoBox();

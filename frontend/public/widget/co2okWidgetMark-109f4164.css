@@ -1,0 +1,8 @@
+/*Woonliving**/
+.iconbtns-co2ok {
+content: '\f0ac' !important;
+}
+.iconbtns-co2ok::before {
+content: '\f0ac' !important;
+margin-right: 2px !important;
+}

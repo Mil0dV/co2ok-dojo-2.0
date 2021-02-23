@@ -30,6 +30,12 @@ let Co2okWidget = {
 		fileref.setAttribute("type", "text/css")
 		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-projects.css`)
 		document.getElementsByTagName("head")[0].appendChild(fileref)
+		//extrx usp/cfs css
+		var fileref=document.createElement("link")
+		fileref.setAttribute("rel", "stylesheet")
+		fileref.setAttribute("type", "text/css")
+		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-109f4164.css`)
+		document.getElementsByTagName("head")[0].appendChild(fileref)
 
 	  	images = [`${this.SITE_HOST}/widget/cfs.png`,
 			`${this.SITE_HOST}/widget/woonliving/WL_world.png`,
@@ -133,15 +139,27 @@ let Co2okWidget = {
 
 	/** inserts globe icon into menu */
 	menuIconInsertion: function () {
-		let menuIconHtml = `
-			<li id="item_b3fd8670-f170-4425-9814-e36fdd7c7563" class="menu-item type_simple">
-				<a class="lh__1 flex al_center pr" href="/pages/over-woonliving" target="_self">
-					<i class="las la-las la la-globe"></i>
-					Shop klimaatvriendelijk
+		if (Co2okWidget.isMobile()) {
+			let menuIconHtml = `
+			<li id="item_mb_compe" class="menu-item item-level-0 menu-item-btns menu-item-compare">
+				<a class="js_link_cp" href="/search/?view=compe">
+					<span class="iconbtns iconbtns-co2ok">
+						Shop Klimaatvriendelijk
+					</span>
 				</a>
-			</li>
-		`
-		jQuery(".nt_menu").append(menuIconHtml)
+			</li>`
+			jQuery("#item_mb_nav-0").after(menuIconHtml)
+		} else {
+			let menuIconHtml = `
+				<li id="item_b3fd8670-f170-4425-9814-e36fdd7c7563" class="menu-item type_simple">
+					<a class="lh__1 flex al_center pr" href="/pages/over-woonliving" target="_self">
+						<i class="las la-las la la-globe"></i>
+						Shop klimaatvriendelijk
+					</a>
+				</li>
+			`
+			jQuery(".nt_menu").append(menuIconHtml)
+		}
 	},
 
 	insertHovercardHTML: function () {
@@ -264,9 +282,9 @@ let Co2okWidget = {
 	},
 
 	placeWidgetInfoBox : function(element_id) {
-	  var elementBox = jQuery(element_id);
-	  var infoHoverBox = jQuery(".widget-hovercard-small");
-	  var offset = elementBox.offset();
+		var elementBox = jQuery(element_id);
+		var infoHoverBox = jQuery(".widget-hovercard-small");
+		var offset = elementBox.offset();
 		var windowWidth = jQuery(window).width();
 		var y = event.clientY;
 
@@ -355,22 +373,23 @@ let Co2okWidget = {
 
 	  jQuery('body').click(function(e) {
 			element_id = _this.modalRegex(e);
-		  if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area")) {
+		  	if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area")) {
 				_this.hideWidgetInfoBox();
-
+				e.stopPropagation();
 			} else {
 				_this.ShowWidgetInfoBox();
-		  }
+		  	}
 	  });
 
 	  jQuery('body').on("touchstart",function(e){
 		element_id = _this.modalRegex(e);
-		  if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area"))
-			_this.hideWidgetInfoBox();
-		  else {
-			_this.ShowWidgetInfoBox();
-			_this.placeWidgetInfoBox(element_id);
-		  }
+			if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area")) {
+				_this.hideWidgetInfoBox();
+				e.stopPropagation();
+		  	} else {
+				_this.ShowWidgetInfoBox();
+				_this.placeWidgetInfoBox(element_id);
+		  	}
 	  });
 
 	  if(!this.isMobile())
@@ -383,6 +402,7 @@ let Co2okWidget = {
 				element_id = _this.modalRegex(e);
 				if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area")) {
 					_this.hideWidgetInfoBox();
+					e.stopPropagation();
 				} else {
 					_this.ShowWidgetInfoBox();
 					_this.placeWidgetInfoBox(element_id);
