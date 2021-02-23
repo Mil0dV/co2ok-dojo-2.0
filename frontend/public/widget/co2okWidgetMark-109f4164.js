@@ -428,7 +428,7 @@ let Co2okWidget = {
 			Co2okWidget.RegisterWidgetInfoBox();
 			Co2okWidget.merchantCompensations('widgetContainermark');
     } else {
-      setTimeout(function() { Co2okWidget.jQueryLoadDefer(script) }, 50);
+      setTimeout(function() { Co2okWidget.jQueryLoadDefer() }, 50);
     }
   }
 
