@@ -91,16 +91,42 @@ let Co2okWidgetXL = {
 	  }
   },
 
+
+  sleeper: function (ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  },
+
+  /** Retrieves total trees planted from WL site
+   *
+   * The tree total is filled in one by one and they is a a slight delay. In order to avoid
+   * a miss count, sleepers and checks are needed to ensure the total trees planted match in
+   * the hovercard and on the site.
+   */
+  getTreeTotal: function() {
+    let trees = -1;
+    let  treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
+    while (treeTotal > trees && treeTotal >= 0) {
+      await Co2okWidgetXL.sleeper(1000);
+      trees = treeTotal;
+      treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
+      if (trees == treeTotal) {
+        await Co2okWidgetXL.sleeper(1000);
+        treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
+      }
+    }
+    // if (treeTotal === 0) {
+    // 	treeTotal = 151;
+    // }
+  },
+
   /** Custom widget hovercard html
    *
    * Inserted before the footer of the webpage
    */
-  insertHovercardHTML: function () {
+  insertHovercardHTML: async function () {
 
-    const treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
-		if (treeTotal === 0) {
-			treeTotal = 151;
-		}
+		//tree counter takes a bit to load, this loop waits to retrieve number of trees planted
+    let treeTotal = Co2okWidgetXL.getTreeTotal();
 
 		var stepOne = "Woonliving werkt samen met de beste en onafhankelijke designers en meubelmakers. Geen tussenpersonen en geen winkels waardoor de keten duurzamer is.  Je kunt in de webshop zien hoe milieubewust een product is, zo helpen ze je een duurzame keuze te maken.";
 		var stepTwo = `Woonliving denkt goed na over hoe ze jouw producten verzenden, ze doen dit met zo min mogelijk klimaat impact, vaak zelfs zonder verpakking! Daarnaast hebben ze nu al <strong>${treeTotal}</strong> bomen geplant met Trees for All!`;
@@ -264,17 +290,20 @@ let Co2okWidgetXL = {
     offset.left = offset.left -  widgetBox.outerWidth() / 2;
     if ( offset.left < 0) offset.left = 10;
     offset.top = offset.top - (widgetInfoButton.height()) - widgetInfoBox.height() + 6;
-    if (offset.top < 0) {
-      offset.top = offset.top + (widgetInfoBox.height() + widgetInfoButton.width() / 2) + 6;
-    }
-    console.log("offset 1", offset.top);
-    let overflow = offset.top - widgetInfoBox.outerHeight();
-    if (overflow < 0) {
-      console.log("offset: ", overflow);
-      offset.top -= overflow;
-    console.log("offset 2", offset.top);
+			offset.top += 40;
+			//protection for hovercard clipping off window
+			if (y + widgetInfoButton.height() > jQuery(window).height()) {
+				offset.top -= (y + widgetInfoButton.height()) - jQuery(window).height();
+				offset.top -= 30;
+			}
+    // if (offset.top < 0) {
+    //   offset.top = offset.top + (widgetInfoBox.height() + widgetInfoButton.width() / 2) + 6;
+    // }
+    // let overflow = offset.top - widgetInfoBox.outerHeight();
+    // if (overflow < 0) {
+    //   offset.top -= overflow;
 
-    }
+    // }
     widgetInfoBox.css({
       top: offset.top,
       left: offset.left,
