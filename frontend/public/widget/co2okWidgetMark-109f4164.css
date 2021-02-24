@@ -1,8 +1,17 @@
 /*Woonliving**/
 .iconbtns-co2ok {
-content: '\f0ac' !important;
+content: '\f004' !important;
 }
 .iconbtns-co2ok::before {
-content: '\f0ac' !important;
+content: '\f004' !important;
 margin-right: 2px !important;
 }
+
+/* .co2ok_widget_infobox_container {
+	position: absolute;
+	width: 350px;
+	height: 670px !important;
+} */
+
+.co2ok_widget_infobox_container .co2ok-logos .co2ok-logo {
+    bottom: 2px !important; }

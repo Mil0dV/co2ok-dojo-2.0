@@ -141,9 +141,9 @@ let Co2okWidget = {
 	menuIconInsertion: function () {
 		if (Co2okWidget.isMobile()) {
 			let menuIconHtml = `
-			<li id="item_mb_compe" class="menu-item item-level-0 menu-item-btns menu-item-compare">
-				<a class="js_link_cp" href="/search/?view=compe">
-					<span class="iconbtns iconbtns-co2ok">
+			<li id="item_mb_compe" class="menu-item item-level-0 menu-item-btns menu-item-compare co2ok-usp-menu">
+				<a class="js_link_cp co2ok-ups-menu">
+					<span class="iconbtns iconbtns-co2ok co2ok-usp-menu">
 						Shop Klimaatvriendelijk
 					</span>
 				</a>
@@ -151,9 +151,9 @@ let Co2okWidget = {
 			jQuery("#item_mb_nav-0").after(menuIconHtml)
 		} else {
 			let menuIconHtml = `
-				<li id="item_b3fd8670-f170-4425-9814-e36fdd7c7563" class="menu-item type_simple">
-					<a class="lh__1 flex al_center pr" href="/pages/over-woonliving" target="_self">
-						<i class="las la-las la la-globe"></i>
+				<li id="item_b3fd8670-f170-4425-9814-e36fdd7c7563" class="menu-item type_simple co2ok-usp-menu-hover co2ok-usp-menu">
+					<a class="lh__1 flex al_center pr co2ok-usp-menu" target="_self">
+						<i class="las la-heart co2ok-usp-menu"></i>
 						Shop klimaatvriendelijk
 					</a>
 				</li>
@@ -189,15 +189,14 @@ let Co2okWidget = {
 
 		//tree counter takes a bit to load, this loop waits to retrieve number of trees planted
 		// let treeTotal = Co2okWidget.getTreeTotal();
-		let  treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
-		if (treeTotal === 0 ) {
-			treeTotal = 152;
-		}
-
+		// let  treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
+		// if (treeTotal === 0 ) {
+		let treeTotal = 152;
+		// }
 
 		var stepOne = "Woonliving werkt samen met de beste en onafhankelijke designers en meubelmakers. Geen tussenpersonen en geen winkels waardoor de keten duurzamer is.  Je kunt in de webshop zien hoe milieubewust een product is, zo helpen ze je een duurzame keuze te maken.";
-		var stepTwo = `Woonliving denkt goed na over hoe ze jouw producten verzenden, ze doen dit met zo min mogelijk klimaat impact, vaak zelfs zonder verpakking! Daarnaast hebben ze nu al <strong>${treeTotal}</strong> bomen geplant met Trees for All!`;
-		var stepThree = "Verder bieden wij (CO2ok) je de mogelijkheid om met één klik de CO2 uitstoot van je aankoop direct te compenseren. Het geld dat je hiervoor extra betaalt gaat naar CO2 compensatieprojecten van Fair Climate Fund en Atmosfair die Gold Standard gecertificeerd zijn.";
+		var stepTwo = `Jouw aankoop wordt met zo min mogelijk klimaatimpact verzonden, vaak zelfs zonder verpakking! De uitstoot die niet kan worden voorkomen, wordt volledig gecompenseerd door Woonliving. Daarnaast hebben ze nu al <strong>${treeTotal}</strong> bomen geplant met Trees for All!`;
+		var stepThree = "Verder bieden wij (CO2ok) je de mogelijkheid om met één klik direct de CO2 uitstoot van je aankoop te compenseren. Het geld dat je hiervoor betaalt gaat naar CO2 compensatieprojecten van FairClimateFund en Atmosfair die Gold Standard gecertificeerd zijn.";
 		var imageDesc = "Niet alleen het klimaat profiteert: we realiseren zo ook minder ontbossing en gezondheidsvoordelen door minder rook en giftige koolmonoxide"
 
     	let infoHoverHtml = `
@@ -243,8 +242,6 @@ let Co2okWidget = {
 
 					<div class="co2ok-logos co2ok-small">
 						<img src="${this.SITE_HOST}/static/logo.png" href="https://www.co2ok.eco/projects" class="co2ok-logo co2ok-small">
-						<img class="feat-company-logo co2ok-small" src="${this.SITE_HOST}/widget/woonliving/WL_logo.png">
-						<img class="treesforall-logo co2ok-small" src="${this.SITE_HOST}/widget/woonliving/logotrees.png">
 					</div>
 
 				</div>
@@ -315,9 +312,9 @@ let Co2okWidget = {
 		var windowWidth = jQuery(window).width();
 		var y = event.clientY;
 
-	  infoHoverBox.remove();
+	  	infoHoverBox.remove();
 		jQuery("body").append(infoHoverBox);
-	  if (element_id == '.widget-small') {
+	  	if (element_id == '.widget-small') {
 			offset.left -= infoHoverBox.width() / 4;
 			if (windowWidth <= 800)
 		  	offset.top += elementBox.height() * 4;
@@ -329,7 +326,7 @@ let Co2okWidget = {
 				offset.top -= (y + infoHoverBox.height()) - jQuery(window).height();
 				offset.top -= 30;
 			}
-	  } else if (element_id == '.cfs_hover_target') {
+		} else if (element_id == '.cfs_hover_target') {
 			offset.left -= infoHoverBox.width() / 2;
 			if (offset.left < 0) {
 				offset.left = 5;
@@ -346,8 +343,11 @@ let Co2okWidget = {
 				offset.left = 5;
 			}
 			offset.top -= infoHoverBox.height();
+		} else if (element_id == '.co2ok-usp-menu') {
+			offset.left -= elementBox.width() / 2;
+			offset.top += 10;
 		}
-	  else
+		else
 			return ;
 
 	  var e = window.event;
@@ -386,6 +386,8 @@ let Co2okWidget = {
 			return ('.co2ok-small')
 		else if (jQuery(e.target).hasClass("widget-small"))
 			return ('.widget-small')
+		else if (jQuery(e.target).hasClass("co2ok-usp-menu"))
+			return ('.co2ok-usp-menu')
 	},
 
 	RegisterWidgetInfoBox : function()
@@ -439,45 +441,43 @@ let Co2okWidget = {
 	},
 
 	manualABSwitch: async function() {
-    // Manual AB-switch
-    var urlParams = new URLSearchParams(window.location.search);
-    var co2ok_AB_param = urlParams.get('co2ok_ab');
-    if (co2ok_AB_param == 'show') {
-      console.log('Co2ok ON manually!')
-    } else if (co2ok_AB_param == 'hide') {
-      console.log('Co2ok OFF mannually!')
-      return false;
-    } else {//if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0') {
-		console.log('Co2ok Testing');
-    	return false;
-	}
+		// Manual AB-switch
+		var urlParams = new URLSearchParams(window.location.search);
+		var co2ok_AB_param = urlParams.get('co2ok_ab');
+		let co2ok_AB_test = JSON.parse(localStorage.getItem('co2ok_ab_hide'));
 
-    var co2ok_fileswap_param = urlParams.get('co2ok_fileswap');
-		if (co2ok_fileswap_param == 'patch' || Co2okWidget.getCookieValue('co2ok_fileswap') == 'swapped') {
-			jQuery.getScript('http://localhost:8080/widget/co2ok_local_file.js');
+		//if co2okButton.js isn't loaded, we defer
+		if (co2ok_AB_test === null) {
+			setTimeout(function() { Co2okWidget.manualABSwitch() }, 50);
+		}
 
-			var now = new Date();
-			now.setTime(now.getTime() + 1 * 3600 * 1000);
-
-			document.cookie = 'co2ok_fileswap=swapped;expires=Thu,'+ now +';path="/"'
+		if (co2ok_AB_param == 'show') {
+			console.log('Co2ok ON manually!')
+			return true;
+		} else if (co2ok_AB_param == 'hide') {
+			console.log('Co2ok OFF mannually!')
 			return false;
-		} else if (co2ok_fileswap_param == 'unpatch') {
-			document.cookie = 'co2ok_fileswap=;expires = Thu, 01 Jan 1970 00:00:00 GMT;'
+		} else if (co2ok_AB_test === 0) {
+			return false;
+		} else {
+			//DELETE this
+			console.log('Co2ok Testing');
+			return false;
 		}
 		return true;
 	},
 
 	jQueryLoadDefer: function() {
-    if (window.jQuery) {
+		if (window.jQuery) {
 			Co2okWidget.insertHovercardHTML();
 			Co2okWidget.menuIconInsertion();
 			Co2okWidget.cfsTrustMarkInsertion();
 			Co2okWidget.RegisterWidgetInfoBox();
 			Co2okWidget.merchantCompensations('widgetContainermark');
-    } else {
-      setTimeout(function() { Co2okWidget.jQueryLoadDefer() }, 50);
-    }
-  }
+		} else {
+			setTimeout(function() { Co2okWidget.jQueryLoadDefer() }, 50);
+		}
+	}
 
 }
 

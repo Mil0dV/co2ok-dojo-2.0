@@ -128,14 +128,14 @@ let Co2okWidgetXL = {
 
 		//tree counter takes a bit to load, this loop waits to retrieve number of trees planted
     // let treeTotal = Co2okWidgetXL.getTreeTotal();
-    let  treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
-		if (treeTotal === 0 ) {
-			treeTotal = 152;
-		}
+    // let  treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
+		// if (treeTotal === 0 ) {
+  	let treeTotal = 152;
+		// }
 
 		var stepOne = "Woonliving werkt samen met de beste en onafhankelijke designers en meubelmakers. Geen tussenpersonen en geen winkels waardoor de keten duurzamer is.  Je kunt in de webshop zien hoe milieubewust een product is, zo helpen ze je een duurzame keuze te maken.";
-		var stepTwo = `Woonliving denkt goed na over hoe ze jouw producten verzenden, ze doen dit met zo min mogelijk klimaat impact, vaak zelfs zonder verpakking! Daarnaast hebben ze nu al <strong>${treeTotal}</strong> bomen geplant met Trees for All!`;
-		var stepThree = "Verder bieden wij (CO2ok) je de mogelijkheid om met één klik de CO2 uitstoot van je aankoop direct te compenseren. Het geld dat je hiervoor extra betaalt gaat naar CO2 compensatieprojecten van Fair Climate Fund en Atmosfair die Gold Standard gecertificeerd zijn.";
+		var stepTwo = `Jouw aankoop wordt met zo min mogelijk klimaatimpact verzonden, vaak zelfs zonder verpakking! De uitstoot die niet kan worden voorkomen, wordt volledig gecompenseerd door Woonliving. Daarnaast hebben ze nu al <strong>${treeTotal}</strong> bomen geplant met Trees for All!`;
+		var stepThree = "Verder bieden wij (CO2ok) je de mogelijkheid om met één klik direct de CO2 uitstoot van je aankoop te compenseren. Het geld dat je hiervoor betaalt gaat naar CO2 compensatieprojecten van FairClimateFund en Atmosfair die Gold Standard gecertificeerd zijn.";
 		var imageDesc = "Niet alleen het klimaat profiteert: we realiseren zo ook minder ontbossing en gezondheidsvoordelen door minder rook en giftige koolmonoxide"
 
     let infoHoverHtml = `
@@ -181,8 +181,6 @@ let Co2okWidgetXL = {
 
           <div class="co2ok-logos co2ok-large">
             <img src="${this.SITE_HOST}/static/logo.png" href="https://www.co2ok.eco/projects" class="co2ok-logo co2ok-large">
-            <img class="feat-company-logo co2ok-large" src="${this.SITE_HOST}/widget/woonliving/WL_logo.png">
-            <img class="treesforall-logo co2ok-large" src="${this.SITE_HOST}/widget/woonliving/logotrees.png">
           </div>
 
         </div>
@@ -394,32 +392,29 @@ let Co2okWidgetXL = {
    * shows or hides co2 depending on url arguments
    */
   manualABSwitch: async function() {
-    // Manual AB-switch
-    var urlParams = new URLSearchParams(window.location.search);
-    var co2ok_AB_param = urlParams.get('co2ok_ab');
-    if (co2ok_AB_param == 'show') {
-      console.log('Co2ok ON manually!')
-    } else if (co2ok_AB_param == 'hide') {
-      console.log('Co2ok OFF mannually!')
-      return false;
-    } else {//if (Co2okWidgetXL.getCookieValue('co2ok_ab_hide') == '0') {
-      console.log('Co2ok Testing');
-      return false;
-		}
+      // Manual AB-switch
+      var urlParams = new URLSearchParams(window.location.search);
+      var co2ok_AB_param = urlParams.get('co2ok_ab');
+      let co2ok_AB_test = JSON.parse(localStorage.getItem('co2ok_ab_hide'));
 
-    var co2ok_fileswap_param = urlParams.get('co2ok_fileswap');
-		if (co2ok_fileswap_param == 'patch' || Co2okWidgetXL.getCookieValue('co2ok_fileswap') == 'swapped') {
-			jQuery.getScript('http://localhost:8080/widget/co2ok_local_file.js');
+      if (co2ok_AB_test === null) {
+        setTimeout(function() { Co2okWidgetXL.manualABSwitch() }, 50);
+      }
 
-			var now = new Date();
-			now.setTime(now.getTime() + 1 * 3600 * 1000);
-
-			document.cookie = 'co2ok_fileswap=swapped;expires=Thu,'+ now +';path="/"'
-			return false;
-		} else if (co2ok_fileswap_param == 'unpatch') {
-			document.cookie = 'co2ok_fileswap=;expires = Thu, 01 Jan 1970 00:00:00 GMT;'
-		}
-		return true;
+      if (co2ok_AB_param == 'show') {
+        console.log('Co2ok ON manually!')
+        return true;
+      } else if (co2ok_AB_param == 'hide') {
+        console.log('Co2ok OFF mannually!')
+        return false;
+      } else if (co2ok_AB_test === 0) {
+        return false;
+      } else {
+        //delete after testing
+        console.log('Co2ok Testing');
+        return false;
+      }
+      return true;
 	},
 
   /** defers running of widget code until jQuery is loaded
