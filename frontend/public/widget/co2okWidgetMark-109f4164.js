@@ -37,7 +37,7 @@ let Co2okWidget = {
 		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-109f4164.css`)
 		document.getElementsByTagName("head")[0].appendChild(fileref)
 
-	  	images = [`${this.SITE_HOST}/widget/cfs.png`,
+	  	var images = [`${this.SITE_HOST}/widget/cfs.png`,
 			`${this.SITE_HOST}/widget/woonliving/WL_world.png`,
 			`${this.SITE_HOST}/widget/woonliving/WL_box.png`,
 			`${this.SITE_HOST}/widget/woonliving/WL_seedling.png`,
@@ -47,7 +47,7 @@ let Co2okWidget = {
 			`${this.SITE_HOST}/widget/co2-projects.jpg`
 		]
 
-	  for (img of images) {
+	  for (var img of images) {
 			result = await this.preloadImage(img)
 	  }
 	},
@@ -162,6 +162,10 @@ let Co2okWidget = {
 		}
 	},
 
+	sleeper: function (ms) {
+		return new Promise(resolve => setTimeout(resolve, ms));
+	},
+
 	/** Retrieves total trees planted from WL site
 	 *
 	 * The tree total is filled in one by one and they is a a slight delay. In order to avoid
@@ -172,11 +176,11 @@ let Co2okWidget = {
 		let trees = -1;
 		let  treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
 		while (treeTotal > trees && treeTotal >= 0) {
-			await Co2okWidgetXL.sleeper(1000);
+			await Co2okWidgeL.sleeper(1000);
 			trees = treeTotal;
 			treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
 			if (trees == treeTotal) {
-				await Co2okWidgetXL.sleeper(1000);
+				await Co2okWidget.sleeper(1000);
 				treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
 			}
 		}

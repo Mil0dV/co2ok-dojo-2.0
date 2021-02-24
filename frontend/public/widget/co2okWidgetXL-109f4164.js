@@ -76,7 +76,7 @@ let Co2okWidgetXL = {
 	  fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-projects.css`)
 	  document.getElementsByTagName("head")[0].appendChild(fileref)
 
-	  images = [
+	  var images = [
 	  `${this.SITE_HOST}/widget/woonliving/WL_world.png`,
 	  `${this.SITE_HOST}/widget/woonliving/WL_box.png`,
 	  `${this.SITE_HOST}/widget/woonliving/WL_seedling.png`,
@@ -86,7 +86,7 @@ let Co2okWidgetXL = {
 		]
 
 
-	  for (img of images) {
+	  for (var img of images) {
 			result = await this.preloadImage(img)
 	  }
   },
