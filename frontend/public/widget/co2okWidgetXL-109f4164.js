@@ -92,7 +92,7 @@ let Co2okWidgetXL = {
   },
 
 
-  sleeper: function (ms) {
+  sleeper: async function (ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   },
 
