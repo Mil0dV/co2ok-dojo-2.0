@@ -481,6 +481,10 @@ let Co2okWidget = {
 Co2okWidget.manualABSwitch()
 .then(abSwitch => {
   if (abSwitch === true) {
+	// temp bail on product pages
+	if (window.location.pathname.indexOf("products")) {
+		return
+	}
     Co2okWidget.loadResources()
 		.then(_  => Co2okWidget.jQueryLoadDefer())
   } else {
