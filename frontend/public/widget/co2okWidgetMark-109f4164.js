@@ -162,9 +162,6 @@ let Co2okWidget = {
 		}
 	},
 
-	sleeper: async function (ms) {
-		return new Promise(resolve => setTimeout(resolve, ms));
-	},
 
 	/** Retrieves total trees planted from WL site
 	 *
@@ -172,28 +169,31 @@ let Co2okWidget = {
 	 * a miss count, sleepers and checks are needed to ensure the total trees planted match in
 	 * the hovercard and on the site.
 	 */
-	getTreeTotal: function() {
-		let trees = -1;
-		let  treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
-		while (treeTotal > trees && treeTotal >= 0) {
-			await Co2okWidgeL.sleeper(1000);
-			trees = treeTotal;
-			treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
-			if (trees == treeTotal) {
-				await Co2okWidget.sleeper(1000);
-				treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
-			}
-		}
-		// if (treeTotal === 0) {
-		// 	treeTotal = 151;
-		// }
-	},
+	// getTreeTotal: function() {
+	// 	let trees = -1;
+	// 	let  treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
+	// 	console.log("treeTotal ", treeTotal);
+	// 	if (treeTotal > trees && treeTotal >= 0) {
+	// 		trees = treeTotal;
+	// 		if (treeTotal == 0) {
+	// 			console.log("waiting and going again");
+	// 			treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
+	// 			setTimeout(Co2okWidget.getTreeTotal(), 3000);
 
+	// 		}
+	// 	}
+	// 	return treeTotal;
+	// },
 
 	insertHovercardHTML: function () {
 
 		//tree counter takes a bit to load, this loop waits to retrieve number of trees planted
-		let treeTotal = Co2okWidget.getTreeTotal();
+		// let treeTotal = Co2okWidget.getTreeTotal();
+		let  treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
+		if (treeTotal === 0 ) {
+			treeTotal = 152;
+		}
+
 
 		var stepOne = "Woonliving werkt samen met de beste en onafhankelijke designers en meubelmakers. Geen tussenpersonen en geen winkels waardoor de keten duurzamer is.  Je kunt in de webshop zien hoe milieubewust een product is, zo helpen ze je een duurzame keuze te maken.";
 		var stepTwo = `Woonliving denkt goed na over hoe ze jouw producten verzenden, ze doen dit met zo min mogelijk klimaat impact, vaak zelfs zonder verpakking! Daarnaast hebben ze nu al <strong>${treeTotal}</strong> bomen geplant met Trees for All!`;
