@@ -399,22 +399,23 @@ let Co2okWidgetXL = {
 
       if (co2ok_AB_test === null) {
         setTimeout(function() { Co2okWidgetXL.manualABSwitch() }, 50);
+      } else {
+        if (co2ok_AB_param == 'show') {
+          console.log('Co2ok ON manually!')
+          return true;
+        } else if (co2ok_AB_param == 'hide') {
+          console.log('Co2ok OFF mannually!')
+          return false;
+        } else if (co2ok_AB_test === 0) {
+          return false;
+        } else {
+          //delete after testing
+          console.log('Co2ok Testing');
+          return false;
+        }
+        return true;
       }
 
-      if (co2ok_AB_param == 'show') {
-        console.log('Co2ok ON manually!')
-        return true;
-      } else if (co2ok_AB_param == 'hide') {
-        console.log('Co2ok OFF mannually!')
-        return false;
-      } else if (co2ok_AB_test === 0) {
-        return false;
-      } else {
-        //delete after testing
-        console.log('Co2ok Testing');
-        return false;
-      }
-      return true;
 	},
 
   /** defers running of widget code until jQuery is loaded

@@ -449,22 +449,23 @@ let Co2okWidget = {
 		//if co2okButton.js isn't loaded, we defer
 		if (co2ok_AB_test === null) {
 			setTimeout(function() { Co2okWidget.manualABSwitch() }, 50);
+		} else {
+			if (co2ok_AB_param == 'show') {
+				console.log('Co2ok ON manually!')
+				return true;
+			} else if (co2ok_AB_param == 'hide') {
+				console.log('Co2ok OFF mannually!')
+				return false;
+			} else if (co2ok_AB_test === 0) {
+				return false;
+			} else {
+				//DELETE this
+				console.log('Co2ok Testing');
+				return false;
+			}
+			return true;
 		}
 
-		if (co2ok_AB_param == 'show') {
-			console.log('Co2ok ON manually!')
-			return true;
-		} else if (co2ok_AB_param == 'hide') {
-			console.log('Co2ok OFF mannually!')
-			return false;
-		} else if (co2ok_AB_test === 0) {
-			return false;
-		} else {
-			//DELETE this
-			console.log('Co2ok Testing');
-			return false;
-		}
-		return true;
 	},
 
 	jQueryLoadDefer: function() {
