@@ -397,6 +397,7 @@ let Co2okWidgetXL = {
       var co2ok_AB_param = urlParams.get('co2ok_ab');
       let co2ok_AB_test = JSON.parse(localStorage.getItem('co2ok_ab_hide'));
 
+      //if co2okButton.js isn't loaded, we defer
       if (co2ok_AB_test === null) {
         setTimeout(function() { Co2okWidgetXL.manualABSwitch() }, 50);
       } else {
@@ -407,10 +408,6 @@ let Co2okWidgetXL = {
           console.log('Co2ok OFF mannually!')
           return false;
         } else if (co2ok_AB_test === 0) {
-          return false;
-        } else {
-          //delete after testing
-          console.log('Co2ok Testing');
           return false;
         }
         return true;

@@ -458,10 +458,6 @@ let Co2okWidget = {
 				return false;
 			} else if (co2ok_AB_test === 0) {
 				return false;
-			} else {
-				//DELETE this
-				console.log('Co2ok Testing');
-				return false;
 			}
 			return true;
 		}
