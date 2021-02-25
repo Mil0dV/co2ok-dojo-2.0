@@ -300,7 +300,6 @@ let Co2okWidget = {
 			if (offset.left < 0) {
 				offset.left = 5;
 			}
-			offset.top += 40;
 			//protection for hovercard clipping off window
 			if (y + infoHoverBox.height() > jQuery(window).height()) {
 				offset.top -= (y + infoHoverBox.height()) - jQuery(window).height();
@@ -367,6 +366,7 @@ let Co2okWidget = {
 
 	  jQuery('body').click(function(e) {
 			element_id = Co2okWidget.modalRegex(e);
+			console.log("elelemt ", element_id);
 		  	if (element_id === '.exit-area') {
 				  //prevents opening of cart on closing of hovercards
 				if (e.detail === 1) {
@@ -400,12 +400,9 @@ let Co2okWidget = {
 
 			jQuery(document).mouseover(function(e) {
 				element_id = Co2okWidget.modalRegex(e);
-				if (element_id === '.exit-area') {
+				if (!element_id || element_id === '.exit-area') {
 					//prevents opening of cart on closing of hovercards
-					if (e.detail === 1) {
-						e.stopImmediatePropagation();
-						Co2okWidget.hideWidgetInfoBox();
-					}
+					Co2okWidget.hideWidgetInfoBox();
 				} else if (element_id) {
 					Co2okWidget.ShowWidgetInfoBox();
 					Co2okWidget.placeWidgetInfoBox(element_id);

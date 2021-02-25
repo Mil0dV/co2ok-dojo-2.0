@@ -96,7 +96,8 @@
   }
   .co2ok_widget_infobox_container .co2-compensation-projects .co2-project-img {
     padding: 8px 0px;
-    width: 92%;
+    width: 95%;
+    margin-left: 5px;
   }
   .co2ok_widget_infobox_container .co2-compensation-projects .co2-project-img-text {
     text-align: center;
