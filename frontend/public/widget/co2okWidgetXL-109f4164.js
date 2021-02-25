@@ -384,12 +384,9 @@ let Co2okWidgetXL = {
       });
 
       jQuery(document).mouseover(function(e) {
-        if (element_id === "exit-area-span"|| element_id === "exit-area") {
-          //prevents opening of cart on closing of hovercards
-          if (e.detail === 1) {
-            e.stopImmediatePropagation();
+        if (!element_id ||element_id === "exit-area-span"|| element_id === "exit-area") {
+          //prevents opening of cart on closing of hovercard
             Co2okWidgetXL.hideWidgetInfoBox();
-          }
         } else if (element_id) {
           Co2okWidgetXL.placeWidgetInfoBox();
           Co2okWidgetXL.ShowWidgetInfoBox();
