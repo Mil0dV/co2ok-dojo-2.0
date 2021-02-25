@@ -24,6 +24,11 @@ let Co2okWidget = {
 		fileref.setAttribute("type", "text/css")
 		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark.css`)
 		document.getElementsByTagName("head")[0].appendChild(fileref)
+		var fileref=document.createElement("link")
+		fileref.setAttribute("rel", "stylesheet")
+		fileref.setAttribute("type", "text/css")
+		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetXL.css`)
+		document.getElementsByTagName("head")[0].appendChild(fileref)
 		//hovercard css
 		var fileref=document.createElement("link")
 		fileref.setAttribute("rel", "stylesheet")
@@ -60,6 +65,7 @@ let Co2okWidget = {
 		if (co2ok_impact > 1) {
 		  // console.log('Collaborate and listen')
 		  Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact)
+		//   Co2okWidget.widgetXLGenerator(co2ok_impact);
 		  return
 		}
 
@@ -78,12 +84,15 @@ let Co2okWidget = {
 				// let totalTransactionData = 491
 
 				document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
-				Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
 
+				Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
+				// Co2okWidget.widgetXLGenerator(co2ok_impact);
 				// Something is fishy, let's serve up the total
 				} else {
-				  let totalTransactionData = 22300
-				  Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
+				  	let totalTransactionData = 22300
+
+				  	Co2okWidget.widgetGenerator(widgetContainer, totalTransactionData)
+					// Co2okWidget.widgetXLGenerator(co2ok_impact);
 			}
 		}
 		xhr.send()
@@ -220,7 +229,6 @@ let Co2okWidget = {
 		jQuery('footer').before(infoHoverHtml)
 	},
 
-
 	widgetGenerator: function (widgetContainer, totalCompensatedData) {
 
 	  if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0') {
@@ -259,6 +267,54 @@ let Co2okWidget = {
 
 	  widgetcontainer.innerHTML = widgetmark
 	  this.RegisterWidgetInfoBox();
+	},
+
+	/** Inserts pharagraph and impact calc on product page */
+	widgetXLGenerator: function(totalCompensatedData) {
+		console.log("here");
+		var decimalsCompensation = 1;
+		if (totalCompensatedData < 100)
+			var compensationAmount  = 0.1;
+		else {
+			if (totalCompensatedData > 99999)
+				decimalsCompensation = 0;
+			var compensationAmount  = totalCompensatedData / 1000;
+		}
+
+		var compensatietekst = `This shop prevented <br><span id="large-widget-text-large" class="co2ok-widget-card">${compensationAmount .toFixed(decimalsCompensation)} ton CO<sub>2</sub></span><br> emission`;
+		var vliegen = "flying";
+
+		let paragraph = `
+			<div id='co2ok-paragraph' style="display: flex; width: 95%;">
+				<p>Onze vrienden van CO2ok helpen ons met het bereiken van onze duurzame doelstellingen; klimaatverandering bestrijden doen we samen!
+				Wij compenseren alvast de uitstoot van de verpakking en bezorging én bieden jou de kans om met één klik op de [CO2ok] knop direct de productie
+				uitstoot van je aankoop te compenseren. Het geld dat je hiervoor betaalt gaat naar CO2 compensatieprojecten van FairClimateFund en Atmosfair
+				die Gold Standard gecertificeerd zijn. Het mooie aan die projecten is dat niet alleen de planeet profiteert maar ook de lokale bevolking.
+				In de tool hiernaast kun je zien hoe groot onze gezamenlijke impact al is!"ht climate change!</p>
+			</div>
+		`
+		let widgetmark = `
+			<div class="large-widget large-widget-project-page" style="float: right; display: flex;">
+				<span class ="large-widget-right-green"></span>
+				<svg id= "half-circle" style="width: 160px;"> <circle cx="95" cy="64.6" r="62.6" fill="white"> /></svg>
+				<p id="large-widget-text">${compensatietekst}</p>
+				<p id="large-widget-xvliegen">= ${(compensationAmount * 5000) .toFixed(0)} km<br>${vliegen}</p>
+				<img id="co2ok-logo" src= "${this.SITE_HOST}/static/logo.png">
+				<img id="info-button-widget" class="info-button-widget" src= "${this.SITE_HOST}/static/info.svg">
+				<img id="large-widget-airplane" src= "${this.SITE_HOST}/widget/large-wiget-airplane.png">
+			</div>
+		`
+
+
+		let sections = jQuery(".sp-tab-content").eq(2).children().eq(6);
+		// let child = jQuery(sections).children().eq(6);
+		console.log("child", sections)
+
+		let section = jQuery(".sp-tab-content").eq(2);
+		jQuery(paragraph).appendTo(section);
+		jQuery("<div id='widgetContainerXL' style='margin-top:-8px; margin-bottom:25px;margin-left: 50px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").appendTo('#co2ok-paragraph')
+		let widgetcontainer = document.getElementById('widgetContainerXL')
+		widgetcontainer.innerHTML = widgetmark;
 	},
 
 
@@ -366,7 +422,6 @@ let Co2okWidget = {
 
 	  jQuery('body').click(function(e) {
 			element_id = Co2okWidget.modalRegex(e);
-			console.log("elelemt ", element_id);
 		  	if (element_id === '.exit-area') {
 				  //prevents opening of cart on closing of hovercards
 				if (e.detail === 1) {
@@ -452,10 +507,6 @@ let Co2okWidget = {
 Co2okWidget.manualABSwitch()
 .then(abSwitch => {
   if (abSwitch === true) {
-	// temp bail on product pages
-	// if (window.location.pathname.indexOf("products")) {
-	// 	return
-	// }
     Co2okWidget.loadResources()
 		.then(_  => Co2okWidget.jQueryLoadDefer())
   } else {

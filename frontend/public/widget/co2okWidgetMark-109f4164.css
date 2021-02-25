@@ -15,3 +15,13 @@ margin-right: 2px !important;
 
 .co2ok_widget_infobox_container .co2ok-logos .co2ok-logo {
     bottom: 2px !important; }
+
+@media (max-width: 500px) {
+	.co2ok-paragraph {
+		width: 100%;
+	}
+	.large-widget-project-page {
+		flex-direction: row;
+	}
+
+}
