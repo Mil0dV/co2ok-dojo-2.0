@@ -90,37 +90,6 @@ let Co2okWidget = {
 		//   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
 	},
 
-	uspInsertion: function () {
-	  let product_usp_html = `<li class="list__item">
-			<div class="layout layout--x-small layout--center">
-				<div class="layout__item layout__item--fixed usp_hover" style="width: 18px">
-					<img src=https://co2ok.eco/widget/DZ-globe.png width=18px>
-				</div>
-				<div class="layout__item usp_hover_target">
-					Shop klimaatvriendelijk
-				</div>
-			</div>
-		</li>`
-
-	  let home_usp_html = `<li class="grid__item">
-			<div class="layout layout--x-small layout--center">
-				<div class="layout__item layout__item--fixed usp_hover" style="width: 24px">
-					<img src=https://co2ok.eco/widget/DZ-globe.png width=24px>
-				</div>
-				<div class="layout__item usp_hover_target">
-					Shop klimaatvriendelijk
-				</div>
-			</div>
-		</li>`
-
-	  if (window.location.pathname == "/") {
-			jQuery('a[href$="snellelevering"]').parent().after(home_usp_html)
-		} else {
-			jQuery('a[href$="snellelevering"]').parent().after(product_usp_html)
-		}
-
-	},
-
 	/** insert CFSmark in footer and product page
 	 *
 	 * CFSmark inserted in footer next to last pay icon and on product page next to last pay icons
@@ -141,9 +110,9 @@ let Co2okWidget = {
 	menuIconInsertion: function () {
 		if (Co2okWidget.isMobile()) {
 			let menuIconHtml = `
-			<li id="item_mb_compe" class="menu-item item-level-0 menu-item-btns menu-item-compare co2ok-usp-menu">
-				<a class="js_link_cp co2ok-ups-menu">
-					<span class="iconbtns iconbtns-co2ok co2ok-usp-menu">
+			<li id="item_mb_wis" class="menu-item item-level-0 menu-item-btns menu-item-wishlist co2ok-usp-menu">
+				<a class="js_link_wis co2ok-usp-menu" href="/search/?view=wish">
+					<span class="iconbtns co2ok-usp-menu">
 						Shop Klimaatvriendelijk
 					</span>
 				</a>
@@ -151,7 +120,7 @@ let Co2okWidget = {
 			jQuery("#item_mb_nav-0").after(menuIconHtml)
 		} else {
 			let menuIconHtml = `
-				<li id="item_b3fd8670-f170-4425-9814-e36fdd7c7563" class="menu-item type_simple co2ok-usp-menu-hover co2ok-usp-menu">
+				<li id="item_b3fd8670-f170-4425-9814-e36fdd7c7563" class="menu-item type_simple co2ok-usp-menu-hover co2ok-usp-menu co2ok-usp-desktop">
 					<a class="lh__1 flex al_center pr co2ok-usp-menu" target="_self">
 						<i class="las la-heart co2ok-usp-menu"></i>
 						Shop klimaatvriendelijk
@@ -382,7 +351,9 @@ let Co2okWidget = {
 			return ('.cfs_hover_target_footer');
 		else if (jQuery(e.target).hasClass("exit-area"))
 			return ('.exit-area')
-	  else if (jQuery(e.target).hasClass("co2ok-small"))
+		else if (jQuery(e.target).hasClass("exit-area-span"))
+			return ('.exit-area-span')
+	  	else if (jQuery(e.target).hasClass("co2ok-small"))
 			return ('.co2ok-small')
 		else if (jQuery(e.target).hasClass("widget-small"))
 			return ('.widget-small')
@@ -392,49 +363,52 @@ let Co2okWidget = {
 
 	RegisterWidgetInfoBox : function()
 	{
-	  var _this = this;
 	  var element_id = null;
 
-	  jQuery(".co2ok_widget_info_keyboardarea").focus(function(){
-		  _this.ShowWidgetInfoBox();
-		  jQuery(".first-text-to-select").focus();
-	  });
-
 	  jQuery('body').click(function(e) {
-			element_id = _this.modalRegex(e);
-		  	if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area")) {
-				_this.hideWidgetInfoBox();
-				e.stopPropagation();
-			} else {
-				_this.ShowWidgetInfoBox();
+			element_id = Co2okWidget.modalRegex(e);
+		  	if (element_id === '.exit-area') {
+				  //prevents opening of cart on closing of hovercards
+				if (e.detail === 1) {
+					e.stopImmediatePropagation();
+					Co2okWidget.hideWidgetInfoBox();
+				}
+			} else if (element_id) {
+				Co2okWidget.ShowWidgetInfoBox();
 		  	}
 	  });
 
 	  jQuery('body').on("touchstart",function(e){
-		element_id = _this.modalRegex(e);
-			if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area")) {
-				_this.hideWidgetInfoBox();
-				e.stopPropagation();
-		  	} else {
-				_this.ShowWidgetInfoBox();
-				_this.placeWidgetInfoBox(element_id);
+		element_id = Co2okWidget.modalRegex(e);
+			if (element_id === '.exit-area') {
+				//prevents opening of cart on closing of hovercards
+				if (e.detail === 1) {
+					e.stopImmediatePropagation();
+					Co2okWidget.hideWidgetInfoBox();
+				}
+		  	} else if (element_id) {
+				Co2okWidget.ShowWidgetInfoBox();
+				Co2okWidget.placeWidgetInfoBox(element_id);
 		  	}
 	  });
 
 	  if(!this.isMobile())
 	  {
 			jQuery(".co2ok_widget_info , .co2ok_widget_info_hitarea").mouseenter(function() {
-				_this.placeWidgetInfoBox();
+				Co2okWidget.placeWidgetInfoBox();
 			});
 
 			jQuery(document).mouseover(function(e) {
-				element_id = _this.modalRegex(e);
-				if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area")) {
-					_this.hideWidgetInfoBox();
-					e.stopPropagation();
-				} else {
-					_this.ShowWidgetInfoBox();
-					_this.placeWidgetInfoBox(element_id);
+				element_id = Co2okWidget.modalRegex(e);
+				if (element_id === '.exit-area') {
+					//prevents opening of cart on closing of hovercards
+					if (e.detail === 1) {
+						e.stopImmediatePropagation();
+						Co2okWidget.hideWidgetInfoBox();
+					}
+				} else if (element_id) {
+					Co2okWidget.ShowWidgetInfoBox();
+					Co2okWidget.placeWidgetInfoBox(element_id);
 				}
 			});
 	  }
@@ -482,9 +456,9 @@ Co2okWidget.manualABSwitch()
 .then(abSwitch => {
   if (abSwitch === true) {
 	// temp bail on product pages
-	if (window.location.pathname.indexOf("products")) {
-		return
-	}
+	// if (window.location.pathname.indexOf("products")) {
+	// 	return
+	// }
     Co2okWidget.loadResources()
 		.then(_  => Co2okWidget.jQueryLoadDefer())
   } else {

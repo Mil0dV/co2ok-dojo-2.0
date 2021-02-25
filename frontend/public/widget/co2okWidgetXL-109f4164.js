@@ -338,50 +338,61 @@ let Co2okWidgetXL = {
   modalRegex: function(e) {
      return jQuery(e.target).hasClass("co2ok-large") ||
      jQuery(e.target).hasClass("exit-area-span") ||
-     jQuery(e.target).is("#info-button-widget");
+     jQuery(e.target).is("#info-button-widget") ||
+     jQuery(e.target).hasClass("exit-area") ||
+     jQuery(e.target).hasClass("exit-area-span");
   },
 
 
   RegisterWidgetInfoBox : function() {
-    console.log('it begins')
-    var _this = this;
+    let element_id = null;
 
+    element_id = Co2okWidgetXL.modalRegex(e);
     jQuery(".co2ok_widget_info_keyboardarea").focus(function() {
-      _this.ShowWidgetInfoBox();
+      Co2okWidgetXL.ShowWidgetInfoBox();
       jQuery(".first-text-to-select").focus();
     });
 
     jQuery('body').click(function(e) {
-      if(!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area-span")|| jQuery(e.target).hasClass("exit-area")) {
-        _this.hideWidgetInfoBox();
-        e.stopPropagation();
-      } else {
-        _this.ShowWidgetInfoBox();
+      if (element_id === "exit-area-span"|| element_id === "exit-area") {
+       //prevents opening of cart on closing of hovercards
+				if (e.detail === 1) {
+					e.stopImmediatePropagation();
+					Co2okWidgetXL.hideWidgetInfoBox();
+				}
+      } else if (element_id) {
+        Co2okWidgetXL.ShowWidgetInfoBox();
       }
     });
 
     jQuery('body').on("touchstart",function(e) {
-      if(!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area-span") || jQuery(e.target).hasClass("exit-area")) {
-        _this.hideWidgetInfoBox();
-        e.stopPropagation();
-      } else {
-        _this.placeWidgetInfoBox()
-        _this.ShowWidgetInfoBox();
+      if (element_id === "exit-area-span"|| element_id === "exit-area") {
+        //prevents opening of cart on closing of hovercards
+				if (e.detail === 1) {
+					e.stopImmediatePropagation();
+					Co2okWidgetXL.hideWidgetInfoBox();
+				}
+      } else if (element_id) {
+        Co2okWidgetXL.placeWidgetInfoBox()
+        Co2okWidgetXL.ShowWidgetInfoBox();
       }
     });
 
     if(!this.isMobile()) {
       jQuery(".co2ok_widgets_info , .co2ok_widget_info_hitarea").mouseenter(function() {
-        _this.placeWidgetInfoBox();
+        Co2okWidgetXL.placeWidgetInfoBox();
       });
 
       jQuery(document).mouseover(function(e) {
-        if (!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area-span") || jQuery(e.target).hasClass("exit-area")) {
-          _this.hideWidgetInfoBox();
-          e.stopPropagation();
-        } else {
-          _this.placeWidgetInfoBox();
-          _this.ShowWidgetInfoBox();
+        if (element_id === "exit-area-span"|| element_id === "exit-area") {
+          //prevents opening of cart on closing of hovercards
+          if (e.detail === 1) {
+            e.stopImmediatePropagation();
+            Co2okWidgetXL.hideWidgetInfoBox();
+          }
+        } else if (element_id) {
+          Co2okWidgetXL.placeWidgetInfoBox();
+          Co2okWidgetXL.ShowWidgetInfoBox();
         }
       });
     }
