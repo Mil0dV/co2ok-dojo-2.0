@@ -2,8 +2,8 @@
 
 let Co2okWidget = {
 
-	SITE_HOST: "https://co2ok.eco",
-	// SITE_HOST: "http://localhost:8080",
+	// SITE_HOST: "https://co2ok.eco",
+	SITE_HOST: "http://localhost:8080",
 
 	getCookieValue: function (a) {
 	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -98,7 +98,7 @@ let Co2okWidget = {
 
     //product page cfs insertion
     let cfstHtml = `
-      <img class="cfs_hover_target" src="${this.SITE_HOST}/widget/kabloom/KB_cfs_2.png" style="width: 100px;">
+      <img class="cfs_hover_target" src="${this.SITE_HOST}/widget/kabloom/KB_heart.png" style="width: 100px;">
     `
     jQuery(".img-block").append(cfstHtml)
 
@@ -124,11 +124,11 @@ let Co2okWidget = {
 
 	insertHovercardHTML: function() {
 
-		var stepOne = "Woonliving biedt hoogwaardige producten die een leven lang meegaan, en daardoor minder afval opleveren!";
-		var stepTwo = "Wij neutraliseren de verpakking én de verzending van uw bestelling door geld te investeren in klimaat-positieve programma's. Kortom: we planten bomen voor elke aankoop!";
-		var stepThree = "Verder bieden we u de optie om de CO₂ die wordt uitgestoten bij de productie van uw aankoop te compenseren. Eenvoudig gezegd, plant u uw eigen bomen direct naast de onze, met slechts één druk op de knop!";
-		var co2Projects = "We ondersteunen verschillende CO₂-compensatie-projecten, gecoördineerd door Atmosfair en Fair Climate Fund. Deze zijn gecertificeerd met de CDM Gold Standard, de strengste norm voor projecten voor klimaatbescherming."
-		var imageDesc = "Niet alleen het klimaat profiteert: we realiseren zo ook minder ontbossing en gezondheidsvoordelen door minder rook en giftige koolmonoxide"
+		var stepOne = "Kabloom offers high quality products that will last a lifetime, thus reducing waste!";
+		var stepTwo = "We neutralize the packaging and shipping of your order by investing money in climate-positive programs. In short: we plant trees for every purchase!";
+		var stepThree = "Furthermore, we offer you the option to offset the CO₂ emitted in the production of your purchase. Simply put, you plant your own trees right next to ours, with just the push of a button!";
+		var co2Projects = "We support several carbon offset projects coordinated by Atmosfair and Fair Climate Fund. These are certified with the CDM Gold Standard, the strictest standard for climate protection projects."
+		var imageDesc = "Not only the climate benefits: we also realize less deforestation and health benefits through less smoke and toxic carbon monoxide."
 
     let infoHoverHtml = `
 
