@@ -1,5 +1,9 @@
+.co2ok_widget_infobox_container {
+  height: 640px !important;
+}
+
 .co2ok_widget_infobox_container .co2ok-widget-content .right-align-img {
-  margin-top: 16px;
+  margin-top: 10px;
 }
 
 .co2ok_widget_infobox_container .co2ok-widget-content .left-align-img {
@@ -7,7 +11,7 @@
 }
 
 .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .co2ok-tree {
-  margin-top: 42px;
+  margin-top: 20px;
 }
 
 .co2ok_widget_infobox_container .card-main-header .header-img {

@@ -2,8 +2,8 @@
 
 let Co2okWidget = {
 
-	// SITE_HOST: "https://co2ok.eco",
-	SITE_HOST: "http://localhost:8080",
+	SITE_HOST: "https://co2ok.eco",
+	// SITE_HOST: "http://localhost:8080",
 
 	getCookieValue: function (a) {
 	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -43,13 +43,17 @@ let Co2okWidget = {
 	  fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-dbc9ec72.css`)
 	  document.getElementsByTagName("head")[0].appendChild(fileref)
 
-	  images = [`${this.SITE_HOST}/widget/cfs.png`,
-	  `${this.SITE_HOST}/widget/kabloom/KB_world.png`,
-	  `${this.SITE_HOST}/widget/kabloom/KB_box.png`,
-	  `${this.SITE_HOST}/widget/kabloom/KB_seedling.png`,
-	  `${this.SITE_HOST}/widget/kabloom/KB_trees.png`,
-		`${this.SITE_HOST}/widget/kabloom/KB_logo.png`,
-    `${this.SITE_HOST}/widget/kabloom/KB_heart.png`
+	  images = [
+			`${this.SITE_HOST}/widget/cfs.png`,
+			`${this.SITE_HOST}/widget/kabloom/KB_world.png`,
+			`${this.SITE_HOST}/widget/kabloom/KB_box.png`,
+			`${this.SITE_HOST}/widget/kabloom/KB_seedling.png`,
+			`${this.SITE_HOST}/widget/kabloom/KB_trees.png`,
+			`${this.SITE_HOST}/widget/kabloom/KB_logo.png`,
+			`${this.SITE_HOST}/widget/kabloom/KB_heart.png`,
+			`${this.SITE_HOST}/static/info-kabloom.svg`,
+			`${this.SITE_HOST}/widget/large-wiget-airplane.png`,
+			`${this.SITE_HOST}/static/logo.png`
 		]
 
 	  for (img of images) {
@@ -130,8 +134,8 @@ let Co2okWidget = {
 	insertHovercardHTML: function() {
 
 		var stepOne = "Kabloom offers recyclable, compostable, and biodegrable products that bring nature back into modernized daily life with the goal of increasing awareness around environmental crisises.";
-		var stepTwo = "To further our commitment, we neutralize the packaging and shipping of your order by investing money in climate-positive programs. In short: we plant trees for every purchase!";
-		var stepThree = "We offer you the option to offset the CO₂ emitted in the production of your purchase. Simply put, you plant your own trees right next to ours, with just the push of a button! We support several carbon offset projects coordinated by Atmosfair and Fair Climate Fund. These are certified with the CDM Gold Standard, the strictest standard for climate protection projects."
+		var stepTwo = "To further their commitment, your purchase will be shipped with as little climate impact as possible and biodegrable packaging! The emissions that cannot be avoided are fully compensated by Kabloom.";
+		var stepThree = "We (CO2ok) offer you the possibility to offset the CO2 emissions of your purchase with one click. The money you pay for this goes to CO2 compensation projects of FairClimateFund and Atmosfair that are Gold Standard certified."
 		var imageDesc = "Not only the climate benefits: we also realize less deforestation and health benefits through less smoke and toxic carbon monoxide."
 
     let infoHoverHtml = `
@@ -210,22 +214,25 @@ let Co2okWidget = {
 		var vliegen = "flying";
 		var reductietekst = 'CO₂ reduction';
 
+		//XL widget on aobut page, if on about page
+		if (window.location.toString().includes('https://kabloom.co.uk/about/')) {
 
-    let widgetXL = `
-			<div class="large-widget">
-				<span class ="large-widget-right-kabloom"></span>
-				<svg id= "half-circle" style="width: 160px;"> <circle cx="95" cy="64.6" r="62.6" fill="white"> /></svg>
-				<p id="large-widget-text">${compensatietekst}</p>
-				<p id="large-widget-xvliegen">= ${(compensationAmount * 5000) .toFixed(0)} km<br>${vliegen}</p>
-				<img id="co2ok-logo" src= "${this.SITE_HOST}/static/logo-gray.png">
-				<img id="info-button-widget" class="info-button-widget widget-large" src= "${this.SITE_HOST}/static/info-kabloom.svg">
-				<img id="large-widget-airplane" src= "${this.SITE_HOST}/widget/large-wiget-airplane.png">
-			</div>
-    `
+			let widgetXL = `
+				<div class="large-widget">
+					<span class ="large-widget-right-kabloom"></span>
+					<svg id= "half-circle" style="width: 160px;"> <circle cx="95" cy="64.6" r="62.6" fill="white"> /></svg>
+					<p id="large-widget-text">${compensatietekst}</p>
+					<p id="large-widget-xvliegen">= ${(compensationAmount * 5000) .toFixed(0)} km<br>${vliegen}</p>
+					<img id="co2ok-logo" src= "${this.SITE_HOST}/static/logo-gray.png">
+					<img id="info-button-widget" class="info-button-widget widget-large" src= "${this.SITE_HOST}/static/info-kabloom.svg">
+					<img id="large-widget-airplane" src= "${this.SITE_HOST}/widget/large-wiget-airplane.png">
+				</div>
+			`
 
-    jQuery("<div id='widgetContainerXL' style='margin-top:25px; margin-bottom:25px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").appendTo(document.getElementsByClassName("content-container"))
-    let widgetContainerXL = document.getElementById('widgetContainerXL')
-    widgetContainerXL.innerHTML = widgetXL;
+			jQuery("<div id='widgetContainerXL' style='margin-top:25px; margin-bottom:25px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").appendTo(document.getElementsByClassName("content-container"))
+			let widgetContainerXL = document.getElementById('widgetContainerXL')
+			widgetContainerXL.innerHTML = widgetXL;
+		}
 
 		let widgetmark = `
 			<div>
@@ -237,7 +244,8 @@ let Co2okWidget = {
 				</div>
 			</div>
 		`
-		jQuery("<div id='widgetContainermark' style='width:180px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").appendTo(document.getElementByClassName("menu-footer-column-1-container"))
+
+		jQuery("<div id='widgetContainermark' style='width:180px;height:auto;display:flex;flex-direction:row;align-items:center;'></div>").appendTo(document.getElementsByClassName("menu-footer-column-1-container"))
 		let widgetContainermark = document.getElementById('widgetContainermark')
 		widgetContainermark.innerHTML = widgetmark;
 		this.RegisterWidgetInfoBox();
@@ -404,9 +412,7 @@ let Co2okWidget = {
 			Co2okWidget.uspInsertion();
 			Co2okWidget.cfsTrustMarkInsertion();
       Co2okWidget.RegisterWidgetInfoBox();
-      if (window.location.toString().includes('https://kabloom.co.uk/about/')) {
-        Co2okWidget.merchantCompensations();
-      }
+      Co2okWidget.merchantCompensations();
     } else {
       setTimeout(function() { Co2okWidget.jQueryLoadDefer(script) }, 50);
     }
