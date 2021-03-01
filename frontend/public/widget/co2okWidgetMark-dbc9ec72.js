@@ -2,8 +2,8 @@
 
 let Co2okWidget = {
 
-	SITE_HOST: "https://co2ok.eco",
-	// SITE_HOST: "http://localhost:8080",
+	// SITE_HOST: "https://co2ok.eco",
+	SITE_HOST: "http://localhost:8080",
 
 	getCookieValue: function (a) {
 	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -133,8 +133,8 @@ let Co2okWidget = {
 
 	insertHovercardHTML: function() {
 
-		var stepOne = "Kabloom offers recyclable, compostable, and biodegrable products that bring nature back into modernized daily life with the goal of increasing awareness around environmental crisises.";
-		var stepTwo = "To further their commitment, your purchase will be shipped with as little climate impact as possible and biodegrable packaging! The emissions that cannot be avoided are fully compensated by Kabloom.";
+		var stepOne = "Kabloom offers recyclable, compostable, and biodegradable products that brings nature back into modernized daily life with the goal of increasing awareness around environmental crises.";
+		var stepTwo = "To further their commitment, your purchase will be shipped with as little climate impact as possible and biodegradable packaging! The emissions that cannot be avoided are fully compensated by Kabloom.";
 		var stepThree = "We (CO2ok) offer you the possibility to offset the CO2 emissions of your purchase with one click. The money you pay for this goes to CO2 compensation projects of FairClimateFund and Atmosfair that are Gold Standard certified."
 		var imageDesc = "Not only the climate benefits: we also realize less deforestation and health benefits through less smoke and toxic carbon monoxide."
 
@@ -181,7 +181,6 @@ let Co2okWidget = {
 
           <div class="co2ok-logos co2ok-large">
             <img src="${this.SITE_HOST}/static/logo.png" href="https://www.co2ok.eco/projects" class="co2ok-logo co2ok-large">
-            <img class="feat-company-logo co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_logo.png">
           </div>
 
 				</div>

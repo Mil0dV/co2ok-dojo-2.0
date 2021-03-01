@@ -1,5 +1,5 @@
 .co2ok_widget_infobox_container {
-  height: 640px !important;
+  height: 625px !important;
 }
 
 .co2ok_widget_infobox_container .co2ok-widget-content .right-align-img {
@@ -22,4 +22,8 @@
   color: #76862d;
   margin-top: 16px;
   margin-bottom: 24px;
+}
+
+.co2ok_widget_infobox_container .co2ok-logos .co2ok-logo {
+  margin-top: -10px;
 }
