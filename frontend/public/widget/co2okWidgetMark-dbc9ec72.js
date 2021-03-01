@@ -37,6 +37,11 @@ let Co2okWidget = {
 	  fileref.setAttribute("type", "text/css")
 	  fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-projects.css`)
 	  document.getElementsByTagName("head")[0].appendChild(fileref)
+		var fileref=document.createElement("link")
+	  fileref.setAttribute("rel", "stylesheet")
+	  fileref.setAttribute("type", "text/css")
+	  fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-dbc9ec72.css`)
+	  document.getElementsByTagName("head")[0].appendChild(fileref)
 
 	  images = [`${this.SITE_HOST}/widget/cfs.png`,
 	  `${this.SITE_HOST}/widget/kabloom/KB_world.png`,
@@ -124,10 +129,9 @@ let Co2okWidget = {
 
 	insertHovercardHTML: function() {
 
-		var stepOne = "Kabloom offers high quality products that will last a lifetime, thus reducing waste!";
-		var stepTwo = "We neutralize the packaging and shipping of your order by investing money in climate-positive programs. In short: we plant trees for every purchase!";
-		var stepThree = "Furthermore, we offer you the option to offset the CO₂ emitted in the production of your purchase. Simply put, you plant your own trees right next to ours, with just the push of a button!";
-		var co2Projects = "We support several carbon offset projects coordinated by Atmosfair and Fair Climate Fund. These are certified with the CDM Gold Standard, the strictest standard for climate protection projects."
+		var stepOne = "Kabloom offers recyclable, compostable, and biodegrable products that bring nature back into modernized daily life with the goal of increasing awareness around environmental crisises.";
+		var stepTwo = "To further our commitment, we neutralize the packaging and shipping of your order by investing money in climate-positive programs. In short: we plant trees for every purchase!";
+		var stepThree = "We offer you the option to offset the CO₂ emitted in the production of your purchase. Simply put, you plant your own trees right next to ours, with just the push of a button! We support several carbon offset projects coordinated by Atmosfair and Fair Climate Fund. These are certified with the CDM Gold Standard, the strictest standard for climate protection projects."
 		var imageDesc = "Not only the climate benefits: we also realize less deforestation and health benefits through less smoke and toxic carbon monoxide."
 
     let infoHoverHtml = `
@@ -149,26 +153,21 @@ let Co2okWidget = {
 
           <div class="co2ok-widget-wrapper co2ok-large co2ok-header-one">
 						<img class="png-img-large right-align-img co2ok-box co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_box.png">
-            <p class="sub-header right co2ok-large" style="color: #dc3077;">Duurzame producten</p>
+            <p class="sub-header right co2ok-large" style="color: #dc3077;">Sustainable products</p>
 						<p class="widget-wrapper right widget-text-block left co2ok-large"> ${stepOne} </p>
           </div>
 
 
           <div class="co2ok-widget-wrapper co2ok-large">
-            <p class="sub-header left co2ok-large" style="color: #dc3077;">Neutrale verpakking & verzending</p>
+            <p class="sub-header left co2ok-large" style="color: #dc3077;">Neutral packing & shipping</p>
 						<p class="widget-text-block left co2ok-large co2-neutrale" style="min-height: 58px;"> ${stepTwo} </p>
 						<img class="png-img-large left-align-img co2ok-plant co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_seedling.png">
           </div>
 
           <div class="co2ok-widget-wrapper co2ok-large">
 						<img class="png-img-large right-align-img co2ok-tree co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_trees.png">
-            <p class="sub-header right co2ok-large" style="color: #dc3077;">Neutraliseren van de productie</p>
+            <p class="sub-header right co2ok-large" style="color: #dc3077;">Neutralizing production</p>
 						<p class="widget-text-block right co2ok-large"> ${stepThree} </p>
-          </div>
-
-          <div class="co2ok-widget-wrapper co2ok-large">
-            <p class="sub-header right co2ok-large" style="color: #dc3077;">CO₂-compensatieprojecten</p>
-						<p class="widget-text-block right co2ok-large" style="width: 90% !important;"> ${co2Projects} </p>
           </div>
 
           <div class="co2-compensation-projects co2ok-large">
@@ -207,16 +206,15 @@ let Co2okWidget = {
     }
 
 		var compensationAmount = 11;
-		var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> uitstoot voorkomen`;
-		var vliegen = "vliegen";
-    var circleSize = '> <circle cx="95" cy="64.6" r="62.6" fill="white">';
-		var reductietekst = 'CO₂ reductie';
+		var compensatietekst = `This shop prevents <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> emissions`;
+		var vliegen = "flying";
+		var reductietekst = 'CO₂ reduction';
 
 
     let widgetXL = `
 			<div class="large-widget">
 				<span class ="large-widget-right-kabloom"></span>
-				<svg id= "half-circle" style="width: 160px;" ${circleSize} /></svg>
+				<svg id= "half-circle" style="width: 160px;"> <circle cx="95" cy="64.6" r="62.6" fill="white"> /></svg>
 				<p id="large-widget-text">${compensatietekst}</p>
 				<p id="large-widget-xvliegen">= ${(compensationAmount * 5000) .toFixed(0)} km<br>${vliegen}</p>
 				<img id="co2ok-logo" src= "${this.SITE_HOST}/static/logo-gray.png">
@@ -239,6 +237,7 @@ let Co2okWidget = {
 				</div>
 			</div>
 		`
+		jQuery("<div id='widgetContainermark' style='width:180px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").appendTo(document.getElementByClassName("menu-footer-column-1-container"))
 		let widgetContainermark = document.getElementById('widgetContainermark')
 		widgetContainermark.innerHTML = widgetmark;
 		this.RegisterWidgetInfoBox();
