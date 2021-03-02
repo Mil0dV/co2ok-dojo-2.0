@@ -112,6 +112,7 @@
     text-decoration: underline; }
   .co2ok_widget_infobox_container .co2ok-logos .co2ok-logo {
     position: absolute;
+    bottom: 4px;
     width: 15%;
     right: 18px; }
   .co2ok_widget_infobox_container .co2ok-logos .feat-company-logo {
@@ -195,7 +196,7 @@
     .co2ok_widget_infobox_container .co2-compensation-projects .co2-project-img-text {
       width: 98%; }
     .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-logo {
-      bottom: 4px; }
+      bottom: 1px; }
     .co2ok_widget_infobox_container .co2ok-widget-content .feat-company-logo {
       bottom: 8px; }
     .co2ok_widget_infobox_container .co2ok-widget-content .treesforall-logo {
