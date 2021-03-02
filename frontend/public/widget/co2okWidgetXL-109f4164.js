@@ -1,6 +1,5 @@
 // Woonliving XL
 
-//dev store
 let Co2okWidgetXL = {
 
   getCookieValue: function (a) {
@@ -75,6 +74,12 @@ let Co2okWidgetXL = {
 	  fileref.setAttribute("type", "text/css")
 	  fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-projects.css`)
 	  document.getElementsByTagName("head")[0].appendChild(fileref)
+    //extra usp/cfs css
+		var fileref=document.createElement("link")
+		fileref.setAttribute("rel", "stylesheet")
+		fileref.setAttribute("type", "text/css")
+		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-109f4164.css`)
+		document.getElementsByTagName("head")[0].appendChild(fileref)
 
 	  var images = [
 	  `${this.SITE_HOST}/widget/woonliving/WL_world.png`,
@@ -82,7 +87,9 @@ let Co2okWidgetXL = {
 	  `${this.SITE_HOST}/widget/woonliving/WL_seedling.png`,
 	  `${this.SITE_HOST}/widget/woonliving/WL_trees.png`,
 		`${this.SITE_HOST}/widget/woonliving/WL_logo.png`,
-		`${this.SITE_HOST}/widget/woonliving/logotrees.png`
+		`${this.SITE_HOST}/widget/woonliving/logotrees.png`,
+    `${this.SITE_HOST}/static/logo.png`,
+    `${this.SITE_HOST}/widget/co2-projects.jpg`
 		]
 
 
@@ -130,7 +137,7 @@ let Co2okWidgetXL = {
     // let treeTotal = Co2okWidgetXL.getTreeTotal();
     // let  treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
 		// if (treeTotal === 0 ) {
-  	let treeTotal = 152;
+  	let treeTotal = 159;
 		// }
 
 		var stepOne = "Woonliving werkt samen met de beste en onafhankelijke designers en meubelmakers. Geen tussenpersonen en geen winkels waardoor de keten duurzamer is.  Je kunt in de webshop zien hoe milieubewust een product is, zo helpen ze je een duurzame keuze te maken.";
@@ -347,13 +354,10 @@ let Co2okWidgetXL = {
   RegisterWidgetInfoBox : function() {
     let element_id = null;
 
-    element_id = Co2okWidgetXL.modalRegex(e);
-    jQuery(".co2ok_widget_info_keyboardarea").focus(function() {
-      Co2okWidgetXL.ShowWidgetInfoBox();
-      jQuery(".first-text-to-select").focus();
-    });
+    // element_id = Co2okWidgetXL.modalRegex(e);
 
     jQuery('body').click(function(e) {
+      element_id = Co2okWidgetXL.modalRegex(e);
       if (element_id === "exit-area-span"|| element_id === "exit-area") {
        //prevents opening of cart on closing of hovercards
 				if (e.detail === 1) {
@@ -366,6 +370,7 @@ let Co2okWidgetXL = {
     });
 
     jQuery('body').on("touchstart",function(e) {
+      element_id = Co2okWidgetXL.modalRegex(e);
       if (element_id === "exit-area-span"|| element_id === "exit-area") {
         //prevents opening of cart on closing of hovercards
 				if (e.detail === 1) {
@@ -384,6 +389,7 @@ let Co2okWidgetXL = {
       });
 
       jQuery(document).mouseover(function(e) {
+        element_id = Co2okWidgetXL.modalRegex(e);
         if (!element_id ||element_id === "exit-area-span"|| element_id === "exit-area") {
           //prevents opening of cart on closing of hovercard
             Co2okWidgetXL.hideWidgetInfoBox();
@@ -447,7 +453,7 @@ let Co2okWidgetXL = {
 // export default new Co2okWidget()
 
 Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
-// Co2okWidgetXL.SITE_HOST = 'http://localhost:8081'
+// Co2okWidgetXL.SITE_HOST = 'http://localhost:8080'
 
 //document.currentScript must be saved here before entering loadResrouces to avoid null
 //loadResouces returns a promise, this means that by .then()

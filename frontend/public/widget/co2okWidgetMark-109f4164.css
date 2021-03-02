@@ -1,27 +1,15 @@
 /*Woonliving**/
-/* .iconbtns-co2ok {
-content: '\f004' !important;
-}
-.iconbtns-co2ok::before {
-content: '\f004' !important;
-margin-right: 2px !important;
-} */
 
-/* .co2ok_widget_infobox_container {
-	position: absolute;
-	width: 350px;
-	height: 670px !important;
-} */
-
-.co2ok_widget_infobox_container .co2ok-logos .co2ok-logo {
-    bottom: 2px !important; }
-
-@media (max-width: 500px) {
+/*product page usp tablet/mobile handler*/
+@media (max-width: 850px) {
 	.co2ok-paragraph {
 		width: 100%;
 	}
-	.large-widget-project-page {
-		flex-direction: row;
+	.co2ok-usp-section {
+		flex-direction: column;
 	}
-
+	.co2ok-impact-calc {
+		width: 100% !important;
+		margin: 8px auto !important;
+	}
 }

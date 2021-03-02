@@ -18,7 +18,7 @@
 .co2ok_widget_infobox_container {
   position: absolute;
   width: 350px;
-  height: 685px !important;
+  height: 650px;
   background: white;
   border-radius: 15px;
   box-sizing: border-box;
@@ -69,10 +69,10 @@
     margin-left: 12px; }
   .co2ok_widget_infobox_container .co2ok-widget-content .right-align-img {
     right: 16px;
-    margin-top: 35px;
+    margin-top: 28px;
     width: 18%; }
   .co2ok_widget_infobox_container .co2ok-widget-content .left-align-img {
-    margin-top: -72px;
+    margin-top: -77px;
     left: 24px;
     width: 18%; }
   .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .co2ok-tree {
@@ -103,7 +103,7 @@
     text-align: center;
     font-size: 9px;
     font-weight: normal;
-    /* font-style: italic; */
+    line-height: 0.8rem;
     width: 95%;
     margin: auto;
     margin-bottom: 0px !important;
@@ -175,6 +175,9 @@
       margin-top: 0px; }
     .co2ok_widget_infobox_container .co2ok-widget-content .left {
       margin-left: 102px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper {
+      padding-bottom: 8px;
+    }
     .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .right {
       margin-left: 12px; }
     .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .right-align-img {
@@ -192,7 +195,7 @@
     .co2ok_widget_infobox_container .co2-compensation-projects .co2-project-img-text {
       width: 98%; }
     .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-logo {
-      bottom: 1px; }
+      bottom: 4px; }
     .co2ok_widget_infobox_container .co2ok-widget-content .feat-company-logo {
       bottom: 8px; }
     .co2ok_widget_infobox_container .co2ok-widget-content .treesforall-logo {
