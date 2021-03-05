@@ -128,7 +128,6 @@ let Co2okWidgetXL = {
       var compensationAmount  = totalCompensatedData / 1000;
     }
 
-    console.log("lang 222", lang );
     if (lang == 'EN') {
 
       var compensatietekst = `This shop prevented <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> emissions`;

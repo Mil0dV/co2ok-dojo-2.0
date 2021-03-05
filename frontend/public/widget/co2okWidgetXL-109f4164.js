@@ -89,7 +89,7 @@ let Co2okWidgetXL = {
 		`${this.SITE_HOST}/widget/woonliving/WL_logo.png`,
 		`${this.SITE_HOST}/widget/woonliving/logotrees.png`,
     `${this.SITE_HOST}/static/logo.png`,
-    `${this.SITE_HOST}/widget/co2-projects.jpg`
+    `${this.SITE_HOST}/widget/hovercard/co2-projects.jpg`
 		]
 
 
@@ -182,7 +182,7 @@ let Co2okWidgetXL = {
           </div>
 
           <div class="co2-compensation-projects co2ok-large">
-            <img class="co2-project-img co2ok-large" src="${this.SITE_HOST}/widget/co2-projects.jpg">
+            <img class="co2-project-img co2ok-large" src="${this.SITE_HOST}/widget/hovercard/co2-projects.jpg">
             <p class="co2-project-img-text co2ok-large"> ${imageDesc} </p>
           </div>
 
