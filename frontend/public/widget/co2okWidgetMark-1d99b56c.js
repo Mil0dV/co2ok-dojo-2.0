@@ -36,11 +36,11 @@ let Co2okWidget = {
     fileref.setAttribute("type", "text/css")
     fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetXL-gray.css`)
     document.getElementsByTagName("head")[0].appendChild(fileref)
-		//default hovercard css
+		//default projects hovercard css
 		var fileref=document.createElement("link")
 		fileref.setAttribute("rel", "stylesheet")
 		fileref.setAttribute("type", "text/css")
-		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetmark-projects.css`)
+		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetmark-defaultProjects.css`)
 		document.getElementsByTagName("head")[0].appendChild(fileref)
 
 	  	var images = [`${this.SITE_HOST}/widget/cfs.png`,
@@ -52,7 +52,9 @@ let Co2okWidget = {
 			`${this.SITE_HOST}/static/logo.png`,
 			`${this.SITE_HOST}/widget/hovercard/co2-projects.jpg`,
 			`${this.SITE_HOST}/static/info.svg`,
-			`${this.SITE_HOST}/widget/large-wiget-airplane.png`
+			`${this.SITE_HOST}/widget/large-wiget-airplane.png`,
+			`${this.SITE_HOST}/widget/vela/VL_heart.png`
+
 		]
 
 	  for (var img of images) {
@@ -103,42 +105,39 @@ let Co2okWidget = {
 	 * CFSmark inserted in footer next to last pay icon and on product page next to last pay icons
 	 */
 	cfsTrustMarkInsertion: function () {
+
+		//bottom footer
 		let cfsHtml = `
 			<img class="cfs_hover_target_footer" src="${this.SITE_HOST}/widget/cfs-gray.png" style="width: 100px; height: 48px; margin-left: 8px;">
 		`
 		jQuery(".footer-primary").after(cfsHtml)
 
-		// let cfsfHtml = `
-		// 	<img class="cfs_hover_target" src="https://co2ok.eco/widget/cfs.png" style="width: 100px; height: 48px">
-		// `
-		// jQuery(".pr_trust_seal").append(cfsfHtml)
 	},
 
-	/** inserts globe icon into menu */
-	menuIconInsertion: function () {
-		if (Co2okWidget.isMobile()) {
-			let menuIconHtml = `
-			<li id="item_mb_wis" class="menu-item item-level-0 menu-item-btns menu-item-wishlist co2ok-usp-menu">
-				<a class="js_link_wis co2ok-usp-menu">
-					<span class="iconbtns co2ok-usp-menu" style="color:#78bb9d; display: flex;">
-						<p class="co2ok-usp-menu" style="color: black; display:flex; flex-direction: row;">
-							Shop Klimaatvriendelijk
-						</p>
-					</span>
-				</a>
-			</li>`
-			jQuery("#item_mb_nav-0").after(menuIconHtml)
-		} else {
-			let menuIconHtml = `
-				<li id="item_b3fd8670-f170-4425-9814-e36fdd7c7563" class="menu-item type_simple co2ok-usp-menu-hover co2ok-usp-menu co2ok-usp-desktop">
-					<a class="lh__1 flex al_center pr co2ok-usp-menu" target="_self">
-						<i class="las la-heart co2ok-usp-menu"></i>
-						Shop klimaatvriendelijk
-					</a>
-				</li>
+	/** inserts UPS's for VELA */
+	uspInsertion: function () {
+
+		//product page specific ups
+		if (window.location.toString().includes('/product')) {
+			//green heart
+			let productUsp = `
+				<img class="co2ok-usp-product" src="${this.SITE_HOST}/widget/vela/VL_heart.png">
 			`
-			jQuery(".nt_menu").append(menuIconHtml)
+			jQuery(".wc-stripe-clear").before(productUsp)
+
+			//product description
+			let productDesc = jQuery(".product-short-description")[0].childNodes
+			let productText = `
+				<br><i class="wishlist-icon icon-heart" style="color: #26B43D"></i> Climate friendly product
+			`
+			productDesc[1].innerHTML += productText
 		}
+
+		//added marquee text
+		let marquee = jQuery("#fs-progress");
+		let marqueeText = `, always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i>`
+		marquee[0].innerHTML += marqueeText
+
 	},
 
 	insertHovercardHTML: function () {
@@ -236,7 +235,6 @@ let Co2okWidget = {
 
 		jQuery("<div id='widgetContainerXL' style='margin-top:25px; margin-bottom:25px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").appendTo(document.getElementById("text-5"));
 		let widgetcontainer = document.getElementById('widgetContainerXL')
-    console.log("widget container", widgetcontainer);
 
     // Don't try to place widget if there is no container
 	  if(widgetcontainer == null){
@@ -246,15 +244,20 @@ let Co2okWidget = {
     widgetcontainer.innerHTML = widgetmark;
 
 		// if on product page, insert trustmark widget as well
-		// if (window.location.toString() === "https://velaapparel.com/") {
-		// 	Co2okWidget.widgetXLGenerator(compensationAmount);
-		// }
+		if (window.location.toString() === "https://velaapparel.com/") {
+			Co2okWidget.widgetXLGenerator(compensationAmount);
+		}
 	},
 
 	/** Inserts pharagraph and impact calc on product page */
-	widgetMarkGenerator: function(totalCompensatedData) {
+	widgetXLGenerator: function(compensationAmount) {
 
-		var reductietekst = 'CO₂ reduction';
+    let paragraph = `
+      <p>
+        This store is comitted to minimizing the climate impact of their products by offering sustainable, climate friendly solutions for their products.
+        To further their commitment, your purchase will be shipped with as little climate impact as possible!
+      </p>
+    `
 		let widgetmark = `
 			<div>
 
@@ -262,14 +265,18 @@ let Co2okWidget = {
 				<span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${this.SITE_HOST}/static/logo.png"></span>
 				</div>
 				<div class="caption_co2ok_widget co2ok_widget_info widget-small">
-				<span> <strong>${(compensatiewidget.toFixed(1))}</strong>t ${reductietekst} </span>
+				<span> <strong>${(compensationAmount.toFixed(1))}</strong>t CO₂ reduction </span>
 				</div>
 
 			</div>
 
 		`
-	  let widgetcontainer = document.getElementById('widgetContainermark')
 
+		let trustMarkInsertion = jQuery("#row-1890224791")
+		console.log(" yooo ", trustMarkInsertion);
+
+		jQuery("<div id='widgetContainer' style='width:180px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").prepend(document.getElementById("col-1755092682"))
+	  let widgetcontainer = document.getElementById('widgetContainer')
 	  // Don't try to place widget if there is no container
 	  if(widgetcontainer == null){
 			return
@@ -297,9 +304,17 @@ let Co2okWidget = {
 		var windowWidth = jQuery(window).width();
 		var y = event.clientY;
 
-	  	infoHoverBox.remove();
+    infoHoverBox.remove();
 		jQuery("body").append(infoHoverBox);
-		if (element_id == '.widget-small' || element_id == '.widget-large') {
+    console.log("element id", element_id);
+    if (element_id === ".widget-large") {
+      offset.left -= infoHoverBox.width() / 2;
+      if ( offset.left < 0) offset.left = 10;
+      offset.top = offset.top - infoHoverBox.height() + 6;
+      if (offset.top < 0) {
+        offset.top = offset.top + (infoHoverBox.height() + elementBox.width() / 2) + 6;
+      }
+    } else if (element_id == '.widget-small') {
 			offset.left -= infoHoverBox.width() / 4;
 			if (windowWidth <= 800)
 		  	offset.top += elementBox.height() * 4;
@@ -327,9 +342,9 @@ let Co2okWidget = {
 				offset.left = 5;
 			}
 			offset.top -= infoHoverBox.height();
-		} else if (element_id == '.co2ok-usp-menu') {
-			offset.left -= elementBox.width() / 2;
-			offset.top += 10;
+		} else if (element_id == '.co2ok-usp-product') {
+			offset.left -= infoHoverBox.width() / 2 - elementBox.width() / 2;
+			offset.top -= infoHoverBox.height();
 		}
 		else
 			return ;
@@ -374,8 +389,8 @@ let Co2okWidget = {
 			return ('.widget-small')
     else if (jQuery(e.target).hasClass("widget-large"))
       return ('.widget-large')
-		else if (jQuery(e.target).hasClass("co2ok-usp-menu"))
-			return ('.co2ok-usp-menu')
+		else if (jQuery(e.target).hasClass("co2ok-usp-product"))
+			return ('.co2ok-usp-product')
 	},
 
 	RegisterWidgetInfoBox : function()
@@ -456,7 +471,7 @@ let Co2okWidget = {
 	jQueryLoadDefer: function() {
 		if (window.jQuery) {
 			Co2okWidget.insertHovercardHTML();
-			// Co2okWidget.menuIconInsertion();
+			Co2okWidget.uspInsertion();
 			Co2okWidget.cfsTrustMarkInsertion();
 			Co2okWidget.RegisterWidgetInfoBox();
 			Co2okWidget.merchantCompensations();
