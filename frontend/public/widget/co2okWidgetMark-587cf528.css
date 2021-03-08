@@ -1,0 +1,54 @@
+.co2ok_widget_infobox_container .co2ok-widget-content .right-align-img {
+  margin-top: 32px;
+}
+
+.co2-usp-img {
+  font-size:42px;
+  width: 50px;
+  margin: -16px 15px 0 0;
+}
+
+.co2-product-usp-img {
+  height: 20px;
+  float: left;
+  padding-right: 8px;
+}
+
+.co2-truck-product-usp {
+  height: 17px;
+  margin-top: -9px;
+}
+
+.co2-box-product-usp {
+  height: 22px;
+}
+
+.co2-widget-company-logo {
+  width: 30%;
+  z-index: 4;
+  position: absolute;
+  margin-top: 4px;
+  margin-left: 8px;
+}
+
+#large-widget-text {
+  width: 50%;
+  font-weight: 500;
+  font-size: 9.5px;
+  margin-top: 30px;
+  line-height: 1.5;
+}
+
+#large-widget-text-large {
+  line-height: 1.1;
+}
+
+#co2ok-logo{
+  margin-top: 98px;
+  margin-left: 12px;
+  width: 23%;
+}
+
+#info-button-widget {
+  margin-top: 99px;
+}
