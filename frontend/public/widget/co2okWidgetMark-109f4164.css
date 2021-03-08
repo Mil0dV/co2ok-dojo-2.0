@@ -1,0 +1,15 @@
+/*Woonliving**/
+
+/*product page usp tablet/mobile handler*/
+@media (max-width: 850px) {
+	.co2ok-paragraph {
+		width: 100%;
+	}
+	.co2ok-usp-section {
+		flex-direction: column;
+	}
+	.co2ok-impact-calc {
+		width: 100% !important;
+		margin: 8px auto !important;
+	}
+}

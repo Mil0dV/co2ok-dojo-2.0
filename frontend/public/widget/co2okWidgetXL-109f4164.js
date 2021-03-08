@@ -1,3 +1,5 @@
+// Woonliving XL
+
 let Co2okWidgetXL = {
 
   getCookieValue: function (a) {
@@ -70,38 +72,77 @@ let Co2okWidgetXL = {
 	  var fileref=document.createElement("link")
 	  fileref.setAttribute("rel", "stylesheet")
 	  fileref.setAttribute("type", "text/css")
-	  fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetXL-7b8b056d.css`)
+	  fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-projects.css`)
 	  document.getElementsByTagName("head")[0].appendChild(fileref)
+    //extra usp/cfs css
+		var fileref=document.createElement("link")
+		fileref.setAttribute("rel", "stylesheet")
+		fileref.setAttribute("type", "text/css")
+		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-109f4164.css`)
+		document.getElementsByTagName("head")[0].appendChild(fileref)
 
-	  images = [
+	  var images = [
 	  `${this.SITE_HOST}/widget/woonliving/WL_world.png`,
 	  `${this.SITE_HOST}/widget/woonliving/WL_box.png`,
 	  `${this.SITE_HOST}/widget/woonliving/WL_seedling.png`,
 	  `${this.SITE_HOST}/widget/woonliving/WL_trees.png`,
 		`${this.SITE_HOST}/widget/woonliving/WL_logo.png`,
-		`${this.SITE_HOST}/widget/woonliving/logotrees.png`
+		`${this.SITE_HOST}/widget/woonliving/logotrees.png`,
+    `${this.SITE_HOST}/static/logo.png`,
+    `${this.SITE_HOST}/widget/co2-projects.jpg`
 		]
 
 
-	  for (img of images) {
+	  for (var img of images) {
 			result = await this.preloadImage(img)
 	  }
   },
+
+
+  // sleeper: function (ms) {
+  //   return new Promise(resolve => setTimeout(resolve, ms));
+  // },
+
+  // /** Retrieves total trees planted from WL site
+  //  *
+  //  * The tree total is filled in one by one and they is a a slight delay. In order to avoid
+  //  * a miss count, sleepers and checks are needed to ensure the total trees planted match in
+  //  * the hovercard and on the site.
+  //  */
+  // getTreeTotal: async function() {
+  //   let trees = -1;
+  //   let  treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
+  //   while (treeTotal > trees && treeTotal >= 0) {
+  //     await Co2okWidgetXL.sleeper(1000);
+  //     trees = treeTotal;
+  //     treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
+  //     if (trees == treeTotal) {
+  //       await Co2okWidgetXL.sleeper(1000);
+  //       treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
+  //     }
+  //   }
+  //   return treeTotal;
+  //   // if (treeTotal === 0) {
+  //   // 	treeTotal = 151;
+  //   // }
+  // },
 
   /** Custom widget hovercard html
    *
    * Inserted before the footer of the webpage
    */
-  insertHovercardHTML: function () {
+  insertHovercardHTML: async function () {
 
-    const treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
-		if (treeTotal === 0) {
-			treeTotal = 151;
-		}
+		//tree counter takes a bit to load, this loop waits to retrieve number of trees planted
+    // let treeTotal = Co2okWidgetXL.getTreeTotal();
+    // let  treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
+		// if (treeTotal === 0 ) {
+  	let treeTotal = 159;
+		// }
 
 		var stepOne = "Woonliving werkt samen met de beste en onafhankelijke designers en meubelmakers. Geen tussenpersonen en geen winkels waardoor de keten duurzamer is.  Je kunt in de webshop zien hoe milieubewust een product is, zo helpen ze je een duurzame keuze te maken.";
-		var stepTwo = `Woonliving denkt goed na over hoe ze jouw producten verzenden, ze doen dit met zo min mogelijk klimaat impact, vaak zelfs zonder verpakking! Daarnaast hebben ze nu al <strong>${treeTotal}</strong> bomen geplant met Trees for All!`;
-		var stepThree = "Verder bieden wij (CO2ok) je de mogelijkheid om met één klik de CO2 uitstoot van je aankoop direct te compenseren. Het geld dat je hiervoor extra betaalt gaat naar CO2 compensatieprojecten van Fair Climate Fund en Atmosfair die Gold Standard gecertificeerd zijn.";
+		var stepTwo = `Jouw aankoop wordt met zo min mogelijk klimaatimpact verzonden, vaak zelfs zonder verpakking! De uitstoot die niet kan worden voorkomen, wordt volledig gecompenseerd door Woonliving. Daarnaast hebben ze nu al <strong>${treeTotal}</strong> bomen geplant met Trees for All!`;
+		var stepThree = "Verder bieden wij (CO2ok) je de mogelijkheid om met één klik direct de CO2 uitstoot van je aankoop te compenseren. Het geld dat je hiervoor betaalt gaat naar CO2 compensatieprojecten van FairClimateFund en Atmosfair die Gold Standard gecertificeerd zijn.";
 		var imageDesc = "Niet alleen het klimaat profiteert: we realiseren zo ook minder ontbossing en gezondheidsvoordelen door minder rook en giftige koolmonoxide"
 
     let infoHoverHtml = `
@@ -147,8 +188,6 @@ let Co2okWidgetXL = {
 
           <div class="co2ok-logos co2ok-large">
             <img src="${this.SITE_HOST}/static/logo.png" href="https://www.co2ok.eco/projects" class="co2ok-logo co2ok-large">
-            <img class="feat-company-logo co2ok-large" src="${this.SITE_HOST}/widget/woonliving/WL_logo.png">
-            <img class="treesforall-logo co2ok-large" src="${this.SITE_HOST}/widget/woonliving/logotrees.png">
           </div>
 
         </div>
@@ -252,35 +291,35 @@ let Co2okWidgetXL = {
     var widgetInfoBox = jQuery(".widget-hovercard-large");
     var widgetBox = jQuery(".large-widget")
     var offset = widgetInfoButton.offset();
+    var windowHeight = jQuery(window).height();
+		var y = event.clientY;
 
     widgetInfoBox.remove();
     jQuery("body").append(widgetInfoBox);
 
-    if (jQuery(window).width() < 480) {
-      offset.left = offset.left - widgetInfoBox.width() / 2;
-      offset.top = offset.top - (widgetInfoBox.height() + widgetInfoButton.height() - 9) - 10;
-      if ( offset.left < 0) offset.left = 10;
-      if ( offset.top < 0) offset.top = 10;
-      widgetInfoBox.css({
-          top: offset.top,
-          margin: "0 auto",
-          left: offset.left,
-          transform: "none"
-      });
-    } else {
-      offset.left = offset.left -  widgetBox.outerWidth() / 2;
-      if ( offset.left < 0) offset.left = 10;
-      offset.top = offset.top - (widgetInfoButton.height()) - widgetInfoBox.height() + 6;
-      if (offset.top < 0) {
-        offset.top = offset.top + (widgetInfoBox.height() + widgetInfoButton.width() / 2) + 6;
-      }
-      widgetInfoBox.css({
-        top: offset.top,
-        left: offset.left,
-        margin: "0",
-        transform: "none"
-      });
-    }
+    offset.left = offset.left -  widgetBox.outerWidth() / 2;
+    if ( offset.left < 0) offset.left = 10;
+    offset.top = offset.top - (widgetInfoButton.height()) - widgetInfoBox.height() + 6;
+			offset.top += 40;
+			//protection for hovercard clipping off window
+			if (y + widgetInfoButton.height() > jQuery(window).height()) {
+				offset.top -= (y + widgetInfoButton.height()) - jQuery(window).height();
+				offset.top -= 30;
+			}
+    // if (offset.top < 0) {
+    //   offset.top = offset.top + (widgetInfoBox.height() + widgetInfoButton.width() / 2) + 6;
+    // }
+    // let overflow = offset.top - widgetInfoBox.outerHeight();
+    // if (overflow < 0) {
+    //   offset.top -= overflow;
+
+    // }
+    widgetInfoBox.css({
+      top: offset.top,
+      left: offset.left,
+      margin: "0",
+      transform: "none"
+    });
   },
 
 
@@ -306,47 +345,57 @@ let Co2okWidgetXL = {
   modalRegex: function(e) {
      return jQuery(e.target).hasClass("co2ok-large") ||
      jQuery(e.target).hasClass("exit-area-span") ||
-     jQuery(e.target).is("#info-button-widget");
+     jQuery(e.target).is("#info-button-widget") ||
+     jQuery(e.target).hasClass("exit-area") ||
+     jQuery(e.target).hasClass("exit-area-span");
   },
 
 
   RegisterWidgetInfoBox : function() {
-    console.log('it begins')
-    var _this = this;
+    let element_id = null;
 
-    jQuery(".co2ok_widget_info_keyboardarea").focus(function() {
-      _this.ShowWidgetInfoBox();
-      jQuery(".first-text-to-select").focus();
-    });
+    // element_id = Co2okWidgetXL.modalRegex(e);
 
     jQuery('body').click(function(e) {
-      if(!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area-span")|| jQuery(e.target).hasClass("exit-area")) {
-        _this.hideWidgetInfoBox();
-      } else {
-        _this.ShowWidgetInfoBox();
+      element_id = Co2okWidgetXL.modalRegex(e);
+      if (element_id === "exit-area-span"|| element_id === "exit-area") {
+       //prevents opening of cart on closing of hovercards
+				if (e.detail === 1) {
+					e.stopImmediatePropagation();
+					Co2okWidgetXL.hideWidgetInfoBox();
+				}
+      } else if (element_id) {
+        Co2okWidgetXL.ShowWidgetInfoBox();
       }
     });
 
     jQuery('body').on("touchstart",function(e) {
-      if(!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area-span") || jQuery(e.target).hasClass("exit-area")) {
-        _this.hideWidgetInfoBox();
-      } else {
-        _this.placeWidgetInfoBox()
-        _this.ShowWidgetInfoBox();
+      element_id = Co2okWidgetXL.modalRegex(e);
+      if (element_id === "exit-area-span"|| element_id === "exit-area") {
+        //prevents opening of cart on closing of hovercards
+				if (e.detail === 1) {
+					e.stopImmediatePropagation();
+					Co2okWidgetXL.hideWidgetInfoBox();
+				}
+      } else if (element_id) {
+        Co2okWidgetXL.placeWidgetInfoBox()
+        Co2okWidgetXL.ShowWidgetInfoBox();
       }
     });
 
     if(!this.isMobile()) {
       jQuery(".co2ok_widgets_info , .co2ok_widget_info_hitarea").mouseenter(function() {
-        _this.placeWidgetInfoBox();
+        Co2okWidgetXL.placeWidgetInfoBox();
       });
 
       jQuery(document).mouseover(function(e) {
-        if (!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area-span") || jQuery(e.target).hasClass("exit-area")) {
-          _this.hideWidgetInfoBox();
-        } else {
-          _this.placeWidgetInfoBox();
-          _this.ShowWidgetInfoBox();
+        element_id = Co2okWidgetXL.modalRegex(e);
+        if (!element_id ||element_id === "exit-area-span"|| element_id === "exit-area") {
+          //prevents opening of cart on closing of hovercard
+            Co2okWidgetXL.hideWidgetInfoBox();
+        } else if (element_id) {
+          Co2okWidgetXL.placeWidgetInfoBox();
+          Co2okWidgetXL.ShowWidgetInfoBox();
         }
       });
     }
@@ -357,32 +406,27 @@ let Co2okWidgetXL = {
    * shows or hides co2 depending on url arguments
    */
   manualABSwitch: async function() {
-    // Manual AB-switch
-    var urlParams = new URLSearchParams(window.location.search);
-    var co2ok_AB_param = urlParams.get('co2ok_ab');
-    if (co2ok_AB_param == 'show') {
-      console.log('Co2ok ON manually!')
-    } else if (co2ok_AB_param == 'hide') {
-      console.log('Co2ok OFF mannually!')
-      return false;
-    } else if (Co2okWidgetXL.getCookieValue('co2ok_ab_hide') == '0') {
-      console.log('hammer time!')
-      return false;
-		}
+      // Manual AB-switch
+      var urlParams = new URLSearchParams(window.location.search);
+      var co2ok_AB_param = urlParams.get('co2ok_ab');
+      let co2ok_AB_test = JSON.parse(localStorage.getItem('co2ok_ab_hide'));
 
-    var co2ok_fileswap_param = urlParams.get('co2ok_fileswap');
-		if (co2ok_fileswap_param == 'patch' || Co2okWidgetXL.getCookieValue('co2ok_fileswap') == 'swapped') {
-			jQuery.getScript('http://localhost:8080/widget/co2ok_local_file.js');
+      //if co2okButton.js isn't loaded, we defer
+      if (co2ok_AB_test === null) {
+        setTimeout(function() { Co2okWidgetXL.manualABSwitch() }, 50);
+      } else {
+        if (co2ok_AB_param == 'show') {
+          console.log('Co2ok ON manually!')
+          return true;
+        } else if (co2ok_AB_param == 'hide') {
+          console.log('Co2ok OFF mannually!')
+          return false;
+        } else if (co2ok_AB_test === 0) {
+          return false;
+        }
+        return true;
+      }
 
-			var now = new Date();
-			now.setTime(now.getTime() + 1 * 3600 * 1000);
-
-			document.cookie = 'co2ok_fileswap=swapped;expires=Thu,'+ now +';path="/"'
-			return false;
-		} else if (co2ok_fileswap_param == 'unpatch') {
-			document.cookie = 'co2ok_fileswap=;expires = Thu, 01 Jan 1970 00:00:00 GMT;'
-		}
-		return true;
 	},
 
   /** defers running of widget code until jQuery is loaded
@@ -410,7 +454,7 @@ let Co2okWidgetXL = {
 // export default new Co2okWidget()
 
 Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
-// Co2okWidgetXL.SITE_HOST = 'http://localhost:8081'
+// Co2okWidgetXL.SITE_HOST = 'http://localhost:8080'
 
 //document.currentScript must be saved here before entering loadResrouces to avoid null
 //loadResouces returns a promise, this means that by .then()
