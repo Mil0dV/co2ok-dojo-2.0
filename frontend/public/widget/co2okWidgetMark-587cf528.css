@@ -1,11 +1,18 @@
+.co2ok_widget_infobox_container {
+  position: absolute;
+  width: 350px;
+  height: 680px;
+  z-index: 99999999999;
+}
+
 .co2ok_widget_infobox_container .co2ok-widget-content .right-align-img {
   margin-top: 32px;
 }
 
 .co2-usp-img {
   font-size:42px;
-  width: 50px;
-  margin: -16px 15px 0 0;
+  width: 44px;
+  margin: 4px 15px 0 0;
 }
 
 .co2-product-usp-img {
@@ -15,12 +22,13 @@
 }
 
 .co2-truck-product-usp {
-  height: 17px;
-  margin-top: -9px;
+  height: 17px !important;
+  margin-bottom: -2px;
 }
 
 .co2-box-product-usp {
-  height: 22px;
+  height: 22px !important;
+  margin-bottom: -1px;
 }
 
 .co2-widget-company-logo {
@@ -29,6 +37,10 @@
   position: absolute;
   margin-top: 4px;
   margin-left: 8px;
+}
+
+.co2ok_widget_infobox_container .co2ok-logos .feat-company-logo {
+  bottom: 4px;
 }
 
 #large-widget-text {

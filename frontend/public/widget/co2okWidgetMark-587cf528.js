@@ -65,18 +65,14 @@ let Co2okWidget = {
 	  }
 	},
 
-	merchantCompensations: function (widgetContainer) {
+	merchantCompensations: function (lang) {
 
 		// get impact from cookie if available
 		let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
 
 		if (co2ok_impact > 1) {
 		  // console.log('Collaborate and listen')
-      Co2okWidget.trustmarkGenerator('widgetContainermark', co2ok_impact)
-      //places impact cal on mvo page
-      if (window.location.toString().includes('mvo')) {
-        Co2okWidget.widgetGenerator('widgetContainerXL', co2ok_impact)
-      }
+      Co2okWidget.trustmarkGenerator('widgetContainermark', co2ok_impact, lang)
 		  return
 		}
 
@@ -95,20 +91,12 @@ let Co2okWidget = {
 				// let totalTransactionData = 491
 
 				document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
-				Co2okWidget.trustmarkGenerator('widgetContainermark', totalTransactionData)
-        //places impact cal on mvo page
-        if (window.location.toString().includes('mvo')) {
-          Co2okWidget.widgetGenerator('widgetContainerXL', totalTransactionData)
-        }
+				Co2okWidget.trustmarkGenerator('widgetContainermark', totalTransactionData, lang)
 
 				// Something is fishy, let's serve up the total
 				} else {
 				  let totalTransactionData = 22300
-				  Co2okWidget.trustmarkGenerator('widgetContainermark', totalTransactionData)
-          //places impact cal on mvo page
-          if (window.location.toString().includes('mvo')) {
-            Co2okWidget.widgetGenerator('widgetContainerXL', totalTransactionData)
-          }
+				  Co2okWidget.trustmarkGenerator('widgetContainermark', totalTransactionData, lang)
 			}
 		}
 		xhr.send()
@@ -130,14 +118,22 @@ let Co2okWidget = {
 	/**inserts USP
 	 * USP inserted on landing page in black strip mid-way down page
 	 */
-  uspInsertion: function() {
-    let uspLandingPage = `
-      <li class="item" style="padding-left: 0px;">
-        <a class=" flex text-left" style="width: 275px;">
-          <img class="co2-usp-img" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_white.png">
-          <div class="text"><h5>SHOP CLIMATE FRIENDLY</h5>
-          <span class="sub-text">
-            <p>We are a proud Climate Friendly Shop</p>
+  uspInsertion: function(lang) {
+
+		let title = 'SHOP CLIMATE FRIENDLY';
+		let sentence = 'We are a proud Climate Friendly Shop';
+		if (lang == 'NL') {
+			title = 'WINKEL KLIMAATVRIENDELIJK'
+			sentance = 'Wij zijn een trotse klimaatvriendelijke winkel'
+		}
+
+		let uspLandingPage = `
+      <li class="item co2ok-usp-landing" style="padding-left: 0px;">
+        <a class="flex text-left co2ok-usp-landing" style="width: 275px;">
+          <img class="co2-usp-img co2ok-usp-landing" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_white.png">
+          <div class="text co2ok-usp-landing"><h5>S${title}</h5>
+          <span class="sub-text co2ok-usp-landing">
+            <p>${sentence}</p>
           </span>
           </div>
         </a>
@@ -149,16 +145,25 @@ let Co2okWidget = {
 	/** inserts UPS on product page
 	 * USP on shipping tab under product and under site USP next to product
 	*/
-  insertUspProductPage: function() {
+  insertUspProductPage: function(lang) {
+
+		let titleText = 'Climate Friendly Shipping'
+		let paragraphText = 'With CFD your parcel deliveries will become Climate Friendly as neutralisation of the emissions is included in our service! As a customer, you have the option to choose the most environmentally friendly delivery option. Responsible e-commerce has never been this simple!'
+		let productDescipt = 'Climate friendly shipping and packaging'
+		// if (lang === 'NL') {
+		// 	titleText = 'Klimaatvriendelijke verzenden'
+		// 	paragraphText = 'Met CFD worden uw pakketleveringen Klimaatvriendelijk omdat de neutralisatie van de uitstoot in onze service is inbegrepen! Als klant heeft u de mogelijkheid om de meest milieuvriendelijke leveringsoptie te kiezen. Verantwoordelijk e-commerce is nog nooit zo eenvoudig geweest!'
+		// 	productDescipt = 'Klimaatvriendelijke verzending en verpakking'
+		// }
+
     //shipping tab on product pag
-		let paragraph = `<p>With CFD your parcel deliveries will become Climate Friendly as neutralisation of the emissions is included in our service!
-		 As a customer, you have the option to choose the most environmentally friendly delivery option. Responsible e-commerce has never been this simple!</p>`
+		let paragraph = `<p>${paragraphText}</p>`
 		jQuery("#tab1551070955235").prepend(paragraph)
 
     let title = `
 			<img class="co2-product-usp-img" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_black.png">
 			<h4>
-				Climate Friendly Shipping
+				${titleText}
 			</h4>
 			`
     jQuery("#tab1551070955235").prepend(title)
@@ -166,13 +171,13 @@ let Co2okWidget = {
 
     //next to product under their own USPs
     let productIcon = `
-      <div class="htusb-ui-section_0 htusb-ui-prod-static_0 ">
+      <div class="htusb-ui-section_0 htusb-ui-prod-static_0 co2ok_product_usp">
 				<div class="htusb-ui-inline co2ok_product_usp">
 					<img class="co2-truck-product-usp" src="${Co2okWidget.SITE_HOST}/widget/co2_truck.png">
 					+
 					<img class="co2-box-product-usp" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_cfp.png">
 				</div>
-      	<div class="htusb-ui-inline co2ok_product_usp">Climate friendly shipping and packaging</div>
+      	<div class="htusb-ui-inline co2ok_product_usp">${productDescipt}</div>
 			</div>
     `
     jQuery(".product__policies").prepend(productIcon)
@@ -185,12 +190,18 @@ let Co2okWidget = {
     jQuery(".middle-hdr").html(newMarqueeText)
 	},
 
-	insertHovercardHTML: function () {
+	insertHovercardHTML: function (lang) {
 
-		var stepOne = "Pockies werkt samen met de beste en onafhankelijke designers en meubelmakers. Geen tussenpersonen en geen winkels waardoor de keten duurzamer is.  Je kunt in de webshop zien hoe milieubewust een product is, zo helpen ze je een duurzame keuze te maken.";
-		var stepTwo = `Pockies denkt goed na over hoe ze jouw producten verzenden, ze doen dit met zo min mogelijk klimaat impact, vaak zelfs zonder verpakking! Daarnaast hebben ze nu al <strong>148</strong> bomen geplant met Trees for All!`;
-		var stepThree = "Verder bieden wij (CO2ok) je de mogelijkheid om met één klik de CO2 uitstoot van je aankoop direct te compenseren. Het geld dat je hiervoor extra betaalt gaat naar CO2 compensatieprojecten van Fair Climate Fund en Atmosfair die Gold Standard gecertificeerd zijn.";
-		var imageDesc = "Niet alleen het klimaat profiteert: we realiseren zo ook minder ontbossing en gezondheidsvoordelen door minder rook en giftige koolmonoxide"
+		let stepOne = 'Pockies collaborates with the best and independent designers and furniture makers. No middlemen and no stores making the chain more sustainable.  In the webshop you can see how environmentally conscious a product is, so they help you make a sustainable choice.';
+		let stepTwo = `Pockies denkt goed na over hoe ze jouw producten verzenden, ze doen dit met zo min mogelijk klimaat impact, vaak zelfs zonder verpakking! Daarnaast hebben ze nu al <strong>148</strong> bomen geplant met Trees for All!`;
+		let stepThree = 'Furthermore, we (CO2ok) offer you the possibility to directly offset the CO2 emissions of your purchase with one click. The money you pay extra for this goes to CO2 compensation projects of Fair Climate Fund and Atmosfair that are Gold Standard certified.';
+		let imageDesc = 'Not only the climate benefits: we also realize less deforestation and health benefits through less smoke and toxic carbon monoxide.';
+		if (lang === 'NL') {
+			stepOne = "Pockies werkt samen met de beste en onafhankelijke designers en meubelmakers. Geen tussenpersonen en geen winkels waardoor de keten duurzamer is.  Je kunt in de webshop zien hoe milieubewust een product is, zo helpen ze je een duurzame keuze te maken.";
+			stepTwo = 'Pockies denkt goed na over hoe ze jouw producten verzenden, ze doen dit met zo min mogelijk klimaat impact, vaak zelfs zonder verpakking! Daarnaast hebben ze nu al <strong>148</strong> bomen geplant met Trees for All!';
+			stepThree = "Verder bieden wij (CO2ok) je de mogelijkheid om met één klik de CO2 uitstoot van je aankoop direct te compenseren. Het geld dat je hiervoor extra betaalt gaat naar CO2 compensatieprojecten van Fair Climate Fund en Atmosfair die Gold Standard gecertificeerd zijn.";
+			imageDesc = "Niet alleen het klimaat profiteert: we realiseren zo ook minder ontbossing en gezondheidsvoordelen door minder rook en giftige koolmonoxide"
+		}
 
     let infoHoverHtml = `
 
@@ -245,44 +256,8 @@ let Co2okWidget = {
 		jQuery('footer').before(infoHoverHtml)
 	},
 
-  //XL impact calc widget
-  widgetGenerator: function (widgetContainer, totalCompensatedData) {
-    var decimalsCompensation = 1;
-    if (totalCompensatedData < 100)
-      var compensationAmount  = 0.1;
-    else {
-      if (totalCompensatedData > 99999)
-        decimalsCompensation = 0;
-      var compensationAmount  = totalCompensatedData / 1000;
-    }
-
-    var compensatietekst = `cares about the climate! We prevented <br><span id="large-widget-text-large" class="co2ok-widget-card">${compensationAmount .toFixed(decimalsCompensation)} t CO<sub>2</sub></span><br> emissions`;
-    var vliegen = "of laundry";
-
-    // let paragraph = `
-    // `
-    let widgetmark = `
-      <div class="large-widget">
-        <span class ="large-widget-right-pockies"></span>
-        <svg id= "half-circle" style="width: 160px;"> <circle cx="95" cy="64.6" r="62.6" fill="white"> /></svg>
-				<img class="co2-widget-company-logo" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_logo.png">
-        <p id="large-widget-text">${compensatietekst}</p>
-        <p id="large-widget-xvliegen">= ${(compensationAmount * 5000) .toFixed(0)} km<br>${vliegen}</p>
-        <img id="co2ok-logo" src= "${this.SITE_HOST}/static/logo-gray.png">
-        <img id="info-button-widget" class="widget-large" src="${this.SITE_HOST}/static/info-PK.svg">
-        <img id="large-widget-airplane" src= "${this.SITE_HOST}/widget/pockies/PK_laundry.png">
-      </div>
-    `
-
-    // jQuery(paragraph).appendTo(document.getElementsByClassName("article-content"))
-    jQuery("<div id='widgetContainerXL' style='margin-top:25px; margin-bottom:25px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").appendTo(document.getElementsByClassName("rte"))
-    let widgetcontainer = document.getElementById(widgetContainer)
-    widgetcontainer.innerHTML = widgetmark;
-  },
-
-
-  //trustmark widget
-	trustmarkGenerator: function (widgetContainer, totalCompensatedData) {
+	//trustmark widget
+	trustmarkGenerator: function (widgetContainer, totalCompensatedData, lang) {
 
 	  if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0') {
 			console.log('hammer time!')
@@ -296,7 +271,11 @@ let Co2okWidget = {
 			var compensatiewidget  = totalCompensatedData / 1000;
 	  }
 
-		var reductietekst = 'CO₂ reductie';
+		if (lang === 'NL') {
+			var reductietekst = 'CO₂ reductie';
+		} else {
+			var reductietekst = 'CO₂ reduction';
+		}
 		let widgetmark = `
 			<div>
 				<div class="btn_co2ok_widget co2ok_widget_info widget-small" href="#">
@@ -321,6 +300,50 @@ let Co2okWidget = {
 
 	  widgetcontainer.innerHTML = widgetmark
 	  Co2okWidget.RegisterWidgetInfoBox();
+
+		//places impact cal on mvo page
+		if (window.location.toString().includes('mvo')) {
+			Co2okWidget.widgetGenerator(totalCompensatedData, lang)
+		}
+	},
+
+	//XL impact calc widget
+	widgetGenerator: function (totalCompensatedData, lang) {
+
+		var decimalsCompensation = 1;
+    if (totalCompensatedData < 100) {
+      var compensationAmount  = 0.1;
+
+    } else {
+      if (totalCompensatedData > 9999) {
+        decimalsCompensation = 0;
+      }
+      var compensationAmount  = totalCompensatedData / 1000;
+    }
+		if (lang === 'NL') {
+			var compensatietekst = `geeft om het klimaat! We hebben voorkomen <br><span id="large-widget-text-large" class="co2ok-widget-card">${compensationAmount .toFixed(decimalsCompensation)} t CO<sub>2</sub></span><br> uitstoot`;
+			var vliegen = "van wasgoed";
+		} else {
+			var compensatietekst = `cares about the climate! We prevented <br><span id="large-widget-text-large" class="co2ok-widget-card">${compensationAmount .toFixed(decimalsCompensation)} t CO<sub>2</sub></span><br> emissions`;
+			var vliegen = "of laundry";
+		}
+
+		let widgetmark = `
+			<div class="large-widget">
+				<span class ="large-widget-right-pockies"></span>
+				<svg id= "half-circle" style="width: 160px;"> <circle cx="95" cy="64.6" r="62.6" fill="white"> /></svg>
+				<img class="co2-widget-company-logo" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_logo.png">
+				<p id="large-widget-text">${compensatietekst}</p>
+				<p id="large-widget-xvliegen">= ${(compensationAmount * 5000) .toFixed(0)} km<br>${vliegen}</p>
+				<img id="co2ok-logo" src= "${this.SITE_HOST}/static/logo-gray.png">
+				<img id="info-button-widget" class="widget-large" src="${this.SITE_HOST}/static/info-PK.svg">
+				<img id="large-widget-airplane" src= "${this.SITE_HOST}/widget/pockies/PK_laundry.png">
+			</div>
+		`
+
+		jQuery("<div id='widgetContainerXL' style='margin-top:25px; margin-bottom:25px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").appendTo(document.getElementsByClassName("rte"))
+		let widgetcontainer = document.getElementById('widgetContainerXL')
+		widgetcontainer.innerHTML = widgetmark;
 	},
 
 
@@ -344,6 +367,7 @@ let Co2okWidget = {
 		var y = event.clientY;
 
 	  infoHoverBox.remove();
+
 		jQuery("body").append(infoHoverBox);
     if (element_id == '.widget-large' || element_id == '.co2ok_product_usp') {
       offset.left -= infoHoverBox.width() / 2;
@@ -356,10 +380,6 @@ let Co2okWidget = {
 			} else {
         offset.top -= infoHoverBox.height();
       }
-			//protection for hovercard clipping off window
-      if (y - infoHoverBox.height() < 0) {
-				offset.top = y;
-      }
 	  } else if (element_id == '.cfs_hover_target') {
 			offset.left -= infoHoverBox.width() / 2;
 			if (offset.left < 0) {
@@ -371,14 +391,15 @@ let Co2okWidget = {
 				offset.top -= (y + infoHoverBox.height()) - jQuery(window).height();
 				offset.top -= 30;
 			}
-		} else if (element_id == '.cfs_hover_target_footer') {
-			offset.left -= infoHoverBox.width() / 2;
-			if (offset.left < 0) {
-				offset.left = 5;
-			}
-			offset.top -= infoHoverBox.height();
-		}
-	  else
+		// } else if (element_id == '.cfs_hover_target_footer') {
+		// 	offset.left -= infoHoverBox.width() / 2;
+		// 	if (offset.left < 0) {
+		// 		offset.left = 5;
+		// 	}
+		// 	offset.top -= infoHoverBox.height();
+		}  else if (element_id === '.co2ok-usp-landing') {
+			offset.top -= infoHoverBox.height() / 2;
+		} else
 			return ;
 
 	  var e = window.event;
@@ -421,6 +442,9 @@ let Co2okWidget = {
       return ('.widget-large')
 		else if (jQuery(e.target).hasClass("co2ok_product_usp"))
 			return ('.co2ok_product_usp')
+		else if (jQuery(e.target).hasClass("co2ok-usp-landing")) {
+			return ('.co2ok-usp-landing')
+		}
 	},
 
 	RegisterWidgetInfoBox : function()
@@ -492,15 +516,19 @@ let Co2okWidget = {
 
 	jQueryLoadDefer: function() {
     if (window.jQuery) {
-      Co2okWidget.marqueeInsertion();
+			Co2okWidget.marqueeInsertion();
+			let lang = 'EN'
+			if (window.location.toString().includes('nl')) {
+				lang = 'NL';
+			}
       if (window.location.toString().includes('products')) {
-        Co2okWidget.insertUspProductPage();
+				Co2okWidget.insertUspProductPage(lang);
       }
-      Co2okWidget.uspInsertion();
-			Co2okWidget.cfsTrustMarkInsertion();
-      Co2okWidget.insertHovercardHTML();
+      Co2okWidget.uspInsertion(lang);
+			// Co2okWidget.cfsTrustMarkInsertion();
+      Co2okWidget.insertHovercardHTML(lang);
 			Co2okWidget.RegisterWidgetInfoBox();
-			Co2okWidget.merchantCompensations();
+			Co2okWidget.merchantCompensations(lang);
     } else {
       setTimeout(function() { Co2okWidget.jQueryLoadDefer(script) }, 50);
     }

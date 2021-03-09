@@ -27,7 +27,7 @@
   z-index: 99999999999;
   display: none;
   padding: 10px;
-  border: 3px solid #eee;
+  border: 3px solid #eee !important;
   border-image-slice: 1; }
   .co2ok_widget_infobox_container.ShowWidgetInfoBox {
     display: block;
