@@ -120,10 +120,10 @@ let Co2okWidget = {
 	 */
   uspInsertion: function(lang) {
 
-		let title = 'SHOP CLIMATE FRIENDLY';
-		let sentence = 'We are a proud Climate Friendly Shop';
-		if (lang == 'NL') {
-			title = 'WINKEL KLIMAATVRIENDELIJK'
+		var title = 'SHOP CLIMATE FRIENDLY';
+		var sentence = 'We are a proud Climate Friendly Shop';
+		if (lang === 'NL') {
+			title = 'SHOP KLIMAATVRIENDELIJK'
 			sentance = 'Wij zijn een trotse klimaatvriendelijke winkel'
 		}
 
@@ -131,7 +131,7 @@ let Co2okWidget = {
       <li class="item co2ok-usp-landing" style="padding-left: 0px;">
         <a class="flex text-left co2ok-usp-landing" style="width: 275px;">
           <img class="co2-usp-img co2ok-usp-landing" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_white.png">
-          <div class="text co2ok-usp-landing"><h5>S${title}</h5>
+          <div class="text co2ok-usp-landing"><h5>${title}</h5>
           <span class="sub-text co2ok-usp-landing">
             <p>${sentence}</p>
           </span>
@@ -192,14 +192,14 @@ let Co2okWidget = {
 
 	insertHovercardHTML: function (lang) {
 
-		let stepOne = 'Pockies collaborates with the best and independent designers and furniture makers. No middlemen and no stores making the chain more sustainable.  In the webshop you can see how environmentally conscious a product is, so they help you make a sustainable choice.';
-		let stepTwo = `Pockies denkt goed na over hoe ze jouw producten verzenden, ze doen dit met zo min mogelijk klimaat impact, vaak zelfs zonder verpakking! Daarnaast hebben ze nu al <strong>148</strong> bomen geplant met Trees for All!`;
-		let stepThree = 'Furthermore, we (CO2ok) offer you the possibility to directly offset the CO2 emissions of your purchase with one click. The money you pay extra for this goes to CO2 compensation projects of Fair Climate Fund and Atmosfair that are Gold Standard certified.';
+		let stepOne = 'Pockies is committed to minimizing the climate impact of their products by offering sustainable, climate friendly solutions for their products. We (CO2ok) stimulate this store to avoid CO2 emissions as much as possible.';
+		let stepTwo = 'To further their commitment, your purchase is shipped with as little climate impact as possible! The emissions that cannot be avoided are fully compensated by this store.';
+		let stepThree = 'Furthermore, CO2ok offers you the possibility to directly offset the CO2 emissions of your purchase with one click. The compensated money goes to CO2 compensation projects of FairClimateFund and Atmosfair that are Gold Standard certified.';
 		let imageDesc = 'Not only the climate benefits: we also realize less deforestation and health benefits through less smoke and toxic carbon monoxide.';
 		if (lang === 'NL') {
-			stepOne = "Pockies werkt samen met de beste en onafhankelijke designers en meubelmakers. Geen tussenpersonen en geen winkels waardoor de keten duurzamer is.  Je kunt in de webshop zien hoe milieubewust een product is, zo helpen ze je een duurzame keuze te maken.";
-			stepTwo = 'Pockies denkt goed na over hoe ze jouw producten verzenden, ze doen dit met zo min mogelijk klimaat impact, vaak zelfs zonder verpakking! Daarnaast hebben ze nu al <strong>148</strong> bomen geplant met Trees for All!';
-			stepThree = "Verder bieden wij (CO2ok) je de mogelijkheid om met één klik de CO2 uitstoot van je aankoop direct te compenseren. Het geld dat je hiervoor extra betaalt gaat naar CO2 compensatieprojecten van Fair Climate Fund en Atmosfair die Gold Standard gecertificeerd zijn.";
+			stepOne = "Pockies zet zich in om de impact van hun producten op het klimaat te minimaliseren door duurzame, klimaatvriendelijke oplossingen voor hun producten aan te bieden. Wij (CO2ok) stimuleren deze winkel om CO2-uitstoot zoveel mogelijk te vermijden.";
+			stepTwo = "Om hun engagement verder te zetten, wordt uw aankoop verzonden met zo weinig mogelijk impact op het klimaat! De uitstoot die niet vermeden kan worden, wordt volledig gecompenseerd door Pockies.";
+			stepThree = "Bovendien biedt CO2ok u de mogelijkheid om de CO2-uitstoot van uw aankoop met één klik direct te compenseren. Het gecompenseerde geld gaat naar CO2 compensatieprojecten van FairClimateFund en Atmosfair die Gold Standard gecertificeerd zijn.";
 			imageDesc = "Niet alleen het klimaat profiteert: we realiseren zo ook minder ontbossing en gezondheidsvoordelen door minder rook en giftige koolmonoxide"
 		}
 

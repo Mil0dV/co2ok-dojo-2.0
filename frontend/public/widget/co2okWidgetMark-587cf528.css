@@ -12,7 +12,7 @@
 .co2-usp-img {
   font-size:42px;
   width: 44px;
-  margin: 4px 15px 0 0;
+  /* margin: 4px 15px 0 0; */
 }
 
 .co2-product-usp-img {
@@ -64,3 +64,21 @@
 #info-button-widget {
   margin-top: 99px;
 }
+
+@media (max-width: 500px) {
+  .co2ok_widget_infobox_container {
+    left: 0 !important;
+    top: 0 !important;
+    position: fixed;
+    width:100vw !important;
+    height: 100% !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    overflow-x: hidden; }
+    .co2ok_widget_infobox_container .co2ok-logos .feat-company-logo {
+      bottom: -6px !important;
+    }
+    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-logo {
+      bottom: -6px !important;
+    }
+  }
