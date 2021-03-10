@@ -153,12 +153,12 @@ let Co2okWidget = {
 
 		let titleText = 'Climate Friendly Shipping'
 		let paragraphText = 'Your purchase is shipped with as little impact on the climate as possible! The emissions that cannot be avoided are fully compensated by Pockies.'
-		let productDescipt = 'Climate friendly shipping and packaging'
-		// if (lang === 'NL') {
-		// 	titleText = 'Klimaatvriendelijke verzenden'
-		// 	paragraphText = 'Met CFD worden uw pakketleveringen Klimaatvriendelijk omdat de neutralisatie van de uitstoot in onze service is inbegrepen! Als klant heeft u de mogelijkheid om de meest milieuvriendelijke leveringsoptie te kiezen. Verantwoordelijk e-commerce is nog nooit zo eenvoudig geweest!'
-		// 	productDescipt = 'Klimaatvriendelijke verzending en verpakking'
-		// }
+		let productDescipt = 'Climate friendly shipping'
+		if (lang === 'NL') {
+			// titleText = 'Klimaatvriendelijke verzenden'
+			// paragraphText = 'Met CFD worden uw pakketleveringen Klimaatvriendelijk omdat de neutralisatie van de uitstoot in onze service is inbegrepen! Als klant heeft u de mogelijkheid om de meest milieuvriendelijke leveringsoptie te kiezen. Verantwoordelijk e-commerce is nog nooit zo eenvoudig geweest!'
+			productDescipt = 'Klimaatvriendelijke verzending'
+		}
 
     //shipping tab on product pag
 		let paragraph = `<p>${paragraphText}</p>`
