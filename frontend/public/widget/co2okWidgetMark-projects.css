@@ -34,8 +34,7 @@
     opacity: 1; }
     .co2ok_widget_infobox_container .card-main-header {
       font-size: 28px;
-      font-weight: normal;
-      font-weight: 500;
+      font-weight: bold;
       line-height: 1.75rem;
       margin-bottom: 0px !important;
       margin-left: 75px;
@@ -53,11 +52,9 @@
         left: 14px !important; }
     .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .sub-header {
       font-size: 14px;
-      font-weight: 500;
+      font-weight: normal;
       margin-bottom: 0px !important;
-      line-height: 1.25rem;
       margin-top: 8px !important;
-      margin-bottom: 0px !important;
       line-height: 1rem;
       font-weight: normal;
     }

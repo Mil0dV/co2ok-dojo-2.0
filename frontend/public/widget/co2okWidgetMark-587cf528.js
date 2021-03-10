@@ -2,8 +2,8 @@
 
 let Co2okWidget = {
 
-	SITE_HOST: "https://co2ok.eco",
-	// SITE_HOST: "http://localhost:8080",
+	// SITE_HOST: "https://co2ok.eco",
+	SITE_HOST: "http://localhost:8080",
 
 	getCookieValue: function (a) {
 	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -59,7 +59,7 @@ let Co2okWidget = {
 		`${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_black.png`,
 		`${Co2okWidget.SITE_HOST}/widget/static/logo-gray.png`,
 		`${Co2okWidget.SITE_HOST}/static/logo.png`,
-		`${Co2okWidget.SITE_HOST}/widget/hovercard/logo-gray.png`
+		`${Co2okWidget.SITE_HOST}/static/logo-gray.png`
 
 
 		]
@@ -224,20 +224,20 @@ let Co2okWidget = {
 						<p class="header mobile-hidden co2ok-small" style="color: #43b364;">Pockies's Planet Promise</p>
 					</div>
 
-					<div class="co2ok-widget-wrapper co2ok-small co2ok-header-one co2ok-small" style="padding-top: 4px;">
+					<div class="co2ok-widget-wrapper co2ok-small co2ok-header-one co2ok-small">
 						<img class="png-img-large right-align-img co2ok-box co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_box.png">
 						<p class="sub-header right co2ok-small" style="color: #239DCC;">Duurzame producten</p>
 						<p class="widget-wrapper right widget-text-block left co2ok-small"> ${stepOne} </p>
 					</div>
 
 
-					<div class="co2ok-widget-wrapper co2ok-small">
+					<div class="co2ok-widget-wrapper co2ok-small co2ok-header-two">
 						<p class="sub-header left co2ok-small" style="color: #239DCC;">Neutrale verpakking & verzending</p>
 						<p class="widget-text-block left co2ok-small co2-neutrale" style="min-height: 58px;"> ${stepTwo} </p>
 						<img class="png-img-large left-align-img co2ok-plant co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_seedling.png">
 					</div>
 
-					<div class="co2ok-widget-wrapper co2ok-small">
+					<div class="co2ok-widget-wrapper co2ok-small co2ok-header-three">
 						<img class="png-img-large right-align-img co2ok-tree co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_trees.png">
 						<p class="sub-header right co2ok-small" style="color: #239DCC;">Neutraliseren van de productie</p>
 						<p class="widget-text-block right co2ok-small"> ${stepThree} </p>
@@ -248,7 +248,7 @@ let Co2okWidget = {
 						<p class="co2-project-img-text co2ok-small"> ${imageDesc} </p>
 					</div>
 
-					<span class="usp-button-hovercard-links co2ok-small">
+					<span class="usp-button-hovercard-links co2ok-small" style="height:28px">
 						<img class="usp-logo-hovercard co2ok-small"  target=blank href="http://www.co2ok.eco/co2-compensatie" src="${Co2okWidget.SITE_HOST}/static/logo.png">
 						<a class="usp-co2ok-hovercard-button co2ok-small"  target=blank href="http://www.co2ok.eco/co2-compensatie"> ${button}
 							<img class="usp-branch-png co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/hovercard/branch.png">
@@ -405,16 +405,16 @@ let Co2okWidget = {
 		// 	offset.top -= infoHoverBox.height();
 		}  else if (element_id === '.co2ok-usp-landing') {
 			offset.top -= infoHoverBox.height() / 2;
-			if (y + infoHoverBox.height() / 2 > jQuery(window).height()) {
-				offset.top += ((y + infoHoverBox.height() / 2));
-			}
-			if (y - infoHoverBox.height() / 2  < 0) {
-				offset.top -= (y - infoHoverBox.height() / 2);
-			}
-			if (offset.left + infoHoverBox.width() > jQuery(window).width()) {
-				offset.left -= ((offset.left + infoHoverBox.width()) - jQuery(window).width() + 35) ;
+			// if (y + infoHoverBox.height() / 2 > jQuery(window).height()) {
+			// 	offset.top += ((y + infoHoverBox.height() / 2));
+			// }
+			// if (y - infoHoverBox.height() / 2  < 0) {
+			// 	offset.top -= (y - infoHoverBox.height() / 2);
+			// }
+			// if (offset.left + infoHoverBox.width() > jQuery(window).width()) {
+			// 	offset.left -= ((offset.left + infoHoverBox.width()) - jQuery(window).width() + 35) ;
 
-			}
+			// }
 		} else
 			return ;
 
@@ -517,10 +517,10 @@ let Co2okWidget = {
 			setTimeout(function() { Co2okWidget.manualABSwitch() }, 50);
 		} else {
 			if (co2ok_AB_param == 'show') {
-				console.log('Co2ok ON manually!')
+				console.log('Co2ok ON widget manually!')
 				return true;
 			} else if (co2ok_AB_param == 'hide') {
-				console.log('Co2ok OFF mannually!')
+				console.log('Co2ok OFF widget manually!')
 				return false;
 			} else if (co2ok_AB_test === 0) {
 				return false;
