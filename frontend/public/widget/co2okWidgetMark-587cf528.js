@@ -57,7 +57,6 @@ let Co2okWidget = {
     `${Co2okWidget.SITE_HOST}/widget/pockies/PK_cloud.png`,
 		`${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_white.png`,
 		`${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_black.png`,
-		`${Co2okWidget.SITE_HOST}/widget/static/logo-gray.png`,
 		`${Co2okWidget.SITE_HOST}/static/logo.png`,
 		`${Co2okWidget.SITE_HOST}/static/logo-gray.png`
 
