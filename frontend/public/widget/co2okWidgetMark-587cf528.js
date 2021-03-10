@@ -137,7 +137,7 @@ let Co2okWidget = {
           <img class="co2-usp-img co2ok-usp-landing" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_white.png">
           <div class="text co2ok-usp-landing"><h5>${title}</h5>
           <span class="sub-text co2ok-usp-landing">
-            <p>${sentence}</p>
+            <p class="co2ok-usp-landing">${sentence}</p>
           </span>
           </div>
         </a>
@@ -404,17 +404,17 @@ let Co2okWidget = {
 		// 	}
 		// 	offset.top -= infoHoverBox.height();
 		}  else if (element_id === '.co2ok-usp-landing') {
+			var offsetHold = offset.top;
 			offset.top -= infoHoverBox.height() / 2;
-			// if (y + infoHoverBox.height() / 2 > jQuery(window).height()) {
-			// 	offset.top += ((y + infoHoverBox.height() / 2));
-			// }
-			// if (y - infoHoverBox.height() / 2  < 0) {
-			// 	offset.top -= (y - infoHoverBox.height() / 2);
-			// }
-			// if (offset.left + infoHoverBox.width() > jQuery(window).width()) {
-			// 	offset.left -= ((offset.left + infoHoverBox.width()) - jQuery(window).width() + 35) ;
-
-			// }
+			if (y + infoHoverBox.height() / 2 > jQuery(window).height()) {
+				offset.top = offsetHold - infoHoverBox.height();
+			}
+			if (y - infoHoverBox.height() / 2  < 0) {
+				offset.top -= (y - infoHoverBox.height() / 2) - 80;
+			}
+			if (offset.left + infoHoverBox.width() > jQuery(window).width()) {
+				offset.left -= ((offset.left + infoHoverBox.width()) - jQuery(window).width() + 35) ;
+			}
 		} else
 			return ;
 
