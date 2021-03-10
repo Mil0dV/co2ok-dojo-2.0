@@ -2,8 +2,8 @@
 
 let Co2okWidget = {
 
-	SITE_HOST: "https://co2ok.eco",
-	// SITE_HOST: "http://localhost:8080",
+	// SITE_HOST: "https://co2ok.eco",
+	SITE_HOST: "http://localhost:8080",
 
 	getCookieValue: function (a) {
 	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -124,15 +124,15 @@ let Co2okWidget = {
 	 */
   uspInsertion: function(lang) {
 
-		var title = 'SHOP CLIMATE FRIENDLY';
+		var title = 'CLIMATE FRIENDLY';
 		var sentence = 'We are a proud Climate Friendly Shop';
 		if (lang === 'NL') {
-			title = 'SHOP KLIMAATVRIENDELIJK'
+			title = 'KLIMAATVRIENDELIJK'
 			sentence = 'Wij zijn een trotse klimaatvriendelijke winkel'
 		}
 
 		let uspLandingPage = `
-      <li class="item co2ok-usp-landing" style="padding-left: 0px;">
+      <li class="item co2ok-usp-landing">
         <a class="flex text-left co2ok-usp-landing" style="width: 275px;">
           <img class="co2-usp-img co2ok-usp-landing" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_white.png">
           <div class="text co2ok-usp-landing"><h5>${title}</h5>
@@ -244,7 +244,7 @@ let Co2okWidget = {
 					</div>
 
 					<div class="co2-compensation-projects co2ok-small">
-						<img class="co2-project-img co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/co2_projects.jpg">
+						<img class="co2-project-img co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/co2-projects.jpg">
 						<p class="co2-project-img-text co2ok-small"> ${imageDesc} </p>
 					</div>
 
@@ -405,6 +405,16 @@ let Co2okWidget = {
 		// 	offset.top -= infoHoverBox.height();
 		}  else if (element_id === '.co2ok-usp-landing') {
 			offset.top -= infoHoverBox.height() / 2;
+			if (y + infoHoverBox.height() / 2 > jQuery(window).height()) {
+				offset.top += ((y + infoHoverBox.height() / 2));
+			}
+			if (y - infoHoverBox.height() / 2  < 0) {
+				offset.top -= (y - infoHoverBox.height() / 2);
+			}
+			if (offset.left + infoHoverBox.width() > jQuery(window).width()) {
+				offset.left -= ((offset.left + infoHoverBox.width()) - jQuery(window).width() + 35) ;
+
+			}
 		} else
 			return ;
 

@@ -1,8 +1,8 @@
 .co2ok_widget_infobox_container {
   position: absolute;
   width: 350px;
-  height: 685px;
-  min-height: 685px;
+  height: 662px;
+  min-height: 662px;
   z-index: 99999999999;
 }
 
@@ -80,6 +80,7 @@
       left: 0 !important;
       top: 0 !important;
       position: fixed;
+      bottom: 0 !important;
       width:100vw !important;
       height: 100% !important;
       overflow-y: auto !important;
