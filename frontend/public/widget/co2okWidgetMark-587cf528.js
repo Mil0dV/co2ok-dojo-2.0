@@ -57,7 +57,11 @@ let Co2okWidget = {
     `${Co2okWidget.SITE_HOST}/widget/pockies/PK_cloud.png`,
 		`${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_white.png`,
 		`${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_black.png`,
-		`${Co2okWidget.SITE_HOST}/static/logo-gray.png`
+		`${Co2okWidget.SITE_HOST}/widget/static/logo-gray.png`,
+		`${Co2okWidget.SITE_HOST}/static/logo.png`,
+		`${Co2okWidget.SITE_HOST}/widget/hovercard/logo-gray.png`
+
+
 		]
 
 	  for (img of images) {
@@ -148,7 +152,7 @@ let Co2okWidget = {
   insertUspProductPage: function(lang) {
 
 		let titleText = 'Climate Friendly Shipping'
-		let paragraphText = 'With CFD your parcel deliveries will become Climate Friendly as neutralisation of the emissions is included in our service! As a customer, you have the option to choose the most environmentally friendly delivery option. Responsible e-commerce has never been this simple!'
+		let paragraphText = 'Your purchase is shipped with as little impact on the climate as possible! The emissions that cannot be avoided are fully compensated by Pockies.'
 		let productDescipt = 'Climate friendly shipping and packaging'
 		// if (lang === 'NL') {
 		// 	titleText = 'Klimaatvriendelijke verzenden'
@@ -174,10 +178,8 @@ let Co2okWidget = {
       <div class="htusb-ui-section_0 htusb-ui-prod-static_0 co2ok_product_usp">
 				<div class="htusb-ui-inline co2ok_product_usp">
 					<img class="co2-truck-product-usp" src="${Co2okWidget.SITE_HOST}/widget/co2_truck.png">
-					+
-					<img class="co2-box-product-usp" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_cfp.png">
 				</div>
-      	<div class="htusb-ui-inline co2ok_product_usp">${productDescipt}</div>
+      	<div class="htusb-ui-inline co2ok_product_usp" style="text-decoration: underline;">${productDescipt}</div>
 			</div>
     `
     jQuery(".product__policies").prepend(productIcon)
@@ -196,11 +198,13 @@ let Co2okWidget = {
 		let stepTwo = 'To further their commitment, your purchase is shipped with as little climate impact as possible! The emissions that cannot be avoided are fully compensated by Pockies.';
 		let stepThree = 'Furthermore, CO2ok offers you the possibility to directly offset the CO2 emissions of your purchase with one click. The compensated money goes to CO2 compensation projects of FairClimateFund and Atmosfair that are Gold Standard certified.';
 		let imageDesc = 'Not only the climate benefits: we also realize less deforestation and health benefits through less smoke and toxic carbon monoxide.';
+		let button = 'How we do this'
 		if (lang === 'NL') {
 			stepOne = "Pockies zet zich in om de impact van hun producten op het klimaat te minimaliseren door duurzame, klimaatvriendelijke oplossingen voor hun producten aan te bieden. Wij (CO2ok) helpen ze om de overblijvende CO2-uitstoot nog verder te verminderen.";
 			stepTwo = "Ook wordt je aankoop verzonden met zo weinig mogelijk impact op het klimaat! De uitstoot die niet vermeden kan worden, wordt volledig gecompenseerd door Pockies.";
 			stepThree = "Verder bieden we je de mogelijkheid om de CO2-uitstoot van uw aankoop met één klik direct te compenseren. Het gecompenseerde geld gaat naar CO2 compensatieprojecten van FairClimateFund en Atmosfair die Gold Standard gecertificeerd zijn.";
 			imageDesc = "Niet alleen het klimaat profiteert: we realiseren zo ook minder ontbossing en gezondheidsvoordelen door minder rook en giftige koolmonoxide"
+			button = 'Hoe we dit doen'
 		}
 
     let infoHoverHtml = `
@@ -244,10 +248,12 @@ let Co2okWidget = {
 						<p class="co2-project-img-text co2ok-small"> ${imageDesc} </p>
 					</div>
 
-					<div class="co2ok-logos co2ok-small">
-						<img src="${Co2okWidget.SITE_HOST}/static/logo.png" href="https://www.co2ok.eco/projects" class="co2ok-logo co2ok-small">
-						<img class="feat-company-logo co2ok-small" style="width: 18%;" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_logo.png">
-					</div>
+					<span class="usp-button-hovercard-links co2ok-small">
+						<img class="usp-logo-hovercard co2ok-small"  target=blank href="http://www.co2ok.eco/co2-compensatie" src="${Co2okWidget.SITE_HOST}/static/logo.png">
+						<a class="usp-co2ok-hovercard-button co2ok-small"  target=blank href="http://www.co2ok.eco/co2-compensatie"> ${button}
+							<img class="usp-branch-png co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/hovercard/branch.png">
+						</a>
+				</span>
 
 				</div>
 			</div>
