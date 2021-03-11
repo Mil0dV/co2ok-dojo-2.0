@@ -523,6 +523,7 @@ Co2okWidget.manualABSwitch()
     Co2okWidget.loadResources()
 		.then(_  => Co2okWidget.jQueryLoadDefer())
   } else {
+	Co2okWidget.loadResources()
     return
   }
 })
