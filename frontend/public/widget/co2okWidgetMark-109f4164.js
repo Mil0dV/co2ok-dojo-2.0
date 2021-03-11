@@ -17,7 +17,7 @@ let Co2okWidget = {
 		});
 	},
 
-	loadResources: async function () {
+	loadResources: function () {
 		//css for trustmark
 		var fileref=document.createElement("link")
 		fileref.setAttribute("rel", "stylesheet")
@@ -55,7 +55,7 @@ let Co2okWidget = {
 		]
 
 	  for (var img of images) {
-			result = await this.preloadImage(img)
+			this.preloadImage(img)
 	  }
 	},
 
@@ -131,7 +131,7 @@ let Co2okWidget = {
 		} else {
 			let menuIconHtml = `
 				<li id="item_b3fd8670-f170-4425-9814-e36fdd7c7563" class="menu-item type_simple co2ok-usp-menu-hover co2ok-usp-menu co2ok-usp-desktop">
-					<a class="lh__1 flex al_center pr co2ok-usp-menu" target="_self">
+					<a class="lh__1 flex al_center pr co2ok-usp-menu" target="_self" style="padding-left: 0px;padding-right: 0px;">
 						<i class="las la-heart co2ok-usp-menu"></i>
 						Shop klimaatvriendelijk
 					</a>
@@ -177,6 +177,7 @@ let Co2okWidget = {
 		var stepTwo = `Jouw aankoop wordt met zo min mogelijk klimaatimpact verzonden, vaak zelfs zonder verpakking! De uitstoot die niet kan worden voorkomen, wordt volledig gecompenseerd door Woonliving. Daarnaast hebben ze nu al <strong>${treeTotal}</strong> bomen geplant met Trees for All!`;
 		var stepThree = "Verder bieden wij (CO2ok) je de mogelijkheid om met één klik direct de CO2 uitstoot van je aankoop te compenseren. Het geld dat je hiervoor betaalt gaat naar CO2 compensatieprojecten van FairClimateFund en Atmosfair die Gold Standard gecertificeerd zijn.";
 		var imageDesc = "Niet alleen het klimaat profiteert: we realiseren zo ook minder ontbossing en gezondheidsvoordelen door minder rook en giftige koolmonoxide"
+		var button = 'Hoe we dit doen'
 
     	let infoHoverHtml = `
 
@@ -195,20 +196,20 @@ let Co2okWidget = {
 						<p class="co2ok-header mobile-hidden co2ok-small" style="color: #00B67A; margin-bottom: 0px;">Woonliving's Planet Promise</p>
 					</div>
 
-					<div class="co2ok-widget-wrapper co2ok-small co2ok-header-one co2ok-small" style="padding-top: 4px;">
+					<div class="co2ok-widget-wrapper co2ok-small co2ok-header-one co2ok-small">
 						<img class="png-img-large right-align-img co2ok-box co2ok-small" src="${this.SITE_HOST}/widget/woonliving/WL_box.png">
 						<p class="sub-header right co2ok-small" style="color: #239DCC;">Duurzame producten</p>
 						<p class="widget-wrapper right widget-text-block left co2ok-small"> ${stepOne} </p>
 					</div>
 
 
-					<div class="co2ok-widget-wrapper co2ok-small">
+					<div class="co2ok-widget-wrapper co2ok-header-two co2ok-small">
 						<p class="sub-header left co2ok-small" style="color: #239DCC;">Neutrale verpakking & verzending</p>
 						<p class="widget-text-block left co2ok-small co2-neutrale" style="min-height: 58px;"> ${stepTwo} </p>
 						<img class="png-img-large left-align-img co2ok-plant co2ok-small" src="${this.SITE_HOST}/widget/woonliving/WL_seedling.png">
 					</div>
 
-					<div class="co2ok-widget-wrapper co2ok-small">
+					<div class="co2ok-widget-wrapper co2ok-header-three co2ok-small">
 						<img class="png-img-large right-align-img co2ok-tree co2ok-small" src="${this.SITE_HOST}/widget/woonliving/WL_trees.png">
 						<p class="sub-header right co2ok-small" style="color: #239DCC;">Neutraliseren van de productie</p>
 						<p class="widget-text-block right co2ok-small"> ${stepThree} </p>
@@ -219,9 +220,12 @@ let Co2okWidget = {
 						<p class="co2-project-img-text co2ok-small"> ${imageDesc} </p>
 					</div>
 
-					<div class="co2ok-logos co2ok-small">
-						<img src="${this.SITE_HOST}/static/logo.png" href="https://www.co2ok.eco/projects" class="co2ok-logo co2ok-small">
-					</div>
+					<span class="usp-button-hovercard-links co2ok-small" style="height:28px">
+						<img class="usp-logo-hovercard co2ok-small"  target=blank href="http://www.co2ok.eco/co2-compensatie" src="${this.SITE_HOST}/static/logo.png">
+						<a class="usp-co2ok-hovercard-button co2ok-small"  target=blank href="http://www.co2ok.eco/co2-compensatie"> ${button}
+							<img class="usp-branch-png co2ok-small" src="${this.SITE_HOST}/widget/hovercard/branch.png">
+						</a>
+					</span>
 
 				</div>
 			</div>
@@ -269,11 +273,10 @@ let Co2okWidget = {
 	  widgetcontainer.innerHTML = widgetmark
 	  this.RegisterWidgetInfoBox();
 
-		//if on product page, insert XL widget as well
-		// if (window.location.toString().includes('products')) {
-		// 	Co2okWidget.widgetXLGenerator(totalCompensatedData);
-
-		// }
+		// if on product page, insert XL widget as well
+		if (window.location.toString().includes('products')) {
+			Co2okWidget.widgetXLGenerator(totalCompensatedData);
+		}
 	},
 
 	/** Inserts pharagraph and impact calc on product page */
@@ -299,14 +302,14 @@ let Co2okWidget = {
 
 		let paragraph2 = `
 			<div class='co2ok-usp-section' style="display: flex; width: 95%; padding-bottom: 16px;" >
-				<p class="co2ok-paragraph" style="display: flex;">
+				<p style="display: flex;">
 					We bieden jou de kans om met één klik op de knop direct de productie uitstoot van je aankoop te compenseren. 
 					Het geld dat je hiervoor betaalt gaat naar CO2 compensatieprojecten van oa FairClimateFund. 
 					Klik <a style="display:contents;"href="https://www.atmosfair.de/en/climate-protection-projects" target=_\"blank\">hier</a> als je wilt weten waar je geld naar toe gaat. In de tool hiernaast kun je zien hoe groot onze gezamenlijke impact al is!
 				</p>
-				<div id='widgetContainerXL' class="co2ok-impact-calc" style='margin-top:-30px;margin-left: 50px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>
-			</div>
-		`
+				</div>
+				`
+				// <div id='widgetContainerXL' class="co2ok-impact-calc" style='margin-top:-30px;margin-left: 50px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>
 		let widgetmark = `
 			<div class="large-widget">
 			<span class ="large-widget-right-green"></span>
@@ -320,11 +323,19 @@ let Co2okWidget = {
 		`
 
 
-		let insertPoint = jQuery(".sp-tab-content").eq(2).children().prev().eq(6);
+		let insertPoint1 = jQuery(".sp-tab-content").eq(2).children().prev().eq(6);
 		// console.log("hello there love", jQuery(".sp-tab-content").eq(2).children().prev().eq(6));
-		jQuery(paragraph1).insertBefore(insertPoint);
-		jQuery(paragraph2).insertAfter(insertPoint);
-		// jQuery("<div id='widgetContainerXL' style='margin-top:-8px;margin-left: 50px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").append(paragraph2);
+		jQuery(paragraph1).insertBefore(insertPoint1);
+		let insertPoint2 = jQuery(".sp-tab-content").eq(2).children().prev().eq(9);
+		jQuery(paragraph2).insertAfter(insertPoint2);
+
+		let adjustParagraph = jQuery(".sp-tab-content").eq(2).children().prev().eq(8);
+		adjustParagraph.css({display: "flex", width: "70%"});
+		adjustParagraph.addClass('co2ok-paragraph');
+		let adjustParagraph2 = jQuery(".sp-tab-content").eq(2).children().prev().eq(9);
+		adjustParagraph2.css({display: "flex", width: "70%"});
+		adjustParagraph2.addClass('co2ok-paragraph');
+		jQuery("<div id='widgetContainerXL' class='co2ok-impact-calc' style='float: right;margin-top: -5.5%;margin-left: 50px;margin-right:85px;width:250px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").insertAfter(jQuery(".sp-tab-content").eq(2).children().prev().eq(8));
 
 		let widgetcontainer = document.getElementById('widgetContainerXL')
 		widgetcontainer.innerHTML = widgetmark;
@@ -527,4 +538,3 @@ Co2okWidget.manualABSwitch()
     return
   }
 })
-

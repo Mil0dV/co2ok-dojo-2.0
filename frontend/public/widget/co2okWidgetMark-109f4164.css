@@ -1,9 +1,47 @@
 /*Woonliving**/
 
+.co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-one {
+  height: 120px;
+}
+.co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-two {
+  height: 110px;
+}
+.co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-three {
+  height: 124px;
+}
+
+.usp-logo-hovercard {
+	margin-top: 7px;
+}
+
+.co2ok_widget_infobox_container .co2ok-widget-content .left-align-img {
+	margin-top: -80px;
+}
+
+.no-gutters > .ha8_nav {
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+}
+
 /*product page usp tablet/mobile handler*/
-@media (max-width: 850px) {
+@media (max-width: 1410px) {
 	.co2ok-paragraph {
-		width: 100%;
+		width: 65% !important;
+	}
+	.co2ok-impact-calc {
+		margin-top: -7.5% !important;
+	}
+}
+
+@media (max-width: 1140px) {
+	.co2ok-paragraph {
+		width: 60% !important;
+	}
+}
+
+@media(max-width: 1040px) {
+	.co2ok-paragraph {
+		width: 100% !important;
 	}
 	.co2ok-usp-section {
 		flex-direction: column;
@@ -12,4 +50,22 @@
 		width: 100% !important;
 		margin: 8px auto !important;
 	}
+}
+
+@media(max-width: 450px) {
+	.co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-one {
+    height: 135px;
+	}
+	.co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-two {
+    height: 114px;
+	}
+	.co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-three {
+    height: 117px;
+	}
+}
+
+@media (max-width: 380px) {
+	.co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-one {
+    height: 145px;
+  }
 }

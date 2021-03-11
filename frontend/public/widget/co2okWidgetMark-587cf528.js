@@ -187,10 +187,16 @@ let Co2okWidget = {
 
 	/** Edits text of marquee at top of webpage */
 	marqueeInsertion: function (lang) {
-    let newMarqueeText = "CLIMATE FRIENDLY SHIPPING 💚: free over €50, otherwise €4.99 (all countries)"
+		let newMarqueeText;
+		let innerHTML;
 		if (lang == 'NL') {
-			newMarqueeText = "KLIMAATVRIENDELIJKE VERZENDING 💚: gratis boven €50, anders €4,99 (alle landen)"
+			innerHTML = jQuery(".middle-hdr").html().split('vanaf');
+			newMarqueeText = "KLIMAATVRIENDELIJKE VERZENDING 💚: Gratis vanaf " + innerHTML[1];
+		} else {
+			innerHTML = jQuery(".middle-hdr").html().split('over');
+			newMarqueeText = "CLIMATE FRIENDLY SHIPPING 💚: Free over " + innerHTML[1];
 		}
+
     jQuery(".middle-hdr").html(newMarqueeText)
 	},
 
@@ -255,7 +261,7 @@ let Co2okWidget = {
 						<a class="usp-co2ok-hovercard-button co2ok-small"  target=blank href="http://www.co2ok.eco/co2-compensatie"> ${button}
 							<img class="usp-branch-png co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/hovercard/branch.png">
 						</a>
-				</span>
+					</span>
 
 				</div>
 			</div>
