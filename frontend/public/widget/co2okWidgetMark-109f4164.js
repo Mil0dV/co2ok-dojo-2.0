@@ -532,9 +532,9 @@ Co2okWidget.manualABSwitch()
 .then(abSwitch => {
   if (abSwitch === true) {
     Co2okWidget.loadResources()
-		.then(_  => Co2okWidget.jQueryLoadDefer())
+		Co2okWidget.jQueryLoadDefer()
   } else {
-	Co2okWidget.loadResources()
+		Co2okWidget.loadResources()
     return
   }
 })
