@@ -186,8 +186,11 @@ let Co2okWidget = {
   },
 
 	/** Edits text of marquee at top of webpage */
-	marqueeInsertion: function () {
-    newMarqueeText = "CLIMATE FRIENDLY SHIPPING 💚: free over €50, otherwise €4.99 (all countries)"
+	marqueeInsertion: function (lang) {
+    let newMarqueeText = "CLIMATE FRIENDLY SHIPPING 💚: free over €50, otherwise €4.99 (all countries)"
+		if (lang == 'NL') {
+			newMarqueeText = "KLIMAATVRIENDELIJKE VERZENDING 💚: gratis boven €50, anders €4,99 (alle landen)"
+		}
     jQuery(".middle-hdr").html(newMarqueeText)
 	},
 
@@ -306,10 +309,10 @@ let Co2okWidget = {
 	  widgetcontainer.innerHTML = widgetmark
 	  Co2okWidget.RegisterWidgetInfoBox();
 
-		//places impact cal on mvo page
-		if (window.location.toString().includes('mvo')) {
-			Co2okWidget.widgetGenerator(totalCompensatedData, lang)
-		}
+		// //places impact cal on mvo page
+		// if (window.location.toString().includes('mvo')) {
+		// 	Co2okWidget.widgetGenerator(totalCompensatedData, lang)
+		// }
 	},
 
 	//XL impact calc widget
@@ -531,7 +534,6 @@ let Co2okWidget = {
 
 	jQueryLoadDefer: function() {
     if (window.jQuery) {
-			Co2okWidget.marqueeInsertion();
 			let lang = 'EN'
 			if (window.location.toString().includes('nl')) {
 				lang = 'NL';
@@ -539,6 +541,7 @@ let Co2okWidget = {
       if (window.location.toString().includes('products')) {
 				Co2okWidget.insertUspProductPage(lang);
       }
+			Co2okWidget.marqueeInsertion(lang);
       Co2okWidget.uspInsertion(lang);
 			// Co2okWidget.cfsTrustMarkInsertion();
       Co2okWidget.insertHovercardHTML(lang);

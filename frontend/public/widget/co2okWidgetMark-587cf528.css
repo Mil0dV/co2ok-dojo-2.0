@@ -2,8 +2,8 @@
   position: absolute;
   width: 350px;
   min-width: 350px;
-  height: 705px;
-  min-height: 705px;
+  height: 700px;
+  min-height: 700px;
   z-index: 99999999999;
 }
 
@@ -13,7 +13,9 @@
   padding: 0px 0px 0px 0px; }
 
 .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .sub-header {
-  padding-top: 8px !important; }
+  /* padding-top: 12px !important; */
+  margin-top: 8px !important;
+}
 
 .co2ok_widget_infobox_container .co2-compensation-projects .co2-project-img-text {
   line-height: 12px;}
@@ -25,12 +27,17 @@
   margin-top: 32px;
 }
 .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-one {
-  height: 126px}
+  height: 120px}
 .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-two {
   height: 98px; }
 .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-three {
   height: 126px; }
+/* to here*/
 
+
+.co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .co2ok-tree {
+    margin-top: 36px;
+}
 
 .co2-usp-img {
   font-size:42px;
