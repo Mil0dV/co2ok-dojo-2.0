@@ -1,6 +1,5 @@
 //VELA
 
-//Woonliving trustmark
 let Co2okWidget = {
 
 	// SITE_HOST: "https://co2ok.eco",
@@ -19,7 +18,7 @@ let Co2okWidget = {
 		});
 	},
 
-	loadResources: async function () {
+	loadResources: function () {
 		//css for trustmark
 		var fileref=document.createElement("link")
 		fileref.setAttribute("rel", "stylesheet")
@@ -40,7 +39,7 @@ let Co2okWidget = {
 		var fileref=document.createElement("link")
 		fileref.setAttribute("rel", "stylesheet")
 		fileref.setAttribute("type", "text/css")
-		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetmark-defaultProjects.css`)
+		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetmark-defaultUsp.css`)
 		document.getElementsByTagName("head")[0].appendChild(fileref)
 
 	  	var images = [`${this.SITE_HOST}/widget/cfs.png`,
@@ -58,7 +57,7 @@ let Co2okWidget = {
 		]
 
 	  for (var img of images) {
-			result = await this.preloadImage(img)
+			result = this.preloadImage(img)
 	  }
 	},
 
@@ -149,6 +148,7 @@ let Co2okWidget = {
 		let titleThree = "Neutralizing production"
     let stepThree = "We (CO2ok) offset the CO2 emissions of your purchase. The compensated money goes to CO2 Gold Standard certified compensation projects: FairClimateFund and Atmosfair.";
 		let imageDesc = "Not only the climate benefits: we also realize less deforestation and increased health benefits through less smoke and toxic carbon monoxide"
+		let button = "How we do this";
 
     let infoHoverHtml = `
 
@@ -191,9 +191,12 @@ let Co2okWidget = {
 						<p class="co2-project-img-text co2ok-small"> ${imageDesc} </p>
 					</div>
 
-					<div class="co2ok-logos co2ok-small">
-						<img src="${this.SITE_HOST}/static/logo.png" href="https://www.co2ok.eco/projects" target="_blank" class="co2ok-logo co2ok-small">
-					</div>
+					<span class="default-button-hovercard-links co2ok-small" style="height:28px">
+						<img class="default-logo-hovercard co2ok-small"  target=blank href="http://www.co2ok.eco/co2-compensatie" src="${Co2okWidget.SITE_HOST}/static/logo.png">
+						<a class="default-co2ok-hovercard-button co2ok-small"  target=blank href="http://www.co2ok.eco/co2-compensatie"> ${button}
+							<img class="default-branch-png co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/hovercard/branch.png">
+						</a>
+					</span>
 
 				</div>
 			</div>
@@ -450,21 +453,22 @@ let Co2okWidget = {
 		let co2ok_AB_test = JSON.parse(localStorage.getItem('co2ok_ab_hide'));
 
 		//if co2okButton.js isn't loaded, we defer
-		if (co2ok_AB_test === null) {
-			setTimeout(function() { Co2okWidget.manualABSwitch() }, 50);
-		} else {
-			// if (co2ok_AB_param == 'show') {
-			// 	console.log('Co2ok ON manually!')
-			// 	return true;
+		// if (co2ok_AB_test === null) {
+		// 	setTimeout(function() { Co2okWidget.manualABSwitch() }, 50);
+		// } else {
+			if (co2ok_AB_param == 'show') {
+				console.log('Co2ok ON manually!')
+				return true;
+			}
 			// } else if (co2ok_AB_param == 'hide') {
 			// 	console.log('Co2ok OFF mannually!')
 			// 	return false;
 			// } else if (co2ok_AB_test === 0) {
 			// 	return false;
 			// }
-			return true;
-		}
-    return true;
+			// return true;
+		// }
+    return false;
 
 	},
 
@@ -485,8 +489,8 @@ let Co2okWidget = {
 Co2okWidget.manualABSwitch()
 .then(abSwitch => {
   if (abSwitch === true) {
-    Co2okWidget.loadResources()
-		.then(_  => Co2okWidget.jQueryLoadDefer())
+    Co2okWidget.loadResources();
+		Co2okWidget.jQueryLoadDefer();
   } else {
     return
   }

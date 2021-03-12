@@ -116,25 +116,52 @@
     padding-bottom: 16px; }
   .co2ok_widget_infobox_container .co2ok-logos a {
     text-decoration: underline; }
-  .co2ok_widget_infobox_container .co2ok-logos .co2ok-logo {
-    position: absolute;
-    bottom: 4px;
-    width: 15%;
-    right: 18px; }
-  .co2ok_widget_infobox_container .co2ok-logos .feat-company-logo {
-    position: absolute;
-    width: 26%;
-    left: 16px; }
-  .co2ok_widget_infobox_container .co2ok-logos .treesforall-logo {
-    position: absolute;
-    width: 24%;
-    left: 38%;
-    margin-top: -8px; }
   .co2ok_widget_infobox_container img, .co2ok_widget_infobox_container span {
     display: inline-block;
     vertical-align: middle;
     color: #979797;
     padding: 0px; }
+
+  /*button&logo at bottom*/
+  .default-button-hovercard-links {
+    width: 100%;
+    text-align: center;
+    margin-top: -6px;
+    padding-top: 16px;
+    display: flex; }
+  .default-logo-hovercard {
+    position: absolute;
+    margin-top: 5px;
+    width: 15%;
+    left: 32px; }
+  .default-co2ok-hovercard-button {
+    margin: auto !important;
+    text-decoration: none !important;
+    color: black !important;
+    border: 2px solid #D9D7D7 !important;
+    font-family: Roboto, sans-serif !important;
+    background: white;
+    border-radius: 5px !important;
+    text-align: center !important;
+    width: 42%;
+    display: block;
+    padding: 3px !important;
+    font-style: italic !important;
+    font-size: 13px !important;
+    font-weight: normal !important; }
+  .default-co2ok-hovercard-button:hover {
+    color: black !important;
+    opacity: 1 !important;
+    font-weight: normal !important;
+    text-decoration: none !important;
+  }
+  .default-branch-png {
+    width: 26%;
+    position: absolute;
+    right: 48px;
+    bottom: -8px;
+    transform: rotate(-56deg);
+    z-index: -1; }
 
 
 /*mobile settings*/
@@ -208,6 +235,22 @@
     .co2ok_widget_infobox_container .co2ok-widget-content .treesforall-logo {
       position: absolute;
       bottom: 0; }
+    .default-branch-png {
+      width: 51%;
+      right: -57px;
+      position: absolute;
+      bottom: -21px; }
+    .default-logo-hovercard {
+      left: 16px;
+      position: absolute;
+      bottom: 0px; }
+    .default-button-hovercard-links {
+      margin-top: 8px; }
+    .default-co2ok-hovercard-button {
+      position: absolute;
+      bottom: 0px;
+      width: 36%;
+      left: 30%; }
 }
 
 @media (max-width: 450px) {
@@ -221,6 +264,10 @@
     margin-top: 17px; }
   .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .co2ok-tree {
     margin-top: 8px;  }
+  .default-branch-png {
+    width: 58%;
+    right: -53px;
+    bottom: -19px; }
 }
 
 @media (max-height: 730px) {
@@ -228,7 +275,9 @@
     bottom: auto !important; }
   .co2ok_widget_infobox_container .co2ok-widget-content .feat-company-logo {
     bottom: auto !important; }
-  .co2ok_widget_infobox_container .co2ok-widget-content .treesforall-logo {
+  .default-co2ok-hovercard-button {
+    bottom: auto !important; }
+  .default-logo-hovercard {
     bottom: auto !important; }
 }
 
@@ -254,7 +303,11 @@
     margin-top: 16px;
     width: 20%;
     bottom: auto; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-logos {
-      position: initial;
-    }
+}
+
+@media (max-width: 350px) {
+  .default-branch-png {
+    right: -41px;
+    bottom: -11px;
+  }
 }
