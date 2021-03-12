@@ -41,6 +41,11 @@ let Co2okWidget = {
 		fileref.setAttribute("type", "text/css")
 		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetmark-defaultUsp.css`)
 		document.getElementsByTagName("head")[0].appendChild(fileref)
+		var fileref=document.createElement("link")
+		fileref.setAttribute("rel", "stylesheet")
+		fileref.setAttribute("type", "text/css")
+		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetmark-1d99b56c.css`)
+		document.getElementsByTagName("head")[0].appendChild(fileref)
 
 	  	var images = [`${this.SITE_HOST}/widget/cfs.png`,
 			`${this.SITE_HOST}/widget/hovercard/CO_world.png`,
@@ -136,7 +141,6 @@ let Co2okWidget = {
 		let marquee = jQuery("#fs-progress");
 		let marqueeText = `, always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i>`
 		marquee[0].innerHTML += marqueeText
-
 	},
 
 	insertHovercardHTML: function () {
@@ -247,13 +251,13 @@ let Co2okWidget = {
     widgetcontainer.innerHTML = widgetmark;
 
 		// if on product page, insert trustmark widget as well
-		if (window.location.toString() === "https://velaapparel.com/") {
-			Co2okWidget.widgetXLGenerator(compensationAmount);
+		if (window.location.toString() === "https://velaapparel.com/" || window.location.toString() === "https://velaapparel.com/?co2ok_ab=show") {
+			Co2okWidget.widgetTrustmarkGenerator(compensationAmount);
 		}
 	},
 
 	/** Inserts pharagraph and impact calc on product page */
-	widgetXLGenerator: function(compensationAmount) {
+	widgetTrustmarkGenerator: function(compensationAmount) {
 
     let paragraph = `
       <p>
@@ -275,7 +279,7 @@ let Co2okWidget = {
 
 		`
 
-		let trustMarkInsertion = jQuery("#row-1890224791")
+		var trustMarkInsertion = document.getElementById("col-1640670198");
 		console.log(" yooo ", trustMarkInsertion);
 
 		jQuery("<div id='widgetContainer' style='width:180px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").prepend(document.getElementById("col-1755092682"))
