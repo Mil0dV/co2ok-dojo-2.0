@@ -58,6 +58,7 @@ let Co2okWidget = {
 		`${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_white.png`,
 		`${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_black.png`,
 		`${Co2okWidget.SITE_HOST}/static/logo.png`,
+		`${this.SITE_HOST}/widget/hovercard/co2-projects.jpg`,
 		`${Co2okWidget.SITE_HOST}/static/logo-gray.png`
 
 
@@ -252,7 +253,7 @@ let Co2okWidget = {
 					</div>
 
 					<div class="co2-compensation-projects co2ok-small">
-						<img class="co2-project-img co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/co2-projects.jpg">
+						<img class="co2-project-img co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/hovercard/co2-projects.jpg">
 						<p class="co2-project-img-text co2ok-small"> ${imageDesc} </p>
 					</div>
 

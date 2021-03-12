@@ -80,6 +80,7 @@ let Co2okWidgetXL = {
 	  `${this.SITE_HOST}/widget/woonliving/WL_trees.png`,
 		`${this.SITE_HOST}/widget/woonliving/WL_logo.png`,
 		`${this.SITE_HOST}/widget/woonliving/logotrees.png`
+    `${this.SITE_HOST}/widget/hovercard/co2-projects.jpg`
 		]
 
 
