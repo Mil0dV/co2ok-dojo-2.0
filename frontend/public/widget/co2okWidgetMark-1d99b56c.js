@@ -2,8 +2,8 @@
 
 let Co2okWidget = {
 
-	// SITE_HOST: "https://co2ok.eco",
-	SITE_HOST: "http://localhost:8080",
+	SITE_HOST: "https://co2ok.eco",
+	// SITE_HOST: "http://localhost:8080",
 
 	getCookieValue: function (a) {
 	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -454,7 +454,7 @@ let Co2okWidget = {
 		// Manual AB-switch
 		var urlParams = new URLSearchParams(window.location.search);
 		var co2ok_AB_param = urlParams.get('co2ok_ab');
-		let co2ok_AB_test = JSON.parse(localStorage.getItem('co2ok_ab_hide'));
+		// let co2ok_AB_test = JSON.parse(localStorage.getItem('co2ok_ab_hide'));
 
 		//if co2okButton.js isn't loaded, we defer
 		// if (co2ok_AB_test === null) {
