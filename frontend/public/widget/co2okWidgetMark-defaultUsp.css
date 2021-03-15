@@ -18,7 +18,7 @@
 .co2ok_widget_infobox_container {
   position: absolute;
   width: 350px;
-  height: 630px;
+  height: 646px;
   background: white;
   border-radius: 15px;
   box-sizing: border-box;
@@ -56,6 +56,15 @@
         margin-top: -6px !important;
         width: 20%;
         left: 14px !important; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-one {
+      height: 100px;
+    }
+    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-two {
+      height: 104px;
+    }
+    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-three {
+      height: 104px;
+    }
     .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .sub-header {
       color: #1F7837;
       font-size: 14px;

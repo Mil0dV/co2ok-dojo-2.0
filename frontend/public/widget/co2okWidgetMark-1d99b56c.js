@@ -178,13 +178,13 @@ let Co2okWidget = {
 					</div>
 
 
-					<div class="co2ok-widget-wrapper co2ok-small">
+					<div class="co2ok-widget-wrapper co2ok-small co2ok-header-two">
 						<p class="sub-header left co2ok-small">${titleTwo}</p>
 						<p class="widget-text-block left co2ok-small co2-neutrale" style="min-height: 58px;"> ${stepTwo} </p>
 						<img class="png-img-large left-align-img co2ok-plant co2ok-small" src="${this.SITE_HOST}/widget/hovercard/CO_seedling.png">
 					</div>
 
-					<div class="co2ok-widget-wrapper co2ok-small">
+					<div class="co2ok-widget-wrapper co2ok-small co2ok-header-three">
 						<img class="png-img-large right-align-img co2ok-tree co2ok-small" src="${this.SITE_HOST}/widget/hovercard/CO_trees.png">
 						<p class="sub-header right co2ok-small">${titleThree}</p>
 						<p class="widget-text-block right co2ok-small"> ${stepThree} </p>
@@ -278,12 +278,26 @@ let Co2okWidget = {
 			</div>
 
 		`
+		let newRowHtml = `
+			<div class="row" id="row-co2ok" style="width: 55%">
+				<div id="col-co2ok" class="col small-12 large-12">
+					<div class="col-inner">
+						<h3 class="lead" data-padding="5px"><em><span style="font-weight: 400; font-family: tofino; font-size: 65%;" data-line-height="1rem">
+							Vela is comitted to minimizing their climate impact by offering sustainable, climate friendly solutions for their products.
+							To further their commitment, your purchase will be shipped with as little climate impact as possible!</span></em></h3>
+						<div id='widgetContainer' style='width:180px;height:auto;display:flex;flex-direction:row;justify-content:right;float: right;'></div>
+					</div>
+				</div>
+			</div>`
 
-		var trustMarkInsertion = document.getElementById("col-1640670198");
-		console.log(" yooo ", trustMarkInsertion);
+		var sectionCss = jQuery("#main").find('section:eq(1)').find('div:eq(1)');
+		sectionCss.css({display: "flex", "flex-direction": "row", "width": "90%", "margin": "auto"});
 
-		jQuery("<div id='widgetContainer' style='width:180px;height:auto;display:flex;flex-direction:row;justify-content:center;align-items:center;'></div>").prepend(document.getElementById("col-1755092682"))
+		var trustMarkInsertion = jQuery("#main").find('section:eq(1)').find('div:eq(1)').find('div:eq(0)');
+
+		jQuery(newRowHtml).insertAfter(trustMarkInsertion)
 	  let widgetcontainer = document.getElementById('widgetContainer')
+
 	  // Don't try to place widget if there is no container
 	  if(widgetcontainer == null){
 			return
@@ -313,7 +327,7 @@ let Co2okWidget = {
 
     infoHoverBox.remove();
 		jQuery("body").append(infoHoverBox);
-    console.log("element id", element_id);
+
     if (element_id === ".widget-large") {
       offset.left -= infoHoverBox.width() / 2;
       if ( offset.left < 0) offset.left = 10;
@@ -322,17 +336,8 @@ let Co2okWidget = {
         offset.top = offset.top + (infoHoverBox.height() + elementBox.width() / 2) + 6;
       }
     } else if (element_id == '.widget-small') {
-			offset.left -= infoHoverBox.width() / 4;
-			if (windowWidth <= 800)
-		  	offset.top += elementBox.height() * 4;
-			if (offset.top < jQuery(window).height()) {
-				offset.top += infoHoverBox.height();
-			}
-			//protection for hovercard clipping off window
-			if (y + infoHoverBox.height() > jQuery(window).height()) {
-				offset.top -= (y + infoHoverBox.height()) - jQuery(window).height();
-				offset.top -= 30;
-			}
+			offset.left -= infoHoverBox.width() / 2;
+			offset.top -= infoHoverBox.height();
 		} else if (element_id == '.cfs_hover_target') {
 			offset.left -= infoHoverBox.width() / 2;
 			if (offset.left < 0) {
