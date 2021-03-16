@@ -81,7 +81,7 @@ let Co2okWidget = {
 
 		// let host = 'http://127.0.0.1:8000'
 		let host = 'https://app.co2ok.eco'
-		xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=519dc2a3`, true)
+		xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=1d99b56c`, true)
 		//    xhr.withCredentials = true;
 		  xhr.onreadystatechange = function(){
 			  if (this.readyState == 4 && this.status == 200){
@@ -501,6 +501,7 @@ Co2okWidget.manualABSwitch()
     Co2okWidget.loadResources();
 		Co2okWidget.jQueryLoadDefer();
   } else {
+		Co2okWidget.loadResources()
     return
   }
 })

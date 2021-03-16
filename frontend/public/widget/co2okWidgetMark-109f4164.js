@@ -75,7 +75,7 @@ let Co2okWidget = {
 
 		// let host = 'http://127.0.0.1:8000'
 		let host = 'https://app.co2ok.eco'
-		xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=519dc2a3`, true)
+		xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=109f4164`, true)
 		//    xhr.withCredentials = true;
 		  xhr.onreadystatechange = function(){
 			  if (this.readyState == 4 && this.status == 200){
@@ -170,7 +170,7 @@ let Co2okWidget = {
 		// let treeTotal = Co2okWidget.getTreeTotal();
 		// // let  treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
 		// if (treeTotal === 0 ) {
-		 let treeTotal = 159;
+		 let treeTotal = 163;
 		// }
 
 		var stepOne = "Woonliving werkt samen met de beste en onafhankelijke designers en meubelmakers. Geen tussenpersonen en geen winkels waardoor de keten duurzamer is.  Je kunt in de webshop zien hoe milieubewust een product is, zo helpen ze je een duurzame keuze te maken.";

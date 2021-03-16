@@ -18,7 +18,7 @@ let Co2okWidget = {
 		});
 	},
 
-	loadResources: async function () {
+	loadResources: function () {
 		//css for impact calc / XL widget
 		var fileref=document.createElement("link")
 		fileref.setAttribute("rel", "stylesheet")
@@ -65,7 +65,7 @@ let Co2okWidget = {
 		]
 
 	  for (img of images) {
-			result = await Co2okWidget.preloadImage(img)
+			result = Co2okWidget.preloadImage(img)
 	  }
 	},
 
@@ -85,7 +85,7 @@ let Co2okWidget = {
 
 		// let host = 'http://127.0.0.1:8000'
 		let host = 'https://app.co2ok.eco'
-		xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=519dc2a3`, true)
+		xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=587cf528`, true)
 		//    xhr.withCredentials = true;
 		  xhr.onreadystatechange = function(){
 			  if (Co2okWidget.readyState == 4 && Co2okWidget.status == 200){
@@ -177,7 +177,7 @@ let Co2okWidget = {
     let productIcon = `
       <div class="htusb-ui-section_0 htusb-ui-prod-static_0 co2ok_product_usp">
 				<div class="htusb-ui-inline co2ok_product_usp">
-					<img class="co2-truck-product-usp" src="${Co2okWidget.SITE_HOST}/widget/co2_truck.png">
+					<img class="co2-truck-product-usp co2ok_product_usp" src="${Co2okWidget.SITE_HOST}/widget/co2_truck.png">
 				</div>
       	<div class="htusb-ui-inline co2ok_product_usp" style="text-decoration: underline;">${productDescipt}</div>
 			</div>
@@ -564,9 +564,10 @@ let Co2okWidget = {
 Co2okWidget.manualABSwitch()
 .then(abSwitch => {
   if (abSwitch === true) {
-    Co2okWidget.loadResources()
-		.then(_  => Co2okWidget.jQueryLoadDefer())
+    Co2okWidget.loadResources();
+		Co2okWidget.jQueryLoadDefer();
   } else {
+		Co2okWidget.loadResources()
     return
   }
 })
