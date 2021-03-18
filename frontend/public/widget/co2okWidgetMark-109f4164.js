@@ -317,14 +317,13 @@ let Co2okWidget = {
 			<p id="large-widget-text">${compensatietekst}</p>
 			<p id="large-widget-xvliegen">= ${(compensationAmount * 5000) .toFixed(0)} km<br>${vliegen}</p>
 			<img id="co2ok-logo" src= "${this.SITE_HOST}/static/logo.png">
-			<img id="info-button-widget" class="info-button-widget" src= "${this.SITE_HOST}/static/info.svg">
+			<img id="info-button-widget" class="info-button-widget-products" src= "${this.SITE_HOST}/static/info.svg">
 			<img id="large-widget-airplane" src= "${this.SITE_HOST}/widget/large-wiget-airplane.png">
 			</div>
 		`
 
 
 		let insertPoint1 = jQuery(".sp-tab-content").eq(2).children().prev().eq(6);
-		// console.log("hello there love", jQuery(".sp-tab-content").eq(2).children().prev().eq(6));
 		jQuery(paragraph1).insertBefore(insertPoint1);
 		let insertPoint2 = jQuery(".sp-tab-content").eq(2).children().prev().eq(9);
 		jQuery(paragraph2).insertAfter(insertPoint2);
@@ -361,9 +360,9 @@ let Co2okWidget = {
 		var windowWidth = jQuery(window).width();
 		var y = event.clientY;
 
-	  	infoHoverBox.remove();
+		infoHoverBox.remove();
 		jQuery("body").append(infoHoverBox);
-		if (element_id == '.widget-small') {
+		if (element_id == '.widget-small' || element_id == '.info-button-widget-products') {
 			offset.left -= infoHoverBox.width() / 4;
 			if (windowWidth <= 800)
 		  	offset.top += elementBox.height() * 4;
@@ -391,7 +390,7 @@ let Co2okWidget = {
 				offset.left = 5;
 			}
 			offset.top -= infoHoverBox.height();
-		} else if (element_id == '.co2ok-usp-menu') {
+		} else if (element_id == '.co2ok-usp-menu' ) {
 			offset.left -= elementBox.width() / 2;
 			offset.top += 10;
 		}
@@ -438,6 +437,8 @@ let Co2okWidget = {
 			return ('.widget-small')
 		else if (jQuery(e.target).hasClass("co2ok-usp-menu"))
 			return ('.co2ok-usp-menu')
+		else if (jQuery(e.target).hasClass("info-button-widget-products"))
+			return ('.info-button-widget-products')
 	},
 
 	RegisterWidgetInfoBox : function()

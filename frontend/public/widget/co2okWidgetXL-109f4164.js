@@ -32,7 +32,7 @@ let Co2okWidgetXL = {
         let totalTransactionData = xhr.responseText
         // let totalTransactionData = 491
 
-        console.log(totalTransactionData)
+        // console.log(totalTransactionData)
         document.cookie = 'co2ok_impact=' + totalTransactionData + ';max-age=86400;path="/"'
         Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
 
@@ -89,7 +89,9 @@ let Co2okWidgetXL = {
 		`${this.SITE_HOST}/widget/woonliving/WL_logo.png`,
 		`${this.SITE_HOST}/widget/woonliving/logotrees.png`,
     `${this.SITE_HOST}/static/logo.png`,
-    `${this.SITE_HOST}/widget/hovercard/co2-projects.jpg`
+    `${this.SITE_HOST}/widget/hovercard/co2-projects.jpg`,
+    `${this.SITE_HOST}/static/info.svg`,
+    `${this.SITE_HOST}/widget/large-wiget-airplane.png`
 		]
 
 
@@ -137,61 +139,66 @@ let Co2okWidgetXL = {
     // let treeTotal = Co2okWidgetXL.getTreeTotal();
     // let  treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
 		// if (treeTotal === 0 ) {
-  	let treeTotal = 159;
+  	let treeTotal = 163;
 		// }
 
-		var stepOne = "Woonliving werkt samen met de beste en onafhankelijke designers en meubelmakers. Geen tussenpersonen en geen winkels waardoor de keten duurzamer is.  Je kunt in de webshop zien hoe milieubewust een product is, zo helpen ze je een duurzame keuze te maken.";
+    var stepOne = "Woonliving werkt samen met de beste en onafhankelijke designers en meubelmakers. Geen tussenpersonen en geen winkels waardoor de keten duurzamer is.  Je kunt in de webshop zien hoe milieubewust een product is, zo helpen ze je een duurzame keuze te maken.";
 		var stepTwo = `Jouw aankoop wordt met zo min mogelijk klimaatimpact verzonden, vaak zelfs zonder verpakking! De uitstoot die niet kan worden voorkomen, wordt volledig gecompenseerd door Woonliving. Daarnaast hebben ze nu al <strong>${treeTotal}</strong> bomen geplant met Trees for All!`;
 		var stepThree = "Verder bieden wij (CO2ok) je de mogelijkheid om met één klik direct de CO2 uitstoot van je aankoop te compenseren. Het geld dat je hiervoor betaalt gaat naar CO2 compensatieprojecten van FairClimateFund en Atmosfair die Gold Standard gecertificeerd zijn.";
 		var imageDesc = "Niet alleen het klimaat profiteert: we realiseren zo ook minder ontbossing en gezondheidsvoordelen door minder rook en giftige koolmonoxide"
+		var button = 'Hoe we dit doen'
 
     let infoHoverHtml = `
 
+
       <div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-large co2ok-large" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
 
-        <div class="mobile mobile-bar desktop-hidden co2ok-large" style="background-color: #00B67A;">
-          <p class="mobile-header desktop-hidden co2ok-large">Woonliving's Planet Promise</p>
-          <span class="exit-area-span co2ok-large">
-            <p class="exit-area desktop-hidden co2ok-large"> X </p>
-          </span>
-        </div>
-
-        <div class="co2ok-widget-content co2ok-large">
-          <div class="card-main-header mobile-hidden co2ok-large">
-            <img class="png-img-large mobile-hidden left-align-img header-img co2ok-large" src="${this.SITE_HOST}/widget/woonliving/WL_world.png">
-            <p class="co2ok-header mobile-hidden co2ok-large" style="color: #00B67A; margin-bottom: 0px;">Woonliving's Planet Promise</p>
-          </div>
-
-          <div class="co2ok-widget-wrapper co2ok-header-one co2ok-large" style="padding-top: 4px;">
-            <img class="png-img-large right-align-img co2ok-box co2ok-large" src="${this.SITE_HOST}/widget/woonliving/WL_box.png">
-            <p class="sub-header right co2ok-large" style="color: #239DCC;">Duurzame producten</p>
-            <p class="widget-wrapper right widget-text-block left co2ok-large"> ${stepOne} </p>
-          </div>
-
-
-          <div class="co2ok-widget-wrapper co2ok-large">
-            <p class="sub-header left co2ok-large" style="color: #239DCC;">Neutrale verpakking & verzending</p>
-            <p class="widget-text-block left co2ok-large co2-neutrale" style="min-height: 58px;"> ${stepTwo} </p>
-            <img class="png-img-large left-align-img co2ok-plant co2ok-large" src="${this.SITE_HOST}/widget/woonliving/WL_seedling.png">
-          </div>
-
-          <div class="co2ok-widget-wrapper co2ok-large">
-            <img class="png-img-large right-align-img co2ok-tree co2ok-large" src="${this.SITE_HOST}/widget/woonliving/WL_trees.png">
-            <p class="sub-header right co2ok-large" style="color: #239DCC;">Neutraliseren van de productie</p>
-            <p class="widget-text-block right co2ok-large"> ${stepThree} </p>
-          </div>
-
-          <div class="co2-compensation-projects co2ok-large">
-            <img class="co2-project-img co2ok-large" src="${this.SITE_HOST}/widget/hovercard/co2-projects.jpg">
-            <p class="co2-project-img-text co2ok-large"> ${imageDesc} </p>
-          </div>
-
-          <div class="co2ok-logos co2ok-large">
-            <img src="${this.SITE_HOST}/static/logo.png" href="https://www.co2ok.eco/projects" class="co2ok-logo co2ok-large">
-          </div>
-
-        </div>
+      <div class="mobile mobile-bar desktop-hidden co2ok-large" style="background-color: #00B67A;">
+        <p class="mobile-header desktop-hidden co2ok-large">Woonliving's Planet Promise</p>
+        <span class="exit-area-span co2ok-large">
+          <p class="exit-area desktop-hidden co2ok-large"> X </p>
+        </span>
       </div>
+
+      <div class="co2ok-widget-content co2ok-large">
+        <div class="card-main-header mobile-hidden co2ok-large">
+          <img class="png-img-large mobile-hidden left-align-img header-img co2ok-large" src="${this.SITE_HOST}/widget/woonliving/WL_world.png">
+          <p class="co2ok-header mobile-hidden co2ok-large" style="color: #00B67A; margin-bottom: 0px;">Woonliving's Planet Promise</p>
+        </div>
+
+        <div class="co2ok-widget-wrapper co2ok-large co2ok-header-one co2ok-large">
+          <img class="png-img-large right-align-img co2ok-box co2ok-large" src="${this.SITE_HOST}/widget/woonliving/WL_box.png">
+          <p class="sub-header right co2ok-large" style="color: #239DCC;">Duurzame producten</p>
+          <p class="widget-wrapper right widget-text-block left co2ok-large"> ${stepOne} </p>
+        </div>
+
+
+        <div class="co2ok-widget-wrapper co2ok-header-two co2ok-large">
+          <p class="sub-header left co2ok-large" style="color: #239DCC;">Neutrale verpakking & verzending</p>
+          <p class="widget-text-block left co2ok-large co2-neutrale" style="min-height: 58px;"> ${stepTwo} </p>
+          <img class="png-img-large left-align-img co2ok-plant co2ok-large" src="${this.SITE_HOST}/widget/woonliving/WL_seedling.png">
+        </div>
+
+        <div class="co2ok-widget-wrapper co2ok-header-three co2ok-large">
+          <img class="png-img-large right-align-img co2ok-tree co2ok-large" src="${this.SITE_HOST}/widget/woonliving/WL_trees.png">
+          <p class="sub-header right co2ok-large" style="color: #239DCC;">Neutraliseren van de productie</p>
+          <p class="widget-text-block right co2ok-large"> ${stepThree} </p>
+        </div>
+
+        <div class="co2-compensation-projects co2ok-large">
+          <img class="co2-project-img co2ok-large" src="${this.SITE_HOST}/widget/hovercard/co2-projects.jpg">
+          <p class="co2-project-img-text co2ok-large"> ${imageDesc} </p>
+        </div>
+
+        <span class="usp-button-hovercard-links co2ok-large" style="height:28px">
+          <img class="usp-logo-hovercard co2ok-large"  target=blank href="http://www.co2ok.eco/co2-compensatie" src="${this.SITE_HOST}/static/logo.png">
+          <a class="usp-co2ok-hovercard-button co2ok-large"  target=blank href="http://www.co2ok.eco/co2-compensatie"> ${button}
+            <img class="usp-branch-png co2ok-large" src="${this.SITE_HOST}/widget/hovercard/branch.png">
+          </a>
+        </span>
+
+      </div>
+    </div>
 		`
 		jQuery('footer').before(infoHoverHtml)
 	},
@@ -300,15 +307,15 @@ let Co2okWidgetXL = {
     offset.left = offset.left -  widgetBox.outerWidth() / 2;
     if ( offset.left < 0) offset.left = 10;
     offset.top = offset.top - (widgetInfoButton.height()) - widgetInfoBox.height() + 6;
-			offset.top += 40;
-			//protection for hovercard clipping off window
-			if (y + widgetInfoButton.height() > jQuery(window).height()) {
-				offset.top -= (y + widgetInfoButton.height()) - jQuery(window).height();
-				offset.top -= 30;
-			}
-    // if (offset.top < 0) {
-    //   offset.top = offset.top + (widgetInfoBox.height() + widgetInfoButton.width() / 2) + 6;
-    // }
+    offset.top += 40;
+    //protection for hovercard clipping off window
+    if (y + widgetInfoButton.height() > jQuery(window).height()) {
+      offset.top -= (y + widgetInfoButton.height()) - jQuery(window).height();
+      offset.top -= 30;
+    }
+      // if (offset.top < 0) {
+      //   offset.top = 30;
+      // }
     // let overflow = offset.top - widgetInfoBox.outerHeight();
     // if (overflow < 0) {
     //   offset.top -= overflow;
@@ -343,6 +350,8 @@ let Co2okWidgetXL = {
 
 
   modalRegex: function(e) {
+    if (jQuery(e.target).hasClass("exit-area-span") || jQuery(e.target).hasClass("exit-area"))
+      return ('.exit')
      return jQuery(e.target).hasClass("co2ok-large") ||
      jQuery(e.target).hasClass("exit-area-span") ||
      jQuery(e.target).is("#info-button-widget") ||
@@ -358,7 +367,7 @@ let Co2okWidgetXL = {
 
     jQuery('body').click(function(e) {
       element_id = Co2okWidgetXL.modalRegex(e);
-      if (element_id === "exit-area-span"|| element_id === "exit-area") {
+      if (element_id === "exit") {
        //prevents opening of cart on closing of hovercards
 				if (e.detail === 1) {
 					e.stopImmediatePropagation();
@@ -371,7 +380,7 @@ let Co2okWidgetXL = {
 
     jQuery('body').on("touchstart",function(e) {
       element_id = Co2okWidgetXL.modalRegex(e);
-      if (element_id === "exit-area-span"|| element_id === "exit-area") {
+      if (element_id === "exit") {
         //prevents opening of cart on closing of hovercards
 				if (e.detail === 1) {
 					e.stopImmediatePropagation();
@@ -390,7 +399,7 @@ let Co2okWidgetXL = {
 
       jQuery(document).mouseover(function(e) {
         element_id = Co2okWidgetXL.modalRegex(e);
-        if (!element_id ||element_id === "exit-area-span"|| element_id === "exit-area") {
+        if (!element_id ||element_id === "exit") {
           //prevents opening of cart on closing of hovercard
             Co2okWidgetXL.hideWidgetInfoBox();
         } else if (element_id) {
@@ -467,6 +476,7 @@ Co2okWidgetXL.manualABSwitch()
     Co2okWidgetXL.loadResources()
     .then(_  => Co2okWidgetXL.jQueryLoadDefer(script))
   } else {
+    Co2okWidgetXL.loadResources()
     return
   }
 })

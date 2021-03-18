@@ -18,8 +18,8 @@
 .co2ok_widget_infobox_container {
   position: absolute;
   width: 350px;
-  min-width: 350px;
-  min-height: 719px;
+  max-width: 350px;
+  max-height: 719px;
   height: 719px;
   background: white;
   border-radius: 15px;

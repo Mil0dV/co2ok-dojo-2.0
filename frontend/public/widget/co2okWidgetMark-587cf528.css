@@ -1,9 +1,10 @@
+/* Pockies */
 .co2ok_widget_infobox_container {
   position: absolute;
   width: 350px;
-  min-width: 350px;
+  max-width: 350px;
   height: 700px;
-  min-height: 700px;
+  max-height: 700px;
   z-index: 99999999999;
 }
 
@@ -121,7 +122,7 @@
       position: fixed;
       bottom: 0 !important;
       width:100vw !important;
-      height: 100% !important;
+      height: 100vh !important;
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch !important;
       overflow-x: hidden; }
@@ -201,6 +202,15 @@
     .usp-branch-png {
       right: -41px;
       bottom: -11px;
+    }
+    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-one {
+      height: auto;
+    }
+    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-two {
+      height: auto;
+    }
+    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-three {
+      height: auto;
     }
   }
 
