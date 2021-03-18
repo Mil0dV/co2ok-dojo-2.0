@@ -119,10 +119,12 @@
     .co2ok_widget_infobox_container {
       left: 0 !important;
       top: 0 !important;
-      position: fixed;
+      position: fixed !important;
+      max-width: none;
+      max-height: none;
       bottom: 0 !important;
-      width:100vw !important;
-      height: 100vh !important;
+      width:100% !important;
+      height: 100% !important;
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch !important;
       overflow-x: hidden; }
