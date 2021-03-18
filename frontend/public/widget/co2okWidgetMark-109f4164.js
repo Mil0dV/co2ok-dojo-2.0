@@ -353,6 +353,17 @@ let Co2okWidget = {
 			return !!jQuery(selector).length;
 	},
 
+    googleAnalyticsEvent : function(element_id) {
+        if (element_id == '.co2ok-usp-menu')
+            ga('CO2ok_widget.send', 'event', 'interaction', 'hover_usp', 1);
+        else if (element_id == '.widget-small')
+            ga('CO2ok_widget.send', 'event', 'interaction', 'hover_widget', 2);
+        else if (element_id == '.cfs_hover_target')
+            ga('CO2ok_widget.send', 'event', 'interaction', 'hover_cfs', 3);
+        else if (element_id == '.cfs_hover_target_footer')
+            ga('CO2ok_widget.send', 'event', 'interaction', 'hover_cfsfooter', 4);
+    },
+
 	placeWidgetInfoBox : function(element_id) {
 		var elementBox = jQuery(element_id);
 		var infoHoverBox = jQuery(".widget-hovercard-small");
@@ -360,7 +371,8 @@ let Co2okWidget = {
 		var windowWidth = jQuery(window).width();
 		var y = event.clientY;
 
-		infoHoverBox.remove();
+	  	infoHoverBox.remove();
+        Co2okWidget.googleAnalyticsEvent(element_id);
 		jQuery("body").append(infoHoverBox);
 		if (element_id == '.widget-small' || element_id == '.info-button-widget-products') {
 			offset.left -= infoHoverBox.width() / 4;
@@ -515,9 +527,19 @@ let Co2okWidget = {
 
 	},
 
+    initializeGA: function() {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');    
+        ga('create', 'UA-108940950-6', 'auto', 'CO2ok_widget');
+        ga('CO2ok_widget.send', 'pageview');
+    },
+
 	jQueryLoadDefer: function() {
 		if (window.jQuery) {
 			Co2okWidget.insertHovercardHTML();
+            Co2okWidget.initializeGA();
 			Co2okWidget.menuIconInsertion();
 			Co2okWidget.cfsTrustMarkInsertion();
 			Co2okWidget.RegisterWidgetInfoBox();
