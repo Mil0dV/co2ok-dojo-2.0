@@ -112,10 +112,14 @@ let Co2okWidget = {
 
 		//bottom footer
 		let cfsHtml = `
-			<img class="cfs_hover_target_footer" src="${this.SITE_HOST}/widget/cfs-gray.png" style="width: 100px; height: 48px; margin-left: 8px;">
+			<img class="cfs_hover_target_footer" src="${this.SITE_HOST}/widget/cfs-gray.png" style="width: 130px; height: 71px; margin-left: 20px; margin-top: -10px;">
 		`
 		jQuery(".footer-primary").after(cfsHtml)
 
+        let cfsHtmlCart = `
+            <br><img class="cfs_hover_target_cart" src="${this.SITE_HOST}/widget/cfs.png" style="width: 160px; height: 67px; margin-top: 20px;">
+        `
+        jQuery(".widget_shopping_cart .payment-icons").after(cfsHtmlCart)
 	},
 
 	/** inserts UPS's for VELA */
@@ -127,20 +131,26 @@ let Co2okWidget = {
 			let productUsp = `
 				<img class="co2ok-usp-product" src="${this.SITE_HOST}/widget/vela/VL_heart.png">
 			`
-			jQuery(".wc-stripe-clear").before(productUsp)
+			jQuery("img[src$='https://velaapparelstg.wpengine.com/wp-content/uploads/2021/02/110-1106271_guaranted-safe-checkout-safe-and-secure-checkout.png']").after(productUsp);
 
 			//product description
 			let productDesc = jQuery(".product-short-description")[0].childNodes
 			let productText = `
-				<br><i class="wishlist-icon icon-heart" style="color: #26B43D"></i> Climate friendly product
+            <br><u class="product-climate-friendly"><i class="wishlist-icon icon-heart" style="color: #26B43D"></i> Climate friendly product</u>
 			`
 			productDesc[1].innerHTML += productText
 		}
 
 		//added marquee text
 		let marquee = jQuery("#fs-progress");
-		let marqueeText = `, always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i>`
-		marquee[0].innerHTML += marqueeText
+        if (marquee[0].innerHTML == "You Get Free Shipping!") {
+		    let marqueeText = ` Always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i>`
+		    marquee[0].innerHTML += marqueeText
+		} else {
+			let marqueeText = `, always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i>`
+			marquee[0].innerHTML += marqueeText
+		}
+		
 	},
 
 	insertHovercardHTML: function () {
@@ -218,14 +228,14 @@ let Co2okWidget = {
 
     var decimalsCompensation = 1;
 		if (totalCompensatedData < 100)
-			var compensationAmount  = 0.1;
+			var compensationAmount  = 2.3;
 		else {
 			if (totalCompensatedData > 99999)
 				decimalsCompensation = 0;
 			var compensationAmount  = totalCompensatedData / 1000;
 		}
 
-		var compensatietekst = `This shop prevents <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> emissions`;
+		var compensatietekst = `This shop prevented <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> emissions`;
     var vliegen = "flying";
 
 		let widgetmark = `
@@ -266,7 +276,7 @@ let Co2okWidget = {
       </p>
     `
 		let widgetmark = `
-			<div>
+			<div class="btn_shop_co2ok">
 
 				<div class="btn_co2ok_widget co2ok_widget_info widget-small" href="#">
 				<span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${this.SITE_HOST}/static/logo.png"></span>
@@ -336,8 +346,8 @@ let Co2okWidget = {
         offset.top = offset.top + (infoHoverBox.height() + elementBox.width() / 2) + 6;
       }
     } else if (element_id == '.widget-small') {
-			offset.left -= infoHoverBox.width() / 2;
-			offset.top -= infoHoverBox.height();
+            offset.left -= infoHoverBox.width() / 2;
+            offset.top -= infoHoverBox.height() - jQuery(window).scrollTop();
 		} else if (element_id == '.cfs_hover_target') {
 			offset.left -= infoHoverBox.width() / 2;
 			if (offset.left < 0) {
@@ -356,8 +366,14 @@ let Co2okWidget = {
 			offset.top -= infoHoverBox.height();
 		} else if (element_id == '.co2ok-usp-product') {
 			offset.left -= infoHoverBox.width() / 2 - elementBox.width() / 2;
-			offset.top -= infoHoverBox.height();
-		}
+			offset.top -= 300 - jQuery(window).scrollTop() / 2;
+		} else if (element_id == '.product-climate-friendly') {
+            offset.left -= infoHoverBox.width();
+            offset.top -= 200 - jQuery(window).scrollTop() / 2;
+        } else if (element_id == '.cfs_hover_target_cart') {
+            offset.left -= 100;
+            offset.top -= 500;
+        }
 		else
 			return ;
 
@@ -399,6 +415,10 @@ let Co2okWidget = {
 			return ('.co2ok-small')
 		else if (jQuery(e.target).hasClass("widget-small"))
 			return ('.widget-small')
+        else if (jQuery(e.target).hasClass("product-climate-friendly"))
+            return ('.product-climate-friendly')
+        else if (jQuery(e.target).hasClass("cfs_hover_target_cart"))
+            return ('.cfs_hover_target_cart')
     else if (jQuery(e.target).hasClass("widget-large"))
       return ('.widget-large')
 		else if (jQuery(e.target).hasClass("co2ok-usp-product"))
@@ -459,25 +479,26 @@ let Co2okWidget = {
 		// Manual AB-switch
 		var urlParams = new URLSearchParams(window.location.search);
 		var co2ok_AB_param = urlParams.get('co2ok_ab');
-		// let co2ok_AB_test = JSON.parse(localStorage.getItem('co2ok_ab_hide'));
+		let co2ok_AB_test = JSON.parse(localStorage.getItem('co2ok_ab_hide'));
 
-		//if co2okButton.js isn't loaded, we defer
+		// Vela uses WC, which still uses cookies to store the AB state
+		// if co2okButton.js isn't loaded, we defer
 		// if (co2ok_AB_test === null) {
 		// 	setTimeout(function() { Co2okWidget.manualABSwitch() }, 50);
 		// } else {
 			if (co2ok_AB_param == 'show') {
 				console.log('Co2ok ON manually!')
+				document.cookie = 'co2ok_ab_hide=1;max-age=86400;path="/"'
 				return true;
+			} else if (co2ok_AB_param == 'hide') {
+				console.log('Co2ok OFF manually!')
+				document.cookie = 'co2ok_ab_hide=0;max-age=86400;path="/"'
+				return false;
+			} else if (co2ok_AB_test === 0) {
+				return false;
 			}
-			// } else if (co2ok_AB_param == 'hide') {
-			// 	console.log('Co2ok OFF mannually!')
-			// 	return false;
-			// } else if (co2ok_AB_test === 0) {
-			// 	return false;
-			// }
-			// return true;
+			return true;
 		// }
-    return false;
 
 	},
 
@@ -505,4 +526,3 @@ Co2okWidget.manualABSwitch()
     return
   }
 })
-
