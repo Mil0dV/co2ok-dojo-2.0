@@ -136,7 +136,7 @@ let Co2okWidget = {
 			//product description
 			let productDesc = jQuery(".product-short-description")[0].childNodes
 			let productText = `
-            <br><u class="product-climate-friendly"><i class="wishlist-icon icon-heart" style="color: #26B43D"></i>Climate friendly product</u>
+            <br><u class="product-climate-friendly"><i class="wishlist-icon icon-heart" style="color: #26B43D"></i> Climate friendly product</u>
 			`
 			productDesc[1].innerHTML += productText
 		}
@@ -146,7 +146,11 @@ let Co2okWidget = {
         if (marquee[0].innerHTML == "You Get Free Shipping!") {
 		    let marqueeText = ` Always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i>`
 		    marquee[0].innerHTML += marqueeText
-        }
+		} else {
+			let marqueeText = `, always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i>`
+			marquee[0].innerHTML += marqueeText
+		}
+		
 	},
 
 	insertHovercardHTML: function () {
@@ -224,14 +228,14 @@ let Co2okWidget = {
 
     var decimalsCompensation = 1;
 		if (totalCompensatedData < 100)
-			var compensationAmount  = 0.1;
+			var compensationAmount  = 2.3;
 		else {
 			if (totalCompensatedData > 99999)
 				decimalsCompensation = 0;
 			var compensationAmount  = totalCompensatedData / 1000;
 		}
 
-		var compensatietekst = `This shop prevents <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> emissions`;
+		var compensatietekst = `This shop prevented <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> emissions`;
     var vliegen = "flying";
 
 		let widgetmark = `
@@ -477,21 +481,24 @@ let Co2okWidget = {
 		var co2ok_AB_param = urlParams.get('co2ok_ab');
 		let co2ok_AB_test = JSON.parse(localStorage.getItem('co2ok_ab_hide'));
 
+		// Vela uses WC, which still uses cookies to store the AB state
 		// if co2okButton.js isn't loaded, we defer
-		if (co2ok_AB_test === null) {
-			setTimeout(function() { Co2okWidget.manualABSwitch() }, 50);
-		} else {
+		// if (co2ok_AB_test === null) {
+		// 	setTimeout(function() { Co2okWidget.manualABSwitch() }, 50);
+		// } else {
 			if (co2ok_AB_param == 'show') {
 				console.log('Co2ok ON manually!')
+				document.cookie = 'co2ok_ab_hide=1;max-age=86400;path="/"'
 				return true;
 			} else if (co2ok_AB_param == 'hide') {
 				console.log('Co2ok OFF manually!')
+				document.cookie = 'co2ok_ab_hide=0;max-age=86400;path="/"'
 				return false;
 			} else if (co2ok_AB_test === 0) {
 				return false;
 			}
 			return true;
-		}
+		// }
 
 	},
 
