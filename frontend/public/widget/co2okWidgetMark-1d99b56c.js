@@ -475,25 +475,23 @@ let Co2okWidget = {
 		// Manual AB-switch
 		var urlParams = new URLSearchParams(window.location.search);
 		var co2ok_AB_param = urlParams.get('co2ok_ab');
-		// let co2ok_AB_test = JSON.parse(localStorage.getItem('co2ok_ab_hide'));
+		let co2ok_AB_test = JSON.parse(localStorage.getItem('co2ok_ab_hide'));
 
-		//if co2okButton.js isn't loaded, we defer
-		// if (co2ok_AB_test === null) {
-		// 	setTimeout(function() { Co2okWidget.manualABSwitch() }, 50);
-		// } else {
+		// if co2okButton.js isn't loaded, we defer
+		if (co2ok_AB_test === null) {
+			setTimeout(function() { Co2okWidget.manualABSwitch() }, 50);
+		} else {
 			if (co2ok_AB_param == 'show') {
 				console.log('Co2ok ON manually!')
 				return true;
+			} else if (co2ok_AB_param == 'hide') {
+				console.log('Co2ok OFF manually!')
+				return false;
+			} else if (co2ok_AB_test === 0) {
+				return false;
 			}
-			// } else if (co2ok_AB_param == 'hide') {
-			// 	console.log('Co2ok OFF mannually!')
-			// 	return false;
-			// } else if (co2ok_AB_test === 0) {
-			// 	return false;
-			// }
-			// return true;
-		// }
-    return false;
+			return true;
+		}
 
 	},
 
@@ -521,4 +519,3 @@ Co2okWidget.manualABSwitch()
     return
   }
 })
-
