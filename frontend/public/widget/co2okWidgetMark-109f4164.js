@@ -355,14 +355,19 @@ let Co2okWidget = {
 	},
 
     googleAnalyticsEvent : function(element_id) {
+        let platform;
+        if (Co2okWidget.isMobile())
+            platform = "_mobile"
+        else
+            platform = "_desktop"
         if (element_id == '.co2ok-usp-menu')
-            ga('CO2ok_widget.send', 'event', 'interaction', 'hover_usp', 1);
+            ga('CO2ok_widget.send', 'event', 'interaction', 'WL_navbar'+platform, 1);
         else if (element_id == '.widget-small')
-            ga('CO2ok_widget.send', 'event', 'interaction', 'hover_widget', 2);
+            ga('CO2ok_widget.send', 'event', 'interaction', 'WL_widget'+platform, 2);
         else if (element_id == '.cfs_hover_target')
-            ga('CO2ok_widget.send', 'event', 'interaction', 'hover_cfs', 3);
+            ga('CO2ok_widget.send', 'event', 'interaction', 'WL_cfs'+platform, 3);
         else if (element_id == '.cfs_hover_target_footer')
-            ga('CO2ok_widget.send', 'event', 'interaction', 'hover_cfsfooter', 4);
+            ga('CO2ok_widget.send', 'event', 'interaction', 'WL_cfsfooter'+platform, 4);
     },
 
 	placeWidgetInfoBox : function(element_id) {
@@ -470,7 +475,7 @@ let Co2okWidget = {
 	  });
 
 	  jQuery('body').on("touchstart",function(e){
-		element_id = Co2okWidget.modalRegex(e);
+          element_id = Co2okWidget.modalRegex(e);
 			if (element_id === '.exit-area') {
 				//prevents opening of cart on closing of hovercards
 				if (e.detail === 1) {
