@@ -47,13 +47,12 @@ let Co2okWidget = {
 		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-2786c947.css`)
 		document.getElementsByTagName("head")[0].appendChild(fileref)
 
-	  	var images = [`${this.SITE_HOST}/widget/vela/cfsButtonEN-gray.svg`,
+	  	var images = [`${this.SITE_HOST}/widget/vela/cfsButtonEN-VL.svg`,
 			`${this.SITE_HOST}/widget/cfsButtonEN.svg`,
 			`${this.SITE_HOST}/widget/hovercard/CO_world.png`,
 			`${this.SITE_HOST}/widget/hovercard/CO_box.png`,
 			`${this.SITE_HOST}/widget/hovercard/CO_seedling.png`,
 			`${this.SITE_HOST}/widget/hovercard/CO_trees.png`,
-			`${this.SITE_HOST}/widget/hovercard/CO_logo.png`,
 			`${this.SITE_HOST}/static/logo.png`,
 			`${this.SITE_HOST}/widget/hovercard/co2-projects.jpg`,
 			`${this.SITE_HOST}/static/info.svg`,
@@ -280,14 +279,8 @@ let Co2okWidget = {
 	/** Inserts pharagraph and impact calc on product page */
 	widgetTrustmarkGenerator: function(compensationAmount) {
 
-    let paragraph = `
-      <p>
-        This store is comitted to minimizing the climate impact of their products by offering sustainable, climate friendly solutions for their products.
-        To further their commitment, your purchase will be shipped with as little climate impact as possible!
-      </p>
-    `
 		let widgetmark = `
-			<div class="btn_shop_co2ok">
+			<div class="btn_shop_co2ok mobile-hidden">
 
 				<div class="btn_co2ok_widget co2ok_widget_info widget-small" href="#">
 				<span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${this.SITE_HOST}/static/logo.png"></span>
@@ -300,7 +293,7 @@ let Co2okWidget = {
 
 		`
 		let newRowHtml = `
-			<div class="row" id="row-co2ok" style="width: 55%">
+			<div class="row mobile-hidden" id="row-co2ok" style="width: 55%">
 				<div id="col-co2ok" class="col small-12 large-12">
 					<div class="col-inner">
 						<h3 class="lead" data-padding="5px"><em><span style="font-weight: 400; font-family: tofino; font-size: 65%;" data-line-height="1rem">
@@ -369,12 +362,12 @@ let Co2okWidget = {
 			offset.left -= infoHoverBox.width() / 2 - elementBox.width() / 2;
 			offset.top -= 300 - jQuery(window).scrollTop() / 2;
 		} else if (element_id == '.product-climate-friendly') {
-            offset.left -= infoHoverBox.width();
-            offset.top -= 200 - jQuery(window).scrollTop() / 2;
-        } else if (element_id == '.cfs_hover_target_cart') {
-            offset.left -= 100;
-            offset.top -= 500;
-        }
+			offset.left -= infoHoverBox.width();
+			offset.top -= 200 - jQuery(window).scrollTop() / 2;
+		} else if (element_id == '.cfs_hover_target_cart') {
+				offset.left -= 155;
+				offset.top = offset.top - infoHoverBox.height();
+		}
 		else
 			return ;
 
