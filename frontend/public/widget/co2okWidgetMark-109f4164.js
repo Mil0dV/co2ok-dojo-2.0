@@ -42,7 +42,7 @@ let Co2okWidget = {
 		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-109f4164.css`)
 		document.getElementsByTagName("head")[0].appendChild(fileref)
 
-	  	var images = [`${this.SITE_HOST}/widget/cfs.png`,
+	  	var images = [`${this.SITE_HOST}/widget/cfsButtonNL.svg`,
 			`${this.SITE_HOST}/widget/woonliving/WL_world.png`,
 			`${this.SITE_HOST}/widget/woonliving/WL_box.png`,
 			`${this.SITE_HOST}/widget/woonliving/WL_seedling.png`,
@@ -59,7 +59,7 @@ let Co2okWidget = {
 	  }
 	},
 
-	merchantCompensations: function (widgetContainer) {
+	merchantCompensations: function (widgetContainer, merchantId) {
 
 		// get impact from cookie if available
 		let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
@@ -75,7 +75,7 @@ let Co2okWidget = {
 
 		// let host = 'http://127.0.0.1:8000'
 		let host = 'https://app.co2ok.eco'
-		xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=109f4164`, true)
+		xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=${merchantId}`, true)
 		//    xhr.withCredentials = true;
 		  xhr.onreadystatechange = function(){
 			  if (this.readyState == 4 && this.status == 200){
@@ -104,12 +104,12 @@ let Co2okWidget = {
 	 */
 	cfsTrustMarkInsertion: function () {
 		let cfsHtml = `
-			<img class="cfs_hover_target_footer" src="https://co2ok.eco/widget/cfs.png" style="width: 100px; height: 48px">
+			<img class="cfs_hover_target_footer" src="${this.SITE_HOST}/widget/cfsButtonNL.svg">
 		`
 		jQuery(".bot_footer_svg").after(cfsHtml)
 
 		let cfsfHtml = `
-			<img class="cfs_hover_target" src="https://co2ok.eco/widget/cfs.png" style="width: 100px; height: 48px">
+			<img class="cfs_hover_target" src="${this.SITE_HOST}/widget/cfsButtonNL.svg">
 		`
 		jQuery(".pr_trust_seal").append(cfsfHtml)
 	},
@@ -519,10 +519,10 @@ let Co2okWidget = {
 			setTimeout(function() { Co2okWidget.manualABSwitch() }, 50);
 		} else {
 			if (co2ok_AB_param == 'show') {
-				console.log('Co2ok ON manually!')
+				console.log('Co2ok widget ON manually!')
 				return true;
 			} else if (co2ok_AB_param == 'hide') {
-				console.log('Co2ok OFF mannually!')
+				console.log('Co2ok widget OFF mannually!')
 				return false;
 			} else if (co2ok_AB_test === 0) {
 				return false;
@@ -532,23 +532,23 @@ let Co2okWidget = {
 
 	},
 
-    initializeGA: function() {
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');    
-        ga('create', 'UA-108940950-6', 'auto', 'CO2ok_widget');
-        ga('CO2ok_widget.send', 'pageview');
-    },
+	initializeGA: function() {
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-108940950-6', 'auto', 'CO2ok_widget');
+		ga('CO2ok_widget.send', 'pageview');
+	},
 
 	jQueryLoadDefer: function() {
 		if (window.jQuery) {
 			Co2okWidget.insertHovercardHTML();
-            Co2okWidget.initializeGA();
+			Co2okWidget.initializeGA();
 			Co2okWidget.menuIconInsertion();
 			Co2okWidget.cfsTrustMarkInsertion();
 			Co2okWidget.RegisterWidgetInfoBox();
-			Co2okWidget.merchantCompensations('widgetContainermark');
+			Co2okWidget.merchantCompensations('widgetContainermark', '109f4164');
 		} else {
 			setTimeout(function() { Co2okWidget.jQueryLoadDefer() }, 50);
 		}

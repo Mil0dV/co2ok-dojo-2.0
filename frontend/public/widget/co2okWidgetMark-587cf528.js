@@ -48,7 +48,7 @@ let Co2okWidget = {
 	  fileref.setAttribute("href", `${Co2okWidget.SITE_HOST}/widget/co2okWidgetMark-587cf528.css`)
 	  document.getElementsByTagName("head")[0].appendChild(fileref)
 
-	  images = [`${Co2okWidget.SITE_HOST}/widget/cfs.png`,
+	  images = [`${Co2okWidget.SITE_HOST}/widget/cfsButtonNL.svg`,
 	  `${Co2okWidget.SITE_HOST}/widget/pockies/PK_world.png`,
 	  `${Co2okWidget.SITE_HOST}/widget/pockies/PK_box.png`,
 	  `${Co2okWidget.SITE_HOST}/widget/pockies/PK_seedling.png`,
@@ -114,7 +114,7 @@ let Co2okWidget = {
 	cfsTrustMarkInsertion: function () {
     //payment icons in footer
 		let cfsfHtml = `
-    <img class="cfs_hover_target_footer" src="https://co2ok.eco/widget/cfs.png" style="height: 30px;">
+    <img class="cfs_hover_target_footer" src="${Co2okWidget.SITE_HOST}/widget/cfsButtonNL.svg" style="height: 64px;">
 		`
 		jQuery(".paymentCall").prepend(cfsfHtml)
 	},
@@ -526,10 +526,10 @@ let Co2okWidget = {
 			setTimeout(function() { Co2okWidget.manualABSwitch() }, 50);
 		} else {
 			if (co2ok_AB_param == 'show') {
-				console.log('Co2ok ON widget manually!')
+				console.log('Co2ok widget ON manually!')
 				return true;
 			} else if (co2ok_AB_param == 'hide') {
-				console.log('Co2ok OFF widget manually!')
+				console.log('Co2ok widget OFF manually!')
 				return false;
 			} else if (co2ok_AB_test === 0) {
 				return false;
@@ -550,7 +550,7 @@ let Co2okWidget = {
       }
 			Co2okWidget.marqueeInsertion(lang);
       Co2okWidget.uspInsertion(lang);
-			// Co2okWidget.cfsTrustMarkInsertion();
+			Co2okWidget.cfsTrustMarkInsertion();
       Co2okWidget.insertHovercardHTML(lang);
 			Co2okWidget.RegisterWidgetInfoBox();
 			Co2okWidget.merchantCompensations(lang);

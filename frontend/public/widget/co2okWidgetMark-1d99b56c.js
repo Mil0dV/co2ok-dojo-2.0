@@ -47,7 +47,7 @@ let Co2okWidget = {
 		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetmark-1d99b56c.css`)
 		document.getElementsByTagName("head")[0].appendChild(fileref)
 
-	  	var images = [`${this.SITE_HOST}/widget/cfs.png`,
+	  	var images = [`${this.SITE_HOST}/widget/cfsButtonEN-gray.svg`,
 			`${this.SITE_HOST}/widget/hovercard/CO_world.png`,
 			`${this.SITE_HOST}/widget/hovercard/CO_box.png`,
 			`${this.SITE_HOST}/widget/hovercard/CO_seedling.png`,
@@ -66,7 +66,7 @@ let Co2okWidget = {
 	  }
 	},
 
-	merchantCompensations: function () {
+	merchantCompensations: function (merchantId) {
 		// get impact from cookie if available
 		let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
 
@@ -81,7 +81,7 @@ let Co2okWidget = {
 
 		// let host = 'http://127.0.0.1:8000'
 		let host = 'https://app.co2ok.eco'
-		xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=1d99b56c`, true)
+		xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=${merchantId}`, true)
 		//    xhr.withCredentials = true;
 		  xhr.onreadystatechange = function(){
 			  if (this.readyState == 4 && this.status == 200){
@@ -112,14 +112,21 @@ let Co2okWidget = {
 
 		//bottom footer
 		let cfsHtml = `
-			<img class="cfs_hover_target_footer" src="${this.SITE_HOST}/widget/cfs-gray.png" style="width: 130px; height: 71px; margin-left: 20px; margin-top: -10px;">
+			<img class="cfs_hover_target_footer" src="${this.SITE_HOST}/widget/cfsButtonEN-VL.svg">
 		`
 		jQuery(".footer-primary").after(cfsHtml)
 
-        let cfsHtmlCart = `
-            <br><img class="cfs_hover_target_cart" src="${this.SITE_HOST}/widget/cfs.png" style="width: 160px; height: 67px; margin-top: 20px;">
-        `
-        jQuery(".widget_shopping_cart .payment-icons").after(cfsHtmlCart)
+		//cart page by payment icons
+		if (window.location.toString().includes('cart')) {
+			var cfsHtmlCart = `
+			<br><img class="cfs_hover_target_cart" src="${this.SITE_HOST}/widget/cfsButtonEN.svg" style="width: 160px; height: 60px; margin-left: 25%; margin-top: 0px;">
+		`
+		} else {
+			var cfsHtmlCart = `
+				<br><img class="cfs_hover_target_cart" src="${this.SITE_HOST}/widget/cfsButtonEN.svg" style="width: 160px; height: 60px; margin-left: 25%;">
+			`
+		}
+		jQuery(".payment-icons").after(cfsHtmlCart)
 	},
 
 	/** inserts UPS's for VELA */
@@ -150,7 +157,6 @@ let Co2okWidget = {
 			let marqueeText = `, always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i>`
 			marquee[0].innerHTML += marqueeText
 		}
-		
 	},
 
 	insertHovercardHTML: function () {
@@ -348,16 +354,6 @@ let Co2okWidget = {
     } else if (element_id == '.widget-small') {
             offset.left -= infoHoverBox.width() / 2;
             offset.top -= infoHoverBox.height() - jQuery(window).scrollTop();
-		} else if (element_id == '.cfs_hover_target') {
-			offset.left -= infoHoverBox.width() / 2;
-			if (offset.left < 0) {
-				offset.left = 5;
-			}
-			//protection for hovercard clipping off window
-			if (y + infoHoverBox.height() > jQuery(window).height()) {
-				offset.top -= (y + infoHoverBox.height()) - jQuery(window).height();
-				offset.top -= elementBox.height();
-			}
 		} else if (element_id == '.cfs_hover_target_footer') {
 			offset.left -= infoHoverBox.width() / 2;
 			if (offset.left < 0) {
@@ -403,9 +399,7 @@ let Co2okWidget = {
 
 	modalRegex: function(e)
 	{
-	  if (jQuery(e.target).hasClass("cfs_hover_target"))
-			return ('.cfs_hover_target');
-		else if (jQuery(e.target).hasClass("cfs_hover_target_footer"))
+	  if (jQuery(e.target).hasClass("cfs_hover_target_footer"))
 			return ('.cfs_hover_target_footer');
 		else if (jQuery(e.target).hasClass("exit-area"))
 			return ('.exit-area')
@@ -415,10 +409,10 @@ let Co2okWidget = {
 			return ('.co2ok-small')
 		else if (jQuery(e.target).hasClass("widget-small"))
 			return ('.widget-small')
-        else if (jQuery(e.target).hasClass("product-climate-friendly"))
-            return ('.product-climate-friendly')
-        else if (jQuery(e.target).hasClass("cfs_hover_target_cart"))
-            return ('.cfs_hover_target_cart')
+		else if (jQuery(e.target).hasClass("product-climate-friendly"))
+				return ('.product-climate-friendly')
+		else if (jQuery(e.target).hasClass("cfs_hover_target_cart"))
+				return ('.cfs_hover_target_cart')
     else if (jQuery(e.target).hasClass("widget-large"))
       return ('.widget-large')
 		else if (jQuery(e.target).hasClass("co2ok-usp-product"))
@@ -487,11 +481,10 @@ let Co2okWidget = {
 		// 	setTimeout(function() { Co2okWidget.manualABSwitch() }, 50);
 		// } else {
 			if (co2ok_AB_param == 'show') {
-				console.log('Co2ok ON manually!')
-				document.cookie = 'co2ok_ab_hide=1;max-age=86400;path="/"'
+				console.log('Co2ok widget ON manually!')
 				return true;
 			} else if (co2ok_AB_param == 'hide') {
-				console.log('Co2ok OFF manually!')
+				console.log('Co2ok widget OFF manually!')
 				document.cookie = 'co2ok_ab_hide=0;max-age=86400;path="/"'
 				return false;
 			} else if (co2ok_AB_test === 0) {
@@ -508,7 +501,7 @@ let Co2okWidget = {
 			Co2okWidget.uspInsertion();
 			Co2okWidget.cfsTrustMarkInsertion();
 			Co2okWidget.RegisterWidgetInfoBox();
-			Co2okWidget.merchantCompensations();
+			Co2okWidget.merchantCompensations('1d99b56c');
 		} else {
 			setTimeout(function() { Co2okWidget.jQueryLoadDefer() }, 50);
 		}

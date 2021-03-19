@@ -1,5 +1,20 @@
 /*Woonliving**/
 
+/* cfsmark  */
+.cfs_hover_target_footer{
+	width: 100px;
+	height: 52px;
+	margin-top: -9px;
+	margin-left: 8px;
+}
+.cfs_hover_target {
+	width: 100px;
+	height: 55px !important;
+	margin-top: -10px;
+	margin-left: 4px;
+}
+
+/* hoavercard  */
 .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-one {
   height: 120px;
 }
