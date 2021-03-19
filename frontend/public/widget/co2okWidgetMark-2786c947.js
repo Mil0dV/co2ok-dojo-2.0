@@ -39,12 +39,12 @@ let Co2okWidget = {
 		var fileref=document.createElement("link")
 		fileref.setAttribute("rel", "stylesheet")
 		fileref.setAttribute("type", "text/css")
-		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetmark-defaultUsp.css`)
+		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-defaultUsp.css`)
 		document.getElementsByTagName("head")[0].appendChild(fileref)
 		var fileref=document.createElement("link")
 		fileref.setAttribute("rel", "stylesheet")
 		fileref.setAttribute("type", "text/css")
-		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetmark-2786c947.css`)
+		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-2786c947.css`)
 		document.getElementsByTagName("head")[0].appendChild(fileref)
 
 	  	var images = [`${this.SITE_HOST}/widget/vela/cfsButtonEN-gray.svg`,
