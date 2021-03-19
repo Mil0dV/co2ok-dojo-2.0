@@ -44,10 +44,11 @@ let Co2okWidget = {
 		var fileref=document.createElement("link")
 		fileref.setAttribute("rel", "stylesheet")
 		fileref.setAttribute("type", "text/css")
-		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetmark-1d99b56c.css`)
+		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetmark-2786c947.css`)
 		document.getElementsByTagName("head")[0].appendChild(fileref)
 
-	  	var images = [`${this.SITE_HOST}/widget/cfsButtonEN-gray.svg`,
+	  	var images = [`${this.SITE_HOST}/widget/vela/cfsButtonEN-gray.svg`,
+			`${this.SITE_HOST}/widget/cfsButtonEN.svg`,
 			`${this.SITE_HOST}/widget/hovercard/CO_world.png`,
 			`${this.SITE_HOST}/widget/hovercard/CO_box.png`,
 			`${this.SITE_HOST}/widget/hovercard/CO_seedling.png`,
@@ -112,7 +113,7 @@ let Co2okWidget = {
 
 		//bottom footer
 		let cfsHtml = `
-			<img class="cfs_hover_target_footer" src="${this.SITE_HOST}/widget/cfsButtonEN-VL.svg">
+			<img class="cfs_hover_target_footer" src="${this.SITE_HOST}/widget/vela/cfsButtonEN-VL.svg">
 		`
 		jQuery(".footer-primary").after(cfsHtml)
 
@@ -126,7 +127,11 @@ let Co2okWidget = {
 				<br><img class="cfs_hover_target_cart" src="${this.SITE_HOST}/widget/cfsButtonEN.svg" style="width: 160px; height: 60px; margin-left: 25%;">
 			`
 		}
-		jQuery(".payment-icons").after(cfsHtmlCart)
+		//place cfs only on ajax cart not in footer again
+
+		if (jQuery(".payment-icons").parent().eq(0).hasClass('cart-popup-inner')) {
+			jQuery(".payment-icons").parent().eq(0).append(cfsHtmlCart)
+		}
 	},
 
 	/** inserts UPS's for VELA */
@@ -501,7 +506,7 @@ let Co2okWidget = {
 			Co2okWidget.uspInsertion();
 			Co2okWidget.cfsTrustMarkInsertion();
 			Co2okWidget.RegisterWidgetInfoBox();
-			Co2okWidget.merchantCompensations('1d99b56c');
+			Co2okWidget.merchantCompensations('2786c947');
 		} else {
 			setTimeout(function() { Co2okWidget.jQueryLoadDefer() }, 50);
 		}

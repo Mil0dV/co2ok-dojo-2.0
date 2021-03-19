@@ -42,7 +42,7 @@ let Co2okWidget = {
 		fileref.setAttribute("href", `${this.SITE_HOST}/widget/co2okWidgetMark-109f4164.css`)
 		document.getElementsByTagName("head")[0].appendChild(fileref)
 
-	  	var images = [`${this.SITE_HOST}/widget/cfsButtonNL.svg`,
+	  	var images = [`${this.SITE_HOST}/widget/woonliving/cfsButtonNL-WL.svg`,
 			`${this.SITE_HOST}/widget/woonliving/WL_world.png`,
 			`${this.SITE_HOST}/widget/woonliving/WL_box.png`,
 			`${this.SITE_HOST}/widget/woonliving/WL_seedling.png`,
@@ -103,13 +103,15 @@ let Co2okWidget = {
 	 * CFSmark inserted in footer next to last pay icon and on product page next to last pay icons
 	 */
 	cfsTrustMarkInsertion: function () {
+		//footer
 		let cfsHtml = `
-			<img class="cfs_hover_target_footer" src="${this.SITE_HOST}/widget/cfsButtonNL.svg">
+			<img class="cfs_hover_target_footer" src="${this.SITE_HOST}/widget/woonliving/cfsButtonNL-WL.svg">
 		`
 		jQuery(".bot_footer_svg").after(cfsHtml)
 
+		//on product page
 		let cfsfHtml = `
-			<img class="cfs_hover_target" src="${this.SITE_HOST}/widget/cfsButtonNL.svg">
+			<img class="cfs_hover_target" src="${this.SITE_HOST}/widget/woonliving/cfsButtonNL-WL.svg">
 		`
 		jQuery(".pr_trust_seal").append(cfsfHtml)
 	},
