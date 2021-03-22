@@ -280,7 +280,7 @@ let Co2okWidget = {
 	widgetTrustmarkGenerator: function(compensationAmount) {
 
 		let widgetmark = `
-			<div class="btn_shop_co2ok mobile-hidden">
+			<div class="btn_shop_co2ok">
 
 				<div class="btn_co2ok_widget co2ok_widget_info widget-small" href="#">
 				<span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${this.SITE_HOST}/static/logo.png"></span>
@@ -292,24 +292,40 @@ let Co2okWidget = {
 			</div>
 
 		`
-		let newRowHtml = `
-			<div class="row mobile-hidden" id="row-co2ok" style="width: 55%">
+		let newRowHtml;
+
+		var sectionCss = jQuery("#main").find('section:eq(1)').find('div:eq(1)');
+        if (!Co2okWidget.isMobile()) {
+            sectionCss.css({display: "flex", "flex-direction": "row", "width": "90%", "margin": "auto"});
+            newRowHtml = `
+			<div class="row" id="row-co2ok" style="width: 55%">
 				<div id="col-co2ok" class="col small-12 large-12">
 					<div class="col-inner">
 						<h3 class="lead" data-padding="5px"><em><span style="font-weight: 400; font-family: tofino; font-size: 65%;" data-line-height="1rem">
 							Vela is comitted to minimizing their climate impact by offering sustainable, climate friendly solutions for their products.
 							To further their commitment, your purchase will be shipped with as little climate impact as possible!</span></em></h3>
-						<div id='widgetContainer' style='width:180px;height:auto;display:flex;flex-direction:row;justify-content:right;float: right;'></div>
+						<div id='widgetContainer' style='width:180px;height:auto;display:flex;flex-direction:row;justify-content:center;float: right;'></div>
 					</div>
 				</div>
 			</div>`
-
-		var sectionCss = jQuery("#main").find('section:eq(1)').find('div:eq(1)');
-		sectionCss.css({display: "flex", "flex-direction": "row", "width": "90%", "margin": "auto"});
-
+        } else {
+            sectionCss.css({display: "flex", "flex-direction": "column", "width": "100%", "margin": "auto"});
+            newRowHtml = `
+			<div class="row" id="row-co2ok" style="width: 100%">
+				<div id="col-co2ok" class="col small-12 large-12">
+					<div class="col-inner">
+						<h3 class="lead" data-padding="5px"><em><span style="font-weight: 400; font-family: tofino; font-size: 65%;" data-line-height="1rem">
+							Vela is comitted to minimizing their climate impact by offering sustainable, climate friendly solutions for their products.
+							To further their commitment, your purchase will be shipped with as little climate impact as possible!</span></em></h3>
+						<div id='widgetContainer' style='width:360px;height:auto;display:flex;flex-direction:row;justify-content:center;float: right;'></div>
+					</div>
+				</div>
+			</div>`;
+        }
+        
 		var trustMarkInsertion = jQuery("#main").find('section:eq(1)').find('div:eq(1)').find('div:eq(0)');
-
-		jQuery(newRowHtml).insertAfter(trustMarkInsertion)
+        
+	    jQuery(newRowHtml).insertAfter(trustMarkInsertion)
 	  let widgetcontainer = document.getElementById('widgetContainer')
 
 	  // Don't try to place widget if there is no container
@@ -351,7 +367,7 @@ let Co2okWidget = {
       }
     } else if (element_id == '.widget-small') {
             offset.left -= infoHoverBox.width() / 2;
-            offset.top -= infoHoverBox.height() - jQuery(window).scrollTop();
+            offset.top -= infoHoverBox.height();
 		} else if (element_id == '.cfs_hover_target_footer') {
 			offset.left -= infoHoverBox.width() / 2;
 			if (offset.left < 0) {
@@ -360,10 +376,10 @@ let Co2okWidget = {
 			offset.top -= infoHoverBox.height();
 		} else if (element_id == '.co2ok-usp-product') {
 			offset.left -= infoHoverBox.width() / 2 - elementBox.width() / 2;
-			offset.top -= 300 - jQuery(window).scrollTop() / 2;
+			offset.top -= infoHoverBox.height();
 		} else if (element_id == '.product-climate-friendly') {
 			offset.left -= infoHoverBox.width();
-			offset.top -= 200 - jQuery(window).scrollTop() / 2;
+			offset.top -= infoHoverBox.height() - 300;
 		} else if (element_id == '.cfs_hover_target_cart') {
 				offset.left -= 155;
 				offset.top = offset.top - infoHoverBox.height();
