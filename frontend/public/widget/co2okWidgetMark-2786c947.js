@@ -245,17 +245,17 @@ let Co2okWidget = {
 			var compensationAmount  = totalCompensatedData / 1000;
 		}
 
-		var compensatietekst = `This shop prevented <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> emissions`;
+		var compensatietekst = `VELA cares about climate<br>  This shop prevented <br><span style="line-height: 100%;" id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br><span style="margin-top:-5px!important;">emissions</span>`;
     var vliegen = "flying";
 
 		let widgetmark = `
 			<div class="large-widget">
 			<span class ="large-widget-right-green"></span>
 			<svg id= "half-circle" style="width: 160px;" > <circle cx="95" cy="64.6" r="62.6" fill="white">/></svg>
-			<p id="large-widget-text">${compensatietekst}</p>
+			<p style="margin-top: 20px;" id="large-widget-text">${compensatietekst}</p>
 			<p id="large-widget-xvliegen">= ${(compensationAmount * 5000) .toFixed(0)} km<br>${vliegen}</p>
-			<img id="co2ok-logo" src= "${this.SITE_HOST}/static/logo-gray.png">
-			<img id="info-button-widget" class="info-button-widget widget-large" src= "${this.SITE_HOST}/static/info-gray.svg">
+			<img id="co2ok-logo" style="margin-top: 95px;" src= "${this.SITE_HOST}/static/logo-gray.png">
+			<img id="info-button-widget" style="margin-top: 95px;" class="info-button-widget widget-large" src= "${this.SITE_HOST}/static/info-gray.svg">
 			<img id="large-widget-airplane" src= "${this.SITE_HOST}/widget/large-wiget-airplane.png">
 			</div>
 		`
@@ -357,7 +357,6 @@ let Co2okWidget = {
 
     infoHoverBox.remove();
 		jQuery("body").append(infoHoverBox);
-
     if (element_id === ".widget-large") {
       offset.left -= infoHoverBox.width() / 2;
       if ( offset.left < 0) offset.left = 10;
@@ -373,7 +372,6 @@ let Co2okWidget = {
 			if (offset.left < 0) {
 				offset.left = 5;
 			}
-			offset.top -= infoHoverBox.height();
 		} else if (element_id == '.co2ok-usp-product') {
 			offset.left -= infoHoverBox.width() / 2 - elementBox.width() / 2;
 			offset.top -= infoHoverBox.height();
@@ -393,7 +391,8 @@ let Co2okWidget = {
 	  if (offset.left < 0 && posX < windowWidth / 2) offset.left = 10;
 	  if (offset.left < 0 && posX > windowWidth / 2) offset.left = windowWidth - 360;
 	  if (offset.top < 0) offset.top = 10;
-		  infoHoverBox.css({
+	  if (offset.top > screen.height - infoHoverBox.height()) offset.top = (screen.height - 200) - infoHoverBox.height();
+		infoHoverBox.css({
 			top: offset.top,
 			left: offset.left,
 			margin: "0",

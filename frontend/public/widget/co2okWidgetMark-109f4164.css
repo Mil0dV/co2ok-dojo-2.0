@@ -29,6 +29,23 @@
 	margin-top: 7px;
 }
 
+.co2-product-usp-img {
+    height: 20px;
+    float: left;
+    padding-right: 8px;
+}
+
+.co2-truck-product-usp {
+    float: left;
+    height: 17px !important;
+    margin-bottom: -2px;
+}
+
+.co2-box-product-usp {
+    height: 22px !important;
+    margin-bottom: -1px;
+}
+
 .co2ok_widget_infobox_container .co2ok-widget-content .left-align-img {
 	margin-top: -80px;
 }

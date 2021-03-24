@@ -98,6 +98,27 @@ let Co2okWidget = {
 		//   xhr.setRequestHeader("Authorization", `token ${window.localStorage.getItem('userToken')}`)
 	},
 
+    /*
+    * Adds product friendly shipping line to product page
+    */
+
+    insertUspProductPage: function() {
+
+		let climateFriendlyShipping = 'Klimaatvriendelijke verzending'
+
+        //next to product under their own USPs
+        let productIcon = `
+        <div class="htusb-ui-section_0 htusb-ui-prod-static_0 co2ok_product_usp">
+                    <div class="htusb-ui-inline co2ok_product_usp">
+                        <img class="co2-truck-product-usp co2ok_product_usp" src="${Co2okWidget.SITE_HOST}/widget/co2_truck.png">
+                    </div>
+            <div class="htusb-ui-inline co2ok_product_usp" style="text-decoration: underline;">${climateFriendlyShipping}</div>
+                </div>
+        `
+        jQuery(".product__policies").append(productIcon)
+
+  },
+
 	/** insert CFSmark in footer and product page
 	 *
 	 * CFSmark inserted in footer next to last pay icon and on product page next to last pay icons
@@ -107,13 +128,22 @@ let Co2okWidget = {
 		let cfsHtml = `
 			<img class="cfs_hover_target_footer" src="${this.SITE_HOST}/widget/woonliving/cfsButtonNL-WL.svg">
 		`
-		jQuery(".bot_footer_svg").after(cfsHtml)
+        if (!Co2okWidget.isMobile()) {
+            jQuery(".bot_footer_svg").after(cfsHtml)
+        } else {
+            jQuery(".bot_footer_svg").before(cfsHtml)
+        }
 
 		//on product page
 		let cfsfHtml = `
 			<img class="cfs_hover_target" src="${this.SITE_HOST}/widget/woonliving/cfsButtonNL-WL.svg">
 		`
-		jQuery(".pr_trust_seal").append(cfsfHtml)
+        if (!Co2okWidget.isMobile()) {
+            jQuery(".pr_trust_seal").append(cfsfHtml)
+        } else {
+            jQuery(".pr_trust_seal img[src$='//cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/ideal-35160b934b25f7635f1bf94b7fbec57a1e3e44d946e811e6aba472e11142cbcd.svg']").before(cfsfHtml + '<br>');
+            jQuery(".cfs_hover_target").css("margin-bottom", "5px");
+        }
 	},
 
 	/** inserts globe icon into menu */
@@ -172,7 +202,7 @@ let Co2okWidget = {
 		// let treeTotal = Co2okWidget.getTreeTotal();
 		// // let  treeTotal = jQuery(".Counter__CounterComponent-ad46g3-0").text();
 		// if (treeTotal === 0 ) {
-		 let treeTotal = 163;
+		 let treeTotal = 167;
 		// }
 
 		var stepOne = "Woonliving werkt samen met de beste en onafhankelijke designers en meubelmakers. Geen tussenpersonen en geen winkels waardoor de keten duurzamer is.  Je kunt in de webshop zien hoe milieubewust een product is, zo helpen ze je een duurzame keuze te maken.";
@@ -393,7 +423,7 @@ let Co2okWidget = {
 				offset.top -= (y + infoHoverBox.height()) - jQuery(window).height();
 				offset.top -= 30;
 			}
-		} else if (element_id == '.cfs_hover_target') {
+		} else if (element_id == '.cfs_hover_target' || '.co2ok_product_usp') {
 			offset.left -= infoHoverBox.width() / 2;
 			if (offset.left < 0) {
 				offset.left = 5;
@@ -458,6 +488,8 @@ let Co2okWidget = {
 			return ('.co2ok-usp-menu')
 		else if (jQuery(e.target).hasClass("info-button-widget-products"))
 			return ('.info-button-widget-products')
+        else if (jQuery(e.target).hasClass("co2ok_product_usp"))
+			return ('.co2ok_product_usp')
 	},
 
 	RegisterWidgetInfoBox : function()
@@ -548,6 +580,7 @@ let Co2okWidget = {
 			Co2okWidget.insertHovercardHTML();
 			Co2okWidget.initializeGA();
 			Co2okWidget.menuIconInsertion();
+			Co2okWidget.insertUspProductPage();
 			Co2okWidget.cfsTrustMarkInsertion();
 			Co2okWidget.RegisterWidgetInfoBox();
 			Co2okWidget.merchantCompensations('widgetContainermark', '109f4164');
