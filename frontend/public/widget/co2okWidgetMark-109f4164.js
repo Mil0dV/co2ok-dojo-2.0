@@ -554,6 +554,7 @@ let Co2okWidget = {
 		} else {
 			if (co2ok_AB_param == 'show') {
 				console.log('Co2ok widget ON manually!')
+				Co2okWidget.insertUspProductPage()
 				return true;
 			} else if (co2ok_AB_param == 'hide') {
 				console.log('Co2ok widget OFF mannually!')
