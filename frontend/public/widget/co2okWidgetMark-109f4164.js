@@ -580,7 +580,7 @@ let Co2okWidget = {
 			Co2okWidget.insertHovercardHTML();
 			Co2okWidget.initializeGA();
 			Co2okWidget.menuIconInsertion();
-			Co2okWidget.insertUspProductPage();
+			// Co2okWidget.insertUspProductPage();
 			Co2okWidget.cfsTrustMarkInsertion();
 			Co2okWidget.RegisterWidgetInfoBox();
 			Co2okWidget.merchantCompensations('widgetContainermark', '109f4164');
