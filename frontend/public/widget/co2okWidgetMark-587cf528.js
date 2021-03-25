@@ -361,6 +361,16 @@ let Co2okWidget = {
 		widgetcontainer.innerHTML = widgetmark;
 	},
 
+    googleAnalyticsEvent : function(element_id) {
+        if (element_id == '.co2ok-usp-landing')
+            ga('CO2ok_widget.send', 'event', 'interaction', 'PK_landing'+Co2okWidget.platform);
+        else if (element_id == '.widget-small')
+            ga('CO2ok_widget.send', 'event', 'interaction', 'PK_widget'+Co2okWidget.platform);
+        else if (element_id == '.co2ok_product_usp')
+            ga('CO2ok_widget.send', 'event', 'interaction', 'PK_product'+Co2okWidget.platform);
+        else if (element_id == '.cfs_hover_target_footer')
+            ga('CO2ok_widget.send', 'event', 'interaction', 'PK_cfsfooter'+Co2okWidget.platform);
+    },
 
 	// Returns true if we are running on a mobile device.
 	isMobile: function() {
@@ -375,15 +385,14 @@ let Co2okWidget = {
 	},
 
 	placeWidgetInfoBox : function(element_id) {
-    var elementBox = jQuery(element_id);
-    var infoHoverBox = jQuery(".widget-hovercard-small")
-	  var offset = elementBox.offset();
+        var elementBox = jQuery(element_id);
+        var infoHoverBox = jQuery(".widget-hovercard-small")
+	    var offset = elementBox.offset();
 		var windowWidth = jQuery(window).width();
 		var y = event.clientY;
 
-	  infoHoverBox.remove();
-
-		jQuery("body").append(infoHoverBox);
+	    infoHoverBox.remove();
+	    jQuery("body").append(infoHoverBox);
     if (element_id == '.widget-large' || element_id == '.co2ok_product_usp') {
       offset.left -= infoHoverBox.width() / 2;
     } else if (element_id == '.widget-small') {
@@ -406,12 +415,12 @@ let Co2okWidget = {
 				offset.top -= (y + infoHoverBox.height()) - jQuery(window).height();
 				offset.top -= 30;
 			}
-		// } else if (element_id == '.cfs_hover_target_footer') {
-		// 	offset.left -= infoHoverBox.width() / 2;
-		// 	if (offset.left < 0) {
-		// 		offset.left = 5;
-		// 	}
-		// 	offset.top -= infoHoverBox.height();
+		} else if (element_id == '.cfs_hover_target_footer') {
+			offset.left -= infoHoverBox.width() / 2 + 50;
+			if (offset.left < 0) {
+				offset.left = 5;
+			}
+			offset.top -= infoHoverBox.height();
 		}  else if (element_id === '.co2ok-usp-landing') {
 			var offsetHold = offset.top;
 			offset.top -= infoHoverBox.height() / 2;
@@ -441,9 +450,12 @@ let Co2okWidget = {
 		  });
 	},
 
-	ShowWidgetInfoBox  : function() {
-	  jQuery(".widget-hovercard-small").removeClass('infobox-hidden')
-	  jQuery(".widget-hovercard-small").addClass('ShowWidgetInfoBox')
+	ShowWidgetInfoBox  : function(element_id) {
+        if (jQuery('.widget-hovercard-small').hasClass('infobox-hidden')) {
+            Co2okWidget.googleAnalyticsEvent(element_id);
+        }
+        jQuery(".widget-hovercard-small").removeClass('infobox-hidden')
+        jQuery(".widget-hovercard-small").addClass('ShowWidgetInfoBox')
 	},
 
 	hideWidgetInfoBox : function() {
@@ -483,7 +495,7 @@ let Co2okWidget = {
 				_Co2okWidget.hideWidgetInfoBox();
 
 			} else {
-				_Co2okWidget.ShowWidgetInfoBox();
+				_Co2okWidget.ShowWidgetInfoBox(element_id);
 		  }
 	  });
 
@@ -492,7 +504,7 @@ let Co2okWidget = {
 		  if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area"))
 			_Co2okWidget.hideWidgetInfoBox();
 		  else {
-			_Co2okWidget.ShowWidgetInfoBox();
+			_Co2okWidget.ShowWidgetInfoBox(element_id);
 			_Co2okWidget.placeWidgetInfoBox(element_id);
 		  }
 	  });
@@ -508,7 +520,7 @@ let Co2okWidget = {
 				if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area")) {
 					_Co2okWidget.hideWidgetInfoBox();
 				} else {
-					_Co2okWidget.ShowWidgetInfoBox();
+					_Co2okWidget.ShowWidgetInfoBox(element_id);
 					_Co2okWidget.placeWidgetInfoBox(element_id);
 				}
 			});
@@ -539,6 +551,19 @@ let Co2okWidget = {
 
 	},
 
+    initializeGA: function() {
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-108940950-7', 'auto', 'CO2ok_widget');
+		ga('CO2ok_widget.send', 'pageview');
+        if (Co2okWidget.isMobile())
+            Co2okWidget.platform = "_mobile"
+        else
+            Co2okWidget.platform = "_desktop"
+	},
+
 	jQueryLoadDefer: function() {
     if (window.jQuery) {
 			let lang = 'EN'
@@ -549,9 +574,10 @@ let Co2okWidget = {
 				Co2okWidget.insertUspProductPage(lang);
       }
 			Co2okWidget.marqueeInsertion(lang);
-      Co2okWidget.uspInsertion(lang);
-			Co2okWidget.cfsTrustMarkInsertion();
-      Co2okWidget.insertHovercardHTML(lang);
+            Co2okWidget.uspInsertion(lang);
+			Co2okWidget.initializeGA();
+            Co2okWidget.cfsTrustMarkInsertion();
+            Co2okWidget.insertHovercardHTML(lang);
 			Co2okWidget.RegisterWidgetInfoBox();
 			Co2okWidget.merchantCompensations(lang);
     } else {
