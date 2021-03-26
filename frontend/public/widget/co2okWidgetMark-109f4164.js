@@ -17,8 +17,11 @@ let Co2okWidget = {
 		});
 	},
 
+    /*
+    ** The updated text pushes the marquee to a second line on mobile. This could be deactivated on mobile specifically?
+    */
     insertMarqueeText: function () {
-        let marqueeText = '<i class="las la-truck"></i>  Standaard  <b>gratis </b> gemonteerd en klimaatvriendelijk geleverd in NL & BE!';
+        let marqueeText = '<i class="las la-truck"></i> <b>Gratis </b> klimaatvriendelijk én gemonteerd geleverd in NL & BE!';
         jQuery('.col-lg-4 .header-text').html(marqueeText);
     },
 
@@ -417,8 +420,6 @@ let Co2okWidget = {
 		var y = event.clientY;
 
 	  	infoHoverBox.remove();
-        Co2okWidget.googleAnalyticsEvent(element_id);
-        console.log(element_id);
 		jQuery("body").append(infoHoverBox);
 		if (element_id == '.widget-small' || element_id == '.info-button-widget-products') {
 			offset.left -= infoHoverBox.width() / 4;
@@ -479,9 +480,13 @@ let Co2okWidget = {
 		  });
 	},
 
-	ShowWidgetInfoBox  : function() {
-	  jQuery(".widget-hovercard-small").removeClass('infobox-hidden')
-	  jQuery(".widget-hovercard-small").addClass('ShowWidgetInfoBox')
+	ShowWidgetInfoBox  : function(element_id) {
+        // Analytics event is sent whenever infobox-hidden does not exist as a class for the hovercard. This is required to prevent multiple events from being sent out
+        if (jQuery(".widget-hovercard-small").hasClass('infobox-hidden')) {
+            Co2okWidget.googleAnalyticsEvent(element_id);
+        }
+	    jQuery(".widget-hovercard-small").removeClass('infobox-hidden')
+	    jQuery(".widget-hovercard-small").addClass('ShowWidgetInfoBox')
 	},
 
 	hideWidgetInfoBox : function() {
@@ -524,7 +529,7 @@ let Co2okWidget = {
 					Co2okWidget.hideWidgetInfoBox();
 				}
 			} else if (element_id) {
-				Co2okWidget.ShowWidgetInfoBox();
+				Co2okWidget.ShowWidgetInfoBox(element_id);
 		  	}
 	  });
       let documentClick;
@@ -545,7 +550,7 @@ let Co2okWidget = {
 					Co2okWidget.hideWidgetInfoBox();
 				}
 		  	} else if (element_id) {
-				Co2okWidget.ShowWidgetInfoBox();
+				Co2okWidget.ShowWidgetInfoBox(element_id);
 				Co2okWidget.placeWidgetInfoBox(element_id);
 		  	}
         }
@@ -563,7 +568,7 @@ let Co2okWidget = {
 					//prevents opening of cart on closing of hovercards
 					Co2okWidget.hideWidgetInfoBox();
 				} else if (element_id) {
-					Co2okWidget.ShowWidgetInfoBox();
+					Co2okWidget.ShowWidgetInfoBox(element_id);
 					Co2okWidget.placeWidgetInfoBox(element_id);
 				}
 			});
@@ -608,8 +613,8 @@ let Co2okWidget = {
 			Co2okWidget.insertHovercardHTML();
 			Co2okWidget.initializeGA();
 			Co2okWidget.menuIconInsertion();
-			Co2okWidget.insertUspProductPage();
-            Co2okWidget.insertMarqueeText();
+            // Deactivated until it's okay'd
+			// Co2okWidget.insertUspProductPage();
 			Co2okWidget.cfsTrustMarkInsertion();
 			Co2okWidget.RegisterWidgetInfoBox();
 			Co2okWidget.merchantCompensations('widgetContainermark', '109f4164');
