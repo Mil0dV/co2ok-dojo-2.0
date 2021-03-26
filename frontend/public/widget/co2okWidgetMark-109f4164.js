@@ -445,6 +445,7 @@ let Co2okWidget = {
 			}
         } else if (element_id == '.climate_friendly_shipping') {
             offset.left -= infoHoverBox.width();
+            offset.top -= 50;
 			if (offset.left < 0) {
 				offset.left = 5;
 			}
@@ -599,6 +600,33 @@ let Co2okWidget = {
 
 	},
 
+    initializeDuurzaamObserver: function () {
+        if (!window.location.toString().includes('products')) {
+            return ;
+        }
+        let platform;
+        if (Co2okWidget.isMobile())
+            platform = "_mobile"
+        else
+            platform = "_desktop"
+        const observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                if (mutation.attributeName === 'class') {
+                    if (mutation.target.classList.contains('active') ) {
+                        ga('CO2ok_widget.send', 'event', 'interaction', 'WL_duurzaam'+platform);
+                    }
+                }
+            })
+        });
+        
+        var duurzaam = jQuery('.ul_none').children().eq(2)['0']
+        
+        observer.observe(duurzaam, {
+            childList: false,
+            attributes: true
+        })
+    },
+
 	initializeGA: function() {
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -612,9 +640,9 @@ let Co2okWidget = {
 		if (window.jQuery) {
 			Co2okWidget.insertHovercardHTML();
 			Co2okWidget.initializeGA();
+            Co2okWidget.initializeDuurzaamObserver();
 			Co2okWidget.menuIconInsertion();
-            // Deactivated until it's okay'd
-			// Co2okWidget.insertUspProductPage();
+			Co2okWidget.insertUspProductPage();
 			Co2okWidget.cfsTrustMarkInsertion();
 			Co2okWidget.RegisterWidgetInfoBox();
 			Co2okWidget.merchantCompensations('widgetContainermark', '109f4164');
