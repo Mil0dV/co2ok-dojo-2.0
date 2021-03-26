@@ -1,8 +1,8 @@
 //Woonliving trustmark
 let Co2okWidget = {
 
-	// SITE_HOST: "https://co2ok.eco",
-	SITE_HOST: "http://localhost:8080",
+	SITE_HOST: "https://co2ok.eco",
+	// SITE_HOST: "http://localhost:8080",
 
 	getCookieValue: function (a) {
 	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -550,21 +550,6 @@ let Co2okWidget = {
 		  	}
         }
      });
-
-    // Commented out to prevent mobile users from accidentally opening a hoverbox, is more than the 
-	//   jQuery('body').on("touchstart",function(e){
-    //       element_id = Co2okWidget.modalRegex(e);
-	// 		if (element_id === '.exit-area') {
-	// 			//prevents opening of cart on closing of hovercards
-	// 			if (e.detail === 1) {
-	// 				e.stopImmediatePropagation();
-	// 				Co2okWidget.hideWidgetInfoBox();
-	// 			}
-	// 	  	} else if (element_id) {
-	// 			Co2okWidget.ShowWidgetInfoBox();
-	// 			Co2okWidget.placeWidgetInfoBox(element_id);
-	// 	  	}
-	//   });
 
 	  if(!this.isMobile())
 	  {
