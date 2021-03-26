@@ -528,13 +528,13 @@ let Co2okWidget = {
 		  	}
 	  });
       let documentClick;
-    $('body').on('touchstart', function() {
+    jQuery('body').on('touchstart', function() {
         documentClick = true;
     });
-    $('body').on('touchmove', function() {
+    jQuery('body').on('touchmove', function() {
         documentClick = false;
     });
-    $('body').on('click touchend', function(e) {
+    jQuery('body').on('click touchend', function(e) {
         if (e.type == "click") documentClick = true;
         if (documentClick){
             element_id = Co2okWidget.modalRegex(e);
