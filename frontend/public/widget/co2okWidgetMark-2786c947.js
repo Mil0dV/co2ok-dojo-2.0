@@ -1,9 +1,9 @@
 //VELA
 
-let Co2okWidget = {
+Co2okWidget = {
 
-	SITE_HOST: "https://co2ok.eco",
-	// SITE_HOST: "http://localhost:8080",
+	// SITE_HOST: "https://co2ok.eco",
+	SITE_HOST: "http://localhost:8080",
 
 	getCookieValue: function (a) {
 	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -147,20 +147,22 @@ let Co2okWidget = {
 			//product description
 			let productDesc = jQuery(".product-short-description")[0].childNodes
 			let productText = `
-            <br><u class="product-climate-friendly"><i class="wishlist-icon icon-heart" style="color: #26B43D"></i> Climate friendly product</u>
+            <br><u class="product-climate-friendly"><i class="wishlist-icon icon-heart" style="color: #26B43D"></i> Climate friendly product 🛈</u>
 			`
 			productDesc[1].innerHTML += productText
 		}
 
 		//added marquee text
-		let marquee = jQuery("#fs-progress");
-        if (marquee[0].innerHTML == "You Get Free Shipping!") {
-		    let marqueeText = ` Always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i>`
-		    marquee[0].innerHTML += marqueeText
-		} else {
-			let marqueeText = `, always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i>`
-			marquee[0].innerHTML += marqueeText
-		}
+        setTimeout(function(){
+            let marquee = jQuery("#fs-progress");
+            if (marquee[0].innerHTML == "You Get Free Shipping!") {
+                let marqueeText = ` Always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i>`
+                marquee[0].innerHTML += marqueeText
+            } else {
+                let marqueeText = `, always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i>`
+                marquee[0].innerHTML += marqueeText
+            }
+        }, 2000);
 	},
 
 	insertHovercardHTML: function () {
@@ -245,14 +247,14 @@ let Co2okWidget = {
 			var compensationAmount  = totalCompensatedData / 1000;
 		}
 
-		var compensatietekst = `VELA cares about climate<br>  This shop prevented <br><span style="line-height: 100%;" id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br><span style="margin-top:-5px!important;">emissions</span>`;
+		var compensatietekst = `VELA Apparel cares <br>about the climate<br>  This shop prevented <br><span style="line-height: 100%;" id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br><span style="margin-top:-5px!important;">emissions</span>`;
     var vliegen = "flying";
 
 		let widgetmark = `
 			<div class="large-widget">
 			<span class ="large-widget-right-green"></span>
 			<svg id= "half-circle" style="width: 160px;" > <circle cx="95" cy="64.6" r="62.6" fill="white">/></svg>
-			<p style="margin-top: 20px;" id="large-widget-text">${compensatietekst}</p>
+			<p id="large-widget-text-vela">${compensatietekst}</p>
 			<p id="large-widget-xvliegen">= ${(compensationAmount * 5000) .toFixed(0)} km<br>${vliegen}</p>
 			<img id="co2ok-logo" style="margin-top: 95px;" src= "${this.SITE_HOST}/static/logo-gray.png">
 			<img id="info-button-widget" style="margin-top: 95px;" class="info-button-widget widget-large" src= "${this.SITE_HOST}/static/info-gray.svg">
@@ -374,9 +376,9 @@ let Co2okWidget = {
 			}
 		} else if (element_id == '.co2ok-usp-product') {
 			offset.left -= infoHoverBox.width() / 2 - elementBox.width() / 2;
-			offset.top -= infoHoverBox.height();
+			offset.top -= infoHoverBox.height() - 300;
 		} else if (element_id == '.product-climate-friendly') {
-			offset.left -= infoHoverBox.width();
+			offset.left -= infoHoverBox.width() / 3;
 			offset.top -= infoHoverBox.height() - 300;
 		} else if (element_id == '.cfs_hover_target_cart') {
 				offset.left -= 155;

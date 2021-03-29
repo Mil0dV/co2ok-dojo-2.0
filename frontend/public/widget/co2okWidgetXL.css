@@ -59,6 +59,15 @@
     z-index:3;
   }
 
+  #large-widget-text-vela {
+    position:absolute;
+    font:11px Poppins, Verdana, sans-serif;
+    color:#606468;
+    margin-top: 5px;
+    margin-left:12px;
+    z-index:3;
+  }
+
   #large-widget-text-large {
     font:19px Poppins, Verdana, sans-serif;
     color:#606468;
