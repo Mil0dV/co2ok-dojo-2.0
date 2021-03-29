@@ -112,7 +112,7 @@ let Co2okWidget = {
 
     insertUspProductPage: function() {
 
-		let climateFriendlyShipping = 'Klimaatvriendelijke verzending <span class="climate_friendly_shipping">🛈</span>'
+		let climateFriendlyShipping = 'Gratis klimaatvriendelijke verzending <span class="climate_friendly_shipping">🛈</span>'
 
         //next to product under their own USPs
         let productIcon = `
@@ -120,10 +120,11 @@ let Co2okWidget = {
                     <div class="co2ok_product_usp">
                         <img class="co2-truck-product-usp co2ok_product_usp" src="${Co2okWidget.SITE_HOST}/widget/co2_truck.png">
                     </div>
-            <div class="co2ok_product_usp" style="text-decoration: underline;">${climateFriendlyShipping}</div>
+            <div class="co2ok_product_usp">${climateFriendlyShipping}</div>
+            &nbsp;- binnen 30 dagen gratis te retourneren
                 </div>
         `
-        jQuery(".product__policies p").prepend(productIcon)
+        jQuery(".product__policies p").html(productIcon)
 
   },
 
