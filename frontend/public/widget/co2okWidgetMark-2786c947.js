@@ -451,19 +451,29 @@ let Co2okWidget = {
 		  	}
 	  });
 
-	  jQuery('body').on("touchstart",function(e){
-		element_id = Co2okWidget.modalRegex(e);
-			if (element_id === '.exit-area') {
-				//prevents opening of cart on closing of hovercards
-				if (e.detail === 1) {
-					e.stopImmediatePropagation();
-					Co2okWidget.hideWidgetInfoBox();
-				}
-		  	} else if (element_id) {
-				Co2okWidget.ShowWidgetInfoBox();
-				Co2okWidget.placeWidgetInfoBox(element_id);
-		  	}
-	  });
+      let documentClick;
+      jQuery('body').on('touchstart', function() {
+          documentClick = true;
+      });
+      jQuery('body').on('touchmove', function() {
+          documentClick = false;
+      });
+      jQuery('body').on('click touchend', function(e) {
+          if (e.type == "click") documentClick = true;
+          if (documentClick){
+              element_id = Co2okWidget.modalRegex(e);
+              if (element_id === '.exit-area') {
+                  //prevents opening of cart on closing of hovercards
+                  if (e.detail === 1) {
+                      e.stopImmediatePropagation();
+                      Co2okWidget.hideWidgetInfoBox();
+                  }
+                } else if (element_id) {
+                  Co2okWidget.ShowWidgetInfoBox(element_id);
+                  Co2okWidget.placeWidgetInfoBox(element_id);
+                }
+          }
+       });
 
 	  if(!this.isMobile())
 	  {

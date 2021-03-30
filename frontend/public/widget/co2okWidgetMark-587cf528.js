@@ -153,11 +153,11 @@ let Co2okWidget = {
 
 		let titleText = 'Climate Friendly Shipping'
 		let paragraphText = 'Your purchase is shipped with as little impact on the climate as possible! The emissions that cannot be avoided are fully compensated by Pockies.'
-		let productDescipt = 'Climate friendly shipping'
+		let productDescipt = '<span class="climate_friendly_shipping">Climate friendly shipping</span>'
 		if (lang === 'NL') {
 			// titleText = 'Klimaatvriendelijke verzenden'
 			// paragraphText = 'Met CFD worden uw pakketleveringen Klimaatvriendelijk omdat de neutralisatie van de uitstoot in onze service is inbegrepen! Als klant heeft u de mogelijkheid om de meest milieuvriendelijke leveringsoptie te kiezen. Verantwoordelijk e-commerce is nog nooit zo eenvoudig geweest!'
-			productDescipt = 'Klimaatvriendelijke verzending'
+			productDescipt = '<span class="climate_friendly_shipping">Klimaatvriendelijke verzending</span>'
 		}
 
     //shipping tab on product pag
@@ -366,7 +366,7 @@ let Co2okWidget = {
             ga('CO2ok_widget.send', 'event', 'interaction', 'PK_landing'+Co2okWidget.platform);
         else if (element_id == '.widget-small')
             ga('CO2ok_widget.send', 'event', 'interaction', 'PK_widget'+Co2okWidget.platform);
-        else if (element_id == '.co2ok_product_usp')
+        else if (element_id == '.climate_friendly_shipping')
             ga('CO2ok_widget.send', 'event', 'interaction', 'PK_product'+Co2okWidget.platform);
         else if (element_id == '.cfs_hover_target_footer')
             ga('CO2ok_widget.send', 'event', 'interaction', 'PK_cfsfooter'+Co2okWidget.platform);
@@ -393,7 +393,7 @@ let Co2okWidget = {
 
 	    infoHoverBox.remove();
 	    jQuery("body").append(infoHoverBox);
-    if (element_id == '.widget-large' || element_id == '.co2ok_product_usp') {
+    if (element_id == '.widget-large' || element_id == '.climate_friendly_shipping') {
       offset.left -= infoHoverBox.width() / 2;
     } else if (element_id == '.widget-small') {
 			offset.left -= infoHoverBox.width() / 4;
@@ -477,8 +477,8 @@ let Co2okWidget = {
 			return ('.widget-small')
     else if (jQuery(e.target).hasClass("widget-large"))
       return ('.widget-large')
-		else if (jQuery(e.target).hasClass("co2ok_product_usp"))
-			return ('.co2ok_product_usp')
+		else if (jQuery(e.target).hasClass("climate_friendly_shipping"))
+			return ('.climate_friendly_shipping')
 		else if (jQuery(e.target).hasClass("co2ok-usp-landing")) {
 			return ('.co2ok-usp-landing')
 		}
@@ -499,15 +499,29 @@ let Co2okWidget = {
 		  }
 	  });
 
-	  jQuery('body').on("touchstart",function(e){
-		element_id = _Co2okWidget.modalRegex(e);
-		  if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area"))
-			_Co2okWidget.hideWidgetInfoBox();
-		  else {
-			_Co2okWidget.ShowWidgetInfoBox(element_id);
-			_Co2okWidget.placeWidgetInfoBox(element_id);
-		  }
-	  });
+      let documentClick;
+      jQuery('body').on('touchstart', function() {
+          documentClick = true;
+      });
+      jQuery('body').on('touchmove', function() {
+          documentClick = false;
+      });
+      jQuery('body').on('click touchend', function(e) {
+          if (e.type == "click") documentClick = true;
+          if (documentClick){
+              element_id = Co2okWidget.modalRegex(e);
+              if (element_id === '.exit-area') {
+                  //prevents opening of cart on closing of hovercards
+                  if (e.detail === 1) {
+                      e.stopImmediatePropagation();
+                      Co2okWidget.hideWidgetInfoBox();
+                  }
+                } else if (element_id) {
+                  Co2okWidget.ShowWidgetInfoBox(element_id);
+                  Co2okWidget.placeWidgetInfoBox(element_id);
+                }
+          }
+       });
 
 	  if(!Co2okWidget.isMobile())
 	  {
