@@ -1,8 +1,8 @@
 //Woonliving trustmark
 let Co2okWidget = {
 
-	SITE_HOST: "https://co2ok.eco",
-	// SITE_HOST: "http://localhost:8080",
+	// SITE_HOST: "https://co2ok.eco",
+	SITE_HOST: "http://localhost:8080",
 
 	getCookieValue: function (a) {
 	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -56,6 +56,7 @@ let Co2okWidget = {
 			`${this.SITE_HOST}/widget/woonliving/WL_seedling.png`,
 			`${this.SITE_HOST}/widget/woonliving/WL_trees.png`,
 			`${this.SITE_HOST}/widget/woonliving/WL_logo.png`,
+			`${this.SITE_HOST}/widget/woonliving/WL_info.png`,
 			`${this.SITE_HOST}/static/logo.png`,
 			`${this.SITE_HOST}/widget/hovercard/co2-projects.jpg`,
 			`${this.SITE_HOST}/static/info.svg`,
@@ -112,7 +113,7 @@ let Co2okWidget = {
 
     insertUspProductPage: function() {
 
-		let climateFriendlyShipping = 'Gratis klimaatvriendelijke verzending <span class="climate_friendly_shipping">🛈</span>'
+		let climateFriendlyShipping = `Gratis klimaatvriendelijke verzending <img class="climate_friendly_shipping" style="height: 20px;" src="${Co2okWidget.SITE_HOST}/widget/woonliving/WL_info.png">`
 
         //next to product under their own USPs
         let productIcon = `
@@ -534,7 +535,7 @@ let Co2okWidget = {
 				Co2okWidget.ShowWidgetInfoBox(element_id);
 		  	}
 	  });
-      let documentClick;
+    let documentClick;
     jQuery('body').on('touchstart', function() {
         documentClick = true;
     });
@@ -642,9 +643,9 @@ let Co2okWidget = {
 			Co2okWidget.insertHovercardHTML();
 			Co2okWidget.initializeGA();
             Co2okWidget.initializeDuurzaamObserver();
-			Co2okWidget.menuIconInsertion();
 			Co2okWidget.insertUspProductPage();
 			Co2okWidget.cfsTrustMarkInsertion();
+			Co2okWidget.menuIconInsertion();
 			Co2okWidget.RegisterWidgetInfoBox();
 			Co2okWidget.merchantCompensations('widgetContainermark', '109f4164');
 		} else {
@@ -664,3 +665,4 @@ Co2okWidget.manualABSwitch()
     return
   }
 })
+
