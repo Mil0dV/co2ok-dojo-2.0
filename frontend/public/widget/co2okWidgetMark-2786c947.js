@@ -350,6 +350,21 @@ let Co2okWidget = {
 			return !!jQuery(selector).length;
 	},
 
+    googleAnalyticsEvent : function(element_id) {
+        if (element_id == '.widget-large')
+            ga('CO2ok_widget.send', 'event', 'interaction', 'widget_large_'+Co2okWidget.platform);
+        else if (element_id == '.widget-small')
+            ga('CO2ok_widget.send', 'event', 'interaction', 'widget_small_'+Co2okWidget.platform);
+        else if (element_id == '.product-climate-friendly')
+            ga('CO2ok_widget.send', 'event', 'interaction', 'product_climate_friendly_'+Co2okWidget.platform);
+        else if (element_id == '.co2ok-usp-product')
+            ga('CO2ok_widget.send', 'event', 'interaction', 'product_heart_'+Co2okWidget.platform);
+        else if (element_id == '.cfs_hover_target_footer')
+            ga('CO2ok_widget.send', 'event', 'interaction', 'cfs_footer_'+Co2okWidget.platform);
+        else if (element_id == '.cfs_hover_target_cart')
+            ga('CO2ok_widget.send', 'event', 'interaction', 'cfs_cart_'+Co2okWidget.platform);
+    },
+
 	placeWidgetInfoBox : function(element_id) {
 		var elementBox = jQuery(element_id);
 		var infoHoverBox = jQuery(".widget-hovercard-small");
@@ -402,7 +417,11 @@ let Co2okWidget = {
 		  });
 	},
 
-	ShowWidgetInfoBox  : function() {
+	ShowWidgetInfoBox  : function(element_id) {
+        // Prevents analytics event from triggering more than once
+        if (jQuery('.widget-hovercard-small').hasClass('infobox-hidden')) {
+            Co2okWidget.googleAnalyticsEvent(element_id);
+        }
 	  jQuery(".widget-hovercard-small").removeClass('infobox-hidden')
 	  jQuery(".widget-hovercard-small").addClass('ShowWidgetInfoBox')
 	},
@@ -447,7 +466,7 @@ let Co2okWidget = {
 					Co2okWidget.hideWidgetInfoBox();
 				}
 			} else if (element_id) {
-				Co2okWidget.ShowWidgetInfoBox();
+				Co2okWidget.ShowWidgetInfoBox(element_id);
 		  	}
 	  });
 
@@ -487,7 +506,7 @@ let Co2okWidget = {
 					//prevents opening of cart on closing of hovercards
 					Co2okWidget.hideWidgetInfoBox();
 				} else if (element_id) {
-					Co2okWidget.ShowWidgetInfoBox();
+					Co2okWidget.ShowWidgetInfoBox(element_id);
 					Co2okWidget.placeWidgetInfoBox(element_id);
 				}
 			});
@@ -520,12 +539,23 @@ let Co2okWidget = {
 
 	},
 
+    initializeGA: function() {
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-108940950-8', 'auto', 'CO2ok_widget');
+		ga('CO2ok_widget.send', 'pageview');
+        Co2okWidget.platform = (Co2okWidget.isMobile()) ? "mobile" : "desktop";
+	},
+
 	jQueryLoadDefer: function() {
 		if (window.jQuery) {
 			Co2okWidget.insertHovercardHTML();
 			Co2okWidget.uspInsertion();
 			Co2okWidget.cfsTrustMarkInsertion();
 			Co2okWidget.RegisterWidgetInfoBox();
+            Co2okWidget.initializeGA();
 			Co2okWidget.merchantCompensations('2786c947');
 		} else {
 			setTimeout(function() { Co2okWidget.jQueryLoadDefer() }, 50);
