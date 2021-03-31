@@ -2,8 +2,8 @@
 
 let Co2okWidget = {
 
-	SITE_HOST: "https://co2ok.eco",
-	// SITE_HOST: "http://localhost:8080",
+	// SITE_HOST: "https://co2ok.eco",
+	SITE_HOST: "http://localhost:8080",
 
 	getCookieValue: function (a) {
 	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -49,6 +49,7 @@ let Co2okWidget = {
 	  document.getElementsByTagName("head")[0].appendChild(fileref)
 
 	  images = [`${Co2okWidget.SITE_HOST}/widget/cfsButtonNL.svg`,
+      `${Co2okWidget.SITE_HOST}/widget/cfsButtonEN.svg`,
 	  `${Co2okWidget.SITE_HOST}/widget/pockies/PK_world.png`,
 	  `${Co2okWidget.SITE_HOST}/widget/pockies/PK_box.png`,
 	  `${Co2okWidget.SITE_HOST}/widget/pockies/PK_seedling.png`,
@@ -111,11 +112,15 @@ let Co2okWidget = {
 	 *
 	 * CFSmark inserted in footer in front of first pay icon
 	 */
-	cfsTrustMarkInsertion: function () {
+	cfsTrustMarkInsertion: function (lang) {
     //payment icons in footer
 		let cfsfHtml = `
-    <img class="cfs_hover_target_footer" src="${Co2okWidget.SITE_HOST}/widget/cfsButtonNL.svg" style="height: 64px;">
+    <img class="cfs_hover_target_footer" src="${Co2okWidget.SITE_HOST}/widget/cfsButtonEN.svg" style="height: 64px;">
 		`
+        if (lang === 'NL') cfsfHtml = `
+        <img class="cfs_hover_target_footer" src="${Co2okWidget.SITE_HOST}/widget/cfsButtonNL.svg" style="height: 64px;">
+            `
+
 		jQuery(".paymentCall").prepend(cfsfHtml)
 	},
 
@@ -208,12 +213,18 @@ let Co2okWidget = {
 		let stepThree = 'Furthermore, CO2ok offers you the possibility to directly offset the CO2 emissions of your purchase with one click. The compensated money goes to CO2 compensation projects of FairClimateFund and Atmosfair that are Gold Standard certified.';
 		let imageDesc = 'Not only the climate benefits: we also realize less deforestation and health benefits through less smoke and toxic carbon monoxide.';
 		let button = 'How we do this'
+        let subHeaderOne = 'Sustainable products'
+        let subHeaderTwo = 'Neutral packaging & shipping'
+        let subHeaderThree = 'Neutralizing production'
 		if (lang === 'NL') {
 			stepOne = "Pockies zet zich in om de impact van hun producten op het klimaat te minimaliseren door duurzame, klimaatvriendelijke oplossingen voor hun producten aan te bieden. Wij (CO2ok) helpen ze om de overblijvende CO2-uitstoot nog verder te verminderen.";
 			stepTwo = "Ook wordt je aankoop verzonden met zo weinig mogelijk impact op het klimaat! De uitstoot die niet vermeden kan worden, wordt volledig gecompenseerd door Pockies.";
 			stepThree = "Verder bieden we je de mogelijkheid om de CO2-uitstoot van uw aankoop met één klik direct te compenseren. Het gecompenseerde geld gaat naar CO2 compensatieprojecten van FairClimateFund en Atmosfair die Gold Standard gecertificeerd zijn.";
 			imageDesc = "Niet alleen het klimaat profiteert: we realiseren zo ook minder ontbossing en gezondheidsvoordelen door minder rook en giftige koolmonoxide"
 			button = 'Hoe we dit doen'
+            subHeaderOne = 'Duurzame producten'
+            subHeaderTwo = 'Neutrale verpakking & verzending'
+            subHeaderThree = 'Neutraliseren van de productie'
 		}
 
     let infoHoverHtml = `
@@ -221,7 +232,7 @@ let Co2okWidget = {
 			<div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-small co2ok-small" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
 
 				<div class="mobile mobile-bar desktop-hidden co2ok-small" style="background-color: #43b364;">
-					<p class="mobile-header desktop-hidden co2ok-small">Pockies's Planet Promise</p>
+					<p class="mobile-header desktop-hidden co2ok-small">Pockies' Planet Promise</p>
 					<span class="exit-area-span co2ok-small">
 						<p class="exit-area desktop-hidden co2ok-small"> X </p>
 					</span>
@@ -229,26 +240,27 @@ let Co2okWidget = {
 
 				<div class="co2ok-widget-content co2ok-small">
 					<div class="card-main-header mobile-hidden co2ok-small">
+                    <span class="exit-area" style="float: right;"> X </span>
 						<img class="png-img-large mobile-hidden left-align-img header-img co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_world.png">
-						<p class="header mobile-hidden co2ok-small" style="color: #43b364;">Pockies's Planet Promise</p>
+						<p class="header mobile-hidden co2ok-small" style="color: #43b364;">Pockies' Planet Promise</p>
 					</div>
 
 					<div class="co2ok-widget-wrapper co2ok-small co2ok-header-one co2ok-small">
 						<img class="png-img-large right-align-img co2ok-box co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_box.png">
-						<p class="sub-header right co2ok-small" style="color: #239DCC;">Duurzame producten</p>
+						<p class="sub-header right co2ok-small" style="color: #239DCC;">${subHeaderOne}</p>
 						<p class="widget-wrapper right widget-text-block left co2ok-small"> ${stepOne} </p>
 					</div>
 
 
 					<div class="co2ok-widget-wrapper co2ok-small co2ok-header-two">
-						<p class="sub-header left co2ok-small" style="color: #239DCC;">Neutrale verpakking & verzending</p>
+						<p class="sub-header left co2ok-small" style="color: #239DCC;">${subHeaderTwo}</p>
 						<p class="widget-text-block left co2ok-small co2-neutrale" style="min-height: 58px;"> ${stepTwo} </p>
 						<img class="png-img-large left-align-img co2ok-plant co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_seedling.png">
 					</div>
 
 					<div class="co2ok-widget-wrapper co2ok-small co2ok-header-three">
 						<img class="png-img-large right-align-img co2ok-tree co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_trees.png">
-						<p class="sub-header right co2ok-small" style="color: #239DCC;">Neutraliseren van de productie</p>
+						<p class="sub-header right co2ok-small" style="color: #239DCC;">${subHeaderThree}</p>
 						<p class="widget-text-block right co2ok-small"> ${stepThree} </p>
 					</div>
 
@@ -590,7 +602,7 @@ let Co2okWidget = {
 			Co2okWidget.marqueeInsertion(lang);
             Co2okWidget.uspInsertion(lang);
 			Co2okWidget.initializeGA();
-            Co2okWidget.cfsTrustMarkInsertion();
+            Co2okWidget.cfsTrustMarkInsertion(lang);
             Co2okWidget.insertHovercardHTML(lang);
 			Co2okWidget.RegisterWidgetInfoBox();
 			Co2okWidget.merchantCompensations(lang);
