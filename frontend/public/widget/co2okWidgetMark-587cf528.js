@@ -380,7 +380,7 @@ let Co2okWidget = {
     */
 
     googleAnalyticsEvent : function(element_id) {
-        let eventName;
+        let eventName = null;
         if (element_id == '.co2ok-usp-landing')
             eventName = `PK_landing${Co2okWidget.platform}`
         else if (element_id == '.widget-small')
@@ -389,8 +389,10 @@ let Co2okWidget = {
             eventName = `PK_product${Co2okWidget.platform}`
         else if (element_id == '.cfs_hover_target_footer')
             eventName = `PK_cfsfooter${Co2okWidget.platform}`
-        ga('CO2ok_widget.send', 'event', 'interaction', eventName);            
-        ga('CO2ok_widget.send', 'pageview', document.location.pathname + `/${eventName}`);
+        if (eventName) {
+            ga('CO2ok_widget.send', 'event', 'interaction', eventName);            
+            ga('CO2ok_widget.send', 'pageview', document.location.pathname + `/${eventName}`);
+        }
     },
 
 	// Returns true if we are running on a mobile device.
