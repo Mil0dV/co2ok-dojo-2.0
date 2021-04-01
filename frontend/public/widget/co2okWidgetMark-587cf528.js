@@ -375,15 +375,22 @@ let Co2okWidget = {
 		widgetcontainer.innerHTML = widgetmark;
 	},
 
+    /*
+    ** Sends a google analytics event based on the element_id, then sends a pageview with the element_id appended
+    */
+
     googleAnalyticsEvent : function(element_id) {
+        let eventName;
         if (element_id == '.co2ok-usp-landing')
-            ga('CO2ok_widget.send', 'event', 'interaction', 'PK_landing'+Co2okWidget.platform);
+            eventName = `PK_landing${Co2okWidget.platform}`
         else if (element_id == '.widget-small')
-            ga('CO2ok_widget.send', 'event', 'interaction', 'PK_widget'+Co2okWidget.platform);
+            eventName = `PK_widget${Co2okWidget.platform}`
         else if (element_id == '.climate_friendly_shipping')
-            ga('CO2ok_widget.send', 'event', 'interaction', 'PK_product'+Co2okWidget.platform);
+            eventName = `PK_product${Co2okWidget.platform}`
         else if (element_id == '.cfs_hover_target_footer')
-            ga('CO2ok_widget.send', 'event', 'interaction', 'PK_cfsfooter'+Co2okWidget.platform);
+            eventName = `PK_cfsfooter${Co2okWidget.platform}`
+        ga('CO2ok_widget.send', 'event', 'interaction', eventName);            
+        ga('CO2ok_widget.send', 'pageview', document.location.pathname + `/${eventName}`);
     },
 
 	// Returns true if we are running on a mobile device.
