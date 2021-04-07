@@ -53,6 +53,7 @@ let Co2okWidget = {
 	  `${Co2okWidget.SITE_HOST}/widget/pockies/PK_world.png`,
 	  `${Co2okWidget.SITE_HOST}/widget/pockies/PK_box.png`,
 	  `${Co2okWidget.SITE_HOST}/widget/pockies/PK_info.png`,
+	  `${Co2okWidget.SITE_HOST}/widget/pockies/PK_info_white.png`,
 	  `${Co2okWidget.SITE_HOST}/widget/pockies/PK_seedling.png`,
 	  `${Co2okWidget.SITE_HOST}/widget/pockies/PK_trees.png`,
 		`${Co2okWidget.SITE_HOST}/widget/pockies/PK_logo.png`,
@@ -199,10 +200,10 @@ let Co2okWidget = {
 		let innerHTML;
 		if (lang == 'NL') {
 			innerHTML = jQuery(".middle-hdr").html().split('vanaf');
-			newMarqueeText = "KLIMAATVRIENDELIJKE VERZENDING 💚: Gratis vanaf " + innerHTML[1];
+			newMarqueeText = `KLIMAATVRIENDELIJKE 💚 VERZENDING <img class="co2-marquee-info" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_info_white.png">: Gratis vanaf ` + innerHTML[1];
 		} else {
 			innerHTML = jQuery(".middle-hdr").html().split('over');
-			newMarqueeText = "CLIMATE FRIENDLY SHIPPING 💚: Free over " + innerHTML[1];
+			newMarqueeText = `CLIMATE FRIENDLY 💚 SHIPPING <img class="co2-marquee-info" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_info_white.png">: Free over ` + innerHTML[1];
 		}
 
     jQuery(".middle-hdr").html(newMarqueeText)
@@ -389,9 +390,11 @@ let Co2okWidget = {
             eventName = `PK_product${Co2okWidget.platform}`
         else if (element_id == '.cfs_hover_target_footer')
             eventName = `PK_cfsfooter${Co2okWidget.platform}`
+        else if (element_id == '.co2-marquee-info')
+            eventName = `PK_marquee${Co2okWidget.platform}`
         if (eventName) {
             ga('CO2ok_widget.send', 'event', 'interaction', eventName);            
-            ga('CO2ok_widget.send', 'pageview', document.location.pathname + `/${eventName}`);
+            ga('CO2ok_widget.send', 'pageview',  + `/${eventName}`);
         }
     },
 
@@ -413,10 +416,9 @@ let Co2okWidget = {
 	    var offset = elementBox.offset();
 		var windowWidth = jQuery(window).width();
 		var y = event.clientY;
-
 	    infoHoverBox.remove();
 	    jQuery("body").append(infoHoverBox);
-    if (element_id == '.widget-large' || element_id == '.climate_friendly_shipping') {
+    if (element_id == '.widget-large' || element_id == '.climate_friendly_shipping' || element_id == '.co2-marquee-info') {
       offset.left -= infoHoverBox.width() / 2;
     } else if (element_id == '.widget-small') {
 			offset.left -= infoHoverBox.width() / 4;
@@ -456,8 +458,9 @@ let Co2okWidget = {
 			if (offset.left + infoHoverBox.width() > jQuery(window).width()) {
 				offset.left -= ((offset.left + infoHoverBox.width()) - jQuery(window).width() + 35) ;
 			}
-		} else
+        } else {
 			return ;
+        }
 
 	  var e = window.event;
 	  var posX = e.clientX;
@@ -494,17 +497,18 @@ let Co2okWidget = {
 			return ('.cfs_hover_target_footer');
 		else if (jQuery(e.target).hasClass("exit-area"))
 			return ('.exit-area')
-	  else if (jQuery(e.target).hasClass("co2ok-small"))
+	    else if (jQuery(e.target).hasClass("co2ok-small"))
 			return ('.co2ok-small')
 		else if (jQuery(e.target).hasClass("widget-small"))
 			return ('.widget-small')
-    else if (jQuery(e.target).hasClass("widget-large"))
-      return ('.widget-large')
+        else if (jQuery(e.target).hasClass("widget-large"))
+            return ('.widget-large')
 		else if (jQuery(e.target).hasClass("climate_friendly_shipping"))
 			return ('.climate_friendly_shipping')
-		else if (jQuery(e.target).hasClass("co2ok-usp-landing")) {
+		else if (jQuery(e.target).hasClass("co2ok-usp-landing"))
 			return ('.co2ok-usp-landing')
-		}
+		else if (jQuery(e.target).hasClass("co2-marquee-info"))
+			return ('.co2-marquee-info')
 	},
 
 	RegisterWidgetInfoBox : function()
