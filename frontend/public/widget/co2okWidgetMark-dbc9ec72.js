@@ -2,8 +2,8 @@
 
 let Co2okWidget = {
 
-	// SITE_HOST: "https://co2ok.eco",
-	SITE_HOST: "http://localhost:8080",
+	SITE_HOST: "https://co2ok.eco",
+	// SITE_HOST: "http://localhost:8080",
 
 	getCookieValue: function (a) {
 	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -46,11 +46,11 @@ let Co2okWidget = {
 	  images = [
 			`${this.SITE_HOST}/widget/cfs.png`,
 			`${this.SITE_HOST}/widget/kabloom/KB_world.png`,
-			`${this.SITE_HOST}/widget/kabloom/KB_box.png`,
-			`${this.SITE_HOST}/widget/kabloom/KB_seedling.png`,
-			`${this.SITE_HOST}/widget/kabloom/KB_trees.png`,
+			`${this.SITE_HOST}/widget/kabloom/KB_box.svg`,
+			`${this.SITE_HOST}/widget/kabloom/KB_seedling.svg`,
+			`${this.SITE_HOST}/widget/kabloom/KB_trees.svg`,
 			`${this.SITE_HOST}/widget/kabloom/KB_logo.png`,
-			`${this.SITE_HOST}/widget/kabloom/KB_heart.png`,
+			`${this.SITE_HOST}/widget/kabloom/KB_heart.svg`,
 			`${this.SITE_HOST}/static/info-kabloom.svg`,
 			`${this.SITE_HOST}/widget/large-wiget-airplane.png`,
 			`${this.SITE_HOST}/static/logo.png`
@@ -107,7 +107,7 @@ let Co2okWidget = {
 
     //product page cfs insertion
     let cfstHtml = `
-      <img class="cfs_hover_target" src="${this.SITE_HOST}/widget/kabloom/KB_heart.png" style="width: 100px;">
+      <img class="cfs_hover_target" src="${this.SITE_HOST}/widget/kabloom/KB_heart.svg" style="width: 104px; margin-top: 8px">
     `
     jQuery(".img-block").append(cfstHtml)
 
@@ -133,8 +133,8 @@ let Co2okWidget = {
 
 	insertHovercardHTML: function() {
 
-		var stepOne = "Kabloom offers recyclable, compostable, and biodegradable products that brings nature back into modernized daily life with the goal of increasing awareness around environmental crises.";
-		var stepTwo = "To further their commitment, your purchase will be shipped with as little climate impact as possible and biodegradable packaging! The emissions that cannot be avoided are fully compensated by Kabloom.";
+		var stepOne = "Kabloom offers compostable, biodegradable and recyclable products that bring life back into modernised environments with the goal of increasing awareness of the environmental crisis and our relationship with nature.";
+		var stepTwo = "To further their commitment, your purchase will be shipped with as little climate impact as possible and biodegradable packaging. The emissions that cannot be avoided are fully compensated by Kabloom.";
 		var stepThree = "We (CO2ok) offer you the possibility to offset the CO2 emissions of your purchase with one click. The money you pay for this goes to CO2 compensation projects of FairClimateFund and Atmosfair that are Gold Standard certified."
 		var imageDesc = "Not only the climate benefits: we also realize less deforestation and health benefits through less smoke and toxic carbon monoxide."
 
@@ -156,7 +156,7 @@ let Co2okWidget = {
           </div>
 
           <div class="co2ok-widget-wrapper co2ok-large co2ok-header-one">
-						<img class="png-img-large right-align-img co2ok-box co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_box.png">
+						<img class="png-img-large right-align-img co2ok-box co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_box.svg">
             <p class="sub-header right co2ok-large" style="color: #dc3077;">Sustainable products</p>
 						<p class="widget-wrapper right widget-text-block left co2ok-large"> ${stepOne} </p>
           </div>
@@ -165,11 +165,11 @@ let Co2okWidget = {
           <div class="co2ok-widget-wrapper co2ok-large">
             <p class="sub-header left co2ok-large" style="color: #dc3077;">Neutral packing & shipping</p>
 						<p class="widget-text-block left co2ok-large co2-neutrale" style="min-height: 58px;"> ${stepTwo} </p>
-						<img class="png-img-large left-align-img co2ok-plant co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_seedling.png">
+						<img class="png-img-large left-align-img co2ok-plant co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_seedling.svg">
           </div>
 
           <div class="co2ok-widget-wrapper co2ok-large">
-						<img class="png-img-large right-align-img co2ok-tree co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_trees.png">
+						<img class="png-img-large right-align-img co2ok-tree co2ok-large" src="${this.SITE_HOST}/widget/kabloom/KB_trees.svg">
             <p class="sub-header right co2ok-large" style="color: #dc3077;">Neutralizing production</p>
 						<p class="widget-text-block right co2ok-large"> ${stepThree} </p>
           </div>
