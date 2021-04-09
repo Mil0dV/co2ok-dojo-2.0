@@ -16,11 +16,9 @@
 }
 
 .co2ok_widget_infobox_container {
-  position: absolute;
+  position: fixed;
   width: 350px;
-  max-width: 350px;
-  max-height: 719px;
-  height: 719px;
+  height: 646px;
   background: white;
   border-radius: 15px;
   box-sizing: border-box;
@@ -29,23 +27,28 @@
   z-index: 99999999999;
   display: none;
   padding: 10px;
-  border: 3px solid #eee !important;
+  border: 3px solid #eee;
   border-image-slice: 1; }
   .co2ok_widget_infobox_container.ShowWidgetInfoBox {
     display: block;
     opacity: 1; }
     .co2ok_widget_infobox_container .card-main-header {
-      font-size: 28px;
+      font-size: 25px;
+      font-weight: normal;
       font-weight: bold;
       line-height: 1.75rem;
-      margin-bottom: 0px !important;
+      margin-bottom: 12px !important;
       margin-left: 75px;
-      margin-top: 0px;
-      padding-top: 8px; }
+      margin-top: 8px !important; }
       @media (max-width: 370px) {
         .co2ok_widget_infobox_container .card-main-header {
           margin-top: 11px;
         }
+      }
+      .co2ok_widget_infobox_container .co2ok-header {
+        color: #009B0F;
+        padding-top: 10px;
+        margin-bottom: 0px;
       }
       .co2ok_widget_infobox_container .card-main-header .header {
         color: #76862D;; }
@@ -53,11 +56,23 @@
         margin-top: -6px !important;
         width: 20%;
         left: 14px !important; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-one {
+      height: 100px;
+    }
+    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-two {
+      height: 104px;
+    }
+    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-three {
+      height: 104px;
+    }
     .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .sub-header {
+      color: #1F7837;
       font-size: 14px;
-      font-weight: normal;
+      font-weight: 600 !important;
       margin-bottom: 0px !important;
+      line-height: 1.25rem;
       margin-top: 8px !important;
+      margin-bottom: 0px !important;
       line-height: 1rem;
       font-weight: normal;
     }
@@ -69,19 +84,19 @@
     margin-left: 12px; }
   .co2ok_widget_infobox_container .co2ok-widget-content .right-align-img {
     right: 16px;
-    margin-top: 28px;
+    margin-top: 16px;
     width: 18%; }
   .co2ok_widget_infobox_container .co2ok-widget-content .left-align-img {
-    margin-top: -77px;
+    margin-top: -83px;
     left: 24px;
     width: 18%; }
   .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .co2ok-tree {
-    margin-top: 24px; }
+    margin-top: 18px; }
   .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .widget-text-block {
     font-size: 11.5px;
     margin-top: 4px !important;
     margin-bottom: 0px !important;
-    line-height: 14.5px;
+    line-height: normal;
     font-weight: normal;
     text-align: left;
     box-sizing: border-box;
@@ -89,7 +104,7 @@
     border-radius: 0;
     width: 71%;
     text-decoration: none;
-    padding: 0px 0px 0px 0px;
+    padding: 0px 0px 4px 0px;
     color: black; }
   .co2ok_widget_infobox_container .co2-compensation-projects {
     text-align: center;
@@ -101,25 +116,15 @@
   }
   .co2ok_widget_infobox_container .co2-compensation-projects .co2-project-img-text {
     text-align: center;
-    font-size: 10.5px;
+    font-size: 9px;
     font-weight: normal;
-    line-height: 12px;
-    width: 95%;
+    line-height: 0.8rem;
+    width: 100%;
     margin: auto;
     margin-bottom: 0px !important;
-    color: black;
     padding-bottom: 16px; }
   .co2ok_widget_infobox_container .co2ok-logos a {
     text-decoration: underline; }
-  .co2ok_widget_infobox_container .co2ok-logos .co2ok-logo {
-    position: absolute;
-    bottom: 4px;
-    width: 15%;
-    right: 18px; }
-  .co2ok_widget_infobox_container .co2ok-logos .feat-company-logo {
-    position: absolute;
-    width: 26%;
-    left: 16px; }
   .co2ok_widget_infobox_container img, .co2ok_widget_infobox_container span {
     display: inline-block;
     vertical-align: middle;
@@ -127,18 +132,18 @@
     padding: 0px; }
 
   /*button&logo at bottom*/
-  .usp-button-hovercard-links {
+  .default-button-hovercard-links {
     width: 100%;
     text-align: center;
     margin-top: -6px;
     padding-top: 16px;
     display: flex; }
-  .usp-logo-hovercard {
+  .default-logo-hovercard {
     position: absolute;
     margin-top: 5px;
     width: 15%;
     left: 32px; }
-  .usp-co2ok-hovercard-button {
+  .default-co2ok-hovercard-button {
     margin: auto !important;
     text-decoration: none !important;
     color: black !important;
@@ -153,17 +158,17 @@
     font-style: italic !important;
     font-size: 13px !important;
     font-weight: normal !important; }
-  .usp-co2ok-hovercard-button:hover {
+  .default-co2ok-hovercard-button:hover {
     color: black !important;
     opacity: 1 !important;
     font-weight: normal !important;
     text-decoration: none !important;
   }
-  .usp-branch-png {
+  .default-branch-png {
     width: 26%;
     position: absolute;
-    right: 52px;
-    bottom: -7px;
+    right: 48px;
+    bottom: -8px;
     transform: rotate(-56deg);
     z-index: -1; }
 
@@ -173,9 +178,9 @@
   .co2ok_widget_infobox_container {
     left: 0 !important;
     top: 0 !important;
-    position: fixed;
-    width: 100% !important;
-    height: 100% !important;
+    position: fixed !important;
+    width: 100vw !important;
+    height: 100vh !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
     overflow-x: hidden; }
@@ -193,7 +198,7 @@
       position: absolute;
       height: 40px;
       width: 40px;
-      right: 0px;
+      right: 24px;
       top: 3px; }
     .co2ok_widget_infobox_container .mobile .exit-area-span .exit-area {
       color: white;
@@ -213,6 +218,9 @@
       margin-top: 0px; }
     .co2ok_widget_infobox_container .co2ok-widget-content .left {
       margin-left: 102px; }
+    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper {
+      padding-bottom: 8px;
+    }
     .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .right {
       margin-left: 12px; }
     .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .right-align-img {
@@ -236,6 +244,22 @@
     .co2ok_widget_infobox_container .co2ok-widget-content .treesforall-logo {
       position: absolute;
       bottom: 0; }
+    .default-branch-png {
+      width: 51%;
+      right: -57px;
+      position: absolute;
+      bottom: -21px; }
+    .default-logo-hovercard {
+      left: 16px;
+      position: absolute;
+      bottom: 0px; }
+    .default-button-hovercard-links {
+      margin-top: 8px; }
+    .default-co2ok-hovercard-button {
+      position: absolute;
+      bottom: 0px;
+      width: 36%;
+      left: 30%; }
 }
 
 @media (max-width: 450px) {
@@ -249,7 +273,7 @@
     margin-top: 17px; }
   .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .co2ok-tree {
     margin-top: 8px;  }
-  .usp-branch-png {
+  .default-branch-png {
     width: 58%;
     right: -53px;
     bottom: -19px; }
@@ -260,9 +284,9 @@
     bottom: auto !important; }
   .co2ok_widget_infobox_container .co2ok-widget-content .feat-company-logo {
     bottom: auto !important; }
-  .usp-co2ok-hovercard-button {
+  .default-co2ok-hovercard-button {
     bottom: auto !important; }
-  .usp-logo-hovercard {
+  .default-logo-hovercard {
     bottom: auto !important; }
 }
 
@@ -288,15 +312,10 @@
     margin-top: 16px;
     width: 20%;
     bottom: auto; }
-  .co2ok_widget_infobox_container .co2-compensation-projects .co2-project-img-text {
-    padding-bottom: 0px; }
-  .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-logos {
-    position: initial;
-  }
 }
 
 @media (max-width: 350px) {
-  .usp-branch-png {
+  .default-branch-png {
     right: -41px;
     bottom: -11px;
   }

@@ -107,7 +107,7 @@ let Co2okWidget = {
 
     //product page cfs insertion
     let cfstHtml = `
-      <img class="cfs_hover_target" src="${this.SITE_HOST}/widget/kabloom/KB_heart.svg" style="width: 104px; margin-top: 8px">
+      <img class="cfs_hover_target" src="${this.SITE_HOST}/widget/kabloom/KB_heart.svg" style="width: 104px;">
     `
     jQuery(".img-block").append(cfstHtml)
 
@@ -424,8 +424,9 @@ Co2okWidget.manualABSwitch()
 	console.log("abSwitch", abSwitch)
   if (abSwitch === true) {
     Co2okWidget.loadResources()
-		.then(_  => Co2okWidget.jQueryLoadDefer())
-  } else {
+	.then(_  => Co2okWidget.jQueryLoadDefer())
+} else {
+    Co2okWidget.loadResources()
     return
   }
 })

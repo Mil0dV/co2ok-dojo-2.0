@@ -283,11 +283,9 @@ let Co2okWidget = {
 
     jQuery('body').click(function(e)
     {
-      if(!_this.modalRegex(e))
-      {
+      if(!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area")) {
         _this.hideWidgetInfoBox();
-      }
-      else {
+      } else {
         _this.ShowWidgetInfoBox();
       }
 
@@ -295,7 +293,7 @@ let Co2okWidget = {
 
     jQuery('body').on("touchstart",function(e){
 
-      if(!_this.modalRegex(e)) {
+      if(!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area")) {
         _this.hideWidgetInfoBox();
       } else {
         _this.placeWidgetInfoBox()
@@ -309,13 +307,13 @@ let Co2okWidget = {
       });
 
       jQuery(document).mouseover(function(e) {
-        if (!(_this.modalRegex(e))) {
-          _this.hideWidgetInfoBox();
-        } else {
-          _this.placeWidgetInfoBox();
-          _this.ShowWidgetInfoBox();
-        }
-      });
+          if (!_this.modalRegex(e) || jQuery(e.target).hasClass("exit-area")) {
+            _this.hideWidgetInfoBox();
+          } else {
+            _this.placeWidgetInfoBox();
+            _this.ShowWidgetInfoBox();
+          }
+        });
     }
   },
 

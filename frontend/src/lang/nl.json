@@ -188,7 +188,10 @@
   "intro_second_mobile-1" : "PENSATIE",
   "intro_second_mobile-2" : "E WEBSHOP",
   "section_2_title": "Verhoog je conversie. Bestrijd klimaatverandering.",
-  "section_2_text": "CO₂ok geeft consumenten de mogelijkheid om online aankopen klimaatneutraal te doen. De makkelijke integratie zorgt binnen een minuut voor verbreding van je MVO strategie. Onze dienst speelt in op de behoefte van de consument, verlaagt cart abandonment, verhoogt retentie en laat zien dat jij om onze planeet geeft!",
+  "section_2_subtitle_1": "Bestrijd klimaatverandering",
+  "section_2_subtitle_2": "Verhoog de conversie",
+  "section_2_text_1": "CO₂ok geeft consumenten de mogelijkheid om online aankopen klimaatneutraal te doen. De makkelijke integratie zorgt binnen een minuut voor verbreding van je MVO strategie.",
+  "section_2_text_2": "Onze dienst speelt in op de behoefte van de consument, verlaagt cart abandonment, verhoogt retentie en laat zien dat jij om onze planeet geeft!",
   "button_1": "Aan de slag",
   "button_2": "Voor Consumenten",
   "steps_title": "Hoe het werkt",
@@ -371,9 +374,9 @@
   "quote1": "<h3>Startup</h3><br> <h2>€15/mo<small></small></h2>",
   "paragraph1": "<br>● < 5 K bezoekers/maand<br><br>● CO₂ok plugin<br><br>● Climate Friendly Delivery",
   "quote2": "<h3>Premium</h3><br> <h2>€45/mo</h2>",
-  "paragraph2": " <br>● < 50K monthly visitors <br><br>● Alle opstartservices <br><br>● Inzicht in leveringsvoetafdruk<br>",
+  "paragraph2": " <br>● < 50K monthly visitors <br><br>● Alle Startup services <br><br>● Inzicht in de klimaatimpact van bezorging<br>",
   "quote3": " <h3>Enterprise</h3> ",
-  "paragraph3": "<br>● Alle premium services<br><br>● Op maat gemaakte diensten <br><br>● A/B testing <br><br>● CRS partnerschap<br><br>"
+  "paragraph3": "<br>● Alle Premium services<br><br>● Op maat gemaakte diensten <br><br>● A/B testing <br><br>● CSR partnerschap<br><br>"
 },
  "webshopform": {
   "title1": "Plugin installatie",

@@ -6,7 +6,7 @@ let Co2okWidgetXL = {
   },
 
 
-  merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor, lang) {	      
+  merchantCompensations: function (widgetContainer, merchantId, widgetSize, widgetColor, lang) {
 
     // get impact from cookie if available
     let co2ok_impact = Co2okWidgetXL.getCookieValue('co2ok_impact')
@@ -66,7 +66,6 @@ let Co2okWidgetXL = {
         // Something is fishy, let's serve up the total
       } else {
         let totalTransactionData = 491
-
         Co2okWidgetXL.widgetGenerator(widgetContainer, totalTransactionData, widgetSize, widgetColor, lang)
       }
     }
@@ -255,7 +254,7 @@ let Co2okWidgetXL = {
 
   placeWidgetInfoBox : function() {
     // console.log('Platz? Lebensraum!')
-    var widgetInfoButton = jQuery("#info-button-widget");
+    var widgetInfoButton = jQuery(".info-button-widget");
     var widgetInfoBox = jQuery(".widget-hovercard-large");
     var widgetBox = jQuery(".large-widget")
     var offset = widgetInfoButton.offset();
@@ -323,7 +322,7 @@ let Co2okWidgetXL = {
   {
      return jQuery(e.target).hasClass("co2ok-large") ||
      jQuery(e.target).hasClass("widget-hovercard-large") ||
-     jQuery(e.target).is("#info-button-widget");
+     jQuery(e.target).hasClass("info-button-widget");
   },
 
 
@@ -382,9 +381,10 @@ let Co2okWidgetXL = {
       if (script.getAttribute('div')) {
         let div = script.getAttribute('div')
         let merchantId = script.getAttribute('merchantId')
+        let widgetSize = script.getAttribute('widgetSize');
         let widgetColor = script.getAttribute('widgetColor')
         let lang = script.getAttribute('lang')
-        Co2okWidgetXL.merchantCompensations(div, merchantId, widgetColor, lang)
+        Co2okWidgetXL.merchantCompensations(div, merchantId, widgetSize, widgetColor, lang)
       }
     } else {
       setTimeout(function() { Co2okWidgetXL.jQueryLoadDefer(script) }, 50);
@@ -396,7 +396,7 @@ let Co2okWidgetXL = {
   // export default new Co2okWidget()
 
 Co2okWidgetXL.SITE_HOST =  'https://co2ok.eco'
-// Co2okWidgetXL.SITE_HOST = 'http://localhost:8080'
+// Co2okWidgetXL.SITE_HOST = 'http://localhost:8081'
 
 //document.currentScript must be saved before entering loadResrouces to avoid null return
 //loadResouces() returns a promise, meaning that by .then() the script has stopped running and cannot be found
