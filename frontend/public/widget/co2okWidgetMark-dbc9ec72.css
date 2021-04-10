@@ -1,0 +1,32 @@
+.co2ok_widget_infobox_container {
+  height: 661px;
+  max-height: 661px;
+}
+
+.co2ok_widget_infobox_container .co2ok-widget-content .right-align-img {
+  margin-top: 10px;
+}
+
+.co2ok_widget_infobox_container .co2ok-widget-content .left-align-img {
+  margin-top: -78px;
+}
+
+.co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .co2ok-tree {
+  margin-top: 20px;
+}
+
+.co2ok_widget_infobox_container .card-main-header .header {
+  color: #76862d;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.co2ok_widget_infobox_container .co2ok-logos .co2ok-logo {
+  margin-top: -10px;
+}
+
+@media (max-width: 450px) {
+  .usp-branch-png {
+    right: -37%;
+    bottom: -70%; }
+}
