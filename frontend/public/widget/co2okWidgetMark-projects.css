@@ -19,6 +19,7 @@
   position: absolute;
   width: 350px;
   max-width: 350px;
+  min-width: 350px;
   max-height: 719px;
   height: 719px;
   background: white;
@@ -173,69 +174,88 @@
   .co2ok_widget_infobox_container {
     left: 0 !important;
     top: 0 !important;
-    position: fixed;
-    width: 100% !important;
+    position: fixed !important;
+    width:100% !important;
     height: 100% !important;
+    max-width: none !important;
+    min-width: none !important;
+    max-height: none !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
     overflow-x: hidden; }
-    .co2ok_widget_infobox_container .co2ok-widget-content {
-      position: relative;
-      height: 96%; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-one {
-      padding-top: 10px !important; }
-    .co2ok_widget_infobox_container .mobile-bar {
-      height: 40px;
-      width: 110%;
-      margin-top: -10px !important;
-      margin-left: -10px; }
-    .co2ok_widget_infobox_container .mobile .exit-area-span {
-      position: absolute;
-      height: 40px;
-      width: 40px;
-      right: 0px;
-      top: 3px; }
-    .co2ok_widget_infobox_container .mobile .exit-area-span .exit-area {
-      color: white;
-      font-size: 18px;
-      margin: auto;
-      text-align: center;
-      margin-top: 4px; }
-    .co2ok_widget_infobox_container .card-main-header {
-      margin-top: 34px; }
-    .co2ok_widget_infobox_container .mobile .mobile-header {
-      color: white;
-      padding-top: 12px;
-      font-size: 20px;
-      margin-left: 16px;
-      font-weight: normal;
-      line-height: normal;
-      margin-top: 0px; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .left {
-      margin-left: 102px; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .right {
-      margin-left: 12px; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .right-align-img {
-      right: 16px;
-      margin-top: 24px;
-      width: 16%; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .left-align-img {
-      margin-top: -82px;
-      left: 14px;
-      width: 16%; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .co2-compensation-projects {
-      width: 97%; }
-      .co2ok_widget_infobox_container .co2-compensation-projects .co2-project-img {
-        width: 98%; }
-    .co2ok_widget_infobox_container .co2-compensation-projects .co2-project-img-text {
+  .co2ok_widget_infobox_container .co2ok-widget-content {
+    position: relative;
+    height: 96%; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-header-one {
+    padding-top: 10px !important; }
+  .co2ok_widget_infobox_container .mobile-bar {
+    height: 40px;
+    width: 110%;
+    margin-top: -10px !important;
+    margin-left: -10px; }
+  .co2ok_widget_infobox_container .mobile .exit-area-span {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    right: 0px;
+    top: 3px; }
+  .co2ok_widget_infobox_container .mobile .exit-area-span .exit-area {
+    color: white;
+    font-size: 18px;
+    margin: auto;
+    text-align: center;
+    margin-top: 4px; }
+  .co2ok_widget_infobox_container .card-main-header {
+    margin-top: 34px; }
+  .co2ok_widget_infobox_container .mobile .mobile-header {
+    color: white;
+    padding-top: 12px;
+    font-size: 20px;
+    margin-left: 16px;
+    font-weight: normal;
+    line-height: normal;
+    margin-top: 0px; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .left {
+    margin-left: 102px; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper {
+    padding-bottom: 8px;
+  }
+  .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .right {
+    margin-left: 12px; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .right-align-img {
+    right: 16px;
+    margin-top: 24px;
+    width: 16%; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-widget-wrapper .left-align-img {
+    margin-top: -82px;
+    left: 14px;
+    width: 16%; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .co2-compensation-projects {
+    width: 97%; }
+    .co2ok_widget_infobox_container .co2-compensation-projects .co2-project-img {
       width: 98%; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-logo {
-      bottom: 1px; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .feat-company-logo {
-      bottom: 8px; }
-    .co2ok_widget_infobox_container .co2ok-widget-content .treesforall-logo {
-      position: absolute;
-      bottom: 0; }
+  .co2ok_widget_infobox_container .co2-compensation-projects .co2-project-img-text {
+    width: 98%; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .co2ok-logo {
+    bottom: 1px; }
+  .co2ok_widget_infobox_container .co2ok-widget-content .feat-company-logo {
+    bottom: 8px; }
+  .usp-branch-png {
+    width: 51%;
+    right: -57px;
+    position: absolute;
+    bottom: -21px; }
+  .usp-logo-hovercard {
+    left: 16px;
+    position: absolute;
+    bottom: 0px; }
+  .usp-button-hovercard-links {
+    margin-top: 8px; }
+  .usp-co2ok-hovercard-button {
+    position: absolute;
+    bottom: 0px;
+    width: 36%;
+    left: 30%; }
 }
 
 @media (max-width: 450px) {

@@ -53,7 +53,8 @@ let Co2okWidget = {
 			`${this.SITE_HOST}/widget/kabloom/KB_heart.svg`,
 			`${this.SITE_HOST}/static/info-kabloom.svg`,
 			`${this.SITE_HOST}/widget/large-wiget-airplane.png`,
-			`${this.SITE_HOST}/static/logo.png`
+			`${this.SITE_HOST}/static/logo.png`,
+			`${this.SITE_HOST}/widget/kabloom/cfsFooter.svg`
 		]
 
 	  for (img of images) {
@@ -116,6 +117,12 @@ let Co2okWidget = {
       <img class="cfs_hover_cart_target" src="${this.SITE_HOST}/widget/cfs.png" style="width: 100px; height: 48px;">
     `
     jQuery('button[name="calc_shipping"]').before(cfscHtml)
+
+		//footer
+		let cfsFooter = `
+			<img class="cfs_footer_target" src="${this.SITE_HOST}/widget/kabloom/cfsFooter.svg" style="width: 132px; height: 72px; margin-top: -24px;">
+		`
+		jQuery('.menu-footer-column-1-container').after(cfsFooter);
 	},
 
 	/** inserts usp on landing page */
@@ -137,6 +144,7 @@ let Co2okWidget = {
 		var stepTwo = "To further their commitment, your purchase will be shipped with as little climate impact as possible and biodegradable packaging. The emissions that cannot be avoided are fully compensated by Kabloom.";
 		var stepThree = "We (CO2ok) offer you the possibility to offset the CO2 emissions of your purchase with one click. The money you pay for this goes to CO2 compensation projects of FairClimateFund and Atmosfair that are Gold Standard certified."
 		var imageDesc = "Not only the climate benefits: we also realize less deforestation and health benefits through less smoke and toxic carbon monoxide."
+		let button = 'How we do this'
 
     let infoHoverHtml = `
 
@@ -179,9 +187,12 @@ let Co2okWidget = {
             <p class="co2-project-img-text co2ok-large"> ${imageDesc} </p>
           </div>
 
-          <div class="co2ok-logos co2ok-large">
-            <img src="${this.SITE_HOST}/static/logo.png" href="https://www.co2ok.eco/projects" class="co2ok-logo co2ok-large">
-          </div>
+					<span class="usp-button-hovercard-links co2ok-small" style="height:28px">
+						<img class="usp-logo-hovercard co2ok-small"  target=blank href="http://www.co2ok.eco/co2-compensatie" src="${Co2okWidget.SITE_HOST}/static/logo.png">
+						<a class="usp-co2ok-hovercard-button co2ok-small"  target=blank href="http://www.co2ok.eco/co2-compensatie"> ${button}
+							<img class="usp-branch-png co2ok-small" src="${Co2okWidget.SITE_HOST}/widget/hovercard/branch.png">
+						</a>
+					</span>
 
 				</div>
       </div>
@@ -233,20 +244,20 @@ let Co2okWidget = {
 			widgetContainerXL.innerHTML = widgetXL;
 		}
 
-		let widgetmark = `
-			<div>
-				<div class="btn_co2ok_widget co2ok_widget_info widget-small" href="#">
-					<span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${this.SITE_HOST}/static/logo.png"></span>
-				</div>
-				<div class="caption_co2ok_widget co2ok_widget_info widget-small">
-					<span> <strong>${(compensationAmount.toFixed(1))}</strong>t ${reductietekst} </span>
-				</div>
-			</div>
-		`
+		// let widgetmark = `
+		// 	<div>
+		// 		<div class="btn_co2ok_widget co2ok_widget_info widget-small" href="#">
+		// 			<span class="btn_co2ok_widget co2ok_widget_info trustmark-border widget-small">SHOP<img class="logo_co2ok_widget widget-small" src="${this.SITE_HOST}/static/logo.png"></span>
+		// 		</div>
+		// 		<div class="caption_co2ok_widget co2ok_widget_info widget-small">
+		// 			<span> <strong>${(compensationAmount.toFixed(1))}</strong>t ${reductietekst} </span>
+		// 		</div>
+		// 	</div>
+		// `
 
-		jQuery("<div id='widgetContainermark' style='width:180px;height:auto;display:flex;flex-direction:row;align-items:center;'></div>").appendTo(document.getElementsByClassName("menu-footer-column-1-container"))
-		let widgetContainermark = document.getElementById('widgetContainermark')
-		widgetContainermark.innerHTML = widgetmark;
+		// jQuery("<div id='widgetContainermark' style='width:180px;height:auto;display:flex;flex-direction:row;align-items:center;'></div>").appendTo(document.getElementsByClassName("menu-footer-column-1-container"))
+		// let widgetContainermark = document.getElementById('widgetContainermark')
+		// widgetContainermark.innerHTML = widgetmark;
 		this.RegisterWidgetInfoBox();
 	},
 
@@ -272,7 +283,7 @@ let Co2okWidget = {
 
 	  infoHoverBox.remove();
 		jQuery("body").append(infoHoverBox);
-	  if (element_id == '.co2ok_usp_icon_header' || element_id == '.cfs_hover_cart_target' || element_id == '.cfs_hover_target') {
+	  if (element_id === '.co2ok_usp_icon_header' || element_id === '.cfs_hover_cart_target' || element_id === '.cfs_hover_target' || element_id === '.cfs_footer_target') {
 			offset.left -= infoHoverBox.width() / 2;
 			if (offset.left < 0) {
 				offset.left = 5;
@@ -284,7 +295,7 @@ let Co2okWidget = {
 				offset.top -= 30;
 			}
     }
-    else if (element_id == '.widget-large' || element_id == '.widget-small') {
+    else if (element_id === '.widget-large' || element_id === '.widget-small') {
 			offset.left -= infoHoverBox.width() / 2;
 			if (offset.left < 0) {
 				offset.left = 5;
@@ -321,7 +332,9 @@ let Co2okWidget = {
 	},
 
 	modalRegex: function(e) {
-    if (jQuery(e.target).hasClass("co2ok-large"))
+		if (jQuery(e.target).hasClass("exit-area-span") || jQuery(e.target).hasClass("exit-area"))
+			return ('.exit-area')
+    else if (jQuery(e.target).hasClass("co2ok-large"))
       return ('.co2ok-large')
     else if (jQuery(e.target).hasClass("widget-large"))
       return ('.widget-large')
@@ -333,8 +346,8 @@ let Co2okWidget = {
       return ('.cfs_hover_cart_target');
     else if (jQuery(e.target).hasClass("cfs_hover_target"))
 			return ('.cfs_hover_target');
-		else if (jQuery(e.target).hasClass("exit-area-span"))
-			return ('.exit-area-span')
+		else if (jQuery(e.target).hasClass("cfs_footer_target"))
+			return ('.cfs_footer_target');
 	},
 
 	RegisterWidgetInfoBox : function() {
@@ -343,34 +356,48 @@ let Co2okWidget = {
 
 	  jQuery('body').click(function(e) {
 			element_id = _this.modalRegex(e);
-		  if (!element_id || element_id === '.exit-area-span') {
-				_this.hideWidgetInfoBox();
-
+		  if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area")) {
+				Co2okWidget.hideWidgetInfoBox();
 			} else {
-				_this.ShowWidgetInfoBox();
+				Co2okWidget.ShowWidgetInfoBox();
+				Co2okWidget.placeWidgetInfoBox(element_id);
 		  }
 	  });
 
-	  jQuery('body').on("touchstart",function(e) {
-		element_id = _this.modalRegex(e);
-		  if (!element_id || element_id === '.exit-area-span') {
-        _this.hideWidgetInfoBox();
-      }
-		  else {
-			_this.ShowWidgetInfoBox();
-			_this.placeWidgetInfoBox(element_id);
-		  }
-	  });
+		let documentClick;
+		jQuery('body').on('touchstart', function() {
+				documentClick = true;
+		});
+		jQuery('body').on('touchmove', function() {
+				documentClick = false;
+		});
+		jQuery('body').on('click touchend', function(e) {
+				if (e.type == "click") documentClick = true;
+				if (documentClick){
+						element_id = Co2okWidget.modalRegex(e);
+						if (element_id === '.exit-area') {
+								//prevents opening of cart on closing of hovercards
+								if (e.detail === 1) {
+										e.stopImmediatePropagation();
+										Co2okWidget.hideWidgetInfoBox();
+								}
+							} else if (element_id) {
+								Co2okWidget.ShowWidgetInfoBox(element_id);
+								Co2okWidget.placeWidgetInfoBox(element_id);
+							}
+				}
+		 });
+
 
 	  if(!this.isMobile()) {
 
 			jQuery(document).mouseover(function(e) {
-        element_id = _this.modalRegex(e);
-				if (!element_id || element_id === '.exit-area-span') {
-					_this.hideWidgetInfoBox();
+				element_id = Co2okWidget.modalRegex(e);
+				if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area")) {
+					Co2okWidget.hideWidgetInfoBox();
 				} else {
-					_this.ShowWidgetInfoBox();
-					_this.placeWidgetInfoBox(element_id);
+					Co2okWidget.ShowWidgetInfoBox(element_id);
+					Co2okWidget.placeWidgetInfoBox(element_id);
 				}
 			});
 	  }
@@ -381,9 +408,9 @@ let Co2okWidget = {
     var urlParams = new URLSearchParams(window.location.search);
     var co2ok_AB_param = urlParams.get('co2ok_ab');
     if (co2ok_AB_param == 'show') {
-      console.log('Co2ok ON manually!')
+      console.log('Co2ok widget ON manually!')
     } else if (co2ok_AB_param == 'hide') {
-      console.log('Co2ok OFF mannually!')
+      console.log('Co2ok widget OFF mannually!')
       return false;
     } else if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0') {
       console.log('hammer time!')

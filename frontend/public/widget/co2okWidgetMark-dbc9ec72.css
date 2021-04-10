@@ -1,5 +1,6 @@
 .co2ok_widget_infobox_container {
-  height: 625px !important;
+  height: 661px;
+  max-height: 661px;
 }
 
 .co2ok_widget_infobox_container .co2ok-widget-content .right-align-img {
@@ -22,4 +23,10 @@
 
 .co2ok_widget_infobox_container .co2ok-logos .co2ok-logo {
   margin-top: -10px;
+}
+
+@media (max-width: 450px) {
+  .usp-branch-png {
+    right: -37%;
+    bottom: -70%; }
 }
