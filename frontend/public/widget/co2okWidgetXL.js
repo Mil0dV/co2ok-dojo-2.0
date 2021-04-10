@@ -134,7 +134,7 @@ let Co2okWidgetXL = {
       var vliegen = "flying";
       var stepOne = "You are empowered to fight climate change by neutralising emissions from production of your purchase";
       var stepTwo = "This shop has committed to climate friendly delivery; all emissions are neutralised through carbon offsetting projects";
-      var stepThree = `Together we offset <strong class="co2ok-small">${compensationAmount .toFixed(1)} </strong>tonnes of CO₂ emissions. This is equal to <strong class="co2ok-small">${(compensationAmount * 5000).toFixed(0)} </strong>km of flying`;
+      var stepThree = `Together we've offset <strong class="co2ok-small">${compensationAmount .toFixed(1)} </strong>tonnes of CO₂ emissions. This is equal to <strong class="co2ok-small">${(compensationAmount * 5000).toFixed(0)} </strong>km of flying`;
       var works = 'How do do this';
 
     } else {
