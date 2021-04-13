@@ -394,7 +394,7 @@ let Co2okWidget = {
             eventName = `PK_marquee${Co2okWidget.platform}`
         if (eventName) {
             ga('CO2ok_widget.send', 'event', 'interaction', eventName);            
-            ga('CO2ok_widget.send', 'pageview',  + `/${eventName}`);
+            ga('CO2ok_widget.send', 'pageview',  document.location.hostname + `/${eventName}`);
         }
     },
 

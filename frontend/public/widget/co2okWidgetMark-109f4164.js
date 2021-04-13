@@ -397,21 +397,26 @@ let Co2okWidget = {
 	},
 
     googleAnalyticsEvent : function(element_id) {
-        let platform;
-        if (Co2okWidget.isMobile())
-            platform = "_mobile"
-        else
-            platform = "_desktop"
-        if (element_id == '.co2ok-usp-menu')
-            ga('CO2ok_widget.send', 'event', 'interaction', 'WL_navbar'+platform, 1);
-        else if (element_id == '.widget-small')
-            ga('CO2ok_widget.send', 'event', 'interaction', 'WL_widget'+platform, 2);
-        else if (element_id == '.cfs_hover_target')
-            ga('CO2ok_widget.send', 'event', 'interaction', 'WL_cfs'+platform, 3);
-        else if (element_id == '.cfs_hover_target_footer')
-            ga('CO2ok_widget.send', 'event', 'interaction', 'WL_cfsfooter'+platform, 4);
-        else if (element_id == '.climate_friendly_shipping')
-            ga('CO2ok_widget.send', 'event', 'interaction', 'WL_usp_productpage'+platform);
+      let platform;
+      let eventName;
+      if (Co2okWidget.isMobile())
+          platform = "_mobile"
+      else
+          platform = "_desktop"
+      if (element_id == '.co2ok-usp-menu')
+          eventName = 'WL_navbar'+platform;
+      else if (element_id == '.widget-small')
+          eventName = 'WL_widget'+platform;
+      else if (element_id == '.cfs_hover_target')
+          eventName = 'WL_cfs'+platform;
+      else if (element_id == '.cfs_hover_target_footer')
+          eventName = 'WL_cfsfooter'+platform;
+      else if (element_id == '.climate_friendly_shipping')
+          eventName = 'WL_usp_productpage'+platform;
+      if (eventName) {
+            ga('CO2ok_widget.send', 'event', 'interaction', eventName);
+            ga('CO2ok_widget.send', 'pageview',  document.location.hostname + `/${eventName}`);
+        }
     },
 
 	placeWidgetInfoBox : function(element_id) {
