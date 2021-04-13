@@ -130,12 +130,12 @@ let Co2okWidget = {
         var colorSuffix = "";
     }
 
-    if (lang == 'EN') {
-      var reductietekst = 'CO₂ reduction';
-      var stepOne = "You are empowered to fight climate change by neutralising emissions from production of your purchase";
-      var stepTwo = "This shop has committed to climate friendly delivery; all emissions are neutralised through carbon offsetting projects";
-      var stepThree = `Together we've offset <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong> tonnes of CO₂ emissions. This is equal to <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`;
-      var works = "How we do this";
+    if (lang == 'NL') {
+      var reductietekst = 'CO₂ reductie';
+      var stepOne = "Je kan bij ons klimaatverandering bestrijden door de uitstoot van de productie van je aankoop te neutraliseren";
+      var stepTwo = "Deze winkel zet zich in voor een klimaatvriendelijke bezorging; alle uitstoot wordt geneutraliseerd door middel van CO2-compensatieprojecten";
+      var stepThree = `Samen hebben we <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen.`;
+      var works = 'Hoe we dat doen';
     } else if (lang == 'FR') {
       var reductietekst = 'CO₂ reduction';
       var stepOne = "Avec nous, vous pouvez lutter contre le changement climatique en neutralisant les émissions liées à la production de vos achats.";
@@ -144,11 +144,11 @@ let Co2okWidget = {
       var stepThree = `Ensemble, nous compensons <strong class=“co2ok-widget-card”>${compensatiewidget .toFixed(1)} </strong>tonnes d’émissions de CO₂. Ceci est égal à <strong class=“co2ok-small”>${(compensatiewidget * 5000).toFixed(0)}`;
       var works = "Comment faire cela";
     } else {
-      var reductietekst = 'CO₂ reductie';
-      var stepOne = "Je kan bij ons klimaatverandering bestrijden door de uitstoot van de productie van je aankoop te neutraliseren";
-      var stepTwo = "Deze winkel zet zich in voor een klimaatvriendelijke bezorging; alle uitstoot wordt geneutraliseerd door middel van CO2-compensatieprojecten";
-      var stepThree = `Samen hebben we <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen.`;
-      var works = 'Hoe we dat doen';
+      var reductietekst = 'CO₂ reduction';
+      var stepOne = "You are empowered to fight climate change by neutralising emissions from production of your purchase";
+      var stepTwo = "This shop has committed to climate friendly delivery; all emissions are neutralised through carbon offsetting projects";
+      var stepThree = `Together we've offset <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong> tonnes of CO₂ emissions. This is equal to <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km of flying`;
+      var works = "How we do this";
     }
 
     let widgetmark = `
