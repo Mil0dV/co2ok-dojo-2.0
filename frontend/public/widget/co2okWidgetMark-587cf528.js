@@ -235,7 +235,7 @@ let Co2okWidget = {
 			<div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-small co2ok-small" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
 
 				<div class="mobile mobile-bar desktop-hidden co2ok-small" style="background-color: #43b364;">
-					<p class="mobile-header desktop-hidden co2ok-small">Pockies' Planet Promise</p>
+					<p class="co2ok-mobile-header desktop-hidden co2ok-small">Pockies' Planet Promise</p>
 					<span class="exit-area-span co2ok-small">
 						<p class="exit-area desktop-hidden co2ok-small"> X </p>
 					</span>

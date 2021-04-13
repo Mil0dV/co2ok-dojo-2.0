@@ -154,7 +154,7 @@ let Co2okWidgetXL = {
       <div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-large co2ok-large" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
 
       <div class="mobile mobile-bar desktop-hidden co2ok-large" style="background-color: #00B67A;">
-        <p class="mobile-header desktop-hidden co2ok-large">Woonliving's Planet Promise</p>
+        <p class="co2ok-mobile-header desktop-hidden co2ok-large">Woonliving's Planet Promise</p>
         <span class="exit-area-span co2ok-large">
           <p class="exit-area desktop-hidden co2ok-large"> X </p>
         </span>

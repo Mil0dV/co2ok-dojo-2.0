@@ -6,8 +6,8 @@ let Co2okWidget = {
 	// SITE_HOST: "http://localhost:8080",
 
 	getCookieValue: function (a) {
-	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
-	  return b ? b.pop() : '';
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b ? b.pop() : '';
 	},
 
 	preloadImage: function (url) {
@@ -57,12 +57,13 @@ let Co2okWidget = {
 			`${this.SITE_HOST}/widget/hovercard/co2-projects.jpg`,
 			`${this.SITE_HOST}/static/info.svg`,
 			`${this.SITE_HOST}/widget/large-wiget-airplane.png`,
-			`${this.SITE_HOST}/widget/vela/VL_heart.png`
+			`${this.SITE_HOST}/widget/vela/VL_heart.png`,
+			`${this.SITE_HOST}/widget/vela/VL_info_white.png`
 
 		]
 
-	  for (var img of images) {
-			result = this.preloadImage(img)
+    for (var img of images) {
+      result = this.preloadImage(img)
 	  }
 	},
 
@@ -109,28 +110,30 @@ let Co2okWidget = {
 	 * CFSmark inserted in footer next to last pay icon and on product page next to last pay icons
 	 */
 	cfsTrustMarkInsertion: function () {
-
+    // position: relative;
+    // top: 3px;
+    // margin-right: 3px;
 		//bottom footer
 		let cfsHtml = `
-			<img class="cfs_hover_target_footer" src="${this.SITE_HOST}/widget/vela/cfsButtonEN-VL.svg">
+			<img class="cfs_hover_target_footer" style="position: relative; top: 20px;" src="${this.SITE_HOST}/widget/vela/cfsButtonEN-VL.svg">
 		`
-		jQuery(".footer-primary").after(cfsHtml)
+		jQuery(".footer__credits").append(cfsHtml)
 
 		//cart page by payment icons
-		if (window.location.toString().includes('cart')) {
-			var cfsHtmlCart = `
-			<br><img class="cfs_hover_target_cart" src="${this.SITE_HOST}/widget/cfsButtonEN.svg" style="width: 160px; height: 60px; margin-left: 25%; margin-top: 0px;">
-		`
-		} else {
-			var cfsHtmlCart = `
-				<br><img class="cfs_hover_target_cart" src="${this.SITE_HOST}/widget/cfsButtonEN.svg" style="width: 160px; height: 60px; margin-left: 25%;">
-			`
-		}
-		//place cfs only on ajax cart not in footer again
+	// 	if (window.location.toString().includes('cart')) {
+	// 		var cfsHtmlCart = `
+	// 		<br><img class="cfs_hover_target_cart" src="${this.SITE_HOST}/widget/cfsButtonEN.svg" style="width: 160px; height: 60px; margin-left: 25%; margin-top: 0px;">
+	// 	`
+	// 	} else {
+	// 		var cfsHtmlCart = `
+	// 			<br><img class="cfs_hover_target_cart" src="${this.SITE_HOST}/widget/cfsButtonEN.svg" style="width: 160px; height: 60px; margin-left: 25%;">
+	// 		`
+	// 	}
+	// 	//place cfs only on ajax cart not in footer again
 
-		if (jQuery(".payment-icons").parent().eq(0).hasClass('cart-popup-inner')) {
-			jQuery(".payment-icons").parent().eq(0).append(cfsHtmlCart)
-		}
+	// 	if (jQuery(".payment-icons").parent().eq(0).hasClass('cart-popup-inner')) {
+	// 		jQuery(".payment-icons").parent().eq(0).append(cfsHtmlCart)
+	// 	}
 	},
 
 	/** inserts UPS's for VELA */
@@ -142,27 +145,29 @@ let Co2okWidget = {
 			let productUsp = `
 				<img class="co2ok-usp-product" src="${this.SITE_HOST}/widget/vela/VL_heart.png">
 			`
-			jQuery("img[src$='https://velaapparelstg.wpengine.com/wp-content/uploads/2021/02/110-1106271_guaranted-safe-checkout-safe-and-secure-checkout.png']").after(productUsp);
-
-			//product description
-			let productDesc = jQuery(".product-short-description")[0].childNodes
-			let productText = `
-            <br><u class="product-climate-friendly"><i class="wishlist-icon icon-heart" style="color: #26B43D"></i> Climate friendly product 🛈</u>
-			`
-			productDesc[1].innerHTML += productText
-		}
+			jQuery(".swym-fave-count").after(productUsp);
+    }
+		// 	//product description
+		// 	let productDesc = jQuery(".product-short-description")[0].childNodes
+		// 	let productText = `
+    //         <br><u class="product-climate-friendly"><i class="wishlist-icon icon-heart" style="color: #26B43D"></i> Climate friendly product 🛈</u>
+		// 	`
+		// 	productDesc[1].innerHTML += productText
+		// }
 
 		//added marquee text
-        setTimeout(function(){
-            let marquee = jQuery("#fs-progress");
-            if (marquee[0].innerHTML == "You Get Free Shipping!") {
-                let marqueeText = ` Always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i>`
-                marquee[0].innerHTML += marqueeText
-            } else {
-                let marqueeText = `, always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i>`
-                marquee[0].innerHTML += marqueeText
-            }
-        }, 2000);
+    jQuery('p.navbar-item')[0].innerHTML += ` 💚 Always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i> <img class="co2ok-marquee-info" style="height: 20px; margin-left: 5px;" src="${this.SITE_HOST}/widget/vela/VL_info_white.png">`
+    jQuery('#shopify-section-header__top-bar p').css("margin-top", "16px");
+        // setTimeout(function(){
+        //     let marquee = jQuery("#fs-progress");
+        //     if (marquee[0].innerHTML == "You Get Free Shipping!") {
+        //         let marqueeText = ` Always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i>`
+        //         marquee[0].innerHTML += marqueeText
+        //     } else {
+        //         let marqueeText = `, always climate friendly <i class="wishlist-icon icon-heart" style="color: #26B43D"></i>`
+        //         marquee[0].innerHTML += marqueeText
+        //     }
+        // }, 2000);
 	},
 
 	insertHovercardHTML: function () {
@@ -181,7 +186,7 @@ let Co2okWidget = {
 			<div class="co2ok_widget_infobox_container co2ok-popper widget-hovercard-small co2ok-small" id="infobox-view" style="top: 76px; left: 44.35px; margin: 0px; transform: none;">
 
 				<div class="mobile mobile-bar desktop-hidden co2ok-small" style="background-color: #00B67A;">
-					<p class="mobile-header desktop-hidden co2ok-small">Our Planet Promise</p>
+					<p class="co2ok-mobile-header desktop-hidden co2ok-small">Our Planet Promise</p>
 					<span class="exit-area-span co2ok-small">
 						<p class="exit-area desktop-hidden co2ok-small"> X </p>
 					</span>
@@ -228,7 +233,7 @@ let Co2okWidget = {
 			</div>
 
 		`
-		jQuery('#footer').before(infoHoverHtml)
+		jQuery('footer').before(infoHoverHtml)
 	},
 
 	widgetGenerator: function (totalCompensatedData) {
@@ -363,6 +368,8 @@ let Co2okWidget = {
             ga('CO2ok_widget.send', 'event', 'interaction', 'cfs_footer_'+Co2okWidget.platform);
         else if (element_id == '.cfs_hover_target_cart')
             ga('CO2ok_widget.send', 'event', 'interaction', 'cfs_cart_'+Co2okWidget.platform);
+        else if (element_id == '.co2ok-marquee-info')
+            ga('CO2ok_widget.send', 'event', 'interaction', 'marquee_'+Co2okWidget.platform);
     },
 
 	placeWidgetInfoBox : function(element_id) {
@@ -370,7 +377,6 @@ let Co2okWidget = {
 		var infoHoverBox = jQuery(".widget-hovercard-small");
 		var offset = elementBox.offset();
 		var windowWidth = jQuery(window).width();
-		var y = event.clientY;
 
     infoHoverBox.remove();
 		jQuery("body").append(infoHoverBox);
@@ -381,7 +387,7 @@ let Co2okWidget = {
       if (offset.top < 0) {
         offset.top = offset.top + (infoHoverBox.height() + elementBox.width() / 2) + 6;
       }
-    } else if (element_id == '.widget-small') {
+    } else if (element_id == '.widget-small' || element_id == '.co2ok-marquee-info') {
             offset.left -= infoHoverBox.width() / 2;
             offset.top -= infoHoverBox.height();
 		} else if (element_id == '.cfs_hover_target_footer') {
@@ -391,7 +397,7 @@ let Co2okWidget = {
 			}
 		} else if (element_id == '.co2ok-usp-product') {
 			offset.left -= infoHoverBox.width() / 2 - elementBox.width() / 2;
-			offset.top -= infoHoverBox.height() - 300;
+			offset.top -= infoHoverBox.height();
 		} else if (element_id == '.product-climate-friendly') {
 			offset.left -= infoHoverBox.width() / 3;
 			offset.top -= infoHoverBox.height() - 300;
@@ -451,6 +457,8 @@ let Co2okWidget = {
       return ('.widget-large')
 		else if (jQuery(e.target).hasClass("co2ok-usp-product"))
 			return ('.co2ok-usp-product')
+		else if (jQuery(e.target).hasClass("co2ok-marquee-info"))
+			return ('.co2ok-marquee-info')
 	},
 
 	RegisterWidgetInfoBox : function()

@@ -1,7 +1,9 @@
 /* Vela */
 .co2ok-usp-product {
   width: 70px;
-  margin-top: 8px;
+  margin-top: -12px;
+  margin-left: 6px;
+  position: absolute;
 }
 
 /* cfs */
@@ -9,17 +11,17 @@
 	width: 130px;
 	height: 65px;
 	margin-left: 20px;
-	margin-top: -15px;
+	margin-top: -30px;
 }
 
 
 /* hovercard  */
 .default-co2ok-hovercard-button {
-	margin-top: -15px!important;
+	margin-top: -5px!important;
 }
 
 .default-logo-hovercard {
-	margin-top: -30px!important;
+	margin-top: -10px!important;
 }
 
 .btn_shop_co2ok {
