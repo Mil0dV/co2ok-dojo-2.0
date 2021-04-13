@@ -137,7 +137,7 @@ let Co2okWidget = {
       var stepThree = `Samen hebben we <strong class="co2ok-small">${compensatiewidget .toFixed(1)} </strong>ton CO2-uitstoot gecompenseerd. Dit staat gelijk aan <strong class="co2ok-small">${(compensatiewidget * 5000).toFixed(0)} </strong>km vliegen.`;
       var works = 'Hoe we dat doen';
     } else if (lang == 'FR') {
-      var reductietekst = 'CO₂ reduction';
+      var reductietekst = 'de CO₂ réduit';
       var stepOne = "Avec nous, vous pouvez lutter contre le changement climatique en neutralisant les émissions liées à la production de vos achats.";
       stepTwo= "Ce magasin s’engage à respecter le climat; toutes les émissions sont neutralisées par des projets de compensation du CO2 ansi que des livraisons plus respectueuses.";
       var stepTwo = "Ce magasin s’engage à respecter le climat; toutes les émissions sont neutralisées par des projets de compensation du CO2 ansi que des livraisons plus respectueuses";
