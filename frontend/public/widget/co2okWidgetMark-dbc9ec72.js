@@ -261,6 +261,26 @@ let Co2okWidget = {
 		this.RegisterWidgetInfoBox();
 	},
 
+  googleAnalyticsEvent : function(element_id) {
+    console.log("GAE " + element_id);
+    let eventName = null;
+    if (element_id == '.co2ok_usp_icon_header')
+        eventName = `usp${Co2okWidget.platform}`
+    else if (element_id == '.widget-small')
+        eventName = `widget${Co2okWidget.platform}`
+    else if (element_id == '.widget-large')
+        eventName = `widget_XL${Co2okWidget.platform}`
+    else if (element_id == '.cfs_footer_target')
+        eventName = `cfs_footer${Co2okWidget.platform}`
+    else if (element_id == '.cfs_hover_target')
+        eventName = `cfs${Co2okWidget.platform}`
+    else if (element_id == '.co2-hover-cart-target')
+        eventName = `cfs_cart${Co2okWidget.platform}`
+    if (eventName) {
+        ga('CO2ok_widget.send', 'event', 'interaction', eventName);            
+        ga('CO2ok_widget.send', 'pageview',  `/${eventName}`);
+    }
+  },
 
 	// Returns true if we are running on a mobile device.
 	isMobile: function() {
@@ -273,6 +293,8 @@ let Co2okWidget = {
 		isExistingjQueryElement: function(selector) {
 			return !!jQuery(selector).length;
 	},
+
+  
 
 	placeWidgetInfoBox : function(element_id) {
 	  var elementBox = jQuery(element_id);
@@ -321,7 +343,11 @@ let Co2okWidget = {
     });
 	},
 
-	ShowWidgetInfoBox  : function() {
+	ShowWidgetInfoBox  : function(element_id) {
+    if (jQuery('.co2ok-widget-hovercard').hasClass('infobox-hidden')) {
+      console.log("check");
+      Co2okWidget.googleAnalyticsEvent(element_id);
+  }
 	  jQuery(".co2ok-widget-hovercard").removeClass('infobox-hidden')
 	  jQuery(".co2ok-widget-hovercard").addClass('ShowWidgetInfoBox')
 	},
@@ -359,7 +385,7 @@ let Co2okWidget = {
 		  if (!element_id || element_id === '.exit-area'|| jQuery(e.target).hasClass("exit-area")) {
 				Co2okWidget.hideWidgetInfoBox();
 			} else {
-				Co2okWidget.ShowWidgetInfoBox();
+				Co2okWidget.ShowWidgetInfoBox(element_id);
 				Co2okWidget.placeWidgetInfoBox(element_id);
 		  }
 	  });
@@ -432,10 +458,25 @@ let Co2okWidget = {
 		return true;
 	},
 
+  initializeGA: function() {
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-108940950-9', 'auto', 'CO2ok_widget');
+		ga('CO2ok_widget.send', 'pageview');
+        if (Co2okWidget.isMobile())
+            Co2okWidget.platform = "_mobile"
+        else
+            Co2okWidget.platform = "_desktop"
+	},
+
+
 	jQueryLoadDefer: function() {
     if (window.jQuery) {
       Co2okWidget.insertHovercardHTML();
 			Co2okWidget.uspInsertion();
+      Co2okWidget.initializeGA();
 			Co2okWidget.cfsTrustMarkInsertion();
       Co2okWidget.RegisterWidgetInfoBox();
       Co2okWidget.merchantCompensations();

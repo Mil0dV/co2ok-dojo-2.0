@@ -415,7 +415,7 @@ let Co2okWidget = {
           eventName = 'WL_usp_productpage'+platform;
       if (eventName) {
             ga('CO2ok_widget.send', 'event', 'interaction', eventName);
-            ga('CO2ok_widget.send', 'pageview',  document.location.hostname + `/${eventName}`);
+            ga('CO2ok_widget.send', 'pageview',  `/${eventName}`);
         }
     },
 
