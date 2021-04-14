@@ -160,7 +160,7 @@ let Co2okWidget = {
 
 		let titleText = 'Climate Friendly Shipping'
 		let paragraphText = 'Your purchase is shipped with as little impact on the climate as possible! The emissions that cannot be avoided are fully compensated by Pockies.'
-		let productDescipt = '<span class="climate_friendly_shipping">Climate friendly shipping</span>'
+		let productDescipt = 'Climate friendly shipping'
 		if (lang === 'NL') {
 			// titleText = 'Klimaatvriendelijke verzenden'
 			// paragraphText = 'Met CFD worden uw pakketleveringen Klimaatvriendelijk omdat de neutralisatie van de uitstoot in onze service is inbegrepen! Als klant heeft u de mogelijkheid om de meest milieuvriendelijke leveringsoptie te kiezen. Verantwoordelijk e-commerce is nog nooit zo eenvoudig geweest!'
@@ -182,14 +182,11 @@ let Co2okWidget = {
 
     //next to product under their own USPs
     let productIcon = `
-      <div class="htusb-ui-section_0 htusb-ui-prod-static_0 co2ok_product_usp">
-				<div class="htusb-ui-inline co2ok_product_usp">
 					<img class="co2-truck-product-usp co2ok_product_usp" src="${Co2okWidget.SITE_HOST}/widget/co2_truck.png">
-				</div>
-      	<div class="htusb-ui-inline co2ok_product_usp">${productDescipt}</div>
+          ${productDescipt}
           <img class="climate_friendly_shipping" style="height: 16px; margin-bottom: -3px;" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_info.png">
-			</div>
-    `
+          <br>
+          `
     jQuery(".product__policies").prepend(productIcon)
 
   },
@@ -416,6 +413,7 @@ let Co2okWidget = {
 	    var offset = elementBox.offset();
 		var windowWidth = jQuery(window).width();
 		var y = event.clientY;
+
 	    infoHoverBox.remove();
 	    jQuery("body").append(infoHoverBox);
     if (element_id == '.widget-large' || element_id == '.climate_friendly_shipping' || element_id == '.co2-marquee-info') {
