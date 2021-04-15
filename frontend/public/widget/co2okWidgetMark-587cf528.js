@@ -197,10 +197,10 @@ let Co2okWidget = {
 		let innerHTML;
 		if (lang == 'NL') {
 			innerHTML = jQuery(".middle-hdr").html().split('vanaf');
-			newMarqueeText = `KLIMAATVRIENDELIJKE 💚 VERZENDING <img class="co2-marquee-info" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_info_white.png">: Gratis vanaf ` + innerHTML[1];
+			newMarqueeText = `KLIMAATVRIENDELIJKE 💚 VERZENDING <img class="co2-marquee-info" style="top: 3px; margin-right: 3px; height: 16px;" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_info_white.png">: Gratis vanaf ` + innerHTML[1];
 		} else {
 			innerHTML = jQuery(".middle-hdr").html().split('over');
-			newMarqueeText = `CLIMATE FRIENDLY 💚 SHIPPING <img class="co2-marquee-info" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_info_white.png">: Free over ` + innerHTML[1];
+			newMarqueeText = `CLIMATE FRIENDLY 💚 SHIPPING <img class="co2-marquee-info" style="top: 3px; margin-right: 3px; height: 16px;" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_info_white.png">: Free over ` + innerHTML[1];
 		}
 
     jQuery(".middle-hdr").html(newMarqueeText)
