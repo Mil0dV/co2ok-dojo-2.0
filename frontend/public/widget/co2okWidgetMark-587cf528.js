@@ -626,6 +626,10 @@ let Co2okWidget = {
 
 }
 
+/*
+** This is commented out because AB testing is turned off
+** If AB testing is turned on, enable this again
+
 Co2okWidget.manualABSwitch()
 .then(abSwitch => {
   if (abSwitch === true) {
@@ -637,3 +641,9 @@ Co2okWidget.manualABSwitch()
   }
 })
 
+*/
+
+
+// Comment this out, or remove it entirely, if AB testing is turned on again
+Co2okWidget.loadResources();
+Co2okWidget.jQueryLoadDefer();
