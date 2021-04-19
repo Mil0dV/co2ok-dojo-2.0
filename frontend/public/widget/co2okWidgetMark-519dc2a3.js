@@ -412,7 +412,6 @@ let Co2okWidgetXL = {
     },
 
     googleAnalyticsEvent : function(element_id) {
-      console.log(element_id);
       let eventName = null;
       if (element_id == '.usp_hover_target')
           eventName = `usp_hover${Co2okWidgetXL.platform}`
