@@ -60,6 +60,8 @@ let Co2okWidget = {
     `${Co2okWidget.SITE_HOST}/widget/pockies/PK_cloud.png`,
 		`${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_white.png`,
 		`${Co2okWidget.SITE_HOST}/widget/pockies/PK_heart_globe_black.png`,
+		`${Co2okWidget.SITE_HOST}/widget/pockies/PK_qm_white_black.png`,
+		`${Co2okWidget.SITE_HOST}/widget/pockies/PK_qm_black_white.png`,
 		`${Co2okWidget.SITE_HOST}/static/logo.png`,
 		`${this.SITE_HOST}/widget/hovercard/co2-projects.jpg`,
 		`${Co2okWidget.SITE_HOST}/static/logo-gray.png`
@@ -181,10 +183,11 @@ let Co2okWidget = {
 
 
     //next to product under their own USPs
+    let productImg = (Co2okWidget.infoAB == 'question') ? 'PK_qm_black_white.png' : 'PK_info.png'
     let productIcon = `
 					<img class="co2-truck-product-usp co2ok_product_usp" src="${Co2okWidget.SITE_HOST}/widget/co2_truck.png">
           ${productDescipt}
-          <img class="climate_friendly_shipping" style="height: 16px; margin-bottom: -3px;" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_info.png">
+          <img class="climate_friendly_shipping" style="height: 16px; margin-bottom: -3px;" src="${Co2okWidget.SITE_HOST}/widget/pockies/${productImg}">
           <br>
           `
     jQuery(".product__policies").prepend(productIcon)
@@ -195,12 +198,13 @@ let Co2okWidget = {
 	marqueeInsertion: function (lang) {
 		let newMarqueeText;
 		let innerHTML;
+    let marqueeImg = (Co2okWidget.infoAB == 'question') ? 'PK_qm_white_black.png' : 'PK_info_white.png';
 		if (lang == 'NL') {
 			innerHTML = jQuery(".middle-hdr").html().split('vanaf');
-			newMarqueeText = `KLIMAATVRIENDELIJKE 💚 VERZENDING <img class="co2-marquee-info" style="top: 3px; margin-right: 3px; height: 16px;" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_info_white.png">: Gratis vanaf ` + innerHTML[1];
+			newMarqueeText = `KLIMAATVRIENDELIJKE 💚 VERZENDING <img class="co2-marquee-info" style="top: 3px; margin-right: 3px; height: 16px;" src="${Co2okWidget.SITE_HOST}/widget/pockies/${marqueeImg}">: Gratis vanaf ` + innerHTML[1];
 		} else {
 			innerHTML = jQuery(".middle-hdr").html().split('over');
-			newMarqueeText = `CLIMATE FRIENDLY 💚 SHIPPING <img class="co2-marquee-info" style="top: 3px; margin-right: 3px; height: 16px;" src="${Co2okWidget.SITE_HOST}/widget/pockies/PK_info_white.png">: Free over ` + innerHTML[1];
+			newMarqueeText = `CLIMATE FRIENDLY 💚 SHIPPING <img class="co2-marquee-info" style="top: 3px; margin-right: 3px; height: 16px;" src="${Co2okWidget.SITE_HOST}/widget/pockies/${marqueeImg}">: Free over ` + innerHTML[1];
 		}
 
     jQuery(".middle-hdr").html(newMarqueeText)
@@ -384,11 +388,11 @@ let Co2okWidget = {
         else if (element_id == '.widget-small')
             eventName = `PK_widget${Co2okWidget.platform}`
         else if (element_id == '.climate_friendly_shipping')
-            eventName = `PK_product${Co2okWidget.platform}`
+            eventName = `PK_product${Co2okWidget.platform}_${Co2okWidget.infoAB}`
         else if (element_id == '.cfs_hover_target_footer')
             eventName = `PK_cfsfooter${Co2okWidget.platform}`
         else if (element_id == '.co2-marquee-info')
-            eventName = `PK_marquee${Co2okWidget.platform}`
+            eventName = `PK_marquee${Co2okWidget.platform}_${Co2okWidget.infoAB}`
         if (eventName) {
             ga('CO2ok_widget.send', 'event', 'interaction', eventName);            
             ga('CO2ok_widget.send', 'pageview',  `/${eventName}`);
@@ -601,11 +605,13 @@ let Co2okWidget = {
             Co2okWidget.platform = "_mobile"
         else
             Co2okWidget.platform = "_desktop"
+      Co2okWidget.infoAB = (Math.random() > 0.5) ? 'question' : 'info';
 	},
 
 	jQueryLoadDefer: function() {
     if (window.jQuery) {
 			let lang = 'EN'
+      Co2okWidget.initializeGA();
 			if (window.location.toString().includes('nl')) {
 				lang = 'NL';
 			}
@@ -614,7 +620,6 @@ let Co2okWidget = {
       }
 			Co2okWidget.marqueeInsertion(lang);
             Co2okWidget.uspInsertion(lang);
-			Co2okWidget.initializeGA();
             Co2okWidget.cfsTrustMarkInsertion(lang);
             Co2okWidget.insertHovercardHTML(lang);
 			Co2okWidget.RegisterWidgetInfoBox();
