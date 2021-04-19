@@ -315,8 +315,11 @@ let Co2okWidgetXL = {
           });
         }
     },
-    ShowWidgetInfoBox  : function()
+    ShowWidgetInfoBox  : function(element_id)
     {
+      if (jQuery('.co2ok_widget_infobox_container').hasClass('infobox-hidden')) {
+        Co2okWidgetXL.googleAnalyticsEvent(element_id);
+      }
       jQuery(".co2ok_widget_infobox_container").removeClass('infobox-hidden')
       jQuery(".co2ok_widget_infobox_container").addClass('ShowWidgetInfoBox')
       // if (!this.isMobile() == true ) {
@@ -366,7 +369,7 @@ let Co2okWidgetXL = {
       var element_id = null;
 
       jQuery(".co2ok_widget_info_keyboardarea").focus(function(){
-          _this.ShowWidgetInfoBox();
+          _this.ShowWidgetInfoBox(element_id);
           jQuery(".first-text-to-select").focus();
       });
 
@@ -376,7 +379,7 @@ let Co2okWidgetXL = {
           if (!element_id)
             _this.hideWidgetInfoBox();
           else {
-            _this.ShowWidgetInfoBox();
+            _this.ShowWidgetInfoBox(element_id);
           }
       });
 
@@ -385,7 +388,7 @@ let Co2okWidgetXL = {
           if (!element_id)
             _this.hideWidgetInfoBox();
           else {
-            _this.ShowWidgetInfoBox();
+            _this.ShowWidgetInfoBox(element_id);
             _this.placeWidgetInfoBox(element_id);
           }
       });
@@ -401,12 +404,40 @@ let Co2okWidgetXL = {
           if (!element_id)
             _this.hideWidgetInfoBox();
           else {
-            _this.ShowWidgetInfoBox();
+            _this.ShowWidgetInfoBox(element_id);
             _this.placeWidgetInfoBox(element_id);
           }
         });
       }
-    }
+    },
+
+    googleAnalyticsEvent : function(element_id) {
+      console.log(element_id);
+      let eventName = null;
+      if (element_id == '.usp_hover_target')
+          eventName = `usp_hover${Co2okWidgetXL.platform}`
+      else if (element_id == '.cfs_hover_target')
+          eventName = `cfsfooter${Co2okWidgetXL.platform}`
+      else if (element_id == '.large-widget')
+          eventName = `widget_large${Co2okWidgetXL.platform}`
+      if (eventName) {
+          ga('CO2ok_widget.send', 'event', 'interaction', eventName);            
+          ga('CO2ok_widget.send', 'pageview',  `/${eventName}`);
+      }
+  },
+
+    initializeGA: function() {
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-108940950-10', 'auto', 'CO2ok_widget');
+      ga('CO2ok_widget.send', 'pageview');
+          if (Co2okWidgetXL.isMobile())
+              Co2okWidgetXL.platform = "_mobile"
+          else
+              Co2okWidgetXL.platform = "_desktop"
+    },
 }
 
 jQuery(document).ready(function() {
@@ -445,6 +476,7 @@ jQuery(document).ready(function() {
     document.cookie = 'co2ok_fileswap=;expires = Thu, 01 Jan 1970 00:00:00 GMT;'
   }
   Co2okWidgetXL.insertInfoHoverHtml();
+  Co2okWidgetXL.initializeGA();
   Co2okWidgetXL.insertWidget();
   Co2okWidgetXL.uspInsertion();
   Co2okWidgetXL.cfsTrustMarkInsertion();
