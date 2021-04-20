@@ -179,7 +179,8 @@ let Co2okWidget = {
 					</a>
 				</li>
 			`
-			jQuery(".nt_menu").append(menuIconHtml)
+			// Temp disable - hopefully we'll get something in after they finish adding to the menu
+			// jQuery(".nt_menu").append(menuIconHtml)
 		}
 	},
 
