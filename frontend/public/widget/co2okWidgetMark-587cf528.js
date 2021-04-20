@@ -1,5 +1,4 @@
 //Pockies
-
 let Co2okWidget = {
 
 	SITE_HOST: "https://co2ok.eco",
@@ -618,7 +617,7 @@ let Co2okWidget = {
       if (window.location.toString().includes('products')) {
 				Co2okWidget.insertUspProductPage(lang);
       }
-			Co2okWidget.marqueeInsertion(lang);
+			// Co2okWidget.marqueeInsertion(lang);
             Co2okWidget.uspInsertion(lang);
             Co2okWidget.cfsTrustMarkInsertion(lang);
             Co2okWidget.insertHovercardHTML(lang);
