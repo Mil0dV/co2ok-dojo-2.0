@@ -1,12 +1,14 @@
+/* eslint-disable no-console */
 //Pockies
+/* global ga, jQuery*/
 let Co2okWidget = {
 
 	SITE_HOST: "https://co2ok.eco",
 	// SITE_HOST: "http://localhost:8080",
 
 	getCookieValue: function (a) {
-	  var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
-	  return b ? b.pop() : '';
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b ? b.pop() : '';
 	},
 
 	preloadImage: function (url) {
@@ -74,14 +76,14 @@ let Co2okWidget = {
 	},
 
 	merchantCompensations: function (lang) {
-
-		// get impact from cookie if available
-		let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
-
+    // get impact from cookie if available
+		// let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
+    //This variable is set to a default value, comment out the line below and enable the line above to revert to the original functionality
+    let co2ok_impact = 23800;
 		if (co2ok_impact > 1) {
-		  // console.log('Collaborate and listen')
+      // console.log('Collaborate and listen')
       Co2okWidget.trustmarkGenerator('widgetContainermark', co2ok_impact, lang)
-		  return
+      return
 		}
 
 		// get impact from API
@@ -91,8 +93,8 @@ let Co2okWidget = {
 		let host = 'https://app.co2ok.eco'
 		xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=587cf528`, true)
 		//    xhr.withCredentials = true;
-		  xhr.onreadystatechange = function(){
-			  if (Co2okWidget.readyState == 4 && Co2okWidget.status == 200){
+      xhr.onreadystatechange = function(){
+        if (xhr.readyState == 4 && xhr.status == 200){
 				// For the near future: detect large numbers, then divide and adjust kilo to ton
 				// let totalTransactionData = (xhr.responseText / 1000).toFixed(1)
 				let totalTransactionData = xhr.responseText
@@ -103,8 +105,8 @@ let Co2okWidget = {
 
 				// Something is fishy, let's serve up the total
 				} else {
-				  let totalTransactionData = 22300
-				  Co2okWidget.trustmarkGenerator('widgetContainermark', totalTransactionData, lang)
+          let totalTransactionData = 23800
+          Co2okWidget.trustmarkGenerator('widgetContainermark', totalTransactionData, lang)
 			}
 		}
 		xhr.send()

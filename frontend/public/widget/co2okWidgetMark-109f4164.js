@@ -71,8 +71,9 @@ let Co2okWidget = {
 	merchantCompensations: function (widgetContainer, merchantId) {
 
 		// get impact from cookie if available
-		let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
-
+		// let co2ok_impact = Co2okWidget.getCookieValue('co2ok_impact')
+    //This variable is set to a default value, comment out the line below and enable the line above to revert to the original functionality
+    let co2ok_impact = 23800;
 		if (co2ok_impact > 1) {
 		  // console.log('Collaborate and listen')
 		  Co2okWidget.widgetGenerator(widgetContainer, co2ok_impact)
@@ -87,7 +88,7 @@ let Co2okWidget = {
 		xhr.open('GET', `${host}/user/totalCompensationData/?merchantId=${merchantId}`, true)
 		//    xhr.withCredentials = true;
 		  xhr.onreadystatechange = function(){
-			  if (this.readyState == 4 && this.status == 200){
+			  if (xhr.readyState == 4 && xhr.status == 200){
 				// For the near future: detect large numbers, then divide and adjust kilo to ton
 				// let totalTransactionData = (xhr.responseText / 1000).toFixed(1)
 				let totalTransactionData = xhr.responseText
