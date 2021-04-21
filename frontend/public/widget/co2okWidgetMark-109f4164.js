@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* global ga, jQuery*/
 //Woonliving trustmark
 let Co2okWidget = {
 
@@ -589,7 +591,7 @@ let Co2okWidget = {
 		// Manual AB-switch
 		var urlParams = new URLSearchParams(window.location.search);
 		var co2ok_AB_param = urlParams.get('co2ok_ab');
-		let co2ok_AB_test = JSON.parse(localStorage.getItem('co2ok_ab_hide'));
+		let co2ok_AB_test = JSON.parse(localStorage.getItem('co2okAB'));
 
 		//if co2okButton.js isn't loaded, we defer
 		if (co2ok_AB_test === null) {
@@ -599,9 +601,9 @@ let Co2okWidget = {
 				console.log('Co2ok widget ON manually!')
 				return true;
 			} else if (co2ok_AB_param == 'hide') {
-				console.log('Co2ok widget OFF mannually!')
+				console.log('Co2ok widget OFF manually!')
 				return false;
-			} else if (co2ok_AB_test === 0) {
+			} else if (co2ok_AB_test == 'hide') {
 				return false;
 			}
 			return true;

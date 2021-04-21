@@ -436,7 +436,7 @@ let Co2okWidget = {
     if (co2ok_AB_param == 'show') {
       console.log('Co2ok widget ON manually!')
     } else if (co2ok_AB_param == 'hide') {
-      console.log('Co2ok widget OFF mannually!')
+      console.log('Co2ok widget OFF manually!')
       return false;
     } else if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0') {
       console.log('hammer time!')

@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
+/* global ga, jQuery*/
 //VELA
-
 let Co2okWidget = {
 
 	SITE_HOST: "https://co2ok.eco",
@@ -525,7 +526,7 @@ let Co2okWidget = {
 		// Manual AB-switch
 		var urlParams = new URLSearchParams(window.location.search);
 		var co2ok_AB_param = urlParams.get('co2ok_ab');
-		let co2ok_AB_test = JSON.parse(localStorage.getItem('co2ok_ab_hide'));
+		let co2ok_AB_test = JSON.parse(localStorage.getItem('co2okAB'));
 
 		// Vela uses WC, which still uses cookies to store the AB state
 		// if co2okButton.js isn't loaded, we defer
@@ -539,7 +540,7 @@ let Co2okWidget = {
 				console.log('Co2ok widget OFF manually!')
 				document.cookie = 'co2ok_ab_hide=0;max-age=86400;path="/"'
 				return false;
-			} else if (co2ok_AB_test === 0) {
+			} else if (co2ok_AB_test == 'hide') {
 				return false;
 			}
 			return true;

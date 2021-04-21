@@ -88,7 +88,7 @@ let Co2okWidget = {
       }
       else if (co2ok_AB_param == 'hide')
       {
-        console.log('Co2ok OFF mannually!')
+        console.log('Co2ok OFF manually!')
         return
       }
       else if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0' || document.cookie.match(/^(.*;)?\s*co2ok_hide_button\s*=\s*[^;]+(.*)?$/))
