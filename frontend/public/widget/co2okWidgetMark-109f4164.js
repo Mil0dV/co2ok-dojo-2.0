@@ -591,7 +591,7 @@ let Co2okWidget = {
 		// Manual AB-switch
 		var urlParams = new URLSearchParams(window.location.search);
 		var co2ok_AB_param = urlParams.get('co2ok_ab');
-		let co2ok_AB_test = JSON.parse(localStorage.getItem('co2okAB'));
+		let co2ok_AB_test = localStorage.getItem('co2okAB');
 
 		//if co2okButton.js isn't loaded, we defer
 		if (co2ok_AB_test === null) {

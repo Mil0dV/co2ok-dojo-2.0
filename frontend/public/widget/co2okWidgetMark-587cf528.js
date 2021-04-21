@@ -575,7 +575,7 @@ let Co2okWidget = {
 		// Manual AB-switch
 		var urlParams = new URLSearchParams(window.location.search);
 		var co2ok_AB_param = urlParams.get('co2ok_ab');
-		let co2ok_AB_test = JSON.parse(localStorage.getItem('co2okAB'));
+		let co2ok_AB_test = localStorage.getItem('co2okAB');
 
 		//if co2okButton.js isn't loaded, we defer
 		if (co2ok_AB_test === null) {
@@ -642,12 +642,12 @@ Co2okWidget.manualABSwitch()
     Co2okWidget.loadResources();
 		Co2okWidget.jQueryLoadDefer();
   } else {
-		Co2okWidget.loadResources()
+    Co2okWidget.loadResources()
     return
   }
 })
-
 */
+
 
 
 // Comment this out, or remove it entirely, if AB testing is turned on again

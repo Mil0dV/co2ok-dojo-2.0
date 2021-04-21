@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
+/* global ga, jQuery*/
 // kabloom
-
 let Co2okWidget = {
 
 	SITE_HOST: "https://co2ok.eco",
