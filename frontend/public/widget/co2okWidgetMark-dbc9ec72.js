@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
+/* global ga, jQuery*/
 // kabloom
-
 let Co2okWidget = {
 
 	SITE_HOST: "https://co2ok.eco",
@@ -436,7 +437,7 @@ let Co2okWidget = {
     if (co2ok_AB_param == 'show') {
       console.log('Co2ok widget ON manually!')
     } else if (co2ok_AB_param == 'hide') {
-      console.log('Co2ok widget OFF mannually!')
+      console.log('Co2ok widget OFF manually!')
       return false;
     } else if (Co2okWidget.getCookieValue('co2ok_ab_hide') == '0') {
       console.log('hammer time!')

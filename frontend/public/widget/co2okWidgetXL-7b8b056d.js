@@ -364,7 +364,7 @@ let Co2okWidgetXL = {
     if (co2ok_AB_param == 'show') {
       console.log('Co2ok ON manually!')
     } else if (co2ok_AB_param == 'hide') {
-      console.log('Co2ok OFF mannually!')
+      console.log('Co2ok OFF manually!')
       return false;
     } else if (Co2okWidgetXL.getCookieValue('co2ok_ab_hide') == '0') {
       console.log('hammer time!')

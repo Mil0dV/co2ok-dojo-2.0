@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
+/* global ga, jQuery*/
 //Douchezaak
-
 let Co2okWidgetXL = {
 
     SITE_HOST: "https://co2ok.eco",
@@ -453,7 +454,7 @@ jQuery(document).ready(function() {
   }
   else if (co2ok_AB_param == 'hide')
   {
-    console.log('Co2ok OFF mannually!')
+    console.log('Co2ok OFF manually!')
     return
   }
   else if (Co2okWidgetXL.getCookieValue('co2ok_ab_hide') == '0')
