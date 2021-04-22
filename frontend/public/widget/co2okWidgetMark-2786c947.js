@@ -528,17 +528,16 @@ let Co2okWidget = {
 		var co2ok_AB_param = urlParams.get('co2ok_ab');
 		let co2ok_AB_test = localStorage.getItem('co2okAB');
 
-		// Vela uses WC, which still uses cookies to store the AB state
-		// if co2okButton.js isn't loaded, we defer
-		// if (co2ok_AB_test === null) {
-		// 	setTimeout(function() { Co2okWidget.manualABSwitch() }, 50);
-		// } else {
+		if (co2ok_AB_test === null) {
+			setTimeout(function() { Co2okWidget.manualABSwitch() }, 50);
+		} else {
 			if (co2ok_AB_param == 'show') {
 				console.log('Co2ok widget ON manually!')
+        localStorage.setItem('co2okAB', 'show');
 				return true;
 			} else if (co2ok_AB_param == 'hide') {
 				console.log('Co2ok widget OFF manually!')
-				document.cookie = 'co2ok_ab_hide=0;max-age=86400;path="/"'
+				localStorage.setItem('co2okAB', 'hide');
 				return false;
 			} else if (co2ok_AB_test == 'hide') {
 				return false;
