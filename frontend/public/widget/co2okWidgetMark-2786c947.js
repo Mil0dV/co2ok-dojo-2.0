@@ -530,21 +530,16 @@ let Co2okWidget = {
 
 		if (co2ok_AB_test === null) {
 			setTimeout(function() { Co2okWidget.manualABSwitch() }, 50);
-		} else {
-			if (co2ok_AB_param == 'show') {
+		} else if (co2ok_AB_param == 'show') {
 				console.log('Co2ok widget ON manually!')
-        localStorage.setItem('co2okAB', 'show');
 				return true;
 			} else if (co2ok_AB_param == 'hide') {
 				console.log('Co2ok widget OFF manually!')
-				localStorage.setItem('co2okAB', 'hide');
 				return false;
 			} else if (co2ok_AB_test == 'hide') {
 				return false;
 			}
 			return true;
-		// }
-
 	},
 
     initializeGA: function() {
