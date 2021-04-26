@@ -128,7 +128,7 @@ let Co2okWidgetXL = {
       var compensationAmount  = totalCompensatedData / 1000;
     }
 
-    if (lang == 'EN') {
+    if (lang == 'NL') {
 
       var compensatietekst = `Deze webshop heeft <br><span id="large-widget-text-large" class="co2ok-large">${compensationAmount .toFixed(decimalsCompensation)}t CO<sub>2</sub></span><br> uitstoot voorkomen`;
       var vliegen = "vliegen";
